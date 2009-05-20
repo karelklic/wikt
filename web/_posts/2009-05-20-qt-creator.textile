@@ -1,0 +1,19 @@
+---
+layout: post
+title: Qt Creator
+---
+
+h1. {{ page.title }}
+
+p(meta). 20 May 2009, Karel Klíč
+
+Today I played with Qt Creator 1.1. It has a simple, intuitive interface, easy to use with embedded Qt documentation and great navigation between files.
+
+So it is exactly what I was looking for. The code editing will be faster than in the Eclipse, because the text editor is faster and because of the embedded Qt documentation. The embedded debugger shows the contents of QStrings and QLists. It's the GDB with some attached module that does the wizardry.
+
+Unfortunately the current arrangement of Wikt's source code is not supported. Currently all source files are placed in a flat list, because the directory hierarchy does not play any role in the project file list.
+
+
+
+
+
