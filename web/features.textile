@@ -1,0 +1,14 @@
+---
+layout: default
+title: Features
+---
+ 
+h1. Features
+
+work in progress
+
+**Quick lookup** - searches for a word or phrase as fast as you can type it.
+
+**Pronounciation** - the dictionary contains recordings with words pronounced by native speakers.
+
+

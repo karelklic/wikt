@@ -1,0 +1,14 @@
+---
+layout: post
+title: Wikt 0.13.0 released
+---
+
+h1. {{ page.title }}
+
+p(meta). 2 May 2009, Karel Klíč
+
+This release brings no visible features or fixes, and thus it is still not ready to be used by common users. However, many new lines of code were written as a pedestal for upcoming features.
+
+* Link node reworked to support new features (entry existence checking, conversion of outgoing links to external form)
+* Entry namespaces, languages, Wikimedia projects handled explicitly in code. 
+

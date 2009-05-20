@@ -1,0 +1,23 @@
+---
+layout: post
+title: Wikt 0.12.0 released
+---
+
+h1. {{ page.title }}
+
+p(meta). 24 Apr 2009, Karel Klíč
+
+Wikt 0.12.0 is not ready to be used by common users.
+
+h2. Bug Fixes
+
+* DIV tags do not wrap the first embedded paragraph in P tag.
+* Table headers and table cells do not wrap the first embedded paragraph in P tag.
+
+h2. New Features
+
+* New compressed dictionary format (Format4, .ei4). Dictionary size went from 1,1GB to 427 MB.
+* Support for inline HTML tags del, em, ins, strike, strong, var, code.
+* Support for block HTML tags p, h1-h6, blockquote.
+* Main window title contains displayed word.
+

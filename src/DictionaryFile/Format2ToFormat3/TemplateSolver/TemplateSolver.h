@@ -1,0 +1,61 @@
+/* This file is part of Wikt.
+ *
+ * Wikt is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Wikt is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
+ */
+#ifndef TEMPLATESOLVER_H_
+#define TEMPLATESOLVER_H_
+
+#include <QObject>
+#include <QString>
+#include "../Format2Reader.h"
+#include "../ParameterList.h"
+
+// See http://meta.wikimedia.org/wiki/Help:Template
+class TemplateSolver : public QObject
+{
+  friend class TemplateSolverTest;
+  Q_OBJECT
+public:
+  TemplateSolver(const QString &pageName, const QString &pageContent,
+      Format2Reader &reader);
+  QString run();
+
+signals:
+  void log(const QString &message);
+
+protected:
+  /// Gets a template call from entry text, calls the template,
+  /// and merges the result into the entry text. The modified entry text is
+  /// returned.
+  /// @param from
+  ///   Position at the beginning of {{template..}}, pointing to the first {.
+  /// @param to
+  ///   Position at the end of template, pointing after the last }.
+  void evaluateTemplate(QString &wikiText, int from, int to);
+
+  /// Returns the evaluated template content.
+  /// @param templateText
+  ///   The text inside {{ and }}, containing template name and template parameters.
+  ///   It must not contain any templates or template parameters.
+  QString evaluateTemplate(QString templateText);
+
+  QString removeTemplates(QString wikiText, const ParameterList &params);
+
+  QString _pageName;
+  QString _pageContent;
+  /// Provides the template content.
+  Format2Reader &_reader;
+};
+
+#endif /* TEMPLATESOLVER_H_ */

@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MediaPackerDialogClass</class>
+ <widget class="QDialog" name="MediaPackerDialogClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MediaPackerDialog</string>
+  </property>
+  <widget class="QPushButton" name="browseDestinationButton">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>40</y>
+     <width>71</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Browse</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="destinationEdit">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>40</y>
+     <width>221</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="startButton">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>80</y>
+     <width>381</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Start</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="sourceLabel">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>20</y>
+     <width>52</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Source</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="sourceEdit">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>10</y>
+     <width>221</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPlainTextEdit" name="reportEdit">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>110</y>
+     <width>381</width>
+     <height>181</height>
+    </rect>
+   </property>
+   <property name="undoRedoEnabled">
+    <bool>false</bool>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+   <property name="centerOnScroll">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="destinationLabel">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>50</y>
+     <width>71</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Destination</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="browseSourceButton">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>10</y>
+     <width>71</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Browse</string>
+   </property>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>sourceEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>MediaPackerDialogClass</receiver>
+   <slot>onSourceEditChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>146</x>
+     <y>27</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>73</x>
+     <y>21</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>destinationEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>MediaPackerDialogClass</receiver>
+   <slot>onDestinationEditChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>116</x>
+     <y>52</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>79</x>
+     <y>49</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>browseSourceButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MediaPackerDialogClass</receiver>
+   <slot>onBrowseSourceButtonClick()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>361</x>
+     <y>25</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>314</x>
+     <y>19</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>browseDestinationButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MediaPackerDialogClass</receiver>
+   <slot>onBrowseDestinationButtonClick()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>349</x>
+     <y>49</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>317</x>
+     <y>49</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>startButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MediaPackerDialogClass</receiver>
+   <slot>onStartButtonClick()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>191</x>
+     <y>94</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>169</x>
+     <y>73</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>onBrowseSourceButtonClick()</slot>
+  <slot>onBrowseDestinationButtonClick()</slot>
+  <slot>onStartButtonClick()</slot>
+  <slot>onSourceEditChanged()</slot>
+  <slot>onDestinationEditChanged()</slot>
+ </slots>
+</ui>

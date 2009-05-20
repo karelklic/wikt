@@ -1,0 +1,38 @@
+---
+layout: default
+title: Wikt
+---
+ 
+<div id="home">
+  <p>Wikt is a free, offline dictionary computer program based on <a href="http://wiktionary.org">Wiktionary</a>.</p> 
+  <p>You get an entry definition quickly, without internet connection, customized as you like it.<br/> 
+     1,260,432&nbsp;entries from 295&nbsp;languages, and counting.</p>
+
+  <h1>User's Corner</h1>
+  <!--<a href="d"><img src="images/download.png" style="float:left;padding-right:20px;border-width:0;"/></a><br/>-->
+  Download <a href="http://sourceforge.net/project/showfiles.php?group_id=260074">Wikt 0.16.0</a>, the latest development release.<br/>
+  It's just the source code, because no stable release is currently available.
+  <br style="clear:both"/>
+  <br/>
+
+  <ul class="posts">
+    <!--<li><a href="7">Downloads:</a> release notes, development versions, etc.</li>-->
+    <!--<li><a href="features.html">Features:</a> a feature tour with screenshots</li>-->
+    <li><a href="bugs.html">Bugs:</a> list of known software bugs, and how to report one</li>
+  </ul>
+  
+  <h1>Developer's Corner</h1>
+  <ul class="posts">
+    <li><a href="devel-environment.html">Development Environment:</a> when something doesn't work for you</li>
+    <li><a href="dictionary.html">Dictionary:</a> how to build your own</li>
+    <li><a href="wishlist.html">Wishlist:</a> planned features</li>
+  </ul>
+
+  <h1>Project News</h1>
+  <ul class="posts">
+    {% for post in site.posts %}
+      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+

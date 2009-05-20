@@ -1,0 +1,25 @@
+---
+layout: post
+title: Wikt 0.14.0 released
+---
+
+h1. {{ page.title }}
+
+p(meta). 08 May 2009, Karel Klíč
+
+Wikt 0.14.0 is a development release. It is a work in progress -- definitely not suitable for end users.
+
+h2. Bug Fixes
+* External links in wiki syntax are no longer converted to A tags.
+* A crash in Format3Reader caused by looking for '￥' fixed. Analogous error in Format4Reader fixed too.
+* Allowed nested tables (entry "-aseinen").
+* Many methods and classes were documented by comments in source code.
+
+h2. New Features 
+* Links to missing entries are removed in format4 (only the link text remains).
+* Added "Appendix" to supported namespaces.
+* Added interwiki name for Macedonian, "Македонски".
+* Conversion from F3 to F4 is faster, it takes minutes instead of hours.
+* All format conversion dialogs remember file paths between application runs.
+* Status bar displays links.
+* Media downloader downloads all images and sounds used in a dictionary to local filesystem.

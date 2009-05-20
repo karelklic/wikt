@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Format2ToFormat3DialogClass</class>
+ <widget class="QDialog" name="Format2ToFormat3DialogClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>400</width>
+    <height>300</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>400</width>
+    <height>300</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Format2 to Format3 Converter</string>
+  </property>
+  <widget class="QLineEdit" name="destinationEdit">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>40</y>
+     <width>221</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPlainTextEdit" name="reportEdit">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>110</y>
+     <width>381</width>
+     <height>181</height>
+    </rect>
+   </property>
+   <property name="undoRedoEnabled">
+    <bool>false</bool>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+   <property name="centerOnScroll">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="sourceLabel">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>20</y>
+     <width>52</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Source</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="sourceEdit">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>10</y>
+     <width>221</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="startButton">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>80</y>
+     <width>381</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Start</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="browseSourceButton">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>10</y>
+     <width>71</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Browse</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="browseDestinationButton">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>40</y>
+     <width>71</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Browse</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="destinationLabel">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>50</y>
+     <width>71</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Destination</string>
+   </property>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>browseSourceButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Format2ToFormat3DialogClass</receiver>
+   <slot>onBrowseSourceButtonClick()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>355</x>
+     <y>22</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>199</x>
+     <y>149</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>browseDestinationButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Format2ToFormat3DialogClass</receiver>
+   <slot>onBrowseDestinationButtonClick()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>355</x>
+     <y>52</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>199</x>
+     <y>149</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>startButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Format2ToFormat3DialogClass</receiver>
+   <slot>onStartButtonClick()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>200</x>
+     <y>92</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>199</x>
+     <y>149</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sourceEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>Format2ToFormat3DialogClass</receiver>
+   <slot>onSourceEditChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>136</x>
+     <y>24</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>67</x>
+     <y>11</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>destinationEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>Format2ToFormat3DialogClass</receiver>
+   <slot>onDestinationEditChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>126</x>
+     <y>52</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>63</x>
+     <y>44</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>onBrowseSourceButtonClick()</slot>
+  <slot>onBrowseDestinationButtonClick()</slot>
+  <slot>onStartButtonClick()</slot>
+  <slot>onSourceEditChanged()</slot>
+  <slot>onDestinationEditChanged()</slot>
+ </slots>
+</ui>

@@ -1,0 +1,22 @@
+---
+layout: post
+title: Wikt 0.11.0 released
+---
+
+h1. {{ page.title }}
+
+p(meta). 22 Apr 2009, Karel Klíč
+
+Wikt 0.11.0 is not ready to be used by common users.
+
+h2. Bug Fixes
+
+* Fixed parsing of bold and italic text. Added 7 tests that cover basic cases. Corrects handling of example in entry "A".
+* Wikt does not crash when user clicks on a link to missing entry.
+
+h2. New Features
+
+* Added COPYING file with full license.
+* Wiki parser handles CENTER tags. This tag is used in entry "cognoscere". DivHtmlParser is changed to BlockHtmlParser because of CENTERs.
+* Wiki parser handles FONT tags. This tag is used in "a#Min Nan".
+

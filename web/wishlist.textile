@@ -1,0 +1,32 @@
+---
+layout: default
+title: Wishlist
+---
+
+h1. Wishlist
+
+Dictionary file format
+* Categories store list of entries pointing to them.
+* Generate statistics page (entry count by language).
+* Compression should go to format5, because format4 will do a lot of changes to be inspected in uncompressed archive.
+
+Media
+* Image resizing process for media archive. It would significantly diminish the dictionary size.
+
+Varia
+* Finish #expr support.
+* Support redirects in Format5Reader.
+* Nice front page.
+
+Important
+* User changes the sequence of languages in a multi-language entry.
+* User hides translations to languages he is not interested in.
+* User chooses whether the translation section is collapsed or not.
+* Error pages
+* Allow searching a whole sentence.
+
+Less important
+* DEB file
+* Allow localization of the application.
+* Icons in the application's menu bar.
+

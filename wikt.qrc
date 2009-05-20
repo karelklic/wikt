@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/" >
+        <file>images/bullet.gif</file>
+        <file>images/enwikt.js</file>
+        <file>images/go-home.png</file>
+        <file>images/go-next.png</file>
+        <file>images/go-previous.png</file>
+        <file>images/loudspeaker.png</file>
+        <file>images/loudspeaker.svg</file>
+        <file>images/magnify-clip.png</file>
+    </qresource>
+</RCC>
