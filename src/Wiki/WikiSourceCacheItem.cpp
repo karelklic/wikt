@@ -19,12 +19,13 @@
 //===========================================================================
 WikiSourceCacheItem::WikiSourceCacheItem(const QString &name,
     const QString &source) : _source(source),
-    _invalidSectionVisibility(false)
+    _invalidSectionVisibility(false), _invalidTranslationSettings(false)
 {
   if (_source != "")
   {
     _node = ArticleParser::parse(name, source);
     _node->updateSectionVisibility();
+    _node->updateTranslationSettings();
     _xhtml = _node->toXHtml();
   }
   else
@@ -41,25 +42,29 @@ WikiSourceCacheItem::~WikiSourceCacheItem()
 //===========================================================================
 ArticleNode *WikiSourceCacheItem::node()
 {
-  if (_invalidSectionVisibility)
-  {
-    _node->updateSectionVisibility();
-    _xhtml = _node->toXHtml();
-    _invalidSectionVisibility = false;
-  }
-
+  handleInvalidationFlags();
   return _node;
 }
 
 //===========================================================================
 const QString &WikiSourceCacheItem::xhtml()
 {
-  if (_invalidSectionVisibility)
-  {
-    _node->updateSectionVisibility();
-    _xhtml = _node->toXHtml();
-    _invalidSectionVisibility = false;
-  }
-
+  handleInvalidationFlags();
   return _xhtml;
+}
+
+//===========================================================================
+void WikiSourceCacheItem::handleInvalidationFlags()
+{
+  if (!_invalidSectionVisibility && !_invalidTranslationSettings)
+    return;
+
+  if (_invalidSectionVisibility)
+    _node->updateSectionVisibility();
+  if (_invalidTranslationSettings)
+    _node->updateTranslationSettings();
+
+  _xhtml = _node->toXHtml();
+  _invalidSectionVisibility = false;
+  _invalidTranslationSettings = false;
 }

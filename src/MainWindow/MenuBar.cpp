@@ -30,6 +30,7 @@
 #include "../Media/MediaDownloaderDialog.h"
 #include "../Media/MediaPackerDialog.h"
 #include "../Wiki/Tree/Heading/Heading.h"
+#include "../Options/OptionsDialog.h"
 #include <QMessageBox>
 
 //===========================================================================
@@ -233,6 +234,8 @@ void MenuBar::findNext()
 //===========================================================================
 void MenuBar::options()
 {
+  OptionsDialog dialog;
+  dialog.exec();
 }
 
 //===========================================================================

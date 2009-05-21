@@ -17,6 +17,7 @@
 #define SPANNODE_H_
 
 #include "../Node.h"
+class TableNode;
 
 class HtmlElementNode : public Node
 {
@@ -29,12 +30,15 @@ public:
   virtual QString toXml(int indentLevel = 0) const;
 
   bool paired() const { return _paired; }
+  const QString &name() const { return _name; }
   const QString &params() const { return _params; }
 
   /// Checks if this node is a See Also <div> node, which
   /// is used at the top of the page to show variants of
   /// the entry name.
   bool isSeeAlsoNode() const;
+
+  TableNode *findTranslationTable() const;
 
 protected:
   QString _name;

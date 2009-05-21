@@ -33,6 +33,8 @@ public:
   /// Reads input form QSettings.
   void updateSectionVisibility();
 
+  void updateTranslationSettings();
+
 protected:
   QString _name;
 };

@@ -181,3 +181,11 @@ void Coordinator::userSettingChanged_SectionVisibility()
   Node *node = window->wikiSource()->tree(entry);
   window->tableOfContentsPanel()->model().generateFrom(node);
 }
+
+//===========================================================================
+void Coordinator::userSettingChanged_Translations()
+{
+  MainWindow *window = MainWindow::instance();
+  window->wikiSource()->translationSettingsChanged();
+  window->webView()->reload();
+}

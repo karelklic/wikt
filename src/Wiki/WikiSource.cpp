@@ -70,6 +70,17 @@ void WikiSource::sectionVisibilityChanged()
 }
 
 //===========================================================================
+void WikiSource::translationSettingsChanged()
+{
+  for (QMap<QString, WikiSourceCacheItem*>::const_iterator i = _cache.constBegin();
+    i != _cache.constEnd();
+    ++i)
+  {
+    i.value()->invalidateTranslationSettings();
+  }
+}
+
+//===========================================================================
 QByteArray WikiSource::media(const QString &fileName)
 {
   return _mediaReader->source(fileName);

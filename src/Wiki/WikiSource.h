@@ -38,6 +38,7 @@ public:
   const QString &xhtml(const QString &entryName);
 
   void sectionVisibilityChanged();
+  void translationSettingsChanged();
 
   QByteArray media(const QString &fileName);
 

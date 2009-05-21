@@ -49,12 +49,12 @@ public:
 
   /// Recursively finds all child nodes of specific node type.
   template<typename T>
-  void findChildren(QList<const T*> &destination) const
+  void findChildren(QList<T*> &destination) const
   {
-    foreach(const Node *child, _children)
+    foreach(Node *child, _children)
     {
       child->findChildren(destination);
-      const T *node = dynamic_cast<const T*>(child);
+      T *node = dynamic_cast<T*>(child);
       if (node) destination.append(node);
     }
   }
@@ -65,14 +65,14 @@ public:
 
   void setXHtmlVisibility(bool value) { _xhtmlVisible = value; }
 
+  bool hasAttributeGroupChild() const;
+  const AttributeGroupNode *getAttributeGroupChild() const;
+
 protected:
   QString childrenToXHtml(bool skipAttributeGroup = true) const;
   QString childrenToXml(int indentLevel) const;
   QString childrenToText() const;
   static QString toXmlEscaped(const QString &text);
-
-  bool hasAttributeGroupChild() const;
-  const AttributeGroupNode *getAttributeGroupChild() const;
 
   // Whether the node is visible in the XHTML output.
   bool _xhtmlVisible;

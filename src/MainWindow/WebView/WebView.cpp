@@ -20,6 +20,7 @@
 #include <QWebFrame>
 #include <QNetworkReply>
 #include <QFile>
+#include <QSettings>
 
 //===========================================================================
 WebView::WebView(QWidget *parent) : QWebView(parent)
@@ -67,6 +68,10 @@ void WebView::onDownloadRequested(const QNetworkRequest &/*request*/)
 void WebView::onLoadFinished(bool ok)
 {
   if (!ok) return;
+
+  QSettings settings;
+  bool translationsFolded = settings.value("translationsFolded", true).toBool();
+
   QString sectionId;
   UrlUtils::toEntryName(url(), &sectionId);
   if (sectionId.length() > 0)

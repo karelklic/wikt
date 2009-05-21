@@ -12,7 +12,8 @@ QT += core \
     phonon \
     testlib
 RESOURCES = wikt.qrc
-HEADERS = src/Categories/CategoriesItem.h \
+HEADERS = src/Options/OptionsDialog.h \
+    src/Categories/CategoriesItem.h \
     src/Categories/CategoriesModel.h \
     src/Categories/CategoriesPanel.h \
     src/Debug/Debug.h \
@@ -171,8 +172,9 @@ HEADERS = src/Categories/CategoriesItem.h \
     src/Wiki/Tree/TextBlockNode.h \
     src/Wiki/Tree/TextTokenNode.h \
     src/Wiki/WikiSource.h \
-    src/Wiki/WikiSourceCacheItem.h 
-SOURCES = src/Categories/CategoriesItem.cpp \
+    src/Wiki/WikiSourceCacheItem.h
+SOURCES = src/Options/OptionsDialog.cpp \
+    src/Categories/CategoriesItem.cpp \
     src/Categories/CategoriesModel.cpp \
     src/Categories/CategoriesPanel.cpp \
     src/Debug/Debug.cpp \
@@ -325,11 +327,12 @@ SOURCES = src/Categories/CategoriesItem.cpp \
     src/Wiki/Tree/TextBlockNode.cpp \
     src/Wiki/Tree/TextTokenNode.cpp \
     src/Wiki/WikiSource.cpp \
-    src/Wiki/WikiSourceCacheItem.cpp 
-FORMS = src/Debug/ErrorDialog/ErrorDialog.ui \
+    src/Wiki/WikiSourceCacheItem.cpp
+FORMS = src/Options/OptionsDialog.ui \
+    src/Debug/ErrorDialog/ErrorDialog.ui \
     src/Debug/UnitTest/UnitTestDialog.ui \
     src/DictionaryFile/Format1ToFormat2/Format1ToFormat2Dialog.ui \
     src/DictionaryFile/Format2ToFormat3/Format2ToFormat3Dialog.ui \
     src/DictionaryFile/Format3ToFormat4/Format3ToFormat4Dialog.ui \
     src/Media/MediaDownloaderDialog.ui \
-    src/Media/MediaPackerDialog.ui 
+    src/Media/MediaPackerDialog.ui

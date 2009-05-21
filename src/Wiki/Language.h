@@ -28,7 +28,7 @@ public:
   /// See http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
   typedef enum {
     // A
-    Abkhazian,
+    Abkhazian = 0,
     Afar,
     Afrikaans,
     Akan,
@@ -249,10 +249,10 @@ public:
     Zhuang,
     Zulu,
     // -
-    Unknown
+    Unknown // Always last!
   } Type;
 
-  static const Language &instance();
+  static Language &instance();
 
   /// Converts language code (interwiki) to Language.
   /// This method is case insensitive.
@@ -264,8 +264,15 @@ public:
 
   Language::Type fromLinkPrefixes(const QStringList &prefixes) const;
 
-  /// To interwiki style localized name.
+  /// To interwiki localized name.
   QString toLocalizedName(Language::Type lang) const;
+
+  /// Returns empty string if translation section name is not
+  /// known.
+  QString toTranslationSectionName(Language::Type lang) const;
+
+  bool isTranslationVisible(Language::Type lang) const;
+  void setTranslationVisible(Language::Type lang, bool visible);
 
 protected:
   /// Standard constructor. Initializes data.
@@ -275,8 +282,10 @@ protected:
   /// Used for interwiki.
   QMap<QString, Type> _interwiki;
   /// Value is localized name as "Česky" for Czech.
-  /// Used for interwiki.
+  /// Used exclusively for interwiki.
   QMap<Type, QString> _localizedNames;
+  /// English language names used in translation sections of entries.
+  QMap<Type, QString> _translationSectionNames;
 };
 
 #endif /* LANGUAGE_H_ */

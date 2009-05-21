@@ -16,7 +16,6 @@
 #include "MainWindow/MainWindow.h"
 #include "Debug/UnitTest/UnitTestRunner.h"
 #include "Version.h"
-
 #include <QApplication>
 
 //===========================================================================

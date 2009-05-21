@@ -14,6 +14,7 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "AttributeGroupNode.h"
+#include "AttributeNode.h"
 
 //===========================================================================
 QString AttributeGroupNode::toXHtml() const
@@ -34,4 +35,29 @@ QString AttributeGroupNode::toXml(int indentLevel) const
   return indent + "<attribute_group>\n" +
     childrenToXml(indentLevel+1) +
     indent + "</attribute_group>\n";
+}
+
+//===========================================================================
+bool AttributeGroupNode::hasAttribute(const QString &name) const
+{
+  foreach (const Node *node, children())
+  {
+    const AttributeNode *attributeNode = dynamic_cast<const AttributeNode*>(node);
+    if (!attributeNode) continue;
+    if (attributeNode->name() == name) return true;
+  }
+  return false;
+}
+
+//===========================================================================
+QString AttributeGroupNode::getAttributeText(const QString &name) const
+{
+  foreach (const Node *node, children())
+  {
+    const AttributeNode *attributeNode = dynamic_cast<const AttributeNode*>(node);
+    if (!attributeNode) continue;
+    if (attributeNode->name() == name)
+      return attributeNode->value();
+  }
+  return "";
 }

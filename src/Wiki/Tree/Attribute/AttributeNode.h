@@ -25,6 +25,9 @@ public:
   virtual QString toXHtml() const;
   virtual QString toXml(int indentLevel) const;
 
+  const QString &name() const { return _name; }
+  QString value() const { return toText(); }
+
 protected:
   QString _name;
   bool _isNull;

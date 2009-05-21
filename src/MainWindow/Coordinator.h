@@ -64,6 +64,8 @@ public slots:
   void historyActivated(const QUrl &url);
   /// User changed some setting that possibly affects the view.
   void userSettingChanged_SectionVisibility();
+  /// User changed some setting that possibly affects the view.
+  void userSettingChanged_Translations();
 
 private:
   void displayTitlePage();

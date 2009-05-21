@@ -24,6 +24,9 @@ public:
   AttributeGroupNode() : Node(Node::AttributeGroup) {}
   virtual QString toXHtml() const;
   virtual QString toXml(int indentLevel) const;
+
+  bool hasAttribute(const QString &name) const;
+  QString getAttributeText(const QString &name) const;
 };
 
 #endif

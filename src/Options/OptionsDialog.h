@@ -13,34 +13,24 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef WIKISOURCECACHEITEM_H_
-#define WIKISOURCECACHEITEM_H_
+#ifndef OPTIONSDIALOG_H
+#define OPTIONSDIALOG_H
 
-#include <QString>
+#include <QDialog>
+#include "ui_OptionsDialog.h"
 
-class ArticleNode;
-
-class WikiSourceCacheItem
+class OptionsDialog : public QDialog
 {
+  Q_OBJECT
 public:
-  WikiSourceCacheItem(const QString &name, const QString &source);
-  ~WikiSourceCacheItem();
+  OptionsDialog(QWidget *parent = 0);
+  ~OptionsDialog();
 
-  void invalidateSectionVisibility() { _invalidSectionVisibility = true; }
-  void invalidateTranslationSettings() { _invalidTranslationSettings = true; }
-
-  const QString &source() const { return _source; }
-  ArticleNode *node();
-  const QString &xhtml();
+private slots:
+  void saveSettings();
 
 private:
-  void handleInvalidationFlags();
-
-  QString _source;
-  ArticleNode *_node;
-  QString _xhtml;
-  bool _invalidSectionVisibility;
-  bool _invalidTranslationSettings;
+  Ui::OptionsDialogClass ui;
 };
 
-#endif /* WIKISOURCECACHEITEM_H_ */
+#endif // OPTIONSDIALOG_H

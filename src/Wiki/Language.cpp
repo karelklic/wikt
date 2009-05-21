@@ -15,9 +15,10 @@
  */
 #include "Language.h"
 #include "../Debug/Debug.h"
+#include <QSettings>
 
 //===========================================================================
-const Language &Language::instance()
+Language &Language::instance()
 {
   static Language lang;
   return lang;
@@ -47,6 +48,28 @@ QString Language::toLocalizedName(Language::Type lang) const
 }
 
 //===========================================================================
+QString Language::toTranslationSectionName(Language::Type lang) const
+{
+  return _translationSectionNames.value(lang, "");
+}
+
+//===========================================================================
+bool Language::isTranslationVisible(Language::Type lang) const
+{
+  QSettings settings;
+  QString settingName = "translations" + toTranslationSectionName(lang);
+  return settings.value(settingName, true).toBool();
+}
+
+//===========================================================================
+void Language::setTranslationVisible(Language::Type lang, bool visible)
+{
+  QSettings settings;
+  QString settingName = "translations" + toTranslationSectionName(lang);
+  return settings.setValue(settingName, visible);
+}
+
+//===========================================================================
 Language::Language()
 {
 #define L1(__enum, __shortcut) \
@@ -54,36 +77,40 @@ Language::Language()
 #define L2(__enum, __shortcut, __localizedName) \
   _interwiki.insert(__shortcut, __enum); \
   _localizedNames.insert(__enum, QString::fromWCharArray(__localizedName))
+#define L3(__enum, __shortcut, __localizedName, __translationSectionName) \
+  _interwiki.insert(__shortcut, __enum); \
+  _localizedNames.insert(__enum, QString::fromWCharArray(__localizedName)); \
+  _translationSectionNames.insert(__enum, QString::fromWCharArray(__translationSectionName))
   // Sorted by language name in English.
   // A
-  L2(Abkhazian,     "ab",         L"Аҧсуа");
-  L2(Afar,          "aa",         L"Qafár af");
-  L2(Afrikaans,     "af",         L"Afrikaans");
-  L2(Akan,          "ak",         L"Akan");
-  L2(Albanian,      "sq",         L"Shqip");
-  L2(Amharic,       "am",         L"አማርኛ");
-  L2(AngloSaxon,    "ang",        L"Anglo-Saxon");
-  L2(Arabic,        "ar",         L"العربية");
-  L2(Aragonese,     "an",         L"Aragonés");
-  L2(Armenian,      "hy",         L"Հայերեն");
-  L2(Assamese,      "as",         L"অসমীয়া");
-  L2(Asturian,      "ast",        L"Asturianu");
-  L2(Avaric,        "av",         L"Авар");
+  L3(Abkhazian,     "ab",         L"Аҧсуа",            L"Abkhazian");
+  L3(Afar,          "aa",         L"Qafár af",         L"Afar");
+  L3(Afrikaans,     "af",         L"Afrikaans",        L"Afrikaans");
+  L3(Akan,          "ak",         L"Akan",             L"Akan");
+  L3(Albanian,      "sq",         L"Shqip",            L"Albanian");
+  L3(Amharic,       "am",         L"አማርኛ",                                   L"Amharic");
+  L3(AngloSaxon,    "ang",        L"Anglo-Saxon",      L"AngloSaxon");
+  L3(Arabic,        "ar",         L"العربية",          L"Arabic");
+  L3(Aragonese,     "an",         L"Aragonés",         L"Aragonese");
+  L3(Armenian,      "hy",         L"Հայերեն",                    L"Armenian");
+  L3(Assamese,      "as",         L"অসমীয়া",                        L"Assamese");
+  L3(Asturian,      "ast",        L"Asturianu",        L"Asturian");
+  L3(Avaric,        "av",         L"Авар",             L"Avaric");
   L1(Avestan,       "ae"); // mediawiki does not know this language
-  L2(Aymara,        "ay",         L"Aymar aru");
-  L2(Azerbaijani,   "az",         L"Azərbaycan");
+  L3(Aymara,        "ay",         L"Aymar aru",        L"Aymara");
+  L3(Azerbaijani,   "az",         L"Azərbaycan",       L"Azerbaijani");
   // B
-  L2(Bambara,       "bm",         L"Bamanankan");
-  L2(Bashkir,       "ba",         L"Башҡорт");
-  L2(Basque,        "eu",         L"Euskara");
-  L2(Belarusian,    "be",         L"Беларуская");
-  L2(Bengali,       "bn",         L"বাংলা");
-  L2(Bihari,        "bh",         L"भोजपुरी");
-  L2(Bislama,       "bi",         L"Bislama");
-  L2(Bosnian,       "bs",         L"Bosanski");
-  L2(Breton,        "br",         L"Brezhoneg");
-  L2(Bulgarian,     "bg",         L"Български");
-  L2(Burmese,       "my",         L"Myanmasa");
+  L3(Bambara,       "bm",         L"Bamanankan",       L"Bambara");
+  L3(Bashkir,       "ba",         L"Башҡорт",          L"Bashkir");
+  L3(Basque,        "eu",         L"Euskara",          L"Basque");
+  L3(Belarusian,    "be",         L"Беларуская",       L"Belarusian");
+  L3(Bengali,       "bn",         L"বাংলা",                            L"Bengali");
+  L3(Bihari,        "bh",         L"भोजपुरी",                          L"Bihari");
+  L3(Bislama,       "bi",         L"Bislama",          L"Bislama");
+  L3(Bosnian,       "bs",         L"Bosanski",         L"Bosnian");
+  L3(Breton,        "br",         L"Brezhoneg",        L"Breton");
+  L3(Bulgarian,     "bg",         L"Български",        L"Bulgarian");
+  L3(Burmese,       "my",         L"Myanmasa",         L"Burmese");
   // C
   L2(Catalan,       "ca",         L"Català");
   L2(Chamorro,      "ch",         L"Chamoru");
@@ -97,7 +124,7 @@ Language::Language()
   L2(Corsican,      "co",         L"Corsu");
   L2(Cree,          "cr",         L"Nēhiyawēwin / ᓀᐦᐃᔭᐍᐏᐣ");
   L2(Croatian,      "hr",         L"Hrvatski");
-  L2(Czech,         "cs",         L"Česky");
+  L3(Czech,         "cs",         L"Česky",            L"Czech");
   // D
   L2(Danish,        "da",         L"Dansk");
   L2(Divehi,        "dv",         L"ދިވެހިބަސް");

@@ -15,8 +15,13 @@
  */
 #include "ArticleNode.h"
 #include "../Heading/HeadingNode.h"
+#include "../Html/HtmlElementNode.h"
+#include "../List/ListItemNode.h"
+#include "../Table/TableNode.h"
+#include "../../Language.h"
 #include <QFile>
 #include <QSettings>
+#include <QList>
 
 //===========================================================================
 QString ArticleNode::toXHtml() const
@@ -42,6 +47,8 @@ void ArticleNode::updateSectionVisibility()
 {
   static const int DISABLED = MAX_HEADING_LEVEL + 1;
   int invisibleLevel = DISABLED;
+
+  // Check top-level nodes only.
   foreach(Node *node, children())
   {
     if (node->type() == Node::Heading)
@@ -51,5 +58,41 @@ void ArticleNode::updateSectionVisibility()
         invisibleLevel = (heading->xhtmlVisible() ? DISABLED : heading->level());
     }
     node->setXHtmlVisibility(invisibleLevel == DISABLED);
+  }
+}
+
+//===========================================================================
+void ArticleNode::updateTranslationSettings()
+{
+  // Check top-level nodes only.
+  foreach(Node *node, children())
+  {
+    if (node->type() != Node::HtmlElement)
+      continue;
+    HtmlElementNode *elem = dynamic_cast<HtmlElementNode*>(node);
+    TableNode *table = elem->findTranslationTable();
+    if (!table)
+      continue;
+
+    QList<ListItemNode*> listItems;
+    table->findChildren(listItems);
+
+    // This algorithm is damn slow.
+    // REPLACE in Language with C-style table.
+    // Possibly move this code to Language class.
+    foreach (ListItemNode *item, listItems)
+    {
+      QString text = item->toText();
+      for (int i = 0; i < Language::Unknown; ++i)
+      {
+        Language::Type language = (Language::Type)i;
+        QString name = Language::instance().toTranslationSectionName(language);
+        if (name.length() == 0) continue;
+        if (!text.contains(name)) continue;
+        bool visible = Language::instance().isTranslationVisible(language);
+        item->setXHtmlVisibility(visible);
+        break;
+      }
+    }
   }
 }
