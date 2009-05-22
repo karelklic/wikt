@@ -88,7 +88,12 @@ void ArticleNode::updateTranslationSettings()
         Language::Type language = (Language::Type)i;
         QString name = Language::instance().toTranslationSectionName(language);
         if (name.length() == 0) continue;
-        if (!text.contains(name)) continue;
+
+        // Use regular expression because of languages
+        // Malay and Malaylam.
+        QRegExp regExp(name + "[^a-z]");
+        if (regExp.indexIn(text) == -1) continue;
+
         bool visible = Language::instance().isTranslationVisible(language);
         item->setXHtmlVisibility(visible);
         break;

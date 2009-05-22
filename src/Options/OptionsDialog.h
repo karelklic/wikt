@@ -28,8 +28,10 @@ public:
 
 private slots:
   void saveSettings();
+  void itemChanged(QTreeWidgetItem *item, int column);
 
 private:
+  void updateCharacterCheckState(QTreeWidgetItem *character);
   Ui::OptionsDialogClass ui;
 };
 

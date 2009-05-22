@@ -52,7 +52,7 @@
     <string>translation lists are folded by default</string>
    </property>
   </widget>
-  <widget class="QListWidget" name="translationList">
+  <widget class="QTreeWidget" name="translationsTree">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -61,6 +61,17 @@
      <height>281</height>
     </rect>
    </property>
+   <attribute name="headerVisible">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="headerVisible">
+    <bool>false</bool>
+   </attribute>
+   <column>
+    <property name="text">
+     <string notr="true">1</string>
+    </property>
+   </column>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

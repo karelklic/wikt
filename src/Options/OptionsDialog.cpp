@@ -17,6 +17,7 @@
 #include "../Wiki/Language.h"
 #include "../MainWindow/MainWindow.h"
 #include "../MainWindow/Coordinator.h"
+#include "../Debug/Debug.h"
 #include <QSettings>
 
 //===========================================================================
@@ -32,18 +33,38 @@ OptionsDialog::OptionsDialog(QWidget *parent) : QDialog(parent)
   ui.translationsFoldedCheckBox->setCheckState(
       translationsFolded ? Qt::Checked : Qt::Unchecked);
 
+  QList<QTreeWidgetItem*> alphabet;
+  for (char c = 'A'; c <= 'Z'; ++c)
+  {
+    QTreeWidgetItem *item = new QTreeWidgetItem((QTreeWidget*)0,
+        QStringList(QString(QChar(c))));
+    alphabet.append(item);
+  }
+  ui.translationsTree->insertTopLevelItems(0, alphabet);
+
   for (int i = 0; i < Language::Unknown; ++i)
   {
     Language::Type language = (Language::Type)i;
     QString name = Language::instance().toTranslationSectionName(language);
     if (name.length() == 0) continue;
 
-    QListWidgetItem *item = new QListWidgetItem(name, ui.translationList);
+    QTreeWidgetItem *parent = alphabet[name[0].toUpper().toAscii() - 'A'];
+    QTreeWidgetItem *item = new QTreeWidgetItem(parent, QStringList(name));
     item->setFlags(Qt::ItemIsUserCheckable | Qt::ItemIsEnabled);
-    item->setData(Qt::UserRole, i);
+    item->setData(0, Qt::UserRole, i);
     bool visible = Language::instance().isTranslationVisible(language);
-    item->setCheckState(visible ? Qt::Checked : Qt::Unchecked);
+    item->setCheckState(0, visible ? Qt::Checked : Qt::Unchecked);
   }
+
+  foreach (QTreeWidgetItem *character, alphabet)
+  {
+    character->setFlags(Qt::ItemIsUserCheckable | Qt::ItemIsTristate |
+        Qt::ItemIsEnabled);
+    updateCharacterCheckState(character);
+  }
+
+  connect(ui.translationsTree, SIGNAL(itemChanged(QTreeWidgetItem*, int)),
+      this, SLOT(itemChanged(QTreeWidgetItem*, int)));
 }
 
 //===========================================================================
@@ -58,13 +79,56 @@ void OptionsDialog::saveSettings()
   settings.setValue("translationsFolded",
       ui.translationsFoldedCheckBox->checkState() == Qt::Checked);
 
-  for (int i = 0; i < ui.translationList->count(); ++i)
+  for (int i = 0; i < ui.translationsTree->topLevelItemCount(); ++i)
   {
-    QListWidgetItem *item = ui.translationList->item(i);
-    Language::Type language = (Language::Type)item->data(Qt::UserRole).toInt();
-    Language::instance().setTranslationVisible(language,
-        item->checkState() == Qt::Checked);
+    QTreeWidgetItem *character = ui.translationsTree->topLevelItem(i);
+    for (int j = 0; j < character->childCount(); ++j)
+    {
+      QTreeWidgetItem *item = character->child(j);
+      Language::Type language = (Language::Type)item->data(0, Qt::UserRole).toInt();
+      Language::instance().setTranslationVisible(language,
+          item->checkState(0) == Qt::Checked);
+    }
   }
 
   MainWindow::instance()->coordinator()->userSettingChanged_Translations();
 }
+
+//===========================================================================
+void OptionsDialog::itemChanged(QTreeWidgetItem *item, int /*column*/)
+{
+  // If it is a language node.
+  if (item->childCount() == 0)
+  {
+    // Update the parent character node check status.
+    updateCharacterCheckState(item->parent());
+    return;
+  }
+
+  // Now we know it is a character node.
+
+  if (item->checkState(0) == Qt::PartiallyChecked) return;
+  for (int i = 0; i < item->childCount(); ++i)
+    item->child(i)->setCheckState(0, item->checkState(0));
+}
+
+//===========================================================================
+void OptionsDialog::updateCharacterCheckState(QTreeWidgetItem *character)
+{
+  Qt::CheckState state = Qt::Checked;
+  bool hasChecked = false;
+  for (int i = 0; i < character->childCount(); ++i)
+  {
+    Qt::CheckState child = character->child(i)->checkState(0);
+    if (child == Qt::Unchecked)
+      state = Qt::PartiallyChecked;
+    else
+      hasChecked = true;
+  }
+  if (!hasChecked)
+    state = Qt::Unchecked;
+
+  if (character->checkState(0) != state)
+    character->setCheckState(0, state);
+}
+
