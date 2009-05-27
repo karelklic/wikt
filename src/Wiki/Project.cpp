@@ -48,9 +48,13 @@ Project::Type Project::fromLinkPrefixes(const QStringList &prefixes) const
 }
 
 //===========================================================================
-QString Project::toUrl(Project::Type project) const
+QString Project::toUrl(Project::Type project, Language::Type language) const
 {
-  return _url.value(project, "Unknown URL");
+  QString url = _url.value(project, "Unknown URL");
+  if (url.contains("%1"))
+    url = url.arg(Language::instance().toCode(language));
+
+  return url;
 }
 
 //===========================================================================
@@ -78,13 +82,13 @@ Project::Project()
   _prefix.insert("mediazilla",  Mediazilla);
 
   _url.insert(Meta,        "http://meta.wikimedia.org/wiki/");
-  _url.insert(Wiktionary,  "http://en.wiktionary.org/wiki/");
-  _url.insert(Wikipedia,   "http://en.wikipedia.org/wiki/");
-  _url.insert(Wikisource,  "http://en.wikisource.org/wiki/");
-  _url.insert(Wikiquote,   "http://en.wikiquote.org/wiki/");
-  _url.insert(Wikibooks,   "http://en.wikibooks.org/wiki/");
-  _url.insert(Wikinews,    "http://en.wikinews.org/wiki/");
-  _url.insert(Wikiversity, "http://en.wikiversity.org/wiki/");
+  _url.insert(Wiktionary,  "http://%1.wiktionary.org/wiki/");
+  _url.insert(Wikipedia,   "http://%1.wikipedia.org/wiki/");
+  _url.insert(Wikisource,  "http://%1.wikisource.org/wiki/");
+  _url.insert(Wikiquote,   "http://%1.wikiquote.org/wiki/");
+  _url.insert(Wikibooks,   "http://%1.wikibooks.org/wiki/");
+  _url.insert(Wikinews,    "http://%1.wikinews.org/wiki/");
+  _url.insert(Wikiversity, "http://%1.wikiversity.org/wiki/");
   _url.insert(Commons,     "http://commons.wikimedia.org/wiki/");
   _url.insert(Wikispecies, "http://species.wikimedia.org/wiki/");
   _url.insert(Wikimedia,   "http://wikimediafoundation.org/wiki/");

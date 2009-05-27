@@ -18,6 +18,7 @@
 #include "../../../Media/MediaReader.h"
 #include "../../../Wiki/Parser/Link/LinkParser.h"
 #include "../../../Wiki/Tree/Link/LinkNode.h"
+#include <QUrl>
 
 //===========================================================================
 LinkConverter::LinkConverter(Format3Reader &reader, MediaReader &mediaReader)
@@ -58,10 +59,10 @@ QString LinkConverter::convertedContents(int offs)
     // make external link from links to other projects
     if (node->target().project() != Project::Wiktionary)
     {
-      // TODO: external link from this.
+      output.append(node->toExternalLinkWiki());
       delete node;
-      output.append(input[i]); // to be removed
-      continue; // continue to be removed
+      i += buffer.pos() - 1;
+      continue;
     }
 
     // Handle images and sounds.

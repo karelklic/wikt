@@ -18,7 +18,7 @@
 
 #include "../Node.h"
 #include "../../Namespace.h"
-#include "../../Language.h"
+#include "../../Language/Language.h"
 #include "../../Project.h"
 
 /// Format of Link target: project:language:namespace:entry#heading
@@ -36,7 +36,6 @@ public:
   ///   where no part is mandatory. It must contain either entry or heading.
   LinkTargetNode(const QString &text);
   /// Returns the link as URL path, either internal or external.
-  /// TODO: implement or check external link handling (other project or language).
   QString toXHtmlLink() const;
   /// Returns the)
   virtual QString toXml(int indentLevel = 0) const;

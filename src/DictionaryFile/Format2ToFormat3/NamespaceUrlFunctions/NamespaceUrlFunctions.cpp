@@ -69,7 +69,7 @@ static QString functionFullUrl(const QString &templateText)
         templateText.section(':', 2))); // can be empty!
 
     Project::Type project = Project::instance().fromPrefix(prefixOnly);
-    return Project::instance().toUrl(project) + entryUrlSuffix;
+    return Project::instance().toUrl(project, Language::English) + entryUrlSuffix;
   }
 
   // It links to wiktionary; return local url instead of external one.

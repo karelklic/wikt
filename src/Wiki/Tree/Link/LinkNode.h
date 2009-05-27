@@ -18,7 +18,7 @@
 
 #include "../Node.h"
 #include "../../Namespace.h"
-#include "../../Language.h"
+#include "../../Language/Language.h"
 #include "../../Project.h"
 #include <QList>
 
@@ -43,6 +43,11 @@ public:
   virtual QString toXHtml() const;
   virtual QString toXml(int indentLevel) const;
   QString toWiki() const;
+
+  /// Returns an external link representation of this link node.
+  /// For example returns "[http://en.wiktionary.org/wiki/maso maso]"
+  /// for node created from "[[maso]]".
+  QString toExternalLinkWiki() const;
 
   virtual void append(Node *child);
 

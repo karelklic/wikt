@@ -17,6 +17,7 @@
 #define LANGUAGE_H_
 
 #include <QMap>
+#include <QMultiMap>
 #include <QString>
 #include <QStringList>
 
@@ -27,234 +28,12 @@ public:
   /// Sorted by English name.
   /// See http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
   typedef enum {
-    // A
-    Abkhazian = 0,
-    Afar,
-    Afrikaans,
-    Akan,
-    Albanian,
-    Amharic,
-    AngloSaxon,
-    Arabic,
-    Aragonese,
-    Armenian,
-    Assamese,
-    Asturian,
-    Avaric,
-    Avestan,
-    Aymara,
-    Azerbaijani,
-    // B
-    Bambara,
-    Bashkir,
-    Basque,
-    Belarusian,
-    Bengali,
-    Bihari,
-    Bislama,
-    Bosnian,
-    Breton,
-    Bulgarian,
-    Burmese,
-    // C
-    Catalan,
-    Chamorro,
-    Chechen,
-    Cherokee,
-    Chichewa,
-    Chinese,
-    ChurchSlavic,
-    Chuvash,
-    Cornish,
-    Corsican,
-    Cree,
-    Croatian,
-    Czech,
-    // D
-    Danish,
-    Divehi,
-    Dutch,
-    Dzongkha,
-    // E
-    English,
-    Esperanto,
-    Estonian,
-    Ewe,
-    // F
-    Faroese,
-    Fijian,
-    Finnish,
-    French,
-    Fualah,
-    // G
-    Galician,
-    Ganda,
-    Georgian,
-    German,
-    Greek,
-    Guarani,
-    Gujarati,
-    // H
-    Haitian,
-    Hausa,
-    Hebrew,
-    Herero,
-    Hindi,
-    HiriMotu,
-    Hungarian,
-    // I
-    Icelandic,
-    Ido,
-    Igbo,
-    Indonesian,
-    Interlingua,
-    Interlingue,
-    Inuktitut,
-    Inupiaq,
-    Irish,
-    Italian,
-    // J
-    Japanese,
-    Javanese,
-    // K
-    Kalaallisut,
-    Kannada,
-    Kanuri,
-    Kashmiri,
-    Kashubian,
-    Kazakh,
-    Khmer,
-    Kikuyu,
-    Kinyarwanda,
-    Kirghiz,
-    Kirundi,
-    Komi,
-    Kongo,
-    Korean,
-    Kurdish,
-    Kwanyama,
-    // L
-    Lao,
-    Latin,
-    Latvian,
-    Limburgish,
-    Lingala,
-    Lithuanian,
-    Lojban,
-    LowSaxon,
-    LubaKatanga,
-    Luxembourgish,
-    // M
-    Macedonian,
-    Malagasy,
-    Malay,
-    Malayalam,
-    Maltese,
-    Manx,
-    Maori,
-    Marathi,
-    Marshallese,
-    MinNan,
-    Mongolian,
-    // N
-    Nauru,
-    Navajo,
-    Ndonga,
-    Nepali,
-    NorthNdebele,
-    NorthernSami,
-    Norwegian,
-    NorwegianBokmal,
-    NorwegianNynorsk,
-    // O
-    Occitan,
-    Ojibwa,
-    Oriya,
-    Oromo,
-    Ossetian,
-    // P
-    Pali,
-    Panjabi,
-    Pashto,
-    Persian,
-    Polish,
-    Portuguese,
-    // Q
-    Quechua,
-    // R
-    RaetoRomance,
-    Romanian,
-    Russian,
-    // S
-    Samoan,
-    Sango,
-    Sanskrit,
-    Sardinian,
-    ScottishGaelic,
-    Serbian,
-    SerboCroatian,
-    Shona,
-    SichuanYi,
-    Sicilian,
-    SimpleEnglish,
-    Sindhi,
-    Sinhala,
-    Slovak,
-    Slovenian,
-    Somali,
-    SouthNdebele,
-    SouthernSotho,
-    Spanish,
-    Sundanese,
-    Swahili,
-    Swati,
-    Swedish,
-    // T
-    Tagalog,
-    Tahitian,
-    Tajik,
-    Tamil,
-    Tatar,
-    Telugu,
-    Thai,
-    Tibetan,
-    Tigrinya,
-    Tonga,
-    Tsonga,
-    Tswana,
-    Turkish,
-    Turkmen,
-    Twi,
-    // U
-    Uighur,
-    Ukrainian,
-    UpperSorbian,
-    Urdu,
-    Uzbek,
-    // V
-    Venda,
-    Vietnamese,
-    Volapuk,
-    // W
-    Walloon,
-    Welsh,
-    WesternFrisian,
-    Wolof,
-    // X
-    Xhosa,
-    // Y
-    Yiddish,
-    Yoruba,
-    // Z
-    Zhuang,
-    Zulu,
-    // -
-    Unknown // Always last!
+#include "LanguagesGenerated.h.inc"
   } Type;
 
   static Language &instance();
 
-  /// Converts language code (interwiki) to Language.
+  /// Converts language code to enumeration type.
   /// This method is case insensitive.
   /// @param code
   ///  Language code such as "en" or "cs".
@@ -264,8 +43,15 @@ public:
 
   Language::Type fromLinkPrefixes(const QStringList &prefixes) const;
 
+  QString toCode(Language::Type lang) const;
+
   /// To interwiki localized name.
   QString toLocalizedName(Language::Type lang) const;
+
+  Language::Type fromTranslation(const QString &translation) const
+  {
+    return _translationToType.value(translation, Unknown);
+  }
 
   /// Returns empty string if translation section name is not
   /// known.
@@ -280,12 +66,14 @@ protected:
 
   /// Key is language shortcut as "en" or "zh-min-nan".
   /// Used for interwiki.
-  QMap<QString, Type> _interwiki;
+  QMap<QString, Type> _codeToType;
+  QMultiMap<Type, QString> _typeToCode;
   /// Value is localized name as "Česky" for Czech.
   /// Used exclusively for interwiki.
-  QMap<Type, QString> _localizedNames;
+  QMap<Type, QString> _typeToInterwiki;
   /// English language names used in translation sections of entries.
-  QMap<Type, QString> _translationSectionNames;
+  QMultiMap<Type, QString> _typeToTranslations;
+  QMap<QString, Type> _translationToType;
 };
 
 #endif /* LANGUAGE_H_ */

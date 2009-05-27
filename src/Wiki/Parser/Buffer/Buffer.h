@@ -18,6 +18,7 @@
 
 #include "../../../Prerequisites.h"
 
+/// A buffer on the top of a string that is used for wiki text parsing.
 class Buffer
 {
 public:
@@ -38,6 +39,7 @@ public:
   /// Whole string for various low-level algorithms.
   /// It is not affected by buffer's position pointer.
   const QString &text() const { return _text; }
+  QString &text() { return _text; }
   /// Size of buffer in character count (not bytes).
   int size() const { return _text.length(); }
 
@@ -46,14 +48,26 @@ public:
   QChar nextChar() const { return _text[_pos]; }
   QChar readChar() { return _text[_pos++]; }
 
-  /// Reads a line from the buffer.
-  /// Does not change the buffer's position.
+  /// Reads the next line from the buffer.
+  /// Does not change the buffer's position. Use next(n) or skip(n) to
+  /// move the buffer pointer.
   /// @return
   ///   A line without the closing "\n".
+  /// @see readLine
   QString nextLine() const;
+
+  /// Reads a line from the buffer and moves the buffer's pointer
+  /// after the line.
   QString readLine();
 
+  /// Reads all remaining characters from the buffer.
   QString readAll();
+
+  /// Reads specified amount of characters. Can read less characters
+  /// if the end of the buffer is reached.
+  /// @param count
+  ///  The number of characters to be read.
+  ///  Must be a positive number.
   QString read(int count);
 
   /// Moves back the position of read pointer in the buffer.

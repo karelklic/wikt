@@ -14,7 +14,7 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "OptionsDialog.h"
-#include "../Wiki/Language.h"
+#include "../Wiki/Language/Language.h"
 #include "../MainWindow/MainWindow.h"
 #include "../MainWindow/Coordinator.h"
 #include "../Debug/Debug.h"
@@ -48,7 +48,15 @@ OptionsDialog::OptionsDialog(QWidget *parent) : QDialog(parent)
     QString name = Language::instance().toTranslationSectionName(language);
     if (name.length() == 0) continue;
 
-    QTreeWidgetItem *parent = alphabet[name[0].toUpper().toAscii() - 'A'];
+    // Find the first A-Z character in the language name.
+    // Some language names do not start with A-Z, but with '\'' or another
+    // character.
+    char firstChar = ' ';
+    int firstCharIndex = 0;
+    while (firstChar < 'A' || firstChar > 'Z')
+      firstChar = name[firstCharIndex++].toUpper().toAscii();
+
+    QTreeWidgetItem *parent = alphabet[firstChar - 'A'];
     QTreeWidgetItem *item = new QTreeWidgetItem(parent, QStringList(name));
     item->setFlags(Qt::ItemIsUserCheckable | Qt::ItemIsEnabled);
     item->setData(0, Qt::UserRole, i);

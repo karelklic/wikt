@@ -33,6 +33,14 @@ TableHeadNode *TableHeadParser::parse(Buffer &buffer)
   buffer.skip(startHead.matchedLength());
   QString restOfLine = line.mid(startHead.matchedLength());
 
+  // Unify the cell separator. Both || and !! can be used.
+  // Do it also in the underlying buffer. If it would not be done,
+  // the following cells would be parsed as common cells instead of
+  // header cells.
+  restOfLine.replace("||", "!!");
+  buffer.text().remove(buffer.pos(), restOfLine.length());
+  buffer.text().insert(buffer.pos(), restOfLine);
+
   // Handle attributes.
   QRegExp singlePipeRegExp("\\| *");
   int singlePipe = singlePipeRegExp.indexIn(restOfLine);

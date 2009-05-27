@@ -18,7 +18,7 @@
 #include "../Html/HtmlElementNode.h"
 #include "../List/ListItemNode.h"
 #include "../Table/TableNode.h"
-#include "../../Language.h"
+#include "../../Language/Language.h"
 #include <QFile>
 #include <QSettings>
 #include <QList>
@@ -77,27 +77,13 @@ void ArticleNode::updateTranslationSettings()
     QList<ListItemNode*> listItems;
     table->findChildren(listItems);
 
-    // This algorithm is damn slow.
-    // REPLACE in Language with C-style table.
-    // Possibly move this code to Language class.
     foreach (ListItemNode *item, listItems)
     {
       QString text = item->toText();
-      for (int i = 0; i < Language::Unknown; ++i)
-      {
-        Language::Type language = (Language::Type)i;
-        QString name = Language::instance().toTranslationSectionName(language);
-        if (name.length() == 0) continue;
-
-        // Use regular expression because of languages
-        // Malay and Malaylam.
-        QRegExp regExp(name + "[^a-z]");
-        if (regExp.indexIn(text) == -1) continue;
-
-        bool visible = Language::instance().isTranslationVisible(language);
-        item->setXHtmlVisibility(visible);
-        break;
-      }
+      text = text.section(':', 0, 0).trimmed(); // everything before the first ':'
+      Language::Type language = Language::instance().fromTranslation(text);
+      bool visible = Language::instance().isTranslationVisible(language);
+      item->setXHtmlVisibility(visible);
     }
   }
 }

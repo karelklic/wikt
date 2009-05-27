@@ -16,6 +16,7 @@
 #ifndef INTERWIKINAMES_H_
 #define INTERWIKINAMES_H_
 
+#include "Language/Language.h"
 #include <QString>
 #include <QMap>
 #include <QStringList>
@@ -66,7 +67,7 @@ public:
 
   /// Gets project's URL.
   /// For example Wikipedia project has "http://en.wikipedia.org/wiki/".
-  QString toUrl(Type project) const;
+  QString toUrl(Type project, Language::Type language) const;
 
 protected:
   /// Standard constructor.

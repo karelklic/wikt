@@ -21,6 +21,7 @@
 #include "../../../Media/MediaUtils.h"
 #include <QImage>
 #include <QSvgRenderer>
+#include <QUrl>
 
 //===========================================================================
 LinkNode::LinkNode(bool emptyPipeAtEnd, bool forcedLink)
@@ -87,6 +88,20 @@ QString LinkNode::toWiki() const
   }
   result.append("]]");
   return result;
+}
+
+//===========================================================================
+QString LinkNode::toExternalLinkWiki() const
+{
+  QString result;
+  QString baseUrl = Project::instance().toUrl(target().project(), target().language());
+  QString namespaceUrl = Namespace::instance().toLocalizedName(target().namespace_());
+  QString entryUrl = QString::fromAscii(QUrl::toPercentEncoding(target().entry()));
+
+  if (namespaceUrl.length() > 0)
+    entryUrl.prepend(namespaceUrl + ":");
+
+  return QString("[%1%2 %3]").arg(baseUrl, entryUrl, xhtmlTitle());
 }
 
 //===========================================================================
