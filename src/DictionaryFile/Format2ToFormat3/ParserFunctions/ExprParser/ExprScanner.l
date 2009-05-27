@@ -14,8 +14,8 @@
 // Announce to Flex the prototype we want for lexing function, ...
 #define YY_DECL yy::ExprParser::token_type exprlex( \
         yy::ExprParser::semantic_type* yylval,    \
-        yy::ExprParser::location_type* yylloc,    \
-        ExprDriver& driver)
+        yy::ExprParser::location_type* /*yylloc*/,    \
+        ExprDriver& /*driver*/)
         
 /* By default yylex returns int, we use token_type.
    Unfortunately yyterminate by default returns 0, which is
@@ -51,13 +51,15 @@
          
 \+       { return token::PLUS; }
 \-       { return token::MINUS; }
+\<=      { return token::LESSER_EQUAL; }
 \<       { return token::LESSER; }
-\>       { return token::LARGER; }
+\>=      { return token::LARGER_EQUAL; }
+\>       { return token::LARGER; } 
 \*       { return token::MULTIPLY; }
 \/       { return token::DIVIDE; }
 div      { return token::DIVIDE; }
-\(       { return token::LEFTPAREN; }
-\)       { return token::RIGHTPAREN; }
+\(       { return token::LEFT_PAREN; }
+\)       { return token::RIGHT_PAREN; }
 mod      { return token::MOD; }
 round    { return token::ROUND; }
 \^       { return token::POW; }
