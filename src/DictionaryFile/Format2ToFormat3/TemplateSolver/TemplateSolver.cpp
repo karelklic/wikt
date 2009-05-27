@@ -169,13 +169,15 @@ QString TemplateSolver::evaluateTemplate(QString templateText)
   // parse parameters and build param list
   QList<QString> parts;
   TemplateUtils::getParts(templateText, parts);
-  // Return just the template name if it contains unallowed characters.
+  // Return just the template name if it contains forbidden characters.
   if (parts[0].contains('[') || parts[0].contains(']'))
     return "&#x007b;&#x007b;" + parts[0] + "&#x007d;&#x007d;";
   if (parts[0] == "rfc") // ignored template. TODO: systematic way to handle it
     return "";
   if (parts[0].contains("DEFAULTSORT", Qt::CaseInsensitive)) // temporarily ignore
     return "";
+  if (parts[0].contains("CURRENTYEAR"))
+    return "2009";
 
   // Handle msg: and raw:
   // See http://meta.wikimedia.org/wiki/Help:Magic_words#Template_modifiers
