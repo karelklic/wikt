@@ -47,7 +47,6 @@ QString Namespace::toLocalizedName(Namespace::Type ns) const
   return _namespaceToName.value(ns, "");
 }
 
-
 //===========================================================================
 Namespace::Namespace()
 {
@@ -64,11 +63,11 @@ Namespace::Namespace()
   _codeToNamespace.insert("3",         UserTalk);
   _codeToNamespace.insert("USER_TALK", UserTalk);
   _codeToNamespace.insert("USER TALK", UserTalk);
-  _codeToNamespace.insert("4",       Project);
-  _codeToNamespace.insert("PROJECT", Project);
-  _codeToNamespace.insert("5",            ProjectTalk);
-  _codeToNamespace.insert("PROJECT_TALK", ProjectTalk);
-  _codeToNamespace.insert("PROJECT TALK", ProjectTalk);
+  _codeToNamespace.insert("4",       Wiktionary);
+  _codeToNamespace.insert("PROJECT", Wiktionary);
+  _codeToNamespace.insert("5",            WiktionaryTalk);
+  _codeToNamespace.insert("PROJECT_TALK", WiktionaryTalk);
+  _codeToNamespace.insert("PROJECT TALK", WiktionaryTalk);
   _codeToNamespace.insert("6",     Image);
   _codeToNamespace.insert("IMAGE", Image);
   _codeToNamespace.insert("7",          ImageTalk);
@@ -101,8 +100,10 @@ Namespace::Namespace()
   _namespaceToName.insert(Talk, "Talk");
   _namespaceToName.insert(User, "User");
   _namespaceToName.insert(UserTalk, "User talk");
-  _namespaceToName.insert(Project, "Wiktionary");
-  _namespaceToName.insert(ProjectTalk, "Wiktionary talk");
+  _namespaceToName.insert(Wiktionary, "Wiktionary");
+  _namespaceToName.insert(WiktionaryTalk, "Wiktionary talk");
+  _namespaceToName.insert(Wikipedia, "Wikipedia");
+  _namespaceToName.insert(WikipediaTalk, "Wikipedia talk");
   _namespaceToName.insert(Image, "Image");
   _namespaceToName.insert(ImageTalk, "Image talk");
   _namespaceToName.insert(MediaWiki, "MediaWiki");
@@ -125,8 +126,10 @@ Namespace::Namespace()
   _linkToNamespace.insert("talk", Talk);
   _linkToNamespace.insert("user", User);
   _linkToNamespace.insert("user talk", UserTalk);
-  _linkToNamespace.insert("wiktionary", Project);
-  _linkToNamespace.insert("wiktionary talk", ProjectTalk);
+  _linkToNamespace.insert("wiktionary", Wiktionary);
+  _linkToNamespace.insert("wiktionary talk", WiktionaryTalk);
+  _linkToNamespace.insert("wikipedia", Wikipedia);
+  _linkToNamespace.insert("wikipedia talk", WikipediaTalk);
   _linkToNamespace.insert("image", Image);
   _linkToNamespace.insert("image talk", ImageTalk);
   _linkToNamespace.insert("mediaWiki", MediaWiki);
