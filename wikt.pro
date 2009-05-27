@@ -100,7 +100,6 @@ HEADERS = src/Options/OptionsDialog.h \
     src/TableOfContents/TocPanel.h \
     src/Unicode.h \
     src/Version.h \
-    src/Wiki/Language.h \
     src/Wiki/Namespace.h \
     src/Wiki/Parser/ArticleParser.h \
     src/Wiki/Parser/Block/BlockParser.h \
@@ -171,6 +170,7 @@ HEADERS = src/Options/OptionsDialog.h \
     src/Wiki/Tree/Table/TableRowNode.h \
     src/Wiki/Tree/TextBlockNode.h \
     src/Wiki/Tree/TextTokenNode.h \
+    src/Wiki/Language/Language.h \
     src/Wiki/WikiSource.h \
     src/Wiki/WikiSourceCacheItem.h
 SOURCES = src/Options/OptionsDialog.cpp \
@@ -257,7 +257,6 @@ SOURCES = src/Options/OptionsDialog.cpp \
     src/TableOfContents/TocModel.cpp \
     src/TableOfContents/TocPanel.cpp \
     src/Unicode.cpp \
-    src/Wiki/Language.cpp \
     src/Wiki/Namespace.cpp \
     src/Wiki/Parser/ArticleParser.cpp \
     src/Wiki/Parser/Block/BlockParser.cpp \
@@ -326,6 +325,7 @@ SOURCES = src/Options/OptionsDialog.cpp \
     src/Wiki/Tree/Table/TableRowNode.cpp \
     src/Wiki/Tree/TextBlockNode.cpp \
     src/Wiki/Tree/TextTokenNode.cpp \
+    src/Wiki/Language/Language.cpp \
     src/Wiki/WikiSource.cpp \
     src/Wiki/WikiSourceCacheItem.cpp
 FORMS = src/Options/OptionsDialog.ui \
