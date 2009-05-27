@@ -23,3 +23,4 @@ h2. New Features
 * Template:localurl implemented. Affects "Category:English nouns".
 * New languages added and language support reworked.
 * Template:#ifexpr implemented. Affects "啊" entry.
+* Template:#expr implemented support for multiplication, division, parenthesis, round, pow, mod, and comparison.

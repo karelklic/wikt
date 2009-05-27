@@ -14,12 +14,10 @@ Media
 * Image resizing process for media archive. It would significantly diminish the dictionary size.
 
 Varia
-* Finish #expr support.
 * Support redirects in Format5Reader.
 * Nice front page.
 
 Important
-* User changes the sequence of languages in a multi-language entry.
 * User chooses whether the translation section is collapsed or not.
 * Error pages
 * Allow searching a whole sentence.
