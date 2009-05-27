@@ -28,51 +28,54 @@ public:
 //===========================================================================
 void ParserFunctionsTest::parserIf()
 {
-  ParserFunctionsTestReader reader;
-  QCOMPARE(ParserFunctions::evaluate("#if: | true | false", reader), QString("false"));
-  QCOMPARE(ParserFunctions::evaluate("#if: string | true | false", reader), QString("true"));
-  QCOMPARE(ParserFunctions::evaluate("#if:        | true | false", reader), QString("false"));
-  QCOMPARE(ParserFunctions::evaluate("#if:      \n| true | false", reader), QString("false"));
-  QCOMPARE(ParserFunctions::evaluate("#if: 1==2   | true | false", reader), QString("true"));
-  QCOMPARE(ParserFunctions::evaluate("#if: foo | true ", reader), QString("true"));
-  QCOMPARE(ParserFunctions::evaluate("#if: | true ", reader), QString(""));
-  QCOMPARE(ParserFunctions::evaluate("#if: foo | | false", reader), QString(""));
+  QCOMPARE(evaluate("#if: | true | false"), QString("false"));
+  QCOMPARE(evaluate("#if: string | true | false"), QString("true"));
+  QCOMPARE(evaluate("#if:        | true | false"), QString("false"));
+  QCOMPARE(evaluate("#if:      \n| true | false"), QString("false"));
+  QCOMPARE(evaluate("#if: 1==2   | true | false"), QString("true"));
+  QCOMPARE(evaluate("#if: foo | true "), QString("true"));
+  QCOMPARE(evaluate("#if: | true "), QString(""));
+  QCOMPARE(evaluate("#if: foo | | false"), QString(""));
 }
 
 //===========================================================================
 void ParserFunctionsTest::parserIfEq()
 {
-  ParserFunctionsTestReader reader;
-  QCOMPARE(ParserFunctions::evaluate("#ifeq:|_|qualifier", reader), QString(""));
-  QCOMPARE(ParserFunctions::evaluate("#ifeq:||_|qualifier", reader), QString("_"));
-  QCOMPARE(ParserFunctions::evaluate("#ifeq:-gender-|g|g|ns:0", reader), QString("ns:0"));
-  QCOMPARE(ParserFunctions::evaluate("#ifeq:||yes|no|strange", reader), QString("yes"));
+  QCOMPARE(evaluate("#ifeq:|_|qualifier"), QString(""));
+  QCOMPARE(evaluate("#ifeq:||_|qualifier"), QString("_"));
+  QCOMPARE(evaluate("#ifeq:-gender-|g|g|ns:0"), QString("ns:0"));
+  QCOMPARE(evaluate("#ifeq:||yes|no|strange"), QString("yes"));
 }
 
 //===========================================================================
 void ParserFunctionsTest::parserSwitch()
 {
-  ParserFunctionsTestReader reader;
-  QCOMPARE(ParserFunctions::evaluate("#switch: a | foo = Foo | a = ok", reader), QString("ok"));
-  QCOMPARE(ParserFunctions::evaluate("#switch: a | foo = Foo | #default = Bar | baz = Baz", reader), QString("Bar"));
-  QCOMPARE(ParserFunctions::evaluate("#switch: a | foo = Foo | baz = Baz | Bar", reader), QString("Bar"));
-  QCOMPARE(ParserFunctions::evaluate("#switch: a | foo | a | b | c = Foo | Baz", reader), QString("Foo"));
+  QCOMPARE(evaluate("#switch: a | foo = Foo | a = ok"), QString("ok"));
+  QCOMPARE(evaluate("#switch: a | foo = Foo | #default = Bar | baz = Baz"), QString("Bar"));
+  QCOMPARE(evaluate("#switch: a | foo = Foo | baz = Baz | Bar"), QString("Bar"));
+  QCOMPARE(evaluate("#switch: a | foo | a | b | c = Foo | Baz"), QString("Foo"));
 }
 
 //===========================================================================
 void ParserFunctionsTest::parserExpr()
 {
+  QCOMPARE(evaluate("#expr:"), QString(""));
+
+  QCOMPARE(evaluate("#expr:1"), QString("1"));
+  QCOMPARE(evaluate("#expr:1+1"), QString("2"));
+  QCOMPARE(evaluate("#expr: 0 + 1 "), QString("1"));
+  QCOMPARE(evaluate("#expr: 10 + 1 "), QString("11"));
+  QCOMPARE(evaluate("#expr: 10 - 1 "), QString("9"));
+  QCOMPARE(evaluate("#expr: -10 "), QString("-10"));
+  QCOMPARE(evaluate("#expr: +10 "), QString("10"));
+
+  QCOMPARE(evaluate("#expr:0>1"), QString("0"));
+  QCOMPARE(evaluate("#expr:1>0"), QString("1"));
+}
+
+//===========================================================================
+QString ParserFunctionsTest::evaluate(const QString &expr)
+{
   ParserFunctionsTestReader reader;
-  QCOMPARE(ParserFunctions::evaluate("#expr:", reader), QString(""));
-
-  QCOMPARE(ParserFunctions::evaluate("#expr:1", reader), QString("1"));
-  QCOMPARE(ParserFunctions::evaluate("#expr:1+1", reader), QString("2"));
-  QCOMPARE(ParserFunctions::evaluate("#expr: 0 + 1 ", reader), QString("1"));
-  QCOMPARE(ParserFunctions::evaluate("#expr: 10 + 1 ", reader), QString("11"));
-  QCOMPARE(ParserFunctions::evaluate("#expr: 10 - 1 ", reader), QString("9"));
-  QCOMPARE(ParserFunctions::evaluate("#expr: -10 ", reader), QString("-10"));
-  QCOMPARE(ParserFunctions::evaluate("#expr: +10 ", reader), QString("10"));
-
-  QCOMPARE(ParserFunctions::evaluate("#expr:0>1", reader), QString("0"));
-  QCOMPARE(ParserFunctions::evaluate("#expr:1>0", reader), QString("1"));
+  return ParserFunctions::evaluate(expr, reader, "test entry");
 }

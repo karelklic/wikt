@@ -109,12 +109,16 @@ static QString functionSwitch(const QList<QString> &parts)
 }
 
 //===========================================================================
-static QString functionExpr(const QList<QString> &parts)
+static QString functionExpr(const QList<QString> &parts, const QString &entryName)
 {
   int sep = parts[0].indexOf(":"); // is valid from definition, never -1
   QString expression = parts[0].mid(sep + 1).trimmed();
 
-  ExprDriver driver;
+  // Empty expression returns empty string as a result.
+  if (expression.length() == 0)
+    return "";
+
+  ExprDriver driver(entryName);
   driver.parse(Unicode::escape(expression));
   return driver.resultString();
 
@@ -125,9 +129,9 @@ static QString functionExpr(const QList<QString> &parts)
 
 //===========================================================================
 // http://www.mediawiki.org/wiki/Help:Extension:ParserFunctions#.23ifexpr:
-static QString functionIfExpr(const QList<QString> &parts)
+static QString functionIfExpr(const QList<QString> &parts, const QString &entryName)
 {
-  QString exprResult = functionExpr(parts);
+  QString exprResult = functionExpr(parts, entryName);
   QString exprResultNormalized = exprResult.trimmed();
 
   if (exprResultNormalized.length() > 0 && exprResultNormalized != "0")
@@ -149,7 +153,8 @@ bool ParserFunctions::isParserFunction(const QString &templateText)
 }
 
 //===========================================================================
-QString ParserFunctions::evaluate(const QString &templateText, Format2Reader &reader)
+QString ParserFunctions::evaluate(const QString &templateText,
+    Format2Reader &reader, const QString &entryName)
 {
   PROFILER;
   QList<QString> parts;
@@ -159,13 +164,13 @@ QString ParserFunctions::evaluate(const QString &templateText, Format2Reader &re
   else if (parts[0].startsWith("#ifeq:", Qt::CaseInsensitive))
     return functionIfEq(parts);
   else if (parts[0].startsWith("#ifexpr:", Qt::CaseInsensitive))
-    return functionIfExpr(parts);
+    return functionIfExpr(parts, entryName);
   else if (parts[0].startsWith("#ifexist:", Qt::CaseInsensitive))
     return functionIfExist(parts, reader);
   else if (parts[0].startsWith("#switch:", Qt::CaseInsensitive))
     return functionSwitch(parts);
   else if (parts[0].startsWith("#expr:", Qt::CaseInsensitive))
-    return functionExpr(parts);
+    return functionExpr(parts, entryName);
   MSG("Function not supported.");
   return templateText;
 }

@@ -27,6 +27,12 @@ private slots:
   void parserIfEq();
   void parserSwitch();
   void parserExpr();
+
+private:
+  /// Evaluates given expression as a ParserFunction.
+  /// @return
+  ///   The result of ParserFunction call.
+  static QString evaluate(const QString &expr);
 };
 
 #endif /* PARSERFUNCTIONSTEST_H_ */

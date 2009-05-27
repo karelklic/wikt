@@ -23,18 +23,12 @@
 class ExprDriver
 {
 public:
-  ExprDriver();
+  ExprDriver(const QString &entryName);
   virtual ~ExprDriver();
 
   double result() const { return _result; }
   void setResult(double result) { _result = result; _resultChanged = true; }
-  QString resultString() const
-  {
-    if (!_resultChanged)
-      return "";
-    return QString("%1").arg(_result);
-  }
-
+  QString resultString() const;
 
   // Handling the scanner.
   void scan_begin();
@@ -45,9 +39,10 @@ public:
 
   // Error handling.
   void error(const yy::location& l, const std::string& m);
-  void error(const std::string& m);
+  void error(const std::string& message);
 
 protected:
+  QString _entryName;
   std::string _input;
 
   bool _traceScanning;
@@ -55,6 +50,9 @@ protected:
 
   double _result;
   bool _resultChanged;
+
+  bool _errorOccurred;
+  QString _lastError;
 };
 
 #endif /* EXPRDRIVER_H_ */

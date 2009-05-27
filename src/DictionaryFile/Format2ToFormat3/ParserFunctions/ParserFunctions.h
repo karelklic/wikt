@@ -28,7 +28,8 @@ class ParserFunctions
 {
 public:
   static bool isParserFunction(const QString &templateText);
-  static QString evaluate(const QString &templateText, Format2Reader &reader);
+  static QString evaluate(const QString &templateText, Format2Reader &reader,
+      const QString &entryName);
 };
 
 #endif /* PARSERFUNCTIONS_H_ */

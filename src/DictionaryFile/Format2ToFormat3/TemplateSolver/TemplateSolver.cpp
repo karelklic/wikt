@@ -154,7 +154,7 @@ QString TemplateSolver::evaluateTemplate(QString templateText)
 {
   // Handle built-in templates #if, #switch etc.
   if (ParserFunctions::isParserFunction(templateText))
-    return ParserFunctions::evaluate(templateText, _reader);
+    return ParserFunctions::evaluate(templateText, _reader, _pageName);
   // Handle build-in templats uc:, ucfirst: etc.
   if (FormattingFunctions::isFormattingFunction(templateText))
     return FormattingFunctions::evaluate(templateText);
