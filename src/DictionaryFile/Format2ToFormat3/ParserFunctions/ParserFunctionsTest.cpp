@@ -63,6 +63,8 @@ void ParserFunctionsTest::parserSwitch()
 void ParserFunctionsTest::parserExpr()
 {
   ParserFunctionsTestReader reader;
+  QCOMPARE(ParserFunctions::evaluate("#expr:", reader), QString(""));
+
   QCOMPARE(ParserFunctions::evaluate("#expr:1", reader), QString("1"));
   QCOMPARE(ParserFunctions::evaluate("#expr:1+1", reader), QString("2"));
   QCOMPARE(ParserFunctions::evaluate("#expr: 0 + 1 ", reader), QString("1"));
@@ -70,4 +72,7 @@ void ParserFunctionsTest::parserExpr()
   QCOMPARE(ParserFunctions::evaluate("#expr: 10 - 1 ", reader), QString("9"));
   QCOMPARE(ParserFunctions::evaluate("#expr: -10 ", reader), QString("-10"));
   QCOMPARE(ParserFunctions::evaluate("#expr: +10 ", reader), QString("10"));
+
+  QCOMPARE(ParserFunctions::evaluate("#expr:0>1", reader), QString("0"));
+  QCOMPARE(ParserFunctions::evaluate("#expr:1>0", reader), QString("1"));
 }

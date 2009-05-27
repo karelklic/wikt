@@ -17,6 +17,7 @@
 #define EXPRDRIVER_H_
 
 #include "location.hh"
+#include <QString>
 
 // Conducting the whole scanning and parsing of Calc++.
 class ExprDriver
@@ -25,7 +26,15 @@ public:
   ExprDriver();
   virtual ~ExprDriver();
 
-  double result;
+  double result() const { return _result; }
+  void setResult(double result) { _result = result; _resultChanged = true; }
+  QString resultString() const
+  {
+    if (!_resultChanged)
+      return "";
+    return QString("%1").arg(_result);
+  }
+
 
   // Handling the scanner.
   void scan_begin();
@@ -39,9 +48,13 @@ public:
   void error(const std::string& m);
 
 protected:
-  bool _traceScanning;
   std::string _input;
+
+  bool _traceScanning;
   bool _traceParsing;
+
+  double _result;
+  bool _resultChanged;
 };
 
 #endif /* EXPRDRIVER_H_ */

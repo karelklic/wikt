@@ -116,11 +116,24 @@ static QString functionExpr(const QList<QString> &parts)
 
   ExprDriver driver;
   driver.parse(Unicode::escape(expression));
-  return QString("%1").arg(driver.result);
+  return driver.resultString();
 
   // in the wiktionary database many operations are used:
   //  a+b, a-b, a*b, a/b, (), a mod b, a round b, decimal numbers
   // a parser for this syntax must be developed
+}
+
+//===========================================================================
+// http://www.mediawiki.org/wiki/Help:Extension:ParserFunctions#.23ifexpr:
+static QString functionIfExpr(const QList<QString> &parts)
+{
+  QString exprResult = functionExpr(parts);
+  QString exprResultNormalized = exprResult.trimmed();
+
+  if (exprResultNormalized.length() > 0 && exprResultNormalized != "0")
+    return parts.size() > 1 ? parts[1].trimmed() : "";
+  else
+    return parts.size() > 2 ? parts[2].trimmed() : "";
 }
 
 //===========================================================================
@@ -129,6 +142,7 @@ bool ParserFunctions::isParserFunction(const QString &templateText)
   QString trimmed = templateText.trimmed();
   return trimmed.startsWith("#if:", Qt::CaseInsensitive) ||
          trimmed.startsWith("#ifeq:", Qt::CaseInsensitive) ||
+         trimmed.startsWith("#ifexpr:", Qt::CaseInsensitive) ||
          trimmed.startsWith("#ifexist:", Qt::CaseInsensitive) ||
          trimmed.startsWith("#switch:", Qt::CaseInsensitive) ||
          trimmed.startsWith("#expr:", Qt::CaseInsensitive);
@@ -144,6 +158,8 @@ QString ParserFunctions::evaluate(const QString &templateText, Format2Reader &re
     return functionIf(parts);
   else if (parts[0].startsWith("#ifeq:", Qt::CaseInsensitive))
     return functionIfEq(parts);
+  else if (parts[0].startsWith("#ifexpr:", Qt::CaseInsensitive))
+    return functionIfExpr(parts);
   else if (parts[0].startsWith("#ifexist:", Qt::CaseInsensitive))
     return functionIfExist(parts, reader);
   else if (parts[0].startsWith("#switch:", Qt::CaseInsensitive))

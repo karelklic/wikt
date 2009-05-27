@@ -37,6 +37,8 @@
          
 \+       { return token::PLUS; }
 \-       { return token::MINUS; }
+\<       { return token::LESSER; }
+\>       { return token::LARGER; }
 
 %%
 void ExprDriver::scan_begin()

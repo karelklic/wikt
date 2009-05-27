@@ -19,7 +19,8 @@
 #include <sstream>
 
 //===========================================================================
-ExprDriver::ExprDriver() : _traceScanning(false), _traceParsing(false)
+ExprDriver::ExprDriver() : _traceScanning(false),
+  _traceParsing(false), _result(0), _resultChanged(false)
 {
 }
 
@@ -31,7 +32,7 @@ ExprDriver::~ExprDriver()
 //===========================================================================
 void ExprDriver::parse(const std::string &input)
 {
-  this->_input = input;
+  _input = input;
   scan_begin();
   yy::ExprParser parser(*this);
   parser.set_debug_level(_traceParsing);
@@ -44,11 +45,15 @@ void ExprDriver::error(const yy::location& l, const std::string& m)
 {
   std::stringstream ss;
   ss << l << ": " << m << " (\"" << _input << "\")";
-  CERR(QString("%1").arg(QString::fromStdString(ss.str())));
+  CERR(QString("Error while parsing input %1: %2")
+      .arg(QString::fromStdString(_input))
+      .arg(QString::fromStdString(ss.str())));
 }
 
 //===========================================================================
 void ExprDriver::error(const std::string& m)
 {
-  CERR(QString::fromStdString(m));
+  CERR(QString("Error while parsing input %1: %2")
+      .arg(QString::fromStdString(_input))
+      .arg(QString::fromStdString(m)));
 }
