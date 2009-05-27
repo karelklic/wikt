@@ -116,7 +116,7 @@ void MediaDownloader::processEntry()
   CHECK(_downloadsInProgress == 0);
   if (_pageCounter == _reader->entries().size())
   {
-    COUT(_reader->entries().size());
+    //COUT(_reader->entries().size());
     _timer.stop();
     emit finished(true);
     return;

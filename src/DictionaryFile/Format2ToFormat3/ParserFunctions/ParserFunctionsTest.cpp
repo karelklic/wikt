@@ -62,6 +62,7 @@ void ParserFunctionsTest::parserExpr()
   QCOMPARE(evaluate("#expr:"), QString(""));
 
   QCOMPARE(evaluate("#expr:1"), QString("1"));
+  QCOMPARE(evaluate("#expr:1.1"), QString("1.1"));
   QCOMPARE(evaluate("#expr:1+1"), QString("2"));
   QCOMPARE(evaluate("#expr: 0 + 1 "), QString("1"));
   QCOMPARE(evaluate("#expr: 10 + 1 "), QString("11"));
@@ -71,6 +72,37 @@ void ParserFunctionsTest::parserExpr()
 
   QCOMPARE(evaluate("#expr:0>1"), QString("0"));
   QCOMPARE(evaluate("#expr:1>0"), QString("1"));
+
+  QCOMPARE(evaluate("#expr:5*5"), QString("25"));
+  QCOMPARE(evaluate("#expr:0*1"), QString("0"));
+  QCOMPARE(evaluate("#expr:5/5"), QString("1"));
+
+  QCOMPARE(evaluate("#expr:30 mod 7"), QString("2"));
+  QCOMPARE(evaluate("#expr:30 mod -7"), QString("2"));
+  QCOMPARE(evaluate("#expr:-30 mod 7"), QString("-2"));
+  QCOMPARE(evaluate("#expr:-30 mod -7"), QString("-2"));
+  QCOMPARE(evaluate("#expr:-8 mod -3"), QString("-2"));
+  QCOMPARE(evaluate("#expr:-8 mod 2.9"), QString("0"));
+  QCOMPARE(evaluate("#expr:-8 mod 3.2"), QString("-2"));
+  QCOMPARE(evaluate("#expr:8.9 mod 3"), QString("2"));
+
+  QCOMPARE(evaluate("#expr:4.2857 round 3"), QString("4.286"));
+  QCOMPARE(evaluate("#expr:4.2857 round 0"), QString("4"));
+  QCOMPARE(evaluate("#expr:42857 round -2"), QString("42900"));
+  QCOMPARE(evaluate("#expr:4.5 round 0"), QString("5"));
+  QCOMPARE(evaluate("#expr:-4.5 round 0"), QString("-5"));
+
+  QCOMPARE(evaluate("#expr:2*2+1"), QString("5"));
+  QCOMPARE(evaluate("#expr:1+2*2"), QString("5"));
+  QCOMPARE(evaluate("#expr:1+2*2*2"), QString("9"));
+  QCOMPARE(evaluate("#expr:1*2+2*2"), QString("6"));
+  QCOMPARE(evaluate("#expr: 2 - 3 + 4 / 5 * 6"), QString("3.8"));
+  QCOMPARE(evaluate("#expr:1+2<2*2"), QString("1"));
+  QCOMPARE(evaluate("#expr:1+2>2*2"), QString("0"));
+  QCOMPARE(evaluate("#expr:2 = 5 < 3 + 4"), QString("1"));
+  QCOMPARE(evaluate("#expr:3 * 4 mod 10 * 10"), QString("20"));
+
+  QCOMPARE(evaluate("#expr:(1+2)*2"), QString("6"));
 }
 
 //===========================================================================

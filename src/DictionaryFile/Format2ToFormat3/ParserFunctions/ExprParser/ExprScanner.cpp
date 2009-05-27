@@ -473,8 +473,8 @@ static void yy_fatal_error (yyconst char msg[]  );
 	(yy_c_buf_p) = yy_cp;
 
 /* %% [4.0] data tables for the DFA and the user's section 1 definitions go here */
-#define YY_NUM_RULES 6
-#define YY_END_OF_BUFFER 7
+#define YY_NUM_RULES 16
+#define YY_END_OF_BUFFER 17
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -482,10 +482,11 @@ struct yy_trans_info
 	flex_int32_t yy_verify;
 	flex_int32_t yy_nxt;
 	};
-static yyconst flex_int16_t yy_accept[12] =
+static yyconst flex_int16_t yy_accept[31] =
     {   0,
-        0,    0,    7,    6,    2,    3,    1,    4,    5,    1,
-        0
+        0,    0,   17,   16,   10,   11,    7,    3,    4,    8,
+        2,    5,   15,    6,   14,   16,   16,   16,    1,    2,
+        0,    0,    0,    1,    9,   12,    0,    0,   13,    0
     } ;
 
 static yyconst flex_int32_t yy_ec[256] =
@@ -493,16 +494,16 @@ static yyconst flex_int32_t yy_ec[256] =
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    2,
+        3,    4,    5,    1,    6,    7,    8,    9,    9,    9,
+        9,    9,    9,    9,    9,    9,    9,    1,    1,   10,
+       11,   12,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    2,    1,    3,    1,    1,    4,    4,    4,
-        4,    4,    4,    4,    4,    4,    4,    1,    1,    5,
-        1,    6,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,   13,    1,    1,    1,    1,    1,   14,
 
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,   15,    1,    1,    1,   16,   17,
+       18,    1,    1,   19,    1,    1,   20,   21,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -520,33 +521,45 @@ static yyconst flex_int32_t yy_ec[256] =
         1,    1,    1,    1,    1
     } ;
 
-static yyconst flex_int32_t yy_meta[7] =
+static yyconst flex_int32_t yy_meta[22] =
     {   0,
-        1,    1,    1,    2,    1,    1
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1
     } ;
 
-static yyconst flex_int16_t yy_base[13] =
+static yyconst flex_int16_t yy_base[31] =
     {   0,
-        0,    0,    8,    9,    9,    9,    0,    9,    9,    0,
-        9,    5
+        0,    0,   36,   37,   37,   37,   37,   37,   37,   37,
+       15,   37,   37,   37,   37,   20,   16,   15,   23,   16,
+       10,   16,    9,   19,   37,   37,   10,   12,   37,   37
     } ;
 
-static yyconst flex_int16_t yy_def[13] =
+static yyconst flex_int16_t yy_def[31] =
     {   0,
-       11,    1,   11,   11,   11,   11,   12,   11,   11,   12,
-        0,   11
+       30,    1,   30,   30,   30,   30,   30,   30,   30,   30,
+       30,   30,   30,   30,   30,   30,   30,   30,   30,   30,
+       30,   30,   30,   30,   30,   30,   30,   30,   30,    0
     } ;
 
-static yyconst flex_int16_t yy_nxt[16] =
+static yyconst flex_int16_t yy_nxt[59] =
     {   0,
-        4,    5,    6,    7,    8,    9,   10,   11,    3,   11,
-       11,   11,   11,   11,   11
+        4,    5,    6,    7,    8,    9,    4,   10,   11,   12,
+       13,   14,   15,   16,    4,   17,    4,    4,   18,    4,
+        4,   19,   19,   20,   20,   29,   28,   24,   27,   26,
+       25,   24,   23,   22,   21,   30,    3,   30,   30,   30,
+       30,   30,   30,   30,   30,   30,   30,   30,   30,   30,
+       30,   30,   30,   30,   30,   30,   30,   30
     } ;
 
-static yyconst flex_int16_t yy_chk[16] =
+static yyconst flex_int16_t yy_chk[59] =
     {   0,
-        1,    1,    1,    1,    1,    1,   12,    3,   11,   11,
-       11,   11,   11,   11,   11
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,   11,   20,   11,   20,   28,   27,   24,   23,   22,
+       21,   19,   18,   17,   16,    3,   30,   30,   30,   30,
+       30,   30,   30,   30,   30,   30,   30,   30,   30,   30,
+       30,   30,   30,   30,   30,   30,   30,   30
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -555,9 +568,10 @@ static char *yy_last_accepting_cpos;
 extern int expr_flex_debug;
 int expr_flex_debug = 1;
 
-static yyconst flex_int16_t yy_rule_linenum[6] =
+static yyconst flex_int16_t yy_rule_linenum[16] =
     {   0,
-       33,   38,   39,   40,   41
+       34,   43,   52,   53,   54,   55,   56,   57,   58,   59,
+       60,   61,   62,   63,   64
     } ;
 
 /* The intent behind this definition is that it'll catch
@@ -577,6 +591,7 @@ char *exprtext;
 
 #include <stdio.h>
 #include <string.h>
+#include <sstream>
 
 #include "ExprDriver.h"
 #include "ExprParser.tab.hpp"
@@ -591,9 +606,9 @@ char *exprtext;
    Unfortunately yyterminate by default returns 0, which is
    not of token_type.  */
 #define yyterminate() return token::END
-#line 29 "ExprScanner.l"
+#line 30 "ExprScanner.l"
   typedef yy::ExprParser::token token;
-#line 597 "ExprScanner.cpp"
+#line 612 "ExprScanner.cpp"
 
 #define INITIAL 0
 
@@ -838,9 +853,9 @@ YY_DECL
 	register int yy_act;
     
 /* %% [7.0] user's declarations go here */
-#line 32 "ExprScanner.l"
+#line 33 "ExprScanner.l"
 
-#line 844 "ExprScanner.cpp"
+#line 859 "ExprScanner.cpp"
 
 	if ( !(yy_init) )
 		{
@@ -903,13 +918,13 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 12 )
+				if ( yy_current_state >= 31 )
 					yy_c = yy_meta[(unsigned int) yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
 			++yy_cp;
 			}
-		while ( yy_current_state != 11 );
+		while ( yy_current_state != 30 );
 		yy_cp = (yy_last_accepting_cpos);
 		yy_current_state = (yy_last_accepting_state);
 
@@ -928,13 +943,13 @@ do_action:	/* This label is used only to access EOF actions. */
 			{
 			if ( yy_act == 0 )
 				fprintf( stderr, "--scanner backing up\n" );
-			else if ( yy_act < 6 )
+			else if ( yy_act < 16 )
 				fprintf( stderr, "--accepting rule at line %ld (\"%s\")\n",
 				         (long)yy_rule_linenum[yy_act], exprtext );
-			else if ( yy_act == 6 )
+			else if ( yy_act == 16 )
 				fprintf( stderr, "--accepting default rule (\"%s\")\n",
 				         exprtext );
-			else if ( yy_act == 7 )
+			else if ( yy_act == 17 )
 				fprintf( stderr, "--(end of buffer or a NUL)\n" );
 			else
 				fprintf( stderr, "--EOF (start condition %d)\n", YY_START );
@@ -952,38 +967,99 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 33 "ExprScanner.l"
-{
-           yylval->num = atof(exprtext);
-           return token::NUM;
-         }
+#line 34 "ExprScanner.l"
+{ /* trailing decimal point is allowed */
+           /* atof can *not* be used, because it is locale-sensitive */
+           std::stringstream ss;
+           ss.imbue(std::locale("C"));
+           ss << exprtext;
+           ss >> yylval->num;
+           return token::NUM;   
+         }  
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 38 "ExprScanner.l"
-{ return token::PLUS; }
+#line 43 "ExprScanner.l"
+{
+           /* atof can *not* be used, because it is locale-sensitive */
+           std::stringstream ss;
+           ss.imbue(std::locale("C"));
+           ss << exprtext;
+           ss >> yylval->num;
+           return token::NUM; 
+         } 
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 39 "ExprScanner.l"
-{ return token::MINUS; }
+#line 52 "ExprScanner.l"
+{ return token::PLUS; }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 40 "ExprScanner.l"
-{ return token::LESSER; }
+#line 53 "ExprScanner.l"
+{ return token::MINUS; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 41 "ExprScanner.l"
-{ return token::LARGER; }
+#line 54 "ExprScanner.l"
+{ return token::LESSER; }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 43 "ExprScanner.l"
+#line 55 "ExprScanner.l"
+{ return token::LARGER; }
+	YY_BREAK
+case 7:
+YY_RULE_SETUP
+#line 56 "ExprScanner.l"
+{ return token::MULTIPLY; }
+	YY_BREAK
+case 8:
+YY_RULE_SETUP
+#line 57 "ExprScanner.l"
+{ return token::DIVIDE; }
+	YY_BREAK
+case 9:
+YY_RULE_SETUP
+#line 58 "ExprScanner.l"
+{ return token::DIVIDE; }
+	YY_BREAK
+case 10:
+YY_RULE_SETUP
+#line 59 "ExprScanner.l"
+{ return token::LEFTPAREN; }
+	YY_BREAK
+case 11:
+YY_RULE_SETUP
+#line 60 "ExprScanner.l"
+{ return token::RIGHTPAREN; }
+	YY_BREAK
+case 12:
+YY_RULE_SETUP
+#line 61 "ExprScanner.l"
+{ return token::MOD; }
+	YY_BREAK
+case 13:
+YY_RULE_SETUP
+#line 62 "ExprScanner.l"
+{ return token::ROUND; }
+	YY_BREAK
+case 14:
+YY_RULE_SETUP
+#line 63 "ExprScanner.l"
+{ return token::POW; }
+	YY_BREAK
+case 15:
+YY_RULE_SETUP
+#line 64 "ExprScanner.l"
+{ return token::EQUALS; }
+	YY_BREAK
+case 16:
+YY_RULE_SETUP
+#line 67 "ExprScanner.l"
 ECHO;
 	YY_BREAK
-#line 987 "ExprScanner.cpp"
+#line 1063 "ExprScanner.cpp"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1297,7 +1373,7 @@ static int yy_get_next_buffer (void)
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 12 )
+			if ( yy_current_state >= 31 )
 				yy_c = yy_meta[(unsigned int) yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
@@ -1330,11 +1406,11 @@ static int yy_get_next_buffer (void)
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 12 )
+		if ( yy_current_state >= 31 )
 			yy_c = yy_meta[(unsigned int) yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
-	yy_is_jam = (yy_current_state == 11);
+	yy_is_jam = (yy_current_state == 30);
 
 	return yy_is_jam ? 0 : yy_current_state;
 }
@@ -2076,7 +2152,7 @@ void exprfree (void * ptr )
 
 /* %ok-for-header */
 
-#line 43 "ExprScanner.l"
+#line 67 "ExprScanner.l"
 
 
 void ExprDriver::scan_begin()

@@ -37,7 +37,7 @@ QString ExprDriver::resultString() const
     return _lastError;
   if (!_resultChanged)
     return "";
-  return QString("%1").arg(_result);
+  return QString::number(_result);
 }
 
 //===========================================================================

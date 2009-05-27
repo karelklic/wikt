@@ -127,12 +127,20 @@ namespace yy
    enum yytokentype {
      END = 0,
      NUM = 258,
-     LARGER = 259,
-     LESSER = 260,
-     PLUS = 261,
-     MINUS = 262,
-     POS = 263,
-     NEG = 264
+     LEFTPAREN = 259,
+     RIGHTPAREN = 260,
+     LARGER = 261,
+     LESSER = 262,
+     EQUALS = 263,
+     ROUND = 264,
+     PLUS = 265,
+     MINUS = 266,
+     MOD = 267,
+     DIVIDE = 268,
+     MULTIPLY = 269,
+     POS = 270,
+     NEG = 271,
+     POW = 272
    };
 
     };

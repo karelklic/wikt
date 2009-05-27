@@ -6,6 +6,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <sstream>
 
 #include "ExprDriver.h"
 #include "ExprParser.tab.hpp"
@@ -30,15 +31,38 @@
 %}
 
 %%
-[0-9]+   {
-           yylval->num = atof(yytext);
-           return token::NUM;
-         }
+[0-9]+\.[0-9]* { /* trailing decimal point is allowed */
+           /* atof can *not* be used, because it is locale-sensitive */
+           std::stringstream ss;
+           ss.imbue(std::locale("C"));
+           ss << yytext;
+           ss >> yylval->num;
+           return token::NUM;   
+         }  
+         
+[0-9]+ {
+           /* atof can *not* be used, because it is locale-sensitive */
+           std::stringstream ss;
+           ss.imbue(std::locale("C"));
+           ss << yytext;
+           ss >> yylval->num;
+           return token::NUM; 
+         } 
          
 \+       { return token::PLUS; }
 \-       { return token::MINUS; }
 \<       { return token::LESSER; }
 \>       { return token::LARGER; }
+\*       { return token::MULTIPLY; }
+\/       { return token::DIVIDE; }
+div      { return token::DIVIDE; }
+\(       { return token::LEFTPAREN; }
+\)       { return token::RIGHTPAREN; }
+mod      { return token::MOD; }
+round    { return token::ROUND; }
+\^       { return token::POW; }
+=        { return token::EQUALS; }
+
 
 %%
 void ExprDriver::scan_begin()

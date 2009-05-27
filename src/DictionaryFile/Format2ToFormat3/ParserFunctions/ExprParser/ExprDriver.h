@@ -19,7 +19,8 @@
 #include "location.hh"
 #include <QString>
 
-// Conducting the whole scanning and parsing of Calc++.
+/// Conducting the whole scanning and parsing of #expr.
+/// http://meta.wikimedia.org/wiki/Help:Calculation
 class ExprDriver
 {
 public:
