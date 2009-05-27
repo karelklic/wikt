@@ -20,7 +20,6 @@ Varia
 
 Important
 * User changes the sequence of languages in a multi-language entry.
-* User hides translations to languages he is not interested in.
 * User chooses whether the translation section is collapsed or not.
 * Error pages
 * Allow searching a whole sentence.

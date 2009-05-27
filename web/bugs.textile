@@ -10,4 +10,4 @@ Report bugs to karelklic@gmail.com. Thank you.
 * Format4 entries should not contain links to wikipedia such as [[w:IPA]], but they should contain external links like [http://en.wiktionary.org/wiki/IPA IPA].
 * Template:#ifexpr is not implemented (entry "啊")
 * __HIDDENCAT__ is not implemented. Delete marked categories in Format2ToFormat3. Category links pointing to nonexistant categories must be completely removed in Format3ToFormat4. Affects entry "car", which contain Translation to be checked categories.
-* Broken parsing of Danish inflection table for "bud" entry.
+

@@ -12,10 +12,12 @@ Wikt 0.17.0 is a development release. It is a work in progress -- definitely not
 h2. Bug Fixes
 * Images in thumbnail style contain icon which now links to the image on wiktionary (external link). Affects a picture in the "dog" entry for example.
 * Interwiki links are extracted from whole document, also from inside paragraphs etc. Removed the "interwiki paragraph" concept. Affects all entries.
+* Parsing of table headers fixed. Affects a Danish inflection table in the "bud" entry.
 
 h2. New Features 
 * External links parsed properly, and open in external browser window when activated.
 * Gallery extension is properly handled and displayed. Affects entry "car".
+* User hides translations to languages he is not interested in.
 * Template:SERVER implemented. Affects "Category:English nouns".
 * Template:localurl implemented. Affects "Category:English nouns".
-
+* New languages added and language support reworked.
