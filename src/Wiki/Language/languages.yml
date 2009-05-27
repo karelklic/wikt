@@ -435,15 +435,27 @@ Chickasaw:
 Chinese:
   code: zh
   interwiki: 中文
-  translations: Chinese
+  translations: [Chinese, Simplified Chinese, Traditional Chinese]
 
 ChinookJargon:
   code: chn
   translations: [Chinook Jargon, Chinook Pidgin, Chinook Wawa]
   
 Chiquitano:
-  translations: Chiquitano  
+  translations: Chiquitano
   
+Chiricahua:
+  cpde: apm
+  translations: Chiricahua
+
+Choctaw:
+  code: cho
+  translations: Choctaw
+  
+Chukchi:
+  code: ckt
+  translations: Chukchi
+    
 ChurchSlavic:
   code: cu
   interwiki: Словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ
@@ -454,6 +466,14 @@ Chuvash:
   interwiki: Чăвашла
   translations: Chuvash
 
+Comanche:
+  code: com
+  translations: Comanche
+  
+Coptic:
+  code: cop
+  translations: Coptic  
+  
 Cornish:
   code: kw
   interwiki: Kernewek
@@ -469,10 +489,17 @@ Cree:
   interwiki: Nēhiyawēwin / ᓀᐦᐃᔭᐍᐏᐣ
   translations: Cree
 
+CrimeanTatar:
+  code: crh
+  translations: Crimean Tatar
+  
 Croatian:
   code: hr
   interwiki: Hrvatski
   translations: Croatian
+  
+Cuiba:
+  translations: Cuiba
 
 Czech:
   code: cs
@@ -487,10 +514,24 @@ Danish:
   interwiki: Dansk
   translations: Danish
 
+Dargwa:
+  translations: Dargwa
+  
+DegXinag:
+  translations: Deg Xinag
+
+Denaina:
+  code: tfn
+  translations: [Dena\'ina, Tanaina]
+  
 Divehi:
   code: dv
   interwiki: ދިވެހިބަސް
-  translations: Divehi
+  translations: [Divehi, Dhivehi]
+  
+Dieri:
+  code: dif
+  translations: [Dieri, Dayerrie, Deerie, Diari, Dieyerie, Diyeri]
 
 Dutch:
   code: nl
@@ -900,10 +941,13 @@ Mongolian:
   interwiki: Монгол
   translations: Mongolian
 
-
 #
 # N
 #
+Nahuatl:
+  code: nah
+  translations: [Nahuatl, Classic Nahuatl]
+
 Nauru:
   code: na
   interwiki: Dorerin Naoero
@@ -923,14 +967,27 @@ Nepali:
   code: ne
   interwiki: नेपाली
   translations: Nepali
+  
+NorthFrisian:
+  translations: North Frisian
 
 NorthNdebele:
   code: nd
+  translations: North Ndebele
+  
+NorthernQiang:
+  translations: Northern Qiang
 
 NorthernSami:
   code: se
   interwiki: Sámegiella
-  translations: NorthernSami
+  translations: Northern Sami
+  
+NorthernSotho:
+  translations: Northern Sotho
+  
+NorthernTujia:
+  translations: Northern Tujia 
 
 Norwegian:
   code: no

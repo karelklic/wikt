@@ -53,8 +53,6 @@ public:
     return _translationToType.value(translation, Unknown);
   }
 
-  /// Returns empty string if translation section name is not
-  /// known.
   QString toTranslationSectionName(Language::Type lang) const;
 
   bool isTranslationVisible(Language::Type lang) const;

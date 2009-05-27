@@ -69,11 +69,25 @@ _typeToInterwiki.insert(Swati, QString::fromWCharArray(L"SiSwati"));
 _typeToTranslations.insert(Swati, QString::fromWCharArray(L"Swati"));
 _translationToType.insert(QString::fromWCharArray(L"Swati"), Swati);
 //-
+_codeToType.insert("com", Comanche);
+_typeToCode.insert(Comanche, "com");
+_typeToTranslations.insert(Comanche, QString::fromWCharArray(L"Comanche"));
+_translationToType.insert(QString::fromWCharArray(L"Comanche"), Comanche);
+//-
+_typeToTranslations.insert(NorthernTujia, QString::fromWCharArray(L"Northern Tujia"));
+_translationToType.insert(QString::fromWCharArray(L"Northern Tujia"), NorthernTujia);
+//-
 _codeToType.insert("rw", Kinyarwanda);
 _typeToCode.insert(Kinyarwanda, "rw");
 _typeToInterwiki.insert(Kinyarwanda, QString::fromWCharArray(L"Kinyarwanda"));
 _typeToTranslations.insert(Kinyarwanda, QString::fromWCharArray(L"Kinyarwanda"));
 _translationToType.insert(QString::fromWCharArray(L"Kinyarwanda"), Kinyarwanda);
+//-
+_codeToType.insert("sh", SerboCroatian);
+_typeToCode.insert(SerboCroatian, "sh");
+_typeToInterwiki.insert(SerboCroatian, QString::fromWCharArray(L"Srpskohrvatski / Српскохрватски"));
+_typeToTranslations.insert(SerboCroatian, QString::fromWCharArray(L"Serbo Croatian"));
+_translationToType.insert(QString::fromWCharArray(L"Serbo Croatian"), SerboCroatian);
 //-
 _typeToTranslations.insert(Carib, QString::fromWCharArray(L"Carib"));
 _translationToType.insert(QString::fromWCharArray(L"Carib"), Carib);
@@ -83,12 +97,6 @@ _typeToCode.insert(ChurchSlavic, "cu");
 _typeToInterwiki.insert(ChurchSlavic, QString::fromWCharArray(L"Словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ"));
 _typeToTranslations.insert(ChurchSlavic, QString::fromWCharArray(L"Church Slavic"));
 _translationToType.insert(QString::fromWCharArray(L"Church Slavic"), ChurchSlavic);
-//-
-_codeToType.insert("sh", SerboCroatian);
-_typeToCode.insert(SerboCroatian, "sh");
-_typeToInterwiki.insert(SerboCroatian, QString::fromWCharArray(L"Srpskohrvatski / Српскохрватски"));
-_typeToTranslations.insert(SerboCroatian, QString::fromWCharArray(L"Serbo Croatian"));
-_translationToType.insert(QString::fromWCharArray(L"Serbo Croatian"), SerboCroatian);
 //-
 _codeToType.insert("lu", LubaKatanga);
 _typeToCode.insert(LubaKatanga, "lu");
@@ -176,6 +184,12 @@ _typeToInterwiki.insert(Chichewa, QString::fromWCharArray(L"Chi-Chewa"));
 _typeToTranslations.insert(Chichewa, QString::fromWCharArray(L"Chichewa"));
 _translationToType.insert(QString::fromWCharArray(L"Chichewa"), Chichewa);
 //-
+_codeToType.insert("ru", Russian);
+_typeToCode.insert(Russian, "ru");
+_typeToInterwiki.insert(Russian, QString::fromWCharArray(L"Русский"));
+_typeToTranslations.insert(Russian, QString::fromWCharArray(L"Russian"));
+_translationToType.insert(QString::fromWCharArray(L"Russian"), Russian);
+//-
 _codeToType.insert("pl", Polish);
 _typeToCode.insert(Polish, "pl");
 _typeToInterwiki.insert(Polish, QString::fromWCharArray(L"Polski"));
@@ -187,12 +201,6 @@ _typeToCode.insert(Navajo, "nv");
 _typeToInterwiki.insert(Navajo, QString::fromWCharArray(L"Diné bizaad"));
 _typeToTranslations.insert(Navajo, QString::fromWCharArray(L"Navajo"));
 _translationToType.insert(QString::fromWCharArray(L"Navajo"), Navajo);
-//-
-_codeToType.insert("ru", Russian);
-_typeToCode.insert(Russian, "ru");
-_typeToInterwiki.insert(Russian, QString::fromWCharArray(L"Русский"));
-_typeToTranslations.insert(Russian, QString::fromWCharArray(L"Russian"));
-_translationToType.insert(QString::fromWCharArray(L"Russian"), Russian);
 //-
 _codeToType.insert("zu", Zulu);
 _typeToCode.insert(Zulu, "zu");
@@ -218,6 +226,9 @@ _typeToInterwiki.insert(Amharic, QString::fromWCharArray(L"አማርኛ"));
 _typeToTranslations.insert(Amharic, QString::fromWCharArray(L"Amharic"));
 _translationToType.insert(QString::fromWCharArray(L"Amharic"), Amharic);
 //-
+_typeToTranslations.insert(DegXinag, QString::fromWCharArray(L"Deg Xinag"));
+_translationToType.insert(QString::fromWCharArray(L"Deg Xinag"), DegXinag);
+//-
 _codeToType.insert("rup", Aromanian);
 _typeToCode.insert(Aromanian, "rup");
 _typeToTranslations.insert(Aromanian, QString::fromWCharArray(L"Aromanian"));
@@ -239,6 +250,13 @@ _typeToCode.insert(Occitan, "oc");
 _typeToInterwiki.insert(Occitan, QString::fromWCharArray(L"Occitan"));
 _typeToTranslations.insert(Occitan, QString::fromWCharArray(L"Occitan"));
 _translationToType.insert(QString::fromWCharArray(L"Occitan"), Occitan);
+//-
+_codeToType.insert("nah", Nahuatl);
+_typeToCode.insert(Nahuatl, "nah");
+_typeToTranslations.insert(Nahuatl, QString::fromWCharArray(L"Classic Nahuatl"));
+_translationToType.insert(QString::fromWCharArray(L"Classic Nahuatl"), Nahuatl);
+_typeToTranslations.insert(Nahuatl, QString::fromWCharArray(L"Nahuatl"));
+_translationToType.insert(QString::fromWCharArray(L"Nahuatl"), Nahuatl);
 //-
 _codeToType.insert("be", Belarusian);
 _typeToCode.insert(Belarusian, "be");
@@ -362,17 +380,17 @@ _typeToInterwiki.insert(Sicilian, QString::fromWCharArray(L"Sicilianu"));
 _typeToTranslations.insert(Sicilian, QString::fromWCharArray(L"Sicilian"));
 _translationToType.insert(QString::fromWCharArray(L"Sicilian"), Sicilian);
 //-
-_codeToType.insert("co", Corsican);
-_typeToCode.insert(Corsican, "co");
-_typeToInterwiki.insert(Corsican, QString::fromWCharArray(L"Corsu"));
-_typeToTranslations.insert(Corsican, QString::fromWCharArray(L"Corsican"));
-_translationToType.insert(QString::fromWCharArray(L"Corsican"), Corsican);
-//-
 _codeToType.insert("qu", Quechua);
 _typeToCode.insert(Quechua, "qu");
 _typeToInterwiki.insert(Quechua, QString::fromWCharArray(L"Runa Simi"));
 _typeToTranslations.insert(Quechua, QString::fromWCharArray(L"Quechua"));
 _translationToType.insert(QString::fromWCharArray(L"Quechua"), Quechua);
+//-
+_codeToType.insert("co", Corsican);
+_typeToCode.insert(Corsican, "co");
+_typeToInterwiki.insert(Corsican, QString::fromWCharArray(L"Corsu"));
+_typeToTranslations.insert(Corsican, QString::fromWCharArray(L"Corsican"));
+_translationToType.insert(QString::fromWCharArray(L"Corsican"), Corsican);
 //-
 _codeToType.insert("rm", RaetoRomance);
 _typeToCode.insert(RaetoRomance, "rm");
@@ -419,6 +437,11 @@ _typeToInterwiki.insert(Chechen, QString::fromWCharArray(L"Нохчийн"));
 _typeToTranslations.insert(Chechen, QString::fromWCharArray(L"Chechen"));
 _translationToType.insert(QString::fromWCharArray(L"Chechen"), Chechen);
 //-
+_codeToType.insert("crh", CrimeanTatar);
+_typeToCode.insert(CrimeanTatar, "crh");
+_typeToTranslations.insert(CrimeanTatar, QString::fromWCharArray(L"Crimean Tatar"));
+_translationToType.insert(QString::fromWCharArray(L"Crimean Tatar"), CrimeanTatar);
+//-
 _codeToType.insert("fi", Finnish);
 _typeToCode.insert(Finnish, "fi");
 _typeToInterwiki.insert(Finnish, QString::fromWCharArray(L"Suomi"));
@@ -449,6 +472,12 @@ _typeToInterwiki.insert(Japanese, QString::fromWCharArray(L"日本語"));
 _typeToTranslations.insert(Japanese, QString::fromWCharArray(L"Japanese"));
 _translationToType.insert(QString::fromWCharArray(L"Japanese"), Japanese);
 //-
+_codeToType.insert("sa", Sanskrit);
+_typeToCode.insert(Sanskrit, "sa");
+_typeToInterwiki.insert(Sanskrit, QString::fromWCharArray(L"संस्कृत"));
+_typeToTranslations.insert(Sanskrit, QString::fromWCharArray(L"Sanskrit"));
+_translationToType.insert(QString::fromWCharArray(L"Sanskrit"), Sanskrit);
+//-
 _codeToType.insert("kl", Kalaallisut);
 _typeToCode.insert(Kalaallisut, "kl");
 _typeToInterwiki.insert(Kalaallisut, QString::fromWCharArray(L"Kalaallisut"));
@@ -458,17 +487,19 @@ _translationToType.insert(QString::fromWCharArray(L"Kalaallisut"), Kalaallisut);
 _codeToType.insert("dv", Divehi);
 _typeToCode.insert(Divehi, "dv");
 _typeToInterwiki.insert(Divehi, QString::fromWCharArray(L"ދިވެހިބަސް"));
+_typeToTranslations.insert(Divehi, QString::fromWCharArray(L"Dhivehi"));
+_translationToType.insert(QString::fromWCharArray(L"Dhivehi"), Divehi);
 _typeToTranslations.insert(Divehi, QString::fromWCharArray(L"Divehi"));
 _translationToType.insert(QString::fromWCharArray(L"Divehi"), Divehi);
 //-
 _codeToType.insert("chn", ChinookJargon);
 _typeToCode.insert(ChinookJargon, "chn");
-_typeToTranslations.insert(ChinookJargon, QString::fromWCharArray(L"Chinook Jargon"));
-_translationToType.insert(QString::fromWCharArray(L"Chinook Jargon"), ChinookJargon);
-_typeToTranslations.insert(ChinookJargon, QString::fromWCharArray(L"Chinook Pidgin"));
-_translationToType.insert(QString::fromWCharArray(L"Chinook Pidgin"), ChinookJargon);
 _typeToTranslations.insert(ChinookJargon, QString::fromWCharArray(L"Chinook Wawa"));
 _translationToType.insert(QString::fromWCharArray(L"Chinook Wawa"), ChinookJargon);
+_typeToTranslations.insert(ChinookJargon, QString::fromWCharArray(L"Chinook Pidgin"));
+_translationToType.insert(QString::fromWCharArray(L"Chinook Pidgin"), ChinookJargon);
+_typeToTranslations.insert(ChinookJargon, QString::fromWCharArray(L"Chinook Jargon"));
+_translationToType.insert(QString::fromWCharArray(L"Chinook Jargon"), ChinookJargon);
 //-
 _codeToType.insert("gv", Manx);
 _typeToCode.insert(Manx, "gv");
@@ -476,17 +507,17 @@ _typeToInterwiki.insert(Manx, QString::fromWCharArray(L"Gaelg"));
 _typeToTranslations.insert(Manx, QString::fromWCharArray(L"Manx"));
 _translationToType.insert(QString::fromWCharArray(L"Manx"), Manx);
 //-
-_codeToType.insert("sa", Sanskrit);
-_typeToCode.insert(Sanskrit, "sa");
-_typeToInterwiki.insert(Sanskrit, QString::fromWCharArray(L"संस्कृत"));
-_typeToTranslations.insert(Sanskrit, QString::fromWCharArray(L"Sanskrit"));
-_translationToType.insert(QString::fromWCharArray(L"Sanskrit"), Sanskrit);
-//-
 _codeToType.insert("ts", Tsonga);
 _typeToCode.insert(Tsonga, "ts");
 _typeToInterwiki.insert(Tsonga, QString::fromWCharArray(L"Xitsonga"));
 _typeToTranslations.insert(Tsonga, QString::fromWCharArray(L"Tsonga"));
 _translationToType.insert(QString::fromWCharArray(L"Tsonga"), Tsonga);
+//-
+_codeToType.insert("sc", Sardinian);
+_typeToCode.insert(Sardinian, "sc");
+_typeToInterwiki.insert(Sardinian, QString::fromWCharArray(L"Sardu"));
+_typeToTranslations.insert(Sardinian, QString::fromWCharArray(L"Sardinian"));
+_translationToType.insert(QString::fromWCharArray(L"Sardinian"), Sardinian);
 //-
 _codeToType.insert("mn", Mongolian);
 _typeToCode.insert(Mongolian, "mn");
@@ -497,20 +528,14 @@ _translationToType.insert(QString::fromWCharArray(L"Mongolian"), Mongolian);
 _typeToTranslations.insert(Abau, QString::fromWCharArray(L"Abau"));
 _translationToType.insert(QString::fromWCharArray(L"Abau"), Abau);
 //-
-_codeToType.insert("abe", Abenaki);
-_typeToCode.insert(Abenaki, "abe");
 _codeToType.insert("aaq", Abenaki);
 _typeToCode.insert(Abenaki, "aaq");
-_typeToTranslations.insert(Abenaki, QString::fromWCharArray(L"Abenaki"));
-_translationToType.insert(QString::fromWCharArray(L"Abenaki"), Abenaki);
+_codeToType.insert("abe", Abenaki);
+_typeToCode.insert(Abenaki, "abe");
 _typeToTranslations.insert(Abenaki, QString::fromWCharArray(L"Abnaki"));
 _translationToType.insert(QString::fromWCharArray(L"Abnaki"), Abenaki);
-//-
-_codeToType.insert("sc", Sardinian);
-_typeToCode.insert(Sardinian, "sc");
-_typeToInterwiki.insert(Sardinian, QString::fromWCharArray(L"Sardu"));
-_typeToTranslations.insert(Sardinian, QString::fromWCharArray(L"Sardinian"));
-_translationToType.insert(QString::fromWCharArray(L"Sardinian"), Sardinian);
+_typeToTranslations.insert(Abenaki, QString::fromWCharArray(L"Abenaki"));
+_translationToType.insert(QString::fromWCharArray(L"Abenaki"), Abenaki);
 //-
 _codeToType.insert("ia", Interlingua);
 _typeToCode.insert(Interlingua, "ia");
@@ -527,10 +552,25 @@ _translationToType.insert(QString::fromWCharArray(L"Twi"), Twi);
 _codeToType.insert("sl", Slovenian);
 _typeToCode.insert(Slovenian, "sl");
 _typeToInterwiki.insert(Slovenian, QString::fromWCharArray(L"Slovenščina"));
-_typeToTranslations.insert(Slovenian, QString::fromWCharArray(L"Slovenian"));
-_translationToType.insert(QString::fromWCharArray(L"Slovenian"), Slovenian);
 _typeToTranslations.insert(Slovenian, QString::fromWCharArray(L"Slovene"));
 _translationToType.insert(QString::fromWCharArray(L"Slovene"), Slovenian);
+_typeToTranslations.insert(Slovenian, QString::fromWCharArray(L"Slovenian"));
+_translationToType.insert(QString::fromWCharArray(L"Slovenian"), Slovenian);
+//-
+_codeToType.insert("dif", Dieri);
+_typeToCode.insert(Dieri, "dif");
+_typeToTranslations.insert(Dieri, QString::fromWCharArray(L"Diyeri"));
+_translationToType.insert(QString::fromWCharArray(L"Diyeri"), Dieri);
+_typeToTranslations.insert(Dieri, QString::fromWCharArray(L"Dieyerie"));
+_translationToType.insert(QString::fromWCharArray(L"Dieyerie"), Dieri);
+_typeToTranslations.insert(Dieri, QString::fromWCharArray(L"Diari"));
+_translationToType.insert(QString::fromWCharArray(L"Diari"), Dieri);
+_typeToTranslations.insert(Dieri, QString::fromWCharArray(L"Deerie"));
+_translationToType.insert(QString::fromWCharArray(L"Deerie"), Dieri);
+_typeToTranslations.insert(Dieri, QString::fromWCharArray(L"Dayerrie"));
+_translationToType.insert(QString::fromWCharArray(L"Dayerrie"), Dieri);
+_typeToTranslations.insert(Dieri, QString::fromWCharArray(L"Dieri"));
+_translationToType.insert(QString::fromWCharArray(L"Dieri"), Dieri);
 //-
 _codeToType.insert("arl", Arabela);
 _typeToCode.insert(Arabela, "arl");
@@ -549,17 +589,17 @@ _typeToInterwiki.insert(Tswana, QString::fromWCharArray(L"Setswana"));
 _typeToTranslations.insert(Tswana, QString::fromWCharArray(L"Tswana"));
 _translationToType.insert(QString::fromWCharArray(L"Tswana"), Tswana);
 //-
-_codeToType.insert("bn", Bengali);
-_typeToCode.insert(Bengali, "bn");
-_typeToInterwiki.insert(Bengali, QString::fromWCharArray(L"বাংলা"));
-_typeToTranslations.insert(Bengali, QString::fromWCharArray(L"Bengali"));
-_translationToType.insert(QString::fromWCharArray(L"Bengali"), Bengali);
-//-
 _codeToType.insert("sr", Serbian);
 _typeToCode.insert(Serbian, "sr");
 _typeToInterwiki.insert(Serbian, QString::fromWCharArray(L"Српски / Srpski"));
 _typeToTranslations.insert(Serbian, QString::fromWCharArray(L"Serbian"));
 _translationToType.insert(QString::fromWCharArray(L"Serbian"), Serbian);
+//-
+_codeToType.insert("bn", Bengali);
+_typeToCode.insert(Bengali, "bn");
+_typeToInterwiki.insert(Bengali, QString::fromWCharArray(L"বাংলা"));
+_typeToTranslations.insert(Bengali, QString::fromWCharArray(L"Bengali"));
+_translationToType.insert(QString::fromWCharArray(L"Bengali"), Bengali);
 //-
 _codeToType.insert("jbo", Lojban);
 _typeToCode.insert(Lojban, "jbo");
@@ -602,11 +642,19 @@ _translationToType.insert(QString::fromWCharArray(L"Gujarati"), Gujarati);
 _typeToTranslations.insert(Anuta, QString::fromWCharArray(L"Anuta"));
 _translationToType.insert(QString::fromWCharArray(L"Anuta"), Anuta);
 //-
+_typeToTranslations.insert(NorthFrisian, QString::fromWCharArray(L"North Frisian"));
+_translationToType.insert(QString::fromWCharArray(L"North Frisian"), NorthFrisian);
+//-
 _codeToType.insert("pa", Panjabi);
 _typeToCode.insert(Panjabi, "pa");
 _typeToInterwiki.insert(Panjabi, QString::fromWCharArray(L"ਪੰਜਾਬੀ"));
 _typeToTranslations.insert(Panjabi, QString::fromWCharArray(L"Panjabi"));
 _translationToType.insert(QString::fromWCharArray(L"Panjabi"), Panjabi);
+//-
+_codeToType.insert("ckt", Chukchi);
+_typeToCode.insert(Chukchi, "ckt");
+_typeToTranslations.insert(Chukchi, QString::fromWCharArray(L"Chukchi"));
+_translationToType.insert(QString::fromWCharArray(L"Chukchi"), Chukchi);
 //-
 _codeToType.insert("cs", Czech);
 _typeToCode.insert(Czech, "cs");
@@ -626,12 +674,17 @@ _typeToInterwiki.insert(Swedish, QString::fromWCharArray(L"Svenska"));
 _typeToTranslations.insert(Swedish, QString::fromWCharArray(L"Swedish"));
 _translationToType.insert(QString::fromWCharArray(L"Swedish"), Swedish);
 //-
+_codeToType.insert("cho", Choctaw);
+_typeToCode.insert(Choctaw, "cho");
+_typeToTranslations.insert(Choctaw, QString::fromWCharArray(L"Choctaw"));
+_translationToType.insert(QString::fromWCharArray(L"Choctaw"), Choctaw);
+//-
 _codeToType.insert("bcl", Bikol);
 _typeToCode.insert(Bikol, "bcl");
-_typeToTranslations.insert(Bikol, QString::fromWCharArray(L"Bikol"));
-_translationToType.insert(QString::fromWCharArray(L"Bikol"), Bikol);
 _typeToTranslations.insert(Bikol, QString::fromWCharArray(L"Bicol"));
 _translationToType.insert(QString::fromWCharArray(L"Bicol"), Bikol);
+_typeToTranslations.insert(Bikol, QString::fromWCharArray(L"Bikol"));
+_translationToType.insert(QString::fromWCharArray(L"Bikol"), Bikol);
 //-
 _codeToType.insert("tzm", CentralAtlasTamazight);
 _typeToCode.insert(CentralAtlasTamazight, "tzm");
@@ -664,10 +717,10 @@ _translationToType.insert(QString::fromWCharArray(L"Welsh"), Welsh);
 //-
 _codeToType.insert("ada", Adangme);
 _typeToCode.insert(Adangme, "ada");
-_typeToTranslations.insert(Adangme, QString::fromWCharArray(L"Adangme"));
-_translationToType.insert(QString::fromWCharArray(L"Adangme"), Adangme);
 _typeToTranslations.insert(Adangme, QString::fromWCharArray(L"Dangme"));
 _translationToType.insert(QString::fromWCharArray(L"Dangme"), Adangme);
+_typeToTranslations.insert(Adangme, QString::fromWCharArray(L"Adangme"));
+_translationToType.insert(QString::fromWCharArray(L"Adangme"), Adangme);
 //-
 _codeToType.insert("bar", Bavarian);
 _typeToCode.insert(Bavarian, "bar");
@@ -701,12 +754,12 @@ _typeToInterwiki.insert(Ido, QString::fromWCharArray(L"Ido"));
 _typeToTranslations.insert(Ido, QString::fromWCharArray(L"Ido"));
 _translationToType.insert(QString::fromWCharArray(L"Ido"), Ido);
 //-
-_typeToTranslations.insert(Aari, QString::fromWCharArray(L"Aari"));
-_translationToType.insert(QString::fromWCharArray(L"Aari"), Aari);
-_typeToTranslations.insert(Aari, QString::fromWCharArray(L"Aarai"));
-_translationToType.insert(QString::fromWCharArray(L"Aarai"), Aari);
 _typeToTranslations.insert(Aari, QString::fromWCharArray(L"Ari"));
 _translationToType.insert(QString::fromWCharArray(L"Ari"), Aari);
+_typeToTranslations.insert(Aari, QString::fromWCharArray(L"Aarai"));
+_translationToType.insert(QString::fromWCharArray(L"Aarai"), Aari);
+_typeToTranslations.insert(Aari, QString::fromWCharArray(L"Aari"));
+_translationToType.insert(QString::fromWCharArray(L"Aari"), Aari);
 //-
 _codeToType.insert("he", Hebrew);
 _typeToCode.insert(Hebrew, "he");
@@ -726,20 +779,20 @@ _typeToInterwiki.insert(Akan, QString::fromWCharArray(L"Akan"));
 _typeToTranslations.insert(Akan, QString::fromWCharArray(L"Akan"));
 _translationToType.insert(QString::fromWCharArray(L"Akan"), Akan);
 //-
-_codeToType.insert("bgp", Baluchi);
-_typeToCode.insert(Baluchi, "bgp");
-_codeToType.insert("bcc", Baluchi);
-_typeToCode.insert(Baluchi, "bcc");
 _codeToType.insert("bgn", Baluchi);
 _typeToCode.insert(Baluchi, "bgn");
-_typeToTranslations.insert(Baluchi, QString::fromWCharArray(L"Baluchi"));
-_translationToType.insert(QString::fromWCharArray(L"Baluchi"), Baluchi);
-_typeToTranslations.insert(Baluchi, QString::fromWCharArray(L"Balochi"));
-_translationToType.insert(QString::fromWCharArray(L"Balochi"), Baluchi);
-_typeToTranslations.insert(Baluchi, QString::fromWCharArray(L"Baloci"));
-_translationToType.insert(QString::fromWCharArray(L"Baloci"), Baluchi);
+_codeToType.insert("bcc", Baluchi);
+_typeToCode.insert(Baluchi, "bcc");
+_codeToType.insert("bgp", Baluchi);
+_typeToCode.insert(Baluchi, "bgp");
 _typeToTranslations.insert(Baluchi, QString::fromWCharArray(L"Baluci"));
 _translationToType.insert(QString::fromWCharArray(L"Baluci"), Baluchi);
+_typeToTranslations.insert(Baluchi, QString::fromWCharArray(L"Baloci"));
+_translationToType.insert(QString::fromWCharArray(L"Baloci"), Baluchi);
+_typeToTranslations.insert(Baluchi, QString::fromWCharArray(L"Balochi"));
+_translationToType.insert(QString::fromWCharArray(L"Balochi"), Baluchi);
+_typeToTranslations.insert(Baluchi, QString::fromWCharArray(L"Baluchi"));
+_translationToType.insert(QString::fromWCharArray(L"Baluchi"), Baluchi);
 //-
 _codeToType.insert("as", Assamese);
 _typeToCode.insert(Assamese, "as");
@@ -754,6 +807,11 @@ _translationToType.insert(QString::fromWCharArray(L"Bemba"), Bemba);
 //-
 _typeToTranslations.insert(Alune, QString::fromWCharArray(L"Alune"));
 _translationToType.insert(QString::fromWCharArray(L"Alune"), Alune);
+//-
+_codeToType.insert("cop", Coptic);
+_typeToCode.insert(Coptic, "cop");
+_typeToTranslations.insert(Coptic, QString::fromWCharArray(L"Coptic"));
+_translationToType.insert(QString::fromWCharArray(L"Coptic"), Coptic);
 //-
 _codeToType.insert("lo", Lao);
 _typeToCode.insert(Lao, "lo");
@@ -801,16 +859,16 @@ _translationToType.insert(QString::fromWCharArray(L"Hindi"), Hindi);
 //-
 _codeToType.insert("azr", Adzera);
 _typeToCode.insert(Adzera, "azr");
-_typeToTranslations.insert(Adzera, QString::fromWCharArray(L"Adzera"));
-_translationToType.insert(QString::fromWCharArray(L"Adzera"), Adzera);
-_typeToTranslations.insert(Adzera, QString::fromWCharArray(L"Acira"));
-_translationToType.insert(QString::fromWCharArray(L"Acira"), Adzera);
-_typeToTranslations.insert(Adzera, QString::fromWCharArray(L"Atsera"));
-_translationToType.insert(QString::fromWCharArray(L"Atsera"), Adzera);
-_typeToTranslations.insert(Adzera, QString::fromWCharArray(L"Atzera"));
-_translationToType.insert(QString::fromWCharArray(L"Atzera"), Adzera);
 _typeToTranslations.insert(Adzera, QString::fromWCharArray(L"Azera"));
 _translationToType.insert(QString::fromWCharArray(L"Azera"), Adzera);
+_typeToTranslations.insert(Adzera, QString::fromWCharArray(L"Atzera"));
+_translationToType.insert(QString::fromWCharArray(L"Atzera"), Adzera);
+_typeToTranslations.insert(Adzera, QString::fromWCharArray(L"Atsera"));
+_translationToType.insert(QString::fromWCharArray(L"Atsera"), Adzera);
+_typeToTranslations.insert(Adzera, QString::fromWCharArray(L"Acira"));
+_translationToType.insert(QString::fromWCharArray(L"Acira"), Adzera);
+_typeToTranslations.insert(Adzera, QString::fromWCharArray(L"Adzera"));
+_translationToType.insert(QString::fromWCharArray(L"Adzera"), Adzera);
 //-
 _codeToType.insert("aib", Aynu);
 _typeToCode.insert(Aynu, "aib");
@@ -820,6 +878,10 @@ _translationToType.insert(QString::fromWCharArray(L"Aynu"), Aynu);
 _codeToType.insert("zh", Chinese);
 _typeToCode.insert(Chinese, "zh");
 _typeToInterwiki.insert(Chinese, QString::fromWCharArray(L"中文"));
+_typeToTranslations.insert(Chinese, QString::fromWCharArray(L"Traditional Chinese"));
+_translationToType.insert(QString::fromWCharArray(L"Traditional Chinese"), Chinese);
+_typeToTranslations.insert(Chinese, QString::fromWCharArray(L"Simplified Chinese"));
+_translationToType.insert(QString::fromWCharArray(L"Simplified Chinese"), Chinese);
 _typeToTranslations.insert(Chinese, QString::fromWCharArray(L"Chinese"));
 _translationToType.insert(QString::fromWCharArray(L"Chinese"), Chinese);
 //-
@@ -847,17 +909,17 @@ _typeToInterwiki.insert(Kashubian, QString::fromWCharArray(L"Kaszëbsczi"));
 _typeToTranslations.insert(Kashubian, QString::fromWCharArray(L"Kashubian"));
 _translationToType.insert(QString::fromWCharArray(L"Kashubian"), Kashubian);
 //-
-_codeToType.insert("or", Oriya);
-_typeToCode.insert(Oriya, "or");
-_typeToInterwiki.insert(Oriya, QString::fromWCharArray(L"ଓଡ଼ିଆ"));
-_typeToTranslations.insert(Oriya, QString::fromWCharArray(L"Oriya"));
-_translationToType.insert(QString::fromWCharArray(L"Oriya"), Oriya);
-//-
 _codeToType.insert("pt", Portuguese);
 _typeToCode.insert(Portuguese, "pt");
 _typeToInterwiki.insert(Portuguese, QString::fromWCharArray(L"Português"));
 _typeToTranslations.insert(Portuguese, QString::fromWCharArray(L"Portuguese"));
 _translationToType.insert(QString::fromWCharArray(L"Portuguese"), Portuguese);
+//-
+_codeToType.insert("or", Oriya);
+_typeToCode.insert(Oriya, "or");
+_typeToInterwiki.insert(Oriya, QString::fromWCharArray(L"ଓଡ଼ିଆ"));
+_typeToTranslations.insert(Oriya, QString::fromWCharArray(L"Oriya"));
+_translationToType.insert(QString::fromWCharArray(L"Oriya"), Oriya);
 //-
 _codeToType.insert("cv", Chuvash);
 _typeToCode.insert(Chuvash, "cv");
@@ -867,25 +929,25 @@ _translationToType.insert(QString::fromWCharArray(L"Chuvash"), Chuvash);
 //-
 _codeToType.insert("ady", Adyghe);
 _typeToCode.insert(Adyghe, "ady");
-_typeToTranslations.insert(Adyghe, QString::fromWCharArray(L"Adyghe"));
-_translationToType.insert(QString::fromWCharArray(L"Adyghe"), Adyghe);
 _typeToTranslations.insert(Adyghe, QString::fromWCharArray(L"Adygei"));
 _translationToType.insert(QString::fromWCharArray(L"Adygei"), Adyghe);
+_typeToTranslations.insert(Adyghe, QString::fromWCharArray(L"Adyghe"));
+_translationToType.insert(QString::fromWCharArray(L"Adyghe"), Adyghe);
 //-
 _codeToType.insert("ach", Acholi);
 _typeToCode.insert(Acholi, "ach");
-_typeToTranslations.insert(Acholi, QString::fromWCharArray(L"Acholi"));
-_translationToType.insert(QString::fromWCharArray(L"Acholi"), Acholi);
-_typeToTranslations.insert(Acholi, QString::fromWCharArray(L"Acoli"));
-_translationToType.insert(QString::fromWCharArray(L"Acoli"), Acholi);
-_typeToTranslations.insert(Acholi, QString::fromWCharArray(L"Acooli"));
-_translationToType.insert(QString::fromWCharArray(L"Acooli"), Acholi);
-_typeToTranslations.insert(Acholi, QString::fromWCharArray(L"Akoli"));
-_translationToType.insert(QString::fromWCharArray(L"Akoli"), Acholi);
-_typeToTranslations.insert(Acholi, QString::fromWCharArray(L"Atscholi"));
-_translationToType.insert(QString::fromWCharArray(L"Atscholi"), Acholi);
 _typeToTranslations.insert(Acholi, QString::fromWCharArray(L"Shuli"));
 _translationToType.insert(QString::fromWCharArray(L"Shuli"), Acholi);
+_typeToTranslations.insert(Acholi, QString::fromWCharArray(L"Atscholi"));
+_translationToType.insert(QString::fromWCharArray(L"Atscholi"), Acholi);
+_typeToTranslations.insert(Acholi, QString::fromWCharArray(L"Akoli"));
+_translationToType.insert(QString::fromWCharArray(L"Akoli"), Acholi);
+_typeToTranslations.insert(Acholi, QString::fromWCharArray(L"Acooli"));
+_translationToType.insert(QString::fromWCharArray(L"Acooli"), Acholi);
+_typeToTranslations.insert(Acholi, QString::fromWCharArray(L"Acoli"));
+_translationToType.insert(QString::fromWCharArray(L"Acoli"), Acholi);
+_typeToTranslations.insert(Acholi, QString::fromWCharArray(L"Acholi"));
+_translationToType.insert(QString::fromWCharArray(L"Acholi"), Acholi);
 //-
 _typeToTranslations.insert(Awngi, QString::fromWCharArray(L"Awngi"));
 _translationToType.insert(QString::fromWCharArray(L"Awngi"), Awngi);
@@ -928,10 +990,10 @@ _translationToType.insert(QString::fromWCharArray(L"Atayal"), Atayal);
 _codeToType.insert("ab", Abkhazian);
 _typeToCode.insert(Abkhazian, "ab");
 _typeToInterwiki.insert(Abkhazian, QString::fromWCharArray(L"Аҧсуа"));
-_typeToTranslations.insert(Abkhazian, QString::fromWCharArray(L"Abkhazian"));
-_translationToType.insert(QString::fromWCharArray(L"Abkhazian"), Abkhazian);
 _typeToTranslations.insert(Abkhazian, QString::fromWCharArray(L"Abkhaz"));
 _translationToType.insert(QString::fromWCharArray(L"Abkhaz"), Abkhazian);
+_typeToTranslations.insert(Abkhazian, QString::fromWCharArray(L"Abkhazian"));
+_translationToType.insert(QString::fromWCharArray(L"Abkhazian"), Abkhazian);
 //-
 _codeToType.insert("awk", Awabakal);
 _typeToCode.insert(Awabakal, "awk");
@@ -968,10 +1030,10 @@ _typeToInterwiki.insert(NorwegianBokmal, QString::fromWCharArray(L"Norsk (bokmå
 //-
 _codeToType.insert("agx", Aghul);
 _typeToCode.insert(Aghul, "agx");
-_typeToTranslations.insert(Aghul, QString::fromWCharArray(L"Aghul"));
-_translationToType.insert(QString::fromWCharArray(L"Aghul"), Aghul);
 _typeToTranslations.insert(Aghul, QString::fromWCharArray(L"Agul"));
 _translationToType.insert(QString::fromWCharArray(L"Agul"), Aghul);
+_typeToTranslations.insert(Aghul, QString::fromWCharArray(L"Aghul"));
+_translationToType.insert(QString::fromWCharArray(L"Aghul"), Aghul);
 //-
 _codeToType.insert("tk", Turkmen);
 _typeToCode.insert(Turkmen, "tk");
@@ -1108,6 +1170,9 @@ _typeToInterwiki.insert(Kikuyu, QString::fromWCharArray(L"Gĩkũyũ"));
 _typeToTranslations.insert(Kikuyu, QString::fromWCharArray(L"Kikuyu"));
 _translationToType.insert(QString::fromWCharArray(L"Kikuyu"), Kikuyu);
 //-
+_typeToTranslations.insert(Cuiba, QString::fromWCharArray(L"Cuiba"));
+_translationToType.insert(QString::fromWCharArray(L"Cuiba"), Cuiba);
+//-
 _codeToType.insert("nl", Dutch);
 _typeToCode.insert(Dutch, "nl");
 _typeToInterwiki.insert(Dutch, QString::fromWCharArray(L"Nederlands"));
@@ -1156,6 +1221,11 @@ _typeToInterwiki.insert(Thai, QString::fromWCharArray(L"ไทย"));
 _typeToTranslations.insert(Thai, QString::fromWCharArray(L"Thai"));
 _translationToType.insert(QString::fromWCharArray(L"Thai"), Thai);
 //-
+_codeToType.insert("zsa", Sarasira);
+_typeToCode.insert(Sarasira, "zsa");
+_typeToTranslations.insert(Sarasira, QString::fromWCharArray(L"Sarasira"));
+_translationToType.insert(QString::fromWCharArray(L"Sarasira"), Sarasira);
+//-
 _codeToType.insert("mk", Macedonian);
 _typeToCode.insert(Macedonian, "mk");
 _typeToInterwiki.insert(Macedonian, QString::fromWCharArray(L"Македонски"));
@@ -1167,11 +1237,6 @@ _typeToCode.insert(Fualah, "ff");
 _typeToInterwiki.insert(Fualah, QString::fromWCharArray(L"Fulfulde"));
 _typeToTranslations.insert(Fualah, QString::fromWCharArray(L"Fualah"));
 _translationToType.insert(QString::fromWCharArray(L"Fualah"), Fualah);
-//-
-_codeToType.insert("zsa", Sarasira);
-_typeToCode.insert(Sarasira, "zsa");
-_typeToTranslations.insert(Sarasira, QString::fromWCharArray(L"Sarasira"));
-_translationToType.insert(QString::fromWCharArray(L"Sarasira"), Sarasira);
 //-
 _typeToTranslations.insert(BishnupriyaManipuri, QString::fromWCharArray(L"Bishnupriya Manipuri"));
 _translationToType.insert(QString::fromWCharArray(L"Bishnupriya Manipuri"), BishnupriyaManipuri);
@@ -1194,6 +1259,8 @@ _translationToType.insert(QString::fromWCharArray(L"Chickasaw"), Chickasaw);
 //-
 _codeToType.insert("nd", NorthNdebele);
 _typeToCode.insert(NorthNdebele, "nd");
+_typeToTranslations.insert(NorthNdebele, QString::fromWCharArray(L"North Ndebele"));
+_translationToType.insert(QString::fromWCharArray(L"North Ndebele"), NorthNdebele);
 //-
 _codeToType.insert("wa", Walloon);
 _typeToCode.insert(Walloon, "wa");
@@ -1381,12 +1448,12 @@ _translationToType.insert(QString::fromWCharArray(L"Anglo-Saxon"), AngloSaxon);
 //-
 _codeToType.insert("ace", Acehnese);
 _typeToCode.insert(Acehnese, "ace");
-_typeToTranslations.insert(Acehnese, QString::fromWCharArray(L"Acehnese"));
-_translationToType.insert(QString::fromWCharArray(L"Acehnese"), Acehnese);
-_typeToTranslations.insert(Acehnese, QString::fromWCharArray(L"Achehnese"));
-_translationToType.insert(QString::fromWCharArray(L"Achehnese"), Acehnese);
 _typeToTranslations.insert(Acehnese, QString::fromWCharArray(L"Achinese"));
 _translationToType.insert(QString::fromWCharArray(L"Achinese"), Acehnese);
+_typeToTranslations.insert(Acehnese, QString::fromWCharArray(L"Achehnese"));
+_translationToType.insert(QString::fromWCharArray(L"Achehnese"), Acehnese);
+_typeToTranslations.insert(Acehnese, QString::fromWCharArray(L"Acehnese"));
+_translationToType.insert(QString::fromWCharArray(L"Acehnese"), Acehnese);
 //-
 _codeToType.insert("kv", Komi);
 _typeToCode.insert(Komi, "kv");
@@ -1396,6 +1463,9 @@ _translationToType.insert(QString::fromWCharArray(L"Komi"), Komi);
 //-
 _typeToTranslations.insert(Amahai, QString::fromWCharArray(L"Amahai"));
 _translationToType.insert(QString::fromWCharArray(L"Amahai"), Amahai);
+//-
+_typeToTranslations.insert(NorthernQiang, QString::fromWCharArray(L"Northern Qiang"));
+_translationToType.insert(QString::fromWCharArray(L"Northern Qiang"), NorthernQiang);
 //-
 _codeToType.insert("sk", Slovak);
 _typeToCode.insert(Slovak, "sk");
@@ -1421,15 +1491,15 @@ _typeToInterwiki.insert(Arabic, QString::fromWCharArray(L"العربية"));
 _typeToTranslations.insert(Arabic, QString::fromWCharArray(L"Arabic"));
 _translationToType.insert(QString::fromWCharArray(L"Arabic"), Arabic);
 //-
-_codeToType.insert("av", Avaric);
-_typeToCode.insert(Avaric, "av");
 _codeToType.insert("ava", Avaric);
 _typeToCode.insert(Avaric, "ava");
+_codeToType.insert("av", Avaric);
+_typeToCode.insert(Avaric, "av");
 _typeToInterwiki.insert(Avaric, QString::fromWCharArray(L"Авар"));
-_typeToTranslations.insert(Avaric, QString::fromWCharArray(L"Avar"));
-_translationToType.insert(QString::fromWCharArray(L"Avar"), Avaric);
 _typeToTranslations.insert(Avaric, QString::fromWCharArray(L"Avaric"));
 _translationToType.insert(QString::fromWCharArray(L"Avaric"), Avaric);
+_typeToTranslations.insert(Avaric, QString::fromWCharArray(L"Avar"));
+_translationToType.insert(QString::fromWCharArray(L"Avar"), Avaric);
 //-
 _codeToType.insert("ch", Chamorro);
 _typeToCode.insert(Chamorro, "ch");
@@ -1446,6 +1516,12 @@ _typeToInterwiki.insert(Spanish, QString::fromWCharArray(L"Español"));
 _typeToTranslations.insert(Spanish, QString::fromWCharArray(L"Spanish"));
 _translationToType.insert(QString::fromWCharArray(L"Spanish"), Spanish);
 //-
+_codeToType.insert("sm", Samoan);
+_typeToCode.insert(Samoan, "sm");
+_typeToInterwiki.insert(Samoan, QString::fromWCharArray(L"Gagana Samoa"));
+_typeToTranslations.insert(Samoan, QString::fromWCharArray(L"Samoan"));
+_translationToType.insert(QString::fromWCharArray(L"Samoan"), Samoan);
+//-
 _codeToType.insert("nn", NorwegianNynorsk);
 _typeToCode.insert(NorwegianNynorsk, "nn");
 _typeToInterwiki.insert(NorwegianNynorsk, QString::fromWCharArray(L"Norsk (nynorsk)‬"));
@@ -1455,12 +1531,6 @@ _typeToCode.insert(Guarani, "gn");
 _typeToInterwiki.insert(Guarani, QString::fromWCharArray(L"Avañe'ẽ"));
 _typeToTranslations.insert(Guarani, QString::fromWCharArray(L"Guaraní"));
 _translationToType.insert(QString::fromWCharArray(L"Guaraní"), Guarani);
-//-
-_codeToType.insert("sm", Samoan);
-_typeToCode.insert(Samoan, "sm");
-_typeToInterwiki.insert(Samoan, QString::fromWCharArray(L"Gagana Samoa"));
-_typeToTranslations.insert(Samoan, QString::fromWCharArray(L"Samoan"));
-_translationToType.insert(QString::fromWCharArray(L"Samoan"), Samoan);
 //-
 _codeToType.insert("vo", Volapuk);
 _typeToCode.insert(Volapuk, "vo");
@@ -1510,6 +1580,13 @@ _typeToInterwiki.insert(Kongo, QString::fromWCharArray(L"Kongo"));
 _typeToTranslations.insert(Kongo, QString::fromWCharArray(L"Kongo"));
 _translationToType.insert(QString::fromWCharArray(L"Kongo"), Kongo);
 //-
+_codeToType.insert("tfn", Denaina);
+_typeToCode.insert(Denaina, "tfn");
+_typeToTranslations.insert(Denaina, QString::fromWCharArray(L"Tanaina"));
+_translationToType.insert(QString::fromWCharArray(L"Tanaina"), Denaina);
+_typeToTranslations.insert(Denaina, QString::fromWCharArray(L"Dena\'ina"));
+_translationToType.insert(QString::fromWCharArray(L"Dena\'ina"), Denaina);
+//-
 _codeToType.insert("ps", Pashto);
 _typeToCode.insert(Pashto, "ps");
 _typeToInterwiki.insert(Pashto, QString::fromWCharArray(L"پښتو"));
@@ -1518,6 +1595,9 @@ _translationToType.insert(QString::fromWCharArray(L"Pashto"), Pashto);
 //-
 _typeToTranslations.insert(Areare, QString::fromWCharArray(L"\'Are\'are"));
 _translationToType.insert(QString::fromWCharArray(L"\'Are\'are"), Areare);
+//-
+_typeToTranslations.insert(NorthernSotho, QString::fromWCharArray(L"Northern Sotho"));
+_translationToType.insert(QString::fromWCharArray(L"Northern Sotho"), NorthernSotho);
 //-
 _codeToType.insert("uz", Uzbek);
 _typeToCode.insert(Uzbek, "uz");
@@ -1528,8 +1608,8 @@ _translationToType.insert(QString::fromWCharArray(L"Uzbek"), Uzbek);
 _codeToType.insert("se", NorthernSami);
 _typeToCode.insert(NorthernSami, "se");
 _typeToInterwiki.insert(NorthernSami, QString::fromWCharArray(L"Sámegiella"));
-_typeToTranslations.insert(NorthernSami, QString::fromWCharArray(L"NorthernSami"));
-_translationToType.insert(QString::fromWCharArray(L"NorthernSami"), NorthernSami);
+_typeToTranslations.insert(NorthernSami, QString::fromWCharArray(L"Northern Sami"));
+_translationToType.insert(QString::fromWCharArray(L"Northern Sami"), NorthernSami);
 //-
 _codeToType.insert("abq", Abaza);
 _typeToCode.insert(Abaza, "abq");
@@ -1542,7 +1622,13 @@ _typeToInterwiki.insert(Aragonese, QString::fromWCharArray(L"Aragonés"));
 _typeToTranslations.insert(Aragonese, QString::fromWCharArray(L"Aragonese"));
 _translationToType.insert(QString::fromWCharArray(L"Aragonese"), Aragonese);
 //-
+_typeToTranslations.insert(Chiricahua, QString::fromWCharArray(L"Chiricahua"));
+_translationToType.insert(QString::fromWCharArray(L"Chiricahua"), Chiricahua);
+//-
 _codeToType.insert("sgn", AmericanSignLanguage);
 _typeToCode.insert(AmericanSignLanguage, "sgn");
 _typeToTranslations.insert(AmericanSignLanguage, QString::fromWCharArray(L"American Sign Language"));
 _translationToType.insert(QString::fromWCharArray(L"American Sign Language"), AmericanSignLanguage);
+//-
+_typeToTranslations.insert(Dargwa, QString::fromWCharArray(L"Dargwa"));
+_translationToType.insert(QString::fromWCharArray(L"Dargwa"), Dargwa);

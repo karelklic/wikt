@@ -48,8 +48,8 @@ QString Language::toCode(Language::Type lang) const
   if (codes.empty())
     return "";
 
-  // Return the first inserted value, which is the last in the values list.
-  return codes.last();
+  // Return the first value.
+  return codes.first();
 }
 
 //===========================================================================
@@ -59,14 +59,19 @@ QString Language::toLocalizedName(Language::Type lang) const
 }
 
 //===========================================================================
+template<typename T>
+static inline QList<T> reverse(const QList<T> &l)
+{
+    QList<T> ret;
+    for (int i=l.size() - 1; i>=0; --i)
+        ret.append(l.at(i));
+    return ret;
+}
+
+//===========================================================================
 QString Language::toTranslationSectionName(Language::Type lang) const
 {
-  QList<QString> names = _typeToTranslations.values(lang);
-  if (names.empty())
-    return "";
-
-  // Return the first inserted value, which is the last in the values list.
-  return names.last();
+  return _typeToTranslations.value(lang, "");
 }
 
 //===========================================================================
