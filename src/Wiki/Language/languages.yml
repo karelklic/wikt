@@ -1,0 +1,1283 @@
+# List of all languages and dialects used in the wiktionary.
+# Some of the languages are used as language headers, some languages have their own Wiktionary, 
+# some are present only in the Translations sections.
+# 
+# LAYOUT
+# ======
+#
+# Language heading: the enumeration name for the C++ code, ASCII only.
+# Language data:
+#   - code: code used in interwiki links. Also used when composing an external link
+#         http://xx.wiktionary.org/, where xx is the code (possibly more than 2 chars are used).
+#   - interwiki: the localized language name used as a title for interwiki links
+#   - translations: the language name used in translations section in entries. It's an English name
+#         of the language, sometimes with diacritics.
+#
+
+#
+# A
+#
+Aari:
+  translations: [Aari, Aarai, Ari]
+
+Abau:
+  translations: Abau
+
+Abaza:
+  code: abq
+  translations: Abaza
+
+Abenaki:
+  code: [abe, aaq] # abe - Western Abenaki, aaq - Eastern Abenaki
+  translations: [Abenaki, Abnaki]
+
+Abkhazian:
+  code: ab
+  interwiki: Аҧсуа
+  translations: [Abkhazian, Abkhaz]
+
+Acehnese:
+  code: ace
+  translations: [Acehnese, Achehnese, Achinese]
+  
+Acholi:
+  code: ach
+  translations: [Acholi, Acoli, Acooli, Akoli, Atscholi, Shuli]
+  
+Adangme:
+  code: ada
+  translations: [Adangme, Dangme]
+  
+Adnyamathanha:
+  code: adt
+  translations: Adnyamathanha
+  
+Adyghe:
+  code: ady
+  translations: [Adyghe, Adygei]
+  
+Adzera:
+  code: azr
+  translations: [Adzera, Acira, Atsera, Atzera, Azera]
+
+Afar:
+  code: aa
+  interwiki: Qafár af
+  translations: Afar
+
+Afrikaans:
+  code: af
+  interwiki: Afrikaans
+  translations: Afrikaans
+  
+Aghul:
+  code: agx
+  translations: [Aghul, Agul]
+  
+Ahtna:
+  translations: Ahtna
+  
+Ainu:
+  code: ain
+  translations: Ainu
+
+Akan:
+  code: ak
+  interwiki: Akan
+  translations: Akan
+  
+Akawaio:
+  code: ake
+  translations: Akawaio
+  
+Akha:
+  translations: Akha
+  
+Akkadian:
+  code: akk
+  translations: Akkadian
+
+Aklanon:
+  code: akl
+  translations: Aklanon
+  
+Alabama:
+  code: akz
+  translations: Alabama
+
+Albanian:
+  code: sq
+  interwiki: Shqip
+  translations: Albanian
+  
+Aleut:
+  code: ale
+  translations: Aleut
+  
+Algonquin:
+  code: alq
+  translations: Algonquin
+  
+Alune:
+  translations: Alune
+  
+Alutor:
+  code: alr
+  translations: Alutor
+  
+Amahai:
+  translations: Amahai
+  
+Amara:
+  translations: Amara
+  
+Ambai:
+  code: amk
+  translations: Ambai
+  
+AmericanSignLanguage:
+  code: sgn
+  translations: American Sign Language
+
+Amharic:
+  code: am
+  interwiki: አማርኛ
+  translations: Amharic
+  
+Andi:
+  translations: Andi
+  
+Angas:
+  translations: Angas
+  
+AngloNorman:
+  code: xno
+  translations: Anglo-Norman
+
+AngloSaxon:
+  code: ang
+  interwiki: Anglo-Saxon
+  translations: Anglo-Saxon
+  
+Anuta:
+  translations: Anuta
+  
+Arabela:
+  code: arl
+  translations: Arabela
+
+Arabic:
+  code: ar
+  interwiki: العربية
+  translations: Arabic
+
+Aragonese:
+  code: an
+  interwiki: Aragonés
+  translations: Aragonese
+  
+Araki:
+  translations: Araki
+  
+Aramaic:
+  translations: Aramaic
+  
+Arapaho:
+  code: arp
+  translations: Arapaho
+  
+Arbore:
+  translations: Arbore
+  
+Areare:
+  translations: \'Are\'are
+  
+Arin:
+  translations: Arin
+  
+Armenian:
+  code: hy
+  interwiki: Հայերեն
+  translations: Armenian
+
+Aromanian:
+  code: rup
+  translations: Aromanian
+
+Assamese:
+  code: as
+  interwiki: অসমীয়া
+  translations: Assamese
+  
+Assan:
+  translations: Assan
+
+Asturian:
+  code: ast
+  interwiki: Asturianu
+  translations: Asturian
+  
+Atayal:
+  code: tay
+  translations: Atayal
+  
+Auhelawa:
+  code: kud
+  translations: \'Auhelawa
+
+Avaric:
+  code: [av, ava]
+  interwiki: Авар
+  translations: [Avar, Avaric]
+
+Avestan:
+  code: ae
+  translations: Avestan
+  
+Awabakal:
+  code: awk
+  translations: Awabakal
+  
+Awngi:
+  translations: Awngi
+
+Aymara:
+  code: ay
+  interwiki: Aymar aru
+  translations: Aymara
+  
+Aynu:
+  code: aib
+  translations: Aynu
+
+Azerbaijani:
+  code: az
+  interwiki: Azərbaycan
+  translations: Azerbaijani
+  
+Azeri:
+  translations: Azeri
+
+#
+# B
+#
+Balinese:
+  code: ban
+  translations: Balinese
+  
+Balti:
+  code: bft
+  translations: Balti
+  
+Baluchi:
+  code: [bgp, bcc, bgn] # Eastern, Southern, and Western Balochi
+  translations: [Baluchi, Balochi, Baloci, Baluci]
+
+Bambara:
+  code: bm
+  interwiki: Bamanankan
+  translations: Bambara
+
+Bangi:
+  translations: Bangi
+
+Barein:
+  translations: Barein
+  
+Bashkir:
+  code: ba
+  interwiki: Башҡорт
+  translations: Bashkir
+  
+Basketo:
+  translations: Basketo
+
+Basque:
+  code: eu
+  interwiki: Euskara
+  translations: Basque
+  
+Bavarian:
+  code: bar
+  translations: Bavarian
+
+Belarusian:
+  code: be
+  interwiki: Беларуская
+  translations: Belarusian
+  
+Bemba:
+  code: bem
+  translations: Bemba
+
+Bengali:
+  code: bn
+  interwiki: বাংলা
+  translations: Bengali
+
+Bihari:
+  code: bh
+  interwiki: भोजपुरी
+  translations: Bihari
+
+Bislama:
+  code: bi
+  interwiki: Bislama
+  translations: Bislama
+
+Bosnian:
+  code: bs
+  interwiki: Bosanski
+  translations: Bosnian
+
+Breton:
+  code: br
+  interwiki: Brezhoneg
+  translations: Breton
+
+Bulgarian:
+  code: bg
+  interwiki: Български
+  translations: Bulgarian
+
+Burmese:
+  code: my
+  interwiki: Myanmasa
+  translations: Burmese
+
+#
+# C
+#
+Catalan:
+  code: ca
+  interwiki: Català
+  translations: Catalan
+
+Chamorro:
+  code: ch
+  interwiki: Chamoru
+  translations: Chamorro
+
+Chechen:
+  code: ce
+  interwiki: Нохчийн
+  translations: Chechen
+
+Cherokee:
+  code: chr
+  interwiki: ᏣᎳᎩ
+  translations: Cherokee
+
+Chichewa:
+  code: ny
+  interwiki: Chi-Chewa
+  translations: Chichewa
+
+Chinese:
+  code: zh
+  interwiki: 中文
+  translations: Chinese
+
+ChurchSlavic:
+  code: cu
+  interwiki: Словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ
+  translations: Church Slavic
+
+Chuvash:
+  code: cv
+  interwiki: Чăвашла
+  translations: Chuvash
+
+Cornish:
+  code: kw
+  interwiki: Kernewek
+  translations: Cornish
+
+Corsican:
+  code: co
+  interwiki: Corsu
+  translations: Corsican
+
+Cree:
+  code: cr
+  interwiki: Nēhiyawēwin / ᓀᐦᐃᔭᐍᐏᐣ
+  translations: Cree
+
+Croatian:
+  code: hr
+  interwiki: Hrvatski
+  translations: Croatian
+
+Czech:
+  code: cs
+  interwiki: Česky
+  translations: Czech
+
+#
+# D
+#
+Danish:
+  code: da
+  interwiki: Dansk
+  translations: Danish
+
+Divehi:
+  code: dv
+  interwiki: ދިވެހިބަސް
+  translations: Divehi
+
+Dutch:
+  code: nl
+  interwiki: Nederlands
+  translations: Dutch
+
+Dzongkha:
+  code: dz
+  interwiki: ཇོང་ཁ
+  translations: Dzongkha
+
+#
+# E
+#
+English:
+  code: en
+  interwiki: English
+  translations: English
+
+Esperanto:
+  code: eo
+  interwiki: Esperanto
+  translations: Esperanto
+
+Estonian:
+  code: et
+  interwiki: Eesti
+  translations: Estonian
+
+Ewe:
+  code: ee
+  interwiki: Eʋegbe
+  translations: Ewe
+
+
+#
+# F
+#
+Faroese:
+  code: fo
+  interwiki: Føroyskt
+  translations: Faroese
+
+Fijian:
+  code: fj
+  interwiki: Na Vosa Vakaviti
+  translations: Fijian
+
+Finnish:
+  code: fi
+  interwiki: Suomi
+  translations: Finnish
+
+French:
+  code: fr
+  interwiki: Français
+  translations: French
+
+Fualah:
+  code: ff
+  interwiki: Fulfulde
+  translations: Fualah
+
+
+#
+# G
+#
+Galician:
+  code: gl
+  interwiki: Galego
+  translations: Galician
+
+Ganda:
+  code: lg
+  interwiki: Luganda
+  translations: Ganda
+
+Georgian:
+  code: ka
+  interwiki: ქართული
+  translations: Georgian
+
+German:
+  code: de
+  interwiki: Deutsch
+  translations: German
+
+Greek:
+  code: el
+  interwiki: Ελληνικά
+  translations: Greek
+
+Guarani:
+  code: gn
+  interwiki: Avañe'ẽ
+  translations: Guaraní
+
+Gujarati:
+  code: gu
+  interwiki: ગુજરાતી
+  translations: Gujarati
+
+
+#
+# H
+#
+Haitian:
+  code: ht
+  interwiki: Kreyòl ayisyen
+  translations: Haitian
+
+Hausa:
+  code: ha
+  interwiki: هَوُسَ
+  translations: Hausa
+
+Hebrew:
+  code: he
+  interwiki: עברית
+  translations: Hebrew
+
+Herero:
+  code: hz
+  interwiki: Otsiherero
+  translations: Herero
+
+Hindi:
+  code: hi
+  interwiki: हिन्दी
+  translations: Hindi
+
+HiriMotu:
+  code: ho
+  interwiki: Hiri Motu
+  translations: HiriMotu
+
+Hungarian:
+  code: hu
+  interwiki: Magyar
+  translations: Hungarian
+
+
+#
+# I
+#
+Icelandic:
+  code: is
+  interwiki: Íslenska
+  translations: Icelandic
+
+Ido:
+  code: io
+  interwiki: Ido
+  translations: Ido
+
+Igbo:
+  code: ig
+  interwiki: Igbo
+  translations: Igbo
+
+Indonesian:
+  code: id
+  interwiki: Bahasa Indonesia
+  translations: Indonesian
+
+Interlingua:
+  code: ia
+  interwiki: Interlingua
+  translations: Interlingua
+
+Interlingue:
+  code: ie
+  interwiki: Interlingue
+  translations: Interlingue
+
+Inuktitut:
+  code: iu
+  interwiki: ᐃᓄᒃᑎᑐᑦ/inuktitut
+  translations: Inuktitut
+
+Inupiaq:
+  code: ik
+  interwiki: Iñupiak
+  translations: Inupiaq
+
+Irish:
+  code: ga
+  interwiki: Gaeilge
+  translations: Irish
+
+Italian:
+  code: it
+  interwiki: Italiano
+  translations: Italian
+
+
+#
+# J
+#
+Japanese:
+  code: ja
+  interwiki: 日本語
+  translations: Japanese
+
+Javanese:
+  code: jv
+  interwiki: Basa Jawa
+  translations: Javanese
+
+
+#
+# K
+#
+Kalaallisut:
+  code: kl
+  interwiki: Kalaallisut
+  translations: Kalaallisut
+
+Kannada:
+  code: kn
+  interwiki: ಕನ್ನಡ
+  translations: Kannada
+
+Kanuri:
+  code: kr
+  interwiki: Kanuri
+  translations: Kanuri
+
+Kashmiri:
+  code: ks
+  interwiki: कश्मीरी - (كشميري)
+  translations: Kashmiri
+
+Kashubian:
+  code: csb
+  interwiki: Kaszëbsczi
+  translations: Kashubian
+
+Kazakh:
+  code: kk
+  interwiki: Қазақша
+  translations: Kazakh
+
+Khmer:
+  code: km
+  interwiki: ភាសាខ្មែរ
+  translations: Khmer
+
+Kikuyu:
+  code: ki
+  interwiki: Gĩkũyũ
+  translations: Kikuyu
+
+Kinyarwanda:
+  code: rw
+  interwiki: Kinyarwanda
+  translations: Kinyarwanda
+
+Kirghiz:
+  code: ky
+  interwiki: Кыргызча
+  translations: Kirghiz
+
+Kirundi:
+  code: rn
+  interwiki: Kirundi
+  translations: Kirundi
+
+Komi:
+  code: kv
+  interwiki: Коми
+  translations: Komi
+
+Kongo:
+  code: kg
+  interwiki: Kongo
+  translations: Kongo
+
+Korean:
+  code: ko
+  interwiki: 한국어
+  translations: Korean
+
+Kurdish:
+  code: ku
+  interwiki: Kurdî / كوردی
+  translations: Kurdish
+
+Kwanyama:
+  code: kj
+  interwiki: Kwanyama
+  translations: Kwanyama
+
+
+#
+# L
+#
+Lao:
+  code: lo
+  interwiki: ລາວ
+  translations: Lao
+
+Latin:
+  code: la
+  interwiki: Latina
+  translations: Latin
+
+Latvian:
+  code: lv
+  interwiki: Latviešu
+  translations: Latvian
+
+Limburgish:
+  code: li
+  interwiki: Limburgs
+  translations: Limburgish
+
+Lingala:
+  code: ln
+  interwiki: Lingála
+  translations: Lingala
+
+Lithuanian:
+  code: lt
+  interwiki: Lietuvių
+  translations: Lithuanian
+
+Lojban:
+  code: jbo
+  interwiki: Lojban
+  translations: Lojban
+
+LowSaxon:
+  code: nds
+  interwiki: Plattdüütsch
+  translations: Low Saxon
+  
+LowerSorbian:
+  code: dsb
+  interwiki: Dolnoserbski
+  translations: Lower Sorbian
+
+LubaKatanga:
+  code: lu
+
+Luxembourgish:
+  code: lb
+  interwiki: Lëtzebuergesch
+  translations: Luxembourgish
+
+
+#
+# M
+#
+Macedonian:
+  code: mk
+  interwiki: Македонски
+  translations: Macedonian
+
+Malagasy:
+  code: mg
+  interwiki: Malagasy
+  translations: Malagasy
+
+Malay:
+  code: ms
+  interwiki: Bahasa Melayu
+  translations: Malay
+
+Malayalam:
+  code: ml
+  interwiki: മലയാളം
+  translations: Malayalam
+
+Maltese:
+  code: mt
+  interwiki: Malti
+  translations: Maltese
+
+Manx:
+  code: gv
+  interwiki: Gaelg
+  translations: Manx
+
+Maori:
+  code: mi
+  interwiki: Māori
+  translations: Maori
+
+Marathi:
+  code: mr
+  interwiki: मराठी
+  translations: Marathi
+
+Marshallese:
+  code: mh
+  interwiki: Ebon
+  translations: Marshallese
+
+MinNan:
+  code: zh-min-nan
+  interwiki: Bân-lâm-gú
+  translations: Min Nan
+
+Mongolian:
+  code: mn
+  interwiki: Монгол
+  translations: Mongolian
+
+
+#
+# N
+#
+Nauru:
+  code: na
+  interwiki: Dorerin Naoero
+  translations: Nauru
+
+Navajo:
+  code: nv
+  interwiki: Diné bizaad
+  translations: Navajo
+
+Ndonga:
+  code: ng
+  interwiki: Oshiwambo
+  translations: Ndonga
+
+Nepali:
+  code: ne
+  interwiki: नेपाली
+  translations: Nepali
+
+NorthNdebele:
+  code: nd
+
+NorthernSami:
+  code: se
+  interwiki: Sámegiella
+  translations: NorthernSami
+
+Norwegian:
+  code: no
+  interwiki: Norsk (bokmål)
+  translations: Norwegian
+
+NorwegianBokmal:
+  code: nb
+  interwiki: Norsk (bokmål)‬
+
+NorwegianNynorsk:
+  code: nn
+  interwiki: Norsk (nynorsk)‬
+
+
+#
+# O
+#
+Occitan:
+  code: oc
+  interwiki: Occitan
+  translations: Occitan
+
+Ojibwa:
+  code: oj
+
+Oriya:
+  code: or
+  interwiki: ଓଡ଼ିଆ
+  translations: Oriya
+
+Oromo:
+  code: om
+  interwiki: Oromoo
+  translations: Oromo
+
+Ossetian:
+  code: os
+  interwiki: Иронау
+  translations: Ossetian
+
+
+#
+# P
+#
+Pali:
+  code: pi
+  interwiki: पािऴ
+  translations: Pali
+
+Panjabi:
+  code: pa
+  interwiki: ਪੰਜਾਬੀ
+  translations: Panjabi
+
+Pashto:
+  code: ps
+  interwiki: پښتو
+  translations: Pashto
+
+Persian:
+  code: fa
+  interwiki: فارسی
+  translations: Persian
+
+Polish:
+  code: pl
+  interwiki: Polski
+  translations: Polish
+
+Portuguese:
+  code: pt
+  interwiki: Português
+  translations: Portuguese
+
+
+#
+# Q
+#
+Quechua:
+  code: qu
+  interwiki: Runa Simi
+  translations: Quechua
+
+
+#
+# R
+#
+RaetoRomance:
+  code: rm
+  interwiki: Rumantsch
+  translations: Raeto Romance
+
+Romanian:
+  code: ro
+  interwiki: Română
+  translations: Romanian
+
+Russian:
+  code: ru
+  interwiki: Русский
+  translations: Russian
+
+
+#
+# S
+#
+Samoan:
+  code: sm
+  interwiki: Gagana Samoa
+  translations: Samoan
+
+Sango:
+  code: sg
+  interwiki: Sängö
+  translations: Sango
+
+Sanskrit:
+  code: sa
+  interwiki: संस्कृत
+  translations: Sanskrit
+  
+Sarasira:
+  code: zsa
+  translations: Sarasira
+
+Sardinian:
+  code: sc
+  interwiki: Sardu
+  translations: Sardinian
+
+ScottishGaelic:
+  code: gd
+  interwiki: Gàidhlig
+  translations: Scottish Gaelic
+
+Serbian:
+  code: sr
+  interwiki: Српски / Srpski
+  translations: Serbian
+
+SerboCroatian:
+  code: sh
+  interwiki: Srpskohrvatski / Српскохрватски
+  translations: Serbo Croatian
+
+Shona:
+  code: sn
+  interwiki: chiShona
+  translations: Shona
+
+SichuanYi:
+  code: ii
+  interwiki: ꆇꉙ
+  translations: Sichuan Yi
+
+Sicilian:
+  code: scn
+  interwiki: Sicilianu
+  translations: Sicilian
+
+SimpleEnglish:
+  code: simple
+  interwiki: Simple English
+  translations: Simple English
+
+Sindhi:
+  code: sd
+  interwiki: سنڌي
+  translations: Sindhi
+
+Sinhala:
+  code: si
+  interwiki: සිංහල
+  translations: Sinhala
+
+Slovak:
+  code: sk
+  interwiki: Slovenčina
+  translations: Slovak
+
+Slovenian:
+  code: sl
+  interwiki: Slovenščina
+  translations: [Slovenian, Slovene]
+
+Somali:
+  code: so
+  interwiki: Soomaaliga
+  translations: Somali
+
+SouthNdebele:
+  code: nr
+
+SouthernSotho:
+  code: st
+  interwiki: Sesotho
+  translations: SouthernSotho
+
+Spanish:
+  code: es
+  interwiki: Español
+  translations: Spanish
+  
+Sukurum:
+  code: zsu
+  translations: Sukurum
+
+Sundanese:
+  code: su
+  interwiki: Basa Sunda
+  translations: Sundanese
+
+Swahili:
+  code: sw
+  interwiki: Kiswahili
+  translations: Swahili
+
+Swati:
+  code: ss
+  interwiki: SiSwati
+  translations: Swati
+
+Swedish:
+  code: sv
+  interwiki: Svenska
+  translations: Swedish
+
+
+#
+# T
+#
+Tagalog:
+  code: tl
+  interwiki: Tagalog
+  translations: Tagalog
+
+Tahitian:
+  code: ty
+  interwiki: Reo Mā`ohi
+  translations: Tahitian
+
+Tajik:
+  code: tg
+  interwiki: Тоҷикӣ
+  translations: Tajik
+
+Tamil:
+  code: ta
+  interwiki: தமிழ்
+  translations: Tamil
+
+Tatar:
+  code: tt
+  interwiki: Tatarça/Татарча
+  translations: Tatar
+
+Telugu:
+  code: te
+  interwiki: తెలుగు
+  translations: Telugu
+
+Thai:
+  code: th
+  interwiki: ไทย
+  translations: Thai
+
+Tibetan:
+  code: bo
+  interwiki: བོད་ཡིག
+  translations: Tibetan
+
+Tigrinya:
+  code: ti
+  interwiki: ትግርኛ
+  translations: Tigrinya
+
+Tonga:
+  code: to
+  interwiki: lea faka-Tonga
+  translations: Tonga
+
+Tsonga:
+  code: ts
+  interwiki: Xitsonga
+  translations: Tsonga
+
+Tswana:
+  code: tn
+  interwiki: Setswana
+  translations: Tswana
+
+Turkish:
+  code: tr
+  interwiki: Türkçe
+  translations: Turkish
+
+Turkmen:
+  code: tk
+  interwiki: Türkmençe
+  translations: Turkmen
+
+Twi:
+  code: tw
+  interwiki: Twi
+  translations: Twi
+
+
+#
+# U
+#
+Uighur:
+  code: ug
+  interwiki: Uyghurche‎ / ئۇيغۇرچە
+  translations: Uighur
+
+Ukrainian:
+  code: uk
+  interwiki: Українська
+  translations: Ukrainian
+
+UpperSorbian:
+  code: hsb
+  interwiki: Hornjoserbsce
+  translations: Upper Sorbian
+
+Urdu:
+  code: ur
+  interwiki: اردو
+  translations: Urdu
+
+Uzbek:
+  code: uz
+  interwiki: O'zbek
+  translations: Uzbek
+
+
+#
+# V
+#
+Venda:
+  code: ve
+  interwiki: Tshivenda
+  translations: Venda
+
+Vietnamese:
+  code: vi
+  interwiki: Tiếng Việt
+  translations: Vietnamese
+
+Volapuk:
+  code: vo
+  interwiki: Volapük
+  translations: Volapuk
+
+
+#
+# W
+#
+Walloon:
+  code: wa
+  interwiki: Walon
+  translations: Walloon
+
+Welsh:
+  code: cy
+  interwiki: Cymraeg
+  translations: Welsh
+
+WesternFrisian:
+  code: fy
+  interwiki: Frysk
+  translations: Western Frisian
+
+Wolof:
+  code: wo
+  interwiki: Wolof
+  translations: Wolof
+
+
+#
+# X
+#
+Xhosa:
+  code: xh
+  interwiki: isiXhosa
+  translations: Xhosa
+
+
+#
+# Y
+#
+Yiddish:
+  code: yi
+  interwiki: ייִדיש
+  translations: Yiddish
+
+Yoruba:
+  code: yo
+  interwiki: Yorùbá
+  translations: Yoruba
+
+
+#
+# Z
+#
+Zhuang:
+  code: za
+  interwiki: Sawcuengh
+  translations: Zhuang
+
+Zulu:
+  code: zu
+  interwiki: isiZulu
+  translations: Zulu
+
