@@ -309,27 +309,56 @@ Belarusian:
 Bemba:
   code: bem
   translations: Bemba
+  
+Bena:
+  code: yun
+  translations: Bena
 
 Bengali:
   code: bn
   interwiki: বাংলা
   translations: Bengali
+  
+Bezhta:
+  code: kap
+  translations: Bezhta
 
 Bihari:
   code: bh
   interwiki: भोजपुरी
   translations: Bihari
+  
+Bikol:
+  code: bcl
+  translations: [Bikol, Bicol]
+  
+Binisaya:
+  translations: Binisayâ
+  
+BishnupriyaManipuri:
+  translations: Bishnupriya Manipuri
 
 Bislama:
   code: bi
   interwiki: Bislama
   translations: Bislama
 
+Blackfoot:
+  code: bla
+  translations: Blackfoot
+
 Bosnian:
   code: bs
   interwiki: Bosanski
   translations: Bosnian
 
+Brahui:
+  code: brh
+  translations: Brahui
+  
+Bresciano:
+  translations: Bresciano
+  
 Breton:
   code: br
   interwiki: Brezhoneg
@@ -344,15 +373,37 @@ Burmese:
   code: my
   interwiki: Myanmasa
   translations: Burmese
+  
+Burushaski:
+  code: bsk
+  translations: Burushaski
 
 #
 # C
 #
+Carib:
+  translations: Carib
+
 Catalan:
   code: ca
   interwiki: Català
   translations: Catalan
+  
+Cebuano:
+  code: ceb
+  translations: Cebuano
+  
+CentralAtlasTamazight:
+  code: tzm
+  translations: Central Atlas Tamazight
+  
+CentralCagayanAgta:
+  translations: Central Cagayan Agta  
 
+Chamicuro:
+  code: ccc
+  translations: Chamicuro
+  
 Chamorro:
   code: ch
   interwiki: Chamoru
@@ -367,17 +418,32 @@ Cherokee:
   code: chr
   interwiki: ᏣᎳᎩ
   translations: Cherokee
+  
+Cheyenne:
+  code: chy
+  translations: Cheyenne
 
 Chichewa:
   code: ny
   interwiki: Chi-Chewa
   translations: Chichewa
+  
+Chickasaw:
+  code: cic
+  translations: Chickasaw  
 
 Chinese:
   code: zh
   interwiki: 中文
   translations: Chinese
 
+ChinookJargon:
+  code: chn
+  translations: [Chinook Jargon, Chinook Pidgin, Chinook Wawa]
+  
+Chiquitano:
+  translations: Chiquitano  
+  
 ChurchSlavic:
   code: cu
   interwiki: Словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ
