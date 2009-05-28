@@ -990,7 +990,7 @@ NorthernTujia:
   translations: Northern Tujia 
 
 Norwegian:
-  code: no
+  code: "no" # supress YAML conversion of no to false
   interwiki: Norsk (bokmål)
   translations: Norwegian
 

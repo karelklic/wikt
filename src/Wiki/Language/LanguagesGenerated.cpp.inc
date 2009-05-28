@@ -1134,8 +1134,8 @@ _typeToCode.insert(Algonquin, "alq");
 _typeToTranslations.insert(Algonquin, QString::fromWCharArray(L"Algonquin"));
 _translationToType.insert(QString::fromWCharArray(L"Algonquin"), Algonquin);
 //-
-_codeToType.insert("false", Norwegian);
-_typeToCode.insert(Norwegian, "false");
+_codeToType.insert("no", Norwegian);
+_typeToCode.insert(Norwegian, "no");
 _typeToInterwiki.insert(Norwegian, QString::fromWCharArray(L"Norsk (bokmål)"));
 _typeToTranslations.insert(Norwegian, QString::fromWCharArray(L"Norwegian"));
 _translationToType.insert(QString::fromWCharArray(L"Norwegian"), Norwegian);

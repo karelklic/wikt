@@ -55,6 +55,11 @@ QString LinkTargetNode::toXHtmlLink() const
 QString LinkTargetNode::toXml(int indentLevel) const
 {
   QString indent(indentLevel, ' ');
-  return indent + QString("<link_target>%1</link_target>\n").arg(_text);
+  return indent + QString("<link_target namespace=\"%1\" language=\"%2\" "
+      "project=\"%3\">%4</link_target>\n")
+      .arg(Namespace::instance().toLocalizedName(_namespace))
+      .arg(Language::instance().toTranslationSectionName(_language))
+      .arg(Project::instance().toUrl(_project, _language))
+      .arg(_text);
 }
 
