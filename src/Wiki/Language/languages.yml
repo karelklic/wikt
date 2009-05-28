@@ -201,7 +201,8 @@ Armenian:
   translations: Armenian
 
 Aromanian:
-  code: rup
+  code: [rup, roa-rup]
+  interwiki: Armãneashce
   translations: Aromanian
 
 Assamese:

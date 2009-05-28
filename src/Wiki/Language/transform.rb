@@ -46,7 +46,9 @@ File.open("LanguagesGenerated.cpp.inc", "w") do |file|
     
     if data.include?("code")
       if data["code"].is_a?(Array)
-        # reverse is important, makes QMap to sort entries properly.
+        # reverse makes QMap to sort entries properly,
+        # but it does not work in all cases (maybe it works by accident)
+        # must be done another way        
         data["code"].reverse.each do |code| 
           file << "_codeToType.insert(\"#{code}\", #{language});\n"
           file << "_typeToCode.insert(#{language}, \"#{code}\");\n"
@@ -61,7 +63,9 @@ File.open("LanguagesGenerated.cpp.inc", "w") do |file|
     
     if data.include?("translations")
       if data["translations"].is_a?(Array)
-        # reverse is important, makes QMap to sort entries properly.
+        # reverse makes QMap to sort entries properly,
+        # but it does not work in all cases (maybe it works by accident)
+        # must be done another way        
         data["translations"].reverse.each do |translation|
           file << "_typeToTranslations.insert(#{language}, QString::fromWCharArray(L\"#{translation}\"));\n"
           file << "_translationToType.insert(QString::fromWCharArray(L\"#{translation}\"), #{language});\n"

@@ -229,8 +229,11 @@ _translationToType.insert(QString::fromWCharArray(L"Amharic"), Amharic);
 _typeToTranslations.insert(DegXinag, QString::fromWCharArray(L"Deg Xinag"));
 _translationToType.insert(QString::fromWCharArray(L"Deg Xinag"), DegXinag);
 //-
+_codeToType.insert("roa-rup", Aromanian);
+_typeToCode.insert(Aromanian, "roa-rup");
 _codeToType.insert("rup", Aromanian);
 _typeToCode.insert(Aromanian, "rup");
+_typeToInterwiki.insert(Aromanian, QString::fromWCharArray(L"Armãneashce"));
 _typeToTranslations.insert(Aromanian, QString::fromWCharArray(L"Aromanian"));
 _translationToType.insert(QString::fromWCharArray(L"Aromanian"), Aromanian);
 //-
