@@ -19,6 +19,7 @@ h2. New Features
 * Links to wikipedia such as [[w:IPA]] are converted to external links like [http://en.wiktionary.org/wiki/IPA IPA]. Clicking to the external link opens external browser.
 * Gallery extension is properly handled and displayed. Affects entry "car".
 * User hides translations to languages he is not interested in.
+* Table captions are now parsed and displayed correctly. Affects "water" entry.
 * Template:SERVER implemented. Affects "Category:English nouns".
 * Template:localurl implemented. Affects "Category:English nouns".
 * New languages added and language support reworked.
