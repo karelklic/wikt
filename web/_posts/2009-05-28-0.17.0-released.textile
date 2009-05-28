@@ -5,7 +5,7 @@ title: Wikt 0.17.0 released
 
 h1. {{ page.title }}
 
-p(meta). 22 May 2009, Karel Klíč
+p(meta). 28 May 2009, Karel Klíč
 
 Wikt 0.17.0 is a development release. It is a work in progress -- definitely not suitable for end users.
 
