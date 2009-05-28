@@ -12,7 +12,8 @@ QT += core \
     phonon \
     testlib
 RESOURCES = wikt.qrc
-HEADERS = src/Options/OptionsDialog.h \
+HEADERS = src/Wiki/Parser/Table/TableCaptionParser.h \
+    src/Options/OptionsDialog.h \
     src/Categories/CategoriesItem.h \
     src/Categories/CategoriesModel.h \
     src/Categories/CategoriesPanel.h \
@@ -173,7 +174,8 @@ HEADERS = src/Options/OptionsDialog.h \
     src/Wiki/Language/Language.h \
     src/Wiki/WikiSource.h \
     src/Wiki/WikiSourceCacheItem.h
-SOURCES = src/Options/OptionsDialog.cpp \
+SOURCES = src/Wiki/Parser/Table/TableCaptionParser.cpp \
+    src/Options/OptionsDialog.cpp \
     src/Categories/CategoriesItem.cpp \
     src/Categories/CategoriesModel.cpp \
     src/Categories/CategoriesPanel.cpp \

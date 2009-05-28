@@ -9,3 +9,4 @@ Report bugs to karelklic@gmail.com. Thank you.
 
 * __HIDDENCAT__ is not implemented. Delete marked categories in Format2ToFormat3. Category links pointing to nonexistant categories must be completely removed in Format3ToFormat4. Affects entry "car", which contain Translation to be checked categories.
 * "Cheyenne" entry created wrongly.
+* "Dhivehi" entry contain interwiki link "no:Dhivehi" in the text, visible.

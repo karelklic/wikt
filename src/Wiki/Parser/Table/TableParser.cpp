@@ -16,6 +16,7 @@
 #include "TableParser.h"
 #include "TableRowParser.h"
 #include "TableCellParser.h"
+#include "TableCaptionParser.h"
 #include "TableHeadParser.h"
 
 //===========================================================================
@@ -53,8 +54,6 @@ TableNode *TableParser::parse(Buffer &buffer)
       break;
     }
 
-    // TODO: table caption
-
     // table row
     Node *node = TableRowParser::parse(buffer);
     if (node)
@@ -67,6 +66,14 @@ TableNode *TableParser::parse(Buffer &buffer)
         // a new row.
         defaultRowNode = 0;
       }
+      tableNode->append(node);
+      continue;
+    }
+
+    // table caption
+    node = TableCaptionParser::parse(buffer);
+    if (node)
+    {
       tableNode->append(node);
       continue;
     }

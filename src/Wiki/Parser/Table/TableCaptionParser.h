@@ -13,24 +13,17 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef TABLECELLPARSER_H_
-#define TABLECELLPARSER_H_
+#ifndef TABLECAPTIONPARSER_H_
+#define TABLECAPTIONPARSER_H_
 
 #include "../Prerequisites.h"
 
-class TableCellParser
+class TableCaptionParser
 {
-  friend class TableHeadParser;
-  friend class TableCaptionParser;
 public:
   /// Returns 0 if the buffer contents cannot be
-  /// parsed as a cell.
-  static TableCellNode *parse(Buffer &buffer);
-
-protected:
-  /// @param parent
-  ///   Parent TableCellNode or TableHeadNode object.
-  static void parseInsideCell(Node &parent, const QString &contents);
+  /// parsed as a table caption.
+  static TableCaptionNode *parse(Buffer &buffer);
 };
 
-#endif /* TABLECELLPARSER_H_ */
+#endif /* TABLECAPTIONPARSER_H_ */

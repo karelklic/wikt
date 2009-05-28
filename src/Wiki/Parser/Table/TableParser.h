@@ -23,6 +23,7 @@ class TableParser
   friend class TableRowParser;
   friend class TableCellParser;
   friend class TableHeadParser;
+  friend class TableCaptionParser;
 public:
   /// Returns 0 if the buffer contents cannot be
   /// parsed as a heading.
