@@ -1,18 +1,20 @@
-== Wikt 0.16.0 Release Notes ==
+== Wikt 0.17.0 Release Notes ==
 
-Wikt 0.16.0 is a development release. It is a work in progress -- definitely not suitable for end users.
+Wikt 0.17.0 is a development release. It is a work in progress -- definitely not suitable for end users.
 
 === Bug Fixes ===
-* Find buttons disabled when the edit box has no content. Also "Find Next" menu item works now.
-* Subwindows are no longer blinking on application start.
-* Fixed a write order/sorting bug in Format3Writer, Format4Writer, MediaWriter. It caused reading problems in media file.
-* Empty list items are ignored when parsing wiki text (class ListParser). Affects "catalog" entry.
-* Paragraph boundary detection takes links (characters inside links) into account. It results in proper parsing of "stroke#Etymology 1".
-* Parser handles links embedded in links; this is used in images. Fixes the parsing of "A#Translingual->Etymology 1", "dog".
+* Images in thumbnail style contain icon which now links to the image on wiktionary (external link). Affects a picture in the "dog" entry for example.
+* Interwiki links are extracted from whole document, also from inside paragraphs etc. Removed the "interwiki paragraph" concept. Affects all entries.
+* Parsing of table headers fixed. Affects a Danish inflection table in the "bud" entry.
 
 === New Features ===
-* Images in entries are displayed.
-* Pronunciation audio in entries is played.
-* Better layout of Find dialog.
-* Added Low Saxon and Lojban to interwiki support code. All missing localized interwiki language names were added.
-* Support of underline ("u") HTML tag, which is used in "Appendix:English nouns".
+* External links parsed properly, and open in external browser window when activated.
+* Links to wikipedia such as [[w:IPA]] are converted to external links like [http://en.wiktionary.org/wiki/IPA IPA]. Clicking to the external link opens external browser.
+* Gallery extension is properly handled and displayed. Affects entry "car".
+* User hides translations to languages he is not interested in.
+* Table captions are now parsed and displayed correctly. Affects "water" entry.
+* Template:SERVER implemented. Affects "Category:English nouns".
+* Template:localurl implemented. Affects "Category:English nouns".
+* New languages added and language support reworked.
+* Template:#ifexpr implemented. Affects "啊" entry.
+* Template:#expr implemented support for multiplication, division, parenthesis, round, pow, mod, and comparison.
