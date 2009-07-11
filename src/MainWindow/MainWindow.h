@@ -28,11 +28,15 @@ class MediaPlayer;
 namespace RelatedPages { class Panel; }
 namespace TableOfContents { class Panel; }
 namespace Categories { class Panel; }
+namespace InterestingPages { class Panel; }
 
+/// The main application window.
+/// Holds links to all window members and important application parts.
 class MainWindow : public QMainWindow
 {
   Q_OBJECT
 public:
+  /// Standard constructor.
   MainWindow();
   ~MainWindow();
   static MainWindow *instance();
@@ -42,6 +46,7 @@ public:
   TableOfContents::Panel *tableOfContentsPanel() const { return _tableOfContentsPanel; }
   RelatedPages::Panel *relatedPagesPanel() const { return _relatedPagesPanel; }
   Categories::Panel *categoriesPanel() const { return _categoriesPanel; }
+  InterestingPages::Panel *interestingPagesPanel() const { return _interestingPagesPanel; }
   Coordinator *coordinator() const { return _coordinator; }
   WikiSource *wikiSource() const { return _wikiSource; }
   FindPanel *findPanel() const { return _findPanel; }
@@ -59,6 +64,7 @@ private:
   TableOfContents::Panel *_tableOfContentsPanel;
   RelatedPages::Panel *_relatedPagesPanel;
   Categories::Panel *_categoriesPanel;
+  InterestingPages::Panel *_interestingPagesPanel;
   Coordinator *_coordinator;
   WikiSource *_wikiSource;
   FindPanel *_findPanel;

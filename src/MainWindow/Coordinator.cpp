@@ -21,6 +21,7 @@
 #include "../RelatedPages/Panel.h"
 #include "../TableOfContents/TocPanel.h"
 #include "../Categories/CategoriesPanel.h"
+#include "../InterestingPages/InterestingPagesPanel.h"
 #include "../Wiki/WikiSource.h"
 #include "../Media/MediaPlayer.h"
 #include "../Wiki/Tree/Article/ArticleNode.h"
@@ -61,6 +62,7 @@ void Coordinator::textEnteredToLookup(const QString &text)
   window->tableOfContentsPanel()->model().generateFrom(node);
   window->relatedPagesPanel()->model().generateFrom(text, node);
   window->categoriesPanel()->model().generateFrom(node);
+  window->interestingPagesPanel()->model().generate();
 }
 
 //===========================================================================
@@ -85,11 +87,34 @@ void Coordinator::localLinkClickedInView(const QUrl &url)
     window->tableOfContentsPanel()->model().generateFrom(node);
     window->relatedPagesPanel()->model().generateFrom(entry, node);
     window->categoriesPanel()->model().generateFrom(node);
+    window->interestingPagesPanel()->model().generate();
   }
   else if (url.scheme() == "media")
     window->mediaPlayer()->play(entry);
   else if (url.scheme() == "http")
     QDesktopServices::openUrl(url);
+}
+
+//===========================================================================
+void Coordinator::interestingPagesPanelClicked(const QString &entry)
+{
+  // Cache
+  if (_state == LocalLinkClickedInInterestingPagesPanel && _text == entry) return;
+  _state = LocalLinkClickedInInterestingPagesPanel;
+  _text = entry;
+
+  MainWindow *window = MainWindow::instance();
+
+  QUrl url(UrlUtils::toUrl(entry));
+  Node *node = window->wikiSource()->tree(entry);
+
+  window->setTitle(entry);
+  window->webView()->setUrl(url);
+  window->lookupPanel()->history().addCurrentPage(url);
+  window->tableOfContentsPanel()->model().generateFrom(node);
+  window->relatedPagesPanel()->model().generateFrom(entry, node);
+  window->categoriesPanel()->model().generateFrom(node);
+  window->interestingPagesPanel()->model().generate();
 }
 
 //===========================================================================
@@ -111,6 +136,7 @@ void Coordinator::localLinkClickedInRelatedPagesPanel(const QString &word)
   window->tableOfContentsPanel()->model().generateFrom(node);
   window->relatedPagesPanel()->model().partialUpdateFrom(word, node);
   window->categoriesPanel()->model().generateFrom(node);
+  window->interestingPagesPanel()->model().generate();
 }
 
 //===========================================================================
@@ -138,9 +164,10 @@ void Coordinator::homeActivated()
   window->setTitle("");
   window->webView()->setUrl(url);
   window->lookupPanel()->history().addCurrentPage(url);
-  window->relatedPagesPanel()->model().generateForTitlePage();
+  window->relatedPagesPanel()->model().clear();
   window->tableOfContentsPanel()->model().clear();
   window->categoriesPanel()->model().clear();
+  window->interestingPagesPanel()->model().generate();
 }
 
 //===========================================================================
@@ -164,6 +191,7 @@ void Coordinator::historyActivated(const QUrl &url)
   window->tableOfContentsPanel()->model().generateFrom(node);
   window->relatedPagesPanel()->model().generateFrom(entry, node);
   window->categoriesPanel()->model().generateFrom(node);
+  window->interestingPagesPanel()->model().generate();
 }
 
 //===========================================================================

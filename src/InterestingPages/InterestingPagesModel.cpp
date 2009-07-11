@@ -13,17 +13,14 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "Model.h"
-#include "RootItem.h"
-#include "ExternalLinksRootItem.h"
-#include "InternalLinkItem.h"
-#include "InterwikiRootItem.h"
+#include "InterestingPagesModel.h"
+#include "InterestingPagesRootItem.h"
+#include "InterestingPagesLanguagesRootItem.h"
 
-namespace RelatedPages {
+namespace InterestingPages {
 
 //===========================================================================
-Model::Model(QObject *parent)
-  : QAbstractItemModel(parent)
+Model::Model(QObject *parent) : QAbstractItemModel(parent)
 {
   _rootItem = new RootItem();
 }
@@ -109,67 +106,21 @@ int Model::columnCount(const QModelIndex &parent) const
 }
 
 //===========================================================================
-void Model::generateFrom(const QString &entry, const Node *rootNode)
+void Model::generate()
 {
   PROFILER;
-  _lastEntry = entry;
-  _rootItem->recreateFrom(entry, rootNode);
+  _rootItem->generate();
+
   // Tell attached views that we changed the model.
   reset();
 }
 
 //===========================================================================
-void Model::partialUpdateFrom(const QString &entry, const Node *rootNode)
+QModelIndex Model::languagesRootItemIndex() const
 {
-  PROFILER;
-  _lastEntry = entry;
-  _rootItem->partialUpdateFrom(entry, rootNode);
-  // Tell attached views that we changed the model.
-  reset();
-}
-
-//===========================================================================
-void Model::clear()
-{
-  PROFILER;
-  _lastEntry = "###CLEARED###";
-  _rootItem->clear();
-  // Tell attached views that we changed the model.
-  reset();
-}
-
-//===========================================================================
-QModelIndex Model::externalLinksIndex() const
-{
-  ExternalLinksRootItem *item = _rootItem->externalLinksRootItem();
-  if (!item) return QModelIndex();
-  return createIndex(item->row(), 0, item);
-}
-
-//===========================================================================
-QModelIndex Model::interwikiIndex() const
-{
-  ExternalLinksRootItem *external = _rootItem->externalLinksRootItem();
-  if (!external) return QModelIndex();
-  InterwikiRootItem *interwiki = external->interwikiRootItem();
-  if (!interwiki) return QModelIndex();
-  return createIndex(interwiki->row(), 0, interwiki);
-}
-
-//===========================================================================
-QModelIndex Model::lastEntryIndex() const
-{
-  PROFILER;
-  for (int i = 0; i < _rootItem->childCount(); ++i)
-  {
-    Item *child = _rootItem->child(i);
-    if (child->type() != Item::InternalLink) continue;
-    InternalLinkItem *link = static_cast<InternalLinkItem*>(child);
-    if (link->data(0).toString() == _lastEntry)
-      return createIndex(link->row(), 0, link);
-  }
-
-  return QModelIndex();
+  LanguagesRootItem *languagesOfTheWorld = _rootItem->languagesOfTheWorld();
+  if (!languagesOfTheWorld) return QModelIndex();
+  return createIndex(languagesOfTheWorld->row(), 0, languagesOfTheWorld);
 }
 
 }

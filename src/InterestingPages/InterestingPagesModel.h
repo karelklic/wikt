@@ -13,17 +13,15 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef RELATEDPAGESMODEL_H_
-#define RELATEDPAGESMODEL_H_
+#ifndef INTERESTINGPAGESMODEL_H_
+#define INTERESTINGPAGESMODEL_H_
 
 #include "../Prerequisites.h"
 #include <QAbstractItemModel>
 #include <QModelIndex>
 #include <QVariant>
-class Node;
-class Format3Reader;
 
-namespace RelatedPages {
+namespace InterestingPages {
 
 class RootItem;
 
@@ -41,28 +39,15 @@ public:
   int rowCount(const QModelIndex &parent = QModelIndex()) const;
   int columnCount(const QModelIndex &parent = QModelIndex()) const;
 
-  /// @brief Updates model to match a certain entry.
-  /// @param entry
-  ///   The name of existing entry in the dictionary.
-  /// @param rootNode
-  ///   The tree of nodes built from the entry contents.
-  void generateFrom(const QString &entry, const Node *rootNode);
+  /// @brief Updates model.
+  void generate();
 
-  /// When user clicks the Related Pages panel, this gets only
-  /// partial update.
-  void partialUpdateFrom(const QString &entry, const Node *rootNode);
-
-  void clear();
-
-  QModelIndex externalLinksIndex() const;
-  QModelIndex interwikiIndex() const;
-  QModelIndex lastEntryIndex() const;
+  QModelIndex languagesRootItemIndex() const;
 
 private:
   RootItem *_rootItem;
-  QString _lastEntry;
 };
 
 }
 
-#endif /* RELATEDPAGESMODEL_H_ */
+#endif /* INTERESTINGPAGESMODEL_H_ */

@@ -41,7 +41,7 @@ public:
   /// Changes just the external links.
   void partialUpdateFrom(const QString &entry, const Node *rootNode);
 
-  void generateForTitlePage();
+  void clear();
 
   ExternalLinksRootItem *externalLinksRootItem() const { return _externalLinksRootItem; }
 

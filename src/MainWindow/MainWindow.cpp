@@ -22,6 +22,7 @@
 #include "../RelatedPages/Panel.h"
 #include "../TableOfContents/TocPanel.h"
 #include "../Categories/CategoriesPanel.h"
+#include "../InterestingPages/InterestingPagesPanel.h"
 #include "../Wiki/WikiSource.h"
 #include "../Media/MediaPlayer.h"
 #include <QDockWidget>
@@ -57,6 +58,9 @@ MainWindow::MainWindow()
   _categoriesPanel = new Categories::Panel();
   addDockWidget(Qt::LeftDockWidgetArea, _categoriesPanel);
 
+  _interestingPagesPanel = new InterestingPages::Panel();
+  addDockWidget(Qt::LeftDockWidgetArea, _interestingPagesPanel);
+
   _findPanel = new FindPanel(this);
   addDockWidget(Qt::BottomDockWidgetArea, _findPanel);
   _findPanel->hide();
@@ -84,6 +88,8 @@ MainWindow::MainWindow()
       _coordinator, SLOT(categoryClickedInCategoriesPanel(const QString&)));
   connect(_tableOfContentsPanel, SIGNAL(activated(const QString&)),
       _coordinator, SLOT(tableOfContentsClicked(const QString&)));
+  connect(_interestingPagesPanel, SIGNAL(localLinkClicked(const QString&)),
+      _coordinator, SLOT(interestingPagesPanelClicked(const QString&)));
   connect(_webView->page(), SIGNAL(linkHovered(const QString&, const QString&,const QString&)),
       this, SLOT(linkHovered(const QString&, const QString&,const QString&)));
 }

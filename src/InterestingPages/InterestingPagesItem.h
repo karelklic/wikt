@@ -13,26 +13,25 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef RELATEDPAGESITEM_H_
-#define RELATEDPAGESITEM_H_
+#ifndef INTERESTINGPAGESITEM_H_
+#define INTERESTINGPAGESITEM_H_
 
+#include "../Prerequisites.h"
 #include <QString>
 #include <QList>
 #include <QVariant>
 
-namespace RelatedPages {
+namespace InterestingPages {
 
-/// @brief An item in Related Pages panel.
-/// RelatedPages::Model class holds a tree of this class instances.
+/// @brief An item in Interesting Pages panel.
+/// InterestingPages::Model class holds a tree of this class instances.
 class Item
 {
 public:
   enum Type {
     Root,
-    ExternalLinksRoot,
-    InterwikiRoot,
-    ExternalLink,
-    InternalLink
+    LanguagesOfTheWorld,
+    Link
   };
 
   /// Standard constructor to be called by inherited classes.
@@ -49,6 +48,8 @@ public:
   int columnCount() const { return _itemData.count(); }
   /// Mandatory for model handling.
   QVariant data(int column) const { return _itemData.value(column); }
+  /// Add data.
+  void appendData(const QVariant &variant) { _itemData.append(variant); }
   /// Mandatory for model handling.
   int row() const;
   /// Mandatory for model handling.
@@ -65,4 +66,4 @@ protected:
 
 }
 
-#endif /* RELATEDPAGESITEM_H_ */
+#endif /* INTERESTINGPAGESITEM_H_ */

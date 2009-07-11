@@ -38,6 +38,7 @@ public:
     TextEnteredToLookup,
     LocalLinkClickedInView,
     LocalLinkClickedInRelatedPagesPanel,
+    LocalLinkClickedInInterestingPagesPanel,
     CategoryClickedInCategoriesPanel,
     HomeActivated
   } State;
@@ -54,6 +55,8 @@ public slots:
   void tableOfContentsClicked(const QString &headingId);
   /// We assume the entry exist.
   void localLinkClickedInView(const QUrl &url);
+  /// A local link has been activated in the interesting pages panel.
+  void interestingPagesPanelClicked(const QString &entry);
   /// We assume the entry exist.
   void localLinkClickedInRelatedPagesPanel(const QString &entry);
   /// We assume the category exist.

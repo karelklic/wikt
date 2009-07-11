@@ -91,7 +91,7 @@ void RootItem::partialUpdateFrom(const QString &entry, const Node *rootNode)
 }
 
 //===========================================================================
-void RootItem::generateForTitlePage()
+void RootItem::clear()
 {
   qDeleteAll(_childItems);
   _childItems.clear();
