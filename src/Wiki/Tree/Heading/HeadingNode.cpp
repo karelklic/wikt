@@ -74,6 +74,8 @@ QString HeadingNode::getXHtmlUniqueId() const
     // Languages like "Scotish Gaelic" has a space in its name.
     result.replace(' ', '_');
     result.replace(QRegExp("[^a-zA-Z0-9_]"), "");
+    if (result == "")
+      result = QString("header%1").arg(_uniqueId);
   }
 
   // Lets check if its nonempty, lower case, alphabet or simple numeric.
