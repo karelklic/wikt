@@ -21,14 +21,28 @@
 #include "../Format2Reader.h"
 #include "../ParameterList.h"
 
-// See http://meta.wikimedia.org/wiki/Help:Template
+/// Finds and evaluates all templates in a wiki page.
+///
+/// See http://meta.wikimedia.org/wiki/Help:Template
+///
+/// Use http://en.wiktionary.org/wiki/Special:ExpandTemplates to
+/// check MediaWiki behavior.
 class TemplateSolver : public QObject
 {
   friend class TemplateSolverTest;
   Q_OBJECT
 public:
+  /// Standard constructor.
+  /// @param pageName
+  ///   Name of the evaluated page, including namespace if it is different from Main.
+  /// @param pageContent
+  ///   Content of the evaluated page in wiki format with template calls.
+  /// @param reader
+  ///   A reader that provides access to all pages and templates referenced from
+  ///   the evaluated page.
   TemplateSolver(const QString &pageName, const QString &pageContent,
       Format2Reader &reader);
+
   QString run();
 
 signals:

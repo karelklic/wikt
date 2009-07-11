@@ -19,8 +19,8 @@
 void TemplateUtils::getParts(const QString &templateText, QList<QString> &output)
 {
   // If linkLevel > 0, the iterator is inside a link.
-  // Handles embedded links, because our template evaluation code might
-  // cause them.
+  // Handles embedded links (links inside links), because our template
+  // evaluation code might cause them, despite that they are not allowed.
   int linkLevel = 0;
   QString part;
   QChar last = ' ';
