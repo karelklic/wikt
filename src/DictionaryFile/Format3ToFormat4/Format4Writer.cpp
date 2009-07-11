@@ -66,10 +66,9 @@ void Format4Writer::close()
   {
     _temporaryFile.seek(it.second);
     QString name = FileUtils::readString(_temporaryFile);
-    // TODO: no need to recompress.
-    QString contents = FileUtils::readCompressed(_temporaryFile);
+    QByteArray contents = FileUtils::readByteArray(_temporaryFile);
     FileUtils::writeString(file, name);
-    FileUtils::writeCompressed(file, contents);
+    FileUtils::writeByteArray(file, contents);
   }
 
   file.close();
