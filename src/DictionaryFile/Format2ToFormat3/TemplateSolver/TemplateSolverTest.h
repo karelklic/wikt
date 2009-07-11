@@ -36,6 +36,8 @@ private slots:
   void newlineAddingInTemplates();
   /// Bug: [[Template:plural of]] failing for [[stadiums]].
   void pluralOf();
+  ///
+  void embeddedLink();
 };
 
 #endif /* TEMPLATESOLVERTEST_H_ */

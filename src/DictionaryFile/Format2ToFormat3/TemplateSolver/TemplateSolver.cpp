@@ -57,6 +57,43 @@ static QString unescapeTemplateSyntax(QString text)
 }
 
 //===========================================================================
+/// Returns the index position of the first occurrence of the string str
+/// in the string text, searching forward from index position from and
+/// skipping the contents of embedded wikilinks.
+/// @return
+///   - if str is not found in text.
+static int linkSkippingindexOf(const QString &text, const QString &str, int from = 0)
+{
+  if (from < 0)
+    from += text.length();
+
+  int linkLevel = 0;
+  for (int i = from; i < text.length(); ++i)
+  {
+    // Handle opening a link.
+    if (text.midRef(i, 2) == "[[")
+    {
+      ++linkLevel;
+      ++i;
+      continue;
+    }
+
+    // Handle closing a link.
+    if (linkLevel > 0 && text.midRef(i, 2) == "]]")
+    {
+      --linkLevel;
+      ++i;
+      continue;
+    }
+
+    if (linkLevel == 0 && text.midRef(i, str.length()) == str)
+      return i;
+  }
+
+  return -1;
+}
+
+//===========================================================================
 QString TemplateSolver::removeTemplates(QString wikiText, const ParameterList &params)
 {
   PROFILER;
@@ -73,7 +110,7 @@ QString TemplateSolver::removeTemplates(QString wikiText, const ParameterList &p
     // Handle a case of rightmost start2
     if (start3 == -1 || start2 > start3 + 1)
     {
-      int stop = wikiText.indexOf("}}", start2);
+      int stop = linkSkippingindexOf(wikiText, "}}", start2);
       if (stop == -1)
       {
         // We are on the beginning, search no more. start is 0 or 1
@@ -88,8 +125,8 @@ QString TemplateSolver::removeTemplates(QString wikiText, const ParameterList &p
     // Handle a case of rightmost start3
     else
     {
-      int stop3 = wikiText.indexOf("}}}", start3);
-      int stop2 = wikiText.indexOf("}}", start3);
+      int stop3 = linkSkippingindexOf(wikiText, "}}}", start3);
+      int stop2 = linkSkippingindexOf(wikiText, "}}", start3);
       if (stop3 == -1 || (stop2 != -1 && stop2 < stop3))
       {
         // Try to expand the last {{
@@ -166,7 +203,7 @@ QString TemplateSolver::evaluateTemplate(QString templateText)
     return NamespaceUrlFunctions::evaluate(templateText);
 
   // get template name
-  // parse parameters and build param list
+  // parse parameters and build parameter list
   QList<QString> parts;
   TemplateUtils::getParts(templateText, parts);
   // Return just the template name if it contains forbidden characters.

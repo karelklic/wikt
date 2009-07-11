@@ -46,7 +46,7 @@ void Format2ToFormat3Converter::run()
        it != reader.entries().constEnd();
        ++it)
   {
-    // DEBUG: it = reader.entries().find(QString::fromStdWString(L"अग्नि"));
+    // DEBUG:it = reader.entries().find(QString::fromStdWString(L"Cheyenne"));
     // Skip template pages.
     if (it.key().startsWith("Template:")) continue;
 

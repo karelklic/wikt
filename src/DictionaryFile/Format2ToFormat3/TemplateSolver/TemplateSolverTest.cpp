@@ -105,3 +105,11 @@ void TemplateSolverTest::pluralOf()
   reader.data.insert("Template:plural of", "{{{cap|{{#if:{{{nocap|}}}|p|P}}}}}lural form of {{#if:{{{2|}}}|[[{{{1}}}|{{{2}}}]]|{{wlink|w={{{1}}}}}}}{{{dot|{{#if:{{{nodot|}}}||.}}}}}{{#ifeq:{{NAMESPACE}}||{{#if:{{{nocat|}}}||[[Category:English plurals]]}}}}");
   QCOMPARE(TemplateSolver("", "{{plural of|[[stadium#English|stadium]]}}", reader).run(), QString("Plural form of [[stadium#English|stadium]].[[Category:English plurals]]"));
 }
+
+//===========================================================================
+void TemplateSolverTest::embeddedLink()
+{
+  TemplateSolverTestReader reader;
+  reader.data.insert("Template:test", "{{#if:a|[[kk}}]]}}");
+  QCOMPARE(TemplateSolver("", "{{#if:a|[[kk}}]]}}", reader).run(), QString("[[kk}}]]"));
+}
