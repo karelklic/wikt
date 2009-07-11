@@ -25,10 +25,22 @@ public:
   static void writeString(QIODevice &device, const QString &data);
   static QString readString(QIODevice &device);
 
+  /// Compresses the data and writes the compressed data to the current device.
   static void writeCompressed(QIODevice &device, const QString &data);
+  /// Reads a block of compressed data from the device, and uncompresses it.
   static QString readCompressed(QIODevice &device);
 
+  /// Writes a byte array to the device.
+  ///
+  /// If the byte array contain compressed data and it is written to the device
+  /// by this method, it can be later read by method readCompressed() from
+  /// the device.
   static void writeByteArray(QIODevice &device, const QByteArray &data);
+
+  /// Reads a byte array from the device.
+  ///
+  /// This method can read data written by method writeCompressed(). The returned
+  /// data will be compressed in this case.
   static QByteArray readByteArray(QIODevice &device);
 };
 
