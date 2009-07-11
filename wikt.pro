@@ -12,7 +12,13 @@ QT += core \
     phonon \
     testlib
 RESOURCES = wikt.qrc
-HEADERS = src/Wiki/Parser/Table/TableCaptionParser.h \
+HEADERS = src/InterestingPages/InterestingPagesLinkItem.h \
+    src/InterestingPages/InterestingPagesLanguagesRootItem.h \
+    src/InterestingPages/InterestingPagesRootItem.h \
+    src/InterestingPages/InterestingPagesItem.h \
+    src/InterestingPages/InterestingPagesModel.h \
+    src/InterestingPages/InterestingPagesPanel.h \
+    src/Wiki/Parser/Table/TableCaptionParser.h \
     src/Options/OptionsDialog.h \
     src/Categories/CategoriesItem.h \
     src/Categories/CategoriesModel.h \
@@ -174,7 +180,13 @@ HEADERS = src/Wiki/Parser/Table/TableCaptionParser.h \
     src/Wiki/Language/Language.h \
     src/Wiki/WikiSource.h \
     src/Wiki/WikiSourceCacheItem.h
-SOURCES = src/Wiki/Parser/Table/TableCaptionParser.cpp \
+SOURCES = src/InterestingPages/InterestingPagesLinkItem.cpp \
+    src/InterestingPages/InterestingPagesLanguagesRootItem.cpp \
+    src/InterestingPages/InterestingPagesRootItem.cpp \
+    src/InterestingPages/InterestingPagesItem.cpp \
+    src/InterestingPages/InterestingPagesModel.cpp \
+    src/InterestingPages/InterestingPagesPanel.cpp \
+    src/Wiki/Parser/Table/TableCaptionParser.cpp \
     src/Options/OptionsDialog.cpp \
     src/Categories/CategoriesItem.cpp \
     src/Categories/CategoriesModel.cpp \
