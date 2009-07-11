@@ -466,6 +466,8 @@ _translationToType.insert(QString::fromWCharArray(L"Georgian"), Georgian);
 _codeToType.insert("ht", Haitian);
 _typeToCode.insert(Haitian, "ht");
 _typeToInterwiki.insert(Haitian, QString::fromWCharArray(L"Kreyòl ayisyen"));
+_typeToTranslations.insert(Haitian, QString::fromWCharArray(L"Haitian Creole"));
+_translationToType.insert(QString::fromWCharArray(L"Haitian Creole"), Haitian);
 _typeToTranslations.insert(Haitian, QString::fromWCharArray(L"Haitian"));
 _translationToType.insert(QString::fromWCharArray(L"Haitian"), Haitian);
 //-
@@ -1443,6 +1445,11 @@ _typeToInterwiki.insert(SouthernSotho, QString::fromWCharArray(L"Sesotho"));
 _typeToTranslations.insert(SouthernSotho, QString::fromWCharArray(L"SouthernSotho"));
 _translationToType.insert(QString::fromWCharArray(L"SouthernSotho"), SouthernSotho);
 //-
+_codeToType.insert("grc", AncientGreek);
+_typeToCode.insert(AncientGreek, "grc");
+_typeToTranslations.insert(AncientGreek, QString::fromWCharArray(L"Ancient Greek"));
+_translationToType.insert(QString::fromWCharArray(L"Ancient Greek"), AncientGreek);
+//-
 _codeToType.insert("ang", AngloSaxon);
 _typeToCode.insert(AngloSaxon, "ang");
 _typeToInterwiki.insert(AngloSaxon, QString::fromWCharArray(L"Anglo-Saxon"));
@@ -1504,6 +1511,11 @@ _translationToType.insert(QString::fromWCharArray(L"Avaric"), Avaric);
 _typeToTranslations.insert(Avaric, QString::fromWCharArray(L"Avar"));
 _translationToType.insert(QString::fromWCharArray(L"Avar"), Avaric);
 //-
+_codeToType.insert("sbf", Shabo);
+_typeToCode.insert(Shabo, "sbf");
+_typeToTranslations.insert(Shabo, QString::fromWCharArray(L"Shabo"));
+_translationToType.insert(QString::fromWCharArray(L"Shabo"), Shabo);
+//-
 _codeToType.insert("ch", Chamorro);
 _typeToCode.insert(Chamorro, "ch");
 _typeToInterwiki.insert(Chamorro, QString::fromWCharArray(L"Chamoru"));
@@ -1538,6 +1550,8 @@ _translationToType.insert(QString::fromWCharArray(L"Guaraní"), Guarani);
 _codeToType.insert("vo", Volapuk);
 _typeToCode.insert(Volapuk, "vo");
 _typeToInterwiki.insert(Volapuk, QString::fromWCharArray(L"Volapük"));
+_typeToTranslations.insert(Volapuk, QString::fromWCharArray(L"Volapük"));
+_translationToType.insert(QString::fromWCharArray(L"Volapük"), Volapuk);
 _typeToTranslations.insert(Volapuk, QString::fromWCharArray(L"Volapuk"));
 _translationToType.insert(QString::fromWCharArray(L"Volapuk"), Volapuk);
 //-

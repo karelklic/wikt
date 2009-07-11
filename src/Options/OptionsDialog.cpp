@@ -45,8 +45,9 @@ OptionsDialog::OptionsDialog(QWidget *parent) : QDialog(parent)
   for (int i = 0; i < Language::Unknown; ++i)
   {
     Language::Type language = (Language::Type)i;
-    QString name = Language::instance().toTranslationSectionName(language);
-    if (name.length() == 0) continue;
+    QStringList names = Language::instance().toTranslationSectionNames(language);
+    if (names.length() == 0) continue;
+    QString name = names.first();
 
     // Find the first A-Z character in the language name.
     // Some language names do not start with A-Z, but with '\'' or another

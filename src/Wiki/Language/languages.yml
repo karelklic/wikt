@@ -143,6 +143,10 @@ Amharic:
   code: am
   interwiki: አማርኛ
   translations: Amharic
+
+AncientGreek:
+  code: grc
+  translations: Ancient Greek
   
 Andi:
   translations: Andi
@@ -642,7 +646,7 @@ Gujarati:
 Haitian:
   code: ht
   interwiki: Kreyòl ayisyen
-  translations: Haitian
+  translations: [Haitian, Haitian Creole]
 
 Hausa:
   code: ha
@@ -1135,6 +1139,10 @@ SerboCroatian:
   interwiki: Srpskohrvatski / Српскохрватски
   translations: Serbo Croatian
 
+Shabo:
+  code: sbf
+  translations: Shabo
+
 Shona:
   code: sn
   interwiki: chiShona
@@ -1342,7 +1350,7 @@ Vietnamese:
 Volapuk:
   code: vo
   interwiki: Volapük
-  translations: Volapuk
+  translations: [Volapuk, Volapük]
 
 
 #

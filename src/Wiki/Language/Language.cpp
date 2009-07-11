@@ -69,24 +69,32 @@ static inline QList<T> reverse(const QList<T> &l)
 }
 
 //===========================================================================
-QString Language::toTranslationSectionName(Language::Type lang) const
+QStringList Language::toTranslationSectionNames(Language::Type lang) const
 {
-  return _typeToTranslations.value(lang, "");
+  return _typeToTranslations.values(lang);
 }
 
 //===========================================================================
 bool Language::isTranslationVisible(Language::Type lang) const
 {
+  QStringList names = toTranslationSectionNames(lang);
+  if (names.empty())
+    return true;
+
   QSettings settings;
-  QString settingName = "translations" + toTranslationSectionName(lang);
+  QString settingName = "translations" + names.first();
   return settings.value(settingName, true).toBool();
 }
 
 //===========================================================================
 void Language::setTranslationVisible(Language::Type lang, bool visible)
 {
+  QStringList names = toTranslationSectionNames(lang);
+  if (names.empty())
+    return;
+
   QSettings settings;
-  QString settingName = "translations" + toTranslationSectionName(lang);
+  QString settingName = "translations" + names.first();
   return settings.setValue(settingName, visible);
 }
 

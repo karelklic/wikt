@@ -53,7 +53,8 @@ public:
     return _translationToType.value(translation, Unknown);
   }
 
-  QString toTranslationSectionName(Language::Type lang) const;
+  /// Returns the names of the language that can be used to identify the language.
+  QStringList toTranslationSectionNames(Language::Type lang) const;
 
   bool isTranslationVisible(Language::Type lang) const;
   void setTranslationVisible(Language::Type lang, bool visible);
@@ -69,8 +70,15 @@ protected:
   /// Value is localized name as "Česky" for Czech.
   /// Used exclusively for interwiki.
   QMap<Type, QString> _typeToInterwiki;
+
   /// English language names used in translation sections of entries.
+  /// There can be multiple names used for the same language, as
+  /// the dictionary is very large and not perfect.
   QMultiMap<Type, QString> _typeToTranslations;
+
+  /// English language names used in the translation sections of entries.
+  /// Multiple names may point to a single type, because the dictionary
+  /// is very large and not perfect.
   QMap<QString, Type> _translationToType;
 };
 
