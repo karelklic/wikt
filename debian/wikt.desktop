@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Wikt
+Comment=Dictionary with all words of all languages.
+TryExec=wikt
+Exec=wikt %F
+Icon=wikt_logo_32
+Categories=Text;
+Terminal=false
