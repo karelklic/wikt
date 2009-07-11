@@ -31,10 +31,24 @@ class WikiSource : public QObject
 public:
   WikiSource(QObject *parent);
   ~WikiSource();
-  bool exist(const QString &entryName);
+
+  /// Checks for the entry's existence.
+  /// @param useCache
+  ///   If true, uses cache of entries and if the entry is not in the cache
+  ///   it is cached.
+  ///
+  ///   Caching slows the first access, but speeds up multiple accesses to
+  ///   a single entry a lot.
+  ///
+  ///   Set it to true for common entry browsing and sparse checking.
+  ///   Set it to true when checking the existence of many entries in a batch.
+  bool exist(const QString &entryName, bool useCache = true);
+
   const QString &source(const QString &entryName);
-  /// Do not delete it.
+
+  /// @return Node owned by this class. Do not delete it.
   ArticleNode *tree(const QString &entryName);
+
   const QString &xhtml(const QString &entryName);
 
   void sectionVisibilityChanged();

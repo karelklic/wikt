@@ -35,9 +35,12 @@ WikiSource::~WikiSource()
 }
 
 //===========================================================================
-bool WikiSource::exist(const QString &entryName)
+bool WikiSource::exist(const QString &entryName, bool useCache /*= true*/)
 {
-  return cached(entryName)->source() != "";
+  if (useCache)
+    return cached(entryName)->source() != "";
+  else
+    return _reader->exist(entryName);
 }
 
 //===========================================================================
