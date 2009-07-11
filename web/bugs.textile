@@ -5,7 +5,6 @@ title: Bugs
 
 h1. Bugs
 
-Report bugs to karelklic@gmail.com. Thank you.
+Report bugs to karelklic@gmail.com.
 
-* "Cheyenne" entry created wrongly. Fourth meaning.
 

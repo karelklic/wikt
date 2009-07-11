@@ -1,0 +1,16 @@
+---
+layout: post
+title: Wikt 0.18.0 released
+---
+
+h1. {{ page.title }}
+
+p(meta). 11 July 2009, Karel Klíč
+
+Wikt 0.18.0 is a development release. It is a work in progress -- definitely not suitable for end users.
+
+h2. Bug Fixes
+* Fixed template evaluation of template given_name used in entry Cheyenne.
+
+h2. New Features
+

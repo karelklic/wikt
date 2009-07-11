@@ -5,6 +5,11 @@ title: Wishlist
 
 h1. Wishlist
 
+* Format3ToFormat4 pass will generate a list of appendices and other lists as necessary.
+* Format3ToFormat4 pass will generate statistics page and part of the front page (front page without the header) in HTML. Or maybe the existing statistics page can be used.
+
+
+
 * Categories store list of entries pointing to them.
 * [NEXT] Generate statistics page (entry count by language).
 * [NEXT] Compression go to format5.
