@@ -4,6 +4,6 @@ Name=Wikt
 Comment=Dictionary with all words of all languages.
 TryExec=wikt
 Exec=wikt %F
-Icon=wikt_logo_32
+Icon=wikt_logo_128
 Categories=Text;
 Terminal=false

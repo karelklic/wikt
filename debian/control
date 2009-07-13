@@ -9,6 +9,6 @@ Homepage: http://wikt.sourceforge.net/
 
 Package: wikt
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends}
 Description: Dictionary with all words of all languages.
 
