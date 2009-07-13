@@ -7,3 +7,10 @@ include /usr/share/cdbs/1/rules/utils.mk
 # Don't add unnecessary ldconfig to postinst
 DEB_DH_MAKESHLIBS_ARGS_ALL := -n
 
+build/wikt::
+
+binary-install/wikt::
+	dh_desktop -p$(cdbs_curpkg)
+
+clean::
+
