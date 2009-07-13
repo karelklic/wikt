@@ -1,4 +1,4 @@
 debian/wikt.desktop usr/share/applications/
-usr/bin/wikt
-usr/share/pixmaps/wikt_logo_32.png
+wikt usr/bin/wikt
+images/logo_32.png usr/share/pixmaps/wikt_logo_32.png
 

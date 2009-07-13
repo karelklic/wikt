@@ -35,6 +35,7 @@ MainWindow::MainWindow()
 {
   ::instance = this;
   statusBar()->showMessage(tr("Ready"));
+  setWindowIcon(QIcon(":/images/logo.svg"));
 
   setCorner(Qt::BottomLeftCorner, Qt::LeftDockWidgetArea);
 

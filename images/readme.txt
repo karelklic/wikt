@@ -11,3 +11,7 @@ loudspeaker.png
 bullet.gif
   wiktionary
 
+logo.svg
+  http://openclipart.org/media/files/Anonymous/13153
+  Public domain.
+  Original name "old book"

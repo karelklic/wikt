@@ -8,5 +8,6 @@
         <file>images/loudspeaker.png</file>
         <file>images/loudspeaker.svg</file>
         <file>images/magnify-clip.png</file>
+        <file>images/logo.svg</file>
     </qresource>
 </RCC>
