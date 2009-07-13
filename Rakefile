@@ -11,6 +11,11 @@ namespace :release do
     sh("sftp karelklic@frs.sf.net <<EOF\ncd uploads\nput #{releases.first}\nbye\nEOF")
     puts "Release uploaded, now continue to https://sourceforge.net/project/admin/editpackages.php?group_id=260074"
   end
+
+  desc "Creates the Ubuntu package"
+  task :deb do
+    `dpkg-buildpackage -rfakeroot`
+  end
 end
 
 namespace :web do
