@@ -14,7 +14,7 @@ namespace :release do
 
   desc "Creates the Ubuntu package"
   task :deb do
-    `dpkg-buildpackage -rfakeroot`
+    system "dpkg-buildpackage -rfakeroot"
   end
 end
 
