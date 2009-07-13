@@ -1,4 +1,6 @@
 debian/wikt.desktop usr/share/applications/
-wikt usr/bin/wikt
+wikt usr/bin/
 images/wikt_logo_128.png usr/share/pixmaps/
+data/enwiktionary-20090203-pages-articles.ei4 usr/share/wikt/
+data/enwiktionary-20090203-pages-articles.eim usr/share/wikt/
 
