@@ -21,6 +21,7 @@
 #include "../../Language/Language.h"
 #include "../../Project.h"
 #include <QList>
+#include <QSize>
 
 class LinkTargetNode;
 class LinkOptionsNode;
@@ -40,8 +41,15 @@ public:
   ///   http://meta.wikimedia.org/wiki/Help:Piped_link
   LinkNode(bool emptyPipeAtEnd, bool forcedLink);
 
+  /// Returns the contents of this node as a XHTML code. If this node links
+  /// to an image, the <img> tag is returned.
   virtual QString toXHtml() const;
+
+  /// Returns the contents of this node as a XML element. Useful for debug
+  /// purposes.
   virtual QString toXml(int indentLevel) const;
+
+  /// Used by LinkConverter class.
   QString toWiki() const;
 
   /// Returns an external link representation of this link node.
@@ -49,11 +57,14 @@ public:
   /// for node created from "[[maso]]".
   QString toExternalLinkWiki() const;
 
+  /// Adds a child node.
   virtual void append(Node *child);
 
   /// Forced link is the one that begins with colon,
   /// such as [[:Category:Czech nouns]].
   bool forcedLink() const { return _forcedLink; }
+
+  /// The link is in format [[link|]].
   bool emptyPipeAtEnd() const { return _emptyPipeAtEnd; }
 
   /// Returns the title of link. This is supposed to be read by users.
@@ -66,6 +77,29 @@ public:
 
   int getOptionCount() const { return _options.size(); }
   LinkOptionsNode *getOption(int pos) const { return _options[pos]; }
+
+  struct Image
+  {
+    enum ImageType
+    {
+      Simple, Thumbnail, Frame, Border
+    } type;
+
+    enum ImageLocation
+    {
+      Right, Left, Center, None, Default
+    } location;
+
+    /// Image size to be displayed in pixels.
+    QSize size;
+
+    QString caption;
+
+    Image() : type(Simple), location(Default), size(10, 10) {}
+  };
+
+  bool isDisplayableImage() const;
+  Image getImageParams(QSize originalSize) const;
 
 protected:
   QString toXHtmlImage() const;

@@ -43,7 +43,7 @@ QString LinkNode::toXHtml() const
     return "";
 
   // Images.
-  if (!_forcedLink && target().namespace_() == Namespace::Image)
+  if (isDisplayableImage())
     return toXHtmlImage();
 
   int opts = getOptionCount();
@@ -139,71 +139,45 @@ bool LinkNode::isInterwiki() const
 }
 
 //===========================================================================
-QString LinkNode::toXHtmlImage() const
+bool LinkNode::isDisplayableImage() const
 {
-  // Load raw image from media archive.
-  QByteArray imageSource =
-    MainWindow::instance()->wikiSource()->media(target().entry());
+  return !_forcedLink && target().namespace_() == Namespace::Image;
+}
 
-  // Determine initial image width and height.
-  int width = 10; // pixels
-  int height = 10; // pixels
-  if (target().entry().endsWith(".svg", Qt::CaseInsensitive))
-  {
-    QSvgRenderer svg(imageSource);
-    QSize defaultSize = svg.defaultSize();
-    width = defaultSize.width();
-    height = defaultSize.height();
-  }
-  else
-  {
-    QImage image = QImage::fromData(imageSource,
-        MediaUtils::toQtImageFormatId(target().entry()));
-    width = image.width();
-    height = image.height();
-  }
+//===========================================================================
+LinkNode::Image LinkNode::getImageParams(QSize originalSize) const
+{
+  Image image;
+  image.size = originalSize;
 
   // See http://en.wikipedia.org/wiki/Image_markup for a complete
   // list of options.
-
-  enum ImageType
-  {
-    Simple, Thumbnail, Frame, Border
-  } type = Simple;
-
-  enum ImageLocation
-  {
-    Right, Left, Center, None, Default
-  } location = Default;
 
   // Parse options
   QString caption;
   foreach(LinkOptionsNode* option, _options)
   {
     // Protect from division by zero.
-    if (width <= 0) width = 1;
-    if (height <= 0) height = 1;
+    if (image.size.width() <= 0) image.size.setWidth(1);
+    if (image.size.height() <= 0) image.size.setHeight(1);
 
     QString text = option->toText();
 
     // THUMBNAIL option.
     if (text == "thumb" || text == "thumbnail")
     {
-      if (width > 180)
-      {
-        height *= 180 / (float)width;
-        width = 180;
-      }
-      type = Thumbnail;
+      if (image.size.width() > 180)
+        image.size.scale(180, 600, Qt::KeepAspectRatio);
+      image.type = Image::Thumbnail;
       continue;
     }
 
-    if (text == "frame")  { type = Frame; continue; }
-    if (text == "border") { type = Border; continue; }
-    if (text == "left")   { location = Left; continue; }
-    if (text == "right")  { location = Right; continue; }
-    if (text == "center") { location = Center; continue; }
-    if (text == "none")   { location = None; continue; }
+    if (text == "frame")  { image.type = Image::Frame; continue; }
+    if (text == "border") { image.type = Image::Border; continue; }
+    if (text == "left")   { image.location = Image::Left; continue; }
+    if (text == "right")  { image.location = Image::Right; continue; }
+    if (text == "center") { image.location = Image::Center; continue; }
+    if (text == "none")   { image.location = Image::None; continue; }
 
     // 333x666px option.
     QRegExp pxSize("(\\d+)x(\\d+)px");
@@ -214,18 +188,7 @@ QString LinkNode::toXHtmlImage() const
       if (!ok) continue;
       int requestedHeight = pxSize.cap(2).toInt(&ok, 10);
       if (!ok) continue;
-      float widthAspect = requestedWidth / (float)width;
-      float heightAspect = requestedHeight / (float)height;
-      if (widthAspect < heightAspect)
-      {
-        height *= widthAspect;
-        width = requestedWidth;
-      }
-      else
-      {
-        width *= heightAspect;
-        height = requestedHeight;
-      }
+      image.size.scale(requestedWidth, requestedHeight, Qt::KeepAspectRatio);
       continue;
     }
 
@@ -236,74 +199,83 @@ QString LinkNode::toXHtmlImage() const
       bool ok;
       int requestedWidth = pxWidth.cap(1).toInt(&ok, 10);
       if (!ok) continue;
-      height *= requestedWidth / (float)width;
-      width = requestedWidth;
+      image.size.scale(requestedWidth, 10000, Qt::KeepAspectRatio);
       continue;
     }
 
-    caption = option->toXHtml();
+    image.caption = option->toXHtml();
   }
 
+  return image;
+}
+
+//===========================================================================
+QString LinkNode::toXHtmlImage() const
+{
+  QSize originalImageSize =
+    MainWindow::instance()->wikiSource()->imageSize(target().entry());
+
+  Image image = getImageParams(originalImageSize);
   QString code;
-  switch (type)
+  switch (image.type)
   {
-  case Thumbnail:
+  case Image::Thumbnail:
     code = QString("<div class=\"thumb tright\">");
-    code += QString("<div class=\"thumbinner\" style=\"width:%1px;\">").arg(width);
+    code += QString("<div class=\"thumbinner\" style=\"width:%1px;\">").arg(image.size.width());
     code += QString("<img src=\"%1\" width=\"%2\" height=\"%3\" border=\"0\" class=\"thumbimage\"/>")
       .arg(target().toXHtmlLink())
-      .arg(width)
-      .arg(height);
+      .arg(image.size.width())
+      .arg(image.size.height());
     code += QString("<div class=\"thumbcaption\">");
     code += QString("<div class=\"magnify\"><a href=\"http://en.wiktionary.org/wiki/File:%1\"><img src=\"embedded://images/magnify-clip.png\"/></a></div>").arg(target().entry());
-    code += caption;
+    code += image.caption;
     code += QString("</div>");
     code += QString("</div>");
     code += QString("</div>");
     break;
-  case Frame:
+  case Image::Frame:
     code = QString("<div class=\"thumb tright\">");
-    code += QString("<div class=\"thumbinner\" style=\"width:%1px;\">").arg(width);
+    code += QString("<div class=\"thumbinner\" style=\"width:%1px;\">").arg(image.size.width());
     code += QString("<img src=\"%1\" width=\"%2\" height=\"%3\" border=\"0\" class=\"thumbimage\"/>")
       .arg(target().toXHtmlLink())
-      .arg(width)
-      .arg(height);
+      .arg(image.size.width())
+      .arg(image.size.height());
     code += QString("<div class=\"thumbcaption\">");
-    code += caption;
+    code += image.caption;
     code += QString("</div>");
     code += QString("</div>");
     code += QString("</div>");
     break;
-  case Border:
+  case Image::Border:
     code = QString("<img src=\"%1\" width=\"%2\" height=\"%3\" border=\"0\" class=\"thumbborder\"/>")
     .arg(target().toXHtmlLink())
-    .arg(width)
-    .arg(height);
+    .arg(image.size.width())
+    .arg(image.size.height());
     break;
-  case Simple:
+  case Image::Simple:
   default:
     code = QString("<img src=\"%1\" width=\"%2\" height=\"%3\" border=\"0\"/>")
     .arg(target().toXHtmlLink())
-    .arg(width)
-    .arg(height);
+    .arg(image.size.width())
+    .arg(image.size.height());
     break;
   }
 
-  switch (location)
+  switch (image.location)
   {
-  case Left:
+  case Image::Left:
     code = QString("<div class=\"floatleft\">%1</div>").arg(code);
     break;
-  case Right:
+  case Image::Right:
     code = QString("<div class=\"floatright\">%1</div>").arg(code);
     break;
-  case Center:
+  case Image::Center:
     code = QString("<div class=\"center\"><div class=\"floatnone\">%1</div></div>").arg(code);
     break;
-  case None:
+  case Image::None:
     code = QString("<div class=\"floatnone\">%1</div>").arg(code);
     break;
-  case Default:
+  case Image::Default:
   default:
     break;
   }

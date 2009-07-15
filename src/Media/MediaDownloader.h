@@ -32,6 +32,9 @@ class MediaDownloader : public QObject
 {
   Q_OBJECT
 public:
+  /// Standard constructor.
+  /// @param sourceFile
+  ///   Format3 file with dictionary entries.
   MediaDownloader(const QString& sourceFile,
     const QString& destinationDir);
 

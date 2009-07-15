@@ -12,7 +12,8 @@ QT += core \
     phonon \
     testlib
 RESOURCES = wikt.qrc
-HEADERS = src/InterestingPages/InterestingPagesLinkItem.h \
+HEADERS = src/Media/ImageResizer.h \
+    src/InterestingPages/InterestingPagesLinkItem.h \
     src/InterestingPages/InterestingPagesLanguagesRootItem.h \
     src/InterestingPages/InterestingPagesRootItem.h \
     src/InterestingPages/InterestingPagesItem.h \
@@ -180,7 +181,8 @@ HEADERS = src/InterestingPages/InterestingPagesLinkItem.h \
     src/Wiki/Language/Language.h \
     src/Wiki/WikiSource.h \
     src/Wiki/WikiSourceCacheItem.h
-SOURCES = src/InterestingPages/InterestingPagesLinkItem.cpp \
+SOURCES = src/Media/ImageResizer.cpp \
+    src/InterestingPages/InterestingPagesLinkItem.cpp \
     src/InterestingPages/InterestingPagesLanguagesRootItem.cpp \
     src/InterestingPages/InterestingPagesRootItem.cpp \
     src/InterestingPages/InterestingPagesItem.cpp \

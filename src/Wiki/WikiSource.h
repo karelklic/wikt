@@ -19,6 +19,7 @@
 #include <QString>
 #include <QMap>
 #include <QObject>
+#include <QSize>
 class Format4Reader;
 class MediaReader;
 class ArticleNode;
@@ -55,6 +56,7 @@ public:
   void translationSettingsChanged();
 
   QByteArray media(const QString &fileName);
+  QSize imageSize(const QString &fileName);
 
 private:
   WikiSourceCacheItem *cached(const QString &entryName);

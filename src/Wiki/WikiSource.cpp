@@ -18,6 +18,9 @@
 #include "Tree/Article/ArticleNode.h"
 #include "../DictionaryFile/Format4Reader.h"
 #include "../Media/MediaReader.h"
+#include "../Media/MediaUtils.h"
+#include <QSvgRenderer>
+#include <QImage>
 
 //===========================================================================
 WikiSource::WikiSource(QObject *parent) : QObject(parent)
@@ -87,6 +90,26 @@ void WikiSource::translationSettingsChanged()
 QByteArray WikiSource::media(const QString &fileName)
 {
   return _mediaReader->source(fileName);
+}
+
+//===========================================================================
+QSize WikiSource::imageSize(const QString &fileName)
+{
+  // Load raw image from media archive.
+  QByteArray source = media(fileName);
+
+  // Determine initial image width and height.
+  if (fileName.endsWith(".svg", Qt::CaseInsensitive))
+  {
+    QSvgRenderer svg(source);
+    return svg.defaultSize();
+  }
+  else
+  {
+    QImage image = QImage::fromData(source,
+        MediaUtils::toQtImageFormatId(fileName));
+    return image.size();
+  }
 }
 
 //===========================================================================

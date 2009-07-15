@@ -41,7 +41,8 @@ void MediaPacker::run()
   QDirIterator dir(_sourceDir, QDir::Files | QDir::NoSymLinks, QDirIterator::Subdirectories);
 
   MediaWriter writer(_destinationFile);
-  while (dir.hasNext()) {
+  while (dir.hasNext())
+  {
     dir.next();
     QFile file(dir.filePath());
     file.open(QIODevice::ReadOnly);
