@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>ImageResizerDialog</string>
+   <string>Image Resizer</string>
   </property>
   <widget class="QPushButton" name="browseSourceFileButton">
    <property name="geometry">

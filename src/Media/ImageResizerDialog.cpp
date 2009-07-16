@@ -90,11 +90,11 @@ void ImageResizerDialog::onStartButtonClick()
     connect(_resizer, SIGNAL(finished()), this, SLOT(onWorkFinished()));
     connect(_resizer, SIGNAL(log(const QString &)), ui.reportEdit, SLOT(appendPlainText(const QString&)));
     _resizer->start();
+    _startButtonStarts = false;
   }
   else
     _resizer->requestTermination();
 
-  _startButtonStarts = !_startButtonStarts;
 }
 
 //===========================================================================

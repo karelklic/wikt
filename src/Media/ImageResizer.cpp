@@ -43,6 +43,12 @@ void ImageResizer::run()
   while (dir.hasNext())
   {
     dir.next();
+
+    // Some SVG files (Villainc.svg) cause crash of the QImage loader.
+    // We do not need to resize them.
+    if (dir.fileName().endsWith(".svg", Qt::CaseInsensitive))
+      continue;
+
     QImage image(dir.filePath());
     if (image.isNull()) continue;
     log(QString(" image %1").arg(dir.fileName()));
@@ -59,6 +65,7 @@ void ImageResizer::run()
 
   log("Checking entries...");
   Format3Reader reader(_sourceFile);
+  int counter = 0;
   const Format3Reader::EntryMap &entries = reader.entries();
   for (Format3Reader::EntryMap::const_iterator it = entries.constBegin(); it != entries.constEnd(); ++it)
   {
@@ -76,6 +83,11 @@ void ImageResizer::run()
       sizes[fileName]._linkSizes.append(image.size);
     }
     delete node;
+
+    // Page count.
+    ++counter;
+    if (counter % 1000 == 0)
+      log(QString("Entries processed: %1").arg(counter));
 
     // Termination.
     if (_terminate)
