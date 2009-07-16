@@ -12,7 +12,8 @@ QT += core \
     phonon \
     testlib
 RESOURCES = wikt.qrc
-HEADERS = src/Media/ImageResizer.h \
+HEADERS = src/Media/ImageResizerDialog.h \
+    src/Media/ImageResizer.h \
     src/InterestingPages/InterestingPagesLinkItem.h \
     src/InterestingPages/InterestingPagesLanguagesRootItem.h \
     src/InterestingPages/InterestingPagesRootItem.h \
@@ -181,7 +182,8 @@ HEADERS = src/Media/ImageResizer.h \
     src/Wiki/Language/Language.h \
     src/Wiki/WikiSource.h \
     src/Wiki/WikiSourceCacheItem.h
-SOURCES = src/Media/ImageResizer.cpp \
+SOURCES = src/Media/ImageResizerDialog.cpp \
+    src/Media/ImageResizer.cpp \
     src/InterestingPages/InterestingPagesLinkItem.cpp \
     src/InterestingPages/InterestingPagesLanguagesRootItem.cpp \
     src/InterestingPages/InterestingPagesRootItem.cpp \
@@ -344,7 +346,8 @@ SOURCES = src/Media/ImageResizer.cpp \
     src/Wiki/Language/Language.cpp \
     src/Wiki/WikiSource.cpp \
     src/Wiki/WikiSourceCacheItem.cpp
-FORMS = src/Options/OptionsDialog.ui \
+FORMS = src/Media/ImageResizerDialog.ui \
+    src/Options/OptionsDialog.ui \
     src/Debug/ErrorDialog/ErrorDialog.ui \
     src/Debug/UnitTest/UnitTestDialog.ui \
     src/DictionaryFile/Format1ToFormat2/Format1ToFormat2Dialog.ui \

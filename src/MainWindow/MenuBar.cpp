@@ -28,6 +28,7 @@
 #include "../DictionaryFile/Format2ToFormat3/Format2ToFormat3Dialog.h"
 #include "../DictionaryFile/Format3ToFormat4/Format3ToFormat4Dialog.h"
 #include "../Media/MediaDownloaderDialog.h"
+#include "../Media/ImageResizerDialog.h"
 #include "../Media/MediaPackerDialog.h"
 #include "../Wiki/Tree/Heading/Heading.h"
 #include "../Options/OptionsDialog.h"
@@ -155,6 +156,9 @@ MenuBar::MenuBar(MainWindow *parent) : QMenuBar(parent)
   _showMediaDownloaderAct = new QAction(tr("Media Downloader..."), this);
   connect(_showMediaDownloaderAct, SIGNAL(triggered()), this, SLOT(showMediaDownloaderDialog()));
 
+  _showImageResizerAct = new QAction(tr("Image Resizer..."), this);
+  connect(_showImageResizerAct, SIGNAL(triggered()), this, SLOT(showImageResizerDialog()));
+
   _showMediaPackerAct = new QAction(tr("Media Packer..."), this);
   connect(_showMediaPackerAct, SIGNAL(triggered()), this, SLOT(showMediaPackerDialog()));
 
@@ -198,6 +202,7 @@ MenuBar::MenuBar(MainWindow *parent) : QMenuBar(parent)
   _developmentMenu->addAction(_showFormat2ToFormat3DialogAct);
   _developmentMenu->addAction(_showFormat3ToFormat4DialogAct);
   _developmentMenu->addAction(_showMediaDownloaderAct);
+  _developmentMenu->addAction(_showImageResizerAct);
   _developmentMenu->addAction(_showMediaPackerAct);
   _developmentMenu->addSeparator();
   _developmentMenu->addAction(_pageHtmlAct);
@@ -361,6 +366,13 @@ void MenuBar::showFormat3ToFormat4Dialog()
 void MenuBar::showMediaDownloaderDialog()
 {
   MediaDownloaderDialog dialog;
+  dialog.exec();
+}
+
+//===========================================================================
+void MenuBar::showImageResizerDialog()
+{
+  ImageResizerDialog dialog;
   dialog.exec();
 }
 

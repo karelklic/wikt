@@ -27,7 +27,8 @@
 //===========================================================================
 ImageResizer::ImageResizer(const QString& sourceFile,
     const QString& mediaDirectory)
-    : _sourceFile(sourceFile), _mediaDirectory(mediaDirectory)
+    : _sourceFile(sourceFile), _mediaDirectory(mediaDirectory),
+    _terminate(false)
 {
 }
 
@@ -44,6 +45,7 @@ void ImageResizer::run()
     dir.next();
     QImage image(dir.filePath());
     if (image.isNull()) continue;
+    log(QString(" image %1").arg(dir.fileName()));
     sizes.insert(dir.fileName(), Image(dir.filePath(), image.size()));
 
     // Termination.
@@ -74,13 +76,42 @@ void ImageResizer::run()
       sizes[fileName]._linkSizes.append(image.size);
     }
     delete node;
+
+    // Termination.
+    if (_terminate)
+    {
+      log("Processing terminated.");
+      return;
+    }
   }
   log("Checking entries done...");
 
   log("Resizing...");
   for (QMap<QString, Image>::const_iterator it = sizes.constBegin(); it != sizes.constEnd(); ++it)
   {
+    CHECK(it.value()._linkSizes.count() > 0);
+    QSize maxSize(0, 0);
+    foreach(const QSize &size, it.value()._linkSizes)
+    {
+      int pixelCount = size.width() * size.height();
+      if (pixelCount > maxSize.width() * maxSize.height())
+        maxSize = size;
+    }
 
+    // Only resize the image if the resulting image is smaller.
+    int originalPixelCount = it.value()._originalSize.width() * it.value()._originalSize.height();
+    if (maxSize.width() * maxSize.height() < originalPixelCount)
+    {
+      QImage image(it.value()._filePath);
+      QImage newImage = image.scaledToWidth(maxSize.width(), Qt::SmoothTransformation);
+      newImage.save(it.value()._filePath);
+      log(QString("Resized %1 from %2x%3 to %4x%5")
+          .arg(it.key())
+          .arg(it.value()._originalSize.width())
+          .arg(it.value()._originalSize.height())
+          .arg(maxSize.width())
+          .arg(maxSize.height()));
+    }
   }
   log("Resizing done...");
 }

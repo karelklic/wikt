@@ -62,6 +62,8 @@ private slots:
   void showFormat3ToFormat4Dialog();
   /// Downloads dictionary images and sounds.
   void showMediaDownloaderDialog();
+  /// Resizes images in media directory.
+  void showImageResizerDialog();
   /// Pack a dictionary with images and sounds into a single file.
   void showMediaPackerDialog();
   // Help
@@ -102,6 +104,7 @@ private:
   QAction *_showFormat2ToFormat3DialogAct;
   QAction *_showFormat3ToFormat4DialogAct;
   QAction *_showMediaDownloaderAct;
+  QAction *_showImageResizerAct;
   QAction *_showMediaPackerAct;
   QAction *_pageHtmlAct;
   QAction *_wordXmlAct;

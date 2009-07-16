@@ -43,7 +43,6 @@ private:
   QString _sourceFile;
   QString _mediaDirectory;
 
-  int _pageCounter;
   bool _terminate;
 
   struct Image
