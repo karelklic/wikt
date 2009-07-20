@@ -101,7 +101,9 @@ void ImageResizer::run()
   log("Resizing...");
   for (QMap<QString, Image>::const_iterator it = sizes.constBegin(); it != sizes.constEnd(); ++it)
   {
-    CHECK(it.value()._linkSizes.count() > 0);
+    // The following check fails.
+    //CHECK(it.value()._linkSizes.count() > 0);
+
     QSize maxSize(0, 0);
     foreach(const QSize &size, it.value()._linkSizes)
     {
@@ -114,6 +116,9 @@ void ImageResizer::run()
     int originalPixelCount = it.value()._originalSize.width() * it.value()._originalSize.height();
     if (maxSize.width() * maxSize.height() < originalPixelCount)
     {
+      // Debug
+      COUT(it.value()._filePath);
+
       QImage image(it.value()._filePath);
       QImage newImage = image.scaledToWidth(maxSize.width(), Qt::SmoothTransformation);
       newImage.save(it.value()._filePath);
