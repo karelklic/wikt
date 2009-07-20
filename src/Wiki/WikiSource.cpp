@@ -25,8 +25,24 @@
 //===========================================================================
 WikiSource::WikiSource(QObject *parent) : QObject(parent)
 {
-  _reader = new Format4Reader("data/enwiktionary-20090203-pages-articles.ei4");
-  _mediaReader = new MediaReader("data/enwiktionary-20090203-pages-articles.eim");
+  static const QString PATH_A("data/");
+  static const QString PATH_B("/usr/share/wikt/");
+
+  QString dictionaryData;
+  static const QString DICT_NAME("enwiktionary-20090203-pages-articles.ei4");
+  if (QFile::exists(PATH_A + DICT_NAME))
+    dictionaryData = PATH_A + DICT_NAME;
+  else if (QFile::exists(PATH_B + DICT_NAME))
+    dictionaryData = PATH_B + DICT_NAME;
+  _reader = new Format4Reader(dictionaryData);
+
+  QString mediaData;
+  static const QString MEDIA_NAME("enwiktionary-20090203-pages-articles.eim");
+  if (QFile::exists(PATH_A + MEDIA_NAME))
+    mediaData = PATH_A + MEDIA_NAME;
+  else if (QFile::exists(PATH_B + MEDIA_NAME))
+    mediaData = PATH_B + MEDIA_NAME;
+  _mediaReader = new MediaReader(mediaData);
 }
 
 //===========================================================================
