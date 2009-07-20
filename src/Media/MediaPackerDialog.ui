@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MediaPackerDialog</string>
+   <string>Media Packer</string>
   </property>
   <widget class="QPushButton" name="browseDestinationButton">
    <property name="geometry">
