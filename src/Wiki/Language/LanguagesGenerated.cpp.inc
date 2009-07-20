@@ -1287,6 +1287,8 @@ _translationToType.insert(QString::fromWCharArray(L"Latvian"), Latvian);
 //-
 _codeToType.insert("oj", Ojibwa);
 _typeToCode.insert(Ojibwa, "oj");
+_typeToTranslations.insert(Ojibwa, QString::fromWCharArray(L"Ojibwe"));
+_translationToType.insert(QString::fromWCharArray(L"Ojibwe"), Ojibwa);
 //-
 _codeToType.insert("kud", Auhelawa);
 _typeToCode.insert(Auhelawa, "kud");
