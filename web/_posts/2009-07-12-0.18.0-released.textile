@@ -13,4 +13,7 @@ h2. Bug Fixes
 * Fixed template evaluation of template given_name used in entry Cheyenne.
 
 h2. New Features
+* Image resizing process for media archive. It diminishes the media size from 4GB to 660MB.
+* Debian packaging files that allow to create Ubuntu Jaunty installable binary package.
+
 

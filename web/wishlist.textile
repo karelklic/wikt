@@ -8,18 +8,14 @@ h1. Wishlist
 * Format3ToFormat4 pass will generate a list of appendices and other lists as necessary.
 * Format3ToFormat4 pass will generate statistics page and part of the front page (front page without the header) in HTML. Or maybe the existing statistics page can be used.
 
-
-
 * Categories store list of entries pointing to them.
 * [NEXT] Generate statistics page (entry count by language).
 * [NEXT] Compression go to format5.
 * [NEXT] Support redirects in Format5Reader.
-* Image resizing process for media archive. It would significantly diminish the dictionary size.
 * [NEXT] Nice front page of application.
 * [NEXT] User chooses whether the translation section is collapsed or not.
 * [NEXT+1] Error pages
 * [NEXT+1] Allow searching a whole sentence.
-* DEB file
 * Allow localization of the application.
 * [NEXT+1] Icons in the application's menu bar.
 * Implement HIDDENCAT. Delete marked categories in Format2ToFormat3. Category links pointing to nonexistant categories must be completely removed in Format3ToFormat4. Affects entry "car", which contain Translation to be checked categories.
