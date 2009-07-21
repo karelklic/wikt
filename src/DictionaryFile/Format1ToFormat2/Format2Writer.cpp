@@ -15,6 +15,7 @@
  */
 #include "Format2Writer.h"
 #include "../Comparsion.h"
+#include "../QuickSort.h"
 #include "../FileUtils.h"
 #include "../../Prerequisites.h"
 
@@ -111,7 +112,7 @@ void Format2Writer::close()
   // Sort comparison operator must not depend on locale, because the dictionary file
   // is the same in all systems.
   QList<Link> sortedLinks(_links);
-  qSort(sortedLinks.begin(), sortedLinks.end(), Comparsion());
+  quickSort(sortedLinks.begin(), sortedLinks.end(), Comparsion());
 
   // Final file.
   QFile file(_targetFileName);

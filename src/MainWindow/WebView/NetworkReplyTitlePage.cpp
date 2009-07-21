@@ -15,6 +15,7 @@
  */
 #include "NetworkReplyTitlePage.h"
 #include "../MainWindow.h"
+#include "../../Wiki/WikiSource.h"
 #include "../../Version.h"
 #include "../../Prerequisites.h"
 #include <QTimer>
@@ -23,18 +24,7 @@
 NetworkReplyTitlePage::NetworkReplyTitlePage(const QNetworkRequest &request,
     QObject *parent) : QNetworkReply(parent)
 {
-  QString page;
-  page += "<html>";
-  page += "<head>";
-  page += "  <link rel=\"stylesheet\" type=\"text/css\" href=\"special://stylesheet\" />";
-  page += "</head>";
-  page += "<body>";
-  page += "  <h1>Wikt <small>"WIKT_VERSION"</small></h1>";
-  page += "  <p>Entries are based on Wiktionary, a collaborative project to";
-  page += "     produce a free-content multilingual dictionary. All the";
-  page += "     content is licensed under the GNU Free Documentation License.</p>";
-  page += "</body>";
-  page += "</html>";
+  QString page = MainWindow::instance()->wikiSource()->source("Wikt:Title Page");
   _buffer.open(QBuffer::ReadWrite);
   _buffer.write(page.toUtf8());
   _buffer.seek(0);

@@ -12,7 +12,11 @@ QT += core \
     phonon \
     testlib
 RESOURCES = wikt.qrc
-HEADERS = src/Media/ImageResizerDialog.h \
+HEADERS = src/DictionaryFile/QuickSort.h \
+    src/DictionaryFile/Format3ToFormat4/PageGenerator/LicensePagesGenerator.h \
+    src/DictionaryFile/Format3ToFormat4/PageGenerator/StatsPageGenerator.h \
+    src/DictionaryFile/Format3ToFormat4/PageGenerator/TitlePageGenerator.h \
+    src/Media/ImageResizerDialog.h \
     src/Media/ImageResizer.h \
     src/InterestingPages/InterestingPagesLinkItem.h \
     src/InterestingPages/InterestingPagesLanguagesRootItem.h \
@@ -182,7 +186,10 @@ HEADERS = src/Media/ImageResizerDialog.h \
     src/Wiki/Language/Language.h \
     src/Wiki/WikiSource.h \
     src/Wiki/WikiSourceCacheItem.h
-SOURCES = src/Media/ImageResizerDialog.cpp \
+SOURCES = src/DictionaryFile/Format3ToFormat4/PageGenerator/LicensePagesGenerator.cpp \
+    src/DictionaryFile/Format3ToFormat4/PageGenerator/StatsPageGenerator.cpp \
+    src/DictionaryFile/Format3ToFormat4/PageGenerator/TitlePageGenerator.cpp \
+    src/Media/ImageResizerDialog.cpp \
     src/Media/ImageResizer.cpp \
     src/InterestingPages/InterestingPagesLinkItem.cpp \
     src/InterestingPages/InterestingPagesLanguagesRootItem.cpp \

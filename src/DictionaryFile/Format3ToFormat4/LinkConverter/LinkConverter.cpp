@@ -31,6 +31,7 @@ QString LinkConverter::convertedContents(int offs)
 {
   QString input = _reader.sourceDirect(offs);
   QString output;
+  output.reserve(input.length());
 
   for (int i = 0; i < input.length(); ++i)
   {

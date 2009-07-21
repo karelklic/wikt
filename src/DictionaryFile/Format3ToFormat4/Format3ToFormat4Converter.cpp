@@ -17,6 +17,9 @@
 #include "Format3Reader.h"
 #include "Format4Writer.h"
 #include "LinkConverter/LinkConverter.h"
+#include "PageGenerator/TitlePageGenerator.h"
+#include "PageGenerator/LicensePagesGenerator.h"
+#include "PageGenerator/StatsPageGenerator.h"
 #include "../../Media/MediaReader.h"
 #include "../../Prerequisites.h"
 
@@ -45,11 +48,15 @@ void Format3ToFormat4Converter::run()
   Format4Writer writer(_destinationFile);
   MediaReader mediaReader(_sourceMediaFile);
   LinkConverter linkConverter(reader, mediaReader);
+  TitlePageGenerator titlePageGenerator;
+  StatsPageGenerator statsPageGenerator;
   for (Format3Reader::EntryMap::const_iterator it = reader.entries().constBegin();
        it != reader.entries().constEnd();
        ++it)
   {
     QString content = linkConverter.convertedContents(it.value());
+    titlePageGenerator.visit(it.key());
+    statsPageGenerator.visit(it.key());
 
     // Write the entry.
     writer.addEntry(it.key(), content);
@@ -66,6 +73,13 @@ void Format3ToFormat4Converter::run()
       return;
     }
   }
+
+  titlePageGenerator.write(writer);
+  statsPageGenerator.write(writer);
+
+  LicensePagesGenerator licensePagesGenerator;
+  licensePagesGenerator.write(writer);
+
   writer.close();
   log("Processing done.");
 }

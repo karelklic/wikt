@@ -16,17 +16,18 @@
 #ifndef COMPARSION_H
 #define COMPARSION_H
 
+#include "../Prerequisites.h"
 #include <QString>
 #include <QPair>
 
 struct Comparsion
 {
-  bool operator()(const QString &a, const QString &b) const
+  inline bool operator()(const QString &a, const QString &b) const
   {
     return a < b;
   }
 
-  bool operator()(const QPair<QString, size_t> &a,
+  inline bool operator()(const QPair<QString, size_t> &a,
     const QPair<QString, size_t> &b) const
   {
     return operator()(a.first, b.first);

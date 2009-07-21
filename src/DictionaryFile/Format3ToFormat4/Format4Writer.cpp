@@ -16,7 +16,7 @@
 #include "Format4Writer.h"
 #include "../FileUtils.h"
 #include "../Comparsion.h"
-#include <algorithm>
+#include "../QuickSort.h"
 
 //===========================================================================
 Format4Writer::Format4Writer(const QString &targetFileName) : _targetFileName(targetFileName)
@@ -46,7 +46,7 @@ void Format4Writer::close()
   // Sort comparison operator must not depend on locale, because the dictionary file
   // is the same in all systems.
   QList<Link> sortedLinks(_links);
-  qSort(sortedLinks.begin(), sortedLinks.end(), Comparsion());
+  quickSort(sortedLinks.begin(), sortedLinks.end(), Comparsion());
 
   // Final file.
   QFile file(_targetFileName);

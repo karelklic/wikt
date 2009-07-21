@@ -15,8 +15,8 @@
  */
 #include "MediaWriter.h"
 #include "../DictionaryFile/FileUtils.h"
+#include "../DictionaryFile/QuickSort.h"
 #include "../DictionaryFile/Comparsion.h"
-#include <algorithm>
 
 //===========================================================================
 MediaWriter::MediaWriter(const QString &targetFileName) : _targetFileName(targetFileName)
@@ -46,7 +46,7 @@ void MediaWriter::close()
   // Sort comparison operator must not depend on locale, because the dictionary file
   // is the same in all systems.
   QList<Link> sortedLinks(_links);
-  qSort(sortedLinks.begin(), sortedLinks.end(), Comparsion());
+  quickSort(sortedLinks.begin(), sortedLinks.end(), Comparsion());
 
   // Final file.
   QFile file(_targetFileName);

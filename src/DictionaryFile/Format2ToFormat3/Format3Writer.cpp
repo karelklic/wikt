@@ -14,8 +14,9 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "Format3Writer.h"
-#include "../FileUtils.h"
 #include "../Comparsion.h"
+#include "../FileUtils.h"
+#include "../QuickSort.h"
 
 //===========================================================================
 Format3Writer::Format3Writer(const QString &targetFileName) : _targetFileName(targetFileName)
@@ -45,7 +46,7 @@ void Format3Writer::close()
   // Sort comparison operator must not depend on locale, because the dictionary file
   // is the same in all systems.
   QList<Link> sortedLinks(_links);
-  qSort(sortedLinks.begin(), sortedLinks.end(), Comparsion());
+  quickSort(sortedLinks.begin(), sortedLinks.end(), Comparsion());
 
   // Final file.
   QFile file(_targetFileName);
