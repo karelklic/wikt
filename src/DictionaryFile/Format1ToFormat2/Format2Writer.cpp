@@ -88,6 +88,9 @@ void Format2Writer::addUnsortedEntry(const QString &name, const QString &content
   // Remove includeonly tags, but not the content between them.
   contentsProcessed.remove("<includeonly>").remove("</includeonly>");
 
+  // Remove __TOC__, because we handle Table of Contents in a separate window.
+  contentsProcessed.remove("__TOC__");
+
   // Do not remove <nowiki/> tags. They are used as a separator between wikisyntax
   // that cannot be parsed together.
 
