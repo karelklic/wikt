@@ -50,7 +50,9 @@ public slots:
   /// Called when user enters some text to the search text box.
   /// It does not have to be an existing entry, it can be
   /// multiple entries or bad caps or whatever.
-  void textEnteredToLookup(const QString &text);
+  /// @param text
+  ///   Must be trimmed.
+  void textEnteredToLookup(QString text);
   /// We assume the headingId is valid.
   void tableOfContentsClicked(const QString &headingId);
   /// We assume the entry exist.

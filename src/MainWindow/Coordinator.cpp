@@ -37,7 +37,7 @@ Coordinator::Coordinator(QObject *parent) : QObject(parent), _state(Initial)
 }
 
 //===========================================================================
-void Coordinator::textEnteredToLookup(const QString &text)
+void Coordinator::textEnteredToLookup(QString text)
 {
   // Cache
   if (_state == TextEnteredToLookup && _text == text) return;
@@ -50,18 +50,34 @@ void Coordinator::textEnteredToLookup(const QString &text)
   //  - display an error page
   MainWindow *window = MainWindow::instance();
   WikiSource *reader = window->wikiSource();
-  if (!reader->exist(text))
-    return;
+  QStringList entries;
+  if (reader->exist(text))
+    entries.append(text);
+  else
+  {
+    text.replace(',', ' ');
+    QStringList splitted = text.split(' ', QString::SkipEmptyParts);
+    foreach (const QString &s, splitted)
+    {
+      if (reader->exist(s))
+        entries.append(s);
+    }
+  }
 
-  QUrl url(UrlUtils::toUrl(text));
-  Node *node = reader->tree(text);
+  if (entries.empty())
+    return; // todo error page
 
-  window->setTitle(text);
+  QUrl url(UrlUtils::toUrl(entries.first()));
+  QList<const ArticleNode*> nodes;
+  foreach (const QString &entry, entries)
+    nodes.append(reader->tree(entry));
+
+  window->setTitle(entries.first());
   window->webView()->setUrl(url);
   window->lookupPanel()->history().addCurrentPage(url);
-  window->tableOfContentsPanel()->model().generateFrom(node);
-  window->relatedPagesPanel()->model().generateFrom(text, node);
-  window->categoriesPanel()->model().generateFrom(node);
+  window->tableOfContentsPanel()->model().generateFrom(nodes.first());
+  window->relatedPagesPanel()->model().generateFrom(nodes);
+  window->categoriesPanel()->model().generateFrom(nodes.first());
   window->interestingPagesPanel()->model().generate();
 }
 
@@ -80,12 +96,12 @@ void Coordinator::localLinkClickedInView(const QUrl &url)
     if (!window->wikiSource()->exist(entry))
       return;
 
-    Node *node = window->wikiSource()->tree(entry);
+    ArticleNode *node = window->wikiSource()->tree(entry);
     window->setTitle(entry);
     window->webView()->setUrl(url);
     window->lookupPanel()->history().addCurrentPage(url);
     window->tableOfContentsPanel()->model().generateFrom(node);
-    window->relatedPagesPanel()->model().generateFrom(entry, node);
+    window->relatedPagesPanel()->model().generateFrom(node);
     window->categoriesPanel()->model().generateFrom(node);
     window->interestingPagesPanel()->model().generate();
   }
@@ -106,13 +122,13 @@ void Coordinator::interestingPagesPanelClicked(const QString &entry)
   MainWindow *window = MainWindow::instance();
 
   QUrl url(UrlUtils::toUrl(entry));
-  Node *node = window->wikiSource()->tree(entry);
+  ArticleNode *node = window->wikiSource()->tree(entry);
 
   window->setTitle(entry);
   window->webView()->setUrl(url);
   window->lookupPanel()->history().addCurrentPage(url);
   window->tableOfContentsPanel()->model().generateFrom(node);
-  window->relatedPagesPanel()->model().generateFrom(entry, node);
+  window->relatedPagesPanel()->model().generateFrom(node);
   window->categoriesPanel()->model().generateFrom(node);
   window->interestingPagesPanel()->model().generate();
 }
@@ -128,7 +144,7 @@ void Coordinator::localLinkClickedInRelatedPagesPanel(const QString &word)
   MainWindow *window = MainWindow::instance();
 
   QUrl url(UrlUtils::toUrl(word));
-  Node *node = window->wikiSource()->tree(word);
+  ArticleNode *node = window->wikiSource()->tree(word);
 
   window->setTitle(word);
   window->webView()->setUrl(url);
@@ -184,12 +200,12 @@ void Coordinator::historyActivated(const QUrl &url)
 
   MainWindow *window = MainWindow::instance();
   QString entry(UrlUtils::toEntryName(url));
-  Node *node = window->wikiSource()->tree(entry);
+  ArticleNode *node = window->wikiSource()->tree(entry);
   window->setTitle(entry);
   window->webView()->setUrl(url);
   window->lookupPanel()->history().addCurrentPage(url);
   window->tableOfContentsPanel()->model().generateFrom(node);
-  window->relatedPagesPanel()->model().generateFrom(entry, node);
+  window->relatedPagesPanel()->model().generateFrom(node);
   window->categoriesPanel()->model().generateFrom(node);
   window->interestingPagesPanel()->model().generate();
 }

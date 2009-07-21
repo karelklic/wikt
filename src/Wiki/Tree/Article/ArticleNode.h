@@ -25,7 +25,11 @@ public:
   ArticleNode() : Node(Node::Article) {}
   virtual QString toXHtml() const;
   virtual QString toXml(int indentLevel = 0) const;
+
+  /// Sets full article/entry name.
   void setName(const QString &name) { _name = name; }
+  /// Full article/entry name.
+  const QString& name() const { return _name; }
 
   /// Shows/hides various entry sections such as Etymology, Translations, or Related terms
   /// accordingly to user settings. An user controls visibility through menu View in the main
@@ -36,6 +40,7 @@ public:
   void updateTranslationSettings();
 
 protected:
+  /// Full article/entry name.
   QString _name;
 };
 

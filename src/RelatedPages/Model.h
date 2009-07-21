@@ -20,7 +20,7 @@
 #include <QAbstractItemModel>
 #include <QModelIndex>
 #include <QVariant>
-class Node;
+class ArticleNode;
 class Format3Reader;
 
 namespace RelatedPages {
@@ -41,16 +41,19 @@ public:
   int rowCount(const QModelIndex &parent = QModelIndex()) const;
   int columnCount(const QModelIndex &parent = QModelIndex()) const;
 
-  /// @brief Updates model to match a certain entry.
-  /// @param entry
-  ///   The name of existing entry in the dictionary.
-  /// @param rootNode
-  ///   The tree of nodes built from the entry contents.
-  void generateFrom(const QString &entry, const Node *rootNode);
+  /// @brief Rebuilds model to represent a certain entry.
+  /// @param node
+  ///   The tree of nodes that represents the entry contents.
+  void generateFrom(const ArticleNode *node);
+
+  /// @brief Rebuilds model to represent a list of entries.
+  /// Used when user searches for a list of words (writes a sentence to
+  /// the search box).
+  void generateFrom(const QList<const ArticleNode*> &nodes);
 
   /// When user clicks the Related Pages panel, this gets only
   /// partial update.
-  void partialUpdateFrom(const QString &entry, const Node *rootNode);
+  void partialUpdateFrom(const QString &entry, const ArticleNode *rootNode);
 
   void clear();
 

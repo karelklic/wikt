@@ -115,7 +115,7 @@ QString Model::getXHtmlHeaderId(const QModelIndex &index) const
 }
 
 //===========================================================================
-void Model::generateFrom(Node *node)
+void Model::generateFrom(const Node *node)
 {
   PROFILER;
   // Clear

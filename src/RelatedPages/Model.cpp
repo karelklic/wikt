@@ -18,6 +18,7 @@
 #include "ExternalLinksRootItem.h"
 #include "InternalLinkItem.h"
 #include "InterwikiRootItem.h"
+#include "../Wiki/Tree/Article/ArticleNode.h"
 
 namespace RelatedPages {
 
@@ -109,17 +110,26 @@ int Model::columnCount(const QModelIndex &parent) const
 }
 
 //===========================================================================
-void Model::generateFrom(const QString &entry, const Node *rootNode)
+void Model::generateFrom(const ArticleNode *node)
+{
+  QList<const ArticleNode*> nodes;
+  nodes.append(node);
+  generateFrom(nodes);
+}
+
+//===========================================================================
+void Model::generateFrom(const QList<const ArticleNode*> &nodes)
 {
   PROFILER;
-  _lastEntry = entry;
-  _rootItem->recreateFrom(entry, rootNode);
+  _lastEntry = nodes.first()->name();
+  _rootItem->recreateFrom(nodes);
+
   // Tell attached views that we changed the model.
   reset();
 }
 
 //===========================================================================
-void Model::partialUpdateFrom(const QString &entry, const Node *rootNode)
+void Model::partialUpdateFrom(const QString &entry, const ArticleNode *rootNode)
 {
   PROFILER;
   _lastEntry = entry;

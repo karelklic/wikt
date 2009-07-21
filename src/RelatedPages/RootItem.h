@@ -17,7 +17,7 @@
 #define RELATEDPAGESROOTITEM_H_
 
 #include "Item.h"
-class Node;
+class ArticleNode;
 
 namespace RelatedPages {
 
@@ -31,15 +31,15 @@ public:
   RootItem();
 
   /// @brief Updates the tree to match a certain entry.
-  /// @param entry
-  ///   The name of existing entry in the dictionary.
-  /// @param rootNode
-  ///   The tree of nodes built from the entry contents.
-  void recreateFrom(const QString &entry, const Node *rootNode);
+  /// @param node
+  ///   The tree of nodes that represents the entry.
+  void recreateFrom(const ArticleNode *node);
+
+  void recreateFrom(const QList<const ArticleNode*> &nodes);
 
   /// Does not touch internal links.
   /// Changes just the external links.
-  void partialUpdateFrom(const QString &entry, const Node *rootNode);
+  void partialUpdateFrom(const QString &entry, const ArticleNode *rootNode);
 
   void clear();
 

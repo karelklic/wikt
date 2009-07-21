@@ -41,7 +41,7 @@ public:
   int columnCount(const QModelIndex &parent = QModelIndex()) const;
 
   QString getXHtmlHeaderId(const QModelIndex &index) const;
-  void generateFrom(Node *node);
+  void generateFrom(const Node *node);
   void clear();
   int nodeCount() const { return _rootItem->allChildCount(); }
 
