@@ -15,7 +15,6 @@ h1. Wishlist
 * [NEXT] Nice front page of application.
 * [NEXT] User chooses whether the translation section is collapsed or not.
 * [NEXT+1] Error pages
-* [NEXT+1] Allow searching a whole sentence.
 * Allow localization of the application.
 * [NEXT+1] Icons in the application's menu bar.
 * Implement HIDDENCAT. Delete marked categories in Format2ToFormat3. Category links pointing to nonexistant categories must be completely removed in Format3ToFormat4. Affects entry "car", which contain Translation to be checked categories.
