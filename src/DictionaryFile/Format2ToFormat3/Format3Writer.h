@@ -19,7 +19,8 @@
 #include "../../Prerequisites.h"
 #include <QString>
 #include <QTemporaryFile>
-#include <vector>
+#include <QList>
+#include <QPair>
 
 class Format3Writer
 {
@@ -32,9 +33,8 @@ public:
 private:
   QString _targetFileName;
 
-  typedef std::pair<QString, size_t> Link;
-  typedef std::vector<Link> LinkList;
-  LinkList _links;
+  typedef QPair<QString, size_t> Link;
+  QList<Link> _links;
 
   /// Temporary file with entries without indices.
   QTemporaryFile _temporaryFile;

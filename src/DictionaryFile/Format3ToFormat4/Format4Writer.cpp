@@ -45,8 +45,8 @@ void Format4Writer::close()
   // Sort the links in the memory.
   // Sort comparison operator must not depend on locale, because the dictionary file
   // is the same in all systems.
-  LinkList sortedLinks(_links);
-  std::sort(sortedLinks.begin(), sortedLinks.end(), Comparsion());
+  QList<Link> sortedLinks(_links);
+  qSort(sortedLinks.begin(), sortedLinks.end(), Comparsion());
 
   // Final file.
   QFile file(_targetFileName);

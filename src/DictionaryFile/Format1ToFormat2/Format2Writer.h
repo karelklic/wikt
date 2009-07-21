@@ -18,7 +18,8 @@
 
 #include <QString>
 #include <QTemporaryFile>
-#include <vector>
+#include <QList>
+#include <QPair>
 
 /// @brief Creates an Format2 file.
 ///
@@ -39,7 +40,6 @@ public:
   /// @param targetFileName
   ///   Destination file.
   Format2Writer(const QString &targetFileName);
-  ~Format2Writer();
 
   /// @brief Adds entry to the file.
   ///
@@ -59,10 +59,9 @@ private:
   /// Destination file.
   QString _targetFileName;
 
-  typedef std::pair<QString, size_t> Link;
-  typedef std::vector<Link> LinkList;
+  typedef QPair<QString, size_t> Link;
   /// Offsets to entries.
-  LinkList _links;
+  QList<Link> _links;
 
   /// Temporary file with entries without indices.
   QTemporaryFile _temporaryFile;

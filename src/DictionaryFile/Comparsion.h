@@ -17,6 +17,7 @@
 #define COMPARSION_H
 
 #include <QString>
+#include <QPair>
 
 struct Comparsion
 {
@@ -25,8 +26,8 @@ struct Comparsion
     return a < b;
   }
 
-  bool operator()(const std::pair<QString, size_t> &a,
-    const std::pair<QString, size_t> &b) const
+  bool operator()(const QPair<QString, size_t> &a,
+    const QPair<QString, size_t> &b) const
   {
     return operator()(a.first, b.first);
   }
