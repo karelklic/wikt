@@ -42,7 +42,6 @@ void Coordinator::textEnteredToLookup(QString text)
   // Cache
   if (_state == TextEnteredToLookup && _text == text) return;
   _state = TextEnteredToLookup;
-  _text = text;
 
   // TODO: what if the text is not found.
   //  - try to split it to words
@@ -67,6 +66,7 @@ void Coordinator::textEnteredToLookup(QString text)
   if (entries.empty())
     return; // todo error page
 
+  _text = entries.first();
   QUrl url(UrlUtils::toUrl(entries.first()));
   QList<const ArticleNode*> nodes;
   foreach (const QString &entry, entries)
@@ -93,8 +93,8 @@ void Coordinator::localLinkClickedInView(const QUrl &url)
   if (url.scheme() == "entry" || url.scheme() == "special")
   {
     // Do not crash when user clicks a link to nonexisting word.
-    if (!window->wikiSource()->exist(entry))
-      return;
+    if (!window->wikiSource()->exist(entry)) return;
+    _text = entry;
 
     ArticleNode *node = window->wikiSource()->tree(entry);
     window->setTitle(entry);
@@ -199,9 +199,9 @@ void Coordinator::historyActivated(const QUrl &url)
   _state = LocalLinkClickedInRelatedPagesPanel;
 
   MainWindow *window = MainWindow::instance();
-  QString entry(UrlUtils::toEntryName(url));
-  ArticleNode *node = window->wikiSource()->tree(entry);
-  window->setTitle(entry);
+  _text = UrlUtils::toEntryName(url);
+  ArticleNode *node = window->wikiSource()->tree(_text);
+  window->setTitle(_text);
   window->webView()->setUrl(url);
   window->lookupPanel()->history().addCurrentPage(url);
   window->tableOfContentsPanel()->model().generateFrom(node);

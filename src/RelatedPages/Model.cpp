@@ -23,8 +23,7 @@
 namespace RelatedPages {
 
 //===========================================================================
-Model::Model(QObject *parent)
-  : QAbstractItemModel(parent)
+Model::Model(QObject *parent) : QAbstractItemModel(parent)
 {
   _rootItem = new RootItem();
 }
@@ -67,22 +66,22 @@ QModelIndex Model::index(int row, int column, const QModelIndex &parent) const
 
   Item *childItem = parentItem->child(row);
   if (childItem)
-      return createIndex(row, column, childItem);
+    return createIndex(row, column, childItem);
   else
-      return QModelIndex();
+    return QModelIndex();
 }
 
 //===========================================================================
 QModelIndex Model::parent(const QModelIndex &index) const
 {
   if (!index.isValid())
-      return QModelIndex();
+    return QModelIndex();
 
   Item *childItem = static_cast<Item*>(index.internalPointer());
   Item *parentItem = childItem->parent();
 
   if (parentItem == _rootItem)
-      return QModelIndex();
+    return QModelIndex();
   return createIndex(parentItem->row(), 0, parentItem);
 }
 
@@ -104,9 +103,9 @@ int Model::rowCount(const QModelIndex &parent) const
 int Model::columnCount(const QModelIndex &parent) const
 {
   if (parent.isValid())
-      return static_cast<Item*>(parent.internalPointer())->columnCount();
+    return static_cast<Item*>(parent.internalPointer())->columnCount();
   else
-      return _rootItem->columnCount();
+    return _rootItem->columnCount();
 }
 
 //===========================================================================
@@ -142,7 +141,7 @@ void Model::partialUpdateFrom(const QString &entry, const ArticleNode *rootNode)
 void Model::clear()
 {
   PROFILER;
-  _lastEntry = "###CLEARED###";
+  _lastEntry = "";
   _rootItem->clear();
   // Tell attached views that we changed the model.
   reset();

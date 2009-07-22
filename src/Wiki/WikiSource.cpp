@@ -122,8 +122,7 @@ QSize WikiSource::imageSize(const QString &fileName)
   }
   else
   {
-    QImage image = QImage::fromData(source,
-        MediaUtils::toQtImageFormatId(fileName));
+    QImage image = QImage::fromData(source, MediaUtils::toQtImageFormatId(fileName));
     return image.size();
   }
 }
@@ -134,8 +133,25 @@ WikiSourceCacheItem *WikiSource::cached(const QString &entryName)
   if (_cache.contains(entryName))
     return _cache.value(entryName);
 
-  WikiSourceCacheItem *item = new WikiSourceCacheItem(
-      entryName, _reader->source(entryName));
+  QString source = _reader->source(entryName);
+
+  // Implementation of REDIRECTs.
+  if (source.trimmed().startsWith("#REDIRECT", Qt::CaseInsensitive))
+  {
+    int start = source.indexOf("[[");
+    if (start == -1) return cached("Wikt:Redirect Error");
+    int end = source.indexOf("]]", start);
+    if (end == -1) return cached("Wikt:Redirect Error");
+    QString redirName = source.mid(start + 2, end - start - 2);
+    source = QString("<small>(Redirected from \"%1\")</small><br/>").arg(entryName);
+    source += _reader->source(redirName);
+
+    WikiSourceCacheItem *item = new WikiSourceCacheItem(redirName, source);
+    _cache.insert(entryName, item);
+    return item;
+  }
+
+  WikiSourceCacheItem *item = new WikiSourceCacheItem(entryName, source);
   _cache.insert(entryName, item);
   return item;
 }

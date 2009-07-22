@@ -34,14 +34,10 @@ Panel::Panel() : QDockWidget(tr("Related Pages")), _model(this),
   setAllowedAreas(Qt::LeftDockWidgetArea);
   setFeatures(QDockWidget::NoDockWidgetFeatures);
   connect(&_model, SIGNAL(modelReset()), this, SLOT(modelChanged()));
-  connect(_treeView, SIGNAL(clicked(const QModelIndex&)),
-      this, SLOT(activated(const QModelIndex&)));
-  connect(_treeView, SIGNAL(activated(const QModelIndex&)),
-      this, SLOT(activated(const QModelIndex&)));
-  connect(_treeView, SIGNAL(collapsed(const QModelIndex&)),
-      this, SLOT(collapsed(const QModelIndex&)));
-  connect(_treeView, SIGNAL(expanded(const QModelIndex&)),
-      this, SLOT(expanded(const QModelIndex&)));
+  connect(_treeView, SIGNAL(clicked(const QModelIndex&)), this, SLOT(activated(const QModelIndex&)));
+  connect(_treeView, SIGNAL(activated(const QModelIndex&)), this, SLOT(activated(const QModelIndex&)));
+  connect(_treeView, SIGNAL(collapsed(const QModelIndex&)), this, SLOT(collapsed(const QModelIndex&)));
+  connect(_treeView, SIGNAL(expanded(const QModelIndex&)), this, SLOT(expanded(const QModelIndex&)));
 }
 
 //===========================================================================
@@ -53,15 +49,14 @@ void Panel::modelChanged()
   QModelIndex externalLinks = _model.externalLinksIndex();
   if (externalLinks.isValid())
   {
-    bool externalLinksExpanded =
-      settings.value("externalLinksExpanded", false).toBool();
+    bool externalLinksExpanded = settings.value("externalLinksExpanded", false).toBool();
     _treeView->setExpanded(externalLinks, externalLinksExpanded);
   }
+
   QModelIndex interwiki = _model.interwikiIndex();
   if (interwiki.isValid())
   {
-    bool interwikiExpanded =
-      settings.value("interwikiExpanded", false).toBool();
+    bool interwikiExpanded = settings.value("interwikiExpanded", false).toBool();
     _treeView->setExpanded(interwiki, interwikiExpanded);
   }
 
@@ -70,8 +65,9 @@ void Panel::modelChanged()
   if (lastEntry.isValid())
     _treeView->setCurrentIndex(lastEntry);
 
-  // Set visibility
-  setVisible(_model.rowCount() > 0);
+  // Set visibility: the panel is hidden when empty, and also when
+  // a page from namespace Wikt is displayed.
+  setVisible(_model.rowCount() > 0 && !_model.lastEntry().startsWith("Wikt:"));
 }
 
 //===========================================================================

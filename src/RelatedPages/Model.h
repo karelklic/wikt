@@ -61,6 +61,11 @@ public:
   QModelIndex interwikiIndex() const;
   QModelIndex lastEntryIndex() const;
 
+  /// Returns the name of the last entry used to update the model.
+  /// Empty string is returned if the model is cleared or newly
+  /// initialized.
+  const QString &lastEntry() const { return _lastEntry; }
+
 private:
   RootItem *_rootItem;
   QString _lastEntry;

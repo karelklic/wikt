@@ -407,6 +407,10 @@ CampidaneseSardinian:
   code: sro
   names: Campidanese Sardinian
   
+Cantonese:
+  code: yue
+  names: Cantonese
+  
 Carib:
   names: Carib
 
@@ -832,6 +836,10 @@ Kanuri:
   code: kr
   interwiki: Kanuri
   names: Kanuri
+  
+Karelian:
+  code: krl
+  names: [Karelian, Kareli]
 
 Kashmiri:
   code: ks
@@ -891,6 +899,10 @@ Korean:
   code: ko
   interwiki: 한국어
   names: Korean
+  
+Kott:
+  code: zko
+  names: Kott
 
 Kurdish:
   code: ku
@@ -934,6 +946,10 @@ Lingala:
   code: ln
   interwiki: Lingála
   names: Lingala
+
+LinguaFrancaNova:
+  code: lfn
+  names: Lingua Franca Nova
 
 Lithuanian:
   code: lt
@@ -1036,10 +1052,26 @@ Marshallese:
   interwiki: Ebon
   names: Marshallese
   
+MiddleDutch:
+  code: dum
+  names: Middle Dutch
+  
 MiddleEnglish:
   code: enm
   names: [Middle English, Medeival English]
+  
+MiddleFrench:
+  code: frm
+  names: Middle French
 
+MiddleHighGerman:
+  code: gmh
+  names: Middle High German
+  
+MiddleIrish:
+  code: mga
+  names: Middle Irish
+  
 MinNan:
   code: zh-min-nan
   interwiki: Bân-lâm-gú
@@ -1158,13 +1190,24 @@ OldHighGerman:
   code: goh
   names: Old High German
   
+OldIrish:
+  code: sga
+  names: Old Irish
+  
 OldNorse:
   code: non
   names: Old Norse
   
+OldPolish:
+  names: Old Polish
+  
 OldPrussian:
   code: prg
   names: Old Prussian
+  
+OldSaxon:
+  code: osx
+  names: Old Saxon
   
 OldSpanish:
   code: osp
@@ -1259,6 +1302,10 @@ RaetoRomance:
 Rohingya:
   code: rhg
   names: Rohingya
+  
+Romain:
+  code: rom
+  names: [Romani, Romany, Gypsy, Gipsy]
 
 Romanian:
   code: ro

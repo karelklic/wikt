@@ -17,9 +17,8 @@
 #include "Parser/ArticleParser.h"
 
 //===========================================================================
-WikiSourceCacheItem::WikiSourceCacheItem(const QString &name,
-    const QString &source) : _source(source),
-    _invalidSectionVisibility(false), _invalidTranslationSettings(false)
+WikiSourceCacheItem::WikiSourceCacheItem(const QString &name, const QString &source)
+  : _source(source), _invalidSectionVisibility(false), _invalidTranslationSettings(false)
 {
   if (_source != "")
   {

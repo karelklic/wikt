@@ -28,8 +28,11 @@ public:
   Format2Reader(const QString &fileName);
   virtual ~Format2Reader();
 
-  // Cached.
+  /// Cached. Implements redirects and entry name changes
+  /// that makes this method suitable for obtaining
+  /// template sources, but not for reading common entries.
   virtual QString source(QString entryName);
+
   virtual bool exist(QString entryName);
   /// @param offset
   ///   Offset between 0 and entry count.

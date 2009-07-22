@@ -35,14 +35,10 @@ Panel::Panel() : QDockWidget(tr("Interesting Pages")), _model(this)
   setAllowedAreas(Qt::LeftDockWidgetArea);
   setFeatures(QDockWidget::NoDockWidgetFeatures);
   connect(&_model, SIGNAL(modelReset()), this, SLOT(modelChanged()));
-  connect(_treeView, SIGNAL(clicked(const QModelIndex&)),
-      this, SLOT(activated(const QModelIndex&)));
-  connect(_treeView, SIGNAL(activated(const QModelIndex&)),
-      this, SLOT(activated(const QModelIndex&)));
-  connect(_treeView, SIGNAL(collapsed(const QModelIndex&)),
-      this, SLOT(collapsed(const QModelIndex&)));
-  connect(_treeView, SIGNAL(expanded(const QModelIndex&)),
-      this, SLOT(expanded(const QModelIndex&)));
+  connect(_treeView, SIGNAL(clicked(const QModelIndex&)), this, SLOT(activated(const QModelIndex&)));
+  connect(_treeView, SIGNAL(activated(const QModelIndex&)), this, SLOT(activated(const QModelIndex&)));
+  connect(_treeView, SIGNAL(collapsed(const QModelIndex&)), this, SLOT(collapsed(const QModelIndex&)));
+  connect(_treeView, SIGNAL(expanded(const QModelIndex&)), this, SLOT(expanded(const QModelIndex&)));
 }
 
 //===========================================================================
@@ -53,13 +49,12 @@ void Panel::modelChanged()
   QModelIndex languagesOfTheWorld = _model.languagesRootItemIndex();
   if (languagesOfTheWorld.isValid())
   {
-    bool languagesExpanded =
-      settings.value("languagesOfTheWorldExpanded", false).toBool();
+    bool languagesExpanded = settings.value("languagesOfTheWorldExpanded", false).toBool();
     _treeView->setExpanded(languagesOfTheWorld, languagesExpanded);
   }
 
-  setVisible(MainWindow::instance()->coordinator()->state()
-      == Coordinator::HomeActivated);
+  setVisible(MainWindow::instance()->coordinator()->state() == Coordinator::HomeActivated ||
+      MainWindow::instance()->coordinator()->text().startsWith("Wikt:"));
 }
 
 //===========================================================================
