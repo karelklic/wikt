@@ -30,14 +30,12 @@ OptionsDialog::OptionsDialog(QWidget *parent) : QDialog(parent)
 
   QSettings settings;
   bool translationsFolded = settings.value("translationsFolded", true).toBool();
-  ui.translationsFoldedCheckBox->setCheckState(
-      translationsFolded ? Qt::Checked : Qt::Unchecked);
+  ui.translationsFoldedCheckBox->setCheckState(translationsFolded ? Qt::Checked : Qt::Unchecked);
 
   QList<QTreeWidgetItem*> alphabet;
   for (char c = 'A'; c <= 'Z'; ++c)
   {
-    QTreeWidgetItem *item = new QTreeWidgetItem((QTreeWidget*)0,
-        QStringList(QString(QChar(c))));
+    QTreeWidgetItem *item = new QTreeWidgetItem((QTreeWidget*)0, QStringList(QString(QChar(c))));
     alphabet.append(item);
   }
   ui.translationsTree->insertTopLevelItems(0, alphabet);
@@ -67,13 +65,11 @@ OptionsDialog::OptionsDialog(QWidget *parent) : QDialog(parent)
 
   foreach (QTreeWidgetItem *character, alphabet)
   {
-    character->setFlags(Qt::ItemIsUserCheckable | Qt::ItemIsTristate |
-        Qt::ItemIsEnabled);
+    character->setFlags(Qt::ItemIsUserCheckable | Qt::ItemIsTristate | Qt::ItemIsEnabled);
     updateCharacterCheckState(character);
   }
 
-  connect(ui.translationsTree, SIGNAL(itemChanged(QTreeWidgetItem*, int)),
-      this, SLOT(itemChanged(QTreeWidgetItem*, int)));
+  connect(ui.translationsTree, SIGNAL(itemChanged(QTreeWidgetItem*, int)), this, SLOT(itemChanged(QTreeWidgetItem*, int)));
 }
 
 //===========================================================================
@@ -85,8 +81,7 @@ OptionsDialog::~OptionsDialog()
 void OptionsDialog::saveSettings()
 {
   QSettings settings;
-  settings.setValue("translationsFolded",
-      ui.translationsFoldedCheckBox->checkState() == Qt::Checked);
+  settings.setValue("translationsFolded", ui.translationsFoldedCheckBox->checkState() == Qt::Checked);
 
   for (int i = 0; i < ui.translationsTree->topLevelItemCount(); ++i)
   {
@@ -95,8 +90,7 @@ void OptionsDialog::saveSettings()
     {
       QTreeWidgetItem *item = character->child(j);
       Language::Type language = (Language::Type)item->data(0, Qt::UserRole).toInt();
-      Language::instance().setTranslationVisible(language,
-          item->checkState(0) == Qt::Checked);
+      Language::instance().setTranslationVisible(language, item->checkState(0) == Qt::Checked);
     }
   }
 

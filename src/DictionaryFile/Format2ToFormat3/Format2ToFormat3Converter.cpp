@@ -59,6 +59,13 @@ void Format2ToFormat3Converter::run()
     // Convert galleries to tables with images.
     content = GalleryConverter::convert(content);
 
+    // If the entry is a Category and if it is marked as hidden by
+    // __HIDDENCAT__, do not store this category to the output file.
+    // Hidden categories exist for maintenance reasons and should not be
+    // present in Wikt.
+    if (it.key().startsWith("Category:") && content.contains("__HIDDENCAT__"))
+      continue;
+
     // Write the entry.
     writer.addEntry(it.key(), content);
 

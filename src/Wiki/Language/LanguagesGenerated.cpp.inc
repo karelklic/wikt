@@ -19,936 +19,958 @@
 //-
 _codeToType.insert("stq", SaterlandFrisian);
 _typeToCode.insert(SaterlandFrisian, "stq");
-_typeToNames.insert(SaterlandFrisian, QString::fromWCharArray(L"Saterland Frisian"));
-_nameToType.insert(QString::fromWCharArray(L"Saterland Frisian"), SaterlandFrisian);
+_typeToNames.insert(SaterlandFrisian, fromWCharArray(L"Saterland Frisian"));
+_nameToType.insert(fromWCharArray(L"Saterland Frisian"), SaterlandFrisian);
 //-
-_typeToNames.insert(Binisaya, QString::fromWCharArray(L"Binisayâ"));
-_nameToType.insert(QString::fromWCharArray(L"Binisayâ"), Binisaya);
+_typeToNames.insert(Binisaya, fromWCharArray(L"Binisayâ"));
+_nameToType.insert(fromWCharArray(L"Binisayâ"), Binisaya);
 //-
-_typeToNames.insert(Assan, QString::fromWCharArray(L"Assan"));
-_nameToType.insert(QString::fromWCharArray(L"Assan"), Assan);
+_typeToNames.insert(Assan, fromWCharArray(L"Assan"));
+_nameToType.insert(fromWCharArray(L"Assan"), Assan);
 //-
 _codeToType.insert("jv", Javanese);
 _typeToCode.insert(Javanese, "jv");
-_typeToInterwiki.insert(Javanese, QString::fromWCharArray(L"Basa Jawa"));
-_typeToNames.insert(Javanese, QString::fromWCharArray(L"Javanese"));
-_nameToType.insert(QString::fromWCharArray(L"Javanese"), Javanese);
+_typeToInterwiki.insert(Javanese, fromWCharArray(L"Basa Jawa"));
+_typeToNames.insert(Javanese, fromWCharArray(L"Javanese"));
+_nameToType.insert(fromWCharArray(L"Javanese"), Javanese);
 //-
 _codeToType.insert("to", Tonga);
 _typeToCode.insert(Tonga, "to");
-_typeToInterwiki.insert(Tonga, QString::fromWCharArray(L"lea faka-Tonga"));
-_typeToNames.insert(Tonga, QString::fromWCharArray(L"Tonga"));
-_nameToType.insert(QString::fromWCharArray(L"Tonga"), Tonga);
+_typeToInterwiki.insert(Tonga, fromWCharArray(L"lea faka-Tonga"));
+_typeToNames.insert(Tonga, fromWCharArray(L"Tonga"));
+_nameToType.insert(fromWCharArray(L"Tonga"), Tonga);
 //-
 _codeToType.insert("tg", Tajik);
 _typeToCode.insert(Tajik, "tg");
-_typeToInterwiki.insert(Tajik, QString::fromWCharArray(L"Тоҷикӣ"));
-_typeToNames.insert(Tajik, QString::fromWCharArray(L"Tajik"));
-_nameToType.insert(QString::fromWCharArray(L"Tajik"), Tajik);
-//-
-_codeToType.insert("bsk", Burushaski);
-_typeToCode.insert(Burushaski, "bsk");
-_typeToNames.insert(Burushaski, QString::fromWCharArray(L"Burushaski"));
-_nameToType.insert(QString::fromWCharArray(L"Burushaski"), Burushaski);
+_typeToInterwiki.insert(Tajik, fromWCharArray(L"Тоҷикӣ"));
+_typeToNames.insert(Tajik, fromWCharArray(L"Tajik"));
+_nameToType.insert(fromWCharArray(L"Tajik"), Tajik);
 //-
 _codeToType.insert("zh-min-nan", MinNan);
 _typeToCode.insert(MinNan, "zh-min-nan");
-_typeToInterwiki.insert(MinNan, QString::fromWCharArray(L"Bân-lâm-gú"));
-_typeToNames.insert(MinNan, QString::fromWCharArray(L"Min Nan"));
-_nameToType.insert(QString::fromWCharArray(L"Min Nan"), MinNan);
+_typeToInterwiki.insert(MinNan, fromWCharArray(L"Bân-lâm-gú"));
+_typeToNames.insert(MinNan, fromWCharArray(L"Min Nan"));
+_nameToType.insert(fromWCharArray(L"Min Nan"), MinNan);
+//-
+_codeToType.insert("bsk", Burushaski);
+_typeToCode.insert(Burushaski, "bsk");
+_typeToNames.insert(Burushaski, fromWCharArray(L"Burushaski"));
+_nameToType.insert(fromWCharArray(L"Burushaski"), Burushaski);
 //-
 _codeToType.insert("kld", Gamilaraay);
 _typeToCode.insert(Gamilaraay, "kld");
-_codeToType.insert("aus", Gamilaraay);
-_typeToCode.insert(Gamilaraay, "aus");
-_typeToNames.insert(Gamilaraay, QString::fromWCharArray(L"Kamilaroi"));
-_nameToType.insert(QString::fromWCharArray(L"Kamilaroi"), Gamilaraay);
-_typeToNames.insert(Gamilaraay, QString::fromWCharArray(L"Gamilaraay"));
-_nameToType.insert(QString::fromWCharArray(L"Gamilaraay"), Gamilaraay);
+_typeToNames.insert(Gamilaraay, fromWCharArray(L"Kamilaroi"));
+_nameToType.insert(fromWCharArray(L"Kamilaroi"), Gamilaraay);
+_typeToNames.insert(Gamilaraay, fromWCharArray(L"Gamilaraay"));
+_nameToType.insert(fromWCharArray(L"Gamilaraay"), Gamilaraay);
 //-
 _codeToType.insert("arp", Arapaho);
 _typeToCode.insert(Arapaho, "arp");
-_typeToNames.insert(Arapaho, QString::fromWCharArray(L"Arapaho"));
-_nameToType.insert(QString::fromWCharArray(L"Arapaho"), Arapaho);
+_typeToNames.insert(Arapaho, fromWCharArray(L"Arapaho"));
+_nameToType.insert(fromWCharArray(L"Arapaho"), Arapaho);
 //-
 _codeToType.insert("xh", Xhosa);
 _typeToCode.insert(Xhosa, "xh");
-_typeToInterwiki.insert(Xhosa, QString::fromWCharArray(L"isiXhosa"));
-_typeToNames.insert(Xhosa, QString::fromWCharArray(L"Xhosa"));
-_nameToType.insert(QString::fromWCharArray(L"Xhosa"), Xhosa);
+_typeToInterwiki.insert(Xhosa, fromWCharArray(L"isiXhosa"));
+_typeToNames.insert(Xhosa, fromWCharArray(L"Xhosa"));
+_nameToType.insert(fromWCharArray(L"Xhosa"), Xhosa);
 //-
 _codeToType.insert("ss", Swati);
 _typeToCode.insert(Swati, "ss");
-_typeToInterwiki.insert(Swati, QString::fromWCharArray(L"SiSwati"));
-_typeToNames.insert(Swati, QString::fromWCharArray(L"Swati"));
-_nameToType.insert(QString::fromWCharArray(L"Swati"), Swati);
+_typeToInterwiki.insert(Swati, fromWCharArray(L"SiSwati"));
+_typeToNames.insert(Swati, fromWCharArray(L"Swati"));
+_nameToType.insert(fromWCharArray(L"Swati"), Swati);
 //-
 _codeToType.insert("pap", Papiamentu);
 _typeToCode.insert(Papiamentu, "pap");
-_typeToNames.insert(Papiamentu, QString::fromWCharArray(L"Papiamento"));
-_nameToType.insert(QString::fromWCharArray(L"Papiamento"), Papiamentu);
-_typeToNames.insert(Papiamentu, QString::fromWCharArray(L"Papiamentu"));
-_nameToType.insert(QString::fromWCharArray(L"Papiamentu"), Papiamentu);
+_typeToNames.insert(Papiamentu, fromWCharArray(L"Papiamento"));
+_nameToType.insert(fromWCharArray(L"Papiamento"), Papiamentu);
+_typeToNames.insert(Papiamentu, fromWCharArray(L"Papiamentu"));
+_nameToType.insert(fromWCharArray(L"Papiamentu"), Papiamentu);
 //-
-_typeToNames.insert(NorthernTujia, QString::fromWCharArray(L"Northern Tujia"));
-_nameToType.insert(QString::fromWCharArray(L"Northern Tujia"), NorthernTujia);
+_codeToType.insert("fro", OldFrench);
+_typeToCode.insert(OldFrench, "fro");
+_typeToNames.insert(OldFrench, fromWCharArray(L"Old French"));
+_nameToType.insert(fromWCharArray(L"Old French"), OldFrench);
+//-
+_typeToNames.insert(NorthernTujia, fromWCharArray(L"Northern Tujia"));
+_nameToType.insert(fromWCharArray(L"Northern Tujia"), NorthernTujia);
 //-
 _codeToType.insert("com", Comanche);
 _typeToCode.insert(Comanche, "com");
-_typeToNames.insert(Comanche, QString::fromWCharArray(L"Comanche"));
-_nameToType.insert(QString::fromWCharArray(L"Comanche"), Comanche);
+_typeToNames.insert(Comanche, fromWCharArray(L"Comanche"));
+_nameToType.insert(fromWCharArray(L"Comanche"), Comanche);
 //-
 _codeToType.insert("rw", Kinyarwanda);
 _typeToCode.insert(Kinyarwanda, "rw");
-_typeToInterwiki.insert(Kinyarwanda, QString::fromWCharArray(L"Kinyarwanda"));
-_typeToNames.insert(Kinyarwanda, QString::fromWCharArray(L"Kinyarwanda"));
-_nameToType.insert(QString::fromWCharArray(L"Kinyarwanda"), Kinyarwanda);
+_typeToInterwiki.insert(Kinyarwanda, fromWCharArray(L"Kinyarwanda"));
+_typeToNames.insert(Kinyarwanda, fromWCharArray(L"Kinyarwanda"));
+_nameToType.insert(fromWCharArray(L"Kinyarwanda"), Kinyarwanda);
 //-
 _codeToType.insert("mis", Warao);
 _typeToCode.insert(Warao, "mis");
-_typeToNames.insert(Warao, QString::fromWCharArray(L"Warrau"));
-_nameToType.insert(QString::fromWCharArray(L"Warrau"), Warao);
-_typeToNames.insert(Warao, QString::fromWCharArray(L"Guarao"));
-_nameToType.insert(QString::fromWCharArray(L"Guarao"), Warao);
-_typeToNames.insert(Warao, QString::fromWCharArray(L"Guarauno"));
-_nameToType.insert(QString::fromWCharArray(L"Guarauno"), Warao);
-_typeToNames.insert(Warao, QString::fromWCharArray(L"Warao"));
-_nameToType.insert(QString::fromWCharArray(L"Warao"), Warao);
+_typeToNames.insert(Warao, fromWCharArray(L"Warrau"));
+_nameToType.insert(fromWCharArray(L"Warrau"), Warao);
+_typeToNames.insert(Warao, fromWCharArray(L"Guarao"));
+_nameToType.insert(fromWCharArray(L"Guarao"), Warao);
+_typeToNames.insert(Warao, fromWCharArray(L"Guarauno"));
+_nameToType.insert(fromWCharArray(L"Guarauno"), Warao);
+_typeToNames.insert(Warao, fromWCharArray(L"Warao"));
+_nameToType.insert(fromWCharArray(L"Warao"), Warao);
 //-
 _codeToType.insert("sh", SerboCroatian);
 _typeToCode.insert(SerboCroatian, "sh");
-_typeToInterwiki.insert(SerboCroatian, QString::fromWCharArray(L"Srpskohrvatski / Српскохрватски"));
-_typeToNames.insert(SerboCroatian, QString::fromWCharArray(L"Serbo Croatian"));
-_nameToType.insert(QString::fromWCharArray(L"Serbo Croatian"), SerboCroatian);
+_typeToInterwiki.insert(SerboCroatian, fromWCharArray(L"Srpskohrvatski / Српскохрватски"));
+_typeToNames.insert(SerboCroatian, fromWCharArray(L"Serbo Croatian"));
+_nameToType.insert(fromWCharArray(L"Serbo Croatian"), SerboCroatian);
 //-
-_typeToNames.insert(Carib, QString::fromWCharArray(L"Carib"));
-_nameToType.insert(QString::fromWCharArray(L"Carib"), Carib);
+_typeToNames.insert(Carib, fromWCharArray(L"Carib"));
+_nameToType.insert(fromWCharArray(L"Carib"), Carib);
 //-
 _codeToType.insert("cu", ChurchSlavic);
 _typeToCode.insert(ChurchSlavic, "cu");
-_typeToInterwiki.insert(ChurchSlavic, QString::fromWCharArray(L"Словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ"));
-_typeToNames.insert(ChurchSlavic, QString::fromWCharArray(L"Church Slavic"));
-_nameToType.insert(QString::fromWCharArray(L"Church Slavic"), ChurchSlavic);
+_typeToInterwiki.insert(ChurchSlavic, fromWCharArray(L"Словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ"));
+_typeToNames.insert(ChurchSlavic, fromWCharArray(L"Church Slavic"));
+_nameToType.insert(fromWCharArray(L"Church Slavic"), ChurchSlavic);
 //-
 _codeToType.insert("lu", LubaKatanga);
 _typeToCode.insert(LubaKatanga, "lu");
 //-
 _codeToType.insert("bs", Bosnian);
 _typeToCode.insert(Bosnian, "bs");
-_typeToInterwiki.insert(Bosnian, QString::fromWCharArray(L"Bosanski"));
-_typeToNames.insert(Bosnian, QString::fromWCharArray(L"Bosnian"));
-_nameToType.insert(QString::fromWCharArray(L"Bosnian"), Bosnian);
+_typeToInterwiki.insert(Bosnian, fromWCharArray(L"Bosanski"));
+_typeToNames.insert(Bosnian, fromWCharArray(L"Bosnian"));
+_nameToType.insert(fromWCharArray(L"Bosnian"), Bosnian);
 //-
 _codeToType.insert("hu", Hungarian);
 _typeToCode.insert(Hungarian, "hu");
-_typeToInterwiki.insert(Hungarian, QString::fromWCharArray(L"Magyar"));
-_typeToNames.insert(Hungarian, QString::fromWCharArray(L"Hungarian"));
-_nameToType.insert(QString::fromWCharArray(L"Hungarian"), Hungarian);
+_typeToInterwiki.insert(Hungarian, fromWCharArray(L"Magyar"));
+_typeToNames.insert(Hungarian, fromWCharArray(L"Hungarian"));
+_nameToType.insert(fromWCharArray(L"Hungarian"), Hungarian);
 //-
 _codeToType.insert("rn", Kirundi);
 _typeToCode.insert(Kirundi, "rn");
-_typeToInterwiki.insert(Kirundi, QString::fromWCharArray(L"Kirundi"));
-_typeToNames.insert(Kirundi, QString::fromWCharArray(L"Kirundi"));
-_nameToType.insert(QString::fromWCharArray(L"Kirundi"), Kirundi);
+_typeToInterwiki.insert(Kirundi, fromWCharArray(L"Kirundi"));
+_typeToNames.insert(Kirundi, fromWCharArray(L"Kirundi"));
+_nameToType.insert(fromWCharArray(L"Kirundi"), Kirundi);
 //-
 _codeToType.insert("sux", Sumerian);
 _typeToCode.insert(Sumerian, "sux");
-_typeToNames.insert(Sumerian, QString::fromWCharArray(L"Sumerian"));
-_nameToType.insert(QString::fromWCharArray(L"Sumerian"), Sumerian);
+_typeToNames.insert(Sumerian, fromWCharArray(L"Sumerian"));
+_nameToType.insert(fromWCharArray(L"Sumerian"), Sumerian);
 //-
 _codeToType.insert("adt", Adnyamathanha);
 _typeToCode.insert(Adnyamathanha, "adt");
-_typeToNames.insert(Adnyamathanha, QString::fromWCharArray(L"Adnyamathanha"));
-_nameToType.insert(QString::fromWCharArray(L"Adnyamathanha"), Adnyamathanha);
+_typeToNames.insert(Adnyamathanha, fromWCharArray(L"Adnyamathanha"));
+_nameToType.insert(fromWCharArray(L"Adnyamathanha"), Adnyamathanha);
 //-
 _codeToType.insert("css", SouthernOhlone);
 _typeToCode.insert(SouthernOhlone, "css");
-_typeToNames.insert(SouthernOhlone, QString::fromWCharArray(L"Southern Ohlone"));
-_nameToType.insert(QString::fromWCharArray(L"Southern Ohlone"), SouthernOhlone);
+_typeToNames.insert(SouthernOhlone, fromWCharArray(L"Southern Ohlone"));
+_nameToType.insert(fromWCharArray(L"Southern Ohlone"), SouthernOhlone);
 //-
 _codeToType.insert("ccc", Chamicuro);
 _typeToCode.insert(Chamicuro, "ccc");
-_typeToNames.insert(Chamicuro, QString::fromWCharArray(L"Chamicuro"));
-_nameToType.insert(QString::fromWCharArray(L"Chamicuro"), Chamicuro);
+_typeToNames.insert(Chamicuro, fromWCharArray(L"Chamicuro"));
+_nameToType.insert(fromWCharArray(L"Chamicuro"), Chamicuro);
 //-
-_typeToNames.insert(Bangi, QString::fromWCharArray(L"Bangi"));
-_nameToType.insert(QString::fromWCharArray(L"Bangi"), Bangi);
+_typeToNames.insert(Bangi, fromWCharArray(L"Bangi"));
+_nameToType.insert(fromWCharArray(L"Bangi"), Bangi);
 //-
 _codeToType.insert("zsu", Sukurum);
 _typeToCode.insert(Sukurum, "zsu");
-_typeToNames.insert(Sukurum, QString::fromWCharArray(L"Sukurum"));
-_nameToType.insert(QString::fromWCharArray(L"Sukurum"), Sukurum);
+_typeToNames.insert(Sukurum, fromWCharArray(L"Sukurum"));
+_nameToType.insert(fromWCharArray(L"Sukurum"), Sukurum);
 //-
 _codeToType.insert("ng", Ndonga);
 _typeToCode.insert(Ndonga, "ng");
-_typeToInterwiki.insert(Ndonga, QString::fromWCharArray(L"Oshiwambo"));
-_typeToNames.insert(Ndonga, QString::fromWCharArray(L"Ndonga"));
-_nameToType.insert(QString::fromWCharArray(L"Ndonga"), Ndonga);
+_typeToInterwiki.insert(Ndonga, fromWCharArray(L"Oshiwambo"));
+_typeToNames.insert(Ndonga, fromWCharArray(L"Ndonga"));
+_nameToType.insert(fromWCharArray(L"Ndonga"), Ndonga);
 //-
 _codeToType.insert("fil", Filipino);
 _typeToCode.insert(Filipino, "fil");
-_typeToNames.insert(Filipino, QString::fromWCharArray(L"Filipino"));
-_nameToType.insert(QString::fromWCharArray(L"Filipino"), Filipino);
+_typeToNames.insert(Filipino, fromWCharArray(L"Filipino"));
+_nameToType.insert(fromWCharArray(L"Filipino"), Filipino);
 //-
 _codeToType.insert("mi", Maori);
 _typeToCode.insert(Maori, "mi");
-_typeToInterwiki.insert(Maori, QString::fromWCharArray(L"Māori"));
-_typeToNames.insert(Maori, QString::fromWCharArray(L"Maori"));
-_nameToType.insert(QString::fromWCharArray(L"Maori"), Maori);
+_typeToInterwiki.insert(Maori, fromWCharArray(L"Māori"));
+_typeToNames.insert(Maori, fromWCharArray(L"Maori"));
+_nameToType.insert(fromWCharArray(L"Maori"), Maori);
 //-
-_typeToNames.insert(Akha, QString::fromWCharArray(L"Akha"));
-_nameToType.insert(QString::fromWCharArray(L"Akha"), Akha);
+_typeToNames.insert(Akha, fromWCharArray(L"Akha"));
+_nameToType.insert(fromWCharArray(L"Akha"), Akha);
 //-
 _codeToType.insert("wo", Wolof);
 _typeToCode.insert(Wolof, "wo");
-_typeToInterwiki.insert(Wolof, QString::fromWCharArray(L"Wolof"));
-_typeToNames.insert(Wolof, QString::fromWCharArray(L"Wolof"));
-_nameToType.insert(QString::fromWCharArray(L"Wolof"), Wolof);
+_typeToInterwiki.insert(Wolof, fromWCharArray(L"Wolof"));
+_typeToNames.insert(Wolof, fromWCharArray(L"Wolof"));
+_nameToType.insert(fromWCharArray(L"Wolof"), Wolof);
 //-
 _codeToType.insert("ta", Tamil);
 _typeToCode.insert(Tamil, "ta");
-_typeToInterwiki.insert(Tamil, QString::fromWCharArray(L"தமிழ்"));
-_typeToNames.insert(Tamil, QString::fromWCharArray(L"Tamil"));
-_nameToType.insert(QString::fromWCharArray(L"Tamil"), Tamil);
+_typeToInterwiki.insert(Tamil, fromWCharArray(L"தமிழ்"));
+_typeToNames.insert(Tamil, fromWCharArray(L"Tamil"));
+_nameToType.insert(fromWCharArray(L"Tamil"), Tamil);
 //-
 _codeToType.insert("gd", ScottishGaelic);
 _typeToCode.insert(ScottishGaelic, "gd");
-_typeToInterwiki.insert(ScottishGaelic, QString::fromWCharArray(L"Gàidhlig"));
-_typeToNames.insert(ScottishGaelic, QString::fromWCharArray(L"Scottish Gaelic"));
-_nameToType.insert(QString::fromWCharArray(L"Scottish Gaelic"), ScottishGaelic);
+_typeToInterwiki.insert(ScottishGaelic, fromWCharArray(L"Gàidhlig"));
+_typeToNames.insert(ScottishGaelic, fromWCharArray(L"Scottish Gaelic"));
+_nameToType.insert(fromWCharArray(L"Scottish Gaelic"), ScottishGaelic);
 //-
 _codeToType.insert("hil", Hiligaynon);
 _typeToCode.insert(Hiligaynon, "hil");
-_typeToNames.insert(Hiligaynon, QString::fromWCharArray(L"Ilonggo"));
-_nameToType.insert(QString::fromWCharArray(L"Ilonggo"), Hiligaynon);
-_typeToNames.insert(Hiligaynon, QString::fromWCharArray(L"Hiligaynon"));
-_nameToType.insert(QString::fromWCharArray(L"Hiligaynon"), Hiligaynon);
+_typeToNames.insert(Hiligaynon, fromWCharArray(L"Ilonggo"));
+_nameToType.insert(fromWCharArray(L"Ilonggo"), Hiligaynon);
+_typeToNames.insert(Hiligaynon, fromWCharArray(L"Hiligaynon"));
+_nameToType.insert(fromWCharArray(L"Hiligaynon"), Hiligaynon);
 //-
-_typeToNames.insert(Bresciano, QString::fromWCharArray(L"Bresciano"));
-_nameToType.insert(QString::fromWCharArray(L"Bresciano"), Bresciano);
+_typeToNames.insert(Bresciano, fromWCharArray(L"Bresciano"));
+_nameToType.insert(fromWCharArray(L"Bresciano"), Bresciano);
 //-
 _codeToType.insert("yun", Bena);
 _typeToCode.insert(Bena, "yun");
-_typeToNames.insert(Bena, QString::fromWCharArray(L"Bena"));
-_nameToType.insert(QString::fromWCharArray(L"Bena"), Bena);
+_typeToNames.insert(Bena, fromWCharArray(L"Bena"));
+_nameToType.insert(fromWCharArray(L"Bena"), Bena);
 //-
 _codeToType.insert("vmw", Makhuwa);
 _typeToCode.insert(Makhuwa, "vmw");
-_typeToNames.insert(Makhuwa, QString::fromWCharArray(L"Makua"));
-_nameToType.insert(QString::fromWCharArray(L"Makua"), Makhuwa);
-_typeToNames.insert(Makhuwa, QString::fromWCharArray(L"Makhuwa"));
-_nameToType.insert(QString::fromWCharArray(L"Makhuwa"), Makhuwa);
+_typeToNames.insert(Makhuwa, fromWCharArray(L"Makua"));
+_nameToType.insert(fromWCharArray(L"Makua"), Makhuwa);
+_typeToNames.insert(Makhuwa, fromWCharArray(L"Makhuwa"));
+_nameToType.insert(fromWCharArray(L"Makhuwa"), Makhuwa);
 //-
 _codeToType.insert("ny", Chichewa);
 _typeToCode.insert(Chichewa, "ny");
-_typeToInterwiki.insert(Chichewa, QString::fromWCharArray(L"Chi-Chewa"));
-_typeToNames.insert(Chichewa, QString::fromWCharArray(L"Chichewa"));
-_nameToType.insert(QString::fromWCharArray(L"Chichewa"), Chichewa);
+_typeToInterwiki.insert(Chichewa, fromWCharArray(L"Chi-Chewa"));
+_typeToNames.insert(Chichewa, fromWCharArray(L"Chichewa"));
+_nameToType.insert(fromWCharArray(L"Chichewa"), Chichewa);
+//-
+_codeToType.insert("aus", Woiwurrung);
+_typeToCode.insert(Woiwurrung, "aus");
+_typeToNames.insert(Woiwurrung, fromWCharArray(L"Woiwurrung"));
+_nameToType.insert(fromWCharArray(L"Woiwurrung"), Woiwurrung);
 //-
 _codeToType.insert("ru", Russian);
 _typeToCode.insert(Russian, "ru");
-_typeToInterwiki.insert(Russian, QString::fromWCharArray(L"Русский"));
-_typeToNames.insert(Russian, QString::fromWCharArray(L"Russian"));
-_nameToType.insert(QString::fromWCharArray(L"Russian"), Russian);
+_typeToInterwiki.insert(Russian, fromWCharArray(L"Русский"));
+_typeToNames.insert(Russian, fromWCharArray(L"Russian"));
+_nameToType.insert(fromWCharArray(L"Russian"), Russian);
 //-
 _codeToType.insert("pl", Polish);
 _typeToCode.insert(Polish, "pl");
-_typeToInterwiki.insert(Polish, QString::fromWCharArray(L"Polski"));
-_typeToNames.insert(Polish, QString::fromWCharArray(L"Polish"));
-_nameToType.insert(QString::fromWCharArray(L"Polish"), Polish);
+_typeToInterwiki.insert(Polish, fromWCharArray(L"Polski"));
+_typeToNames.insert(Polish, fromWCharArray(L"Polish"));
+_nameToType.insert(fromWCharArray(L"Polish"), Polish);
 //-
 _codeToType.insert("nv", Navajo);
 _typeToCode.insert(Navajo, "nv");
-_typeToInterwiki.insert(Navajo, QString::fromWCharArray(L"Diné bizaad"));
-_typeToNames.insert(Navajo, QString::fromWCharArray(L"Navajo"));
-_nameToType.insert(QString::fromWCharArray(L"Navajo"), Navajo);
+_typeToInterwiki.insert(Navajo, fromWCharArray(L"Diné bizaad"));
+_typeToNames.insert(Navajo, fromWCharArray(L"Navajo"));
+_nameToType.insert(fromWCharArray(L"Navajo"), Navajo);
 //-
 _codeToType.insert("smn", InariSami);
 _typeToCode.insert(InariSami, "smn");
-_typeToNames.insert(InariSami, QString::fromWCharArray(L"Inari Sami"));
-_nameToType.insert(QString::fromWCharArray(L"Inari Sami"), InariSami);
+_typeToNames.insert(InariSami, fromWCharArray(L"Inari Sami"));
+_nameToType.insert(fromWCharArray(L"Inari Sami"), InariSami);
 //-
 _codeToType.insert("zu", Zulu);
 _typeToCode.insert(Zulu, "zu");
-_typeToInterwiki.insert(Zulu, QString::fromWCharArray(L"isiZulu"));
-_typeToNames.insert(Zulu, QString::fromWCharArray(L"Zulu"));
-_nameToType.insert(QString::fromWCharArray(L"Zulu"), Zulu);
+_typeToInterwiki.insert(Zulu, fromWCharArray(L"isiZulu"));
+_typeToNames.insert(Zulu, fromWCharArray(L"Zulu"));
+_nameToType.insert(fromWCharArray(L"Zulu"), Zulu);
 //-
 _codeToType.insert("nr", SouthNdebele);
 _typeToCode.insert(SouthNdebele, "nr");
 //-
-_typeToNames.insert(Chiquitano, QString::fromWCharArray(L"Chiquitano"));
-_nameToType.insert(QString::fromWCharArray(L"Chiquitano"), Chiquitano);
+_typeToNames.insert(Chiquitano, fromWCharArray(L"Chiquitano"));
+_nameToType.insert(fromWCharArray(L"Chiquitano"), Chiquitano);
 //-
 _codeToType.insert("bh", Bihari);
 _typeToCode.insert(Bihari, "bh");
-_typeToInterwiki.insert(Bihari, QString::fromWCharArray(L"भोजपुरी"));
-_typeToNames.insert(Bihari, QString::fromWCharArray(L"Bihari"));
-_nameToType.insert(QString::fromWCharArray(L"Bihari"), Bihari);
+_typeToInterwiki.insert(Bihari, fromWCharArray(L"भोजपुरी"));
+_typeToNames.insert(Bihari, fromWCharArray(L"Bihari"));
+_nameToType.insert(fromWCharArray(L"Bihari"), Bihari);
 //-
 _codeToType.insert("am", Amharic);
 _typeToCode.insert(Amharic, "am");
-_typeToInterwiki.insert(Amharic, QString::fromWCharArray(L"አማርኛ"));
-_typeToNames.insert(Amharic, QString::fromWCharArray(L"Amharic"));
-_nameToType.insert(QString::fromWCharArray(L"Amharic"), Amharic);
+_typeToInterwiki.insert(Amharic, fromWCharArray(L"አማርኛ"));
+_typeToNames.insert(Amharic, fromWCharArray(L"Amharic"));
+_nameToType.insert(fromWCharArray(L"Amharic"), Amharic);
 //-
-_typeToNames.insert(DegXinag, QString::fromWCharArray(L"Deg Xinag"));
-_nameToType.insert(QString::fromWCharArray(L"Deg Xinag"), DegXinag);
+_typeToNames.insert(DegXinag, fromWCharArray(L"Deg Xinag"));
+_nameToType.insert(fromWCharArray(L"Deg Xinag"), DegXinag);
 //-
 _codeToType.insert("roa-rup", Aromanian);
 _typeToCode.insert(Aromanian, "roa-rup");
 _codeToType.insert("rup", Aromanian);
 _typeToCode.insert(Aromanian, "rup");
-_typeToInterwiki.insert(Aromanian, QString::fromWCharArray(L"Armãneashce"));
-_typeToNames.insert(Aromanian, QString::fromWCharArray(L"Aromanian"));
-_nameToType.insert(QString::fromWCharArray(L"Aromanian"), Aromanian);
+_typeToInterwiki.insert(Aromanian, fromWCharArray(L"Armãneashce"));
+_typeToNames.insert(Aromanian, fromWCharArray(L"Aromanian"));
+_nameToType.insert(fromWCharArray(L"Aromanian"), Aromanian);
 //-
 _codeToType.insert("chy", Cheyenne);
 _typeToCode.insert(Cheyenne, "chy");
-_typeToNames.insert(Cheyenne, QString::fromWCharArray(L"Cheyenne"));
-_nameToType.insert(QString::fromWCharArray(L"Cheyenne"), Cheyenne);
+_typeToNames.insert(Cheyenne, fromWCharArray(L"Cheyenne"));
+_nameToType.insert(fromWCharArray(L"Cheyenne"), Cheyenne);
 //-
 _codeToType.insert("ku", Kurdish);
 _typeToCode.insert(Kurdish, "ku");
-_typeToInterwiki.insert(Kurdish, QString::fromWCharArray(L"Kurdî / كوردی"));
-_typeToNames.insert(Kurdish, QString::fromWCharArray(L"Kurdish"));
-_nameToType.insert(QString::fromWCharArray(L"Kurdish"), Kurdish);
+_typeToInterwiki.insert(Kurdish, fromWCharArray(L"Kurdî / كوردی"));
+_typeToNames.insert(Kurdish, fromWCharArray(L"Kurdish"));
+_nameToType.insert(fromWCharArray(L"Kurdish"), Kurdish);
 //-
 _codeToType.insert("sco", Scots);
 _typeToCode.insert(Scots, "sco");
-_typeToNames.insert(Scots, QString::fromWCharArray(L"Scots"));
-_nameToType.insert(QString::fromWCharArray(L"Scots"), Scots);
+_typeToNames.insert(Scots, fromWCharArray(L"Scots"));
+_nameToType.insert(fromWCharArray(L"Scots"), Scots);
 //-
 _codeToType.insert("os", Ossetian);
 _typeToCode.insert(Ossetian, "os");
-_typeToInterwiki.insert(Ossetian, QString::fromWCharArray(L"Иронау"));
-_typeToNames.insert(Ossetian, QString::fromWCharArray(L"Ossetian"));
-_nameToType.insert(QString::fromWCharArray(L"Ossetian"), Ossetian);
+_typeToInterwiki.insert(Ossetian, fromWCharArray(L"Иронау"));
+_typeToNames.insert(Ossetian, fromWCharArray(L"Ossetian"));
+_nameToType.insert(fromWCharArray(L"Ossetian"), Ossetian);
 //-
 _codeToType.insert("oc", Occitan);
 _typeToCode.insert(Occitan, "oc");
-_typeToInterwiki.insert(Occitan, QString::fromWCharArray(L"Occitan"));
-_typeToNames.insert(Occitan, QString::fromWCharArray(L"Occitan"));
-_nameToType.insert(QString::fromWCharArray(L"Occitan"), Occitan);
+_typeToInterwiki.insert(Occitan, fromWCharArray(L"Occitan"));
+_typeToNames.insert(Occitan, fromWCharArray(L"Occitan"));
+_nameToType.insert(fromWCharArray(L"Occitan"), Occitan);
 //-
 _codeToType.insert("nah", Nahuatl);
 _typeToCode.insert(Nahuatl, "nah");
-_typeToNames.insert(Nahuatl, QString::fromWCharArray(L"Classical Nahuatl"));
-_nameToType.insert(QString::fromWCharArray(L"Classical Nahuatl"), Nahuatl);
-_typeToNames.insert(Nahuatl, QString::fromWCharArray(L"Classic Nahuatl"));
-_nameToType.insert(QString::fromWCharArray(L"Classic Nahuatl"), Nahuatl);
-_typeToNames.insert(Nahuatl, QString::fromWCharArray(L"Nahuatl"));
-_nameToType.insert(QString::fromWCharArray(L"Nahuatl"), Nahuatl);
+_typeToNames.insert(Nahuatl, fromWCharArray(L"Classical Nahuatl"));
+_nameToType.insert(fromWCharArray(L"Classical Nahuatl"), Nahuatl);
+_typeToNames.insert(Nahuatl, fromWCharArray(L"Classic Nahuatl"));
+_nameToType.insert(fromWCharArray(L"Classic Nahuatl"), Nahuatl);
+_typeToNames.insert(Nahuatl, fromWCharArray(L"Nahuatl"));
+_nameToType.insert(fromWCharArray(L"Nahuatl"), Nahuatl);
 //-
 _codeToType.insert("be", Belarusian);
 _typeToCode.insert(Belarusian, "be");
-_typeToInterwiki.insert(Belarusian, QString::fromWCharArray(L"Беларуская"));
-_typeToNames.insert(Belarusian, QString::fromWCharArray(L"Belarusian"));
-_nameToType.insert(QString::fromWCharArray(L"Belarusian"), Belarusian);
+_typeToInterwiki.insert(Belarusian, fromWCharArray(L"Беларуская"));
+_typeToNames.insert(Belarusian, fromWCharArray(L"Belarusian"));
+_nameToType.insert(fromWCharArray(L"Belarusian"), Belarusian);
 //-
 _codeToType.insert("fa", Persian);
 _typeToCode.insert(Persian, "fa");
-_typeToInterwiki.insert(Persian, QString::fromWCharArray(L"فارسی"));
-_typeToNames.insert(Persian, QString::fromWCharArray(L"Persian"));
-_nameToType.insert(QString::fromWCharArray(L"Persian"), Persian);
+_typeToInterwiki.insert(Persian, fromWCharArray(L"فارسی"));
+_typeToNames.insert(Persian, fromWCharArray(L"Persian"));
+_nameToType.insert(fromWCharArray(L"Persian"), Persian);
 //-
 _codeToType.insert("dsb", LowerSorbian);
 _typeToCode.insert(LowerSorbian, "dsb");
-_typeToInterwiki.insert(LowerSorbian, QString::fromWCharArray(L"Dolnoserbski"));
-_typeToNames.insert(LowerSorbian, QString::fromWCharArray(L"Lower Sorbian"));
-_nameToType.insert(QString::fromWCharArray(L"Lower Sorbian"), LowerSorbian);
+_typeToInterwiki.insert(LowerSorbian, fromWCharArray(L"Dolnoserbski"));
+_typeToNames.insert(LowerSorbian, fromWCharArray(L"Lower Sorbian"));
+_nameToType.insert(fromWCharArray(L"Lower Sorbian"), LowerSorbian);
 //-
 _codeToType.insert("eu", Basque);
 _typeToCode.insert(Basque, "eu");
-_typeToInterwiki.insert(Basque, QString::fromWCharArray(L"Euskara"));
-_typeToNames.insert(Basque, QString::fromWCharArray(L"Basque"));
-_nameToType.insert(QString::fromWCharArray(L"Basque"), Basque);
+_typeToInterwiki.insert(Basque, fromWCharArray(L"Euskara"));
+_typeToNames.insert(Basque, fromWCharArray(L"Basque"));
+_nameToType.insert(fromWCharArray(L"Basque"), Basque);
 //-
 _codeToType.insert("iu", Inuktitut);
 _typeToCode.insert(Inuktitut, "iu");
-_typeToInterwiki.insert(Inuktitut, QString::fromWCharArray(L"ᐃᓄᒃᑎᑐᑦ/inuktitut"));
-_typeToNames.insert(Inuktitut, QString::fromWCharArray(L"Inuktitut"));
-_nameToType.insert(QString::fromWCharArray(L"Inuktitut"), Inuktitut);
+_typeToInterwiki.insert(Inuktitut, fromWCharArray(L"ᐃᓄᒃᑎᑐᑦ/inuktitut"));
+_typeToNames.insert(Inuktitut, fromWCharArray(L"Inuktitut"));
+_nameToType.insert(fromWCharArray(L"Inuktitut"), Inuktitut);
 //-
 _codeToType.insert("hy", Armenian);
 _typeToCode.insert(Armenian, "hy");
-_typeToInterwiki.insert(Armenian, QString::fromWCharArray(L"Հայերեն"));
-_typeToNames.insert(Armenian, QString::fromWCharArray(L"Armenian"));
-_nameToType.insert(QString::fromWCharArray(L"Armenian"), Armenian);
+_typeToInterwiki.insert(Armenian, fromWCharArray(L"Հայերեն"));
+_typeToNames.insert(Armenian, fromWCharArray(L"Armenian"));
+_nameToType.insert(fromWCharArray(L"Armenian"), Armenian);
 //-
 _codeToType.insert("de", German);
 _typeToCode.insert(German, "de");
-_typeToInterwiki.insert(German, QString::fromWCharArray(L"Deutsch"));
-_typeToNames.insert(German, QString::fromWCharArray(L"German"));
-_nameToType.insert(QString::fromWCharArray(L"German"), German);
+_typeToInterwiki.insert(German, fromWCharArray(L"Deutsch"));
+_typeToNames.insert(German, fromWCharArray(L"German"));
+_nameToType.insert(fromWCharArray(L"German"), German);
 //-
 _codeToType.insert("uk", Ukrainian);
 _typeToCode.insert(Ukrainian, "uk");
-_typeToInterwiki.insert(Ukrainian, QString::fromWCharArray(L"Українська"));
-_typeToNames.insert(Ukrainian, QString::fromWCharArray(L"Ukrainian"));
-_nameToType.insert(QString::fromWCharArray(L"Ukrainian"), Ukrainian);
+_typeToInterwiki.insert(Ukrainian, fromWCharArray(L"Українська"));
+_typeToNames.insert(Ukrainian, fromWCharArray(L"Ukrainian"));
+_nameToType.insert(fromWCharArray(L"Ukrainian"), Ukrainian);
 //-
 _codeToType.insert("tt", Tatar);
 _typeToCode.insert(Tatar, "tt");
-_typeToInterwiki.insert(Tatar, QString::fromWCharArray(L"Tatarça/Татарча"));
-_typeToNames.insert(Tatar, QString::fromWCharArray(L"Tatar"));
-_nameToType.insert(QString::fromWCharArray(L"Tatar"), Tatar);
+_typeToInterwiki.insert(Tatar, fromWCharArray(L"Tatarça/Татарча"));
+_typeToNames.insert(Tatar, fromWCharArray(L"Tatar"));
+_nameToType.insert(fromWCharArray(L"Tatar"), Tatar);
 //-
 _codeToType.insert("tl", Tagalog);
 _typeToCode.insert(Tagalog, "tl");
-_typeToInterwiki.insert(Tagalog, QString::fromWCharArray(L"Tagalog"));
-_typeToNames.insert(Tagalog, QString::fromWCharArray(L"Tagalog"));
-_nameToType.insert(QString::fromWCharArray(L"Tagalog"), Tagalog);
+_typeToInterwiki.insert(Tagalog, fromWCharArray(L"Tagalog"));
+_typeToNames.insert(Tagalog, fromWCharArray(L"Tagalog"));
+_nameToType.insert(fromWCharArray(L"Tagalog"), Tagalog);
 //-
 _codeToType.insert("sg", Sango);
 _typeToCode.insert(Sango, "sg");
-_typeToInterwiki.insert(Sango, QString::fromWCharArray(L"Sängö"));
-_typeToNames.insert(Sango, QString::fromWCharArray(L"Sango"));
-_nameToType.insert(QString::fromWCharArray(L"Sango"), Sango);
+_typeToInterwiki.insert(Sango, fromWCharArray(L"Sängö"));
+_typeToNames.insert(Sango, fromWCharArray(L"Sango"));
+_nameToType.insert(fromWCharArray(L"Sango"), Sango);
 //-
 _codeToType.insert("sro", CampidaneseSardinian);
 _typeToCode.insert(CampidaneseSardinian, "sro");
-_typeToNames.insert(CampidaneseSardinian, QString::fromWCharArray(L"Campidanese Sardinian"));
-_nameToType.insert(QString::fromWCharArray(L"Campidanese Sardinian"), CampidaneseSardinian);
+_typeToNames.insert(CampidaneseSardinian, fromWCharArray(L"Campidanese Sardinian"));
+_nameToType.insert(fromWCharArray(L"Campidanese Sardinian"), CampidaneseSardinian);
 //-
 _codeToType.insert("roh", Romansch);
 _typeToCode.insert(Romansch, "roh");
-_typeToNames.insert(Romansch, QString::fromWCharArray(L"Romansch"));
-_nameToType.insert(QString::fromWCharArray(L"Romansch"), Romansch);
+_typeToNames.insert(Romansch, fromWCharArray(L"Romansch"));
+_nameToType.insert(fromWCharArray(L"Romansch"), Romansch);
 //-
-_typeToNames.insert(Aramaic, QString::fromWCharArray(L"Aramaic"));
-_nameToType.insert(QString::fromWCharArray(L"Aramaic"), Aramaic);
+_typeToNames.insert(Aramaic, fromWCharArray(L"Aramaic"));
+_nameToType.insert(fromWCharArray(L"Aramaic"), Aramaic);
+//-
+_codeToType.insert("luo", Luo);
+_typeToCode.insert(Luo, "luo");
+_typeToNames.insert(Luo, fromWCharArray(L"Luo"));
+_nameToType.insert(fromWCharArray(L"Luo"), Luo);
 //-
 _codeToType.insert("br", Breton);
 _typeToCode.insert(Breton, "br");
-_typeToInterwiki.insert(Breton, QString::fromWCharArray(L"Brezhoneg"));
-_typeToNames.insert(Breton, QString::fromWCharArray(L"Breton"));
-_nameToType.insert(QString::fromWCharArray(L"Breton"), Breton);
+_typeToInterwiki.insert(Breton, fromWCharArray(L"Brezhoneg"));
+_typeToNames.insert(Breton, fromWCharArray(L"Breton"));
+_nameToType.insert(fromWCharArray(L"Breton"), Breton);
 //-
 _codeToType.insert("sei", Seri);
 _typeToCode.insert(Seri, "sei");
-_typeToNames.insert(Seri, QString::fromWCharArray(L"Seri"));
-_nameToType.insert(QString::fromWCharArray(L"Seri"), Seri);
+_typeToNames.insert(Seri, fromWCharArray(L"Seri"));
+_nameToType.insert(fromWCharArray(L"Seri"), Seri);
 //-
 _codeToType.insert("kw", Cornish);
 _typeToCode.insert(Cornish, "kw");
-_typeToInterwiki.insert(Cornish, QString::fromWCharArray(L"Kernewek"));
-_typeToNames.insert(Cornish, QString::fromWCharArray(L"Cornish"));
-_nameToType.insert(QString::fromWCharArray(L"Cornish"), Cornish);
+_typeToInterwiki.insert(Cornish, fromWCharArray(L"Kernewek"));
+_typeToNames.insert(Cornish, fromWCharArray(L"Cornish"));
+_nameToType.insert(fromWCharArray(L"Cornish"), Cornish);
 //-
 _codeToType.insert("en", English);
 _typeToCode.insert(English, "en");
-_typeToInterwiki.insert(English, QString::fromWCharArray(L"English"));
-_typeToNames.insert(English, QString::fromWCharArray(L"English"));
-_nameToType.insert(QString::fromWCharArray(L"English"), English);
+_typeToInterwiki.insert(English, fromWCharArray(L"English"));
+_typeToNames.insert(English, fromWCharArray(L"English"));
+_nameToType.insert(fromWCharArray(L"English"), English);
 //-
 _codeToType.insert("ban", Balinese);
 _typeToCode.insert(Balinese, "ban");
-_typeToNames.insert(Balinese, QString::fromWCharArray(L"Balinese"));
-_nameToType.insert(QString::fromWCharArray(L"Balinese"), Balinese);
+_typeToNames.insert(Balinese, fromWCharArray(L"Balinese"));
+_nameToType.insert(fromWCharArray(L"Balinese"), Balinese);
 //-
 _codeToType.insert("km", Khmer);
 _typeToCode.insert(Khmer, "km");
-_typeToInterwiki.insert(Khmer, QString::fromWCharArray(L"ភាសាខ្មែរ"));
-_typeToNames.insert(Khmer, QString::fromWCharArray(L"Khmer"));
-_nameToType.insert(QString::fromWCharArray(L"Khmer"), Khmer);
+_typeToInterwiki.insert(Khmer, fromWCharArray(L"ភាសាខ្មែរ"));
+_typeToNames.insert(Khmer, fromWCharArray(L"Khmer"));
+_nameToType.insert(fromWCharArray(L"Khmer"), Khmer);
 //-
 _codeToType.insert("kdd", Yankunytjatjara);
 _typeToCode.insert(Yankunytjatjara, "kdd");
-_typeToNames.insert(Yankunytjatjara, QString::fromWCharArray(L"Yankunytjatjara"));
-_nameToType.insert(QString::fromWCharArray(L"Yankunytjatjara"), Yankunytjatjara);
+_typeToNames.insert(Yankunytjatjara, fromWCharArray(L"Yankunytjatjara"));
+_nameToType.insert(fromWCharArray(L"Yankunytjatjara"), Yankunytjatjara);
 //-
 _codeToType.insert("bo", Tibetan);
 _typeToCode.insert(Tibetan, "bo");
-_typeToInterwiki.insert(Tibetan, QString::fromWCharArray(L"བོད་ཡིག"));
-_typeToNames.insert(Tibetan, QString::fromWCharArray(L"Tibetan"));
-_nameToType.insert(QString::fromWCharArray(L"Tibetan"), Tibetan);
+_typeToInterwiki.insert(Tibetan, fromWCharArray(L"བོད་ཡིག"));
+_typeToNames.insert(Tibetan, fromWCharArray(L"Tibetan"));
+_nameToType.insert(fromWCharArray(L"Tibetan"), Tibetan);
 //-
 _codeToType.insert("sd", Sindhi);
 _typeToCode.insert(Sindhi, "sd");
-_typeToInterwiki.insert(Sindhi, QString::fromWCharArray(L"سنڌي"));
-_typeToNames.insert(Sindhi, QString::fromWCharArray(L"Sindhi"));
-_nameToType.insert(QString::fromWCharArray(L"Sindhi"), Sindhi);
+_typeToInterwiki.insert(Sindhi, fromWCharArray(L"سنڌي"));
+_typeToNames.insert(Sindhi, fromWCharArray(L"Sindhi"));
+_nameToType.insert(fromWCharArray(L"Sindhi"), Sindhi);
 //-
 _codeToType.insert("scn", Sicilian);
 _typeToCode.insert(Sicilian, "scn");
-_typeToInterwiki.insert(Sicilian, QString::fromWCharArray(L"Sicilianu"));
-_typeToNames.insert(Sicilian, QString::fromWCharArray(L"Sicilian"));
-_nameToType.insert(QString::fromWCharArray(L"Sicilian"), Sicilian);
+_typeToInterwiki.insert(Sicilian, fromWCharArray(L"Sicilianu"));
+_typeToNames.insert(Sicilian, fromWCharArray(L"Sicilian"));
+_nameToType.insert(fromWCharArray(L"Sicilian"), Sicilian);
 //-
 _codeToType.insert("qu", Quechua);
 _typeToCode.insert(Quechua, "qu");
-_typeToInterwiki.insert(Quechua, QString::fromWCharArray(L"Runa Simi"));
-_typeToNames.insert(Quechua, QString::fromWCharArray(L"Quechua"));
-_nameToType.insert(QString::fromWCharArray(L"Quechua"), Quechua);
+_typeToInterwiki.insert(Quechua, fromWCharArray(L"Runa Simi"));
+_typeToNames.insert(Quechua, fromWCharArray(L"Quechua"));
+_nameToType.insert(fromWCharArray(L"Quechua"), Quechua);
 //-
 _codeToType.insert("co", Corsican);
 _typeToCode.insert(Corsican, "co");
-_typeToInterwiki.insert(Corsican, QString::fromWCharArray(L"Corsu"));
-_typeToNames.insert(Corsican, QString::fromWCharArray(L"Corsican"));
-_nameToType.insert(QString::fromWCharArray(L"Corsican"), Corsican);
+_typeToInterwiki.insert(Corsican, fromWCharArray(L"Corsu"));
+_typeToNames.insert(Corsican, fromWCharArray(L"Corsican"));
+_nameToType.insert(fromWCharArray(L"Corsican"), Corsican);
 //-
 _codeToType.insert("rm", RaetoRomance);
 _typeToCode.insert(RaetoRomance, "rm");
-_typeToInterwiki.insert(RaetoRomance, QString::fromWCharArray(L"Rumantsch"));
-_typeToNames.insert(RaetoRomance, QString::fromWCharArray(L"Raeto Romance"));
-_nameToType.insert(QString::fromWCharArray(L"Raeto Romance"), RaetoRomance);
+_typeToInterwiki.insert(RaetoRomance, fromWCharArray(L"Rumantsch"));
+_typeToNames.insert(RaetoRomance, fromWCharArray(L"Raeto Romance"));
+_nameToType.insert(fromWCharArray(L"Raeto Romance"), RaetoRomance);
 //-
 _codeToType.insert("goh", OldHighGerman);
 _typeToCode.insert(OldHighGerman, "goh");
-_typeToNames.insert(OldHighGerman, QString::fromWCharArray(L"Old High German"));
-_nameToType.insert(QString::fromWCharArray(L"Old High German"), OldHighGerman);
+_typeToNames.insert(OldHighGerman, fromWCharArray(L"Old High German"));
+_nameToType.insert(fromWCharArray(L"Old High German"), OldHighGerman);
 //-
 _codeToType.insert("ko", Korean);
 _typeToCode.insert(Korean, "ko");
-_typeToInterwiki.insert(Korean, QString::fromWCharArray(L"한국어"));
-_typeToNames.insert(Korean, QString::fromWCharArray(L"Korean"));
-_nameToType.insert(QString::fromWCharArray(L"Korean"), Korean);
+_typeToInterwiki.insert(Korean, fromWCharArray(L"한국어"));
+_typeToNames.insert(Korean, fromWCharArray(L"Korean"));
+_nameToType.insert(fromWCharArray(L"Korean"), Korean);
 //-
 _codeToType.insert("akk", Akkadian);
 _typeToCode.insert(Akkadian, "akk");
-_typeToNames.insert(Akkadian, QString::fromWCharArray(L"Akkadian"));
-_nameToType.insert(QString::fromWCharArray(L"Akkadian"), Akkadian);
+_typeToNames.insert(Akkadian, fromWCharArray(L"Akkadian"));
+_nameToType.insert(fromWCharArray(L"Akkadian"), Akkadian);
 //-
 _codeToType.insert("bft", Balti);
 _typeToCode.insert(Balti, "bft");
-_typeToNames.insert(Balti, QString::fromWCharArray(L"Balti"));
-_nameToType.insert(QString::fromWCharArray(L"Balti"), Balti);
+_typeToNames.insert(Balti, fromWCharArray(L"Balti"));
+_nameToType.insert(fromWCharArray(L"Balti"), Balti);
 //-
 _codeToType.insert("te", Telugu);
 _typeToCode.insert(Telugu, "te");
-_typeToInterwiki.insert(Telugu, QString::fromWCharArray(L"తెలుగు"));
-_typeToNames.insert(Telugu, QString::fromWCharArray(L"Telugu"));
-_nameToType.insert(QString::fromWCharArray(L"Telugu"), Telugu);
+_typeToInterwiki.insert(Telugu, fromWCharArray(L"తెలుగు"));
+_typeToNames.insert(Telugu, fromWCharArray(L"Telugu"));
+_nameToType.insert(fromWCharArray(L"Telugu"), Telugu);
 //-
 _codeToType.insert("bla", Blackfoot);
 _typeToCode.insert(Blackfoot, "bla");
-_typeToNames.insert(Blackfoot, QString::fromWCharArray(L"Blackfoot"));
-_nameToType.insert(QString::fromWCharArray(L"Blackfoot"), Blackfoot);
+_typeToNames.insert(Blackfoot, fromWCharArray(L"Blackfoot"));
+_nameToType.insert(fromWCharArray(L"Blackfoot"), Blackfoot);
 //-
 _codeToType.insert("bm", Bambara);
 _typeToCode.insert(Bambara, "bm");
-_typeToInterwiki.insert(Bambara, QString::fromWCharArray(L"Bamanankan"));
-_typeToNames.insert(Bambara, QString::fromWCharArray(L"Bambara"));
-_nameToType.insert(QString::fromWCharArray(L"Bambara"), Bambara);
+_typeToInterwiki.insert(Bambara, fromWCharArray(L"Bamanankan"));
+_typeToNames.insert(Bambara, fromWCharArray(L"Bambara"));
+_nameToType.insert(fromWCharArray(L"Bambara"), Bambara);
 //-
 _codeToType.insert("brc", BerbiceCreoleDutch);
 _typeToCode.insert(BerbiceCreoleDutch, "brc");
 _codeToType.insert("crp", BerbiceCreoleDutch);
 _typeToCode.insert(BerbiceCreoleDutch, "crp");
-_typeToNames.insert(BerbiceCreoleDutch, QString::fromWCharArray(L"Berbice Creole Dutch"));
-_nameToType.insert(QString::fromWCharArray(L"Berbice Creole Dutch"), BerbiceCreoleDutch);
+_typeToNames.insert(BerbiceCreoleDutch, fromWCharArray(L"Berbice Creole Dutch"));
+_nameToType.insert(fromWCharArray(L"Berbice Creole Dutch"), BerbiceCreoleDutch);
 //-
 _codeToType.insert("ce", Chechen);
 _typeToCode.insert(Chechen, "ce");
-_typeToInterwiki.insert(Chechen, QString::fromWCharArray(L"Нохчийн"));
-_typeToNames.insert(Chechen, QString::fromWCharArray(L"Chechen"));
-_nameToType.insert(QString::fromWCharArray(L"Chechen"), Chechen);
+_typeToInterwiki.insert(Chechen, fromWCharArray(L"Нохчийн"));
+_typeToNames.insert(Chechen, fromWCharArray(L"Chechen"));
+_nameToType.insert(fromWCharArray(L"Chechen"), Chechen);
 //-
 _codeToType.insert("crh", CrimeanTatar);
 _typeToCode.insert(CrimeanTatar, "crh");
-_typeToNames.insert(CrimeanTatar, QString::fromWCharArray(L"Crimean Tatar"));
-_nameToType.insert(QString::fromWCharArray(L"Crimean Tatar"), CrimeanTatar);
+_typeToNames.insert(CrimeanTatar, fromWCharArray(L"Crimean Tatar"));
+_nameToType.insert(fromWCharArray(L"Crimean Tatar"), CrimeanTatar);
 //-
 _codeToType.insert("fi", Finnish);
 _typeToCode.insert(Finnish, "fi");
-_typeToInterwiki.insert(Finnish, QString::fromWCharArray(L"Suomi"));
-_typeToNames.insert(Finnish, QString::fromWCharArray(L"Finnish"));
-_nameToType.insert(QString::fromWCharArray(L"Finnish"), Finnish);
+_typeToInterwiki.insert(Finnish, fromWCharArray(L"Suomi"));
+_typeToNames.insert(Finnish, fromWCharArray(L"Finnish"));
+_nameToType.insert(fromWCharArray(L"Finnish"), Finnish);
 //-
 _codeToType.insert("mt", Maltese);
 _typeToCode.insert(Maltese, "mt");
-_typeToInterwiki.insert(Maltese, QString::fromWCharArray(L"Malti"));
-_typeToNames.insert(Maltese, QString::fromWCharArray(L"Maltese"));
-_nameToType.insert(QString::fromWCharArray(L"Maltese"), Maltese);
+_typeToInterwiki.insert(Maltese, fromWCharArray(L"Malti"));
+_typeToNames.insert(Maltese, fromWCharArray(L"Maltese"));
+_nameToType.insert(fromWCharArray(L"Maltese"), Maltese);
 //-
 _codeToType.insert("ka", Georgian);
 _typeToCode.insert(Georgian, "ka");
-_typeToInterwiki.insert(Georgian, QString::fromWCharArray(L"ქართული"));
-_typeToNames.insert(Georgian, QString::fromWCharArray(L"Georgian"));
-_nameToType.insert(QString::fromWCharArray(L"Georgian"), Georgian);
+_typeToInterwiki.insert(Georgian, fromWCharArray(L"ქართული"));
+_typeToNames.insert(Georgian, fromWCharArray(L"Georgian"));
+_nameToType.insert(fromWCharArray(L"Georgian"), Georgian);
 //-
 _codeToType.insert("xpm", Pumpokol);
 _typeToCode.insert(Pumpokol, "xpm");
-_typeToNames.insert(Pumpokol, QString::fromWCharArray(L"Pumpokol"));
-_nameToType.insert(QString::fromWCharArray(L"Pumpokol"), Pumpokol);
+_typeToNames.insert(Pumpokol, fromWCharArray(L"Pumpokol"));
+_nameToType.insert(fromWCharArray(L"Pumpokol"), Pumpokol);
 //-
 _codeToType.insert("pcm", NigerianPidgin);
 _typeToCode.insert(NigerianPidgin, "pcm");
-_typeToNames.insert(NigerianPidgin, QString::fromWCharArray(L"Nigerian Pidgin"));
-_nameToType.insert(QString::fromWCharArray(L"Nigerian Pidgin"), NigerianPidgin);
+_typeToNames.insert(NigerianPidgin, fromWCharArray(L"Nigerian Pidgin"));
+_nameToType.insert(fromWCharArray(L"Nigerian Pidgin"), NigerianPidgin);
 //-
 _codeToType.insert("ht", Haitian);
 _typeToCode.insert(Haitian, "ht");
-_typeToInterwiki.insert(Haitian, QString::fromWCharArray(L"Kreyòl ayisyen"));
-_typeToNames.insert(Haitian, QString::fromWCharArray(L"Haitian Creole"));
-_nameToType.insert(QString::fromWCharArray(L"Haitian Creole"), Haitian);
-_typeToNames.insert(Haitian, QString::fromWCharArray(L"Haitian"));
-_nameToType.insert(QString::fromWCharArray(L"Haitian"), Haitian);
+_typeToInterwiki.insert(Haitian, fromWCharArray(L"Kreyòl ayisyen"));
+_typeToNames.insert(Haitian, fromWCharArray(L"Haitian Creole"));
+_nameToType.insert(fromWCharArray(L"Haitian Creole"), Haitian);
+_typeToNames.insert(Haitian, fromWCharArray(L"Haitian"));
+_nameToType.insert(fromWCharArray(L"Haitian"), Haitian);
 //-
 _codeToType.insert("haw", Hawaiian);
 _typeToCode.insert(Hawaiian, "haw");
-_typeToNames.insert(Hawaiian, QString::fromWCharArray(L"Hawaiian"));
-_nameToType.insert(QString::fromWCharArray(L"Hawaiian"), Hawaiian);
+_typeToNames.insert(Hawaiian, fromWCharArray(L"Hawaiian"));
+_nameToType.insert(fromWCharArray(L"Hawaiian"), Hawaiian);
 //-
 _codeToType.insert("ja", Japanese);
 _typeToCode.insert(Japanese, "ja");
-_typeToInterwiki.insert(Japanese, QString::fromWCharArray(L"日本語"));
-_typeToNames.insert(Japanese, QString::fromWCharArray(L"Japanese"));
-_nameToType.insert(QString::fromWCharArray(L"Japanese"), Japanese);
+_typeToInterwiki.insert(Japanese, fromWCharArray(L"日本語"));
+_typeToNames.insert(Japanese, fromWCharArray(L"Japanese"));
+_nameToType.insert(fromWCharArray(L"Japanese"), Japanese);
 //-
 _codeToType.insert("fan", Fang);
 _typeToCode.insert(Fang, "fan");
-_typeToNames.insert(Fang, QString::fromWCharArray(L"Fang"));
-_nameToType.insert(QString::fromWCharArray(L"Fang"), Fang);
+_typeToNames.insert(Fang, fromWCharArray(L"Fang"));
+_nameToType.insert(fromWCharArray(L"Fang"), Fang);
 //-
 _codeToType.insert("sa", Sanskrit);
 _typeToCode.insert(Sanskrit, "sa");
-_typeToInterwiki.insert(Sanskrit, QString::fromWCharArray(L"संस्कृत"));
-_typeToNames.insert(Sanskrit, QString::fromWCharArray(L"Sanskrit"));
-_nameToType.insert(QString::fromWCharArray(L"Sanskrit"), Sanskrit);
+_typeToInterwiki.insert(Sanskrit, fromWCharArray(L"संस्कृत"));
+_typeToNames.insert(Sanskrit, fromWCharArray(L"Sanskrit"));
+_nameToType.insert(fromWCharArray(L"Sanskrit"), Sanskrit);
 //-
 _codeToType.insert("bho", Bhojpuri);
 _typeToCode.insert(Bhojpuri, "bho");
-_typeToNames.insert(Bhojpuri, QString::fromWCharArray(L"Bhojpuri"));
-_nameToType.insert(QString::fromWCharArray(L"Bhojpuri"), Bhojpuri);
+_typeToNames.insert(Bhojpuri, fromWCharArray(L"Bhojpuri"));
+_nameToType.insert(fromWCharArray(L"Bhojpuri"), Bhojpuri);
 //-
 _codeToType.insert("kl", Kalaallisut);
 _typeToCode.insert(Kalaallisut, "kl");
-_typeToInterwiki.insert(Kalaallisut, QString::fromWCharArray(L"Kalaallisut"));
-_typeToNames.insert(Kalaallisut, QString::fromWCharArray(L"Kalaallisut"));
-_nameToType.insert(QString::fromWCharArray(L"Kalaallisut"), Kalaallisut);
+_typeToInterwiki.insert(Kalaallisut, fromWCharArray(L"Kalaallisut"));
+_typeToNames.insert(Kalaallisut, fromWCharArray(L"Kalaallisut"));
+_nameToType.insert(fromWCharArray(L"Kalaallisut"), Kalaallisut);
 //-
 _codeToType.insert("dv", Divehi);
 _typeToCode.insert(Divehi, "dv");
-_typeToInterwiki.insert(Divehi, QString::fromWCharArray(L"ދިވެހިބަސް"));
-_typeToNames.insert(Divehi, QString::fromWCharArray(L"Dhivehi"));
-_nameToType.insert(QString::fromWCharArray(L"Dhivehi"), Divehi);
-_typeToNames.insert(Divehi, QString::fromWCharArray(L"Divehi"));
-_nameToType.insert(QString::fromWCharArray(L"Divehi"), Divehi);
+_typeToInterwiki.insert(Divehi, fromWCharArray(L"ދިވެހިބަސް"));
+_typeToNames.insert(Divehi, fromWCharArray(L"Dhivehi"));
+_nameToType.insert(fromWCharArray(L"Dhivehi"), Divehi);
+_typeToNames.insert(Divehi, fromWCharArray(L"Divehi"));
+_nameToType.insert(fromWCharArray(L"Divehi"), Divehi);
 //-
 _codeToType.insert("chn", ChinookJargon);
 _typeToCode.insert(ChinookJargon, "chn");
-_typeToNames.insert(ChinookJargon, QString::fromWCharArray(L"Chinook Wawa"));
-_nameToType.insert(QString::fromWCharArray(L"Chinook Wawa"), ChinookJargon);
-_typeToNames.insert(ChinookJargon, QString::fromWCharArray(L"Chinook Pidgin"));
-_nameToType.insert(QString::fromWCharArray(L"Chinook Pidgin"), ChinookJargon);
-_typeToNames.insert(ChinookJargon, QString::fromWCharArray(L"Chinook Jargon"));
-_nameToType.insert(QString::fromWCharArray(L"Chinook Jargon"), ChinookJargon);
+_typeToNames.insert(ChinookJargon, fromWCharArray(L"Chinook Wawa"));
+_nameToType.insert(fromWCharArray(L"Chinook Wawa"), ChinookJargon);
+_typeToNames.insert(ChinookJargon, fromWCharArray(L"Chinook Pidgin"));
+_nameToType.insert(fromWCharArray(L"Chinook Pidgin"), ChinookJargon);
+_typeToNames.insert(ChinookJargon, fromWCharArray(L"Chinook Jargon"));
+_nameToType.insert(fromWCharArray(L"Chinook Jargon"), ChinookJargon);
 //-
 _codeToType.insert("gv", Manx);
 _typeToCode.insert(Manx, "gv");
-_typeToInterwiki.insert(Manx, QString::fromWCharArray(L"Gaelg"));
-_typeToNames.insert(Manx, QString::fromWCharArray(L"Manx"));
-_nameToType.insert(QString::fromWCharArray(L"Manx"), Manx);
+_typeToInterwiki.insert(Manx, fromWCharArray(L"Gaelg"));
+_typeToNames.insert(Manx, fromWCharArray(L"Manx"));
+_nameToType.insert(fromWCharArray(L"Manx"), Manx);
 //-
 _codeToType.insert("ts", Tsonga);
 _typeToCode.insert(Tsonga, "ts");
-_typeToInterwiki.insert(Tsonga, QString::fromWCharArray(L"Xitsonga"));
-_typeToNames.insert(Tsonga, QString::fromWCharArray(L"Tsonga"));
-_nameToType.insert(QString::fromWCharArray(L"Tsonga"), Tsonga);
+_typeToInterwiki.insert(Tsonga, fromWCharArray(L"Xitsonga"));
+_typeToNames.insert(Tsonga, fromWCharArray(L"Tsonga"));
+_nameToType.insert(fromWCharArray(L"Tsonga"), Tsonga);
 //-
 _codeToType.insert("sc", Sardinian);
 _typeToCode.insert(Sardinian, "sc");
-_typeToInterwiki.insert(Sardinian, QString::fromWCharArray(L"Sardu"));
-_typeToNames.insert(Sardinian, QString::fromWCharArray(L"Sardinian"));
-_nameToType.insert(QString::fromWCharArray(L"Sardinian"), Sardinian);
+_typeToInterwiki.insert(Sardinian, fromWCharArray(L"Sardu"));
+_typeToNames.insert(Sardinian, fromWCharArray(L"Sardinian"));
+_nameToType.insert(fromWCharArray(L"Sardinian"), Sardinian);
 //-
 _codeToType.insert("mn", Mongolian);
 _typeToCode.insert(Mongolian, "mn");
-_typeToInterwiki.insert(Mongolian, QString::fromWCharArray(L"Монгол"));
-_typeToNames.insert(Mongolian, QString::fromWCharArray(L"Mongolian"));
-_nameToType.insert(QString::fromWCharArray(L"Mongolian"), Mongolian);
+_typeToInterwiki.insert(Mongolian, fromWCharArray(L"Монгол"));
+_typeToNames.insert(Mongolian, fromWCharArray(L"Mongolian"));
+_nameToType.insert(fromWCharArray(L"Mongolian"), Mongolian);
 //-
-_typeToNames.insert(Abau, QString::fromWCharArray(L"Abau"));
-_nameToType.insert(QString::fromWCharArray(L"Abau"), Abau);
+_typeToNames.insert(Abau, fromWCharArray(L"Abau"));
+_nameToType.insert(fromWCharArray(L"Abau"), Abau);
 //-
 _codeToType.insert("aaq", Abenaki);
 _typeToCode.insert(Abenaki, "aaq");
 _codeToType.insert("abe", Abenaki);
 _typeToCode.insert(Abenaki, "abe");
-_typeToNames.insert(Abenaki, QString::fromWCharArray(L"Abnaki"));
-_nameToType.insert(QString::fromWCharArray(L"Abnaki"), Abenaki);
-_typeToNames.insert(Abenaki, QString::fromWCharArray(L"Abenaki"));
-_nameToType.insert(QString::fromWCharArray(L"Abenaki"), Abenaki);
+_typeToNames.insert(Abenaki, fromWCharArray(L"Abnaki"));
+_nameToType.insert(fromWCharArray(L"Abnaki"), Abenaki);
+_typeToNames.insert(Abenaki, fromWCharArray(L"Abenaki"));
+_nameToType.insert(fromWCharArray(L"Abenaki"), Abenaki);
 //-
 _codeToType.insert("ia", Interlingua);
 _typeToCode.insert(Interlingua, "ia");
-_typeToInterwiki.insert(Interlingua, QString::fromWCharArray(L"Interlingua"));
-_typeToNames.insert(Interlingua, QString::fromWCharArray(L"Interlingua"));
-_nameToType.insert(QString::fromWCharArray(L"Interlingua"), Interlingua);
+_typeToInterwiki.insert(Interlingua, fromWCharArray(L"Interlingua"));
+_typeToNames.insert(Interlingua, fromWCharArray(L"Interlingua"));
+_nameToType.insert(fromWCharArray(L"Interlingua"), Interlingua);
 //-
 _codeToType.insert("tw", Twi);
 _typeToCode.insert(Twi, "tw");
-_typeToInterwiki.insert(Twi, QString::fromWCharArray(L"Twi"));
-_typeToNames.insert(Twi, QString::fromWCharArray(L"Twi"));
-_nameToType.insert(QString::fromWCharArray(L"Twi"), Twi);
+_typeToInterwiki.insert(Twi, fromWCharArray(L"Twi"));
+_typeToNames.insert(Twi, fromWCharArray(L"Twi"));
+_nameToType.insert(fromWCharArray(L"Twi"), Twi);
 //-
 _codeToType.insert("sl", Slovenian);
 _typeToCode.insert(Slovenian, "sl");
-_typeToInterwiki.insert(Slovenian, QString::fromWCharArray(L"Slovenščina"));
-_typeToNames.insert(Slovenian, QString::fromWCharArray(L"Slovene"));
-_nameToType.insert(QString::fromWCharArray(L"Slovene"), Slovenian);
-_typeToNames.insert(Slovenian, QString::fromWCharArray(L"Slovenian"));
-_nameToType.insert(QString::fromWCharArray(L"Slovenian"), Slovenian);
+_typeToInterwiki.insert(Slovenian, fromWCharArray(L"Slovenščina"));
+_typeToNames.insert(Slovenian, fromWCharArray(L"Slovene"));
+_nameToType.insert(fromWCharArray(L"Slovene"), Slovenian);
+_typeToNames.insert(Slovenian, fromWCharArray(L"Slovenian"));
+_nameToType.insert(fromWCharArray(L"Slovenian"), Slovenian);
+//-
+_codeToType.insert("osp", OldSpanish);
+_typeToCode.insert(OldSpanish, "osp");
+_typeToNames.insert(OldSpanish, fromWCharArray(L"Old Spanish"));
+_nameToType.insert(fromWCharArray(L"Old Spanish"), OldSpanish);
 //-
 _codeToType.insert("dif", Dieri);
 _typeToCode.insert(Dieri, "dif");
-_typeToNames.insert(Dieri, QString::fromWCharArray(L"Diyeri"));
-_nameToType.insert(QString::fromWCharArray(L"Diyeri"), Dieri);
-_typeToNames.insert(Dieri, QString::fromWCharArray(L"Dieyerie"));
-_nameToType.insert(QString::fromWCharArray(L"Dieyerie"), Dieri);
-_typeToNames.insert(Dieri, QString::fromWCharArray(L"Diari"));
-_nameToType.insert(QString::fromWCharArray(L"Diari"), Dieri);
-_typeToNames.insert(Dieri, QString::fromWCharArray(L"Deerie"));
-_nameToType.insert(QString::fromWCharArray(L"Deerie"), Dieri);
-_typeToNames.insert(Dieri, QString::fromWCharArray(L"Dayerrie"));
-_nameToType.insert(QString::fromWCharArray(L"Dayerrie"), Dieri);
-_typeToNames.insert(Dieri, QString::fromWCharArray(L"Dieri"));
-_nameToType.insert(QString::fromWCharArray(L"Dieri"), Dieri);
+_typeToNames.insert(Dieri, fromWCharArray(L"Diyeri"));
+_nameToType.insert(fromWCharArray(L"Diyeri"), Dieri);
+_typeToNames.insert(Dieri, fromWCharArray(L"Dieyerie"));
+_nameToType.insert(fromWCharArray(L"Dieyerie"), Dieri);
+_typeToNames.insert(Dieri, fromWCharArray(L"Diari"));
+_nameToType.insert(fromWCharArray(L"Diari"), Dieri);
+_typeToNames.insert(Dieri, fromWCharArray(L"Deerie"));
+_nameToType.insert(fromWCharArray(L"Deerie"), Dieri);
+_typeToNames.insert(Dieri, fromWCharArray(L"Dayerrie"));
+_nameToType.insert(fromWCharArray(L"Dayerrie"), Dieri);
+_typeToNames.insert(Dieri, fromWCharArray(L"Dieri"));
+_nameToType.insert(fromWCharArray(L"Dieri"), Dieri);
 //-
 _codeToType.insert("arl", Arabela);
 _typeToCode.insert(Arabela, "arl");
-_typeToNames.insert(Arabela, QString::fromWCharArray(L"Arabela"));
-_nameToType.insert(QString::fromWCharArray(L"Arabela"), Arabela);
+_typeToNames.insert(Arabela, fromWCharArray(L"Arabela"));
+_nameToType.insert(fromWCharArray(L"Arabela"), Arabela);
 //-
 _codeToType.insert("ks", Kashmiri);
 _typeToCode.insert(Kashmiri, "ks");
-_typeToInterwiki.insert(Kashmiri, QString::fromWCharArray(L"कश्मीरी - (كشميري)"));
-_typeToNames.insert(Kashmiri, QString::fromWCharArray(L"Kashmiri"));
-_nameToType.insert(QString::fromWCharArray(L"Kashmiri"), Kashmiri);
+_typeToInterwiki.insert(Kashmiri, fromWCharArray(L"कश्मीरी - (كشميري)"));
+_typeToNames.insert(Kashmiri, fromWCharArray(L"Kashmiri"));
+_nameToType.insert(fromWCharArray(L"Kashmiri"), Kashmiri);
 //-
 _codeToType.insert("tn", Tswana);
 _typeToCode.insert(Tswana, "tn");
-_typeToInterwiki.insert(Tswana, QString::fromWCharArray(L"Setswana"));
-_typeToNames.insert(Tswana, QString::fromWCharArray(L"Tswana"));
-_nameToType.insert(QString::fromWCharArray(L"Tswana"), Tswana);
+_typeToInterwiki.insert(Tswana, fromWCharArray(L"Setswana"));
+_typeToNames.insert(Tswana, fromWCharArray(L"Tswana"));
+_nameToType.insert(fromWCharArray(L"Tswana"), Tswana);
 //-
 _codeToType.insert("sr", Serbian);
 _typeToCode.insert(Serbian, "sr");
-_typeToInterwiki.insert(Serbian, QString::fromWCharArray(L"Српски / Srpski"));
-_typeToNames.insert(Serbian, QString::fromWCharArray(L"Serbian"));
-_nameToType.insert(QString::fromWCharArray(L"Serbian"), Serbian);
+_typeToInterwiki.insert(Serbian, fromWCharArray(L"Српски / Srpski"));
+_typeToNames.insert(Serbian, fromWCharArray(L"Serbian"));
+_nameToType.insert(fromWCharArray(L"Serbian"), Serbian);
 //-
 _codeToType.insert("bn", Bengali);
 _typeToCode.insert(Bengali, "bn");
-_typeToInterwiki.insert(Bengali, QString::fromWCharArray(L"বাংলা"));
-_typeToNames.insert(Bengali, QString::fromWCharArray(L"Bengali"));
-_nameToType.insert(QString::fromWCharArray(L"Bengali"), Bengali);
+_typeToInterwiki.insert(Bengali, fromWCharArray(L"বাংলা"));
+_typeToNames.insert(Bengali, fromWCharArray(L"Bengali"));
+_nameToType.insert(fromWCharArray(L"Bengali"), Bengali);
 //-
 _codeToType.insert("ksh", Kolsch);
 _typeToCode.insert(Kolsch, "ksh");
-_typeToNames.insert(Kolsch, QString::fromWCharArray(L"Kölsch"));
-_nameToType.insert(QString::fromWCharArray(L"Kölsch"), Kolsch);
+_typeToNames.insert(Kolsch, fromWCharArray(L"Kölsch"));
+_nameToType.insert(fromWCharArray(L"Kölsch"), Kolsch);
 //-
 _codeToType.insert("jbo", Lojban);
 _typeToCode.insert(Lojban, "jbo");
-_typeToInterwiki.insert(Lojban, QString::fromWCharArray(L"Lojban"));
-_typeToNames.insert(Lojban, QString::fromWCharArray(L"Lojban"));
-_nameToType.insert(QString::fromWCharArray(L"Lojban"), Lojban);
+_typeToInterwiki.insert(Lojban, fromWCharArray(L"Lojban"));
+_typeToNames.insert(Lojban, fromWCharArray(L"Lojban"));
+_nameToType.insert(fromWCharArray(L"Lojban"), Lojban);
 //-
 _codeToType.insert("ake", Akawaio);
 _typeToCode.insert(Akawaio, "ake");
-_typeToNames.insert(Akawaio, QString::fromWCharArray(L"Akawaio"));
-_nameToType.insert(QString::fromWCharArray(L"Akawaio"), Akawaio);
+_typeToNames.insert(Akawaio, fromWCharArray(L"Akawaio"));
+_nameToType.insert(fromWCharArray(L"Akawaio"), Akawaio);
 //-
-_typeToNames.insert(CentralCagayanAgta, QString::fromWCharArray(L"Central Cagayan Agta"));
-_nameToType.insert(QString::fromWCharArray(L"Central Cagayan Agta"), CentralCagayanAgta);
+_typeToNames.insert(CentralCagayanAgta, fromWCharArray(L"Central Cagayan Agta"));
+_nameToType.insert(fromWCharArray(L"Central Cagayan Agta"), CentralCagayanAgta);
 //-
 _codeToType.insert("za", Zhuang);
 _typeToCode.insert(Zhuang, "za");
-_typeToInterwiki.insert(Zhuang, QString::fromWCharArray(L"Sawcuengh"));
-_typeToNames.insert(Zhuang, QString::fromWCharArray(L"Zhuang"));
-_nameToType.insert(QString::fromWCharArray(L"Zhuang"), Zhuang);
+_typeToInterwiki.insert(Zhuang, fromWCharArray(L"Sawcuengh"));
+_typeToNames.insert(Zhuang, fromWCharArray(L"Zhuang"));
+_nameToType.insert(fromWCharArray(L"Zhuang"), Zhuang);
 //-
 _codeToType.insert("si", Sinhala);
 _typeToCode.insert(Sinhala, "si");
-_typeToInterwiki.insert(Sinhala, QString::fromWCharArray(L"සිංහල"));
-_typeToNames.insert(Sinhala, QString::fromWCharArray(L"Sinhala"));
-_nameToType.insert(QString::fromWCharArray(L"Sinhala"), Sinhala);
+_typeToInterwiki.insert(Sinhala, fromWCharArray(L"සිංහල"));
+_typeToNames.insert(Sinhala, fromWCharArray(L"Sinhala"));
+_nameToType.insert(fromWCharArray(L"Sinhala"), Sinhala);
 //-
 _codeToType.insert("ml", Malayalam);
 _typeToCode.insert(Malayalam, "ml");
-_typeToInterwiki.insert(Malayalam, QString::fromWCharArray(L"മലയാളം"));
-_typeToNames.insert(Malayalam, QString::fromWCharArray(L"Malayalam"));
-_nameToType.insert(QString::fromWCharArray(L"Malayalam"), Malayalam);
+_typeToInterwiki.insert(Malayalam, fromWCharArray(L"മലയാളം"));
+_typeToNames.insert(Malayalam, fromWCharArray(L"Malayalam"));
+_nameToType.insert(fromWCharArray(L"Malayalam"), Malayalam);
 //-
 _codeToType.insert("gu", Gujarati);
 _typeToCode.insert(Gujarati, "gu");
-_typeToInterwiki.insert(Gujarati, QString::fromWCharArray(L"ગુજરાતી"));
-_typeToNames.insert(Gujarati, QString::fromWCharArray(L"Gujarati"));
-_nameToType.insert(QString::fromWCharArray(L"Gujarati"), Gujarati);
+_typeToInterwiki.insert(Gujarati, fromWCharArray(L"ગુજરાતી"));
+_typeToNames.insert(Gujarati, fromWCharArray(L"Gujarati"));
+_nameToType.insert(fromWCharArray(L"Gujarati"), Gujarati);
 //-
-_typeToNames.insert(Anuta, QString::fromWCharArray(L"Anuta"));
-_nameToType.insert(QString::fromWCharArray(L"Anuta"), Anuta);
+_typeToNames.insert(Anuta, fromWCharArray(L"Anuta"));
+_nameToType.insert(fromWCharArray(L"Anuta"), Anuta);
 //-
 _codeToType.insert("tet", Tetum);
 _typeToCode.insert(Tetum, "tet");
-_typeToNames.insert(Tetum, QString::fromWCharArray(L"Tetum"));
-_nameToType.insert(QString::fromWCharArray(L"Tetum"), Tetum);
+_typeToNames.insert(Tetum, fromWCharArray(L"Tetum"));
+_nameToType.insert(fromWCharArray(L"Tetum"), Tetum);
 //-
 _codeToType.insert("pa", Panjabi);
 _typeToCode.insert(Panjabi, "pa");
-_typeToInterwiki.insert(Panjabi, QString::fromWCharArray(L"ਪੰਜਾਬੀ"));
-_typeToNames.insert(Panjabi, QString::fromWCharArray(L"Panjabi"));
-_nameToType.insert(QString::fromWCharArray(L"Panjabi"), Panjabi);
+_typeToInterwiki.insert(Panjabi, fromWCharArray(L"ਪੰਜਾਬੀ"));
+_typeToNames.insert(Panjabi, fromWCharArray(L"Panjabi"));
+_nameToType.insert(fromWCharArray(L"Panjabi"), Panjabi);
 //-
 _codeToType.insert("frr", NorthFrisian);
 _typeToCode.insert(NorthFrisian, "frr");
-_typeToNames.insert(NorthFrisian, QString::fromWCharArray(L"Northern Frisian"));
-_nameToType.insert(QString::fromWCharArray(L"Northern Frisian"), NorthFrisian);
-_typeToNames.insert(NorthFrisian, QString::fromWCharArray(L"North Frisian"));
-_nameToType.insert(QString::fromWCharArray(L"North Frisian"), NorthFrisian);
+_typeToNames.insert(NorthFrisian, fromWCharArray(L"Northern Frisian"));
+_nameToType.insert(fromWCharArray(L"Northern Frisian"), NorthFrisian);
+_typeToNames.insert(NorthFrisian, fromWCharArray(L"North Frisian"));
+_nameToType.insert(fromWCharArray(L"North Frisian"), NorthFrisian);
 //-
 _codeToType.insert("ckt", Chukchi);
 _typeToCode.insert(Chukchi, "ckt");
-_typeToNames.insert(Chukchi, QString::fromWCharArray(L"Chukchi"));
-_nameToType.insert(QString::fromWCharArray(L"Chukchi"), Chukchi);
+_typeToNames.insert(Chukchi, fromWCharArray(L"Chukchi"));
+_nameToType.insert(fromWCharArray(L"Chukchi"), Chukchi);
 //-
 _codeToType.insert("cs", Czech);
 _typeToCode.insert(Czech, "cs");
-_typeToInterwiki.insert(Czech, QString::fromWCharArray(L"Česky"));
-_typeToNames.insert(Czech, QString::fromWCharArray(L"Czech"));
-_nameToType.insert(QString::fromWCharArray(L"Czech"), Czech);
+_typeToInterwiki.insert(Czech, fromWCharArray(L"Česky"));
+_typeToNames.insert(Czech, fromWCharArray(L"Czech"));
+_nameToType.insert(fromWCharArray(L"Czech"), Czech);
 //-
 _codeToType.insert("ur", Urdu);
 _typeToCode.insert(Urdu, "ur");
-_typeToInterwiki.insert(Urdu, QString::fromWCharArray(L"اردو"));
-_typeToNames.insert(Urdu, QString::fromWCharArray(L"Urdu"));
-_nameToType.insert(QString::fromWCharArray(L"Urdu"), Urdu);
+_typeToInterwiki.insert(Urdu, fromWCharArray(L"اردو"));
+_typeToNames.insert(Urdu, fromWCharArray(L"Urdu"));
+_nameToType.insert(fromWCharArray(L"Urdu"), Urdu);
 //-
 _codeToType.insert("sv", Swedish);
 _typeToCode.insert(Swedish, "sv");
-_typeToInterwiki.insert(Swedish, QString::fromWCharArray(L"Svenska"));
-_typeToNames.insert(Swedish, QString::fromWCharArray(L"Swedish"));
-_nameToType.insert(QString::fromWCharArray(L"Swedish"), Swedish);
+_typeToInterwiki.insert(Swedish, fromWCharArray(L"Svenska"));
+_typeToNames.insert(Swedish, fromWCharArray(L"Swedish"));
+_nameToType.insert(fromWCharArray(L"Swedish"), Swedish);
 //-
 _codeToType.insert("cho", Choctaw);
 _typeToCode.insert(Choctaw, "cho");
-_typeToNames.insert(Choctaw, QString::fromWCharArray(L"Choctaw"));
-_nameToType.insert(QString::fromWCharArray(L"Choctaw"), Choctaw);
+_typeToNames.insert(Choctaw, fromWCharArray(L"Choctaw"));
+_nameToType.insert(fromWCharArray(L"Choctaw"), Choctaw);
 //-
 _codeToType.insert("bcl", Bikol);
 _typeToCode.insert(Bikol, "bcl");
-_typeToNames.insert(Bikol, QString::fromWCharArray(L"Bicol"));
-_nameToType.insert(QString::fromWCharArray(L"Bicol"), Bikol);
-_typeToNames.insert(Bikol, QString::fromWCharArray(L"Bikol"));
-_nameToType.insert(QString::fromWCharArray(L"Bikol"), Bikol);
+_typeToNames.insert(Bikol, fromWCharArray(L"Bicol"));
+_nameToType.insert(fromWCharArray(L"Bicol"), Bikol);
+_typeToNames.insert(Bikol, fromWCharArray(L"Bikol"));
+_nameToType.insert(fromWCharArray(L"Bikol"), Bikol);
 //-
 _codeToType.insert("tzm", CentralAtlasTamazight);
 _typeToCode.insert(CentralAtlasTamazight, "tzm");
-_typeToNames.insert(CentralAtlasTamazight, QString::fromWCharArray(L"Central Atlas Tamazight"));
-_nameToType.insert(QString::fromWCharArray(L"Central Atlas Tamazight"), CentralAtlasTamazight);
+_typeToNames.insert(CentralAtlasTamazight, fromWCharArray(L"Central Atlas Tamazight"));
+_nameToType.insert(fromWCharArray(L"Central Atlas Tamazight"), CentralAtlasTamazight);
 //-
 _codeToType.insert("ie", Interlingue);
 _typeToCode.insert(Interlingue, "ie");
-_typeToInterwiki.insert(Interlingue, QString::fromWCharArray(L"Interlingue"));
-_typeToNames.insert(Interlingue, QString::fromWCharArray(L"Interlingue"));
-_nameToType.insert(QString::fromWCharArray(L"Interlingue"), Interlingue);
+_typeToInterwiki.insert(Interlingue, fromWCharArray(L"Interlingue"));
+_typeToNames.insert(Interlingue, fromWCharArray(L"Interlingue"));
+_nameToType.insert(fromWCharArray(L"Interlingue"), Interlingue);
 //-
 _codeToType.insert("is", Icelandic);
 _typeToCode.insert(Icelandic, "is");
-_typeToInterwiki.insert(Icelandic, QString::fromWCharArray(L"Íslenska"));
-_typeToNames.insert(Icelandic, QString::fromWCharArray(L"Icelandic"));
-_nameToType.insert(QString::fromWCharArray(L"Icelandic"), Icelandic);
+_typeToInterwiki.insert(Icelandic, fromWCharArray(L"Íslenska"));
+_typeToNames.insert(Icelandic, fromWCharArray(L"Icelandic"));
+_nameToType.insert(fromWCharArray(L"Icelandic"), Icelandic);
 //-
 _codeToType.insert("eo", Esperanto);
 _typeToCode.insert(Esperanto, "eo");
-_typeToInterwiki.insert(Esperanto, QString::fromWCharArray(L"Esperanto"));
-_typeToNames.insert(Esperanto, QString::fromWCharArray(L"Esperanto"));
-_nameToType.insert(QString::fromWCharArray(L"Esperanto"), Esperanto);
+_typeToInterwiki.insert(Esperanto, fromWCharArray(L"Esperanto"));
+_typeToNames.insert(Esperanto, fromWCharArray(L"Esperanto"));
+_nameToType.insert(fromWCharArray(L"Esperanto"), Esperanto);
 //-
 _codeToType.insert("cy", Welsh);
 _typeToCode.insert(Welsh, "cy");
-_typeToInterwiki.insert(Welsh, QString::fromWCharArray(L"Cymraeg"));
-_typeToNames.insert(Welsh, QString::fromWCharArray(L"Welsh"));
-_nameToType.insert(QString::fromWCharArray(L"Welsh"), Welsh);
+_typeToInterwiki.insert(Welsh, fromWCharArray(L"Cymraeg"));
+_typeToNames.insert(Welsh, fromWCharArray(L"Welsh"));
+_nameToType.insert(fromWCharArray(L"Welsh"), Welsh);
 //-
 _codeToType.insert("chu", OldChurchSlavonic);
 _typeToCode.insert(OldChurchSlavonic, "chu");
-_typeToNames.insert(OldChurchSlavonic, QString::fromWCharArray(L"Old Church Slavonic"));
-_nameToType.insert(QString::fromWCharArray(L"Old Church Slavonic"), OldChurchSlavonic);
+_typeToNames.insert(OldChurchSlavonic, fromWCharArray(L"Old Church Slavonic"));
+_nameToType.insert(fromWCharArray(L"Old Church Slavonic"), OldChurchSlavonic);
 //-
 _codeToType.insert("nov", Novial);
 _typeToCode.insert(Novial, "nov");
-_typeToNames.insert(Novial, QString::fromWCharArray(L"Novial"));
-_nameToType.insert(QString::fromWCharArray(L"Novial"), Novial);
+_typeToNames.insert(Novial, fromWCharArray(L"Novial"));
+_nameToType.insert(fromWCharArray(L"Novial"), Novial);
 //-
 _codeToType.insert("ada", Adangme);
 _typeToCode.insert(Adangme, "ada");
-_typeToNames.insert(Adangme, QString::fromWCharArray(L"Dangme"));
-_nameToType.insert(QString::fromWCharArray(L"Dangme"), Adangme);
-_typeToNames.insert(Adangme, QString::fromWCharArray(L"Adangme"));
-_nameToType.insert(QString::fromWCharArray(L"Adangme"), Adangme);
+_typeToNames.insert(Adangme, fromWCharArray(L"Dangme"));
+_nameToType.insert(fromWCharArray(L"Dangme"), Adangme);
+_typeToNames.insert(Adangme, fromWCharArray(L"Adangme"));
+_nameToType.insert(fromWCharArray(L"Adangme"), Adangme);
 //-
 _codeToType.insert("bar", Bavarian);
 _typeToCode.insert(Bavarian, "bar");
-_typeToNames.insert(Bavarian, QString::fromWCharArray(L"Bavarian"));
-_nameToType.insert(QString::fromWCharArray(L"Bavarian"), Bavarian);
+_typeToNames.insert(Bavarian, fromWCharArray(L"Bavarian"));
+_nameToType.insert(fromWCharArray(L"Bavarian"), Bavarian);
 //-
 _codeToType.insert("sw", Swahili);
 _typeToCode.insert(Swahili, "sw");
-_typeToInterwiki.insert(Swahili, QString::fromWCharArray(L"Kiswahili"));
-_typeToNames.insert(Swahili, QString::fromWCharArray(L"Swahili"));
-_nameToType.insert(QString::fromWCharArray(L"Swahili"), Swahili);
+_typeToInterwiki.insert(Swahili, fromWCharArray(L"Kiswahili"));
+_typeToNames.insert(Swahili, fromWCharArray(L"Swahili"));
+_nameToType.insert(fromWCharArray(L"Swahili"), Swahili);
 //-
 _codeToType.insert("cr", Cree);
 _typeToCode.insert(Cree, "cr");
-_typeToInterwiki.insert(Cree, QString::fromWCharArray(L"Nēhiyawēwin / ᓀᐦᐃᔭᐍᐏᐣ"));
-_typeToNames.insert(Cree, QString::fromWCharArray(L"Cree"));
-_nameToType.insert(QString::fromWCharArray(L"Cree"), Cree);
+_typeToInterwiki.insert(Cree, fromWCharArray(L"Nēhiyawēwin / ᓀᐦᐃᔭᐍᐏᐣ"));
+_typeToNames.insert(Cree, fromWCharArray(L"Cree"));
+_nameToType.insert(fromWCharArray(L"Cree"), Cree);
 //-
 _codeToType.insert("kab", Kabyle);
 _typeToCode.insert(Kabyle, "kab");
-_typeToNames.insert(Kabyle, QString::fromWCharArray(L"Kabyle"));
-_nameToType.insert(QString::fromWCharArray(L"Kabyle"), Kabyle);
+_typeToNames.insert(Kabyle, fromWCharArray(L"Kabyle"));
+_nameToType.insert(fromWCharArray(L"Kabyle"), Kabyle);
 //-
 _codeToType.insert("yi", Yiddish);
 _typeToCode.insert(Yiddish, "yi");
-_typeToInterwiki.insert(Yiddish, QString::fromWCharArray(L"ייִדיש"));
-_typeToNames.insert(Yiddish, QString::fromWCharArray(L"Yiddish"));
-_nameToType.insert(QString::fromWCharArray(L"Yiddish"), Yiddish);
+_typeToInterwiki.insert(Yiddish, fromWCharArray(L"ייִדיש"));
+_typeToNames.insert(Yiddish, fromWCharArray(L"Yiddish"));
+_nameToType.insert(fromWCharArray(L"Yiddish"), Yiddish);
 //-
-_typeToNames.insert(Arin, QString::fromWCharArray(L"Arin"));
-_nameToType.insert(QString::fromWCharArray(L"Arin"), Arin);
+_typeToNames.insert(Arin, fromWCharArray(L"Arin"));
+_nameToType.insert(fromWCharArray(L"Arin"), Arin);
 //-
 _codeToType.insert("io", Ido);
 _typeToCode.insert(Ido, "io");
-_typeToInterwiki.insert(Ido, QString::fromWCharArray(L"Ido"));
-_typeToNames.insert(Ido, QString::fromWCharArray(L"Ido"));
-_nameToType.insert(QString::fromWCharArray(L"Ido"), Ido);
+_typeToInterwiki.insert(Ido, fromWCharArray(L"Ido"));
+_typeToNames.insert(Ido, fromWCharArray(L"Ido"));
+_nameToType.insert(fromWCharArray(L"Ido"), Ido);
 //-
-_typeToNames.insert(Aari, QString::fromWCharArray(L"Ari"));
-_nameToType.insert(QString::fromWCharArray(L"Ari"), Aari);
-_typeToNames.insert(Aari, QString::fromWCharArray(L"Aarai"));
-_nameToType.insert(QString::fromWCharArray(L"Aarai"), Aari);
-_typeToNames.insert(Aari, QString::fromWCharArray(L"Aari"));
-_nameToType.insert(QString::fromWCharArray(L"Aari"), Aari);
+_codeToType.insert("aiw", Aari);
+_typeToCode.insert(Aari, "aiw");
+_codeToType.insert("afa", Aari);
+_typeToCode.insert(Aari, "afa");
+_typeToNames.insert(Aari, fromWCharArray(L"Ari"));
+_nameToType.insert(fromWCharArray(L"Ari"), Aari);
+_typeToNames.insert(Aari, fromWCharArray(L"Aarai"));
+_nameToType.insert(fromWCharArray(L"Aarai"), Aari);
+_typeToNames.insert(Aari, fromWCharArray(L"Aari"));
+_nameToType.insert(fromWCharArray(L"Aari"), Aari);
 //-
 _codeToType.insert("he", Hebrew);
 _typeToCode.insert(Hebrew, "he");
-_typeToInterwiki.insert(Hebrew, QString::fromWCharArray(L"עברית"));
-_typeToNames.insert(Hebrew, QString::fromWCharArray(L"Hebrew"));
-_nameToType.insert(QString::fromWCharArray(L"Hebrew"), Hebrew);
+_typeToInterwiki.insert(Hebrew, fromWCharArray(L"עברית"));
+_typeToNames.insert(Hebrew, fromWCharArray(L"Hebrew"));
+_nameToType.insert(fromWCharArray(L"Hebrew"), Hebrew);
 //-
 _codeToType.insert("ik", Inupiaq);
 _typeToCode.insert(Inupiaq, "ik");
-_typeToInterwiki.insert(Inupiaq, QString::fromWCharArray(L"Iñupiak"));
-_typeToNames.insert(Inupiaq, QString::fromWCharArray(L"Inupiaq"));
-_nameToType.insert(QString::fromWCharArray(L"Inupiaq"), Inupiaq);
+_typeToInterwiki.insert(Inupiaq, fromWCharArray(L"Iñupiak"));
+_typeToNames.insert(Inupiaq, fromWCharArray(L"Inupiaq"));
+_nameToType.insert(fromWCharArray(L"Inupiaq"), Inupiaq);
 //-
 _codeToType.insert("ak", Akan);
 _typeToCode.insert(Akan, "ak");
-_typeToInterwiki.insert(Akan, QString::fromWCharArray(L"Akan"));
-_typeToNames.insert(Akan, QString::fromWCharArray(L"Akan"));
-_nameToType.insert(QString::fromWCharArray(L"Akan"), Akan);
+_typeToInterwiki.insert(Akan, fromWCharArray(L"Akan"));
+_typeToNames.insert(Akan, fromWCharArray(L"Akan"));
+_nameToType.insert(fromWCharArray(L"Akan"), Akan);
 //-
 _codeToType.insert("mnk", Mandinka);
 _typeToCode.insert(Mandinka, "mnk");
-_typeToNames.insert(Mandinka, QString::fromWCharArray(L"Mandingo"));
-_nameToType.insert(QString::fromWCharArray(L"Mandingo"), Mandinka);
-_typeToNames.insert(Mandinka, QString::fromWCharArray(L"Mandinka"));
-_nameToType.insert(QString::fromWCharArray(L"Mandinka"), Mandinka);
+_typeToNames.insert(Mandinka, fromWCharArray(L"Mandingo"));
+_nameToType.insert(fromWCharArray(L"Mandingo"), Mandinka);
+_typeToNames.insert(Mandinka, fromWCharArray(L"Mandinka"));
+_nameToType.insert(fromWCharArray(L"Mandinka"), Mandinka);
 //-
 _codeToType.insert("bgn", Baluchi);
 _typeToCode.insert(Baluchi, "bgn");
@@ -956,1004 +978,1031 @@ _codeToType.insert("bcc", Baluchi);
 _typeToCode.insert(Baluchi, "bcc");
 _codeToType.insert("bgp", Baluchi);
 _typeToCode.insert(Baluchi, "bgp");
-_typeToNames.insert(Baluchi, QString::fromWCharArray(L"Baluci"));
-_nameToType.insert(QString::fromWCharArray(L"Baluci"), Baluchi);
-_typeToNames.insert(Baluchi, QString::fromWCharArray(L"Baloci"));
-_nameToType.insert(QString::fromWCharArray(L"Baloci"), Baluchi);
-_typeToNames.insert(Baluchi, QString::fromWCharArray(L"Balochi"));
-_nameToType.insert(QString::fromWCharArray(L"Balochi"), Baluchi);
-_typeToNames.insert(Baluchi, QString::fromWCharArray(L"Baluchi"));
-_nameToType.insert(QString::fromWCharArray(L"Baluchi"), Baluchi);
+_typeToNames.insert(Baluchi, fromWCharArray(L"Baluci"));
+_nameToType.insert(fromWCharArray(L"Baluci"), Baluchi);
+_typeToNames.insert(Baluchi, fromWCharArray(L"Baloci"));
+_nameToType.insert(fromWCharArray(L"Baloci"), Baluchi);
+_typeToNames.insert(Baluchi, fromWCharArray(L"Balochi"));
+_nameToType.insert(fromWCharArray(L"Balochi"), Baluchi);
+_typeToNames.insert(Baluchi, fromWCharArray(L"Baluchi"));
+_nameToType.insert(fromWCharArray(L"Baluchi"), Baluchi);
 //-
 _codeToType.insert("as", Assamese);
 _typeToCode.insert(Assamese, "as");
-_typeToInterwiki.insert(Assamese, QString::fromWCharArray(L"অসমীয়া"));
-_typeToNames.insert(Assamese, QString::fromWCharArray(L"Assamese"));
-_nameToType.insert(QString::fromWCharArray(L"Assamese"), Assamese);
+_typeToInterwiki.insert(Assamese, fromWCharArray(L"অসমীয়া"));
+_typeToNames.insert(Assamese, fromWCharArray(L"Assamese"));
+_nameToType.insert(fromWCharArray(L"Assamese"), Assamese);
 //-
 _codeToType.insert("bem", Bemba);
 _typeToCode.insert(Bemba, "bem");
-_typeToNames.insert(Bemba, QString::fromWCharArray(L"Bemba"));
-_nameToType.insert(QString::fromWCharArray(L"Bemba"), Bemba);
+_typeToNames.insert(Bemba, fromWCharArray(L"Bemba"));
+_nameToType.insert(fromWCharArray(L"Bemba"), Bemba);
 //-
-_typeToNames.insert(Alune, QString::fromWCharArray(L"Alune"));
-_nameToType.insert(QString::fromWCharArray(L"Alune"), Alune);
+_typeToNames.insert(Alune, fromWCharArray(L"Alune"));
+_nameToType.insert(fromWCharArray(L"Alune"), Alune);
 //-
 _codeToType.insert("cop", Coptic);
 _typeToCode.insert(Coptic, "cop");
-_typeToNames.insert(Coptic, QString::fromWCharArray(L"Coptic"));
-_nameToType.insert(QString::fromWCharArray(L"Coptic"), Coptic);
+_typeToNames.insert(Coptic, fromWCharArray(L"Coptic"));
+_nameToType.insert(fromWCharArray(L"Coptic"), Coptic);
 //-
 _codeToType.insert("lo", Lao);
 _typeToCode.insert(Lao, "lo");
-_typeToInterwiki.insert(Lao, QString::fromWCharArray(L"ລາວ"));
-_typeToNames.insert(Lao, QString::fromWCharArray(L"Lao"));
-_nameToType.insert(QString::fromWCharArray(L"Lao"), Lao);
+_typeToInterwiki.insert(Lao, fromWCharArray(L"ລາວ"));
+_typeToNames.insert(Lao, fromWCharArray(L"Lao"));
+_nameToType.insert(fromWCharArray(L"Lao"), Lao);
 //-
 _codeToType.insert("ve", Venda);
 _typeToCode.insert(Venda, "ve");
-_typeToInterwiki.insert(Venda, QString::fromWCharArray(L"Tshivenda"));
-_typeToNames.insert(Venda, QString::fromWCharArray(L"Venda"));
-_nameToType.insert(QString::fromWCharArray(L"Venda"), Venda);
+_typeToInterwiki.insert(Venda, fromWCharArray(L"Tshivenda"));
+_typeToNames.insert(Venda, fromWCharArray(L"Venda"));
+_nameToType.insert(fromWCharArray(L"Venda"), Venda);
 //-
 _codeToType.insert("pi", Pali);
 _typeToCode.insert(Pali, "pi");
-_typeToInterwiki.insert(Pali, QString::fromWCharArray(L"पािऴ"));
-_typeToNames.insert(Pali, QString::fromWCharArray(L"Pali"));
-_nameToType.insert(QString::fromWCharArray(L"Pali"), Pali);
-//-
-_codeToType.insert("ky", Kirghiz);
-_typeToCode.insert(Kirghiz, "ky");
-_typeToInterwiki.insert(Kirghiz, QString::fromWCharArray(L"Кыргызча"));
-_typeToNames.insert(Kirghiz, QString::fromWCharArray(L"Kirghiz"));
-_nameToType.insert(QString::fromWCharArray(L"Kirghiz"), Kirghiz);
+_typeToInterwiki.insert(Pali, fromWCharArray(L"पािऴ"));
+_typeToNames.insert(Pali, fromWCharArray(L"Pali"));
+_nameToType.insert(fromWCharArray(L"Pali"), Pali);
 //-
 _codeToType.insert("mh", Marshallese);
 _typeToCode.insert(Marshallese, "mh");
-_typeToInterwiki.insert(Marshallese, QString::fromWCharArray(L"Ebon"));
-_typeToNames.insert(Marshallese, QString::fromWCharArray(L"Marshallese"));
-_nameToType.insert(QString::fromWCharArray(L"Marshallese"), Marshallese);
+_typeToInterwiki.insert(Marshallese, fromWCharArray(L"Ebon"));
+_typeToNames.insert(Marshallese, fromWCharArray(L"Marshallese"));
+_nameToType.insert(fromWCharArray(L"Marshallese"), Marshallese);
 //-
-_typeToNames.insert(Araki, QString::fromWCharArray(L"Araki"));
-_nameToType.insert(QString::fromWCharArray(L"Araki"), Araki);
+_codeToType.insert("ky", Kirghiz);
+_typeToCode.insert(Kirghiz, "ky");
+_typeToInterwiki.insert(Kirghiz, fromWCharArray(L"Кыргызча"));
+_typeToNames.insert(Kirghiz, fromWCharArray(L"Kirghiz"));
+_nameToType.insert(fromWCharArray(L"Kirghiz"), Kirghiz);
+//-
+_typeToNames.insert(Araki, fromWCharArray(L"Araki"));
+_nameToType.insert(fromWCharArray(L"Araki"), Araki);
 //-
 _codeToType.insert("ceb", Cebuano);
 _typeToCode.insert(Cebuano, "ceb");
-_typeToNames.insert(Cebuano, QString::fromWCharArray(L"Cebuano"));
-_nameToType.insert(QString::fromWCharArray(L"Cebuano"), Cebuano);
+_typeToNames.insert(Cebuano, fromWCharArray(L"Cebuano"));
+_nameToType.insert(fromWCharArray(L"Cebuano"), Cebuano);
 //-
 _codeToType.insert("hi", Hindi);
 _typeToCode.insert(Hindi, "hi");
-_typeToInterwiki.insert(Hindi, QString::fromWCharArray(L"हिन्दी"));
-_typeToNames.insert(Hindi, QString::fromWCharArray(L"Hindi"));
-_nameToType.insert(QString::fromWCharArray(L"Hindi"), Hindi);
+_typeToInterwiki.insert(Hindi, fromWCharArray(L"हिन्दी"));
+_typeToNames.insert(Hindi, fromWCharArray(L"Hindi"));
+_nameToType.insert(fromWCharArray(L"Hindi"), Hindi);
 //-
 _codeToType.insert("azr", Adzera);
 _typeToCode.insert(Adzera, "azr");
-_typeToNames.insert(Adzera, QString::fromWCharArray(L"Azera"));
-_nameToType.insert(QString::fromWCharArray(L"Azera"), Adzera);
-_typeToNames.insert(Adzera, QString::fromWCharArray(L"Atzera"));
-_nameToType.insert(QString::fromWCharArray(L"Atzera"), Adzera);
-_typeToNames.insert(Adzera, QString::fromWCharArray(L"Atsera"));
-_nameToType.insert(QString::fromWCharArray(L"Atsera"), Adzera);
-_typeToNames.insert(Adzera, QString::fromWCharArray(L"Acira"));
-_nameToType.insert(QString::fromWCharArray(L"Acira"), Adzera);
-_typeToNames.insert(Adzera, QString::fromWCharArray(L"Adzera"));
-_nameToType.insert(QString::fromWCharArray(L"Adzera"), Adzera);
+_typeToNames.insert(Adzera, fromWCharArray(L"Azera"));
+_nameToType.insert(fromWCharArray(L"Azera"), Adzera);
+_typeToNames.insert(Adzera, fromWCharArray(L"Atzera"));
+_nameToType.insert(fromWCharArray(L"Atzera"), Adzera);
+_typeToNames.insert(Adzera, fromWCharArray(L"Atsera"));
+_nameToType.insert(fromWCharArray(L"Atsera"), Adzera);
+_typeToNames.insert(Adzera, fromWCharArray(L"Acira"));
+_nameToType.insert(fromWCharArray(L"Acira"), Adzera);
+_typeToNames.insert(Adzera, fromWCharArray(L"Adzera"));
+_nameToType.insert(fromWCharArray(L"Adzera"), Adzera);
 //-
 _codeToType.insert("aib", Aynu);
 _typeToCode.insert(Aynu, "aib");
-_typeToNames.insert(Aynu, QString::fromWCharArray(L"Aynu"));
-_nameToType.insert(QString::fromWCharArray(L"Aynu"), Aynu);
+_typeToNames.insert(Aynu, fromWCharArray(L"Aynu"));
+_nameToType.insert(fromWCharArray(L"Aynu"), Aynu);
 //-
 _codeToType.insert("zh", Chinese);
 _typeToCode.insert(Chinese, "zh");
-_typeToInterwiki.insert(Chinese, QString::fromWCharArray(L"中文"));
-_typeToNames.insert(Chinese, QString::fromWCharArray(L"Traditional Chinese"));
-_nameToType.insert(QString::fromWCharArray(L"Traditional Chinese"), Chinese);
-_typeToNames.insert(Chinese, QString::fromWCharArray(L"Simplified Chinese"));
-_nameToType.insert(QString::fromWCharArray(L"Simplified Chinese"), Chinese);
-_typeToNames.insert(Chinese, QString::fromWCharArray(L"Chinese"));
-_nameToType.insert(QString::fromWCharArray(L"Chinese"), Chinese);
+_typeToInterwiki.insert(Chinese, fromWCharArray(L"中文"));
+_typeToNames.insert(Chinese, fromWCharArray(L"Traditional Chinese"));
+_nameToType.insert(fromWCharArray(L"Traditional Chinese"), Chinese);
+_typeToNames.insert(Chinese, fromWCharArray(L"Simplified Chinese"));
+_nameToType.insert(fromWCharArray(L"Simplified Chinese"), Chinese);
+_typeToNames.insert(Chinese, fromWCharArray(L"Chinese"));
+_nameToType.insert(fromWCharArray(L"Chinese"), Chinese);
 //-
-_typeToNames.insert(Arbore, QString::fromWCharArray(L"Arbore"));
-_nameToType.insert(QString::fromWCharArray(L"Arbore"), Arbore);
+_typeToNames.insert(Arbore, fromWCharArray(L"Arbore"));
+_nameToType.insert(fromWCharArray(L"Arbore"), Arbore);
 //-
 _codeToType.insert("hsb", UpperSorbian);
 _typeToCode.insert(UpperSorbian, "hsb");
-_typeToInterwiki.insert(UpperSorbian, QString::fromWCharArray(L"Hornjoserbsce"));
-_typeToNames.insert(UpperSorbian, QString::fromWCharArray(L"Upper Sorbian"));
-_nameToType.insert(QString::fromWCharArray(L"Upper Sorbian"), UpperSorbian);
+_typeToInterwiki.insert(UpperSorbian, fromWCharArray(L"Hornjoserbsce"));
+_typeToNames.insert(UpperSorbian, fromWCharArray(L"Upper Sorbian"));
+_nameToType.insert(fromWCharArray(L"Upper Sorbian"), UpperSorbian);
 //-
 _codeToType.insert("tcs", TorresStraitCreole);
 _typeToCode.insert(TorresStraitCreole, "tcs");
-_typeToNames.insert(TorresStraitCreole, QString::fromWCharArray(L"Torres Strait Creole"));
-_nameToType.insert(QString::fromWCharArray(L"Torres Strait Creole"), TorresStraitCreole);
+_typeToNames.insert(TorresStraitCreole, fromWCharArray(L"Torres Strait Creole"));
+_nameToType.insert(fromWCharArray(L"Torres Strait Creole"), TorresStraitCreole);
 //-
-_typeToNames.insert(Andi, QString::fromWCharArray(L"Andi"));
-_nameToType.insert(QString::fromWCharArray(L"Andi"), Andi);
+_typeToNames.insert(Andi, fromWCharArray(L"Andi"));
+_nameToType.insert(fromWCharArray(L"Andi"), Andi);
 //-
 _codeToType.insert("id", Indonesian);
 _typeToCode.insert(Indonesian, "id");
-_typeToInterwiki.insert(Indonesian, QString::fromWCharArray(L"Bahasa Indonesia"));
-_typeToNames.insert(Indonesian, QString::fromWCharArray(L"Indonesian"));
-_nameToType.insert(QString::fromWCharArray(L"Indonesian"), Indonesian);
+_typeToInterwiki.insert(Indonesian, fromWCharArray(L"Bahasa Indonesia"));
+_typeToNames.insert(Indonesian, fromWCharArray(L"Indonesian"));
+_nameToType.insert(fromWCharArray(L"Indonesian"), Indonesian);
 //-
 _codeToType.insert("csb", Kashubian);
 _typeToCode.insert(Kashubian, "csb");
-_typeToInterwiki.insert(Kashubian, QString::fromWCharArray(L"Kaszëbsczi"));
-_typeToNames.insert(Kashubian, QString::fromWCharArray(L"Kashubian"));
-_nameToType.insert(QString::fromWCharArray(L"Kashubian"), Kashubian);
+_typeToInterwiki.insert(Kashubian, fromWCharArray(L"Kaszëbsczi"));
+_typeToNames.insert(Kashubian, fromWCharArray(L"Kashubian"));
+_nameToType.insert(fromWCharArray(L"Kashubian"), Kashubian);
 //-
 _codeToType.insert("pt", Portuguese);
 _typeToCode.insert(Portuguese, "pt");
-_typeToInterwiki.insert(Portuguese, QString::fromWCharArray(L"Português"));
-_typeToNames.insert(Portuguese, QString::fromWCharArray(L"Portuguese"));
-_nameToType.insert(QString::fromWCharArray(L"Portuguese"), Portuguese);
+_typeToInterwiki.insert(Portuguese, fromWCharArray(L"Português"));
+_typeToNames.insert(Portuguese, fromWCharArray(L"Portuguese"));
+_nameToType.insert(fromWCharArray(L"Portuguese"), Portuguese);
 //-
 _codeToType.insert("or", Oriya);
 _typeToCode.insert(Oriya, "or");
-_typeToInterwiki.insert(Oriya, QString::fromWCharArray(L"ଓଡ଼ିଆ"));
-_typeToNames.insert(Oriya, QString::fromWCharArray(L"Oriya"));
-_nameToType.insert(QString::fromWCharArray(L"Oriya"), Oriya);
+_typeToInterwiki.insert(Oriya, fromWCharArray(L"ଓଡ଼ିଆ"));
+_typeToNames.insert(Oriya, fromWCharArray(L"Oriya"));
+_nameToType.insert(fromWCharArray(L"Oriya"), Oriya);
 //-
 _codeToType.insert("cv", Chuvash);
 _typeToCode.insert(Chuvash, "cv");
-_typeToInterwiki.insert(Chuvash, QString::fromWCharArray(L"Чăвашла"));
-_typeToNames.insert(Chuvash, QString::fromWCharArray(L"Chuvash"));
-_nameToType.insert(QString::fromWCharArray(L"Chuvash"), Chuvash);
+_typeToInterwiki.insert(Chuvash, fromWCharArray(L"Чăвашла"));
+_typeToNames.insert(Chuvash, fromWCharArray(L"Chuvash"));
+_nameToType.insert(fromWCharArray(L"Chuvash"), Chuvash);
 //-
 _codeToType.insert("ady", Adyghe);
 _typeToCode.insert(Adyghe, "ady");
-_typeToNames.insert(Adyghe, QString::fromWCharArray(L"Adygei"));
-_nameToType.insert(QString::fromWCharArray(L"Adygei"), Adyghe);
-_typeToNames.insert(Adyghe, QString::fromWCharArray(L"Adyghe"));
-_nameToType.insert(QString::fromWCharArray(L"Adyghe"), Adyghe);
+_typeToNames.insert(Adyghe, fromWCharArray(L"Adygei"));
+_nameToType.insert(fromWCharArray(L"Adygei"), Adyghe);
+_typeToNames.insert(Adyghe, fromWCharArray(L"Adyghe"));
+_nameToType.insert(fromWCharArray(L"Adyghe"), Adyghe);
 //-
 _codeToType.insert("ach", Acholi);
 _typeToCode.insert(Acholi, "ach");
-_typeToNames.insert(Acholi, QString::fromWCharArray(L"Shuli"));
-_nameToType.insert(QString::fromWCharArray(L"Shuli"), Acholi);
-_typeToNames.insert(Acholi, QString::fromWCharArray(L"Atscholi"));
-_nameToType.insert(QString::fromWCharArray(L"Atscholi"), Acholi);
-_typeToNames.insert(Acholi, QString::fromWCharArray(L"Akoli"));
-_nameToType.insert(QString::fromWCharArray(L"Akoli"), Acholi);
-_typeToNames.insert(Acholi, QString::fromWCharArray(L"Acooli"));
-_nameToType.insert(QString::fromWCharArray(L"Acooli"), Acholi);
-_typeToNames.insert(Acholi, QString::fromWCharArray(L"Acoli"));
-_nameToType.insert(QString::fromWCharArray(L"Acoli"), Acholi);
-_typeToNames.insert(Acholi, QString::fromWCharArray(L"Acholi"));
-_nameToType.insert(QString::fromWCharArray(L"Acholi"), Acholi);
+_typeToNames.insert(Acholi, fromWCharArray(L"Shuli"));
+_nameToType.insert(fromWCharArray(L"Shuli"), Acholi);
+_typeToNames.insert(Acholi, fromWCharArray(L"Atscholi"));
+_nameToType.insert(fromWCharArray(L"Atscholi"), Acholi);
+_typeToNames.insert(Acholi, fromWCharArray(L"Akoli"));
+_nameToType.insert(fromWCharArray(L"Akoli"), Acholi);
+_typeToNames.insert(Acholi, fromWCharArray(L"Acooli"));
+_nameToType.insert(fromWCharArray(L"Acooli"), Acholi);
+_typeToNames.insert(Acholi, fromWCharArray(L"Acoli"));
+_nameToType.insert(fromWCharArray(L"Acoli"), Acholi);
+_typeToNames.insert(Acholi, fromWCharArray(L"Acholi"));
+_nameToType.insert(fromWCharArray(L"Acholi"), Acholi);
 //-
-_typeToNames.insert(Awngi, QString::fromWCharArray(L"Awngi"));
-_nameToType.insert(QString::fromWCharArray(L"Awngi"), Awngi);
+_typeToNames.insert(Awngi, fromWCharArray(L"Awngi"));
+_nameToType.insert(fromWCharArray(L"Awngi"), Awngi);
 //-
 _codeToType.insert("az", Azerbaijani);
 _typeToCode.insert(Azerbaijani, "az");
-_typeToInterwiki.insert(Azerbaijani, QString::fromWCharArray(L"Azərbaycan"));
-_typeToNames.insert(Azerbaijani, QString::fromWCharArray(L"Azerbaijani"));
-_nameToType.insert(QString::fromWCharArray(L"Azerbaijani"), Azerbaijani);
+_typeToInterwiki.insert(Azerbaijani, fromWCharArray(L"Azərbaycan"));
+_typeToNames.insert(Azerbaijani, fromWCharArray(L"Azerbaijani"));
+_nameToType.insert(fromWCharArray(L"Azerbaijani"), Azerbaijani);
 //-
 _codeToType.insert("bg", Bulgarian);
 _typeToCode.insert(Bulgarian, "bg");
-_typeToInterwiki.insert(Bulgarian, QString::fromWCharArray(L"Български"));
-_typeToNames.insert(Bulgarian, QString::fromWCharArray(L"Bulgarian"));
-_nameToType.insert(QString::fromWCharArray(L"Bulgarian"), Bulgarian);
+_typeToInterwiki.insert(Bulgarian, fromWCharArray(L"Български"));
+_typeToNames.insert(Bulgarian, fromWCharArray(L"Bulgarian"));
+_nameToType.insert(fromWCharArray(L"Bulgarian"), Bulgarian);
 //-
 _codeToType.insert("chr", Cherokee);
 _typeToCode.insert(Cherokee, "chr");
-_typeToInterwiki.insert(Cherokee, QString::fromWCharArray(L"ᏣᎳᎩ"));
-_typeToNames.insert(Cherokee, QString::fromWCharArray(L"Cherokee"));
-_nameToType.insert(QString::fromWCharArray(L"Cherokee"), Cherokee);
+_typeToInterwiki.insert(Cherokee, fromWCharArray(L"ᏣᎳᎩ"));
+_typeToNames.insert(Cherokee, fromWCharArray(L"Cherokee"));
+_nameToType.insert(fromWCharArray(L"Cherokee"), Cherokee);
 //-
 _codeToType.insert("hz", Herero);
 _typeToCode.insert(Herero, "hz");
-_typeToInterwiki.insert(Herero, QString::fromWCharArray(L"Otsiherero"));
-_typeToNames.insert(Herero, QString::fromWCharArray(L"Herero"));
-_nameToType.insert(QString::fromWCharArray(L"Herero"), Herero);
+_typeToInterwiki.insert(Herero, fromWCharArray(L"Otsiherero"));
+_typeToNames.insert(Herero, fromWCharArray(L"Herero"));
+_nameToType.insert(fromWCharArray(L"Herero"), Herero);
 //-
 _codeToType.insert("ofs", OldFrisian);
 _typeToCode.insert(OldFrisian, "ofs");
-_typeToNames.insert(OldFrisian, QString::fromWCharArray(L"Old Frisian"));
-_nameToType.insert(QString::fromWCharArray(L"Old Frisian"), OldFrisian);
+_typeToNames.insert(OldFrisian, fromWCharArray(L"Old Frisian"));
+_nameToType.insert(fromWCharArray(L"Old Frisian"), OldFrisian);
 //-
 _codeToType.insert("kr", Kanuri);
 _typeToCode.insert(Kanuri, "kr");
-_typeToInterwiki.insert(Kanuri, QString::fromWCharArray(L"Kanuri"));
-_typeToNames.insert(Kanuri, QString::fromWCharArray(L"Kanuri"));
-_nameToType.insert(QString::fromWCharArray(L"Kanuri"), Kanuri);
+_typeToInterwiki.insert(Kanuri, fromWCharArray(L"Kanuri"));
+_typeToNames.insert(Kanuri, fromWCharArray(L"Kanuri"));
+_nameToType.insert(fromWCharArray(L"Kanuri"), Kanuri);
 //-
 _codeToType.insert("tay", Atayal);
 _typeToCode.insert(Atayal, "tay");
-_typeToNames.insert(Atayal, QString::fromWCharArray(L"Atayal"));
-_nameToType.insert(QString::fromWCharArray(L"Atayal"), Atayal);
+_typeToNames.insert(Atayal, fromWCharArray(L"Atayal"));
+_nameToType.insert(fromWCharArray(L"Atayal"), Atayal);
 //-
 _codeToType.insert("ab", Abkhazian);
 _typeToCode.insert(Abkhazian, "ab");
-_typeToInterwiki.insert(Abkhazian, QString::fromWCharArray(L"Аҧсуа"));
-_typeToNames.insert(Abkhazian, QString::fromWCharArray(L"Abkhaz"));
-_nameToType.insert(QString::fromWCharArray(L"Abkhaz"), Abkhazian);
-_typeToNames.insert(Abkhazian, QString::fromWCharArray(L"Abkhazian"));
-_nameToType.insert(QString::fromWCharArray(L"Abkhazian"), Abkhazian);
+_typeToInterwiki.insert(Abkhazian, fromWCharArray(L"Аҧсуа"));
+_typeToNames.insert(Abkhazian, fromWCharArray(L"Abkhaz"));
+_nameToType.insert(fromWCharArray(L"Abkhaz"), Abkhazian);
+_typeToNames.insert(Abkhazian, fromWCharArray(L"Abkhazian"));
+_nameToType.insert(fromWCharArray(L"Abkhazian"), Abkhazian);
 //-
 _codeToType.insert("awk", Awabakal);
 _typeToCode.insert(Awabakal, "awk");
-_typeToNames.insert(Awabakal, QString::fromWCharArray(L"Awabakal"));
-_nameToType.insert(QString::fromWCharArray(L"Awabakal"), Awabakal);
+_typeToNames.insert(Awabakal, fromWCharArray(L"Awabakal"));
+_nameToType.insert(fromWCharArray(L"Awabakal"), Awabakal);
 //-
 _codeToType.insert("kj", Kwanyama);
 _typeToCode.insert(Kwanyama, "kj");
-_typeToInterwiki.insert(Kwanyama, QString::fromWCharArray(L"Kwanyama"));
-_typeToNames.insert(Kwanyama, QString::fromWCharArray(L"Kwanyama"));
-_nameToType.insert(QString::fromWCharArray(L"Kwanyama"), Kwanyama);
+_typeToInterwiki.insert(Kwanyama, fromWCharArray(L"Kwanyama"));
+_typeToNames.insert(Kwanyama, fromWCharArray(L"Kwanyama"));
+_nameToType.insert(fromWCharArray(L"Kwanyama"), Kwanyama);
 //-
 _codeToType.insert("nb", NorwegianBokmal);
 _typeToCode.insert(NorwegianBokmal, "nb");
-_typeToInterwiki.insert(NorwegianBokmal, QString::fromWCharArray(L"Norsk (bokmål)"));
-_typeToNames.insert(NorwegianBokmal, QString::fromWCharArray(L"Norwegian Bokmål‬"));
-_nameToType.insert(QString::fromWCharArray(L"Norwegian Bokmål‬"), NorwegianBokmal);
+_typeToInterwiki.insert(NorwegianBokmal, fromWCharArray(L"Norsk (bokmål)"));
+_typeToNames.insert(NorwegianBokmal, fromWCharArray(L"Norwegian Bokmål‬"));
+_nameToType.insert(fromWCharArray(L"Norwegian Bokmål‬"), NorwegianBokmal);
 //-
 _codeToType.insert("ln", Lingala);
 _typeToCode.insert(Lingala, "ln");
-_typeToInterwiki.insert(Lingala, QString::fromWCharArray(L"Lingála"));
-_typeToNames.insert(Lingala, QString::fromWCharArray(L"Lingala"));
-_nameToType.insert(QString::fromWCharArray(L"Lingala"), Lingala);
+_typeToInterwiki.insert(Lingala, fromWCharArray(L"Lingála"));
+_typeToNames.insert(Lingala, fromWCharArray(L"Lingala"));
+_nameToType.insert(fromWCharArray(L"Lingala"), Lingala);
 //-
 _codeToType.insert("gil", Gilbertese);
 _typeToCode.insert(Gilbertese, "gil");
-_typeToNames.insert(Gilbertese, QString::fromWCharArray(L"Gilbertese"));
-_nameToType.insert(QString::fromWCharArray(L"Gilbertese"), Gilbertese);
+_typeToNames.insert(Gilbertese, fromWCharArray(L"Gilbertese"));
+_nameToType.insert(fromWCharArray(L"Gilbertese"), Gilbertese);
 //-
 _codeToType.insert("ms", Malay);
 _typeToCode.insert(Malay, "ms");
-_typeToInterwiki.insert(Malay, QString::fromWCharArray(L"Bahasa Melayu"));
-_typeToNames.insert(Malay, QString::fromWCharArray(L"Malay"));
-_nameToType.insert(QString::fromWCharArray(L"Malay"), Malay);
+_typeToInterwiki.insert(Malay, fromWCharArray(L"Bahasa Melayu"));
+_typeToNames.insert(Malay, fromWCharArray(L"Malay"));
+_nameToType.insert(fromWCharArray(L"Malay"), Malay);
 //-
 _codeToType.insert("gl", Galician);
 _typeToCode.insert(Galician, "gl");
-_typeToInterwiki.insert(Galician, QString::fromWCharArray(L"Galego"));
-_typeToNames.insert(Galician, QString::fromWCharArray(L"Galician"));
-_nameToType.insert(QString::fromWCharArray(L"Galician"), Galician);
+_typeToInterwiki.insert(Galician, fromWCharArray(L"Galego"));
+_typeToNames.insert(Galician, fromWCharArray(L"Galician"));
+_nameToType.insert(fromWCharArray(L"Galician"), Galician);
 //-
 _codeToType.insert("agx", Aghul);
 _typeToCode.insert(Aghul, "agx");
-_typeToNames.insert(Aghul, QString::fromWCharArray(L"Agul"));
-_nameToType.insert(QString::fromWCharArray(L"Agul"), Aghul);
-_typeToNames.insert(Aghul, QString::fromWCharArray(L"Aghul"));
-_nameToType.insert(QString::fromWCharArray(L"Aghul"), Aghul);
+_typeToNames.insert(Aghul, fromWCharArray(L"Agul"));
+_nameToType.insert(fromWCharArray(L"Agul"), Aghul);
+_typeToNames.insert(Aghul, fromWCharArray(L"Aghul"));
+_nameToType.insert(fromWCharArray(L"Aghul"), Aghul);
 //-
 _codeToType.insert("tk", Turkmen);
 _typeToCode.insert(Turkmen, "tk");
-_typeToInterwiki.insert(Turkmen, QString::fromWCharArray(L"Türkmençe"));
-_typeToNames.insert(Turkmen, QString::fromWCharArray(L"Turkmen"));
-_nameToType.insert(QString::fromWCharArray(L"Turkmen"), Turkmen);
+_typeToInterwiki.insert(Turkmen, fromWCharArray(L"Türkmençe"));
+_typeToNames.insert(Turkmen, fromWCharArray(L"Turkmen"));
+_nameToType.insert(fromWCharArray(L"Turkmen"), Turkmen);
 //-
 _codeToType.insert("prg", OldPrussian);
 _typeToCode.insert(OldPrussian, "prg");
-_typeToNames.insert(OldPrussian, QString::fromWCharArray(L"Old Prussian"));
-_nameToType.insert(QString::fromWCharArray(L"Old Prussian"), OldPrussian);
+_typeToNames.insert(OldPrussian, fromWCharArray(L"Old Prussian"));
+_nameToType.insert(fromWCharArray(L"Old Prussian"), OldPrussian);
 //-
 _codeToType.insert("fo", Faroese);
 _typeToCode.insert(Faroese, "fo");
-_typeToInterwiki.insert(Faroese, QString::fromWCharArray(L"Føroyskt"));
-_typeToNames.insert(Faroese, QString::fromWCharArray(L"Faroese"));
-_nameToType.insert(QString::fromWCharArray(L"Faroese"), Faroese);
+_typeToInterwiki.insert(Faroese, fromWCharArray(L"Føroyskt"));
+_typeToNames.insert(Faroese, fromWCharArray(L"Faroese"));
+_nameToType.insert(fromWCharArray(L"Faroese"), Faroese);
 //-
 _codeToType.insert("akl", Aklanon);
 _typeToCode.insert(Aklanon, "akl");
-_typeToNames.insert(Aklanon, QString::fromWCharArray(L"Aklanon"));
-_nameToType.insert(QString::fromWCharArray(L"Aklanon"), Aklanon);
+_typeToNames.insert(Aklanon, fromWCharArray(L"Aklanon"));
+_nameToType.insert(fromWCharArray(L"Aklanon"), Aklanon);
 //-
 _codeToType.insert("ay", Aymara);
 _typeToCode.insert(Aymara, "ay");
-_typeToInterwiki.insert(Aymara, QString::fromWCharArray(L"Aymar aru"));
-_typeToNames.insert(Aymara, QString::fromWCharArray(L"Aymara"));
-_nameToType.insert(QString::fromWCharArray(L"Aymara"), Aymara);
+_typeToInterwiki.insert(Aymara, fromWCharArray(L"Aymar aru"));
+_typeToNames.insert(Aymara, fromWCharArray(L"Aymara"));
+_nameToType.insert(fromWCharArray(L"Aymara"), Aymara);
 //-
 _codeToType.insert("amk", Ambai);
 _typeToCode.insert(Ambai, "amk");
-_typeToNames.insert(Ambai, QString::fromWCharArray(L"Ambai"));
-_nameToType.insert(QString::fromWCharArray(L"Ambai"), Ambai);
+_typeToNames.insert(Ambai, fromWCharArray(L"Ambai"));
+_nameToType.insert(fromWCharArray(L"Ambai"), Ambai);
 //-
 _codeToType.insert("ga", Irish);
 _typeToCode.insert(Irish, "ga");
-_typeToInterwiki.insert(Irish, QString::fromWCharArray(L"Gaeilge"));
-_typeToNames.insert(Irish, QString::fromWCharArray(L"Irish"));
-_nameToType.insert(QString::fromWCharArray(L"Irish"), Irish);
+_typeToInterwiki.insert(Irish, fromWCharArray(L"Gaeilge"));
+_typeToNames.insert(Irish, fromWCharArray(L"Irish"));
+_nameToType.insert(fromWCharArray(L"Irish"), Irish);
 //-
 _codeToType.insert("ty", Tahitian);
 _typeToCode.insert(Tahitian, "ty");
-_typeToInterwiki.insert(Tahitian, QString::fromWCharArray(L"Reo Mā`ohi"));
-_typeToNames.insert(Tahitian, QString::fromWCharArray(L"Tahitian"));
-_nameToType.insert(QString::fromWCharArray(L"Tahitian"), Tahitian);
+_typeToInterwiki.insert(Tahitian, fromWCharArray(L"Reo Mā`ohi"));
+_typeToNames.insert(Tahitian, fromWCharArray(L"Tahitian"));
+_nameToType.insert(fromWCharArray(L"Tahitian"), Tahitian);
 //-
 _codeToType.insert("la", Latin);
 _typeToCode.insert(Latin, "la");
-_typeToInterwiki.insert(Latin, QString::fromWCharArray(L"Latina"));
-_typeToNames.insert(Latin, QString::fromWCharArray(L"Latin"));
-_nameToType.insert(QString::fromWCharArray(L"Latin"), Latin);
+_typeToInterwiki.insert(Latin, fromWCharArray(L"Latina"));
+_typeToNames.insert(Latin, fromWCharArray(L"Latin"));
+_nameToType.insert(fromWCharArray(L"Latin"), Latin);
 //-
 _codeToType.insert("kn", Kannada);
 _typeToCode.insert(Kannada, "kn");
-_typeToInterwiki.insert(Kannada, QString::fromWCharArray(L"ಕನ್ನಡ"));
-_typeToNames.insert(Kannada, QString::fromWCharArray(L"Kannada"));
-_nameToType.insert(QString::fromWCharArray(L"Kannada"), Kannada);
+_typeToInterwiki.insert(Kannada, fromWCharArray(L"ಕನ್ನಡ"));
+_typeToNames.insert(Kannada, fromWCharArray(L"Kannada"));
+_nameToType.insert(fromWCharArray(L"Kannada"), Kannada);
 //-
 _codeToType.insert("xno", AngloNorman);
 _typeToCode.insert(AngloNorman, "xno");
-_typeToNames.insert(AngloNorman, QString::fromWCharArray(L"Anglo-Norman"));
-_nameToType.insert(QString::fromWCharArray(L"Anglo-Norman"), AngloNorman);
+_typeToNames.insert(AngloNorman, fromWCharArray(L"Anglo-Norman"));
+_nameToType.insert(fromWCharArray(L"Anglo-Norman"), AngloNorman);
 //-
 _codeToType.insert("bug", Buginese);
 _typeToCode.insert(Buginese, "bug");
-_typeToNames.insert(Buginese, QString::fromWCharArray(L"Buginese"));
-_nameToType.insert(QString::fromWCharArray(L"Buginese"), Buginese);
+_typeToNames.insert(Buginese, fromWCharArray(L"Buginese"));
+_nameToType.insert(fromWCharArray(L"Buginese"), Buginese);
 //-
 _codeToType.insert("lt", Lithuanian);
 _typeToCode.insert(Lithuanian, "lt");
-_typeToInterwiki.insert(Lithuanian, QString::fromWCharArray(L"Lietuvių"));
-_typeToNames.insert(Lithuanian, QString::fromWCharArray(L"Lithuanian"));
-_nameToType.insert(QString::fromWCharArray(L"Lithuanian"), Lithuanian);
+_typeToInterwiki.insert(Lithuanian, fromWCharArray(L"Lietuvių"));
+_typeToNames.insert(Lithuanian, fromWCharArray(L"Lithuanian"));
+_nameToType.insert(fromWCharArray(L"Lithuanian"), Lithuanian);
 //-
 _codeToType.insert("ha", Hausa);
 _typeToCode.insert(Hausa, "ha");
-_typeToInterwiki.insert(Hausa, QString::fromWCharArray(L"هَوُسَ"));
-_typeToNames.insert(Hausa, QString::fromWCharArray(L"Hausa"));
-_nameToType.insert(QString::fromWCharArray(L"Hausa"), Hausa);
+_typeToInterwiki.insert(Hausa, fromWCharArray(L"هَوُسَ"));
+_typeToNames.insert(Hausa, fromWCharArray(L"Hausa"));
+_nameToType.insert(fromWCharArray(L"Hausa"), Hausa);
 //-
-_typeToNames.insert(Angas, QString::fromWCharArray(L"Angas"));
-_nameToType.insert(QString::fromWCharArray(L"Angas"), Angas);
+_typeToNames.insert(Angas, fromWCharArray(L"Angas"));
+_nameToType.insert(fromWCharArray(L"Angas"), Angas);
 //-
-_typeToNames.insert(Basketo, QString::fromWCharArray(L"Basketo"));
-_nameToType.insert(QString::fromWCharArray(L"Basketo"), Basketo);
+_typeToNames.insert(Basketo, fromWCharArray(L"Basketo"));
+_nameToType.insert(fromWCharArray(L"Basketo"), Basketo);
 //-
 _codeToType.insert("ug", Uighur);
 _typeToCode.insert(Uighur, "ug");
-_typeToInterwiki.insert(Uighur, QString::fromWCharArray(L"Uyghurche‎ / ئۇيغۇرچە"));
-_typeToNames.insert(Uighur, QString::fromWCharArray(L"Uighur"));
-_nameToType.insert(QString::fromWCharArray(L"Uighur"), Uighur);
+_typeToInterwiki.insert(Uighur, fromWCharArray(L"Uyghurche‎ / ئۇيغۇرچە"));
+_typeToNames.insert(Uighur, fromWCharArray(L"Uighur"));
+_nameToType.insert(fromWCharArray(L"Uighur"), Uighur);
 //-
 _codeToType.insert("akz", Alabama);
 _typeToCode.insert(Alabama, "akz");
-_typeToNames.insert(Alabama, QString::fromWCharArray(L"Alabama"));
-_nameToType.insert(QString::fromWCharArray(L"Alabama"), Alabama);
+_typeToNames.insert(Alabama, fromWCharArray(L"Alabama"));
+_nameToType.insert(fromWCharArray(L"Alabama"), Alabama);
 //-
-_typeToNames.insert(Azeri, QString::fromWCharArray(L"Azeri"));
-_nameToType.insert(QString::fromWCharArray(L"Azeri"), Azeri);
+_typeToNames.insert(Azeri, fromWCharArray(L"Azeri"));
+_nameToType.insert(fromWCharArray(L"Azeri"), Azeri);
 //-
 _codeToType.insert("brh", Brahui);
 _typeToCode.insert(Brahui, "brh");
-_typeToNames.insert(Brahui, QString::fromWCharArray(L"Brahui"));
-_nameToType.insert(QString::fromWCharArray(L"Brahui"), Brahui);
+_typeToNames.insert(Brahui, fromWCharArray(L"Brahui"));
+_nameToType.insert(fromWCharArray(L"Brahui"), Brahui);
 //-
 _codeToType.insert("no", Norwegian);
 _typeToCode.insert(Norwegian, "no");
-_typeToInterwiki.insert(Norwegian, QString::fromWCharArray(L"Norsk (bokmål)"));
-_typeToNames.insert(Norwegian, QString::fromWCharArray(L"Norwegian"));
-_nameToType.insert(QString::fromWCharArray(L"Norwegian"), Norwegian);
+_typeToInterwiki.insert(Norwegian, fromWCharArray(L"Norsk (bokmål)"));
+_typeToNames.insert(Norwegian, fromWCharArray(L"Norwegian"));
+_nameToType.insert(fromWCharArray(L"Norwegian"), Norwegian);
 //-
 _codeToType.insert("alq", Algonquin);
 _typeToCode.insert(Algonquin, "alq");
-_typeToNames.insert(Algonquin, QString::fromWCharArray(L"Algonquin"));
-_nameToType.insert(QString::fromWCharArray(L"Algonquin"), Algonquin);
+_typeToNames.insert(Algonquin, fromWCharArray(L"Algonquin"));
+_nameToType.insert(fromWCharArray(L"Algonquin"), Algonquin);
 //-
 _codeToType.insert("cop", Egyptian);
 _typeToCode.insert(Egyptian, "cop");
-_typeToNames.insert(Egyptian, QString::fromWCharArray(L"Egyptian"));
-_nameToType.insert(QString::fromWCharArray(L"Egyptian"), Egyptian);
+_typeToNames.insert(Egyptian, fromWCharArray(L"Egyptian"));
+_nameToType.insert(fromWCharArray(L"Egyptian"), Egyptian);
 //-
 _codeToType.insert("liv", Livonian);
 _typeToCode.insert(Livonian, "liv");
-_typeToNames.insert(Livonian, QString::fromWCharArray(L"Livonian"));
-_nameToType.insert(QString::fromWCharArray(L"Livonian"), Livonian);
+_typeToNames.insert(Livonian, fromWCharArray(L"Livonian"));
+_nameToType.insert(fromWCharArray(L"Livonian"), Livonian);
 //-
 _codeToType.insert("ho", HiriMotu);
 _typeToCode.insert(HiriMotu, "ho");
-_typeToInterwiki.insert(HiriMotu, QString::fromWCharArray(L"Hiri Motu"));
-_typeToNames.insert(HiriMotu, QString::fromWCharArray(L"HiriMotu"));
-_nameToType.insert(QString::fromWCharArray(L"HiriMotu"), HiriMotu);
+_typeToInterwiki.insert(HiriMotu, fromWCharArray(L"Hiri Motu"));
+_typeToNames.insert(HiriMotu, fromWCharArray(L"HiriMotu"));
+_nameToType.insert(fromWCharArray(L"HiriMotu"), HiriMotu);
 //-
 _codeToType.insert("gsw", AlemannicGerman);
 _typeToCode.insert(AlemannicGerman, "gsw");
-_typeToNames.insert(AlemannicGerman, QString::fromWCharArray(L"Alemannic German"));
-_nameToType.insert(QString::fromWCharArray(L"Alemannic German"), AlemannicGerman);
+_typeToNames.insert(AlemannicGerman, fromWCharArray(L"Alemannic German"));
+_nameToType.insert(fromWCharArray(L"Alemannic German"), AlemannicGerman);
 //-
 _codeToType.insert("lg", Ganda);
 _typeToCode.insert(Ganda, "lg");
-_typeToInterwiki.insert(Ganda, QString::fromWCharArray(L"Luganda"));
-_typeToNames.insert(Ganda, QString::fromWCharArray(L"Ganda"));
-_nameToType.insert(QString::fromWCharArray(L"Ganda"), Ganda);
+_typeToInterwiki.insert(Ganda, fromWCharArray(L"Luganda"));
+_typeToNames.insert(Ganda, fromWCharArray(L"Ganda"));
+_nameToType.insert(fromWCharArray(L"Ganda"), Ganda);
 //-
 _codeToType.insert("vro", Voro);
 _typeToCode.insert(Voro, "vro");
 _codeToType.insert("fiu", Voro);
 _typeToCode.insert(Voro, "fiu");
-_typeToNames.insert(Voro, QString::fromWCharArray(L"Võro"));
-_nameToType.insert(QString::fromWCharArray(L"Võro"), Voro);
+_typeToNames.insert(Voro, fromWCharArray(L"Võro"));
+_nameToType.insert(fromWCharArray(L"Võro"), Voro);
 //-
 _codeToType.insert("vi", Vietnamese);
 _typeToCode.insert(Vietnamese, "vi");
-_typeToInterwiki.insert(Vietnamese, QString::fromWCharArray(L"Tiếng Việt"));
-_typeToNames.insert(Vietnamese, QString::fromWCharArray(L"Vietnamese"));
-_nameToType.insert(QString::fromWCharArray(L"Vietnamese"), Vietnamese);
+_typeToInterwiki.insert(Vietnamese, fromWCharArray(L"Tiếng Việt"));
+_typeToNames.insert(Vietnamese, fromWCharArray(L"Vietnamese"));
+_nameToType.insert(fromWCharArray(L"Vietnamese"), Vietnamese);
 //-
 _codeToType.insert("ii", SichuanYi);
 _typeToCode.insert(SichuanYi, "ii");
-_typeToInterwiki.insert(SichuanYi, QString::fromWCharArray(L"ꆇꉙ"));
-_typeToNames.insert(SichuanYi, QString::fromWCharArray(L"Sichuan Yi"));
-_nameToType.insert(QString::fromWCharArray(L"Sichuan Yi"), SichuanYi);
+_typeToInterwiki.insert(SichuanYi, fromWCharArray(L"ꆇꉙ"));
+_typeToNames.insert(SichuanYi, fromWCharArray(L"Sichuan Yi"));
+_nameToType.insert(fromWCharArray(L"Sichuan Yi"), SichuanYi);
 //-
 _codeToType.insert("ki", Kikuyu);
 _typeToCode.insert(Kikuyu, "ki");
-_typeToInterwiki.insert(Kikuyu, QString::fromWCharArray(L"Gĩkũyũ"));
-_typeToNames.insert(Kikuyu, QString::fromWCharArray(L"Kikuyu"));
-_nameToType.insert(QString::fromWCharArray(L"Kikuyu"), Kikuyu);
+_typeToInterwiki.insert(Kikuyu, fromWCharArray(L"Gĩkũyũ"));
+_typeToNames.insert(Kikuyu, fromWCharArray(L"Kikuyu"));
+_nameToType.insert(fromWCharArray(L"Kikuyu"), Kikuyu);
 //-
-_typeToNames.insert(Cuiba, QString::fromWCharArray(L"Cuiba"));
-_nameToType.insert(QString::fromWCharArray(L"Cuiba"), Cuiba);
+_typeToNames.insert(Cuiba, fromWCharArray(L"Cuiba"));
+_nameToType.insert(fromWCharArray(L"Cuiba"), Cuiba);
 //-
 _codeToType.insert("nl", Dutch);
 _typeToCode.insert(Dutch, "nl");
-_typeToInterwiki.insert(Dutch, QString::fromWCharArray(L"Nederlands"));
-_typeToNames.insert(Dutch, QString::fromWCharArray(L"Dutch"));
-_nameToType.insert(QString::fromWCharArray(L"Dutch"), Dutch);
+_typeToInterwiki.insert(Dutch, fromWCharArray(L"Nederlands"));
+_typeToNames.insert(Dutch, fromWCharArray(L"Dutch"));
+_nameToType.insert(fromWCharArray(L"Dutch"), Dutch);
 //-
 _codeToType.insert("mr", Marathi);
 _typeToCode.insert(Marathi, "mr");
-_typeToInterwiki.insert(Marathi, QString::fromWCharArray(L"मराठी"));
-_typeToNames.insert(Marathi, QString::fromWCharArray(L"Marathi"));
-_nameToType.insert(QString::fromWCharArray(L"Marathi"), Marathi);
+_typeToInterwiki.insert(Marathi, fromWCharArray(L"मराठी"));
+_typeToNames.insert(Marathi, fromWCharArray(L"Marathi"));
+_nameToType.insert(fromWCharArray(L"Marathi"), Marathi);
+//-
+_codeToType.insert("phn", Phoenician);
+_typeToCode.insert(Phoenician, "phn");
+_typeToNames.insert(Phoenician, fromWCharArray(L"Phoenician"));
+_nameToType.insert(fromWCharArray(L"Phoenician"), Phoenician);
 //-
 _codeToType.insert("om", Oromo);
 _typeToCode.insert(Oromo, "om");
-_typeToInterwiki.insert(Oromo, QString::fromWCharArray(L"Oromoo"));
-_typeToNames.insert(Oromo, QString::fromWCharArray(L"Oromo"));
-_nameToType.insert(QString::fromWCharArray(L"Oromo"), Oromo);
+_typeToInterwiki.insert(Oromo, fromWCharArray(L"Oromoo"));
+_typeToNames.insert(Oromo, fromWCharArray(L"Oromo"));
+_nameToType.insert(fromWCharArray(L"Oromo"), Oromo);
 //-
 _codeToType.insert("na", Nauru);
 _typeToCode.insert(Nauru, "na");
-_typeToInterwiki.insert(Nauru, QString::fromWCharArray(L"Dorerin Naoero"));
-_typeToNames.insert(Nauru, QString::fromWCharArray(L"Nauru"));
-_nameToType.insert(QString::fromWCharArray(L"Nauru"), Nauru);
+_typeToInterwiki.insert(Nauru, fromWCharArray(L"Dorerin Naoero"));
+_typeToNames.insert(Nauru, fromWCharArray(L"Nauru"));
+_nameToType.insert(fromWCharArray(L"Nauru"), Nauru);
 //-
 _codeToType.insert("ca", Catalan);
 _typeToCode.insert(Catalan, "ca");
-_typeToInterwiki.insert(Catalan, QString::fromWCharArray(L"Català"));
-_typeToNames.insert(Catalan, QString::fromWCharArray(L"Catalan"));
-_nameToType.insert(QString::fromWCharArray(L"Catalan"), Catalan);
+_typeToInterwiki.insert(Catalan, fromWCharArray(L"Català"));
+_typeToNames.insert(Catalan, fromWCharArray(L"Catalan"));
+_nameToType.insert(fromWCharArray(L"Catalan"), Catalan);
 //-
 _codeToType.insert("af", Afrikaans);
 _typeToCode.insert(Afrikaans, "af");
-_typeToInterwiki.insert(Afrikaans, QString::fromWCharArray(L"Afrikaans"));
-_typeToNames.insert(Afrikaans, QString::fromWCharArray(L"Afrikaans"));
-_nameToType.insert(QString::fromWCharArray(L"Afrikaans"), Afrikaans);
+_typeToInterwiki.insert(Afrikaans, fromWCharArray(L"Afrikaans"));
+_typeToNames.insert(Afrikaans, fromWCharArray(L"Afrikaans"));
+_nameToType.insert(fromWCharArray(L"Afrikaans"), Afrikaans);
 //-
 _codeToType.insert("tr", Turkish);
 _typeToCode.insert(Turkish, "tr");
-_typeToInterwiki.insert(Turkish, QString::fromWCharArray(L"Türkçe"));
-_typeToNames.insert(Turkish, QString::fromWCharArray(L"Turkish"));
-_nameToType.insert(QString::fromWCharArray(L"Turkish"), Turkish);
+_typeToInterwiki.insert(Turkish, fromWCharArray(L"Türkçe"));
+_typeToNames.insert(Turkish, fromWCharArray(L"Turkish"));
+_nameToType.insert(fromWCharArray(L"Turkish"), Turkish);
 //-
 _codeToType.insert("th", Thai);
 _typeToCode.insert(Thai, "th");
-_typeToInterwiki.insert(Thai, QString::fromWCharArray(L"ไทย"));
-_typeToNames.insert(Thai, QString::fromWCharArray(L"Thai"));
-_nameToType.insert(QString::fromWCharArray(L"Thai"), Thai);
+_typeToInterwiki.insert(Thai, fromWCharArray(L"ไทย"));
+_typeToNames.insert(Thai, fromWCharArray(L"Thai"));
+_nameToType.insert(fromWCharArray(L"Thai"), Thai);
 //-
 _codeToType.insert("zsa", Sarasira);
 _typeToCode.insert(Sarasira, "zsa");
-_typeToNames.insert(Sarasira, QString::fromWCharArray(L"Sarasira"));
-_nameToType.insert(QString::fromWCharArray(L"Sarasira"), Sarasira);
+_typeToNames.insert(Sarasira, fromWCharArray(L"Sarasira"));
+_nameToType.insert(fromWCharArray(L"Sarasira"), Sarasira);
 //-
 _codeToType.insert("mk", Macedonian);
 _typeToCode.insert(Macedonian, "mk");
-_typeToInterwiki.insert(Macedonian, QString::fromWCharArray(L"Македонски"));
-_typeToNames.insert(Macedonian, QString::fromWCharArray(L"Macedonian"));
-_nameToType.insert(QString::fromWCharArray(L"Macedonian"), Macedonian);
+_typeToInterwiki.insert(Macedonian, fromWCharArray(L"Македонски"));
+_typeToNames.insert(Macedonian, fromWCharArray(L"Macedonian"));
+_nameToType.insert(fromWCharArray(L"Macedonian"), Macedonian);
 //-
 _codeToType.insert("ff", Fualah);
 _typeToCode.insert(Fualah, "ff");
-_typeToInterwiki.insert(Fualah, QString::fromWCharArray(L"Fulfulde"));
-_typeToNames.insert(Fualah, QString::fromWCharArray(L"Fualah"));
-_nameToType.insert(QString::fromWCharArray(L"Fualah"), Fualah);
+_typeToInterwiki.insert(Fualah, fromWCharArray(L"Fulfulde"));
+_typeToNames.insert(Fualah, fromWCharArray(L"Fualah"));
+_nameToType.insert(fromWCharArray(L"Fualah"), Fualah);
 //-
-_typeToNames.insert(BishnupriyaManipuri, QString::fromWCharArray(L"Bishnupriya Manipuri"));
-_nameToType.insert(QString::fromWCharArray(L"Bishnupriya Manipuri"), BishnupriyaManipuri);
+_typeToNames.insert(BishnupriyaManipuri, fromWCharArray(L"Bishnupriya Manipuri"));
+_nameToType.insert(fromWCharArray(L"Bishnupriya Manipuri"), BishnupriyaManipuri);
 //-
 _codeToType.insert("kap", Bezhta);
 _typeToCode.insert(Bezhta, "kap");
-_typeToNames.insert(Bezhta, QString::fromWCharArray(L"Bezhta"));
-_nameToType.insert(QString::fromWCharArray(L"Bezhta"), Bezhta);
+_typeToNames.insert(Bezhta, fromWCharArray(L"Bezhta"));
+_nameToType.insert(fromWCharArray(L"Bezhta"), Bezhta);
 //-
 _codeToType.insert("ang", OldEnglish);
 _typeToCode.insert(OldEnglish, "ang");
-_typeToNames.insert(OldEnglish, QString::fromWCharArray(L"Old English"));
-_nameToType.insert(QString::fromWCharArray(L"Old English"), OldEnglish);
+_typeToNames.insert(OldEnglish, fromWCharArray(L"Old English"));
+_nameToType.insert(fromWCharArray(L"Old English"), OldEnglish);
 //-
 _codeToType.insert("nd", NorthNdebele);
 _typeToCode.insert(NorthNdebele, "nd");
-_typeToNames.insert(NorthNdebele, QString::fromWCharArray(L"North Ndebele"));
-_nameToType.insert(QString::fromWCharArray(L"North Ndebele"), NorthNdebele);
+_typeToNames.insert(NorthNdebele, fromWCharArray(L"North Ndebele"));
+_nameToType.insert(fromWCharArray(L"North Ndebele"), NorthNdebele);
 //-
 _codeToType.insert("ne", Nepali);
 _typeToCode.insert(Nepali, "ne");
-_typeToInterwiki.insert(Nepali, QString::fromWCharArray(L"नेपाली"));
-_typeToNames.insert(Nepali, QString::fromWCharArray(L"Nepali"));
-_nameToType.insert(QString::fromWCharArray(L"Nepali"), Nepali);
+_typeToInterwiki.insert(Nepali, fromWCharArray(L"नेपाली"));
+_typeToNames.insert(Nepali, fromWCharArray(L"Nepali"));
+_nameToType.insert(fromWCharArray(L"Nepali"), Nepali);
 //-
 _codeToType.insert("nap", Neapolitan);
 _typeToCode.insert(Neapolitan, "nap");
-_typeToNames.insert(Neapolitan, QString::fromWCharArray(L"Neapolitan"));
-_nameToType.insert(QString::fromWCharArray(L"Neapolitan"), Neapolitan);
+_typeToNames.insert(Neapolitan, fromWCharArray(L"Neapolitan"));
+_nameToType.insert(fromWCharArray(L"Neapolitan"), Neapolitan);
 //-
 _codeToType.insert("cic", Chickasaw);
 _typeToCode.insert(Chickasaw, "cic");
-_typeToNames.insert(Chickasaw, QString::fromWCharArray(L"Chickasaw"));
-_nameToType.insert(QString::fromWCharArray(L"Chickasaw"), Chickasaw);
+_typeToNames.insert(Chickasaw, fromWCharArray(L"Chickasaw"));
+_nameToType.insert(fromWCharArray(L"Chickasaw"), Chickasaw);
 //-
 _codeToType.insert("wa", Walloon);
 _typeToCode.insert(Walloon, "wa");
-_typeToInterwiki.insert(Walloon, QString::fromWCharArray(L"Walon"));
-_typeToNames.insert(Walloon, QString::fromWCharArray(L"Walloon"));
-_nameToType.insert(QString::fromWCharArray(L"Walloon"), Walloon);
+_typeToInterwiki.insert(Walloon, fromWCharArray(L"Walon"));
+_typeToNames.insert(Walloon, fromWCharArray(L"Walloon"));
+_nameToType.insert(fromWCharArray(L"Walloon"), Walloon);
 //-
 _codeToType.insert("fuc", Pulaar);
 _typeToCode.insert(Pulaar, "fuc");
-_typeToNames.insert(Pulaar, QString::fromWCharArray(L"Pulaar"));
-_nameToType.insert(QString::fromWCharArray(L"Pulaar"), Pulaar);
+_typeToNames.insert(Pulaar, fromWCharArray(L"Pulaar"));
+_nameToType.insert(fromWCharArray(L"Pulaar"), Pulaar);
 //-
 _codeToType.insert("oj", Ojibwa);
 _typeToCode.insert(Ojibwa, "oj");
-_typeToNames.insert(Ojibwa, QString::fromWCharArray(L"Ojibwe"));
-_nameToType.insert(QString::fromWCharArray(L"Ojibwe"), Ojibwa);
+_typeToNames.insert(Ojibwa, fromWCharArray(L"Ojibwe"));
+_nameToType.insert(fromWCharArray(L"Ojibwe"), Ojibwa);
 //-
 _codeToType.insert("da", Danish);
 _typeToCode.insert(Danish, "da");
-_typeToInterwiki.insert(Danish, QString::fromWCharArray(L"Dansk"));
-_typeToNames.insert(Danish, QString::fromWCharArray(L"Danish"));
-_nameToType.insert(QString::fromWCharArray(L"Danish"), Danish);
+_typeToInterwiki.insert(Danish, fromWCharArray(L"Dansk"));
+_typeToNames.insert(Danish, fromWCharArray(L"Danish"));
+_nameToType.insert(fromWCharArray(L"Danish"), Danish);
 //-
 _codeToType.insert("lv", Latvian);
 _typeToCode.insert(Latvian, "lv");
-_typeToInterwiki.insert(Latvian, QString::fromWCharArray(L"Latviešu"));
-_typeToNames.insert(Latvian, QString::fromWCharArray(L"Latvian"));
-_nameToType.insert(QString::fromWCharArray(L"Latvian"), Latvian);
+_typeToInterwiki.insert(Latvian, fromWCharArray(L"Latviešu"));
+_typeToNames.insert(Latvian, fromWCharArray(L"Latvian"));
+_nameToType.insert(fromWCharArray(L"Latvian"), Latvian);
 //-
 _codeToType.insert("kud", Auhelawa);
 _typeToCode.insert(Auhelawa, "kud");
-_typeToNames.insert(Auhelawa, QString::fromWCharArray(L"\'Auhelawa"));
-_nameToType.insert(QString::fromWCharArray(L"\'Auhelawa"), Auhelawa);
+_typeToNames.insert(Auhelawa, fromWCharArray(L"\'Auhelawa"));
+_nameToType.insert(fromWCharArray(L"\'Auhelawa"), Auhelawa);
+//-
+_codeToType.insert("ilo", Ilocano);
+_typeToCode.insert(Ilocano, "ilo");
+_typeToNames.insert(Ilocano, fromWCharArray(L"Ilocano"));
+_nameToType.insert(fromWCharArray(L"Ilocano"), Ilocano);
 //-
 _codeToType.insert("et", Estonian);
 _typeToCode.insert(Estonian, "et");
-_typeToInterwiki.insert(Estonian, QString::fromWCharArray(L"Eesti"));
-_typeToNames.insert(Estonian, QString::fromWCharArray(L"Estonian"));
-_nameToType.insert(QString::fromWCharArray(L"Estonian"), Estonian);
+_typeToInterwiki.insert(Estonian, fromWCharArray(L"Eesti"));
+_typeToNames.insert(Estonian, fromWCharArray(L"Estonian"));
+_nameToType.insert(fromWCharArray(L"Estonian"), Estonian);
 //-
 _codeToType.insert("aa", Afar);
 _typeToCode.insert(Afar, "aa");
-_typeToInterwiki.insert(Afar, QString::fromWCharArray(L"Qafár af"));
-_typeToNames.insert(Afar, QString::fromWCharArray(L"Afar"));
-_nameToType.insert(QString::fromWCharArray(L"Afar"), Afar);
+_typeToInterwiki.insert(Afar, fromWCharArray(L"Qafár af"));
+_typeToNames.insert(Afar, fromWCharArray(L"Afar"));
+_nameToType.insert(fromWCharArray(L"Afar"), Afar);
 //-
 _codeToType.insert("alr", Alutor);
 _typeToCode.insert(Alutor, "alr");
-_typeToNames.insert(Alutor, QString::fromWCharArray(L"Alutor"));
-_nameToType.insert(QString::fromWCharArray(L"Alutor"), Alutor);
+_typeToNames.insert(Alutor, fromWCharArray(L"Alutor"));
+_nameToType.insert(fromWCharArray(L"Alutor"), Alutor);
 //-
-_typeToNames.insert(Ahtna, QString::fromWCharArray(L"Ahtna"));
-_nameToType.insert(QString::fromWCharArray(L"Ahtna"), Ahtna);
+_typeToNames.insert(Ahtna, fromWCharArray(L"Ahtna"));
+_nameToType.insert(fromWCharArray(L"Ahtna"), Ahtna);
 //-
 _codeToType.insert("my", Burmese);
 _typeToCode.insert(Burmese, "my");
-_typeToInterwiki.insert(Burmese, QString::fromWCharArray(L"Myanmasa"));
-_typeToNames.insert(Burmese, QString::fromWCharArray(L"Burmese"));
-_nameToType.insert(QString::fromWCharArray(L"Burmese"), Burmese);
+_typeToInterwiki.insert(Burmese, fromWCharArray(L"Myanmasa"));
+_typeToNames.insert(Burmese, fromWCharArray(L"Burmese"));
+_nameToType.insert(fromWCharArray(L"Burmese"), Burmese);
 //-
 _codeToType.insert("mg", Malagasy);
 _typeToCode.insert(Malagasy, "mg");
-_typeToInterwiki.insert(Malagasy, QString::fromWCharArray(L"Malagasy"));
-_typeToNames.insert(Malagasy, QString::fromWCharArray(L"Malagasy"));
-_nameToType.insert(QString::fromWCharArray(L"Malagasy"), Malagasy);
+_typeToInterwiki.insert(Malagasy, fromWCharArray(L"Malagasy"));
+_typeToNames.insert(Malagasy, fromWCharArray(L"Malagasy"));
+_nameToType.insert(fromWCharArray(L"Malagasy"), Malagasy);
 //-
 _codeToType.insert("srn", SrananTongo);
 _typeToCode.insert(SrananTongo, "srn");
-_typeToNames.insert(SrananTongo, QString::fromWCharArray(L"Sranan"));
-_nameToType.insert(QString::fromWCharArray(L"Sranan"), SrananTongo);
-_typeToNames.insert(SrananTongo, QString::fromWCharArray(L"Sranan Tongo"));
-_nameToType.insert(QString::fromWCharArray(L"Sranan Tongo"), SrananTongo);
+_typeToNames.insert(SrananTongo, fromWCharArray(L"Sranan"));
+_nameToType.insert(fromWCharArray(L"Sranan"), SrananTongo);
+_typeToNames.insert(SrananTongo, fromWCharArray(L"Sranan Tongo"));
+_nameToType.insert(fromWCharArray(L"Sranan Tongo"), SrananTongo);
 //-
 _codeToType.insert("simple", SimpleEnglish);
 _typeToCode.insert(SimpleEnglish, "simple");
-_typeToInterwiki.insert(SimpleEnglish, QString::fromWCharArray(L"Simple English"));
-_typeToNames.insert(SimpleEnglish, QString::fromWCharArray(L"Simple English"));
-_nameToType.insert(QString::fromWCharArray(L"Simple English"), SimpleEnglish);
+_typeToInterwiki.insert(SimpleEnglish, fromWCharArray(L"Simple English"));
+_typeToNames.insert(SimpleEnglish, fromWCharArray(L"Simple English"));
+_nameToType.insert(fromWCharArray(L"Simple English"), SimpleEnglish);
 //-
 _codeToType.insert("li", Limburgish);
 _typeToCode.insert(Limburgish, "li");
-_typeToInterwiki.insert(Limburgish, QString::fromWCharArray(L"Limburgs"));
-_typeToNames.insert(Limburgish, QString::fromWCharArray(L"Limburgish"));
-_nameToType.insert(QString::fromWCharArray(L"Limburgish"), Limburgish);
+_typeToInterwiki.insert(Limburgish, fromWCharArray(L"Limburgs"));
+_typeToNames.insert(Limburgish, fromWCharArray(L"Limburgish"));
+_nameToType.insert(fromWCharArray(L"Limburgish"), Limburgish);
 //-
 _codeToType.insert("lad", Ladino);
 _typeToCode.insert(Ladino, "lad");
-_typeToNames.insert(Ladino, QString::fromWCharArray(L"Judezmo"));
-_nameToType.insert(QString::fromWCharArray(L"Judezmo"), Ladino);
-_typeToNames.insert(Ladino, QString::fromWCharArray(L"Dzhudezmo"));
-_nameToType.insert(QString::fromWCharArray(L"Dzhudezmo"), Ladino);
-_typeToNames.insert(Ladino, QString::fromWCharArray(L"Ladino"));
-_nameToType.insert(QString::fromWCharArray(L"Ladino"), Ladino);
+_typeToNames.insert(Ladino, fromWCharArray(L"Judezmo"));
+_nameToType.insert(fromWCharArray(L"Judezmo"), Ladino);
+_typeToNames.insert(Ladino, fromWCharArray(L"Dzhudezmo"));
+_nameToType.insert(fromWCharArray(L"Dzhudezmo"), Ladino);
+_typeToNames.insert(Ladino, fromWCharArray(L"Ladino"));
+_nameToType.insert(fromWCharArray(L"Ladino"), Ladino);
 //-
 _codeToType.insert("fr", French);
 _typeToCode.insert(French, "fr");
-_typeToInterwiki.insert(French, QString::fromWCharArray(L"Français"));
-_typeToNames.insert(French, QString::fromWCharArray(L"French"));
-_nameToType.insert(QString::fromWCharArray(L"French"), French);
+_typeToInterwiki.insert(French, fromWCharArray(L"Français"));
+_typeToNames.insert(French, fromWCharArray(L"French"));
+_nameToType.insert(fromWCharArray(L"French"), French);
 //-
 _codeToType.insert("yo", Yoruba);
 _typeToCode.insert(Yoruba, "yo");
-_typeToInterwiki.insert(Yoruba, QString::fromWCharArray(L"Yorùbá"));
-_typeToNames.insert(Yoruba, QString::fromWCharArray(L"Yoruba"));
-_nameToType.insert(QString::fromWCharArray(L"Yoruba"), Yoruba);
+_typeToInterwiki.insert(Yoruba, fromWCharArray(L"Yorùbá"));
+_typeToNames.insert(Yoruba, fromWCharArray(L"Yoruba"));
+_nameToType.insert(fromWCharArray(L"Yoruba"), Yoruba);
 //-
 _codeToType.insert("fry", WesternFrisian);
 _typeToCode.insert(WesternFrisian, "fry");
 _codeToType.insert("fy", WesternFrisian);
 _typeToCode.insert(WesternFrisian, "fy");
-_typeToInterwiki.insert(WesternFrisian, QString::fromWCharArray(L"Frysk"));
-_typeToNames.insert(WesternFrisian, QString::fromWCharArray(L"Frisian"));
-_nameToType.insert(QString::fromWCharArray(L"Frisian"), WesternFrisian);
-_typeToNames.insert(WesternFrisian, QString::fromWCharArray(L"West Frisian"));
-_nameToType.insert(QString::fromWCharArray(L"West Frisian"), WesternFrisian);
-_typeToNames.insert(WesternFrisian, QString::fromWCharArray(L"Western Frisian"));
-_nameToType.insert(QString::fromWCharArray(L"Western Frisian"), WesternFrisian);
+_typeToInterwiki.insert(WesternFrisian, fromWCharArray(L"Frysk"));
+_typeToNames.insert(WesternFrisian, fromWCharArray(L"Frisian"));
+_nameToType.insert(fromWCharArray(L"Frisian"), WesternFrisian);
+_typeToNames.insert(WesternFrisian, fromWCharArray(L"West Frisian"));
+_nameToType.insert(fromWCharArray(L"West Frisian"), WesternFrisian);
+_typeToNames.insert(WesternFrisian, fromWCharArray(L"Western Frisian"));
+_nameToType.insert(fromWCharArray(L"Western Frisian"), WesternFrisian);
 //-
 _codeToType.insert("tpi", TokPisin);
 _typeToCode.insert(TokPisin, "tpi");
-_typeToNames.insert(TokPisin, QString::fromWCharArray(L"Tok Pisin"));
-_nameToType.insert(QString::fromWCharArray(L"Tok Pisin"), TokPisin);
+_typeToNames.insert(TokPisin, fromWCharArray(L"Tok Pisin"));
+_nameToType.insert(fromWCharArray(L"Tok Pisin"), TokPisin);
 //-
 _codeToType.insert("ae", Avestan);
 _typeToCode.insert(Avestan, "ae");
-_typeToNames.insert(Avestan, QString::fromWCharArray(L"Avestan"));
-_nameToType.insert(QString::fromWCharArray(L"Avestan"), Avestan);
+_typeToNames.insert(Avestan, fromWCharArray(L"Avestan"));
+_nameToType.insert(fromWCharArray(L"Avestan"), Avestan);
 //-
 _codeToType.insert("ale", Aleut);
 _typeToCode.insert(Aleut, "ale");
-_typeToNames.insert(Aleut, QString::fromWCharArray(L"Aleut"));
-_nameToType.insert(QString::fromWCharArray(L"Aleut"), Aleut);
+_typeToNames.insert(Aleut, fromWCharArray(L"Aleut"));
+_nameToType.insert(fromWCharArray(L"Aleut"), Aleut);
 //-
 _codeToType.insert("ba", Bashkir);
 _typeToCode.insert(Bashkir, "ba");
-_typeToInterwiki.insert(Bashkir, QString::fromWCharArray(L"Башҡорт"));
-_typeToNames.insert(Bashkir, QString::fromWCharArray(L"Bashkir"));
-_nameToType.insert(QString::fromWCharArray(L"Bashkir"), Bashkir);
+_typeToInterwiki.insert(Bashkir, fromWCharArray(L"Башҡорт"));
+_typeToNames.insert(Bashkir, fromWCharArray(L"Bashkir"));
+_nameToType.insert(fromWCharArray(L"Bashkir"), Bashkir);
 //-
 _codeToType.insert("ast", Asturian);
 _typeToCode.insert(Asturian, "ast");
-_typeToInterwiki.insert(Asturian, QString::fromWCharArray(L"Asturianu"));
-_typeToNames.insert(Asturian, QString::fromWCharArray(L"Asturian"));
-_nameToType.insert(QString::fromWCharArray(L"Asturian"), Asturian);
+_typeToInterwiki.insert(Asturian, fromWCharArray(L"Asturianu"));
+_typeToNames.insert(Asturian, fromWCharArray(L"Asturian"));
+_nameToType.insert(fromWCharArray(L"Asturian"), Asturian);
 //-
 _codeToType.insert("ain", Ainu);
 _typeToCode.insert(Ainu, "ain");
-_typeToNames.insert(Ainu, QString::fromWCharArray(L"Ainu"));
-_nameToType.insert(QString::fromWCharArray(L"Ainu"), Ainu);
+_typeToNames.insert(Ainu, fromWCharArray(L"Ainu"));
+_nameToType.insert(fromWCharArray(L"Ainu"), Ainu);
 //-
 _codeToType.insert("el", Greek);
 _typeToCode.insert(Greek, "el");
-_typeToInterwiki.insert(Greek, QString::fromWCharArray(L"Ελληνικά"));
-_typeToNames.insert(Greek, QString::fromWCharArray(L"Greek"));
-_nameToType.insert(QString::fromWCharArray(L"Greek"), Greek);
+_typeToInterwiki.insert(Greek, fromWCharArray(L"Ελληνικά"));
+_typeToNames.insert(Greek, fromWCharArray(L"Greek"));
+_nameToType.insert(fromWCharArray(L"Greek"), Greek);
 //-
 _codeToType.insert("lb", Luxembourgish);
 _typeToCode.insert(Luxembourgish, "lb");
-_typeToInterwiki.insert(Luxembourgish, QString::fromWCharArray(L"Lëtzebuergesch"));
-_typeToNames.insert(Luxembourgish, QString::fromWCharArray(L"Luxembourgish"));
-_nameToType.insert(QString::fromWCharArray(L"Luxembourgish"), Luxembourgish);
+_typeToInterwiki.insert(Luxembourgish, fromWCharArray(L"Lëtzebuergesch"));
+_typeToNames.insert(Luxembourgish, fromWCharArray(L"Luxembourgish"));
+_nameToType.insert(fromWCharArray(L"Luxembourgish"), Luxembourgish);
 //-
 _codeToType.insert("apw", WesternApache);
 _typeToCode.insert(WesternApache, "apw");
-_typeToNames.insert(WesternApache, QString::fromWCharArray(L"Western Apache"));
-_nameToType.insert(QString::fromWCharArray(L"Western Apache"), WesternApache);
+_typeToNames.insert(WesternApache, fromWCharArray(L"Western Apache"));
+_nameToType.insert(fromWCharArray(L"Western Apache"), WesternApache);
 //-
-_typeToNames.insert(Translingual, QString::fromWCharArray(L"Translingual"));
-_nameToType.insert(QString::fromWCharArray(L"Translingual"), Translingual);
+_typeToNames.insert(Translingual, fromWCharArray(L"Translingual"));
+_nameToType.insert(fromWCharArray(L"Translingual"), Translingual);
 //-
 _codeToType.insert("so", Somali);
 _typeToCode.insert(Somali, "so");
-_typeToInterwiki.insert(Somali, QString::fromWCharArray(L"Soomaaliga"));
-_typeToNames.insert(Somali, QString::fromWCharArray(L"Somali"));
-_nameToType.insert(QString::fromWCharArray(L"Somali"), Somali);
+_typeToInterwiki.insert(Somali, fromWCharArray(L"Soomaaliga"));
+_typeToNames.insert(Somali, fromWCharArray(L"Somali"));
+_nameToType.insert(fromWCharArray(L"Somali"), Somali);
 //-
 _codeToType.insert("it", Italian);
 _typeToCode.insert(Italian, "it");
-_typeToInterwiki.insert(Italian, QString::fromWCharArray(L"Italiano"));
-_typeToNames.insert(Italian, QString::fromWCharArray(L"Italian"));
-_nameToType.insert(QString::fromWCharArray(L"Italian"), Italian);
+_typeToInterwiki.insert(Italian, fromWCharArray(L"Italiano"));
+_typeToNames.insert(Italian, fromWCharArray(L"Italian"));
+_nameToType.insert(fromWCharArray(L"Italian"), Italian);
 //-
-_typeToNames.insert(Amara, QString::fromWCharArray(L"Amara"));
-_nameToType.insert(QString::fromWCharArray(L"Amara"), Amara);
+_typeToNames.insert(Amara, fromWCharArray(L"Amara"));
+_nameToType.insert(fromWCharArray(L"Amara"), Amara);
 //-
 _codeToType.insert("sq", Albanian);
 _typeToCode.insert(Albanian, "sq");
-_typeToInterwiki.insert(Albanian, QString::fromWCharArray(L"Shqip"));
-_typeToNames.insert(Albanian, QString::fromWCharArray(L"Albanian"));
-_nameToType.insert(QString::fromWCharArray(L"Albanian"), Albanian);
+_typeToInterwiki.insert(Albanian, fromWCharArray(L"Shqip"));
+_typeToNames.insert(Albanian, fromWCharArray(L"Albanian"));
+_nameToType.insert(fromWCharArray(L"Albanian"), Albanian);
 //-
 _codeToType.insert("fj", Fijian);
 _typeToCode.insert(Fijian, "fj");
-_typeToInterwiki.insert(Fijian, QString::fromWCharArray(L"Na Vosa Vakaviti"));
-_typeToNames.insert(Fijian, QString::fromWCharArray(L"Fijian"));
-_nameToType.insert(QString::fromWCharArray(L"Fijian"), Fijian);
+_typeToInterwiki.insert(Fijian, fromWCharArray(L"Na Vosa Vakaviti"));
+_typeToNames.insert(Fijian, fromWCharArray(L"Fijian"));
+_nameToType.insert(fromWCharArray(L"Fijian"), Fijian);
 //-
 _codeToType.insert("ig", Igbo);
 _typeToCode.insert(Igbo, "ig");
-_typeToInterwiki.insert(Igbo, QString::fromWCharArray(L"Igbo"));
-_typeToNames.insert(Igbo, QString::fromWCharArray(L"Igbo"));
-_nameToType.insert(QString::fromWCharArray(L"Igbo"), Igbo);
+_typeToInterwiki.insert(Igbo, fromWCharArray(L"Igbo"));
+_typeToNames.insert(Igbo, fromWCharArray(L"Igbo"));
+_nameToType.insert(fromWCharArray(L"Igbo"), Igbo);
 //-
 _codeToType.insert("kk", Kazakh);
 _typeToCode.insert(Kazakh, "kk");
-_typeToInterwiki.insert(Kazakh, QString::fromWCharArray(L"Қазақша"));
-_typeToNames.insert(Kazakh, QString::fromWCharArray(L"Kazakh"));
-_nameToType.insert(QString::fromWCharArray(L"Kazakh"), Kazakh);
+_typeToInterwiki.insert(Kazakh, fromWCharArray(L"Қазақша"));
+_typeToNames.insert(Kazakh, fromWCharArray(L"Kazakh"));
+_nameToType.insert(fromWCharArray(L"Kazakh"), Kazakh);
 //-
 _codeToType.insert("su", Sundanese);
 _typeToCode.insert(Sundanese, "su");
-_typeToInterwiki.insert(Sundanese, QString::fromWCharArray(L"Basa Sunda"));
-_typeToNames.insert(Sundanese, QString::fromWCharArray(L"Sundanese"));
-_nameToType.insert(QString::fromWCharArray(L"Sundanese"), Sundanese);
+_typeToInterwiki.insert(Sundanese, fromWCharArray(L"Basa Sunda"));
+_typeToNames.insert(Sundanese, fromWCharArray(L"Sundanese"));
+_nameToType.insert(fromWCharArray(L"Sundanese"), Sundanese);
 //-
 _codeToType.insert("st", SouthernSotho);
 _typeToCode.insert(SouthernSotho, "st");
-_typeToInterwiki.insert(SouthernSotho, QString::fromWCharArray(L"Sesotho"));
-_typeToNames.insert(SouthernSotho, QString::fromWCharArray(L"SouthernSotho"));
-_nameToType.insert(QString::fromWCharArray(L"SouthernSotho"), SouthernSotho);
+_typeToInterwiki.insert(SouthernSotho, fromWCharArray(L"Sesotho"));
+_typeToNames.insert(SouthernSotho, fromWCharArray(L"SouthernSotho"));
+_nameToType.insert(fromWCharArray(L"SouthernSotho"), SouthernSotho);
 //-
 _codeToType.insert("grc", AncientGreek);
 _typeToCode.insert(AncientGreek, "grc");
-_typeToNames.insert(AncientGreek, QString::fromWCharArray(L"Ancient Greek"));
-_nameToType.insert(QString::fromWCharArray(L"Ancient Greek"), AncientGreek);
+_typeToNames.insert(AncientGreek, fromWCharArray(L"Ancient Greek"));
+_nameToType.insert(fromWCharArray(L"Ancient Greek"), AncientGreek);
 //-
 _codeToType.insert("ang", AngloSaxon);
 _typeToCode.insert(AngloSaxon, "ang");
-_typeToInterwiki.insert(AngloSaxon, QString::fromWCharArray(L"Anglo-Saxon"));
-_typeToNames.insert(AngloSaxon, QString::fromWCharArray(L"Anglo-Saxon"));
-_nameToType.insert(QString::fromWCharArray(L"Anglo-Saxon"), AngloSaxon);
+_typeToInterwiki.insert(AngloSaxon, fromWCharArray(L"Anglo-Saxon"));
+_typeToNames.insert(AngloSaxon, fromWCharArray(L"Anglo-Saxon"));
+_nameToType.insert(fromWCharArray(L"Anglo-Saxon"), AngloSaxon);
+//-
+_codeToType.insert("zav", YatzachiZapotec);
+_typeToCode.insert(YatzachiZapotec, "zav");
+_typeToNames.insert(YatzachiZapotec, fromWCharArray(L"Yatzachi Zapotec"));
+_nameToType.insert(fromWCharArray(L"Yatzachi Zapotec"), YatzachiZapotec);
 //-
 _codeToType.insert("rhg", Rohingya);
 _typeToCode.insert(Rohingya, "rhg");
-_typeToNames.insert(Rohingya, QString::fromWCharArray(L"Rohingya"));
-_nameToType.insert(QString::fromWCharArray(L"Rohingya"), Rohingya);
+_typeToNames.insert(Rohingya, fromWCharArray(L"Rohingya"));
+_nameToType.insert(fromWCharArray(L"Rohingya"), Rohingya);
 //-
-_typeToNames.insert(NorthernQiang, QString::fromWCharArray(L"Northern Qiang"));
-_nameToType.insert(QString::fromWCharArray(L"Northern Qiang"), NorthernQiang);
+_typeToNames.insert(NorthernQiang, fromWCharArray(L"Northern Qiang"));
+_nameToType.insert(fromWCharArray(L"Northern Qiang"), NorthernQiang);
 //-
 _codeToType.insert("ace", Acehnese);
 _typeToCode.insert(Acehnese, "ace");
-_typeToNames.insert(Acehnese, QString::fromWCharArray(L"Achinese"));
-_nameToType.insert(QString::fromWCharArray(L"Achinese"), Acehnese);
-_typeToNames.insert(Acehnese, QString::fromWCharArray(L"Achehnese"));
-_nameToType.insert(QString::fromWCharArray(L"Achehnese"), Acehnese);
-_typeToNames.insert(Acehnese, QString::fromWCharArray(L"Acehnese"));
-_nameToType.insert(QString::fromWCharArray(L"Acehnese"), Acehnese);
+_typeToNames.insert(Acehnese, fromWCharArray(L"Achinese"));
+_nameToType.insert(fromWCharArray(L"Achinese"), Acehnese);
+_typeToNames.insert(Acehnese, fromWCharArray(L"Achehnese"));
+_nameToType.insert(fromWCharArray(L"Achehnese"), Acehnese);
+_typeToNames.insert(Acehnese, fromWCharArray(L"Acehnese"));
+_nameToType.insert(fromWCharArray(L"Acehnese"), Acehnese);
 //-
 _codeToType.insert("kv", Komi);
 _typeToCode.insert(Komi, "kv");
-_typeToInterwiki.insert(Komi, QString::fromWCharArray(L"Коми"));
-_typeToNames.insert(Komi, QString::fromWCharArray(L"Komi"));
-_nameToType.insert(QString::fromWCharArray(L"Komi"), Komi);
+_typeToInterwiki.insert(Komi, fromWCharArray(L"Коми"));
+_typeToNames.insert(Komi, fromWCharArray(L"Komi"));
+_nameToType.insert(fromWCharArray(L"Komi"), Komi);
 //-
-_typeToNames.insert(Amahai, QString::fromWCharArray(L"Amahai"));
-_nameToType.insert(QString::fromWCharArray(L"Amahai"), Amahai);
+_typeToNames.insert(Amahai, fromWCharArray(L"Amahai"));
+_nameToType.insert(fromWCharArray(L"Amahai"), Amahai);
 //-
 _codeToType.insert("sk", Slovak);
 _typeToCode.insert(Slovak, "sk");
-_typeToInterwiki.insert(Slovak, QString::fromWCharArray(L"Slovenčina"));
-_typeToNames.insert(Slovak, QString::fromWCharArray(L"Slovak"));
-_nameToType.insert(QString::fromWCharArray(L"Slovak"), Slovak);
+_typeToInterwiki.insert(Slovak, fromWCharArray(L"Slovenčina"));
+_typeToNames.insert(Slovak, fromWCharArray(L"Slovak"));
+_nameToType.insert(fromWCharArray(L"Slovak"), Slovak);
 //-
 _codeToType.insert("ro", Romanian);
 _typeToCode.insert(Romanian, "ro");
-_typeToInterwiki.insert(Romanian, QString::fromWCharArray(L"Română"));
-_typeToNames.insert(Romanian, QString::fromWCharArray(L"Romanian"));
-_nameToType.insert(QString::fromWCharArray(L"Romanian"), Romanian);
-//-
-_codeToType.insert("cmn", Mandarin);
-_typeToCode.insert(Mandarin, "cmn");
-_typeToNames.insert(Mandarin, QString::fromWCharArray(L"Mandarin"));
-_nameToType.insert(QString::fromWCharArray(L"Mandarin"), Mandarin);
-//-
-_codeToType.insert("bi", Bislama);
-_typeToCode.insert(Bislama, "bi");
-_typeToInterwiki.insert(Bislama, QString::fromWCharArray(L"Bislama"));
-_typeToNames.insert(Bislama, QString::fromWCharArray(L"Bislama"));
-_nameToType.insert(QString::fromWCharArray(L"Bislama"), Bislama);
-//-
-_codeToType.insert("ar", Arabic);
-_typeToCode.insert(Arabic, "ar");
-_typeToInterwiki.insert(Arabic, QString::fromWCharArray(L"العربية"));
-_typeToNames.insert(Arabic, QString::fromWCharArray(L"Arabic"));
-_nameToType.insert(QString::fromWCharArray(L"Arabic"), Arabic);
+_typeToInterwiki.insert(Romanian, fromWCharArray(L"Română"));
+_typeToNames.insert(Romanian, fromWCharArray(L"Romanian"));
+_nameToType.insert(fromWCharArray(L"Romanian"), Romanian);
 //-
 _codeToType.insert("enm", MiddleEnglish);
 _typeToCode.insert(MiddleEnglish, "enm");
-_typeToNames.insert(MiddleEnglish, QString::fromWCharArray(L"Medeival English"));
-_nameToType.insert(QString::fromWCharArray(L"Medeival English"), MiddleEnglish);
-_typeToNames.insert(MiddleEnglish, QString::fromWCharArray(L"Middle English"));
-_nameToType.insert(QString::fromWCharArray(L"Middle English"), MiddleEnglish);
+_typeToNames.insert(MiddleEnglish, fromWCharArray(L"Medeival English"));
+_nameToType.insert(fromWCharArray(L"Medeival English"), MiddleEnglish);
+_typeToNames.insert(MiddleEnglish, fromWCharArray(L"Middle English"));
+_nameToType.insert(fromWCharArray(L"Middle English"), MiddleEnglish);
+//-
+_codeToType.insert("cmn", Mandarin);
+_typeToCode.insert(Mandarin, "cmn");
+_typeToNames.insert(Mandarin, fromWCharArray(L"Mandarin"));
+_nameToType.insert(fromWCharArray(L"Mandarin"), Mandarin);
+//-
+_codeToType.insert("bi", Bislama);
+_typeToCode.insert(Bislama, "bi");
+_typeToInterwiki.insert(Bislama, fromWCharArray(L"Bislama"));
+_typeToNames.insert(Bislama, fromWCharArray(L"Bislama"));
+_nameToType.insert(fromWCharArray(L"Bislama"), Bislama);
+//-
+_codeToType.insert("ar", Arabic);
+_typeToCode.insert(Arabic, "ar");
+_typeToInterwiki.insert(Arabic, fromWCharArray(L"العربية"));
+_typeToNames.insert(Arabic, fromWCharArray(L"Arabic"));
+_nameToType.insert(fromWCharArray(L"Arabic"), Arabic);
 //-
 _codeToType.insert("ava", Avaric);
 _typeToCode.insert(Avaric, "ava");
 _codeToType.insert("av", Avaric);
 _typeToCode.insert(Avaric, "av");
-_typeToInterwiki.insert(Avaric, QString::fromWCharArray(L"Авар"));
-_typeToNames.insert(Avaric, QString::fromWCharArray(L"Avaric"));
-_nameToType.insert(QString::fromWCharArray(L"Avaric"), Avaric);
-_typeToNames.insert(Avaric, QString::fromWCharArray(L"Avar"));
-_nameToType.insert(QString::fromWCharArray(L"Avar"), Avaric);
+_typeToInterwiki.insert(Avaric, fromWCharArray(L"Авар"));
+_typeToNames.insert(Avaric, fromWCharArray(L"Avaric"));
+_nameToType.insert(fromWCharArray(L"Avaric"), Avaric);
+_typeToNames.insert(Avaric, fromWCharArray(L"Avar"));
+_nameToType.insert(fromWCharArray(L"Avar"), Avaric);
 //-
 _codeToType.insert("sbf", Shabo);
 _typeToCode.insert(Shabo, "sbf");
-_typeToNames.insert(Shabo, QString::fromWCharArray(L"Shabo"));
-_nameToType.insert(QString::fromWCharArray(L"Shabo"), Shabo);
+_typeToNames.insert(Shabo, fromWCharArray(L"Shabo"));
+_nameToType.insert(fromWCharArray(L"Shabo"), Shabo);
 //-
 _codeToType.insert("ch", Chamorro);
 _typeToCode.insert(Chamorro, "ch");
-_typeToInterwiki.insert(Chamorro, QString::fromWCharArray(L"Chamoru"));
-_typeToNames.insert(Chamorro, QString::fromWCharArray(L"Chamorro"));
-_nameToType.insert(QString::fromWCharArray(L"Chamorro"), Chamorro);
+_typeToInterwiki.insert(Chamorro, fromWCharArray(L"Chamoru"));
+_typeToNames.insert(Chamorro, fromWCharArray(L"Chamorro"));
+_nameToType.insert(fromWCharArray(L"Chamorro"), Chamorro);
 //-
-_typeToNames.insert(Barein, QString::fromWCharArray(L"Barein"));
-_nameToType.insert(QString::fromWCharArray(L"Barein"), Barein);
+_typeToNames.insert(Barein, fromWCharArray(L"Barein"));
+_nameToType.insert(fromWCharArray(L"Barein"), Barein);
 //-
 _codeToType.insert("es", Spanish);
 _typeToCode.insert(Spanish, "es");
-_typeToInterwiki.insert(Spanish, QString::fromWCharArray(L"Español"));
-_typeToNames.insert(Spanish, QString::fromWCharArray(L"Spanish"));
-_nameToType.insert(QString::fromWCharArray(L"Spanish"), Spanish);
+_typeToInterwiki.insert(Spanish, fromWCharArray(L"Español"));
+_typeToNames.insert(Spanish, fromWCharArray(L"Spanish"));
+_nameToType.insert(fromWCharArray(L"Spanish"), Spanish);
 //-
 _codeToType.insert("sm", Samoan);
 _typeToCode.insert(Samoan, "sm");
-_typeToInterwiki.insert(Samoan, QString::fromWCharArray(L"Gagana Samoa"));
-_typeToNames.insert(Samoan, QString::fromWCharArray(L"Samoan"));
-_nameToType.insert(QString::fromWCharArray(L"Samoan"), Samoan);
+_typeToInterwiki.insert(Samoan, fromWCharArray(L"Gagana Samoa"));
+_typeToNames.insert(Samoan, fromWCharArray(L"Samoan"));
+_nameToType.insert(fromWCharArray(L"Samoan"), Samoan);
 //-
 _codeToType.insert("nn", NorwegianNynorsk);
 _typeToCode.insert(NorwegianNynorsk, "nn");
-_typeToInterwiki.insert(NorwegianNynorsk, QString::fromWCharArray(L"Norsk (nynorsk)"));
-_typeToNames.insert(NorwegianNynorsk, QString::fromWCharArray(L"Norwegian Nynorsk‬"));
-_nameToType.insert(QString::fromWCharArray(L"Norwegian Nynorsk‬"), NorwegianNynorsk);
+_typeToInterwiki.insert(NorwegianNynorsk, fromWCharArray(L"Norsk (nynorsk)"));
+_typeToNames.insert(NorwegianNynorsk, fromWCharArray(L"Norwegian Nynorsk‬"));
+_nameToType.insert(fromWCharArray(L"Norwegian Nynorsk‬"), NorwegianNynorsk);
 //-
 _codeToType.insert("gn", Guarani);
 _typeToCode.insert(Guarani, "gn");
-_typeToInterwiki.insert(Guarani, QString::fromWCharArray(L"Avañe'ẽ"));
-_typeToNames.insert(Guarani, QString::fromWCharArray(L"Guaraní"));
-_nameToType.insert(QString::fromWCharArray(L"Guaraní"), Guarani);
+_typeToInterwiki.insert(Guarani, fromWCharArray(L"Avañe'ẽ"));
+_typeToNames.insert(Guarani, fromWCharArray(L"Guaraní"));
+_nameToType.insert(fromWCharArray(L"Guaraní"), Guarani);
 //-
 _codeToType.insert("vo", Volapuk);
 _typeToCode.insert(Volapuk, "vo");
-_typeToInterwiki.insert(Volapuk, QString::fromWCharArray(L"Volapük"));
-_typeToNames.insert(Volapuk, QString::fromWCharArray(L"Volapük"));
-_nameToType.insert(QString::fromWCharArray(L"Volapük"), Volapuk);
-_typeToNames.insert(Volapuk, QString::fromWCharArray(L"Volapuk"));
-_nameToType.insert(QString::fromWCharArray(L"Volapuk"), Volapuk);
+_typeToInterwiki.insert(Volapuk, fromWCharArray(L"Volapük"));
+_typeToNames.insert(Volapuk, fromWCharArray(L"Volapük"));
+_nameToType.insert(fromWCharArray(L"Volapük"), Volapuk);
+_typeToNames.insert(Volapuk, fromWCharArray(L"Volapuk"));
+_nameToType.insert(fromWCharArray(L"Volapuk"), Volapuk);
 //-
 _codeToType.insert("sn", Shona);
 _typeToCode.insert(Shona, "sn");
-_typeToInterwiki.insert(Shona, QString::fromWCharArray(L"chiShona"));
-_typeToNames.insert(Shona, QString::fromWCharArray(L"Shona"));
-_nameToType.insert(QString::fromWCharArray(L"Shona"), Shona);
+_typeToInterwiki.insert(Shona, fromWCharArray(L"chiShona"));
+_typeToNames.insert(Shona, fromWCharArray(L"Shona"));
+_nameToType.insert(fromWCharArray(L"Shona"), Shona);
 //-
 _codeToType.insert("non", OldNorse);
 _typeToCode.insert(OldNorse, "non");
-_typeToNames.insert(OldNorse, QString::fromWCharArray(L"Old Norse"));
-_nameToType.insert(QString::fromWCharArray(L"Old Norse"), OldNorse);
+_typeToNames.insert(OldNorse, fromWCharArray(L"Old Norse"));
+_nameToType.insert(fromWCharArray(L"Old Norse"), OldNorse);
 //-
 _codeToType.insert("hr", Croatian);
 _typeToCode.insert(Croatian, "hr");
-_typeToInterwiki.insert(Croatian, QString::fromWCharArray(L"Hrvatski"));
-_typeToNames.insert(Croatian, QString::fromWCharArray(L"Croatian"));
-_nameToType.insert(QString::fromWCharArray(L"Croatian"), Croatian);
+_typeToInterwiki.insert(Croatian, fromWCharArray(L"Hrvatski"));
+_typeToNames.insert(Croatian, fromWCharArray(L"Croatian"));
+_nameToType.insert(fromWCharArray(L"Croatian"), Croatian);
 //-
 _codeToType.insert("dz", Dzongkha);
 _typeToCode.insert(Dzongkha, "dz");
-_typeToInterwiki.insert(Dzongkha, QString::fromWCharArray(L"ཇོང་ཁ"));
-_typeToNames.insert(Dzongkha, QString::fromWCharArray(L"Dzongkha"));
-_nameToType.insert(QString::fromWCharArray(L"Dzongkha"), Dzongkha);
+_typeToInterwiki.insert(Dzongkha, fromWCharArray(L"ཇོང་ཁ"));
+_typeToNames.insert(Dzongkha, fromWCharArray(L"Dzongkha"));
+_nameToType.insert(fromWCharArray(L"Dzongkha"), Dzongkha);
 //-
 _codeToType.insert("ti", Tigrinya);
 _typeToCode.insert(Tigrinya, "ti");
-_typeToInterwiki.insert(Tigrinya, QString::fromWCharArray(L"ትግርኛ"));
-_typeToNames.insert(Tigrinya, QString::fromWCharArray(L"Tigrinya"));
-_nameToType.insert(QString::fromWCharArray(L"Tigrinya"), Tigrinya);
+_typeToInterwiki.insert(Tigrinya, fromWCharArray(L"ትግርኛ"));
+_typeToNames.insert(Tigrinya, fromWCharArray(L"Tigrinya"));
+_nameToType.insert(fromWCharArray(L"Tigrinya"), Tigrinya);
 //-
 _codeToType.insert("ee", Ewe);
 _typeToCode.insert(Ewe, "ee");
-_typeToInterwiki.insert(Ewe, QString::fromWCharArray(L"Eʋegbe"));
-_typeToNames.insert(Ewe, QString::fromWCharArray(L"Ewe"));
-_nameToType.insert(QString::fromWCharArray(L"Ewe"), Ewe);
+_typeToInterwiki.insert(Ewe, fromWCharArray(L"Eʋegbe"));
+_typeToNames.insert(Ewe, fromWCharArray(L"Ewe"));
+_nameToType.insert(fromWCharArray(L"Ewe"), Ewe);
 //-
 _codeToType.insert("nds", LowSaxon);
 _typeToCode.insert(LowSaxon, "nds");
-_typeToInterwiki.insert(LowSaxon, QString::fromWCharArray(L"Plattdüütsch"));
-_typeToNames.insert(LowSaxon, QString::fromWCharArray(L"Low Saxon"));
-_nameToType.insert(QString::fromWCharArray(L"Low Saxon"), LowSaxon);
+_typeToInterwiki.insert(LowSaxon, fromWCharArray(L"Plattdüütsch"));
+_typeToNames.insert(LowSaxon, fromWCharArray(L"Low Saxon"));
+_nameToType.insert(fromWCharArray(L"Low Saxon"), LowSaxon);
 //-
 _codeToType.insert("ps", Pashto);
 _typeToCode.insert(Pashto, "ps");
-_typeToInterwiki.insert(Pashto, QString::fromWCharArray(L"پښتو"));
-_typeToNames.insert(Pashto, QString::fromWCharArray(L"Pashto"));
-_nameToType.insert(QString::fromWCharArray(L"Pashto"), Pashto);
+_typeToInterwiki.insert(Pashto, fromWCharArray(L"پښتو"));
+_typeToNames.insert(Pashto, fromWCharArray(L"Pashto"));
+_nameToType.insert(fromWCharArray(L"Pashto"), Pashto);
 //-
-_typeToNames.insert(NorthernSotho, QString::fromWCharArray(L"Northern Sotho"));
-_nameToType.insert(QString::fromWCharArray(L"Northern Sotho"), NorthernSotho);
+_typeToNames.insert(NorthernSotho, fromWCharArray(L"Northern Sotho"));
+_nameToType.insert(fromWCharArray(L"Northern Sotho"), NorthernSotho);
 //-
 _codeToType.insert("kg", Kongo);
 _typeToCode.insert(Kongo, "kg");
-_typeToInterwiki.insert(Kongo, QString::fromWCharArray(L"Kongo"));
-_typeToNames.insert(Kongo, QString::fromWCharArray(L"Kongo"));
-_nameToType.insert(QString::fromWCharArray(L"Kongo"), Kongo);
+_typeToInterwiki.insert(Kongo, fromWCharArray(L"Kongo"));
+_typeToNames.insert(Kongo, fromWCharArray(L"Kongo"));
+_nameToType.insert(fromWCharArray(L"Kongo"), Kongo);
+//-
+_codeToType.insert("fon", Fon);
+_typeToCode.insert(Fon, "fon");
+_typeToNames.insert(Fon, fromWCharArray(L"Fon"));
+_nameToType.insert(fromWCharArray(L"Fon"), Fon);
 //-
 _codeToType.insert("tfn", Denaina);
 _typeToCode.insert(Denaina, "tfn");
-_typeToNames.insert(Denaina, QString::fromWCharArray(L"Tanaina"));
-_nameToType.insert(QString::fromWCharArray(L"Tanaina"), Denaina);
-_typeToNames.insert(Denaina, QString::fromWCharArray(L"Dena\'ina"));
-_nameToType.insert(QString::fromWCharArray(L"Dena\'ina"), Denaina);
+_typeToNames.insert(Denaina, fromWCharArray(L"Tanaina"));
+_nameToType.insert(fromWCharArray(L"Tanaina"), Denaina);
+_typeToNames.insert(Denaina, fromWCharArray(L"Dena\'ina"));
+_nameToType.insert(fromWCharArray(L"Dena\'ina"), Denaina);
 //-
-_typeToNames.insert(Areare, QString::fromWCharArray(L"\'Are\'are"));
-_nameToType.insert(QString::fromWCharArray(L"\'Are\'are"), Areare);
+_typeToNames.insert(Areare, fromWCharArray(L"\'Are\'are"));
+_nameToType.insert(fromWCharArray(L"\'Are\'are"), Areare);
 //-
 _codeToType.insert("twf", Taos);
 _typeToCode.insert(Taos, "twf");
-_typeToNames.insert(Taos, QString::fromWCharArray(L"Taos"));
-_nameToType.insert(QString::fromWCharArray(L"Taos"), Taos);
+_typeToNames.insert(Taos, fromWCharArray(L"Taos"));
+_nameToType.insert(fromWCharArray(L"Taos"), Taos);
 //-
 _codeToType.insert("pjt", Pitjantjatjara);
 _typeToCode.insert(Pitjantjatjara, "pjt");
-_typeToNames.insert(Pitjantjatjara, QString::fromWCharArray(L"Pitjantjatjara"));
-_nameToType.insert(QString::fromWCharArray(L"Pitjantjatjara"), Pitjantjatjara);
+_typeToNames.insert(Pitjantjatjara, fromWCharArray(L"Pitjantjatjara"));
+_nameToType.insert(fromWCharArray(L"Pitjantjatjara"), Pitjantjatjara);
 //-
 _codeToType.insert("arn", Mapudungun);
 _typeToCode.insert(Mapudungun, "arn");
-_typeToNames.insert(Mapudungun, QString::fromWCharArray(L"Mapundungun"));
-_nameToType.insert(QString::fromWCharArray(L"Mapundungun"), Mapudungun);
-_typeToNames.insert(Mapudungun, QString::fromWCharArray(L"Mapudungun"));
-_nameToType.insert(QString::fromWCharArray(L"Mapudungun"), Mapudungun);
+_typeToNames.insert(Mapudungun, fromWCharArray(L"Mapundungun"));
+_nameToType.insert(fromWCharArray(L"Mapundungun"), Mapudungun);
+_typeToNames.insert(Mapudungun, fromWCharArray(L"Mapudungun"));
+_nameToType.insert(fromWCharArray(L"Mapudungun"), Mapudungun);
 //-
 _codeToType.insert("uz", Uzbek);
 _typeToCode.insert(Uzbek, "uz");
-_typeToInterwiki.insert(Uzbek, QString::fromWCharArray(L"O'zbek"));
-_typeToNames.insert(Uzbek, QString::fromWCharArray(L"Uzbek"));
-_nameToType.insert(QString::fromWCharArray(L"Uzbek"), Uzbek);
+_typeToInterwiki.insert(Uzbek, fromWCharArray(L"O'zbek"));
+_typeToNames.insert(Uzbek, fromWCharArray(L"Uzbek"));
+_nameToType.insert(fromWCharArray(L"Uzbek"), Uzbek);
 //-
 _codeToType.insert("se", NorthernSami);
 _typeToCode.insert(NorthernSami, "se");
-_typeToInterwiki.insert(NorthernSami, QString::fromWCharArray(L"Sámegiella"));
-_typeToNames.insert(NorthernSami, QString::fromWCharArray(L"Northern Sami"));
-_nameToType.insert(QString::fromWCharArray(L"Northern Sami"), NorthernSami);
+_typeToInterwiki.insert(NorthernSami, fromWCharArray(L"Sámegiella"));
+_typeToNames.insert(NorthernSami, fromWCharArray(L"Northern Sami"));
+_nameToType.insert(fromWCharArray(L"Northern Sami"), NorthernSami);
 //-
 _codeToType.insert("abq", Abaza);
 _typeToCode.insert(Abaza, "abq");
-_typeToNames.insert(Abaza, QString::fromWCharArray(L"Abaza"));
-_nameToType.insert(QString::fromWCharArray(L"Abaza"), Abaza);
+_typeToNames.insert(Abaza, fromWCharArray(L"Abaza"));
+_nameToType.insert(fromWCharArray(L"Abaza"), Abaza);
+//-
+_codeToType.insert("roa", Jerriais);
+_typeToCode.insert(Jerriais, "roa");
+_typeToNames.insert(Jerriais, fromWCharArray(L"Norman"));
+_nameToType.insert(fromWCharArray(L"Norman"), Jerriais);
+_typeToNames.insert(Jerriais, fromWCharArray(L"Jèrriais"));
+_nameToType.insert(fromWCharArray(L"Jèrriais"), Jerriais);
 //-
 _codeToType.insert("an", Aragonese);
 _typeToCode.insert(Aragonese, "an");
-_typeToInterwiki.insert(Aragonese, QString::fromWCharArray(L"Aragonés"));
-_typeToNames.insert(Aragonese, QString::fromWCharArray(L"Aragonese"));
-_nameToType.insert(QString::fromWCharArray(L"Aragonese"), Aragonese);
+_typeToInterwiki.insert(Aragonese, fromWCharArray(L"Aragonés"));
+_typeToNames.insert(Aragonese, fromWCharArray(L"Aragonese"));
+_nameToType.insert(fromWCharArray(L"Aragonese"), Aragonese);
 //-
-_typeToNames.insert(Chiricahua, QString::fromWCharArray(L"Chiricahua"));
-_nameToType.insert(QString::fromWCharArray(L"Chiricahua"), Chiricahua);
+_typeToNames.insert(Chiricahua, fromWCharArray(L"Chiricahua"));
+_nameToType.insert(fromWCharArray(L"Chiricahua"), Chiricahua);
 //-
 _codeToType.insert("sgn", AmericanSignLanguage);
 _typeToCode.insert(AmericanSignLanguage, "sgn");
-_typeToNames.insert(AmericanSignLanguage, QString::fromWCharArray(L"American Sign Language"));
-_nameToType.insert(QString::fromWCharArray(L"American Sign Language"), AmericanSignLanguage);
+_typeToNames.insert(AmericanSignLanguage, fromWCharArray(L"American Sign Language"));
+_nameToType.insert(fromWCharArray(L"American Sign Language"), AmericanSignLanguage);
 //-
-_typeToNames.insert(Dargwa, QString::fromWCharArray(L"Dargwa"));
-_nameToType.insert(QString::fromWCharArray(L"Dargwa"), Dargwa);
+_typeToNames.insert(Dargwa, fromWCharArray(L"Dargwa"));
+_nameToType.insert(fromWCharArray(L"Dargwa"), Dargwa);

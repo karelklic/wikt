@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>OptionsDialog</string>
+   <string>Options</string>
   </property>
   <widget class="QPushButton" name="okButton">
    <property name="geometry">
@@ -49,7 +49,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>translation lists are folded by default</string>
+    <string>Translation lists folded</string>
    </property>
   </widget>
   <widget class="QTreeWidget" name="translationsTree">
@@ -61,9 +61,6 @@
      <height>281</height>
     </rect>
    </property>
-   <attribute name="headerVisible">
-    <bool>false</bool>
-   </attribute>
    <attribute name="headerVisible">
     <bool>false</bool>
    </attribute>

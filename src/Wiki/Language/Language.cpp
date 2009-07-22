@@ -63,7 +63,7 @@ template<typename T>
 static inline QList<T> reverse(const QList<T> &l)
 {
     QList<T> ret;
-    for (int i=l.size() - 1; i>=0; --i)
+    for (int i = l.size() - 1; i >= 0; --i)
         ret.append(l.at(i));
     return ret;
 }
@@ -96,6 +96,19 @@ void Language::setTranslationVisible(Language::Type lang, bool visible)
   QSettings settings;
   QString settingName = "translations" + names.first();
   return settings.setValue(settingName, visible);
+}
+
+//===========================================================================
+// Properly converts strings.
+// Some strings entered by C++'s L"" macro end with a character 0x202c,
+// Unicode "POP DIRECTIONAL FORMATTING". This is harmful, because such
+// strings cannot be properly compared. (Norwegian Bokmal)
+static QString fromWCharArray(const wchar_t *s)
+{
+  QString ss = QString::fromWCharArray(s);
+  if (ss.endsWith(QChar(0x202c)))
+    ss.remove(ss.length() - 1, 1);
+  return ss;
 }
 
 //===========================================================================

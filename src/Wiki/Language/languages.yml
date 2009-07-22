@@ -18,6 +18,7 @@
 # A
 #
 Aari:
+  code: [afa, aiw]
   names: [Aari, Aarai, Ari]
 
 Abau:
@@ -621,6 +622,10 @@ Finnish:
   code: fi
   interwiki: Suomi
   names: Finnish
+  
+Fon:
+  code: fon
+  names: Fon
 
 French:
   code: fr
@@ -642,7 +647,7 @@ Galician:
   names: Galician
   
 Gamilaraay:
-  code: [aus, kld]
+  code: kld # no "aus", see Woiwurrung
   names: [Gamilaraay, Kamilaroi]
 
 Ganda:
@@ -745,6 +750,10 @@ Igbo:
   interwiki: Igbo
   names: Igbo
   
+Ilocano:
+  code: ilo
+  names: Ilocano
+  
 InariSami:
   code: smn
   names: Inari Sami
@@ -797,7 +806,10 @@ Javanese:
   code: jv
   interwiki: Basa Jawa
   names: Javanese
-
+  
+Jerriais:
+  code: roa
+  names: [Jèrriais, Norman]
 
 #
 # K
@@ -949,6 +961,10 @@ LowerSorbian:
 
 LubaKatanga:
   code: lu
+  
+Luo:
+  code: luo
+  names: Luo
 
 Luxembourgish:
   code: lb
@@ -1130,6 +1146,10 @@ OldEnglish:
   code: ang
   names: Old English
   
+OldFrench:
+  code: fro
+  names: Old French
+  
 OldFrisian:
   code: ofs
   names: Old Frisian
@@ -1145,6 +1165,10 @@ OldNorse:
 OldPrussian:
   code: prg
   names: Old Prussian
+  
+OldSpanish:
+  code: osp
+  names: Old Spanish
 
 Oriya:
   code: or
@@ -1188,6 +1212,10 @@ Persian:
   code: fa
   interwiki: فارسی
   names: Persian
+  
+Phoenician:
+  code: phn
+  names: Phoenician
   
 Pitjantjatjara:
   code: pjt
@@ -1575,6 +1603,10 @@ WesternFrisian:
   interwiki: Frysk
   names: [Western Frisian, West Frisian, Frisian]
 
+Woiwurrung:
+  code: aus
+  names: Woiwurrung
+  
 Wolof:
   code: wo
   interwiki: Wolof
@@ -1596,6 +1628,10 @@ Xhosa:
 Yankunytjatjara:
   code: kdd
   names:  Yankunytjatjara
+  
+YatzachiZapotec:
+  code: zav
+  names: Yatzachi Zapotec  
 
 Yiddish:
   code: yi

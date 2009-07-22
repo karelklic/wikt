@@ -59,7 +59,7 @@ public:
   bool isTranslationVisible(Language::Type lang) const;
   void setTranslationVisible(Language::Type lang, bool visible);
 
-protected:
+private:
   /// Standard constructor. Initializes data.
   Language();
 
