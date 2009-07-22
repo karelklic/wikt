@@ -25,6 +25,9 @@ ErrorDialog::ErrorDialog(const QString &message, const QString &file,
 	ui.file->setText(QString("%1, line %2").arg(file).arg(line));
 	ui.function->setText(function);
 	ui.stackTraceEdit->setPlainText(stackTrace);
+
+  connect(ui.ignore, SIGNAL(clicked()), this, SLOT(ignore()));
+  connect(ui.ok, SIGNAL(clicked()), this, SLOT(accept()));
 }
 
 //===========================================================================

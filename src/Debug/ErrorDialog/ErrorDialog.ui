@@ -1,7 +1,8 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>ErrorDialogClass</class>
- <widget class="QDialog" name="ErrorDialogClass" >
-  <property name="geometry" >
+ <widget class="QDialog" name="ErrorDialogClass">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -9,60 +10,60 @@
     <height>300</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>ErrorDialog</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout" >
+  <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QLabel" name="message" >
-     <property name="text" >
+    <widget class="QLabel" name="message">
+     <property name="text">
       <string>Message text</string>
      </property>
     </widget>
    </item>
    <item>
-    <widget class="QLabel" name="file" >
-     <property name="text" >
+    <widget class="QLabel" name="file">
+     <property name="text">
       <string>File xxx, line yy.</string>
      </property>
     </widget>
    </item>
    <item>
-    <widget class="QLabel" name="function" >
-     <property name="text" >
+    <widget class="QLabel" name="function">
+     <property name="text">
       <string>Function xxx</string>
      </property>
     </widget>
    </item>
    <item>
-    <widget class="QLabel" name="stackTraceLabel" >
-     <property name="text" >
+    <widget class="QLabel" name="stackTraceLabel">
+     <property name="text">
       <string>Stack trace</string>
      </property>
     </widget>
    </item>
    <item>
-    <widget class="QPlainTextEdit" name="stackTraceEdit" >
-     <property name="readOnly" >
+    <widget class="QPlainTextEdit" name="stackTraceEdit">
+     <property name="readOnly">
       <bool>true</bool>
      </property>
     </widget>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout" >
+    <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QPushButton" name="ignore" >
-       <property name="text" >
+      <widget class="QPushButton" name="ignore">
+       <property name="text">
         <string>Ignore</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="ok" >
-       <property name="text" >
+      <widget class="QPushButton" name="ok">
+       <property name="text">
         <string>Ok</string>
        </property>
-       <property name="default" >
+       <property name="default">
         <bool>true</bool>
        </property>
       </widget>
@@ -71,42 +72,9 @@
    </item>
   </layout>
  </widget>
- <layoutdefault spacing="6" margin="11" />
+ <layoutdefault spacing="6" margin="11"/>
  <resources/>
- <connections>
-  <connection>
-   <sender>ok</sender>
-   <signal>clicked()</signal>
-   <receiver>ErrorDialogClass</receiver>
-   <slot>accept()</slot>
-   <hints>
-    <hint type="sourcelabel" >
-     <x>296</x>
-     <y>276</y>
-    </hint>
-    <hint type="destinationlabel" >
-     <x>199</x>
-     <y>149</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>ignore</sender>
-   <signal>clicked()</signal>
-   <receiver>ErrorDialogClass</receiver>
-   <slot>ignore()</slot>
-   <hints>
-    <hint type="sourcelabel" >
-     <x>103</x>
-     <y>276</y>
-    </hint>
-    <hint type="destinationlabel" >
-     <x>199</x>
-     <y>149</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
  <slots>
   <slot>ignore()</slot>
  </slots>

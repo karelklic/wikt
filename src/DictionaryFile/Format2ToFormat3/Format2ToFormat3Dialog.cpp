@@ -27,10 +27,16 @@ Format2ToFormat3Dialog::Format2ToFormat3Dialog(QWidget *parent)
 
   // Set file paths from application settings.
   QSettings settings;
-  ui.sourceEdit->setText(
-      settings.value("format2toFormat3DialogSource", "").toString());
-  ui.destinationEdit->setText(
-      settings.value("format2toFormat3DialogDestination", "").toString());
+  ui.sourceEdit->setText(settings.value("format2toFormat3DialogSource", "").toString());
+  ui.destinationEdit->setText(settings.value("format2toFormat3DialogDestination", "").toString());
+
+  // Connect signals and slots
+  connect(ui.browseSourceButton, SIGNAL(clicked()), this, SLOT(onBrowseSourceButtonClick()));
+  connect(ui.browseDestinationButton, SIGNAL(clicked()), this, SLOT(onBrowseDestinationButtonClick()));
+  connect(ui.startButton, SIGNAL(clicked()), this, SLOT(onStartButtonClick()));
+  connect(ui.reportEdit, SIGNAL(textChanged()), this, SLOT(onReportChanged()));
+  connect(ui.sourceEdit, SIGNAL(textChanged(const QString&)), this, SLOT(onSourceEditChanged()));
+  connect(ui.destinationEdit, SIGNAL(textChanged(const QString&)), this, SLOT(onDestinationEditChanged()));
 }
 
 //===========================================================================
@@ -78,7 +84,6 @@ void Format2ToFormat3Dialog::onStartButtonClick()
     _converter = new Format2ToFormat3Converter(ui.sourceEdit->text(), ui.destinationEdit->text());
     connect(_converter, SIGNAL(finished()), this, SLOT(onWorkFinished()));
     connect(_converter, SIGNAL(log(const QString &)), ui.reportEdit, SLOT(appendPlainText(const QString&)));
-    connect(ui.reportEdit, SIGNAL(textChanged()), this, SLOT(onReportChanged()));
     _converter->start();
   }
   else

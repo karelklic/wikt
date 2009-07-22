@@ -27,12 +27,19 @@ Format3ToFormat4Dialog::Format3ToFormat4Dialog(QWidget *parent)
 
 	// Set file paths from application settings.
 	QSettings settings;
-  ui.sourceEdit->setText(
-      settings.value("format3toFormat4DialogSource", "").toString());
-  ui.sourceMediaEdit->setText(
-      settings.value("format3toFormat4DialogSourceMedia", "").toString());
-  ui.destinationEdit->setText(
-      settings.value("format3toFormat4DialogDestination", "").toString());
+  ui.sourceEdit->setText(settings.value("format3toFormat4DialogSource", "").toString());
+  ui.sourceMediaEdit->setText(settings.value("format3toFormat4DialogSourceMedia", "").toString());
+  ui.destinationEdit->setText(settings.value("format3toFormat4DialogDestination", "").toString());
+
+  // Connect signals and slots
+  connect(ui.browseSourceButton, SIGNAL(clicked()), this, SLOT(onBrowseSourceButtonClick()));
+  connect(ui.browseSourceMediaButton, SIGNAL(clicked()), this, SLOT(onBrowseSourceMediaButtonClick()));
+  connect(ui.browseDestinationButton, SIGNAL(clicked()), this, SLOT(onBrowseDestinationButtonClick()));
+  connect(ui.startButton, SIGNAL(clicked()), this, SLOT(onStartButtonClick()));
+  connect(ui.reportEdit, SIGNAL(textChanged()), this, SLOT(onReportChanged()));
+  connect(ui.sourceEdit, SIGNAL(textChanged(const QString&)), this, SLOT(onSourceEditChanged()));
+  connect(ui.sourceMediaEdit, SIGNAL(textChanged(const QString&)), this, SLOT(onSourceMediaEditChanged()));
+  connect(ui.destinationEdit, SIGNAL(textChanged(const QString&)), this, SLOT(onDestinationEditChanged()));
 }
 
 //===========================================================================
@@ -45,8 +52,7 @@ Format3ToFormat4Dialog::~Format3ToFormat4Dialog()
 //===========================================================================
 void Format3ToFormat4Dialog::onBrowseSourceButtonClick()
 {
-  QString fileName = QFileDialog::getOpenFileName(this, "Select Format3 file",
-      QDir::homePath(), "Format3 Files (*.ei3)");
+  QString fileName = QFileDialog::getOpenFileName(this, "Select Format3 file", QDir::homePath(), "Format3 Files (*.ei3)");
   if (fileName.length() == 0) return;
   ui.sourceEdit->setText(fileName);
 
@@ -59,8 +65,7 @@ void Format3ToFormat4Dialog::onBrowseSourceButtonClick()
 //===========================================================================
 void Format3ToFormat4Dialog::onBrowseSourceMediaButtonClick()
 {
-  QString fileName = QFileDialog::getOpenFileName(this, "Select Media file",
-      QDir::homePath(), "Media Files (*.eim)");
+  QString fileName = QFileDialog::getOpenFileName(this, "Select Media file", QDir::homePath(), "Media Files (*.eim)");
   if (fileName.length() == 0) return;
   ui.sourceMediaEdit->setText(fileName);
 }
@@ -93,7 +98,6 @@ void Format3ToFormat4Dialog::onStartButtonClick()
         ui.sourceMediaEdit->text(), ui.destinationEdit->text());
     connect(_converter, SIGNAL(finished()), this, SLOT(onWorkFinished()));
     connect(_converter, SIGNAL(log(const QString &)), ui.reportEdit, SLOT(appendPlainText(const QString&)));
-    connect(ui.reportEdit, SIGNAL(textChanged()), this, SLOT(onReportChanged()));
     _converter->start();
   }
   else

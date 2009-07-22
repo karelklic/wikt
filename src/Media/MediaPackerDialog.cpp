@@ -27,10 +27,16 @@ MediaPackerDialog::MediaPackerDialog(QWidget *parent)
 
   // Set paths from application settings.
   QSettings settings;
-  ui.sourceEdit->setText(
-      settings.value("mediaPackerDialogSource", "").toString());
-  ui.destinationEdit->setText(
-      settings.value("mediaPackerDialogDestination", "").toString());
+  ui.sourceEdit->setText(settings.value("mediaPackerDialogSource", "").toString());
+  ui.destinationEdit->setText(settings.value("mediaPackerDialogDestination", "").toString());
+
+  // Connect signals and slots
+  connect(ui.sourceEdit, SIGNAL(textChanged(const QString&)), this, SLOT(onSourceEditChanged()));
+  connect(ui.destinationEdit, SIGNAL(textChanged(const QString&)), this, SLOT(onDestinationEditChanged()));
+  connect(ui.browseSourceButton, SIGNAL(clicked()), this, SLOT(onBrowseSourceButtonClick()));
+  connect(ui.browseDestinationButton, SIGNAL(clicked()), this, SLOT(onBrowseDestinationButtonClick()));
+  connect(ui.startButton, SIGNAL(clicked()), this, SLOT(onStartButtonClick()));
+  connect(ui.reportEdit, SIGNAL(textChanged()), this, SLOT(onReportChanged()));
 }
 
 //===========================================================================
@@ -72,7 +78,6 @@ void MediaPackerDialog::onStartButtonClick()
     _packer = new MediaPacker(ui.sourceEdit->text(), ui.destinationEdit->text());
     connect(_packer, SIGNAL(finished()), this, SLOT(onWorkFinished()));
     connect(_packer, SIGNAL(log(const QString &)), ui.reportEdit, SLOT(appendPlainText(const QString&)));
-    connect(ui.reportEdit, SIGNAL(textChanged()), this, SLOT(onReportChanged()));
     _packer->start();
   }
   else

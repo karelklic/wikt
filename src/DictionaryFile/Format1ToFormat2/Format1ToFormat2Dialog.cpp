@@ -95,7 +95,6 @@ void Format1ToFormat2Dialog::onStartButtonClick()
     _parser = new Format1Parser(ui.sourceEdit->text(), ui.errataEdit->text(), ui.destinationEdit->text());
     connect(_parser, SIGNAL(finished()), this, SLOT(onWorkFinished()));
     connect(_parser, SIGNAL(log(const QString &)), ui.reportEdit, SLOT(appendPlainText(const QString&)));
-    connect(ui.reportEdit, SIGNAL(textChanged()), this, SLOT(onReportChanged()));
     _parser->start();
   }
   else

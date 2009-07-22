@@ -19,30 +19,22 @@
 #include <QSettings>
 
 //===========================================================================
-ImageResizerDialog::ImageResizerDialog(QWidget *parent) : QDialog(parent)
+ImageResizerDialog::ImageResizerDialog(QWidget *parent) : QDialog(parent), _resizer(0), _startButtonStarts(true)
 {
 	ui.setupUi(this);
 
   // Set paths from application settings.
   QSettings settings;
-  ui.sourceFileEdit->setText(
-      settings.value("imageResizerDialogSourceFile", "").toString());
-  ui.mediaDirectoryEdit->setText(
-      settings.value("imageResizerDialogMediaDirectory", "").toString());
+  ui.sourceFileEdit->setText(settings.value("imageResizerDialogSourceFile", "").toString());
+  ui.mediaDirectoryEdit->setText(settings.value("imageResizerDialogMediaDirectory", "").toString());
 
   // Connect signals and slots
-  connect(ui.browseSourceFileButton, SIGNAL(clicked()),
-      this, SLOT(onBrowseSourceFileButtonClick()));
-  connect(ui.browseMediaDirectoryButton, SIGNAL(clicked()),
-      this, SLOT(onBrowseMediaDirectoryButtonClick()));
-  connect(ui.startButton, SIGNAL(clicked()),
-      this, SLOT(onStartButtonClick()));
-  connect(ui.reportEdit, SIGNAL(textChanged()),
-      this, SLOT(onReportChanged()));
-  connect(ui.sourceFileEdit, SIGNAL(textChanged(const QString&)),
-      this, SLOT(onSourceFileEditChanged()));
-  connect(ui.mediaDirectoryEdit, SIGNAL(textChanged(const QString&)),
-      this, SLOT(onMediaDirectoryEditChanged()));
+  connect(ui.browseSourceFileButton, SIGNAL(clicked()), this, SLOT(onBrowseSourceFileButtonClick()));
+  connect(ui.browseMediaDirectoryButton, SIGNAL(clicked()), this, SLOT(onBrowseMediaDirectoryButtonClick()));
+  connect(ui.startButton, SIGNAL(clicked()), this, SLOT(onStartButtonClick()));
+  connect(ui.reportEdit, SIGNAL(textChanged()), this, SLOT(onReportChanged()));
+  connect(ui.sourceFileEdit, SIGNAL(textChanged(const QString&)), this, SLOT(onSourceFileEditChanged()));
+  connect(ui.mediaDirectoryEdit, SIGNAL(textChanged(const QString&)), this, SLOT(onMediaDirectoryEditChanged()));
 }
 
 //===========================================================================
@@ -55,8 +47,7 @@ ImageResizerDialog::~ImageResizerDialog()
 //===========================================================================
 void ImageResizerDialog::onBrowseSourceFileButtonClick()
 {
-  QString fileName = QFileDialog::getOpenFileName(this, "Select Format3 file",
-      QDir::homePath(), "Format3 Files (*.ei3)");
+  QString fileName = QFileDialog::getOpenFileName(this, "Select Format3 file", QDir::homePath(), "Format3 Files (*.ei3)");
   if (fileName.length() == 0) return;
   ui.sourceFileEdit->setText(fileName);
 
@@ -69,8 +60,7 @@ void ImageResizerDialog::onBrowseSourceFileButtonClick()
 //===========================================================================
 void ImageResizerDialog::onBrowseMediaDirectoryButtonClick()
 {
-  QString dir = QFileDialog::getExistingDirectory(this, "Media directory",
-      QDir::homePath());
+  QString dir = QFileDialog::getExistingDirectory(this, "Media directory", QDir::homePath());
   if (dir.length() == 0) return;
   ui.mediaDirectoryEdit->setText(dir);
 }

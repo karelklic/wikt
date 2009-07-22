@@ -27,10 +27,16 @@ MediaDownloaderDialog::MediaDownloaderDialog(QWidget *parent)
 
   // Set paths from application settings.
   QSettings settings;
-  ui.sourceEdit->setText(
-      settings.value("mediaDownloaderDialogSource", "").toString());
-  ui.destinationEdit->setText(
-      settings.value("mediaDownloaderDialogDestination", "").toString());
+  ui.sourceEdit->setText(settings.value("mediaDownloaderDialogSource", "").toString());
+  ui.destinationEdit->setText(settings.value("mediaDownloaderDialogDestination", "").toString());
+
+  // Connect signals and slots
+  connect(ui.sourceEdit, SIGNAL(textChanged(const QString&)), this, SLOT(onSourceEditChanged()));
+  connect(ui.destinationEdit, SIGNAL(textChanged(const QString&)), this, SLOT(onDestinationEditChanged()));
+  connect(ui.browseSourceButton, SIGNAL(clicked()), this, SLOT(onBrowseSourceButtonClick()));
+  connect(ui.browseDestinationButton, SIGNAL(clicked()), this, SLOT(onBrowseDestinationButtonClick()));
+  connect(ui.startButton, SIGNAL(clicked()), this, SLOT(onStartButtonClick()));
+  connect(ui.reportEdit, SIGNAL(textChanged()), this, SLOT(onReportChanged()));
 }
 
 //===========================================================================
@@ -77,7 +83,6 @@ void MediaDownloaderDialog::onStartButtonClick()
     _downloader = new MediaDownloader(ui.sourceEdit->text(), ui.destinationEdit->text());
     connect(_downloader, SIGNAL(finished(bool)), this, SLOT(onWorkFinished(bool)));
     connect(_downloader, SIGNAL(log(const QString &)), ui.reportEdit, SLOT(appendPlainText(const QString&)));
-    connect(ui.reportEdit, SIGNAL(textChanged()), this, SLOT(onReportChanged()));
     _downloader->start();
   }
   else
