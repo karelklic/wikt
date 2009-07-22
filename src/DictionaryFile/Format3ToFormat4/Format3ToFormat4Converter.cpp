@@ -56,7 +56,7 @@ void Format3ToFormat4Converter::run()
   {
     QString content = linkConverter.convertedContents(it.value());
     titlePageGenerator.visit(it.key());
-    statsPageGenerator.visit(it.key());
+    statsPageGenerator.visit(it.key(), content);
 
     // Write the entry.
     writer.addEntry(it.key(), content);

@@ -30,7 +30,7 @@ LanguagesRootItem::LanguagesRootItem(Item *parent) : Item(LanguagesOfTheWorld, p
   // and the list of languages will be loaded from the dictionary.
   for (int i = 0; i < Language::Unknown; ++i)
   {
-    QStringList languageNames = Language::instance().toTranslationSectionNames((Language::Type)i);
+    QStringList languageNames = Language::instance().toNames((Language::Type)i);
     foreach (const QString &languageName, languageNames)
     {
       // Check for language index existence. Force WikiSource class

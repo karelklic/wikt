@@ -47,13 +47,13 @@ public:
   Node *last() const { return _children.last(); }
   Type type() const { return _type; }
 
-  /// Recursively finds all child nodes of specific node type.
+  /// Finds all child nodes of specific node type.
   template<typename T>
-  void findChildren(QList<T*> &destination) const
+  void findChildren(QList<T*> &destination, bool recursive = true) const
   {
     foreach(Node *child, _children)
     {
-      child->findChildren(destination);
+      if (recursive) child->findChildren(destination);
       T *node = dynamic_cast<T*>(child);
       if (node) destination.append(node);
     }

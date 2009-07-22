@@ -45,7 +45,7 @@ OptionsDialog::OptionsDialog(QWidget *parent) : QDialog(parent)
   for (int i = 0; i < Language::Unknown; ++i)
   {
     Language::Type language = (Language::Type)i;
-    QStringList names = Language::instance().toTranslationSectionNames(language);
+    QStringList names = Language::instance().toNames(language);
     if (names.length() == 0) continue;
     QString name = names.first();
 

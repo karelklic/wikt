@@ -47,7 +47,7 @@ QString HeadingNode::toXml(int indentLevel) const
 }
 
 //===========================================================================
-Heading::Type HeadingNode::headingType()
+Heading::Type HeadingNode::headingType() const
 {
   if (_headingType != Heading::Uninitialized)
     return _headingType;

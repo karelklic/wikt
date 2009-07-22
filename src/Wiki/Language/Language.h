@@ -46,15 +46,15 @@ public:
   QString toCode(Language::Type lang) const;
 
   /// To interwiki localized name.
-  QString toLocalizedName(Language::Type lang) const;
+  QString toInterwikiName(Language::Type lang) const;
 
-  Language::Type fromTranslation(const QString &translation) const
+  Language::Type fromName(const QString &translation) const
   {
-    return _translationToType.value(translation, Unknown);
+    return _nameToType.value(translation, Unknown);
   }
 
   /// Returns the names of the language that can be used to identify the language.
-  QStringList toTranslationSectionNames(Language::Type lang) const;
+  QStringList toNames(Language::Type lang) const;
 
   bool isTranslationVisible(Language::Type lang) const;
   void setTranslationVisible(Language::Type lang, bool visible);
@@ -67,6 +67,7 @@ protected:
   /// Used for interwiki.
   QMap<QString, Type> _codeToType;
   QMultiMap<Type, QString> _typeToCode;
+
   /// Value is localized name as "Česky" for Czech.
   /// Used exclusively for interwiki.
   QMap<Type, QString> _typeToInterwiki;
@@ -74,12 +75,12 @@ protected:
   /// English language names used in translation sections of entries.
   /// There can be multiple names used for the same language, as
   /// the dictionary is very large and not perfect.
-  QMultiMap<Type, QString> _typeToTranslations;
+  QMultiMap<Type, QString> _typeToNames;
 
   /// English language names used in the translation sections of entries.
   /// Multiple names may point to a single type, because the dictionary
   /// is very large and not perfect.
-  QMap<QString, Type> _translationToType;
+  QMap<QString, Type> _nameToType;
 };
 
 #endif /* LANGUAGE_H_ */

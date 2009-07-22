@@ -26,8 +26,8 @@ TitlePageGenerator::TitlePageGenerator() : _entryCount(0)
 //===========================================================================
 void TitlePageGenerator::visit(const QString &entryName)
 {
-  if (entryName.contains(':'))
-    return;
+  // Skip pages with a namespace.
+  if (entryName.contains(':')) return;
   ++_entryCount;
 }
 

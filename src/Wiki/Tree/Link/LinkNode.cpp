@@ -118,7 +118,7 @@ void LinkNode::append(Node *child)
 QString LinkNode::xhtmlTitle() const
 {
   if (target().language() != Language::English)
-    return Language::instance().toLocalizedName(target().language());
+    return Language::instance().toInterwikiName(target().language());
 
   int opts = getOptionCount();
   if (opts == 1)

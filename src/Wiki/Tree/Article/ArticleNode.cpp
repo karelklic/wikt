@@ -81,7 +81,7 @@ void ArticleNode::updateTranslationSettings()
     {
       QString text = item->toText();
       text = text.section(':', 0, 0).trimmed(); // everything before the first ':'
-      Language::Type language = Language::instance().fromTranslation(text);
+      Language::Type language = Language::instance().fromName(text);
       bool visible = Language::instance().isTranslationVisible(language);
       item->setXHtmlVisibility(visible);
     }

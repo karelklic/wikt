@@ -44,8 +44,7 @@ void Heading::setXHtmlVisibility(Type type, bool visible) const
 //===========================================================================
 bool Heading::xhtmlVisibility(Type type) const
 {
-  if (!_typeToVisibilitySettingName.contains(type))
-    return true;
+  if (!_typeToVisibilitySettingName.contains(type)) return true;
 
   QSettings settings;
   return settings.value(_typeToVisibilitySettingName.value(type), true).toBool();
@@ -68,7 +67,7 @@ Heading::Heading()
   _textToHeading.insert("Inflection", Inflections);
   _textToHeading.insert("Conjugation", Inflections);
   _textToHeading.insert("Pronunciation", Pronunciation);
-  // see http://en.wiktionary.org/wiki/Wiktionary:Semantic_relations
+  // See http://en.wiktionary.org/wiki/Wiktionary:Semantic_relations
   _textToHeading.insert("Synonyms", SemanticRelations);
   _textToHeading.insert("Antonyms", SemanticRelations);
   _textToHeading.insert("Hypernyms", SemanticRelations);
@@ -78,6 +77,51 @@ Heading::Heading()
   _textToHeading.insert("Troponyms", SemanticRelations);
   _textToHeading.insert("Coordinate terms", SemanticRelations);
   _textToHeading.insert("See also", SemanticRelations);
+  // Parts of speech.
+  _textToHeading.insert("Abbreviation", PartOfSpeech);
+  _textToHeading.insert("Abjad", PartOfSpeech);
+  _textToHeading.insert("Abugida", PartOfSpeech);
+  _textToHeading.insert("Acronym", PartOfSpeech);
+  _textToHeading.insert("Adjective", PartOfSpeech);
+  _textToHeading.insert("Adverb", PartOfSpeech);
+  _textToHeading.insert("Article", PartOfSpeech);
+  _textToHeading.insert("Cardinal number", PartOfSpeech);
+  _textToHeading.insert("Circumfix", PartOfSpeech);
+  _textToHeading.insert("Classifier", PartOfSpeech);
+  _textToHeading.insert("Clitic", PartOfSpeech);
+  _textToHeading.insert("Conjunction", PartOfSpeech);
+  _textToHeading.insert("Contraction", PartOfSpeech);
+  _textToHeading.insert("Coordinator", PartOfSpeech);
+  _textToHeading.insert("Counter", PartOfSpeech);
+  _textToHeading.insert("Determiner", PartOfSpeech);
+  _textToHeading.insert("Determiner", PartOfSpeech);
+  _textToHeading.insert("Han character", PartOfSpeech);
+  _textToHeading.insert("Hanja", PartOfSpeech);
+  _textToHeading.insert("Hanzi", PartOfSpeech);
+  _textToHeading.insert("Hiragana character", PartOfSpeech);
+  _textToHeading.insert("Infix", PartOfSpeech);
+  _textToHeading.insert("Initialism", PartOfSpeech);
+  _textToHeading.insert("Interfix", PartOfSpeech);
+  _textToHeading.insert("Interjection", PartOfSpeech);
+  _textToHeading.insert("Interrogative", PartOfSpeech);
+  _textToHeading.insert("Kanji", PartOfSpeech);
+  _textToHeading.insert("Katakana character", PartOfSpeech);
+  _textToHeading.insert("Letter", PartOfSpeech);
+  _textToHeading.insert("Noun", PartOfSpeech);
+  _textToHeading.insert("Numeral", PartOfSpeech);
+  _textToHeading.insert("Number", PartOfSpeech);
+  _textToHeading.insert("Participle", PartOfSpeech);
+  _textToHeading.insert("Particle", PartOfSpeech);
+  _textToHeading.insert("Phrase", PartOfSpeech);
+  _textToHeading.insert("Postposition", PartOfSpeech);
+  _textToHeading.insert("Prefix", PartOfSpeech);
+  _textToHeading.insert("Preposition", PartOfSpeech);
+  _textToHeading.insert("Pronoun", PartOfSpeech);
+  _textToHeading.insert("Proper noun", PartOfSpeech);
+  _textToHeading.insert("Proverb", PartOfSpeech);
+  _textToHeading.insert("Suffix", PartOfSpeech);
+  _textToHeading.insert("Symbol", PartOfSpeech);
+  _textToHeading.insert("Verb", PartOfSpeech);
 
   _typeToVisibilitySettingName.insert(Etymology, "view/etymology");
   _typeToVisibilitySettingName.insert(Translations, "view/translations");

@@ -56,7 +56,7 @@ QString LinkTargetNode::toXml(int indentLevel) const
 {
   QString indent(indentLevel, ' ');
 
-  QStringList languages = Language::instance().toTranslationSectionNames(_language);
+  QStringList languages = Language::instance().toNames(_language);
   QString language = QString().setNum(_language);
   if (languages.size() > 0)
     language = languages.first();

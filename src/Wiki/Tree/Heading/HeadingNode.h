@@ -33,7 +33,7 @@ public:
   virtual QString toXml(int indentLevel = 0) const;
   int level() const { return _level; }
 
-  Heading::Type headingType();
+  Heading::Type headingType() const;
   bool xhtmlVisible();
 
   QString getXHtmlUniqueId() const;
@@ -42,7 +42,7 @@ protected:
   int _level;
   int _uniqueId;
 
-  Heading::Type _headingType;
+  mutable Heading::Type _headingType;
 };
 
 #endif

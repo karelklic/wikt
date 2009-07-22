@@ -35,7 +35,8 @@ public:
     Anagrams,
     Inflections, // Declension, Inflection, Conjugation
     Pronunciation,
-    SemanticRelations // Synonyms, Antonyms etc.
+    SemanticRelations, // Synonyms, Antonyms, Holonyms...
+    PartOfSpeech // Noun, Verb, Adjective...
   } Type;
 
   static const Heading &instance();

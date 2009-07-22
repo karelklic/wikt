@@ -53,7 +53,7 @@ QString Language::toCode(Language::Type lang) const
 }
 
 //===========================================================================
-QString Language::toLocalizedName(Language::Type lang) const
+QString Language::toInterwikiName(Language::Type lang) const
 {
   return _typeToInterwiki.value(lang, "Unknown localized name");
 }
@@ -69,15 +69,15 @@ static inline QList<T> reverse(const QList<T> &l)
 }
 
 //===========================================================================
-QStringList Language::toTranslationSectionNames(Language::Type lang) const
+QStringList Language::toNames(Language::Type lang) const
 {
-  return _typeToTranslations.values(lang);
+  return _typeToNames.values(lang);
 }
 
 //===========================================================================
 bool Language::isTranslationVisible(Language::Type lang) const
 {
-  QStringList names = toTranslationSectionNames(lang);
+  QStringList names = toNames(lang);
   if (names.empty())
     return true;
 
@@ -89,7 +89,7 @@ bool Language::isTranslationVisible(Language::Type lang) const
 //===========================================================================
 void Language::setTranslationVisible(Language::Type lang, bool visible)
 {
-  QStringList names = toTranslationSectionNames(lang);
+  QStringList names = toNames(lang);
   if (names.empty())
     return;
 

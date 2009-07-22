@@ -16,7 +16,10 @@
 #ifndef STATSPAGEGENERATOR_H_
 #define STATSPAGEGENERATOR_H_
 
+#include "LanguageStatistic.h"
+#include "../../../Wiki/Language/Language.h"
 #include <QString>
+#include <QMap>
 class Format4Writer;
 
 /// Creates a wiki page with statistics.
@@ -25,9 +28,13 @@ class StatsPageGenerator
 public:
   StatsPageGenerator();
 
-  void visit(const QString &entryName);
+  /// Counts an entry to the statistics.
+  void visit(const QString &name, const QString &contents);
 
   void write(Format4Writer &destination);
+
+protected:
+  QMap<Language::Type, LanguageStatistic> _stats;
 };
 
 #endif /* STATSPAGEGENERATOR_H_ */

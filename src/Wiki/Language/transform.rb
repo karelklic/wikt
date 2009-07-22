@@ -61,18 +61,18 @@ File.open("LanguagesGenerated.cpp.inc", "w") do |file|
 
     file << "_typeToInterwiki.insert(#{language}, QString::fromWCharArray(L\"#{data["interwiki"]}\"));\n" if data.include?("interwiki")
     
-    if data.include?("translations")
-      if data["translations"].is_a?(Array)
+    if data.include?("names")
+      if data["names"].is_a?(Array)
         # reverse makes QMap to sort entries properly,
         # but it does not work in all cases (maybe it works by accident)
         # must be done another way        
-        data["translations"].reverse.each do |translation|
-          file << "_typeToTranslations.insert(#{language}, QString::fromWCharArray(L\"#{translation}\"));\n"
-          file << "_translationToType.insert(QString::fromWCharArray(L\"#{translation}\"), #{language});\n"
+        data["names"].reverse.each do |name|
+          file << "_typeToNames.insert(#{language}, QString::fromWCharArray(L\"#{name}\"));\n"
+          file << "_nameToType.insert(QString::fromWCharArray(L\"#{name}\"), #{language});\n"
         end
       else
-        file << "_typeToTranslations.insert(#{language}, QString::fromWCharArray(L\"#{data["translations"]}\"));\n"
-        file << "_translationToType.insert(QString::fromWCharArray(L\"#{data["translations"]}\"), #{language});\n"
+        file << "_typeToNames.insert(#{language}, QString::fromWCharArray(L\"#{data["names"]}\"));\n"
+        file << "_nameToType.insert(QString::fromWCharArray(L\"#{data["names"]}\"), #{language});\n"
       end
     end
   end
