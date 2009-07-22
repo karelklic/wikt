@@ -13,9 +13,6 @@ Makefile
 Makefile.Debug
 Makefile.Release
 
-# data files are huge
-data
-
 # generated web pages
 web/_site
 
