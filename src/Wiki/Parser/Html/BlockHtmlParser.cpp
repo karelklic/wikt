@@ -18,9 +18,28 @@
 #include "../Paragraph/ParagraphParser.h"
 #include "../Block/BlockParser.h"
 
+// Allowed block HTML tags.
+// Sorted alphabetically.
 #define allowedTagCount (sizeof(allowedTags) / sizeof(QString))
-static QString allowedTags[] = { "div", "center", "p", "h1", "h2", "h3",
-    "h4", "h5", "h6", "blockquote" };
+static QString allowedTags[] =
+{
+  "blockquote",
+  "center",
+  "dd",
+  "div",
+  "dl",
+  "dt",
+  "h1", "h2", "h3", "h4", "h5", "h6",
+  "li",
+  "ol",
+  "p",
+  "pre",
+  "table",
+  "td",
+  "th",
+  "tr",
+  "ul"
+};
 
 //===========================================================================
 HtmlElementNode *BlockHtmlParser::parse(Buffer &buffer)

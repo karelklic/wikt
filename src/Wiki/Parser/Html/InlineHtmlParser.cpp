@@ -23,11 +23,33 @@ HtmlElementNode *InlineHtmlParser::parse(Buffer &buffer)
   // To make it faster for the most common case.
   if (buffer.nextChar() != '<') return 0;
 
-  // Try paired tags.
+  // Allowed inline paired HTML tags.
+  // Sorted alphabetically.
   #define allowedPairedTagCount (sizeof(allowedPairedTags) / sizeof(QString))
-  static QString allowedPairedTags[] = { "span", "b", "i", "tt", "sub",
-      "sup", "big", "small", "cite", "font", "del", "em", "ins", "strike",
-      "strong", "var", "code", "u" };
+  static QString allowedPairedTags[] =
+  {
+    "b",
+    "big",
+    "cite",
+    "caption",
+    "cite",
+    "code",
+    "del",
+    "em",
+    "font",
+    "i",
+    "ins",
+    "s",
+    "small",
+    "span",
+    "strike",
+    "strong",
+    "sub",
+    "sup",
+    "tt",
+    "u",
+    "var"
+  };
   for (unsigned i = 0; i < allowedPairedTagCount; ++i)
   {
     HtmlElementNode *node = parsePaired(buffer, allowedPairedTags[i]);

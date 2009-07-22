@@ -26,6 +26,7 @@ private slots:
   void simpleLink();
   void mediaLink();
   void linkWithSpace();
+  void linkWithSlash();
 };
 
 #endif /* LINKPARSERTEST_H_ */

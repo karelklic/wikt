@@ -52,6 +52,12 @@ public:
     Citations,
     Appendix,
     AppendixTalk,
+    Wikisaurus,
+    WikisaurusTalk,
+    Index,
+    IndexTalk,
+    Rhymes,
+    RhymesTalk,
     /// Namespace is not known.
     Unknown
   } Type;

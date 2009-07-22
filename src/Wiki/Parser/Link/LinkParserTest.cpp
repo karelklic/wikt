@@ -58,3 +58,17 @@ void LinkParserTest::linkWithSpace()
   QCOMPARE(result->child(0)->toText(), QString("Category: Czech nouns"));
   delete result;
 }
+
+//===========================================================================
+void LinkParserTest::linkWithSlash()
+{
+  Buffer buffer("[[Wikisaurus:penis/more]]");
+  LinkNode *result = LinkParser::parse(buffer);
+  QVERIFY(result);
+  QVERIFY(buffer.endOfFile());
+  QVERIFY(!result->emptyPipeAtEnd());
+  QVERIFY(!result->forcedLink());
+  QCOMPARE(result->count(), 1);
+  QCOMPARE(result->child(0)->toText(), QString("Wikisaurus:penis/more"));
+  delete result;
+}

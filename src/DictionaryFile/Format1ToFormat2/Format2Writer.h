@@ -20,6 +20,7 @@
 #include <QTemporaryFile>
 #include <QList>
 #include <QPair>
+#include <QMap>
 
 /// @brief Creates an Format2 file.
 ///
@@ -39,7 +40,9 @@ public:
   /// @brief Standard constructor.
   /// @param targetFileName
   ///   Destination file.
-  Format2Writer(const QString &targetFileName);
+  /// @param errataDirectory
+  ///   The directory with a new contents for some entries.
+  Format2Writer(const QString &targetFileName, const QString &errataDirectory);
 
   /// @brief Adds entry to the file.
   ///
@@ -52,7 +55,7 @@ public:
   ///   Name of entry. Includes the optional namespace.
   /// @param contents
   ///   Entry contents in wiki syntax.
-  void addUnsortedEntry(const QString &name, const QString &contents);
+  void addUnsortedEntry(const QString &name, QString contents);
   void close();
 
 private:
@@ -62,6 +65,9 @@ private:
   typedef QPair<QString, size_t> Link;
   /// Offsets to entries.
   QList<Link> _links;
+
+  /// Key is entry name and Value is the new entry contents.
+  QMap<QString, QString> _errata;
 
   /// Temporary file with entries without indices.
   QTemporaryFile _temporaryFile;

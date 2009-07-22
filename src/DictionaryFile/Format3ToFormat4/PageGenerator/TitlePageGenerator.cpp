@@ -59,8 +59,8 @@ void TitlePageGenerator::write(Format4Writer &destination)
     "     as well as the <a href=\"%2\">GNU Free Documentation License</a>.</p>"
     "</body>"
     "</html>")
-    .arg(UrlUtils::toUrl("Wikt:LicenseCCASA").toString())
-    .arg(UrlUtils::toUrl("Wikt:LicenseFDL").toString());
+    .arg(UrlUtils::toUrl("Wikt:Creative Commons Attribution-ShareAlike 3.0 Unported License").toString())
+    .arg(UrlUtils::toUrl("Wikt:GNU Free Documentation License").toString());
 
   destination.addEntry("Wikt:Title Page", page);
 }

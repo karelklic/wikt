@@ -18,11 +18,27 @@
 #include "../QuickSort.h"
 #include "../FileUtils.h"
 #include "../../Prerequisites.h"
+#include <QDirIterator>
 
 //===========================================================================
-Format2Writer::Format2Writer(const QString &targetFileName) : _targetFileName(targetFileName)
+Format2Writer::Format2Writer(const QString &targetFileName, const QString &errataDirectory)
+  : _targetFileName(targetFileName)
 {
   _temporaryFile.open();
+
+  // Find and read all files with entry fixes.
+  QDirIterator dir(errataDirectory, QDir::Files | QDir::NoSymLinks, QDirIterator::Subdirectories);
+  while (dir.hasNext())
+  {
+    dir.next();
+
+    QFile file(dir.filePath());
+    file.open(QFile::ReadOnly);
+    QString text = QString::fromUtf8(file.readAll());
+    file.close();
+
+    _errata.insert(dir.fileName(), text);
+  }
 }
 
 //===========================================================================
@@ -75,34 +91,36 @@ static QString substituteSpecialCharactersNoWiki(QString input)
 }
 
 //===========================================================================
-void Format2Writer::addUnsortedEntry(const QString &name, const QString &contents)
+void Format2Writer::addUnsortedEntry(const QString &name, QString contents)
 {
   // Skip pages from Wikitonary namespace.
-  if (name.contains("Wiktionary:"))
-    return;
+  if (name.contains("Wiktionary:")) return;
+
+  // Apply errata if it exists.
+  contents = _errata.value(name, contents);
 
   // Remove <noinclude> and comment parts from contents.
-  QString contentsProcessed = removeBlock("<noinclude>", "</noinclude>", contents);
-  contentsProcessed = removeBlock("<!--", "-->", contentsProcessed);
+  contents = removeBlock("<noinclude>", "</noinclude>", contents);
+  contents = removeBlock("<!--", "-->", contents);
 
   // Remove includeonly tags, but not the content between them.
-  contentsProcessed.remove("<includeonly>").remove("</includeonly>");
+  contents.remove("<includeonly>").remove("</includeonly>");
 
   // Remove __TOC__, because we handle Table of Contents in a separate window.
-  contentsProcessed.remove("__TOC__");
+  contents.remove("__TOC__");
 
   // Do not remove <nowiki/> tags. They are used as a separator between wikisyntax
   // that cannot be parsed together.
 
   // Substitute special wiki characters in <nowiki> sections with
   // html chars and removes the <nowiki> tags.
-  contentsProcessed = substituteSpecialCharactersNoWiki(contentsProcessed);
+  contents= substituteSpecialCharactersNoWiki(contents);
 
   qint64 offset = _temporaryFile.pos();
 
   // Save data to the content file.
   FileUtils::writeString(_temporaryFile, name);
-  FileUtils::writeString(_temporaryFile, contentsProcessed);
+  FileUtils::writeString(_temporaryFile, contents);
 
   // Add an entry to the link list.
   _links.push_back(Link(name, offset));

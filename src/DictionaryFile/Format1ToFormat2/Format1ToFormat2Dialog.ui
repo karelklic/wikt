@@ -7,19 +7,19 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>300</height>
+    <height>330</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>400</width>
-    <height>300</height>
+    <height>330</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>400</width>
-    <height>300</height>
+    <height>330</height>
    </size>
   </property>
   <property name="contextMenuPolicy">
@@ -68,7 +68,7 @@
    <property name="geometry">
     <rect>
      <x>320</x>
-     <y>40</y>
+     <y>70</y>
      <width>71</width>
      <height>26</height>
     </rect>
@@ -81,7 +81,7 @@
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>40</y>
+     <y>70</y>
      <width>221</width>
      <height>26</height>
     </rect>
@@ -91,7 +91,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>50</y>
+     <y>80</y>
      <width>71</width>
      <height>16</height>
     </rect>
@@ -104,7 +104,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>80</y>
+     <y>110</y>
      <width>381</width>
      <height>26</height>
     </rect>
@@ -117,7 +117,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>110</y>
+     <y>140</y>
      <width>381</width>
      <height>181</height>
     </rect>
@@ -132,91 +132,46 @@
     <bool>false</bool>
    </property>
   </widget>
+  <widget class="QLineEdit" name="errataEdit">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>40</y>
+     <width>221</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="browseErrataButton">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>40</y>
+     <width>71</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Browse</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="errataLabel">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>50</y>
+     <width>52</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Errata</string>
+   </property>
+  </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
- <connections>
-  <connection>
-   <sender>browseSourceButton</sender>
-   <signal>clicked()</signal>
-   <receiver>Format1ToFormat2DialogClass</receiver>
-   <slot>onBrowseSourceButtonClick()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>355</x>
-     <y>22</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>199</x>
-     <y>149</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>browseDestinationButton</sender>
-   <signal>clicked()</signal>
-   <receiver>Format1ToFormat2DialogClass</receiver>
-   <slot>onBrowseDestinationButtonClick()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>355</x>
-     <y>52</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>199</x>
-     <y>149</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>startButton</sender>
-   <signal>clicked()</signal>
-   <receiver>Format1ToFormat2DialogClass</receiver>
-   <slot>onStartButtonClick()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>200</x>
-     <y>92</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>199</x>
-     <y>149</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>sourceEdit</sender>
-   <signal>textChanged(QString)</signal>
-   <receiver>Format1ToFormat2DialogClass</receiver>
-   <slot>onSourceEditChanged()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>145</x>
-     <y>22</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>63</x>
-     <y>17</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>destinationEdit</sender>
-   <signal>textChanged(QString)</signal>
-   <receiver>Format1ToFormat2DialogClass</receiver>
-   <slot>onDestinationEditChanged()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>132</x>
-     <y>50</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>69</x>
-     <y>44</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
  <slots>
   <slot>onBrowseSourceButtonClick()</slot>
   <slot>onBrowseDestinationButtonClick()</slot>

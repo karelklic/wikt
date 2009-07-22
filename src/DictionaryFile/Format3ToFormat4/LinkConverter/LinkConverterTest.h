@@ -25,6 +25,7 @@ class LinkConverterTest : public QObject
 private slots:
   void basicLinks();
   void linksWithNamespaces();
+  void linksWithSlashes();
 };
 
 #endif /* LINKCONVERTERTEST_H_ */

@@ -33,7 +33,7 @@ class Format1Parser : public QThread
 {
   Q_OBJECT
 public:
-  Format1Parser(const QString& sourceFile, const QString& destinationFile);
+  Format1Parser(const QString &sourceFile, const QString &errataDirectory, const QString &destinationFile);
 
   void run();
   void requestTermination() { _terminate = true; }
@@ -48,6 +48,7 @@ private:
   void onCharacters(const QStringRef& characters);
 
   QString _sourceFile;
+  QString _errataDirectory;
   QString _destinationFile;
 
   bool _terminate;

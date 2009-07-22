@@ -70,3 +70,15 @@ void LinkConverterTest::linksWithNamespaces()
   QString contents = converter.convertedContents(0);
   QCOMPARE(contents, QString("Link [[Category:existing|e]] and Talk:nonexisting."));
 }
+
+//===========================================================================
+void LinkConverterTest::linksWithSlashes()
+{
+  LinkConverterTestReader reader;
+  reader.add("Wikisaurus:penis", "Link [[Wikisaurus:penis/more|e]] and [[Wikisaurus:penis/more2]].");
+  reader.add("Wikisaurus:penis/more", "some contents");
+  LinkConverterTestMediaReader mediaReader;
+  LinkConverter converter(reader, mediaReader);
+  QString contents = converter.convertedContents(0);
+  QCOMPARE(contents, QString("Link [[Wikisaurus:penis/more|e]] and Wikisaurus:penis/more2."));
+}

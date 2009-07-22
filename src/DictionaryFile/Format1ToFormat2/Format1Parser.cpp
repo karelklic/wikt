@@ -26,9 +26,8 @@ enum EState {
 } state = STATE_OUTSIDE;
 
 //===========================================================================
-Format1Parser::Format1Parser(const QString& sourceFile, const QString& destinationFile)
-  : _sourceFile(sourceFile), _destinationFile(destinationFile), _terminate(false),
-  _pageCounter(0)
+Format1Parser::Format1Parser(const QString& sourceFile, const QString &errataDirectory, const QString& destinationFile)
+  : _sourceFile(sourceFile), _errataDirectory(errataDirectory), _destinationFile(destinationFile), _terminate(false), _pageCounter(0)
 {
 }
 
@@ -36,7 +35,7 @@ Format1Parser::Format1Parser(const QString& sourceFile, const QString& destinati
 void Format1Parser::run()
 {
   log("Processing started.");
-  _writer = new Format2Writer(_destinationFile);
+  _writer = new Format2Writer(_destinationFile, _errataDirectory);
 
   QFile file(_sourceFile);
   file.open(QIODevice::ReadOnly);

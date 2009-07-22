@@ -39,7 +39,9 @@ public:
 public slots:
   /// Activated when user clicks Browse button for source file.
   void onBrowseSourceButtonClick();
-  /// Activated when user clicks Browse button for destination file.
+  /// Activated when user clicks Browse button for errata directory.
+  void onBrowseErrataButtonClick();
+    /// Activated when user clicks Browse button for destination file.
   void onBrowseDestinationButtonClick();
   /// Activated when user clicks Start/Cancel button.
   void onStartButtonClick();
@@ -50,6 +52,9 @@ public slots:
   /// Activated when the source file path is changed.
   /// Stores the path to application settings.
   void onSourceEditChanged();
+  /// Activated when the errata directory path is changed.
+  /// Stores the path to application settings.
+  void onErrataEditChanged();
   /// Activated when the destination file path is changed.
   /// Stores the path to application settings.
   void onDestinationEditChanged();

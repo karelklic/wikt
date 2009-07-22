@@ -119,6 +119,12 @@ Namespace::Namespace()
   _namespaceToName.insert(Citations, "Citations");
   _namespaceToName.insert(Appendix, "Appendix");
   _namespaceToName.insert(AppendixTalk, "Appendix talk");
+  _namespaceToName.insert(Wikisaurus, "Wikisaurus");
+  _namespaceToName.insert(WikisaurusTalk, "Wikisaurus talk");
+  _namespaceToName.insert(Index, "Index");
+  _namespaceToName.insert(IndexTalk, "Index talk");
+  _namespaceToName.insert(Rhymes, "Rhymes");
+  _namespaceToName.insert(RhymesTalk, "Rhymes talk");
   _namespaceToName.insert(Unknown, "");
 
   _linkToNamespace.insert("media", Media);
@@ -145,4 +151,10 @@ Namespace::Namespace()
   _linkToNamespace.insert("citations", Citations);
   _linkToNamespace.insert("appendix", Appendix);
   _linkToNamespace.insert("appendix talk", AppendixTalk);
+  _linkToNamespace.insert("wikisaurus", Wikisaurus);
+  _linkToNamespace.insert("wikisaurus talk", WikisaurusTalk);
+  _linkToNamespace.insert("index", Index);
+  _linkToNamespace.insert("index talk", IndexTalk);
+  _linkToNamespace.insert("rhymes", Rhymes);
+  _linkToNamespace.insert("rhymes talk", RhymesTalk);
 }
