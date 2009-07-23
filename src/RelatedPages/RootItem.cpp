@@ -101,6 +101,14 @@ void RootItem::recreateFrom(const QList<const ArticleNode*> &nodes)
     else if (entryRoot.startsWith("Wikisaurus:", Qt::CaseInsensitive))
       entryRoot.remove(0, 11); // strlen("Wikisaurus:")
 
+    // Handle displaying subpages.
+    if (entryRoot.contains('/'))
+    {
+      InternalLinkItem *item = new InternalLinkItem(node->name(), this);
+      appendChild(item);
+      entryRoot.remove(entryRoot.indexOf('/'), entryRoot.length());
+    }
+
     const Node *rootNodeRoot = node;
     if (node->name() != entryRoot)
     {

@@ -11,6 +11,9 @@ Wikt 0.18.0 is a development release. It is a work in progress -- definitely not
 
 h2. Bug Fixes
 * Fixed template evaluation of template given_name used in entry Cheyenne.
+* Fixed: Nonexisting categories are left in the text of [[car]].
+* Fixed: Audio links contain [[help]], [[file]].
+* Fixed: [[Wikisaurus:penis/more]] causes crash.
 
 h2. New Features
 * Image resizing process for media archive. It diminishes the media size from 4GB to 660MB.

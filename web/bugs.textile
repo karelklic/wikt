@@ -4,10 +4,7 @@ title: Bugs
 ---
 
 h1. Bugs
-* [[Wikisaurus:penis/more]] causes crash.
 * {{Template:Appendix:Contents}} in [[Category:Appendices]].
-* Nonexisting categories are left in the text of [[car]]. (Should be fixed now)
-* Audio links contain [[help]], [[file]]. (Should be fixed now)
 
 Report bugs to karelklic@gmail.com.
 
