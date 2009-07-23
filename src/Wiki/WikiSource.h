@@ -47,7 +47,12 @@ public:
 
   const QString &source(const QString &entryName);
 
-  /// @return Node owned by this class. Do not delete it.
+  /// Returns the root node of tree representing the entry contents.
+  /// @param entryName
+  ///   Full name of the entry.
+  /// @return
+  ///   Node owned by this class. Do not delete it.
+  ///   If an entry does not exist, NULL is returned.
   ArticleNode *tree(const QString &entryName);
 
   const QString &xhtml(const QString &entryName);

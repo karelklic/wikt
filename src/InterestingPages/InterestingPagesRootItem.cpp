@@ -40,6 +40,8 @@ void RootItem::generate()
 
   _languagesOfTheWorld = new LanguagesRootItem(this);
   appendChild(_languagesOfTheWorld);
+
+  appendChild(new LinkItem("Statistics", "Wikt:Statistics", this));
 }
 
 }

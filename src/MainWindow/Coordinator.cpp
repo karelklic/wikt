@@ -145,6 +145,7 @@ void Coordinator::localLinkClickedInRelatedPagesPanel(const QString &word)
 
   QUrl url(UrlUtils::toUrl(word));
   ArticleNode *node = window->wikiSource()->tree(word);
+  if (node == 0) return; // the word does not exist
 
   window->setTitle(word);
   window->webView()->setUrl(url);

@@ -18,6 +18,10 @@ h2. New Features
 * Searching a whole sentence is supported and allowed.
 * Errata files can modify the dictionary contents. Wikisaurus entries improved this way.
 * Better title page.
+* Statistics page.
+* Pages with dictionary licenses.
+* Redirect support.
+* Implemented HIDDENCAT category removal.
 
 
 

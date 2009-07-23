@@ -91,7 +91,14 @@ QString LinkConverter::convertedContents(int offs)
       if (_reader.exist(entryName))
         output.append(node->toWiki());
       else
-        output.append(node->xhtmlTitle());
+      { // The link does not exist!
+
+        // If it is a category link, output nothing, else output the link text.
+        // We do not output nonexistant categories, because we deleted many categories
+        // marked as __HIDDENCAT__ during dictionary creation.
+        if (node->target().namespace_() != Namespace::Category)
+          output.append(node->xhtmlTitle());
+      }
     }
 
     delete node;
