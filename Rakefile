@@ -21,14 +21,8 @@ end
 namespace :web do
   desc "Uploads the local Wikt website to the internet server"
   task :upload do
-    sh("cd web; /var/lib/gems/1.8/gems/jekyll-0.4.1/bin/jekyll")
-    sh("rsync -avP -e ssh web/_site/ karelklic,wikt@web.sourceforge.net:htdocs/")
+    sh("rsync -avP -e ssh web/ karelklic,wikt@web.sourceforge.net:htdocs/")
     puts "Website uploaded, now check wikt.sf.net"
-  end
-
-  desc "Runs a webserver with the local website on localhost:4000"
-  task :run do
-    sh("cd web; /var/lib/gems/1.8/gems/jekyll-0.4.1/bin/jekyll --server --auto")
   end
 end
 
