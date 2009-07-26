@@ -4,7 +4,10 @@ title: Bugs
 ---
 
 h1. Bugs
-* {{Template:Appendix:Contents}} in [[Category:Appendices]].
+* {{Template:Appendix:Contents}} in [[Category:Appendices]]. Should be handled as {{Appendix:Contents}}, because Appendix is a valid namespace.
+* Template:formatnum not implemented (used in Category:!Kung language).
+* Template:PAGESINCATEGORY not implemented (used in Category:!Kung language).
+* Expression parser does not support expression "0 or 0" (used in Category:!Kung language).
 
 Report bugs to karelklic@gmail.com.
 

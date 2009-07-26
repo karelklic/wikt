@@ -209,8 +209,6 @@ QString TemplateSolver::evaluateTemplate(QString templateText)
   // Return just the template name if it contains forbidden characters.
   if (parts[0].contains('[') || parts[0].contains(']'))
     return "&#x007b;&#x007b;" + parts[0] + "&#x007d;&#x007d;";
-  if (parts[0] == "rfc") // ignored template. TODO: systematic way to handle it
-    return "";
   if (parts[0].contains("DEFAULTSORT", Qt::CaseInsensitive)) // temporarily ignore
     return "";
   if (parts[0].contains("CURRENTYEAR"))

@@ -6,19 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
+    <width>460</width>
     <height>330</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>400</width>
+    <width>460</width>
     <height>330</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>400</width>
+    <width>460</width>
     <height>330</height>
    </size>
   </property>
@@ -31,9 +31,9 @@
   <widget class="QLineEdit" name="sourceEdit">
    <property name="geometry">
     <rect>
-     <x>90</x>
+     <x>100</x>
      <y>10</y>
-     <width>221</width>
+     <width>271</width>
      <height>26</height>
     </rect>
    </property>
@@ -54,7 +54,7 @@
   <widget class="QPushButton" name="browseSourceButton">
    <property name="geometry">
     <rect>
-     <x>320</x>
+     <x>380</x>
      <y>10</y>
      <width>71</width>
      <height>26</height>
@@ -67,7 +67,7 @@
   <widget class="QPushButton" name="browseDestinationButton">
    <property name="geometry">
     <rect>
-     <x>320</x>
+     <x>380</x>
      <y>70</y>
      <width>71</width>
      <height>26</height>
@@ -80,9 +80,9 @@
   <widget class="QLineEdit" name="destinationEdit">
    <property name="geometry">
     <rect>
-     <x>90</x>
+     <x>100</x>
      <y>70</y>
-     <width>221</width>
+     <width>271</width>
      <height>26</height>
     </rect>
    </property>
@@ -92,7 +92,7 @@
     <rect>
      <x>10</x>
      <y>80</y>
-     <width>71</width>
+     <width>81</width>
      <height>16</height>
     </rect>
    </property>
@@ -105,7 +105,7 @@
     <rect>
      <x>10</x>
      <y>110</y>
-     <width>381</width>
+     <width>441</width>
      <height>26</height>
     </rect>
    </property>
@@ -118,7 +118,7 @@
     <rect>
      <x>10</x>
      <y>140</y>
-     <width>381</width>
+     <width>441</width>
      <height>181</height>
     </rect>
    </property>
@@ -135,9 +135,9 @@
   <widget class="QLineEdit" name="errataEdit">
    <property name="geometry">
     <rect>
-     <x>90</x>
+     <x>100</x>
      <y>40</y>
-     <width>221</width>
+     <width>271</width>
      <height>26</height>
     </rect>
    </property>
@@ -145,7 +145,7 @@
   <widget class="QPushButton" name="browseErrataButton">
    <property name="geometry">
     <rect>
-     <x>320</x>
+     <x>380</x>
      <y>40</y>
      <width>71</width>
      <height>26</height>

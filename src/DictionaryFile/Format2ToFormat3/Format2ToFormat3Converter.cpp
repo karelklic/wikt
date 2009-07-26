@@ -46,7 +46,8 @@ void Format2ToFormat3Converter::run()
        it != reader.entries().constEnd();
        ++it)
   {
-    // DEBUG:it = reader.entries().find(QString::fromStdWString(L"Cheyenne"));
+    // DEBUG: it = reader.entries().find(QString::fromStdWString(L"Category:!Kung language"));
+
     // Skip template pages.
     if (it.key().startsWith("Template:")) continue;
 
@@ -55,6 +56,8 @@ void Format2ToFormat3Converter::run()
     TemplateSolver solver(it.key(), content, reader);
     connect(&solver, SIGNAL(log(const QString&)), this, SLOT(receiveLog(const QString&)));
     content = solver.run();
+
+    // Debug: break;
 
     // Convert galleries to tables with images.
     content = GalleryConverter::convert(content);
