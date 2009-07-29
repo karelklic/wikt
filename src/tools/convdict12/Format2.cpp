@@ -14,10 +14,10 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "Format2.h"
-#include <DictionaryFile/Comparsion.h>
-#include <DictionaryFile/QuickSort.h>
-#include <DictionaryFile/FileUtils.h>
-#include <Prerequisites.h>
+#include <libwikt/DictionaryFile/Comparsion.h>
+#include <libwikt/DictionaryFile/QuickSort.h>
+#include <libwikt/DictionaryFile/FileUtils.h>
+#include <libwikt/Prerequisites.h>
 #include <QDirIterator>
 #include <QTemporaryFile>
 #include <QList>

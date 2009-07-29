@@ -16,7 +16,7 @@
 #ifndef WIKT_MAIN_MENU_BAR_H
 #define WIKT_MAIN_MENU_BAR_H
 
-#include <Prerequisites.h>
+#include <libwikt/Prerequisites.h>
 #include <QMenuBar>
 QT_BEGIN_NAMESPACE
 class QAction;

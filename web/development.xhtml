@@ -14,7 +14,19 @@
 <p>The source code is maintained in <a href="http://gitorious.org/wikt">a Git repository on Gitorious</a>. You can clone the repository with:</p>
 <pre>git clone git://gitorious.org/wikt/wikt.git</pre>
 
-  
+<h2>Notebook</h2>
+<ul>
+  <li>2009-07-29: <b>Wikt 0.19.0 release notes</b><br/> 
+New Features
+<ul>
+<li>The lookup panel receives focus when an appropriate key is pressed in the application.</li>
+</ul>
+
+</li>
+<li>2009-07-29: <code>convdict23</code> is incredibly slow on the 20090711 dictionary, because of some category templates (evaluation log for one entry more than 1 GB of text). It seems it is not an error, but the templates do a lot of work. Maybe we should <b>cache</b> the evaluation results. The question is how to elegantly determine what should be cached, because templates containing PAGENAME and similar templates certainly cannot be cached. Or we could try to cache only the evaluation of a single entry.</li>
+<li>2009-07-28: Code has been separated into a library, several tools and main application. Some work remains to be done: (1) make tests runnable, (2) better path to library headers, (3) tools should properly parse the command line parameters</li>
+</ul> 
+ 
 <hr/>
 <a href="index.xhtml">Homepage</a>
 </body>

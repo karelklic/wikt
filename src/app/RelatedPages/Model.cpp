@@ -18,7 +18,7 @@
 #include "ExternalLinksRootItem.h"
 #include "InternalLinkItem.h"
 #include "InterwikiRootItem.h"
-#include <Wiki/Tree/Article/ArticleNode.h>
+#include <libwikt/Wiki/Tree/Article/ArticleNode.h>
 
 namespace RelatedPages {
 

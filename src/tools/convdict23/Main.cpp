@@ -15,6 +15,7 @@
  */
 #include <QCoreApplication>
 #include <QTextStream>
+#include <libwikt/GetOpt.h>
 #include "Format2Reader.h"
 #include "Format3Writer.h"
 #include "TemplateSolver.h"

@@ -16,7 +16,7 @@
 #ifndef EIFWRITER_H_
 #define EIFWRITER_H_
 
-#include <Prerequisites.h>
+#include <libwikt/Prerequisites.h>
 #include <QString>
 #include <QTemporaryFile>
 #include <QList>

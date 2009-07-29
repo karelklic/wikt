@@ -16,7 +16,7 @@
 #ifndef NAMESPACE_URL_FUNCTIONS_H_
 #define NAMESPACE_URL_FUNCTIONS_H_
 
-#include <Prerequisites.h>
+#include <libwikt/Prerequisites.h>
 #include <QString>
 
 /// Implements namespace and URL parser functions.

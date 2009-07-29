@@ -15,9 +15,9 @@
  */
 #include "NetworkReplyTitlePage.h"
 #include "../MainWindow.h"
-#include <Wiki/WikiSource.h>
-#include <Version.h>
-#include <Prerequisites.h>
+#include <libwikt/Wiki/WikiSource.h>
+#include <libwikt/Version.h>
+#include <libwikt/Prerequisites.h>
 #include <QTimer>
 
 //===========================================================================

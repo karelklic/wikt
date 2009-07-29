@@ -15,14 +15,14 @@
  */
 #include <QCoreApplication>
 #include <QTextStream>
-#include <DictionaryFile/Format3Reader.h>
+#include <libwikt/DictionaryFile/Format3Reader.h>
 #include "Format4Writer.h"
 #include "LinkConverter.h"
 #include "TitlePageGenerator.h"
 #include "LicensePagesGenerator.h"
 #include "StatsPageGenerator.h"
-#include <Media/MediaReader.h>
-#include <Prerequisites.h>
+#include <libwikt/Media/MediaReader.h>
+#include <libwikt/Prerequisites.h>
 
 //===========================================================================
 int main(int argc, char **argv)

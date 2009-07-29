@@ -16,7 +16,7 @@
 #ifndef MEDIADOWNLOADER_H_
 #define MEDIADOWNLOADER_H_
 
-#include <DictionaryFile/Format3Reader.h>
+#include <libwikt/DictionaryFile/Format3Reader.h>
 #include <QTimer>
 #include <QString>
 #include <QNetworkAccessManager>

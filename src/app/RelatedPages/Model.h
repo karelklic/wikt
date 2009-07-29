@@ -16,7 +16,7 @@
 #ifndef RELATEDPAGESMODEL_H_
 #define RELATEDPAGESMODEL_H_
 
-#include <Prerequisites.h>
+#include <libwikt/Prerequisites.h>
 #include <QAbstractItemModel>
 #include <QModelIndex>
 #include <QVariant>

@@ -66,10 +66,20 @@ protected:
 
   QString removeTemplates(QString wikiText, const ParameterList &params);
 
+  static QString escapeTemplateSyntax(QString text);
+  static QString unescapeTemplateSyntax(QString text);
+  static int linkSkippingindexOf(const QString &text, const QString &str, int from = 0);
+
   QString _pageName;
   QString _pageContent;
+
   /// Provides the template content.
   Format2Reader &_reader;
+
+  /// Evaluation cache.
+  /// Key - template text
+  /// Value - result
+  QMap<QString, QString> _cache;
 };
 
 #endif /* TEMPLATESOLVER_H_ */

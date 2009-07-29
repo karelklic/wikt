@@ -16,8 +16,8 @@
 #include "ParserFunctions.h"
 #include "ExprParser/ExprDriver.h"
 #include "TemplateUtils.h"
-#include <Unicode.h>
-#include <Prerequisites.h>
+#include <libwikt/Unicode.h>
+#include <libwikt/Prerequisites.h>
 
 //===========================================================================
 static QString functionIf(const QList<QString> &parts)

@@ -15,8 +15,8 @@
  */
 #include "XmlSourceView.h"
 #include "XmlSyntaxHighlighter.h"
-#include <Wiki/WikiSource.h>
-#include <Wiki/Tree/Article/ArticleNode.h>
+#include <libwikt/Wiki/WikiSource.h>
+#include <libwikt/Wiki/Tree/Article/ArticleNode.h>
 #include "../MainWindow/MainWindow.h"
 #include <QTextEdit>
 #include <QLineEdit>

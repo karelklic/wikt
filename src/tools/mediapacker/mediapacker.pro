@@ -7,5 +7,5 @@ HEADERS += MediaWriter.h
 LIBS *= -lwikt
 LIBS += -L../../../bin
 
-INCLUDEPATH += ../../lib
+INCLUDEPATH += ../..
 DESTDIR = ../../../bin

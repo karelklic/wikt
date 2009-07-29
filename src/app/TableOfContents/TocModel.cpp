@@ -14,7 +14,7 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "TocModel.h"
-#include <Wiki/Tree/Heading/HeadingNode.h>
+#include <libwikt/Wiki/Tree/Heading/HeadingNode.h>
 
 namespace TableOfContents {
 

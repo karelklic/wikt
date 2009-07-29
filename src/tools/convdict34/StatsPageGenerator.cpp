@@ -15,8 +15,8 @@
  */
 #include "StatsPageGenerator.h"
 #include "Format4Writer.h"
-#include <Wiki/Parser/ArticleParser.h>
-#include <Wiki/Tree/Heading/HeadingNode.h>
+#include <libwikt/Wiki/Parser/ArticleParser.h>
+#include <libwikt/Wiki/Tree/Heading/HeadingNode.h>
 
 //===========================================================================
 StatsPageGenerator::StatsPageGenerator()

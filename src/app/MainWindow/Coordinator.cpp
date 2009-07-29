@@ -17,15 +17,15 @@
 #include "MainWindow.h"
 #include "LookupPanel.h"
 #include "WebView/WebView.h"
-#include <UrlUtils.h>
 #include "../RelatedPages/Panel.h"
 #include "../TableOfContents/TocPanel.h"
 #include "../Categories/CategoriesPanel.h"
 #include "../InterestingPages/InterestingPagesPanel.h"
-#include <Wiki/WikiSource.h>
 #include "../Media/MediaPlayer.h"
-#include <Wiki/Tree/Article/ArticleNode.h>
-#include <Prerequisites.h>
+#include <libwikt/UrlUtils.h>
+#include <libwikt/Wiki/WikiSource.h>
+#include <libwikt/Wiki/Tree/Article/ArticleNode.h>
+#include <libwikt/Prerequisites.h>
 #include <QAction>
 #include <QDesktopServices>
 

@@ -13,13 +13,13 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
+#include <libwikt/DictionaryFile/Format3Reader.h>
+#include <libwikt/Wiki/Tree/Link/LinkNode.h>
+#include <libwikt/Wiki/Tree/Link/LinkTargetNode.h>
+#include <libwikt/Wiki/Tree/Article/ArticleNode.h>
+#include <libwikt/Wiki/Parser/ArticleParser.h>
 #include <QCoreApplication>
 #include <QTextStream>
-#include <DictionaryFile/Format3Reader.h>
-#include <Wiki/Tree/Link/LinkNode.h>
-#include <Wiki/Tree/Link/LinkTargetNode.h>
-#include <Wiki/Tree/Article/ArticleNode.h>
-#include <Wiki/Parser/ArticleParser.h>
 #include <QDirIterator>
 #include <QImage>
 #include <QMap>

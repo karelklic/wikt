@@ -16,7 +16,7 @@
 #ifndef INTERESTINGPAGESMODEL_H_
 #define INTERESTINGPAGESMODEL_H_
 
-#include <Prerequisites.h>
+#include <libwikt/Prerequisites.h>
 #include <QAbstractItemModel>
 #include <QModelIndex>
 #include <QVariant>

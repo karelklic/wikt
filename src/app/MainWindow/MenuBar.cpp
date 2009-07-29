@@ -22,10 +22,9 @@
 #include "../Debug/WikiProcessingView.h"
 #include "../Debug/WikiSourceView.h"
 #include "../Debug/XmlSourceView.h"
-#include "../Debug/UnitTest/UnitTestDialog.h"
-#include <Version.h>
-#include <Wiki/Tree/Heading/Heading.h>
 #include "../Options/OptionsDialog.h"
+#include <libwikt/Version.h>
+#include <libwikt/Wiki/Tree/Heading/Heading.h>
 #include <QMessageBox>
 
 //===========================================================================

@@ -15,7 +15,7 @@
  */
 #include "ExprDriver.h"
 #include "ExprParser.tab.hpp"
-#include <Prerequisites.h>
+#include <libwikt/Prerequisites.h>
 #include <sstream>
 
 //===========================================================================

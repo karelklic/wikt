@@ -1,6 +1,5 @@
 TEMPLATE = app
 TARGET = wikt
-
 QT += webkit network phonon
 
 SOURCES += \
@@ -15,8 +14,6 @@ SOURCES += \
   Debug/XmlSourceView.cpp \
   Debug/XmlSyntaxHighlighter.cpp \
   Debug/ErrorDialog/ErrorDialog.cpp \
-  Debug/UnitTest/UnitTestDialog.cpp \
-  Debug/UnitTest/UnitTestRunner.cpp \
   InterestingPages/InterestingPagesItem.cpp \
   InterestingPages/InterestingPagesLanguagesRootItem.cpp \
   InterestingPages/InterestingPagesLinkItem.cpp \
@@ -61,8 +58,6 @@ HEADERS += \
   Debug/XmlSourceView.h \
   Debug/XmlSyntaxHighlighter.h \
   Debug/ErrorDialog/ErrorDialog.h \
-  Debug/UnitTest/UnitTestDialog.h \
-  Debug/UnitTest/UnitTestRunner.h \
   InterestingPages/InterestingPagesItem.h \
   InterestingPages/InterestingPagesLanguagesRootItem.h \
   InterestingPages/InterestingPagesLinkItem.h \
@@ -98,14 +93,11 @@ HEADERS += \
 
 FORMS = \
   Debug/ErrorDialog/ErrorDialog.ui \
-  Debug/UnitTest/UnitTestDialog.ui \
   Options/OptionsDialog.ui
 
 RESOURCES = wikt.qrc
   
-
 LIBS *= -lwikt
 LIBS += -L../../bin
-
-INCLUDEPATH += ../lib
+INCLUDEPATH += ..
 DESTDIR = ../../bin

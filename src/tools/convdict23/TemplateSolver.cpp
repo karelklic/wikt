@@ -19,8 +19,9 @@
 #include "ParserFunctions.h"
 #include "FormattingFunctions.h"
 #include "PageNameFunctions.h"
-#include <Prerequisites.h>
+#include <libwikt/Prerequisites.h>
 #include <QRegExp>
+#include <QTextStream>
 
 //#define TEMPLATE_SOLVER_DEBUG
 
@@ -43,17 +44,21 @@ QString TemplateSolver::run()
 }
 
 //===========================================================================
-static QString escapeTemplateSyntax(QString text)
+QString TemplateSolver::escapeTemplateSyntax(QString text)
 {
-  return text.replace("|", "pipeEscapeSure").replace("=", "equalsEscapeSure")
-    .replace("{", "leftBraceEscapeSure").replace("}", "rightBraceEscapeSure");
+#define PIPE_ESCAPE "1P#-"
+#define LEFT_BRACE_ESCAPE "1L#-"
+#define EQUALS_ESCAPE "1E#0-"
+#define RIGHT_BRACE_ESCAPE "1R#-"
+  return text.replace("|", PIPE_ESCAPE).replace("=", EQUALS_ESCAPE)
+    .replace("{", LEFT_BRACE_ESCAPE).replace("}", RIGHT_BRACE_ESCAPE);
 }
 
 //===========================================================================
-static QString unescapeTemplateSyntax(QString text)
+QString TemplateSolver::unescapeTemplateSyntax(QString text)
 {
-  return text.replace("pipeEscapeSure", "|").replace("equalsEscapeSure", "=")
-    .replace("leftBraceEscapeSure", "{").replace("rightBraceEscapeSure", "}");
+  return text.replace(PIPE_ESCAPE, "|").replace(EQUALS_ESCAPE, "=")
+    .replace(LEFT_BRACE_ESCAPE, "{").replace(RIGHT_BRACE_ESCAPE, "}");
 }
 
 //===========================================================================
@@ -62,7 +67,7 @@ static QString unescapeTemplateSyntax(QString text)
 /// skipping the contents of embedded wikilinks.
 /// @return
 ///   - if str is not found in text.
-static int linkSkippingindexOf(const QString &text, const QString &str, int from = 0)
+int TemplateSolver::linkSkippingindexOf(const QString &text, const QString &str, int from)
 {
   if (from < 0)
     from += text.length();
@@ -150,9 +155,7 @@ QString TemplateSolver::removeTemplates(QString wikiText, const ParameterList &p
 #ifdef TEMPLATE_SOLVER_DEBUG
       COUT("Param: " + contents + " -> " + evaluated);
 #endif
-      QString begin = wikiText.mid(0, start3);
-      QString end = wikiText.mid(stop3 + 3);
-      wikiText = begin + escapeTemplateSyntax(evaluated) + end;
+      wikiText.replace(start3, stop3 + 3 - start3, escapeTemplateSyntax(evaluated));
     }
   }
 }
@@ -161,29 +164,37 @@ QString TemplateSolver::removeTemplates(QString wikiText, const ParameterList &p
 void TemplateSolver::evaluateTemplate(QString &wikiText, int from, int to)
 {
   PROFILER;
-  QString begin = wikiText.mid(0, from);
-  QString end = wikiText.mid(to);
-
   QString contents = wikiText.mid(from + 2, to - from - 4);
-#ifdef TEMPLATE_SOLVER_DEBUG
-  COUT("BEGIN Template: " + contents);
-#endif
-  QString evaluated = evaluateTemplate(contents);
-#ifdef TEMPLATE_SOLVER_DEBUG
-  COUT("END Template: " + contents + " -> " + evaluated);
-#endif
+
+  // Check the cache for the result of evaluation. If it is not found,
+  // evaluate the template.
+  QString evaluated;
+  QMap<QString, QString>::const_iterator it = _cache.find(contents);
+  if (it == _cache.end()) // not found in cache
+  {
+    #ifdef TEMPLATE_SOLVER_DEBUG
+      COUT("BEGIN Template: " + contents);
+    #endif
+    evaluated = evaluateTemplate(contents);
+    #ifdef TEMPLATE_SOLVER_DEBUG
+      COUT("END Template: " + contents + " -> " + evaluated);
+    #endif
+  
+    evaluated = escapeTemplateSyntax(evaluated);
+    _cache.insert(contents, evaluated);
+  }
+  else
+    evaluated = it.value();
 
   // Results starting with "*", "#", ":", ";", and "{|" automatically
   // get a newline at the start.
   // Source: http://meta.wikimedia.org/wiki/Help:Newlines_and_spaces#Automatic_newline_at_the_start
-  if (evaluated.startsWith("*") || evaluated.startsWith("#") || evaluated.startsWith(":") ||
-      evaluated.startsWith(";") || evaluated.startsWith("{|"))
-  {
-    if (!begin.endsWith("\n"))
-      evaluated = "\n" + evaluated;
-  }
-
-  wikiText = begin + escapeTemplateSyntax(evaluated) + end;
+  bool precedesNewline = (from > 0 && wikiText[from - 1] == '\n');
+  bool startsWith = (evaluated.length() > 0 && (evaluated[0] == '*' || evaluated[0] == '#' || evaluated[0] == ':' || evaluated[0] == ';' || evaluated.startsWith(LEFT_BRACE_ESCAPE PIPE_ESCAPE)));
+  if (!precedesNewline && startsWith)
+      evaluated.prepend("\n");
+  
+  wikiText.replace(from, to - from, evaluated);
 }
 
 //===========================================================================

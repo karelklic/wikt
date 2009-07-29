@@ -14,10 +14,10 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "LinkConverter.h"
-#include <DictionaryFile/Format3Reader.h>
-#include <Media/MediaReader.h>
-#include <Wiki/Parser/Link/LinkParser.h>
-#include <Wiki/Tree/Link/LinkNode.h>
+#include <libwikt/DictionaryFile/Format3Reader.h>
+#include <libwikt/Media/MediaReader.h>
+#include <libwikt/Wiki/Parser/Link/LinkParser.h>
+#include <libwikt/Wiki/Tree/Link/LinkNode.h>
 #include <QUrl>
 
 //===========================================================================

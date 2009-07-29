@@ -19,7 +19,7 @@
 #include "NetworkReplyStylesheet.h"
 #include "NetworkReplyTitlePage.h"
 #include "NetworkReplyEmbeddedFile.h"
-#include <Prerequisites.h>
+#include <libwikt/Prerequisites.h>
 
 //===========================================================================
 NetworkAccessManager::NetworkAccessManager(QObject *parent)

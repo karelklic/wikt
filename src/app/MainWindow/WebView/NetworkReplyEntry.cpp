@@ -14,11 +14,11 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "NetworkReplyEntry.h"
-#include <UrlUtils.h>
-#include <QTimer>
 #include "../MainWindow.h"
-#include <Wiki/WikiSource.h>
-#include <Prerequisites.h>
+#include <libwikt/UrlUtils.h>
+#include <libwikt/Wiki/WikiSource.h>
+#include <libwikt/Prerequisites.h>
+#include <QTimer>
 
 //===========================================================================
 NetworkReplyEntry::NetworkReplyEntry(const QNetworkRequest &request,

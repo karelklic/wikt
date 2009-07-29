@@ -17,8 +17,8 @@
 #include "NetworkAccessManager.h"
 #include "../MainWindow.h"
 #include "../LookupPanel.h"
-#include <UrlUtils.h>
-#include <Prerequisites.h>
+#include <libwikt/UrlUtils.h>
+#include <libwikt/Prerequisites.h>
 #include <QWebFrame>
 #include <QNetworkReply>
 #include <QFile>

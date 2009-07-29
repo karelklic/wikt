@@ -7,7 +7,6 @@ DESTDIR = ../../bin
 QT += core \
     gui \
     xml \
-    xmlpatterns \
     network \
     svg \
     testlib
@@ -23,6 +22,7 @@ HEADERS = \
     DictionaryFile/Format4Reader.h \
     Media/MediaReader.h \
     Media/MediaUtils.h \
+    getopt.h \
     Prerequisites.h \
     Unicode.h \
     UrlUtils.h \
@@ -109,6 +109,7 @@ SOURCES = \
     DictionaryFile/Format4Reader.cpp \
     Media/MediaReader.cpp \
     Media/MediaUtils.cpp \
+    getopt.cpp \
     Unicode.cpp \
     UrlUtils.cpp \
     Wiki/Namespace.cpp \

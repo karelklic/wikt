@@ -16,7 +16,7 @@
 #ifndef MEDIAWRITER_H_
 #define MEDIAWRITER_H_
 
-#include <Prerequisites.h>
+#include <libwikt/Prerequisites.h>
 #include <QString>
 #include <QTemporaryFile>
 #include <QList>

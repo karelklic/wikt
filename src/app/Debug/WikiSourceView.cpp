@@ -14,8 +14,8 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "WikiSourceView.h"
-#include <Wiki/WikiSource.h>
 #include "../MainWindow/MainWindow.h"
+#include <libwikt/Wiki/WikiSource.h>
 #include <QTextEdit>
 #include <QLineEdit>
 #include <QVBoxLayout>

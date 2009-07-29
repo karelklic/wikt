@@ -16,7 +16,7 @@
 #ifndef PAGENAMEFUNCTIONS_H_
 #define PAGENAMEFUNCTIONS_H_
 
-#include <Prerequisites.h>
+#include <libwikt/Prerequisites.h>
 #include <QString>
 
 /// Implements the following functions:

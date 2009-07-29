@@ -2,5 +2,5 @@ TEMPLATE = subdirs
 
 SUBDIRS = \
   app \
-  lib \
+  libwikt \
   tools

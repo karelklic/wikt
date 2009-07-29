@@ -14,7 +14,7 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "TemplateSolverTest.h"
-#include "TemplateSolver.h"
+#include "../TemplateSolver.h"
 #include <QTest>
 #include <QMap>
 
@@ -113,3 +113,4 @@ void TemplateSolverTest::embeddedLink()
   reader.data.insert("Template:test", "{{#if:a|[[kk}}]]}}");
   QCOMPARE(TemplateSolver("", "{{#if:a|[[kk}}]]}}", reader).run(), QString("[[kk}}]]"));
 }
+

@@ -16,7 +16,7 @@
 #ifndef TEMPLATEUTILS_H_
 #define TEMPLATEUTILS_H_
 
-#include <Prerequisites.h>
+#include <libwikt/Prerequisites.h>
 #include "ParameterList.h"
 #include <QString>
 

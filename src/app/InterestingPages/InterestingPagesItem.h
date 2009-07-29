@@ -16,7 +16,7 @@
 #ifndef INTERESTINGPAGESITEM_H_
 #define INTERESTINGPAGESITEM_H_
 
-#include <Prerequisites.h>
+#include <libwikt/Prerequisites.h>
 #include <QString>
 #include <QList>
 #include <QVariant>

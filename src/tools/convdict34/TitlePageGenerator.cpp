@@ -15,8 +15,8 @@
  */
 #include "TitlePageGenerator.h"
 #include "Format4Writer.h"
-#include <Version.h>
-#include <UrlUtils.h>
+#include <libwikt/Version.h>
+#include <libwikt/UrlUtils.h>
 
 //===========================================================================
 TitlePageGenerator::TitlePageGenerator() : _entryCount(0)

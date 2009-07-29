@@ -23,8 +23,8 @@
 #include "../TableOfContents/TocPanel.h"
 #include "../Categories/CategoriesPanel.h"
 #include "../InterestingPages/InterestingPagesPanel.h"
-#include <Wiki/WikiSource.h>
 #include "../Media/MediaPlayer.h"
+#include <libwikt/Wiki/WikiSource.h>
 #include <QDockWidget>
 #include <QStatusBar>
 #include <QKeyEvent>

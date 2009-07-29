@@ -1,5 +1,6 @@
 TEMPLATE = app
 TARGET = convdict23
+DESTDIR = ../../../bin
 
 SOURCES += \
   ExprParser/ExprDriver.cpp \
@@ -36,6 +37,5 @@ HEADERS += \
 
 LIBS *= -lwikt
 LIBS += -L../../../bin
+INCLUDEPATH += ../..
 
-INCLUDEPATH += ../../lib
-DESTDIR = ../../../bin

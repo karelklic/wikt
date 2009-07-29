@@ -14,9 +14,9 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "NamespaceUrlFunctions.h"
-#include <UrlUtils.h>
-#include <Wiki/Project.h>
-#include <Wiki/Namespace.h>
+#include <libwikt/UrlUtils.h>
+#include <libwikt/Wiki/Project.h>
+#include <libwikt/Wiki/Namespace.h>
 
 //===========================================================================
 bool NamespaceUrlFunctions::isFunction(const QString &templateText)

@@ -16,7 +16,7 @@
 #ifndef CATEGORIESMODEL_H_
 #define CATEGORIESMODEL_H_
 
-#include <Prerequisites.h>
+#include <libwikt/Prerequisites.h>
 #include <QAbstractItemModel>
 #include <QModelIndex>
 #include <QVariant>

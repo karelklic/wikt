@@ -13,22 +13,14 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include <MainWindow/MainWindow.h>
-#include <Debug/UnitTest/UnitTestRunner.h>
-#include <Version.h>
+#include "MainWindow/MainWindow.h"
+#include <libwikt/Version.h>
 #include <QApplication>
 
 //===========================================================================
 int main(int argc, char *argv[])
 {
   QApplication app(argc, argv);
-
-  QStringList args = app.arguments();
-  if (args.contains("test"))
-  {
-    UnitTestRunner::run();
-    return 0;
-  }
 
   // Because Phonon uses D-Bus on Linux, it is necessary to give
   // the application a name. It is also used by QSettings.
