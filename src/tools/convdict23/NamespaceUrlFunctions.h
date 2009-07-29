@@ -31,6 +31,8 @@
 class NamespaceUrlFunctions
 {
 public:
+  /// @param templateText
+  ///   MUST BE TRIMMED (this is optimalization)
   static bool isFunction(const QString &templateText);
   /// Evaluates the template text as a namespace or URL function.
   static QString evaluate(const QString &templateText);

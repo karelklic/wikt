@@ -37,6 +37,8 @@
 class PageNameFunctions
 {
 public:
+  /// @param templateText
+  ///   MUST BE TRIMMED (this is optimalization)
   static bool isPageNameFunction(const QString &templateText);
   /// Evaluates the template text as a page name function.
   /// @param pageName

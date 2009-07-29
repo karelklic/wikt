@@ -23,7 +23,7 @@
 
 #ifdef PROFILER_ENABLED
 #define PROFILER ProfilerBlock __profBlockInstance(__PRETTY_FUNCTION__)
-#define PROFILER_RESULTS Profiler::showResultsInWindow()
+#define PROFILER_RESULTS Profiler::saveResultsToFile("profiler.txt")
 #else
 #define PROFILER {}
 #define PROFILER_RESULTS {}
@@ -34,7 +34,7 @@ class Profiler
 public:
   static void begin(const char *fn);
   static void end();
-  static void saveResultsToFile(QString &fileName);
+  static void saveResultsToFile(const QString &fileName);
   static void showResultsInWindow();
   /// Removes all measured data.
   static void clear();

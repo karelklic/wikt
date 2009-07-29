@@ -14,7 +14,7 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "FormattingFunctionsTest.h"
-#include "FormattingFunctions.h"
+#include "../FormattingFunctions.h"
 #include <QTest>
 
 //===========================================================================

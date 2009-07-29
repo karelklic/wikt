@@ -27,6 +27,8 @@
 class ParserFunctions
 {
 public:
+  /// @param templateText
+  ///   MUST BE TRIMMED (this is optimalization)
   static bool isParserFunction(const QString &templateText);
   static QString evaluate(const QString &templateText, Format2Reader &reader,
       const QString &entryName);

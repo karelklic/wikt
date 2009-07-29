@@ -36,7 +36,6 @@ TemplateSolver::TemplateSolver(const QString &pageName,
 QString TemplateSolver::run()
 {
 #ifdef TEMPLATE_SOLVER_DEBUG
-  log("Starting template solver for \"" + _pageName + "\".");
   COUT(_pageName);
 #endif
   ParameterList empty;
@@ -122,10 +121,11 @@ QString TemplateSolver::removeTemplates(QString wikiText, const ParameterList &p
         if (start2 < 2)
           return unescapeTemplateSyntax(wikiText);
 
-        from = start2 - 1;
+        from = qMax(start2 - 1, 0);
         continue;
       }
       evaluateTemplate(wikiText, start2, stop + 2);
+      from = qMax(start2 - 1, 0);
     }
     // Handle a case of rightmost start3
     else
@@ -136,7 +136,10 @@ QString TemplateSolver::removeTemplates(QString wikiText, const ParameterList &p
       {
         // Try to expand the last {{
         if (stop2 >= 0)
+        {
           evaluateTemplate(wikiText, start3 + 1, stop2 + 2);
+          from = qMax(start3, 0);
+        }
         else
         {
           // We are on the beginning, search no more.
@@ -145,7 +148,7 @@ QString TemplateSolver::removeTemplates(QString wikiText, const ParameterList &p
             return unescapeTemplateSyntax(wikiText);
 
           // Search another pair.
-          from = start3 - 1;
+          from = qMax(start3, 0);
         }
         continue;
       }
@@ -156,6 +159,7 @@ QString TemplateSolver::removeTemplates(QString wikiText, const ParameterList &p
       COUT("Param: " + contents + " -> " + evaluated);
 #endif
       wikiText.replace(start3, stop3 + 3 - start3, escapeTemplateSyntax(evaluated));
+      from = qMax(start3 - 1, 0);
     }
   }
 }
@@ -198,19 +202,20 @@ void TemplateSolver::evaluateTemplate(QString &wikiText, int from, int to)
 }
 
 //===========================================================================
-QString TemplateSolver::evaluateTemplate(QString templateText)
+QString TemplateSolver::evaluateTemplate(const QString &templateText)
 {
+  QString templateTextTrimmed = templateText.trimmed();
   // Handle built-in templates #if, #switch etc.
-  if (ParserFunctions::isParserFunction(templateText))
+  if (ParserFunctions::isParserFunction(templateTextTrimmed))
     return ParserFunctions::evaluate(templateText, _reader, _pageName);
   // Handle build-in templats uc:, ucfirst: etc.
-  if (FormattingFunctions::isFormattingFunction(templateText))
+  if (FormattingFunctions::isFormattingFunction(templateTextTrimmed))
     return FormattingFunctions::evaluate(templateText);
   // Handle built-in templates PAGENAME, PAGENAMEE, SUBPAGENAME etc.
-  if (PageNameFunctions::isPageNameFunction(templateText))
+  if (PageNameFunctions::isPageNameFunction(templateTextTrimmed))
     return PageNameFunctions::evaluate(templateText, _pageName);
   // Handle built-in templates ns:, fullurl: etc.
-  if (NamespaceUrlFunctions::isFunction(templateText))
+  if (NamespaceUrlFunctions::isFunction(templateTextTrimmed))
     return NamespaceUrlFunctions::evaluate(templateText);
 
   // get template name

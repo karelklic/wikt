@@ -20,7 +20,6 @@
 //===========================================================================
 Format2Reader::Format2Reader(const QString &fileName)
 {
-  PROFILER;
   _file.setFileName(fileName);
   _file.open(QIODevice::ReadOnly);
   _file.read((char*)&_entryCount, sizeof(quint32));

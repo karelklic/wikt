@@ -18,13 +18,12 @@
 //===========================================================================
 bool PageNameFunctions::isPageNameFunction(const QString &templateText)
 {
-  QString trimmed = templateText.trimmed();
-  return trimmed == "SERVER" || trimmed == "SERVERNAME" ||
-    trimmed == "PAGENAME" || trimmed == "PAGENAMEE" ||
-    trimmed == "BASEPAGENAME" || trimmed == "BASEPAGENAMEE" ||
-    trimmed == "SUBPAGENAME"  || trimmed == "SUBPAGENAMEE" ||
-    trimmed == "FULLPAGENAME" || trimmed == "FULLPAGENAMEE" ||
-    trimmed == "NAMESPACE"    || trimmed == "NAMESPACEE";
+  return templateText == "SERVER"  || templateText == "SERVERNAME" ||
+    templateText == "PAGENAME"     || templateText == "PAGENAMEE" ||
+    templateText == "BASEPAGENAME" || templateText == "BASEPAGENAMEE" ||
+    templateText == "SUBPAGENAME"  || templateText == "SUBPAGENAMEE" ||
+    templateText == "FULLPAGENAME" || templateText == "FULLPAGENAMEE" ||
+    templateText == "NAMESPACE"    || templateText == "NAMESPACEE";
 }
 
 //===========================================================================
@@ -124,8 +123,7 @@ static QString functionNamespaceE(const QString &pageName)
 }
 
 //===========================================================================
-QString PageNameFunctions::evaluate(const QString &templateText,
-  const QString &pageName)
+QString PageNameFunctions::evaluate(const QString &templateText, const QString &pageName)
 {
   PROFILER;
   QString trimmed = templateText.trimmed();

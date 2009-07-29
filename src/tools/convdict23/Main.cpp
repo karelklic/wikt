@@ -68,8 +68,9 @@ int main(int argc, char **argv)
     // Logging.
     ++pageCounter;
     if (pageCounter % 10 == 0)
-      out << QString("Number of entries processed: %1").arg(pageCounter) << endl;
+      out << QString("Processed: %1").arg(pageCounter) << endl;
   }
+  PROFILER_RESULTS;
   writer.close();
   out << "Done." << endl;
   return 0;

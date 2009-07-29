@@ -14,7 +14,7 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "TemplateUtilsTest.h"
-#include "TemplateUtils.h"
+#include "../TemplateUtils.h"
 #include <QTest>
 
 //===========================================================================

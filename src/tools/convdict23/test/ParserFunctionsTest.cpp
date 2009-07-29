@@ -14,8 +14,8 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "ParserFunctionsTest.h"
-#include "ParserFunctions.h"
-#include "QTest"
+#include "../ParserFunctions.h"
+#include <QTest>
 
 //===========================================================================
 class ParserFunctionsTestReader : public Format2Reader

@@ -14,91 +14,59 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "PageNameFunctionsTest.h"
-#include "PageNameFunctions.h"
+#include "../PageNameFunctions.h"
 #include <QTest>
 
 //===========================================================================
 void PageNameFunctionsTest::pageName()
 {
   QVERIFY(PageNameFunctions::isPageNameFunction("PAGENAME"));
-  QVERIFY(PageNameFunctions::isPageNameFunction(" PAGENAME "));
-  QCOMPARE(PageNameFunctions::evaluate("PAGENAME", "Help:Magic words"),
-      QString("Magic words"));
-  QCOMPARE(PageNameFunctions::evaluate(" PAGENAME",
-          "User:Anonymous user/sandbox/my page"),
-      QString("Anonymous user/sandbox/my page"));
-  QCOMPARE(PageNameFunctions::evaluate("PAGENAME ",
-          "User talk:Anonymous user/sandbox/my page"),
-      QString("Anonymous user/sandbox/my page"));
+  QCOMPARE(PageNameFunctions::evaluate("PAGENAME", "Help:Magic words"), QString("Magic words"));
+  QCOMPARE(PageNameFunctions::evaluate(" PAGENAME", "User:Anonymous user/sandbox/my page"), QString("Anonymous user/sandbox/my page"));
+  QCOMPARE(PageNameFunctions::evaluate("PAGENAME ", "User talk:Anonymous user/sandbox/my page"), QString("Anonymous user/sandbox/my page"));
 }
 
 //===========================================================================
 void PageNameFunctionsTest::pageNameE()
 {
   QVERIFY(PageNameFunctions::isPageNameFunction("PAGENAMEE"));
-  QVERIFY(PageNameFunctions::isPageNameFunction(" PAGENAMEE "));
-  QCOMPARE(PageNameFunctions::evaluate("PAGENAMEE", "Help:Magic words"),
-      QString("Magic_words"));
-  QCOMPARE(PageNameFunctions::evaluate(" PAGENAMEE",
-          "User:Anonymous user/sandbox/my page"),
-      QString("Anonymous_user/sandbox/my_page"));
-  QCOMPARE(PageNameFunctions::evaluate("PAGENAMEE ",
-          "User talk:Anonymous user/sandbox/my page"),
-      QString("Anonymous_user/sandbox/my_page"));
+  QCOMPARE(PageNameFunctions::evaluate("PAGENAMEE", "Help:Magic words"), QString("Magic_words"));
+  QCOMPARE(PageNameFunctions::evaluate(" PAGENAMEE", "User:Anonymous user/sandbox/my page"), QString("Anonymous_user/sandbox/my_page"));
+  QCOMPARE(PageNameFunctions::evaluate("PAGENAMEE ", "User talk:Anonymous user/sandbox/my page"), QString("Anonymous_user/sandbox/my_page"));
 }
 
 //===========================================================================
 void PageNameFunctionsTest::basePageName()
 {
   QVERIFY(PageNameFunctions::isPageNameFunction("BASEPAGENAME"));
-  QVERIFY(PageNameFunctions::isPageNameFunction(" BASEPAGENAME "));
-  QCOMPARE(PageNameFunctions::evaluate("BASEPAGENAME", "Help:Magic words"),
-      QString("Magic words"));
-  QCOMPARE(PageNameFunctions::evaluate(" BASEPAGENAME",
-          "User:Anonymous user/sandbox/my page"),
-      QString("Anonymous user/sandbox"));
-  QCOMPARE(PageNameFunctions::evaluate("BASEPAGENAME ",
-          "User talk:Anonymous user/sandbox/my page"),
-      QString("Anonymous user/sandbox"));
+  QCOMPARE(PageNameFunctions::evaluate("BASEPAGENAME", "Help:Magic words"), QString("Magic words"));
+  QCOMPARE(PageNameFunctions::evaluate(" BASEPAGENAME", "User:Anonymous user/sandbox/my page"), QString("Anonymous user/sandbox"));
+  QCOMPARE(PageNameFunctions::evaluate("BASEPAGENAME ", "User talk:Anonymous user/sandbox/my page"), QString("Anonymous user/sandbox"));
 }
 
 //===========================================================================
 void PageNameFunctionsTest::basePageNameE()
 {
   QVERIFY(PageNameFunctions::isPageNameFunction("BASEPAGENAMEE"));
-  QVERIFY(PageNameFunctions::isPageNameFunction(" BASEPAGENAMEE "));
-  QCOMPARE(PageNameFunctions::evaluate("BASEPAGENAMEE", "Help:Magic words"),
-      QString("Magic_words"));
-  QCOMPARE(PageNameFunctions::evaluate(" BASEPAGENAMEE",
-          "User:Anonymous user/sandbox/my page"),
-      QString("Anonymous_user/sandbox"));
-  QCOMPARE(PageNameFunctions::evaluate("BASEPAGENAMEE ",
-          "User talk:Anonymous user/sandbox/my page"),
-      QString("Anonymous_user/sandbox"));
+  QCOMPARE(PageNameFunctions::evaluate("BASEPAGENAMEE", "Help:Magic words"), QString("Magic_words"));
+  QCOMPARE(PageNameFunctions::evaluate(" BASEPAGENAMEE", "User:Anonymous user/sandbox/my page"), QString("Anonymous_user/sandbox"));
+  QCOMPARE(PageNameFunctions::evaluate("BASEPAGENAMEE ", "User talk:Anonymous user/sandbox/my page"), QString("Anonymous_user/sandbox"));
 }
 
 //===========================================================================
 void PageNameFunctionsTest::subPageName()
 {
   QVERIFY(PageNameFunctions::isPageNameFunction("SUBPAGENAME"));
-  QVERIFY(PageNameFunctions::isPageNameFunction(" SUBPAGENAME "));
-  QCOMPARE(PageNameFunctions::evaluate("SUBPAGENAME", "Help:Magic words"),
-      QString("Magic words"));
-  QCOMPARE(PageNameFunctions::evaluate(" SUBPAGENAME",
-          "User:Anonymous user/sandbox/my page"),
-      QString("my page"));
-  QCOMPARE(PageNameFunctions::evaluate("SUBPAGENAME ",
-          "User talk:Anonymous user/sandbox/my page"),
-      QString("my page"));
+  QCOMPARE(PageNameFunctions::evaluate("SUBPAGENAME", "Help:Magic words"), QString("Magic words"));
+  QCOMPARE(PageNameFunctions::evaluate(" SUBPAGENAME", "User:Anonymous user/sandbox/my page"), QString("my page"));
+  QCOMPARE(PageNameFunctions::evaluate("SUBPAGENAME ", "User talk:Anonymous user/sandbox/my page"), QString("my page"));
 }
 
 //===========================================================================
 void PageNameFunctionsTest::subPageNameE()
 {
   QVERIFY(PageNameFunctions::isPageNameFunction("SUBPAGENAMEE"));
-  QVERIFY(PageNameFunctions::isPageNameFunction(" SUBPAGENAMEE "));
-  QCOMPARE(PageNameFunctions::evaluate("SUBPAGENAMEE", "Help:Magic words"),
-      QString("Magic_words"));
+  QCOMPARE(PageNameFunctions::evaluate("SUBPAGENAMEE", "Help:Magic words"), QString("Magic_words"));
   QCOMPARE(PageNameFunctions::evaluate(" SUBPAGENAMEE",
           "User:Anonymous user/sandbox/my page"),
       QString("my_page"));
@@ -111,30 +79,18 @@ void PageNameFunctionsTest::subPageNameE()
 void PageNameFunctionsTest::fullPageName()
 {
   QVERIFY(PageNameFunctions::isPageNameFunction("FULLPAGENAME"));
-  QVERIFY(PageNameFunctions::isPageNameFunction(" FULLPAGENAME "));
-  QCOMPARE(PageNameFunctions::evaluate("FULLPAGENAME", "Help:Magic words"),
-      QString("Help:Magic words"));
-  QCOMPARE(PageNameFunctions::evaluate(" FULLPAGENAME",
-          "User:Anonymous user/sandbox/my page"),
-      QString("User:Anonymous user/sandbox/my page"));
-  QCOMPARE(PageNameFunctions::evaluate("FULLPAGENAME ",
-          "User talk:Anonymous user/sandbox/my page"),
-      QString("User talk:Anonymous user/sandbox/my page"));
+  QCOMPARE(PageNameFunctions::evaluate("FULLPAGENAME", "Help:Magic words"), QString("Help:Magic words"));
+  QCOMPARE(PageNameFunctions::evaluate(" FULLPAGENAME", "User:Anonymous user/sandbox/my page"), QString("User:Anonymous user/sandbox/my page"));
+  QCOMPARE(PageNameFunctions::evaluate("FULLPAGENAME ", "User talk:Anonymous user/sandbox/my page"), QString("User talk:Anonymous user/sandbox/my page"));
 }
 
 //===========================================================================
 void PageNameFunctionsTest::fullPageNameE()
 {
   QVERIFY(PageNameFunctions::isPageNameFunction("FULLPAGENAMEE"));
-  QVERIFY(PageNameFunctions::isPageNameFunction(" FULLPAGENAMEE "));
-  QCOMPARE(PageNameFunctions::evaluate("FULLPAGENAMEE", "Help:Magic words"),
-      QString("Help:Magic_words"));
-  QCOMPARE(PageNameFunctions::evaluate(" FULLPAGENAMEE",
-          "User:Anonymous user/sandbox/my page"),
-      QString("User:Anonymous_user/sandbox/my_page"));
-  QCOMPARE(PageNameFunctions::evaluate("FULLPAGENAMEE ",
-          "User talk:Anonymous user/sandbox/my page"),
-      QString("User_talk:Anonymous_user/sandbox/my_page"));
+  QCOMPARE(PageNameFunctions::evaluate("FULLPAGENAMEE", "Help:Magic words"), QString("Help:Magic_words"));
+  QCOMPARE(PageNameFunctions::evaluate(" FULLPAGENAMEE", "User:Anonymous user/sandbox/my page"), QString("User:Anonymous_user/sandbox/my_page"));
+  QCOMPARE(PageNameFunctions::evaluate("FULLPAGENAMEE ", "User talk:Anonymous user/sandbox/my page"), QString("User_talk:Anonymous_user/sandbox/my_page"));
 }
 
 
@@ -142,26 +98,18 @@ void PageNameFunctionsTest::fullPageNameE()
 void PageNameFunctionsTest::nameSpace()
 {
   QVERIFY(PageNameFunctions::isPageNameFunction("NAMESPACE"));
-  QVERIFY(PageNameFunctions::isPageNameFunction(" NAMESPACE "));
   QCOMPARE(PageNameFunctions::evaluate("NAMESPACE", "a"), QString(""));
-  QCOMPARE(PageNameFunctions::evaluate("NAMESPACE", "Help:Magic words"),
-      QString("Help"));
-  QCOMPARE(PageNameFunctions::evaluate(" NAMESPACE",
-          "User:Anonymous user/sandbox/my page"), QString("User"));
-  QCOMPARE(PageNameFunctions::evaluate("NAMESPACE ",
-          "User talk:Anonymous user/sandbox/my page"), QString("User talk"));
+  QCOMPARE(PageNameFunctions::evaluate("NAMESPACE", "Help:Magic words"), QString("Help"));
+  QCOMPARE(PageNameFunctions::evaluate(" NAMESPACE", "User:Anonymous user/sandbox/my page"), QString("User"));
+  QCOMPARE(PageNameFunctions::evaluate("NAMESPACE ", "User talk:Anonymous user/sandbox/my page"), QString("User talk"));
 }
 
 //===========================================================================
 void PageNameFunctionsTest::nameSpaceE()
 {
   QVERIFY(PageNameFunctions::isPageNameFunction("NAMESPACEE"));
-  QVERIFY(PageNameFunctions::isPageNameFunction(" NAMESPACEE "));
-  QCOMPARE(PageNameFunctions::evaluate("NAMESPACEE", "Help:Magic words"),
-      QString("Help"));
-  QCOMPARE(PageNameFunctions::evaluate(" NAMESPACEE",
-          "User:Anonymous user/sandbox/my page"), QString("User"));
-  QCOMPARE(PageNameFunctions::evaluate("NAMESPACEE ",
-          "User talk:Anonymous user/sandbox/my page"), QString("User_talk"));
+  QCOMPARE(PageNameFunctions::evaluate("NAMESPACEE", "Help:Magic words"), QString("Help"));
+  QCOMPARE(PageNameFunctions::evaluate(" NAMESPACEE", "User:Anonymous user/sandbox/my page"), QString("User"));
+  QCOMPARE(PageNameFunctions::evaluate("NAMESPACEE ", "User talk:Anonymous user/sandbox/my page"), QString("User_talk"));
 }
 

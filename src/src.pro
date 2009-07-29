@@ -1,6 +1,3 @@
 TEMPLATE = subdirs
-
-SUBDIRS = \
-  app \
-  libwikt \
-  tools
+CONFIG += ordered
+SUBDIRS = libwikt app tools

@@ -14,7 +14,7 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "NamespaceUrlFunctionsTest.h"
-#include "NamespaceUrlFunctions.h"
+#include "../NamespaceUrlFunctions.h"
 #include <QTest>
 
 //===========================================================================
@@ -32,12 +32,9 @@ void NamespaceUrlFunctionsTest::fullUrl()
 {
   QVERIFY(NamespaceUrlFunctions::isFunction("fullurl:a"));
   QCOMPARE(NamespaceUrlFunctions::evaluate("fullurl:a"), QString("entry://a"));
-  QCOMPARE(NamespaceUrlFunctions::evaluate("fullurl:w:a"),
-      QString("http://en.wikipedia.org/wiki/a"));
-  QCOMPARE(NamespaceUrlFunctions::evaluate("fullurl:b:a b"),
-      QString("http://en.wikibooks.org/wiki/a%20b"));
-  QCOMPARE(NamespaceUrlFunctions::evaluate(QString::fromWCharArray(L"fullurl:w:háček")),
-      QString("http://en.wikipedia.org/wiki/h%C3%A1%C4%8Dek"));
+  QCOMPARE(NamespaceUrlFunctions::evaluate("fullurl:w:a"), QString("http://en.wikipedia.org/wiki/a"));
+  QCOMPARE(NamespaceUrlFunctions::evaluate("fullurl:b:a b"), QString("http://en.wikibooks.org/wiki/a%20b"));
+  QCOMPARE(NamespaceUrlFunctions::evaluate(QString::fromWCharArray(L"fullurl:w:háček")), QString("http://en.wikipedia.org/wiki/h%C3%A1%C4%8Dek"));
 }
 
 //===========================================================================

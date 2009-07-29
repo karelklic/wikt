@@ -27,10 +27,9 @@
 ///
 /// Use http://en.wiktionary.org/wiki/Special:ExpandTemplates to
 /// check MediaWiki behavior.
-class TemplateSolver : public QObject
+class TemplateSolver
 {
   friend class TemplateSolverTest;
-  Q_OBJECT
 public:
   /// Standard constructor.
   /// @param pageName
@@ -44,9 +43,6 @@ public:
       Format2Reader &reader);
 
   QString run();
-
-signals:
-  void log(const QString &message);
 
 protected:
   /// Gets a template call from entry text, calls the template,
@@ -62,7 +58,7 @@ protected:
   /// @param templateText
   ///   The text inside {{ and }}, containing template name and template parameters.
   ///   It must not contain any templates or template parameters.
-  QString evaluateTemplate(QString templateText);
+  QString evaluateTemplate(const QString &templateText);
 
   QString removeTemplates(QString wikiText, const ParameterList &params);
 

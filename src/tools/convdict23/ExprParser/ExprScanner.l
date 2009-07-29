@@ -65,6 +65,9 @@ round    { return token::ROUND; }
 \^       { return token::POW; }
 =        { return token::EQUALS; }
 
+[ \t\n]
+
+.        yyterminate();
 
 %%
 void ExprDriver::scan_begin()

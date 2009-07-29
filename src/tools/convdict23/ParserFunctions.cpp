@@ -18,6 +18,7 @@
 #include "TemplateUtils.h"
 #include <libwikt/Unicode.h>
 #include <libwikt/Prerequisites.h>
+#include <QTextStream>
 
 //===========================================================================
 static QString functionIf(const QList<QString> &parts)
@@ -121,10 +122,6 @@ static QString functionExpr(const QList<QString> &parts, const QString &entryNam
   ExprDriver driver(entryName, false); // do not report errors for now
   driver.parse(Unicode::escape(expression));
   return driver.resultString();
-
-  // in the wiktionary database many operations are used:
-  //  a+b, a-b, a*b, a/b, (), a mod b, a round b, decimal numbers
-  // a parser for this syntax must be developed
 }
 
 //===========================================================================
@@ -143,13 +140,12 @@ static QString functionIfExpr(const QList<QString> &parts, const QString &entryN
 //===========================================================================
 bool ParserFunctions::isParserFunction(const QString &templateText)
 {
-  QString trimmed = templateText.trimmed();
-  return trimmed.startsWith("#if:", Qt::CaseInsensitive) ||
-         trimmed.startsWith("#ifeq:", Qt::CaseInsensitive) ||
-         trimmed.startsWith("#ifexpr:", Qt::CaseInsensitive) ||
-         trimmed.startsWith("#ifexist:", Qt::CaseInsensitive) ||
-         trimmed.startsWith("#switch:", Qt::CaseInsensitive) ||
-         trimmed.startsWith("#expr:", Qt::CaseInsensitive);
+  return templateText.startsWith("#if:", Qt::CaseInsensitive) ||
+         templateText.startsWith("#ifeq:", Qt::CaseInsensitive) ||
+         templateText.startsWith("#ifexpr:", Qt::CaseInsensitive) ||
+         templateText.startsWith("#ifexist:", Qt::CaseInsensitive) ||
+         templateText.startsWith("#switch:", Qt::CaseInsensitive) ||
+         templateText.startsWith("#expr:", Qt::CaseInsensitive);
 }
 
 //===========================================================================

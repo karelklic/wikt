@@ -196,7 +196,7 @@ static void widths(unsigned long long clockPerSec, unsigned &wfn,
 }
 
 //=============================================================================
-void Profiler::saveResultsToFile(QString &fileName)
+void Profiler::saveResultsToFile(const QString &fileName)
 {
   typedef std::vector<SProfilerOffRecord> recvec;
   recvec sorted;
@@ -229,6 +229,7 @@ void Profiler::saveResultsToFile(QString &fileName)
   QFile output(fileName);
   output.open(QFile::WriteOnly);
   output.write(fp.str().c_str());
+  output.close();
 }
 
 //=============================================================================

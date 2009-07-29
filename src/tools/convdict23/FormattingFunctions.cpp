@@ -18,9 +18,7 @@
 //===========================================================================
 bool FormattingFunctions::isFormattingFunction(const QString &templateText)
 {
-  QString trimmed = templateText.trimmed();
-  return trimmed.startsWith("lc:") || trimmed.startsWith("lcfirst:") ||
-    trimmed.startsWith("uc:") || trimmed.startsWith("ucfirst:");
+  return templateText.startsWith("lc:") || templateText.startsWith("lcfirst:") || templateText.startsWith("uc:") || templateText.startsWith("ucfirst:");
 }
 
 //===========================================================================

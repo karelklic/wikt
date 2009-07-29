@@ -3,8 +3,13 @@ TARGET = test
 QT += testlib
 
 SOURCES += \
+  FormattingFunctionsTest.cpp \
   Main.cpp \
+  NamespaceUrlFunctionsTest.cpp \
+  PageNameFunctionsTest.cpp \
+  ParserFunctionsTest.cpp \
   TemplateSolverTest.cpp \
+  TemplateUtilsTest.cpp \
   \
   ../ExprParser/ExprDriver.cpp \
   ../ExprParser/ExprParser.tab.cpp \
@@ -21,7 +26,12 @@ SOURCES += \
   ../TemplateUtils.cpp
 
 HEADERS += \
+  FormattingFunctionsTest.h \
+  NamespaceUrlFunctionsTest.h \
+  PageNameFunctionsTest.h \
+  ParserFunctionsTest.h \
   TemplateSolverTest.h \
+  TemplateUtilsTest.h \
   \
   ../ExprParser/ExprDriver.h \
   ../ExprParser/ExprParser.tab.hpp \
@@ -41,5 +51,5 @@ HEADERS += \
 
 LIBS *= -lwikt
 LIBPATH *= ../../../../bin
-INCLUDEPATH += ../../../lib
+INCLUDEPATH += ../../..
 

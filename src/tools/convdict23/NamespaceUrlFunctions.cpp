@@ -21,13 +21,12 @@
 //===========================================================================
 bool NamespaceUrlFunctions::isFunction(const QString &templateText)
 {
-  QString trimmed = templateText.trimmed();
-  return trimmed.startsWith("ns:", Qt::CaseInsensitive) ||
-    trimmed.startsWith("localurl:", Qt::CaseInsensitive) ||
-    trimmed.startsWith("localurle:", Qt::CaseInsensitive) ||
-    trimmed.startsWith("fullurl:", Qt::CaseInsensitive) ||
-    trimmed.startsWith("fullurle:", Qt::CaseInsensitive) ||
-    trimmed.startsWith("urlencode:", Qt::CaseInsensitive);
+  return templateText.startsWith("ns:", Qt::CaseInsensitive) ||
+    templateText.startsWith("localurl:", Qt::CaseInsensitive) ||
+    templateText.startsWith("localurle:", Qt::CaseInsensitive) ||
+    templateText.startsWith("fullurl:", Qt::CaseInsensitive) ||
+    templateText.startsWith("fullurle:", Qt::CaseInsensitive) ||
+    templateText.startsWith("urlencode:", Qt::CaseInsensitive);
 }
 
 //===========================================================================

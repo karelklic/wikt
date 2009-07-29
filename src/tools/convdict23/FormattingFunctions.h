@@ -27,6 +27,7 @@ class FormattingFunctions
 {
 public:
   /// @param templateText
+  ///   MUST BE TRIMMED (this is optimalization)
   static bool isFormattingFunction(const QString &templateText);
 
   /// @param templateText
