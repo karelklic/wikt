@@ -1,6 +1,8 @@
 *~
 wikt
 *.o
+moc_*.cpp
+qrc_*.cpp
 
 # ui files are generated during compilation.
 ui_*.h
