@@ -1,0 +1,4 @@
+The programs placed here can be executed by
+
+LD_LIBRARY_PATH=. ./program
+
