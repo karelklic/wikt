@@ -57,7 +57,8 @@ private:
   void processContent(const QString &name, const QString &content);
   /// Checks if the link target is worth downloading and starts the download
   /// if it is so.
-  void processLink(const LinkNode &node);
+  /// @param entryName
+  void processLink(const LinkNode &node, const QString &entryName);
   /// Returns a path to file on the local filesystem that represents
   /// certain link.
   QString getMediaFilePath(const LinkNode &node) const;
@@ -75,7 +76,7 @@ private:
   int _downloadsInProgress;
 
   /// Console output.
-  QTextStream _out;
+  mutable QTextStream _out;
 };
 
 #endif /* MEDIADOWNLOADER_H_ */

@@ -62,9 +62,9 @@ void MediaDownloader::downloadFinished(QNetworkReply *reply)
     int linkStart = contents.indexOf(linkStartText);
     if (linkStart <= 0)
     {
-      CERR("Link not found for " +
-          QString::fromUtf8(reply->request().rawHeader("Target-File-Name")));
-      return;
+      CERR(QString("Link not found for %1, entry %2")
+        .arg(QString::fromUtf8(reply->request().rawHeader("Target-File-Name")))
+        .arg(QString::fromUtf8(reply->request().rawHeader("Entry-Name"))));
     }
     int linkEnd = contents.indexOf('\"', linkStart + linkStartText.length());
     CHECK(linkEnd >= 0);
@@ -85,7 +85,7 @@ void MediaDownloader::downloadFinished(QNetworkReply *reply)
 
     // Make sure target directory exist.
     QFileInfo fileInfo(fileName);
-    QDir dir(fileInfo.path());
+    QDir dir;
     dir.mkpath(fileInfo.path());
 
     QFile file(fileName);
@@ -97,6 +97,8 @@ void MediaDownloader::downloadFinished(QNetworkReply *reply)
   {
     CERR("Invalid response for " + reply->request().url().toString());
   }
+
+  reply->close();
 }
 
 //===========================================================================
@@ -163,14 +165,14 @@ void MediaDownloader::processContent(const QString &name, const QString &content
 
     // Check every link.
     foreach(const LinkNode *link, links)
-      processLink(*link);
+      processLink(*link, name);
 
     delete node;
   }
 }
 
 //===========================================================================
-void MediaDownloader::processLink(const LinkNode &node)
+void MediaDownloader::processLink(const LinkNode &node, const QString &entryName)
 {
   // Skip existing files.
   if (QFile::exists(getMediaFilePath(node)))
@@ -188,6 +190,7 @@ void MediaDownloader::processLink(const LinkNode &node)
   QNetworkRequest fileRequest(url);
   fileRequest.setRawHeader("File-Name", fileName.toUtf8());
   fileRequest.setRawHeader("Target-File-Name", getMediaFilePath(node).toUtf8());
+  fileRequest.setRawHeader("Entry-Name", entryName.toUtf8());
   _networkAccessManager->get(fileRequest);
 }
 

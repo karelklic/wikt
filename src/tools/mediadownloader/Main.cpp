@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 {
   QCoreApplication app(argc, argv);
 
-  if (argc != 4)
+  if (argc != 3)
   {
     QTextStream err(stderr, QIODevice::WriteOnly);
     err << "Invalid number of arguments." << endl;
