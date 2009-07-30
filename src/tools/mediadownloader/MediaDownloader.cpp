@@ -99,6 +99,7 @@ void MediaDownloader::downloadFinished(QNetworkReply *reply)
   }
 
   reply->close();
+  reply->deleteLater();
 }
 
 //===========================================================================
