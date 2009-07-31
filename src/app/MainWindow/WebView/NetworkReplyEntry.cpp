@@ -15,8 +15,8 @@
  */
 #include "NetworkReplyEntry.h"
 #include "../MainWindow.h"
+#include "../../WikiSource.h"
 #include <libwikt/UrlUtils.h>
-#include <libwikt/Wiki/WikiSource.h>
 #include <libwikt/Prerequisites.h>
 #include <QTimer>
 

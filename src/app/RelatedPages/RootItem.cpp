@@ -17,11 +17,11 @@
 #include "InternalLinkItem.h"
 #include "ExternalLinksRootItem.h"
 #include "../MainWindow/MainWindow.h"
+#include "../WikiSource.h"
 #include <libwikt/Wiki/Tree/Article/ArticleNode.h>
 #include <libwikt/Wiki/Tree/Html/HtmlElementNode.h>
 #include <libwikt/Wiki/Tree/Link/LinkNode.h>
 #include <libwikt/Wiki/Tree/Link/LinkTargetNode.h>
-#include <libwikt/Wiki/WikiSource.h>
 
 namespace RelatedPages {
 

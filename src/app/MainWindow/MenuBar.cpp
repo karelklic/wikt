@@ -20,8 +20,6 @@
 #include "WebView/WebView.h"
 #include "../Debug/HtmlSourceView.h"
 #include "../Debug/WikiProcessingView.h"
-#include "../Debug/WikiSourceView.h"
-#include "../Debug/XmlSourceView.h"
 #include "../Options/OptionsDialog.h"
 #include <libwikt/Version.h>
 #include <libwikt/Wiki/Tree/Heading/Heading.h>
@@ -116,14 +114,6 @@ MenuBar::MenuBar(MainWindow *parent) : QMenuBar(parent)
   _pageHtmlAct->setStatusTip(tr("Show the HTML code of the currently displayed page."));
   connect(_pageHtmlAct, SIGNAL(triggered()), this, SLOT(pageHtml()));
 
-  _wordXmlAct = new QAction(tr("&XML Source"), this);
-  _wordXmlAct->setStatusTip(tr("Show the XML code"));
-  connect(_wordXmlAct, SIGNAL(triggered()), this, SLOT(wordXml()));
-
-  _wordWikiAct = new QAction(tr("&Wiki Source"), this);
-  _wordWikiAct->setStatusTip(tr("Show the Wiki code"));
-  connect(_wordWikiAct, SIGNAL(triggered()), this, SLOT(wordWiki()));
-
   _algorithmWikiProcessingAct = new QAction(tr("&Wiki Processing"), this);
   _algorithmWikiProcessingAct->setStatusTip(tr("Show the Wiki debug"));
   connect(_algorithmWikiProcessingAct, SIGNAL(triggered()), this, SLOT(algorithmWikiProcessing()));
@@ -171,12 +161,7 @@ MenuBar::MenuBar(MainWindow *parent) : QMenuBar(parent)
 
   _developmentMenu = addMenu(tr("&Development"));
   _developmentMenu->addAction(_pageHtmlAct);
-  _developmentMenu->addSeparator();
-  _developmentMenu->addAction(_wordXmlAct);
-  _developmentMenu->addAction(_wordWikiAct);
-  _developmentMenu->addSeparator();
   _developmentMenu->addAction(_algorithmWikiProcessingAct);
-  _developmentMenu->addSeparator();
   _developmentMenu->addAction(_profilerAct);
 
   _helpMenu = addMenu(tr("&Help"));
@@ -266,22 +251,6 @@ void MenuBar::pageHtml()
 {
   QString contents = _parent->webView()->toHtml();
   HtmlSourceView *w = new HtmlSourceView(contents);
-  w->show();
-}
-
-//===========================================================================
-void MenuBar::wordXml()
-{
-  XmlSourceView *w = new XmlSourceView();
-  w->setWord(_parent->coordinator()->text());
-  w->show();
-}
-
-//===========================================================================
-void MenuBar::wordWiki()
-{
-  WikiSourceView *w = new WikiSourceView();
-  w->setWord(_parent->coordinator()->text());
   w->show();
 }
 

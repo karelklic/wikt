@@ -24,7 +24,7 @@
 #include "../Categories/CategoriesPanel.h"
 #include "../InterestingPages/InterestingPagesPanel.h"
 #include "../Media/MediaPlayer.h"
-#include <libwikt/Wiki/WikiSource.h>
+#include "../WikiSource.h"
 #include <QDockWidget>
 #include <QStatusBar>
 #include <QKeyEvent>

@@ -15,10 +15,10 @@
  */
 #include "WikiSource.h"
 #include "WikiSourceCacheItem.h"
-#include "Tree/Article/ArticleNode.h"
-#include "../DictionaryFile/Format4Reader.h"
-#include "../Media/MediaReader.h"
-#include "../Media/MediaUtils.h"
+#include <libwikt/Wiki/Tree/Article/ArticleNode.h>
+#include <libwikt/Media/MediaReader.h>
+#include <libwikt/Media/MediaUtils.h>
+#include <libwikt/DictionaryFile/Format4Reader.h>
 #include <QSvgRenderer>
 #include <QImage>
 

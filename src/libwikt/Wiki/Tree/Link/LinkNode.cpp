@@ -16,8 +16,6 @@
 #include "LinkNode.h"
 #include "LinkTargetNode.h"
 #include "LinkOptionsNode.h"
-#include "../../WikiSource.h"
-//#include "../../../MainWindow/MainWindow.h"
 #include "../../../Media/MediaUtils.h"
 #include <QImage>
 #include <QSvgRenderer>
@@ -145,10 +143,9 @@ bool LinkNode::isDisplayableImage() const
 }
 
 //===========================================================================
-LinkNode::Image LinkNode::getImageParams(QSize originalSize) const
+LinkNode::Image LinkNode::getImageParams() const
 {
   Image image;
-  image.size = originalSize;
 
   // See http://en.wikipedia.org/wiki/Image_markup for a complete
   // list of options.
@@ -157,17 +154,12 @@ LinkNode::Image LinkNode::getImageParams(QSize originalSize) const
   QString caption;
   foreach(LinkOptionsNode* option, _options)
   {
-    // Protect from division by zero.
-    if (image.size.width() <= 0) image.size.setWidth(1);
-    if (image.size.height() <= 0) image.size.setHeight(1);
-
     QString text = option->toText();
 
     // THUMBNAIL option.
     if (text == "thumb" || text == "thumbnail")
     {
-      if (image.size.width() > 180)
-        image.size.scale(180, 600, Qt::KeepAspectRatio);
+      image.size.setWidth(180);
       image.type = Image::Thumbnail;
       continue;
     }
@@ -188,7 +180,7 @@ LinkNode::Image LinkNode::getImageParams(QSize originalSize) const
       if (!ok) continue;
       int requestedHeight = pxSize.cap(2).toInt(&ok, 10);
       if (!ok) continue;
-      image.size.scale(requestedWidth, requestedHeight, Qt::KeepAspectRatio);
+      image.size = QSize(requestedWidth, requestedHeight);
       continue;
     }
 
@@ -199,7 +191,7 @@ LinkNode::Image LinkNode::getImageParams(QSize originalSize) const
       bool ok;
       int requestedWidth = pxWidth.cap(1).toInt(&ok, 10);
       if (!ok) continue;
-      image.size.scale(requestedWidth, 10000, Qt::KeepAspectRatio);
+      image.size.setWidth(requestedWidth);
       continue;
     }
 
@@ -212,19 +204,22 @@ LinkNode::Image LinkNode::getImageParams(QSize originalSize) const
 //===========================================================================
 QString LinkNode::toXHtmlImage() const
 {
-  QSize originalImageSize = WikiSource::instance().imageSize(target().entry());
+  Image image = getImageParams();
+  QString style;
+  if (image.size.width() >= 0)
+    style += QString("max-width:%1px;").arg(image.size.width());
+  if (image.size.height() >= 0)
+    style += QString("max-height:%1px").arg(image.size.height());
 
-  Image image = getImageParams(originalImageSize);
   QString code;
   switch (image.type)
   {
   case Image::Thumbnail:
     code = QString("<div class=\"thumb tright\">");
     code += QString("<div class=\"thumbinner\" style=\"width:%1px;\">").arg(image.size.width());
-    code += QString("<img src=\"%1\" width=\"%2\" height=\"%3\" border=\"0\" class=\"thumbimage\"/>")
+    code += QString("<img src=\"%1\" style=\"%2\" border=\"0\" class=\"thumbimage\"/>")
       .arg(target().toXHtmlLink())
-      .arg(image.size.width())
-      .arg(image.size.height());
+      .arg(style);
     code += QString("<div class=\"thumbcaption\">");
     code += QString("<div class=\"magnify\"><a href=\"http://en.wiktionary.org/wiki/File:%1\"><img src=\"embedded://images/magnify-clip.png\"/></a></div>").arg(target().entry());
     code += image.caption;
@@ -235,10 +230,9 @@ QString LinkNode::toXHtmlImage() const
   case Image::Frame:
     code = QString("<div class=\"thumb tright\">");
     code += QString("<div class=\"thumbinner\" style=\"width:%1px;\">").arg(image.size.width());
-    code += QString("<img src=\"%1\" width=\"%2\" height=\"%3\" border=\"0\" class=\"thumbimage\"/>")
+    code += QString("<img src=\"%1\" style=\"%2\" border=\"0\" class=\"thumbimage\"/>")
       .arg(target().toXHtmlLink())
-      .arg(image.size.width())
-      .arg(image.size.height());
+      .arg(style);
     code += QString("<div class=\"thumbcaption\">");
     code += image.caption;
     code += QString("</div>");
@@ -246,17 +240,15 @@ QString LinkNode::toXHtmlImage() const
     code += QString("</div>");
     break;
   case Image::Border:
-    code = QString("<img src=\"%1\" width=\"%2\" height=\"%3\" border=\"0\" class=\"thumbborder\"/>")
+    code = QString("<img src=\"%1\" style=\"%2\" border=\"0\" class=\"thumbborder\"/>")
     .arg(target().toXHtmlLink())
-    .arg(image.size.width())
-    .arg(image.size.height());
+    .arg(style);
     break;
   case Image::Simple:
   default:
-    code = QString("<img src=\"%1\" width=\"%2\" height=\"%3\" border=\"0\"/>")
+    code = QString("<img src=\"%1\" style=\"%2\" border=\"0\"/>")
     .arg(target().toXHtmlLink())
-    .arg(image.size.width())
-    .arg(image.size.height());
+    .arg(style);
     break;
   }
 

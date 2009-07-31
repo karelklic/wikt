@@ -14,7 +14,7 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "WikiSourceCacheItem.h"
-#include "Parser/ArticleParser.h"
+#include <libwikt/Wiki/Parser/ArticleParser.h>
 
 //===========================================================================
 WikiSourceCacheItem::WikiSourceCacheItem(const QString &name, const QString &source)

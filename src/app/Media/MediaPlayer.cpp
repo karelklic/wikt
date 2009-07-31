@@ -15,7 +15,7 @@
  */
 #include "MediaPlayer.h"
 #include "../MainWindow/MainWindow.h"
-#include <libwikt/Wiki/WikiSource.h>
+#include "../WikiSource.h"
 #include <Phonon>
 #include <QBuffer>
 

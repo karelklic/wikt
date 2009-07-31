@@ -1,6 +1,6 @@
 TEMPLATE = app
 TARGET = wikt
-QT += webkit network phonon
+QT += webkit network phonon svg
 
 SOURCES += \
   Main.cpp \
@@ -10,9 +10,6 @@ SOURCES += \
   Debug/HtmlSourceView.cpp \
   Debug/HtmlSyntaxHighlighter.cpp \
   Debug/WikiProcessingView.cpp \
-  Debug/WikiSourceView.cpp \
-  Debug/XmlSourceView.cpp \
-  Debug/XmlSyntaxHighlighter.cpp \
   Debug/ErrorDialog/ErrorDialog.cpp \
   InterestingPages/InterestingPagesItem.cpp \
   InterestingPages/InterestingPagesLanguagesRootItem.cpp \
@@ -45,7 +42,9 @@ SOURCES += \
   RelatedPages/RootItem.cpp \
   TableOfContents/TocItem.cpp \
   TableOfContents/TocModel.cpp \
-  TableOfContents/TocPanel.cpp
+  TableOfContents/TocPanel.cpp \
+  WikiSource.cpp \
+  WikiSourceCacheItem.cpp
 
 HEADERS += \
   Categories/CategoriesItem.h \
@@ -54,9 +53,6 @@ HEADERS += \
   Debug/HtmlSourceView.h \
   Debug/HtmlSyntaxHighlighter.h \
   Debug/WikiProcessingView.h \
-  Debug/WikiSourceView.h \
-  Debug/XmlSourceView.h \
-  Debug/XmlSyntaxHighlighter.h \
   Debug/ErrorDialog/ErrorDialog.h \
   InterestingPages/InterestingPagesItem.h \
   InterestingPages/InterestingPagesLanguagesRootItem.h \
@@ -89,7 +85,9 @@ HEADERS += \
   RelatedPages/RootItem.h \
   TableOfContents/TocItem.h \
   TableOfContents/TocModel.h \
-  TableOfContents/TocPanel.h
+  TableOfContents/TocPanel.h \
+  WikiSource.h \
+  WikiSourceCacheItem.h
 
 FORMS = \
   Debug/ErrorDialog/ErrorDialog.ui \

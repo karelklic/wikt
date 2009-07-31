@@ -22,8 +22,8 @@
 #include "../Categories/CategoriesPanel.h"
 #include "../InterestingPages/InterestingPagesPanel.h"
 #include "../Media/MediaPlayer.h"
+#include "../WikiSource.h"
 #include <libwikt/UrlUtils.h>
-#include <libwikt/Wiki/WikiSource.h>
 #include <libwikt/Wiki/Tree/Article/ArticleNode.h>
 #include <libwikt/Prerequisites.h>
 #include <QAction>

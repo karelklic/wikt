@@ -90,16 +90,17 @@ public:
       Right, Left, Center, None, Default
     } location;
 
-    /// Image size to be displayed in pixels.
+    /// Image maximal size to be displayed in pixels (max-width, max-height in CSS).
     QSize size;
 
     QString caption;
 
-    Image() : type(Simple), location(Default), size(10, 10) {}
+    /// size.isValid() is automatically false.
+    Image() : type(Simple), location(Default) {}
   };
 
   bool isDisplayableImage() const;
-  Image getImageParams(QSize originalSize) const;
+  Image getImageParams() const;
 
 protected:
   QString toXHtmlImage() const;

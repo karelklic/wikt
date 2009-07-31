@@ -97,9 +97,8 @@ HEADERS = \
     Wiki/Tree/Table/TableRowNode.h \
     Wiki/Tree/TextBlockNode.h \
     Wiki/Tree/TextTokenNode.h \
-    Wiki/Language/Language.h \
-    Wiki/WikiSource.h \
-    Wiki/WikiSourceCacheItem.h
+    Wiki/Language/Language.h
+
 SOURCES = \
     Debug/Debug.cpp \
     Debug/Profiler/Profiler.cpp \
@@ -181,6 +180,4 @@ SOURCES = \
     Wiki/Tree/Table/TableRowNode.cpp \
     Wiki/Tree/TextBlockNode.cpp \
     Wiki/Tree/TextTokenNode.cpp \
-    Wiki/Language/Language.cpp \
-    Wiki/WikiSource.cpp \
-    Wiki/WikiSourceCacheItem.cpp
+    Wiki/Language/Language.cpp

@@ -48,8 +48,6 @@ private slots:
   // Development
   /// Shows a floating subwindow with current page's HTML source.
   void pageHtml();
-  void wordXml();
-  void wordWiki();
   void algorithmWikiProcessing();
   /// Shows a window with performance measurement results.
   void profilerResults();
@@ -88,8 +86,6 @@ private:
 
   // Development
   QAction *_pageHtmlAct;
-  QAction *_wordXmlAct;
-  QAction *_wordWikiAct;
   QAction *_algorithmWikiProcessingAct;
   QAction *_testAct;
   QAction *_profilerAct;

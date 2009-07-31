@@ -6,4 +6,5 @@ SUBDIRS = \
   convdict34 \
   imageresizer \
   mediadownloader \
-  mediapacker
+  mediapacker \
+  wiktsrc
