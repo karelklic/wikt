@@ -1,4 +1,8 @@
-The programs placed here can be executed by
+If you want to run programs from this directory, it is recommended to set
+the LD_LIBRARY_PATH environment variable to contain this directory (libwikt.so is required by all programs). You can do it by adding a line to your .bashrc:
 
-LD_LIBRARY_PATH=. ./program
+export LD_LIBRARY_PATH=~/wikt/bin:$LD_LIBRARY_PATH
 
+It is also nice to be able to run the development version of wikt and its tools from any directory. If you want to do so, add this directory to the PATH in .bashrc:
+
+export PATH=~/wikt/bin:$PATH
