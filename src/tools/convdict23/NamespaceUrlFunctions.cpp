@@ -15,8 +15,8 @@
  */
 #include "NamespaceUrlFunctions.h"
 #include <libwikt/UrlUtils.h>
-#include <libwikt/Wiki/Project.h>
-#include <libwikt/Wiki/Namespace.h>
+#include <libwikt/Project.h>
+#include <libwikt/Namespace.h>
 
 //===========================================================================
 bool NamespaceUrlFunctions::isFunction(const QString &templateText)

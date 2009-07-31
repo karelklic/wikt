@@ -16,8 +16,8 @@
 #include "OptionsDialog.h"
 #include "MainWindow.h"
 #include "Coordinator.h"
-#include <libwikt/Wiki/Language/Language.h>
-#include <libwikt/Debug/Debug.h>
+#include <libwikt/Language/Language.h>
+#include <libwikt/Debug.h>
 #include <QSettings>
 
 //===========================================================================

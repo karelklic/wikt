@@ -13,31 +13,33 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef FORMAT4READER_H_
-#define FORMAT4READER_H_
+#ifndef MEDIAREADER_H_
+#define MEDIAREADER_H_
 
-#include "../Prerequisites.h"
+#include "Prerequisites.h"
 #include <QString>
 #include <QFile>
+#include <QByteArray>
 
-/// @brief Reads entries from Format4 dictionary data file.
-class Format4Reader
+/// @brief Reads entries from media file (sounds, images).
+class MediaReader : public QObject
 {
+  Q_OBJECT
 public:
   /// @brief Standard constructor.
   /// @param fileName
   ///   Path to the file. File must exist.
-  Format4Reader(const QString &fileName);
-  /// @brief Standard destructor. Closes the file.
-  ~Format4Reader();
+  MediaReader(const QString &fileName);
+  /// @brief Standard destructor.
+  ~MediaReader();
 
   /// @brief Reads contents of entry with particular name.
   /// @param entryName
-  ///   Name of the entry. Can include namespace prefix (eg. "Citations:").
+  ///   Name of the entry without namespace prefix (without "Media:", "Image:").
   /// @return
-  ///   Contents of the entry in the wiki format.
-  ///   If the entry is not found, empty string is returned.
-  QString source(const QString &entryName);
+  ///   Contents of the entry.
+  ///   If the entry is not found, empty buffer.
+  QByteArray source(const QString &entryName);
   /// @brief Checks if an entry exists.
   /// @param entryName.
   ///   Name of the entry. Can include namespace prefix (eg. "Citations:").
@@ -46,7 +48,7 @@ public:
   /// @brief Returns content of an entry.
   /// @param offset
   ///   Offset to list of all entries. 0 <= offset < entryCount().
-  QString source(int offset);
+  QByteArray source(int offset);
   /// @brief Returns name of an entry.
   /// @param offset
   ///   Offset to list of all entries. 0 <= offset < entryCount().
@@ -55,6 +57,9 @@ public:
   int entryCount() const { return _entryCount; }
 
 protected:
+  /// Constructor for testing purposes only.
+  MediaReader();
+
   /// Returns -1 if entry does not exist.
   qint32 findEntryOffset(quint32 min, quint32 max, const QString &entryName);
 
@@ -62,4 +67,4 @@ protected:
   QFile _file;
 };
 
-#endif /* FORMAT4READER_H_ */
+#endif /* MEDIAREADER_H_ */

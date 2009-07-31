@@ -14,8 +14,8 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "Format2Reader.h"
-#include <libwikt/DictionaryFile/FileUtils.h>
-#include <libwikt/DictionaryFile/Comparsion.h>
+#include <libwikt/FileUtils.h>
+#include <libwikt/Comparsion.h>
 
 //===========================================================================
 Format2Reader::Format2Reader(const QString &fileName)

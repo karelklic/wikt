@@ -14,8 +14,8 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "WikiProcessingView.h"
-#include <libwikt/Wiki/Parser/ArticleParser.h>
-#include <libwikt/Wiki/Tree/Article/ArticleNode.h>
+#include <libwikt/Parser/ArticleParser.h>
+#include <libwikt/Tree/Article/ArticleNode.h>
 #include <QTextEdit>
 #include <QPushButton>
 #include <QVBoxLayout>

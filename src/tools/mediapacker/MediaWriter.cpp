@@ -14,9 +14,9 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "MediaWriter.h"
-#include <libwikt/DictionaryFile/FileUtils.h>
-#include <libwikt/DictionaryFile/QuickSort.h>
-#include <libwikt/DictionaryFile/Comparsion.h>
+#include <libwikt/FileUtils.h>
+#include <libwikt/QuickSort.h>
+#include <libwikt/Comparsion.h>
 
 //===========================================================================
 MediaWriter::MediaWriter(const QString &targetFileName) : _targetFileName(targetFileName)

@@ -16,7 +16,7 @@
 #include "RelPagesExternalLinksRootItem.h"
 #include "RelPagesInterwikiRootItem.h"
 #include "RelPagesExternalLinkItem.h"
-#include <libwikt/Wiki/Tree/Node.h>
+#include <libwikt/Tree/Node.h>
 #include <QUrl>
 
 namespace RelatedPages {

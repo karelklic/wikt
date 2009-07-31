@@ -15,8 +15,8 @@
  */
 #include "LinkConverterTest.h"
 #include "LinkConverter.h"
-#include "../Format3Reader.h"
-#include "../../../Media/MediaReader.h"
+#include <libwikt/Format3Reader.h>
+#include <libwikt/MediaReader.h>
 #include <QTest>
 
 //===========================================================================

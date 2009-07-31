@@ -16,7 +16,7 @@
 #ifndef PREREQUISITES_H_
 #define PREREQUISITES_H_
 
-#include "Debug/Debug.h"
-#include "Debug/Profiler/Profiler.h"
+#include "Debug.h"
+#include "Profiler.h"
 
 #endif /* PREREQUISITES_H_ */

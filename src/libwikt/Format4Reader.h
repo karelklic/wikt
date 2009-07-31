@@ -13,52 +13,53 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef EIFREADER_H_
-#define EIFREADER_H_
+#ifndef FORMAT4READER_H_
+#define FORMAT4READER_H_
 
-#include "../Prerequisites.h"
+#include "Prerequisites.h"
 #include <QString>
 #include <QFile>
-#include <QMap>
 
-/// @brief Reads entries from Format3 dictionary data file.
-class Format3Reader : public QObject
+/// @brief Reads entries from Format4 dictionary data file.
+class Format4Reader
 {
-  Q_OBJECT
 public:
   /// @brief Standard constructor.
   /// @param fileName
   ///   Path to the file. File must exist.
-  Format3Reader(const QString &fileName);
+  Format4Reader(const QString &fileName);
   /// @brief Standard destructor. Closes the file.
-  ~Format3Reader();
+  ~Format4Reader();
 
+  /// @brief Reads contents of entry with particular name.
+  /// @param entryName
+  ///   Name of the entry. Can include namespace prefix (eg. "Citations:").
+  /// @return
+  ///   Contents of the entry in the wiki format.
+  ///   If the entry is not found, empty string is returned.
+  QString source(const QString &entryName);
   /// @brief Checks if an entry exists.
   /// @param entryName.
   ///   Name of the entry. Can include namespace prefix (eg. "Citations:").
   /// @return True if entry is found. False otherwise.
-  virtual bool exist(QString entryName);
+  bool exist(const QString &entryName);
   /// @brief Returns content of an entry.
   /// @param offset
   ///   Offset to list of all entries. 0 <= offset < entryCount().
-  virtual QString source(int offset);
+  QString source(int offset);
+  /// @brief Returns name of an entry.
   /// @param offset
-  ///  Offset between 0 and file size.
-  virtual QString sourceDirect(int offset);
-
+  ///   Offset to list of all entries. 0 <= offset < entryCount().
+  QString name(int offset);
   /// Returns number of entries in the file.
   int entryCount() const { return _entryCount; }
 
-  typedef QMap<QString, size_t> EntryMap;
-  const EntryMap &entries() const { return _links; }
-
 protected:
-  /// Constructor for testing purposes only.
-  Format3Reader();
+  /// Returns -1 if entry does not exist.
+  qint32 findEntryOffset(quint32 min, quint32 max, const QString &entryName);
 
-  QFile _file;
   quint32 _entryCount;
-  EntryMap _links;
+  QFile _file;
 };
 
-#endif /* EIFREADER_H_ */
+#endif /* FORMAT4READER_H_ */

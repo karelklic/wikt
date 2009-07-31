@@ -14,8 +14,8 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "MediaReader.h"
-#include "../DictionaryFile/FileUtils.h"
-#include "../DictionaryFile/Comparsion.h"
+#include "FileUtils.h"
+#include "Comparsion.h"
 
 //===========================================================================
 MediaReader::MediaReader(const QString &fileName)

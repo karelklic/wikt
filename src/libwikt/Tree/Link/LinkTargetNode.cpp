@@ -15,7 +15,7 @@
  */
 #include "LinkTargetNode.h"
 #include "../TextTokenNode.h"
-#include "../../../UrlUtils.h"
+#include "../../UrlUtils.h"
 #include <QRegExp>
 
 //===========================================================================

@@ -13,58 +13,52 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef MEDIAREADER_H_
-#define MEDIAREADER_H_
+#ifndef EIFREADER_H_
+#define EIFREADER_H_
 
-#include "../Prerequisites.h"
+#include "Prerequisites.h"
 #include <QString>
 #include <QFile>
-#include <QByteArray>
+#include <QMap>
 
-/// @brief Reads entries from media file (sounds, images).
-class MediaReader : public QObject
+/// @brief Reads entries from Format3 dictionary data file.
+class Format3Reader : public QObject
 {
   Q_OBJECT
 public:
   /// @brief Standard constructor.
   /// @param fileName
   ///   Path to the file. File must exist.
-  MediaReader(const QString &fileName);
-  /// @brief Standard destructor.
-  ~MediaReader();
+  Format3Reader(const QString &fileName);
+  /// @brief Standard destructor. Closes the file.
+  ~Format3Reader();
 
-  /// @brief Reads contents of entry with particular name.
-  /// @param entryName
-  ///   Name of the entry without namespace prefix (without "Media:", "Image:").
-  /// @return
-  ///   Contents of the entry.
-  ///   If the entry is not found, empty buffer.
-  QByteArray source(const QString &entryName);
   /// @brief Checks if an entry exists.
   /// @param entryName.
   ///   Name of the entry. Can include namespace prefix (eg. "Citations:").
   /// @return True if entry is found. False otherwise.
-  bool exist(const QString &entryName);
+  virtual bool exist(QString entryName);
   /// @brief Returns content of an entry.
   /// @param offset
   ///   Offset to list of all entries. 0 <= offset < entryCount().
-  QByteArray source(int offset);
-  /// @brief Returns name of an entry.
+  virtual QString source(int offset);
   /// @param offset
-  ///   Offset to list of all entries. 0 <= offset < entryCount().
-  QString name(int offset);
+  ///  Offset between 0 and file size.
+  virtual QString sourceDirect(int offset);
+
   /// Returns number of entries in the file.
   int entryCount() const { return _entryCount; }
 
+  typedef QMap<QString, size_t> EntryMap;
+  const EntryMap &entries() const { return _links; }
+
 protected:
   /// Constructor for testing purposes only.
-  MediaReader();
+  Format3Reader();
 
-  /// Returns -1 if entry does not exist.
-  qint32 findEntryOffset(quint32 min, quint32 max, const QString &entryName);
-
-  quint32 _entryCount;
   QFile _file;
+  quint32 _entryCount;
+  EntryMap _links;
 };
 
-#endif /* MEDIAREADER_H_ */
+#endif /* EIFREADER_H_ */

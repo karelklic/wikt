@@ -16,7 +16,7 @@
 #ifndef COMPARSION_H
 #define COMPARSION_H
 
-#include "../Prerequisites.h"
+#include "Prerequisites.h"
 #include <QString>
 #include <QPair>
 

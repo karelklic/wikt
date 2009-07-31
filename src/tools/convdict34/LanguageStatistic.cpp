@@ -14,8 +14,8 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "LanguageStatistic.h"
-#include <libwikt/Wiki/Tree/Heading/HeadingNode.h>
-#include <libwikt/Wiki/Tree/List/ListItemNode.h>
+#include <libwikt/Tree/Heading/HeadingNode.h>
+#include <libwikt/Tree/List/ListItemNode.h>
 
 //===========================================================================
 LanguageStatistic::LanguageStatistic()

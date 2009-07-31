@@ -17,7 +17,7 @@
 #include "InterestingPagesLinkItem.h"
 #include "MainWindow.h"
 #include "WikiSource.h"
-#include <libwikt/Wiki/Language/Language.h>
+#include <libwikt/Language/Language.h>
 
 namespace InterestingPages {
 

@@ -17,7 +17,7 @@
 #define PARSERPREREQUISITES_H_
 
 #include "Buffer/Buffer.h"
-#include "../../Prerequisites.h"
+#include "../Prerequisites.h"
 #include "../Tree/Node.h"
 #include "../Tree/Article/ArticleNode.h"
 #include "../Tree/Attribute/AttributeGroupNode.h"

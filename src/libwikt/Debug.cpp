@@ -14,7 +14,7 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "Debug.h"
-#include "../Unicode.h"
+#include "Unicode.h"
 //#include "ErrorDialog/ErrorDialog.h" TO BE ALTERNATED
 #include <iostream>
 #include <execinfo.h> // GCC-only stack trace

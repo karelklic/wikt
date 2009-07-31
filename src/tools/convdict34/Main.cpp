@@ -13,16 +13,16 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include <QCoreApplication>
-#include <QTextStream>
-#include <libwikt/DictionaryFile/Format3Reader.h>
 #include "Format4Writer.h"
 #include "LinkConverter.h"
 #include "TitlePageGenerator.h"
 #include "LicensePagesGenerator.h"
 #include "StatsPageGenerator.h"
-#include <libwikt/Media/MediaReader.h>
+#include <libwikt/Format3Reader.h>
+#include <libwikt/MediaReader.h>
 #include <libwikt/Prerequisites.h>
+#include <QCoreApplication>
+#include <QTextStream>
 
 //===========================================================================
 int main(int argc, char **argv)

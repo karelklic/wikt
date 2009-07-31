@@ -16,7 +16,7 @@
 #ifndef HEADING_H_
 #define HEADING_H_
 
-#include "../../../Prerequisites.h"
+#include "../../Prerequisites.h"
 #include <QString>
 #include <QMap>
 #include <QStringList>

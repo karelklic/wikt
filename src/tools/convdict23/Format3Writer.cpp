@@ -14,9 +14,9 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "Format3Writer.h"
-#include <libwikt/DictionaryFile/Comparsion.h>
-#include <libwikt/DictionaryFile/FileUtils.h>
-#include <libwikt/DictionaryFile/QuickSort.h>
+#include <libwikt/Comparsion.h>
+#include <libwikt/FileUtils.h>
+#include <libwikt/QuickSort.h>
 
 //===========================================================================
 Format3Writer::Format3Writer(const QString &targetFileName) : _targetFileName(targetFileName)

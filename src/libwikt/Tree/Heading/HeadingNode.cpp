@@ -14,7 +14,7 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "HeadingNode.h"
-#include "../../../Prerequisites.h"
+#include "../../Prerequisites.h"
 #include <QRegExp>
 
 static int uniqueHeaderCounter = 0;

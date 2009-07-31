@@ -16,7 +16,7 @@
 #ifndef BUFFER_H_
 #define BUFFER_H_
 
-#include "../../../Prerequisites.h"
+#include "../../Prerequisites.h"
 
 /// A buffer on the top of a string that is used for wiki text parsing.
 class Buffer

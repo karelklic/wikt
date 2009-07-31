@@ -14,9 +14,9 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "MediaDownloader.h"
-#include <libwikt/Wiki/Parser/ArticleParser.h>
-#include <libwikt/Wiki/Tree/Link/LinkNode.h>
-#include <libwikt/Wiki/Tree/Link/LinkTargetNode.h>
+#include <libwikt/Parser/ArticleParser.h>
+#include <libwikt/Tree/Link/LinkNode.h>
+#include <libwikt/Tree/Link/LinkTargetNode.h>
 #include <QDir>
 #include <QUrl>
 #include <QNetworkRequest>

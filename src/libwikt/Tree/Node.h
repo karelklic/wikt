@@ -16,7 +16,7 @@
 #ifndef LIBWIKT_DOM_NODE_H
 #define LIBWIKT_DOM_NODE_H
 
-#include "../../Prerequisites.h"
+#include "../Prerequisites.h"
 #include <QList>
 #include <QString>
 

@@ -16,7 +16,7 @@
 #include "LinkNode.h"
 #include "LinkTargetNode.h"
 #include "LinkOptionsNode.h"
-#include "../../../Media/MediaUtils.h"
+#include "../../MediaUtils.h"
 #include <QImage>
 #include <QSvgRenderer>
 #include <QUrl>

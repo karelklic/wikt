@@ -13,11 +13,11 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include <libwikt/DictionaryFile/Format3Reader.h>
-#include <libwikt/Wiki/Tree/Link/LinkNode.h>
-#include <libwikt/Wiki/Tree/Link/LinkTargetNode.h>
-#include <libwikt/Wiki/Tree/Article/ArticleNode.h>
-#include <libwikt/Wiki/Parser/ArticleParser.h>
+#include <libwikt/Format3Reader.h>
+#include <libwikt/Tree/Link/LinkNode.h>
+#include <libwikt/Tree/Link/LinkTargetNode.h>
+#include <libwikt/Tree/Article/ArticleNode.h>
+#include <libwikt/Parser/ArticleParser.h>
 #include <QCoreApplication>
 #include <QTextStream>
 #include <QDirIterator>
@@ -85,7 +85,7 @@ int main(int argc, char **argv)
       if (!link->isDisplayableImage()) continue;
       QString fileName = link->target().entry();
       if (!sizes.contains(fileName)) continue;
-      LinkNode::Image image = link->getImageParams(sizes[fileName]._originalSize);
+      LinkNode::Image image = link->getImageParams();
       sizes[fileName]._linkSizes.append(image.size);
     }
     delete node;
@@ -104,8 +104,13 @@ int main(int argc, char **argv)
     //CHECK(it.value()._linkSizes.count() > 0);
 
     QSize maxSize(0, 0);
-    foreach(const QSize &size, it.value()._linkSizes)
+    foreach(QSize size, it.value()._linkSizes)
     {
+      if (size.width() < 0) // not valid
+        size.setWidth(it.value()._originalSize.width() * size.height() / (double)it.value()._originalSize.height());
+      if (size.height() < 0) // not valid
+        size.setHeight(it.value()._originalSize.height() * size.width() / (double)it.value()._originalSize.width());
+
       int pixelCount = size.width() * size.height();
       if (pixelCount > maxSize.width() * maxSize.height())
         maxSize = size;

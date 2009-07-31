@@ -15,10 +15,10 @@
  */
 #include "RelPagesInterwikiRootItem.h"
 #include "RelPagesExternalLinkItem.h"
-#include <libwikt/Wiki/Tree/Node.h>
-#include <libwikt/Wiki/Tree/ParagraphNode.h>
-#include <libwikt/Wiki/Tree/Link/LinkNode.h>
-#include <libwikt/Wiki/Tree/Link/LinkTargetNode.h>
+#include <libwikt/Tree/Node.h>
+#include <libwikt/Tree/ParagraphNode.h>
+#include <libwikt/Tree/Link/LinkNode.h>
+#include <libwikt/Tree/Link/LinkTargetNode.h>
 #include <QUrl>
 
 namespace RelatedPages {
