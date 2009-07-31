@@ -16,7 +16,7 @@
 #ifndef RELATEDPAGESROOTITEM_H_
 #define RELATEDPAGESROOTITEM_H_
 
-#include "Item.h"
+#include "RelPagesItem.h"
 class ArticleNode;
 
 namespace RelatedPages {

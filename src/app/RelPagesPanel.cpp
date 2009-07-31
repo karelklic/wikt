@@ -13,19 +13,18 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "InterestingPagesPanel.h"
-#include "InterestingPagesItem.h"
-#include "InterestingPagesLinkItem.h"
-#include "../MainWindow/MainWindow.h"
-#include "../MainWindow/Coordinator.h"
+#include "RelPagesPanel.h"
+#include "RelPagesInternalLinkItem.h"
+#include "RelPagesExternalLinkItem.h"
 #include <QTreeView>
 #include <QSettings>
 #include <QTimer>
 
-namespace InterestingPages {
+namespace RelatedPages {
 
 //===========================================================================
-Panel::Panel() : QDockWidget(tr("Interesting Pages")), _model(this)
+Panel::Panel() : QDockWidget(tr("Related Pages")), _model(this),
+  _urlOpeningAllowed(true)
 {
   _treeView = new QTreeView(this);
   _treeView->setModel(&_model);
@@ -44,37 +43,59 @@ Panel::Panel() : QDockWidget(tr("Interesting Pages")), _model(this)
 //===========================================================================
 void Panel::modelChanged()
 {
-  // Update expansion of nodes, as it provides good user experience.
+  // Update expansion of External Links root node and Interwiki root node.
+  // Provides good user experience.
   QSettings settings;
-  QModelIndex languagesOfTheWorld = _model.languagesRootItemIndex();
-  if (languagesOfTheWorld.isValid())
+  QModelIndex externalLinks = _model.externalLinksIndex();
+  if (externalLinks.isValid())
   {
-    bool languagesExpanded = settings.value("languagesOfTheWorldExpanded", false).toBool();
-    _treeView->setExpanded(languagesOfTheWorld, languagesExpanded);
+    bool externalLinksExpanded = settings.value("externalLinksExpanded", false).toBool();
+    _treeView->setExpanded(externalLinks, externalLinksExpanded);
   }
 
-  setVisible(MainWindow::instance()->coordinator()->state() == Coordinator::HomeActivated ||
-      MainWindow::instance()->coordinator()->text().startsWith("Wikt:"));
+  QModelIndex interwiki = _model.interwikiIndex();
+  if (interwiki.isValid())
+  {
+    bool interwikiExpanded = settings.value("interwikiExpanded", false).toBool();
+    _treeView->setExpanded(interwiki, interwikiExpanded);
+  }
+
+  // Set selected index.
+  QModelIndex lastEntry = _model.lastEntryIndex();
+  if (lastEntry.isValid())
+    _treeView->setCurrentIndex(lastEntry);
+
+  // Set visibility: the panel is hidden when empty, and also when
+  // a page from namespace Wikt is displayed.
+  setVisible(_model.rowCount() > 0 && !_model.lastEntry().startsWith("Wikt:"));
 }
 
 //===========================================================================
 void Panel::collapsed(const QModelIndex &index)
 {
   if (!index.isValid()) return;
+  // Save state (expanded/collapsed) of External Links root node and
+  // of Interwiki root node.
   QSettings settings;
   Item *item = static_cast<Item*>(index.internalPointer());
-  if (item->type() == Item::LanguagesOfTheWorld)
-    settings.setValue("languagesOfTheWorldExpanded", false);
+  if (item->type() == Item::ExternalLinksRoot)
+    settings.setValue("externalLinksExpanded", false);
+  else if  (item->type() == Item::InterwikiRoot)
+    settings.setValue("interwikiExpanded", false);
 }
 
 //===========================================================================
 void Panel::expanded(const QModelIndex &index)
 {
   if (!index.isValid()) return;
+  // Save state (expanded/collapsed) of External Links root node and
+  // of Interwiki root node.
   QSettings settings;
   Item *item = static_cast<Item*>(index.internalPointer());
-  if (item->type() == Item::LanguagesOfTheWorld)
-    settings.setValue("languagesOfTheWorldExpanded", true);
+  if (item->type() == Item::ExternalLinksRoot)
+    settings.setValue("externalLinksExpanded", true);
+  else if  (item->type() == Item::InterwikiRoot)
+    settings.setValue("interwikiExpanded", true);
 }
 
 //===========================================================================
@@ -82,8 +103,24 @@ void Panel::activated(const QModelIndex &index)
 {
   if (!index.isValid()) return;
   Item *item = static_cast<Item*>(index.internalPointer());
-  if (item->type() == Item::Link)
-    emit localLinkClicked(static_cast<LinkItem*>(item)->link());
+  if (item->type() == Item::ExternalLink && _urlOpeningAllowed)
+  {
+    static_cast<ExternalLinkItem*>(item)->openUrl();
+
+    // Protection from double-click activation.
+    // We do not want a link to be opened twice when user
+    // double-clicks.
+    _urlOpeningAllowed = false;
+    QTimer::singleShot(3000, this, SLOT(allowOpeningUrl()));
+  }
+  else if  (item->type() == Item::InternalLink)
+    emit localLinkClicked(static_cast<InternalLinkItem*>(item)->link());
+}
+
+//===========================================================================
+void Panel::allowOpeningUrl()
+{
+  _urlOpeningAllowed = true;
 }
 
 }

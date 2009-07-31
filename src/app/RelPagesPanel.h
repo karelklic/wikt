@@ -16,7 +16,7 @@
 #ifndef RELATEDPAGESPANEL_H_
 #define RELATEDPAGESPANEL_H_
 
-#include "Model.h"
+#include "RelPagesModel.h"
 #include <QDockWidget>
 
 QT_BEGIN_NAMESPACE

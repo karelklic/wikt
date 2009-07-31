@@ -13,28 +13,18 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "NetworkReplyEntry.h"
-#include "../MainWindow.h"
-#include "../../WikiSource.h"
-#include <libwikt/UrlUtils.h>
+#include "NetworkReplyTitlePage.h"
+#include "MainWindow.h"
+#include "WikiSource.h"
+#include <libwikt/Version.h>
 #include <libwikt/Prerequisites.h>
 #include <QTimer>
 
 //===========================================================================
-NetworkReplyEntry::NetworkReplyEntry(const QNetworkRequest &request,
+NetworkReplyTitlePage::NetworkReplyTitlePage(const QNetworkRequest &request,
     QObject *parent) : QNetworkReply(parent)
 {
-  QString entry = UrlUtils::toEntryName(request.url());
-  QString page;
-  page += "<html>";
-  page += "<head>";
-  page += "  <link rel=\"stylesheet\" type=\"text/css\" href=\"special://stylesheet\" />";
-  page += "  <script type=\"text/javascript\" src=\"embedded://images/enwikt.js\"></script>";
-  page += "</head>";
-  page += "<body>";
-  page += MainWindow::instance()->wikiSource()->xhtml(entry);
-  page += "</body>";
-  page += "</html>";
+  QString page = MainWindow::instance()->wikiSource()->source("Wikt:Title Page");
   _buffer.open(QBuffer::ReadWrite);
   _buffer.write(page.toUtf8());
   _buffer.seek(0);
@@ -48,18 +38,13 @@ NetworkReplyEntry::NetworkReplyEntry(const QNetworkRequest &request,
 
   QTimer::singleShot(0, this, SIGNAL(metaDataChanged()));
   QTimer::singleShot(0, this, SIGNAL(readyRead()));
-
-  connect(&_checkFinishedTimer, SIGNAL(timeout()),
-      this, SLOT(checkFinished()));
-  _checkFinishedTimer.start(50);
 }
 
 //===========================================================================
-void NetworkReplyEntry::checkFinished()
+qint64 NetworkReplyTitlePage::readData(char *data, qint64 maxSize)
 {
-  if (_buffer.bytesAvailable() + QNetworkReply::bytesAvailable() == 0)
-  {
-    _checkFinishedTimer.stop();
+  qint64 length = _buffer.read(data, maxSize);
+  if (_buffer.bytesAvailable() == 0)
     QTimer::singleShot(0, this, SIGNAL(finished()));
-  }
+  return length;
 }

@@ -14,8 +14,8 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "MediaPlayer.h"
-#include "../MainWindow/MainWindow.h"
-#include "../WikiSource.h"
+#include "MainWindow.h"
+#include "WikiSource.h"
 #include <Phonon>
 #include <QBuffer>
 

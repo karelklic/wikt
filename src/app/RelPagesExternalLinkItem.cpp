@@ -13,28 +13,22 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef RELATEDPAGESEXTERNALLINKSITEM_H_
-#define RELATEDPAGESEXTERNALLINKSITEM_H_
-
-#include "Item.h"
-#include <QString>
-#include <QUrl>
+#include "RelPagesExternalLinkItem.h"
+#include <QDesktopServices>
 
 namespace RelatedPages {
 
-class ExternalLinkItem : public Item
+//===========================================================================
+ExternalLinkItem::ExternalLinkItem(const QString &title, const QUrl &url,
+  Item *parent) : Item(ExternalLink, parent), _url(url)
 {
-public:
-  /// Standard constructor.
-  ExternalLinkItem(const QString &title, const QUrl &url, Item *parent);
-
-  /// Opens the URL in external browser.
-  void openUrl() const;
-
-protected:
-  QUrl _url;
-};
-
+  _itemData.append(title);
 }
 
-#endif /* RELATEDPAGESEXTERNALLINKSITEM_H_ */
+//===========================================================================
+void ExternalLinkItem::openUrl() const
+{
+  QDesktopServices::openUrl(_url);
+}
+
+}

@@ -13,38 +13,46 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "NetworkReplyTitlePage.h"
-#include "../MainWindow.h"
-#include "../../WikiSource.h"
-#include <libwikt/Version.h>
+#include "NetworkReplyMediaFile.h"
+#include "MainWindow.h"
+#include "WikiSource.h"
+#include <libwikt/UrlUtils.h>
 #include <libwikt/Prerequisites.h>
 #include <QTimer>
+#include <QByteArray>
 
 //===========================================================================
-NetworkReplyTitlePage::NetworkReplyTitlePage(const QNetworkRequest &request,
+NetworkReplyMediaFile::NetworkReplyMediaFile(const QNetworkRequest &request,
     QObject *parent) : QNetworkReply(parent)
 {
-  QString page = MainWindow::instance()->wikiSource()->source("Wikt:Title Page");
+  QString fileName = UrlUtils::toEntryName(request.url());
+  QByteArray media = MainWindow::instance()->wikiSource()->media(fileName);
+
   _buffer.open(QBuffer::ReadWrite);
-  _buffer.write(page.toUtf8());
+  _buffer.write(media);
   _buffer.seek(0);
 
   setRequest(request);
   setUrl(request.url());
   setOpenMode(QIODevice::ReadOnly);
   setOperation(QNetworkAccessManager::GetOperation);
-  setHeader(QNetworkRequest::ContentTypeHeader, "text/html;charset=utf-8");
+  setHeader(QNetworkRequest::ContentTypeHeader, UrlUtils::fileNameToMimeType(fileName));
   setHeader(QNetworkRequest::ContentLengthHeader, _buffer.size());
 
   QTimer::singleShot(0, this, SIGNAL(metaDataChanged()));
   QTimer::singleShot(0, this, SIGNAL(readyRead()));
+
+  connect(&_checkFinishedTimer, SIGNAL(timeout()),
+      this, SLOT(checkFinished()));
+  _checkFinishedTimer.start(50);
 }
 
 //===========================================================================
-qint64 NetworkReplyTitlePage::readData(char *data, qint64 maxSize)
+void NetworkReplyMediaFile::checkFinished()
 {
-  qint64 length = _buffer.read(data, maxSize);
-  if (_buffer.bytesAvailable() == 0)
+  if (_buffer.bytesAvailable() + QNetworkReply::bytesAvailable() == 0)
+  {
+    _checkFinishedTimer.stop();
     QTimer::singleShot(0, this, SIGNAL(finished()));
-  return length;
+  }
 }

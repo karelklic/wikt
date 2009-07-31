@@ -13,28 +13,28 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "Item.h"
+#ifndef RELATEDPAGESEXTERNALLINKSITEM_H_
+#define RELATEDPAGESEXTERNALLINKSITEM_H_
+
+#include "RelPagesItem.h"
+#include <QString>
+#include <QUrl>
 
 namespace RelatedPages {
 
-//===========================================================================
-Item::Item(Type type, Item *parent)
-  :  _parentItem(parent), _type(type)
+class ExternalLinkItem : public Item
 {
-}
+public:
+  /// Standard constructor.
+  ExternalLinkItem(const QString &title, const QUrl &url, Item *parent);
 
-//===========================================================================
-Item::~Item()
-{
-  qDeleteAll(_childItems);
-}
+  /// Opens the URL in external browser.
+  void openUrl() const;
 
-//===========================================================================
-int Item::row() const
-{
-  if (_parentItem)
-      return _parentItem->_childItems.indexOf(const_cast<Item*>(this));
-  return 0;
-}
+protected:
+  QUrl _url;
+};
 
 }
+
+#endif /* RELATEDPAGESEXTERNALLINKSITEM_H_ */

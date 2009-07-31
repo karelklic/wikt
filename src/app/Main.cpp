@@ -13,7 +13,7 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "MainWindow/MainWindow.h"
+#include "MainWindow.h"
 #include <libwikt/Version.h>
 #include <QApplication>
 

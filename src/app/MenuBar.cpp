@@ -17,10 +17,10 @@
 #include "MainWindow.h"
 #include "Coordinator.h"
 #include "FindPanel.h"
-#include "WebView/WebView.h"
-#include "../Debug/HtmlSourceView.h"
-#include "../Debug/WikiProcessingView.h"
-#include "../Options/OptionsDialog.h"
+#include "WebView.h"
+#include "HtmlSourceView.h"
+#include "WikiProcessingView.h"
+#include "OptionsDialog.h"
 #include <libwikt/Version.h>
 #include <libwikt/Wiki/Tree/Heading/Heading.h>
 #include <QMessageBox>

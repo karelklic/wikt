@@ -13,24 +13,29 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef RELATEDPAGESINTERWIKIROOTITEM_H_
-#define RELATEDPAGESINTERWIKIROOTITEM_H_
+#ifndef RELATEDPAGESLOCALENTRYLINKITEM_H_
+#define RELATEDPAGESLOCALENTRYLINKITEM_H_
 
-#include "Item.h"
+#include "RelPagesItem.h"
 #include <QString>
-class Node;
 
 namespace RelatedPages {
 
-class InterwikiRootItem : public Item
+class InternalLinkItem : public Item
 {
 public:
   /// Standard constructor.
-  InterwikiRootItem(Item *parent);
+  /// @param entry
+  ///   Serves as the title and the link.
+  InternalLinkItem(const QString &entry, Item *parent);
+  InternalLinkItem(const QString &title, const QString &link, Item *parent);
 
-  void fill(const Node *rootNode);
+  const QString &link() const { return _link; }
+
+protected:
+  QString _link;
 };
 
 }
 
-#endif /* RELATEDPAGESINTERWIKIROOTITEM_H_ */
+#endif /* RELATEDPAGESLOCALENTRYLINKITEM_H_ */

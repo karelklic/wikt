@@ -13,11 +13,11 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "Model.h"
-#include "RootItem.h"
-#include "ExternalLinksRootItem.h"
-#include "InternalLinkItem.h"
-#include "InterwikiRootItem.h"
+#include "RelPagesModel.h"
+#include "RelPagesRootItem.h"
+#include "RelPagesExternalLinksRootItem.h"
+#include "RelPagesInternalLinkItem.h"
+#include "RelPagesInterwikiRootItem.h"
 #include <libwikt/Wiki/Tree/Article/ArticleNode.h>
 
 namespace RelatedPages {

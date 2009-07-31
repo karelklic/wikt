@@ -13,30 +13,37 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "NetworkReplyMediaFile.h"
-#include "../MainWindow.h"
-#include "../../WikiSource.h"
+#include "NetworkReplyEntry.h"
+#include "MainWindow.h"
+#include "WikiSource.h"
 #include <libwikt/UrlUtils.h>
 #include <libwikt/Prerequisites.h>
 #include <QTimer>
-#include <QByteArray>
 
 //===========================================================================
-NetworkReplyMediaFile::NetworkReplyMediaFile(const QNetworkRequest &request,
+NetworkReplyEntry::NetworkReplyEntry(const QNetworkRequest &request,
     QObject *parent) : QNetworkReply(parent)
 {
-  QString fileName = UrlUtils::toEntryName(request.url());
-  QByteArray media = MainWindow::instance()->wikiSource()->media(fileName);
-
+  QString entry = UrlUtils::toEntryName(request.url());
+  QString page;
+  page += "<html>";
+  page += "<head>";
+  page += "  <link rel=\"stylesheet\" type=\"text/css\" href=\"special://stylesheet\" />";
+  page += "  <script type=\"text/javascript\" src=\"embedded://images/enwikt.js\"></script>";
+  page += "</head>";
+  page += "<body>";
+  page += MainWindow::instance()->wikiSource()->xhtml(entry);
+  page += "</body>";
+  page += "</html>";
   _buffer.open(QBuffer::ReadWrite);
-  _buffer.write(media);
+  _buffer.write(page.toUtf8());
   _buffer.seek(0);
 
   setRequest(request);
   setUrl(request.url());
   setOpenMode(QIODevice::ReadOnly);
   setOperation(QNetworkAccessManager::GetOperation);
-  setHeader(QNetworkRequest::ContentTypeHeader, UrlUtils::fileNameToMimeType(fileName));
+  setHeader(QNetworkRequest::ContentTypeHeader, "text/html;charset=utf-8");
   setHeader(QNetworkRequest::ContentLengthHeader, _buffer.size());
 
   QTimer::singleShot(0, this, SIGNAL(metaDataChanged()));
@@ -48,7 +55,7 @@ NetworkReplyMediaFile::NetworkReplyMediaFile(const QNetworkRequest &request,
 }
 
 //===========================================================================
-void NetworkReplyMediaFile::checkFinished()
+void NetworkReplyEntry::checkFinished()
 {
   if (_buffer.bytesAvailable() + QNetworkReply::bytesAvailable() == 0)
   {

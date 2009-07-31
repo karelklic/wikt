@@ -14,8 +14,8 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "OptionsDialog.h"
-#include "../MainWindow/MainWindow.h"
-#include "../MainWindow/Coordinator.h"
+#include "MainWindow.h"
+#include "Coordinator.h"
 #include <libwikt/Wiki/Language/Language.h>
 #include <libwikt/Debug/Debug.h>
 #include <QSettings>

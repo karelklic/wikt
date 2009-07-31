@@ -15,7 +15,7 @@
  */
 #include "FindPanel.h"
 #include "MainWindow.h"
-#include "WebView/WebView.h"
+#include "WebView.h"
 #include <QLineEdit>
 #include <QPushButton>
 #include <QCheckBox>

@@ -13,22 +13,24 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "ExternalLinkItem.h"
-#include <QDesktopServices>
+#ifndef RELATEDPAGESINTERWIKIROOTITEM_H_
+#define RELATEDPAGESINTERWIKIROOTITEM_H_
+
+#include "RelPagesItem.h"
+#include <QString>
+class Node;
 
 namespace RelatedPages {
 
-//===========================================================================
-ExternalLinkItem::ExternalLinkItem(const QString &title, const QUrl &url,
-  Item *parent) : Item(ExternalLink, parent), _url(url)
+class InterwikiRootItem : public Item
 {
-  _itemData.append(title);
-}
+public:
+  /// Standard constructor.
+  InterwikiRootItem(Item *parent);
 
-//===========================================================================
-void ExternalLinkItem::openUrl() const
-{
-  QDesktopServices::openUrl(_url);
-}
+  void fill(const Node *rootNode);
+};
 
 }
+
+#endif /* RELATEDPAGESINTERWIKIROOTITEM_H_ */

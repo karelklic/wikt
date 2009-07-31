@@ -13,11 +13,11 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "RootItem.h"
-#include "InternalLinkItem.h"
-#include "ExternalLinksRootItem.h"
-#include "../MainWindow/MainWindow.h"
-#include "../WikiSource.h"
+#include "RelPagesRootItem.h"
+#include "RelPagesInternalLinkItem.h"
+#include "RelPagesExternalLinksRootItem.h"
+#include "MainWindow.h"
+#include "WikiSource.h"
 #include <libwikt/Wiki/Tree/Article/ArticleNode.h>
 #include <libwikt/Wiki/Tree/Html/HtmlElementNode.h>
 #include <libwikt/Wiki/Tree/Link/LinkNode.h>

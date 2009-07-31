@@ -13,8 +13,8 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "InterwikiRootItem.h"
-#include "ExternalLinkItem.h"
+#include "RelPagesInterwikiRootItem.h"
+#include "RelPagesExternalLinkItem.h"
 #include <libwikt/Wiki/Tree/Node.h>
 #include <libwikt/Wiki/Tree/ParagraphNode.h>
 #include <libwikt/Wiki/Tree/Link/LinkNode.h>

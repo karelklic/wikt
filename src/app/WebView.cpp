@@ -15,8 +15,8 @@
  */
 #include "WebView.h"
 #include "NetworkAccessManager.h"
-#include "../MainWindow.h"
-#include "../LookupPanel.h"
+#include "MainWindow.h"
+#include "LookupPanel.h"
 #include <libwikt/UrlUtils.h>
 #include <libwikt/Prerequisites.h>
 #include <QWebFrame>

@@ -14,8 +14,8 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "NetworkReplyEmbeddedFile.h"
-#include "../MainWindow.h"
-#include "../../WikiSource.h"
+#include "MainWindow.h"
+#include "WikiSource.h"
 #include <libwikt/UrlUtils.h>
 #include <libwikt/Prerequisites.h>
 #include <QTimer>
