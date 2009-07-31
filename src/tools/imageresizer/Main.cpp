@@ -14,9 +14,9 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include <libwikt/Format3Reader.h>
-#include <libwikt/Tree/Link/LinkNode.h>
-#include <libwikt/Tree/Link/LinkTargetNode.h>
-#include <libwikt/Tree/Article/ArticleNode.h>
+#include <libwikt/Tree/LinkNode.h>
+#include <libwikt/Tree/LinkTargetNode.h>
+#include <libwikt/Tree/ArticleNode.h>
 #include <libwikt/Parser/ArticleParser.h>
 #include <QCoreApplication>
 #include <QTextStream>

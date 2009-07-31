@@ -17,7 +17,7 @@
 #define STATSPAGEGENERATOR_H_
 
 #include "LanguageStatistic.h"
-#include <libwikt/Language/Language.h>
+#include <libwikt/Language.h>
 #include <QString>
 #include <QMap>
 class Format4Writer;

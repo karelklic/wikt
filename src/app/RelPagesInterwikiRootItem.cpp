@@ -17,8 +17,8 @@
 #include "RelPagesExternalLinkItem.h"
 #include <libwikt/Tree/Node.h>
 #include <libwikt/Tree/ParagraphNode.h>
-#include <libwikt/Tree/Link/LinkNode.h>
-#include <libwikt/Tree/Link/LinkTargetNode.h>
+#include <libwikt/Tree/LinkNode.h>
+#include <libwikt/Tree/LinkTargetNode.h>
 #include <QUrl>
 
 namespace RelatedPages {

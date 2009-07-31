@@ -15,8 +15,8 @@
  */
 #include "ParagraphNode.h"
 #include "TextTokenNode.h"
-#include "Link/LinkNode.h"
-#include "Link/LinkTargetNode.h"
+#include "LinkNode.h"
+#include "LinkTargetNode.h"
 
 //===========================================================================
 QString ParagraphNode::toXHtml() const

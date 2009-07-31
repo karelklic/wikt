@@ -24,7 +24,7 @@
 #include "MediaPlayer.h"
 #include "WikiSource.h"
 #include <libwikt/UrlUtils.h>
-#include <libwikt/Tree/Article/ArticleNode.h>
+#include <libwikt/Tree/ArticleNode.h>
 #include <libwikt/Prerequisites.h>
 #include <QAction>
 #include <QDesktopServices>

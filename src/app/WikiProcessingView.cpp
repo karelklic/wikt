@@ -15,7 +15,7 @@
  */
 #include "WikiProcessingView.h"
 #include <libwikt/Parser/ArticleParser.h>
-#include <libwikt/Tree/Article/ArticleNode.h>
+#include <libwikt/Tree/ArticleNode.h>
 #include <QTextEdit>
 #include <QPushButton>
 #include <QVBoxLayout>

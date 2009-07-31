@@ -13,10 +13,10 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef INTERWIKINAMES_H_
-#define INTERWIKINAMES_H_
+#ifndef LIBWIKT_PROJECT_H_
+#define LIBWIKT_PROJECT_H_
 
-#include "Language/Language.h"
+#include "Language.h"
 #include <QString>
 #include <QMap>
 #include <QStringList>
@@ -79,4 +79,4 @@ protected:
   QMap<Type, QString> _url;
 };
 
-#endif /* INTERWIKINAMES_H_ */
+#endif /* LIBWIKT_PROJECT_H_ */

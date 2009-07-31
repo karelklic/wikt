@@ -15,8 +15,8 @@
  */
 #include "MediaDownloader.h"
 #include <libwikt/Parser/ArticleParser.h>
-#include <libwikt/Tree/Link/LinkNode.h>
-#include <libwikt/Tree/Link/LinkTargetNode.h>
+#include <libwikt/Tree/LinkNode.h>
+#include <libwikt/Tree/LinkTargetNode.h>
 #include <QDir>
 #include <QUrl>
 #include <QNetworkRequest>

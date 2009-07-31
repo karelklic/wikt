@@ -16,8 +16,8 @@
 #include "LinkConverter.h"
 #include <libwikt/Format3Reader.h>
 #include <libwikt/MediaReader.h>
-#include <libwikt/Parser/Link/LinkParser.h>
-#include <libwikt/Tree/Link/LinkNode.h>
+#include <libwikt/Parser/LinkParser.h>
+#include <libwikt/Tree/LinkNode.h>
 #include <QUrl>
 
 //===========================================================================

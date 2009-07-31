@@ -16,7 +16,7 @@
 #ifndef ARTICLE_H_
 #define ARTICLE_H_
 
-#include "../Tree/Article/ArticleNode.h"
+#include "../Tree/ArticleNode.h"
 
 class ArticleParser
 {

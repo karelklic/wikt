@@ -18,10 +18,10 @@
 #include "RelPagesExternalLinksRootItem.h"
 #include "MainWindow.h"
 #include "WikiSource.h"
-#include <libwikt/Tree/Article/ArticleNode.h>
-#include <libwikt/Tree/Html/HtmlElementNode.h>
-#include <libwikt/Tree/Link/LinkNode.h>
-#include <libwikt/Tree/Link/LinkTargetNode.h>
+#include <libwikt/Tree/ArticleNode.h>
+#include <libwikt/Tree/HtmlElementNode.h>
+#include <libwikt/Tree/LinkNode.h>
+#include <libwikt/Tree/LinkTargetNode.h>
 
 namespace RelatedPages {
 

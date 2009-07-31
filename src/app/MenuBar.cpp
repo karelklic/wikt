@@ -22,7 +22,7 @@
 #include "WikiProcessingView.h"
 #include "OptionsDialog.h"
 #include <libwikt/Version.h>
-#include <libwikt/Tree/Heading/Heading.h>
+#include <libwikt/Tree/Heading.h>
 #include <QMessageBox>
 
 //===========================================================================

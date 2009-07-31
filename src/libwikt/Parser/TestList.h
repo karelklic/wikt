@@ -16,19 +16,19 @@
 #ifndef UNITTESTLIST_H_
 #define UNITTESTLIST_H_
 
-#include "Buffer/BufferTest.h"
-#include "Heading/HeadingParserTest.h"
-#include "Html/HtmlEntityParserTest.h"
-#include "Html/InlineHtmlParserTest.h"
-#include "Link/LinkParserTest.h"
-#include "List/BulletListParserTest.h"
-#include "List/ListParserTest.h"
-#include "List/NumberedListParserTest.h"
-#include "Paragraph/ParagraphParserTest.h"
-#include "Table/TableParserTest.h"
-#include "Table/TableCellParserTest.h"
-#include "TextBlock/TextBlockParserTest.h"
-#include "BoldItalic/BoldItalicParserTest.h"
+#include "BufferTest.h"
+#include "HeadingParserTest.h"
+#include "HtmlEntityParserTest.h"
+#include "InlineHtmlParserTest.h"
+#include "LinkParserTest.h"
+#include "BulletListParserTest.h"
+#include "ListParserTest.h"
+#include "NumberedListParserTest.h"
+#include "ParagraphParserTest.h"
+#include "TableParserTest.h"
+#include "TableCellParserTest.h"
+#include "TextBlockParserTest.h"
+#include "BoldItalicParserTest.h"
 
 #include <QTest>
 template <typename T> void test() { T c; QTest::qExec(&c); }

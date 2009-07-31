@@ -12,7 +12,7 @@ QT += core \
     testlib
 
 HEADERS = \
-    Parser/Table/TableCaptionParser.h \
+    Parser/TableCaptionParser.h \
     Debug.h \
     Profiler.h \
     ProfilerView.h \
@@ -28,76 +28,10 @@ HEADERS = \
     UrlUtils.h \
     Version.h \
     Namespace.h \
-    Parser/ArticleParser.h \
-    Parser/Block/BlockParser.h \
-    Parser/BoldItalic/BoldItalicParser.h \
-    Parser/BoldItalic/BoldItalicParserTest.h \
-    Parser/Buffer/Buffer.h \
-    Parser/Buffer/BufferTest.h \
-    Parser/Heading/HeadingParser.h \
-    Parser/Heading/HeadingParserTest.h \
-    Parser/Html/BlockHtmlParser.h \
-    Parser/Html/HtmlEntityParser.h \
-    Parser/Html/HtmlEntityParserTest.h \
-    Parser/Html/InlineHtmlParser.h \
-    Parser/Html/InlineHtmlParserTest.h \
-    Parser/Link/ExternalLinkParser.h \
-    Parser/Link/LinkParser.h \
-    Parser/Link/LinkParserTest.h \
-    Parser/List/BulletListParser.h \
-    Parser/List/BulletListParserTest.h \
-    Parser/List/DefinitionListParser.h \
-    Parser/List/ListParser.h \
-    Parser/List/ListParserTest.h \
-    Parser/List/NumberedListParser.h \
-    Parser/List/NumberedListParserTest.h \
-    Parser/Paragraph/ParagraphParser.h \
-    Parser/Paragraph/ParagraphParserTest.h \
-    Parser/Prerequisites.h \
-    Parser/Table/TableCellParser.h \
-    Parser/Table/TableCellParserTest.h \
-    Parser/Table/TableHeadParser.h \
-    Parser/Table/TableParser.h \
-    Parser/Table/TableParserTest.h \
-    Parser/Table/TableRowParser.h \
-    Parser/TestList.h \
-    Parser/TextBlock/TextBlockParser.h \
-    Parser/TextBlock/TextBlockParserTest.h \
     Project.h \
-    Tree/Article/ArticleNode.h \
-    Tree/Article/ArticleNodeTest.h \
-    Tree/Attribute/AttributeGroupNode.h \
-    Tree/Attribute/AttributeNode.h \
-    Tree/BoldNode.h \
-    Tree/ExtensionTokenNode.h \
-    Tree/Heading/Heading.h \
-    Tree/Heading/HeadingNode.h \
-    Tree/Html/HtmlElementNode.h \
-    Tree/Html/HtmlEntityNode.h \
-    Tree/ItalicsNode.h \
-    Tree/Link/ExternalLinkNode.h \
-    Tree/Link/LinkNode.h \
-    Tree/Link/LinkOptionsNode.h \
-    Tree/Link/LinkTargetNode.h \
-    Tree/Link/LinkTargetNodeTest.h \
-    Tree/List/BulletListNode.h \
-    Tree/List/DefinitionListDefItemNode.h \
-    Tree/List/DefinitionListNode.h \
-    Tree/List/DefinitionListTermItemNode.h \
-    Tree/List/ListItemNode.h \
-    Tree/List/NumberedListNode.h \
-    Tree/Node.h \
-    Tree/ParagraphNode.h \
-    Tree/PreBlock/PreBlockNode.h \
-    Tree/PreBlock/PreLineNode.h \
-    Tree/Table/TableCaptionNode.h \
-    Tree/Table/TableCellNode.h \
-    Tree/Table/TableHeadNode.h \
-    Tree/Table/TableNode.h \
-    Tree/Table/TableRowNode.h \
-    Tree/TextBlockNode.h \
-    Tree/TextTokenNode.h \
-    Language/Language.h
+    Language.h \
+    Parser/*.h \
+    Tree/*.h
 
 SOURCES = \
     Debug.cpp \
@@ -112,72 +46,7 @@ SOURCES = \
     Unicode.cpp \
     UrlUtils.cpp \
     Namespace.cpp \
-    Parser/ArticleParser.cpp \
-    Parser/Block/BlockParser.cpp \
-    Parser/BoldItalic/BoldItalicParser.cpp \
-    Parser/BoldItalic/BoldItalicParserTest.cpp \
-    Parser/Buffer/Buffer.cpp \
-    Parser/Buffer/BufferTest.cpp \
-    Parser/Heading/HeadingParser.cpp \
-    Parser/Heading/HeadingParserTest.cpp \
-    Parser/Html/BlockHtmlParser.cpp \
-    Parser/Html/HtmlEntityParser.cpp \
-    Parser/Html/HtmlEntityParserTest.cpp \
-    Parser/Html/InlineHtmlParser.cpp \
-    Parser/Html/InlineHtmlParserTest.cpp \
-    Parser/Link/ExternalLinkParser.cpp \
-    Parser/Link/LinkParser.cpp \
-    Parser/Link/LinkParserTest.cpp \
-    Parser/List/BulletListParser.cpp \
-    Parser/List/BulletListParserTest.cpp \
-    Parser/List/DefinitionListParser.cpp \
-    Parser/List/ListParser.cpp \
-    Parser/List/ListParserTest.cpp \
-    Parser/List/NumberedListParser.cpp \
-    Parser/List/NumberedListParserTest.cpp \
-    Parser/Paragraph/ParagraphParser.cpp \
-    Parser/Paragraph/ParagraphParserTest.cpp \
-    Parser/Table/TableCellParser.cpp \
-    Parser/Table/TableCellParserTest.cpp \
-    Parser/Table/TableHeadParser.cpp \
-    Parser/Table/TableParser.cpp \
-    Parser/Table/TableParserTest.cpp \
-    Parser/Table/TableRowParser.cpp \
-    Parser/Table/TableCaptionParser.cpp \
-    Parser/TextBlock/TextBlockParser.cpp \
-    Parser/TextBlock/TextBlockParserTest.cpp \
     Project.cpp \
-    Tree/Article/ArticleNode.cpp \
-    Tree/Article/ArticleNodeTest.cpp \
-    Tree/Attribute/AttributeGroupNode.cpp \
-    Tree/Attribute/AttributeNode.cpp \
-    Tree/BoldNode.cpp \
-    Tree/ExtensionTokenNode.cpp \
-    Tree/Heading/Heading.cpp \
-    Tree/Heading/HeadingNode.cpp \
-    Tree/Html/HtmlElementNode.cpp \
-    Tree/Html/HtmlEntityNode.cpp \
-    Tree/ItalicsNode.cpp \
-    Tree/Link/ExternalLinkNode.cpp \
-    Tree/Link/LinkNode.cpp \
-    Tree/Link/LinkOptionsNode.cpp \
-    Tree/Link/LinkTargetNode.cpp \
-    Tree/Link/LinkTargetNodeTest.cpp \
-    Tree/List/BulletListNode.cpp \
-    Tree/List/DefinitionListDefItemNode.cpp \
-    Tree/List/DefinitionListNode.cpp \
-    Tree/List/DefinitionListTermItemNode.cpp \
-    Tree/List/ListItemNode.cpp \
-    Tree/List/NumberedListNode.cpp \
-    Tree/Node.cpp \
-    Tree/ParagraphNode.cpp \
-    Tree/PreBlock/PreBlockNode.cpp \
-    Tree/PreBlock/PreLineNode.cpp \
-    Tree/Table/TableCaptionNode.cpp \
-    Tree/Table/TableCellNode.cpp \
-    Tree/Table/TableHeadNode.cpp \
-    Tree/Table/TableNode.cpp \
-    Tree/Table/TableRowNode.cpp \
-    Tree/TextBlockNode.cpp \
-    Tree/TextTokenNode.cpp \
-    Language/Language.cpp
+    Language.cpp \
+    Parser/*.cpp \
+    Tree/*.cpp

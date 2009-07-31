@@ -14,8 +14,8 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "ArticleParser.h"
-#include "Buffer/Buffer.h"
-#include "Block/BlockParser.h"
+#include "Buffer.h"
+#include "BlockParser.h"
 
 //===========================================================================
 ArticleNode *ArticleParser::parse(const QString &name, const QString &text)

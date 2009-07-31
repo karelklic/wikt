@@ -14,7 +14,7 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "Node.h"
-#include "Attribute/AttributeGroupNode.h"
+#include "AttributeGroupNode.h"
 
 //===========================================================================
 Node::Node(Type type) : _xhtmlVisible(true), _type(type)

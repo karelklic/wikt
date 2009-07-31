@@ -15,8 +15,8 @@
  */
 #include "CategoriesModel.h"
 #include "CategoriesItem.h"
-#include <libwikt/Tree/Link/LinkNode.h>
-#include <libwikt/Tree/Link/LinkTargetNode.h>
+#include <libwikt/Tree/LinkNode.h>
+#include <libwikt/Tree/LinkTargetNode.h>
 
 namespace Categories {
 

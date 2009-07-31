@@ -15,7 +15,7 @@
  */
 #include "WikiSource.h"
 #include "WikiSourceCacheItem.h"
-#include <libwikt/Tree/Article/ArticleNode.h>
+#include <libwikt/Tree/ArticleNode.h>
 #include <libwikt/MediaReader.h>
 #include <libwikt/MediaUtils.h>
 #include <libwikt/Format4Reader.h>
