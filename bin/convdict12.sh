@@ -1,2 +1,2 @@
-./convdict12 ../data/enwiktionary-20090711.ei1 ../data/enwiktionary-20090711.errata ../data/enwiktionary-20090711.ei2 
+./convdict12 ../share/wikt/data/enwiktionary-20090711.ei1 ../share/wikt/data/enwiktionary-20090711.errata ../share/wikt/data/enwiktionary-20090711.ei2 
 

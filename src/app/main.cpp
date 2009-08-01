@@ -16,6 +16,10 @@
 #include "mainwindow.h"
 #include <libwikt/version.h>
 #include <QApplication>
+#include <QLocale>
+#include <QTranslator>
+#include <QLibraryInfo>
+#include <QTextStream>
 
 //===========================================================================
 int main(int argc, char *argv[])
@@ -26,11 +30,24 @@ int main(int argc, char *argv[])
   // the application a name. It is also used by QSettings.
   app.setApplicationName("Wikt");
   app.setApplicationVersion(WIKT_VERSION);
-  app.setOrganizationName("Wikt Community");
-  app.setOrganizationDomain("wikt.org");
+  app.setOrganizationName("Wikt");
+  app.setOrganizationDomain("wikt.sourceforge.net");
 
-  MainWindow mainWin;
+  // Load the apropriate translations if available.
+  const QString &locale = QLocale::system().name();
+  const QString &trPath = QCoreApplication::applicationDirPath() + "/../share/wikt/translations";
+  QTranslator translator;
+  translator.load("wikt_" + locale, trPath);
+  QTextStream out(stdout, QIODevice::WriteOnly);
+  out << locale << " " << trPath << endl;
+  app.installTranslator(&translator);
+
+  QTranslator qtTranslator;
+  qtTranslator.load("qt_" + locale, QLibraryInfo::location(QLibraryInfo::TranslationsPath));
+  app.installTranslator(&qtTranslator);
+
   // Initialize the main window and enter the main application loop.
+  MainWindow mainWin;
   mainWin.show();
   return app.exec();
 }

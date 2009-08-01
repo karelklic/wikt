@@ -4,7 +4,7 @@
 <context>
     <name>Categories::Panel</name>
     <message>
-        <location filename="categoriespanel.cpp" line="23"/>
+        <location filename="../../../src/app/categoriespanel.cpp" line="+23"/>
         <source>Categories</source>
         <translation>Kategorie</translation>
     </message>
@@ -12,37 +12,44 @@
 <context>
     <name>ErrorDialogClass</name>
     <message>
-        <location filename="errordialog.ui" line="14"/>
+        <location filename="../../../src/app/errordialog.ui"/>
+        <location filename="../../../src/app/ui_errordialog.h" line="+100"/>
         <source>ErrorDialog</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="errordialog.ui" line="20"/>
+        <location/>
+        <location filename="../../../src/app/ui_errordialog.h" line="+1"/>
         <source>Message text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="errordialog.ui" line="27"/>
+        <location/>
+        <location filename="../../../src/app/ui_errordialog.h" line="+1"/>
         <source>File xxx, line yy.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="errordialog.ui" line="34"/>
+        <location/>
+        <location filename="../../../src/app/ui_errordialog.h" line="+1"/>
         <source>Function xxx</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="errordialog.ui" line="41"/>
+        <location/>
+        <location filename="../../../src/app/ui_errordialog.h" line="+1"/>
         <source>Stack trace</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="errordialog.ui" line="57"/>
+        <location/>
+        <location filename="../../../src/app/ui_errordialog.h" line="+1"/>
         <source>Ignore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="errordialog.ui" line="64"/>
+        <location/>
+        <location filename="../../../src/app/ui_errordialog.h" line="+1"/>
         <source>Ok</source>
         <translation type="unfinished"></translation>
     </message>
@@ -50,32 +57,32 @@
 <context>
     <name>FindPanel</name>
     <message>
-        <location filename="findpanel.cpp" line="28"/>
+        <location filename="../../../src/app/findpanel.cpp" line="+28"/>
         <source>Find</source>
         <translation>Najít</translation>
     </message>
     <message>
-        <location filename="findpanel.cpp" line="30"/>
+        <location line="+2"/>
         <source>Close</source>
         <translation>Zavřít</translation>
     </message>
     <message>
-        <location filename="findpanel.cpp" line="33"/>
+        <location line="+3"/>
         <source>Find:</source>
         <translation>Najít:</translation>
     </message>
     <message>
-        <location filename="findpanel.cpp" line="39"/>
+        <location line="+6"/>
         <source>Previous</source>
         <translation>Předchozí</translation>
     </message>
     <message>
-        <location filename="findpanel.cpp" line="43"/>
+        <location line="+4"/>
         <source>Next</source>
         <translation>Další</translation>
     </message>
     <message>
-        <location filename="findpanel.cpp" line="47"/>
+        <location line="+4"/>
         <source>Case sensitive</source>
         <translation>Rozlišovat velikost</translation>
     </message>
@@ -83,7 +90,7 @@
 <context>
     <name>HtmlSourceView</name>
     <message>
-        <location filename="htmlsourceview.cpp" line="22"/>
+        <location filename="../../../src/app/htmlsourceview.cpp" line="+22"/>
         <source>HTML Source View</source>
         <translation type="unfinished"></translation>
     </message>
@@ -91,7 +98,7 @@
 <context>
     <name>InterestingPages::Panel</name>
     <message>
-        <location filename="interestingpagespanel.cpp" line="28"/>
+        <location filename="../../../src/app/interestingpagespanel.cpp" line="+28"/>
         <source>Interesting Pages</source>
         <translation>Zajímavé stránky</translation>
     </message>
@@ -99,22 +106,22 @@
 <context>
     <name>LookupPanel</name>
     <message>
-        <location filename="lookuppanel.cpp" line="26"/>
+        <location filename="../../../src/app/lookuppanel.cpp" line="+26"/>
         <source>Search</source>
         <translation>Hledat</translation>
     </message>
     <message>
-        <location filename="lookuppanel.cpp" line="40"/>
+        <location line="+14"/>
         <source>Title page</source>
         <translation>Úvodní stránka</translation>
     </message>
     <message>
-        <location filename="lookuppanel.cpp" line="46"/>
+        <location line="+6"/>
         <source>Previous</source>
         <translation>Předchozí</translation>
     </message>
     <message>
-        <location filename="lookuppanel.cpp" line="55"/>
+        <location line="+9"/>
         <source>Next</source>
         <translation>Další</translation>
     </message>
@@ -122,18 +129,18 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="mainwindow.cpp" line="38"/>
+        <location filename="../../../src/app/mainwindow.cpp" line="+38"/>
         <source>Ready</source>
         <translation>Připraven</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="75"/>
-        <location filename="mainwindow.cpp" line="114"/>
+        <location line="+37"/>
+        <location line="+39"/>
         <source>Wikt</source>
         <translation>Wikt</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="116"/>
+        <location line="+2"/>
         <source>%1 - Wikt</source>
         <translation>%1 - Wikt</translation>
     </message>
@@ -141,167 +148,167 @@
 <context>
     <name>MenuBar</name>
     <message>
-        <location filename="menubar.cpp" line="36"/>
+        <location filename="../../../src/app/menubar.cpp" line="+36"/>
         <source>&amp;Quit</source>
         <translation>U&amp;končit</translation>
     </message>
     <message>
-        <location filename="menubar.cpp" line="37"/>
+        <location line="+1"/>
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="menubar.cpp" line="38"/>
+        <location line="+1"/>
         <source>Quit the application</source>
         <translation>Ukončit aplikaci</translation>
     </message>
     <message>
-        <location filename="menubar.cpp" line="45"/>
+        <location line="+7"/>
         <source>Ctrl+X</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="menubar.cpp" line="47"/>
+        <location line="+2"/>
         <source>Ctrl+C</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="menubar.cpp" line="49"/>
+        <location line="+2"/>
         <source>Ctrl+V</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="menubar.cpp" line="52"/>
+        <location line="+3"/>
         <source>Ctrl+A</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="menubar.cpp" line="54"/>
+        <location line="+2"/>
         <source>&amp;Find</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="menubar.cpp" line="55"/>
+        <location line="+1"/>
         <source>Ctrl+F</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="menubar.cpp" line="58"/>
+        <location line="+3"/>
         <source>Find &amp;next</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="menubar.cpp" line="59"/>
+        <location line="+1"/>
         <source>Ctrl+G</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="menubar.cpp" line="62"/>
+        <location line="+3"/>
         <source>&amp;Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="menubar.cpp" line="68"/>
+        <location line="+6"/>
         <source>&amp;Etymology</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="menubar.cpp" line="74"/>
+        <location line="+6"/>
         <source>&amp;Pronunciation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="menubar.cpp" line="80"/>
+        <location line="+6"/>
         <source>&amp;Inflections</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="menubar.cpp" line="86"/>
+        <location line="+6"/>
         <source>&amp;Translations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="menubar.cpp" line="92"/>
+        <location line="+6"/>
         <source>&amp;Semantic Relations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="menubar.cpp" line="98"/>
+        <location line="+6"/>
         <source>&amp;Related and Derived Terms</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="menubar.cpp" line="104"/>
+        <location line="+6"/>
         <source>&amp;Anagrams</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="menubar.cpp" line="113"/>
+        <location line="+9"/>
         <source>&amp;Page HTML</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="menubar.cpp" line="114"/>
+        <location line="+1"/>
         <source>Show the HTML code of the currently displayed page.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="menubar.cpp" line="117"/>
+        <location line="+3"/>
         <source>&amp;Wiki Processing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="menubar.cpp" line="118"/>
+        <location line="+1"/>
         <source>Show the Wiki debug</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="menubar.cpp" line="121"/>
+        <location line="+3"/>
         <source>Profiler results</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="menubar.cpp" line="130"/>
+        <location line="+9"/>
         <source>&amp;About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="menubar.cpp" line="131"/>
+        <location line="+1"/>
         <source>Show the application&apos;s About box</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="menubar.cpp" line="135"/>
+        <location line="+4"/>
         <source>&amp;File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="menubar.cpp" line="138"/>
+        <location line="+3"/>
         <source>&amp;Edit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="menubar.cpp" line="153"/>
+        <location line="+15"/>
         <source>&amp;View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="menubar.cpp" line="162"/>
+        <location line="+9"/>
         <source>&amp;Development</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="menubar.cpp" line="167"/>
+        <location line="+5"/>
         <source>&amp;Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="menubar.cpp" line="241"/>
+        <location line="+74"/>
         <source>About Wikt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="menubar.cpp" line="242"/>
+        <location line="+1"/>
         <source>Wikt version </source>
         <translation type="unfinished"></translation>
     </message>
@@ -309,30 +316,42 @@
 <context>
     <name>OptionsDialogClass</name>
     <message>
-        <location filename="optionsdialog.ui" line="14"/>
+        <location filename="../../../src/app/optionsdialog.ui"/>
+        <location filename="../../../src/app/ui_optionsdialog.h" line="+62"/>
         <source>Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="optionsdialog.ui" line="26"/>
+        <location/>
+        <location filename="../../../src/app/ui_optionsdialog.h" line="+1"/>
         <source>Ok</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="optionsdialog.ui" line="39"/>
+        <location/>
+        <location filename="../../../src/app/ui_optionsdialog.h" line="+1"/>
         <source>Cancel</source>
         <translation type="unfinished">Zrušit</translation>
     </message>
     <message>
-        <location filename="optionsdialog.ui" line="52"/>
+        <location/>
+        <location filename="../../../src/app/ui_optionsdialog.h" line="+1"/>
         <source>Translation lists folded</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ProfilerView</name>
+    <message>
+        <location filename="../../../src/libwikt/profilerview.cpp" line="+22"/>
+        <source>Profiler results</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>RelatedPages::Panel</name>
     <message>
-        <location filename="relpagespanel.cpp" line="26"/>
+        <location filename="../../../src/app/relpagespanel.cpp" line="+26"/>
         <source>Related Pages</source>
         <translation>Související</translation>
     </message>
@@ -340,7 +359,7 @@
 <context>
     <name>TableOfContents::Panel</name>
     <message>
-        <location filename="tocpanel.cpp" line="22"/>
+        <location filename="../../../src/app/tocpanel.cpp" line="+22"/>
         <source>Table of Contents</source>
         <translation>Obsah</translation>
     </message>

@@ -92,7 +92,6 @@ HEADERS += \
 FORMS = ErrorDialog.ui OptionsDialog.ui
 
 RESOURCES = wikt.qrc
-TRANSLATIONS = wikt_cs.ts
   
 LIBS *= -lwikt
 LIBS += -L../../bin

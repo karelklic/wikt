@@ -24,22 +24,13 @@ int main(int argc, char **argv)
 {
   QCoreApplication a(argc, argv);
 
-  static const QString PATH_A("../data/");
-  static const QString PATH_B("/usr/share/wikt/");
-  QString dictionaryData;
-  static const QString DICT_NAME("enwiktionary-20090203-pages-articles.ei4");
-  if (QFile::exists(PATH_A + DICT_NAME))
-    dictionaryData = PATH_A + DICT_NAME;
-  else if (QFile::exists(PATH_B + DICT_NAME))
-    dictionaryData = PATH_B + DICT_NAME;
-
   QStringList args = a.arguments();
   QString word = args.last();
   args.removeLast();
   bool exist = args.contains("--exists") || args.contains("--exist") || args.contains("-e");
   bool xml = args.contains("--xml") || args.contains("-x");
 
-  Format4Reader reader(dictionaryData);
+  Format4Reader reader("../share/wikt/data/enwiktionary-20090203-pages-articles.ei4");
   QTextStream out(stdout, QIODevice::WriteOnly);
   if (xml)
   {
