@@ -38,8 +38,6 @@ int main(int argc, char *argv[])
   const QString &trPath = QCoreApplication::applicationDirPath() + "/../share/wikt/translations";
   QTranslator translator;
   translator.load("wikt_" + locale, trPath);
-  QTextStream out(stdout, QIODevice::WriteOnly);
-  out << locale << " " << trPath << endl;
   app.installTranslator(&translator);
 
   QTranslator qtTranslator;
