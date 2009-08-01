@@ -31,15 +31,15 @@ header = <<END
 
 END
 
-# Create LanguagesGenerated.h.inc from the loaded data.
-File.open("LanguagesGenerated.h.inc", "w") do |file|
+# Create languagesgenerated.h.inc from the loaded data.
+File.open("languagesgenerated.h.inc", "w") do |file|
   file << header
   file << languages.keys.sort.join(",\n")
   file << ",\nUnknown // Always last!"
 end
 
-# Create LanguagesGenerated.cpp.inc from the loaded data.
-File.open("LanguagesGenerated.cpp.inc", "w") do |file|
+# Create languagesgenerated.cpp.inc from the loaded data.
+File.open("languagesgenerated.cpp.inc", "w") do |file|
   file << header
   languages.each do |language, data|  
     file << "//-\n"

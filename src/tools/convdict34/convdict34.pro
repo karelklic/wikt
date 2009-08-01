@@ -2,24 +2,23 @@ TEMPLATE = app
 TARGET = convdict34
 
 SOURCES += \
-  Format4Writer.cpp \
-  LanguageStatistic.cpp \
-  LicensePagesGenerator.cpp \
-  LinkConverter.cpp \
-  Main.cpp \
-  StatsPageGenerator.cpp \
-  TitlePageGenerator.cpp
+  format4writer.cpp \
+  languagestatistic.cpp \
+  licensepagesgenerator.cpp \
+  linkconverter.cpp \
+  main.cpp \
+  statspagegenerator.cpp \
+  titlepagegenerator.cpp
 
 HEADERS += \
-  Format4Writer.h \
-  LanguageStatistic.h \
-  LicensePagesGenerator.h \
-  LinkConverter.h \
-  StatsPageGenerator.h \
-  TitlePageGenerator.h
+  format4writer.h \
+  languagestatistic.h \
+  licensepagesgenerator.h \
+  linkconverter.h \
+  statspagegenerator.h \
+  titlepagegenerator.h
 
 LIBS *= -lwikt
 LIBS += -L../../../bin
-
 INCLUDEPATH += ../..
 DESTDIR = ../../../bin

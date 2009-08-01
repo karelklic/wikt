@@ -13,8 +13,8 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include <libwikt/Format4Reader.h>
-#include <libwikt/Parser/ArticleParser.h>
+#include <libwikt/format4reader.h>
+#include <libwikt/parser/articleparser.h>
 #include <QTextStream>
 #include <QCoreApplication>
 #include <QStringList>

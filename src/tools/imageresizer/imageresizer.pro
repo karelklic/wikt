@@ -1,7 +1,7 @@
 TEMPLATE = app
 TARGET = imageresizer
 
-SOURCES += Main.cpp
+SOURCES += main.cpp
 
 LIBS *= -lwikt
 LIBS += -L../../../bin

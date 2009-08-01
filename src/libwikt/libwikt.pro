@@ -4,49 +4,43 @@ TARGET = wikt
 DEFINES = WIKT_LIBRARY
 DESTDIR = ../../bin
 
-QT += core \
-    gui \
-    xml \
-    network \
-    svg \
-    testlib
+QT += core gui xml network svg testlib
 
 HEADERS = \
-    Parser/TableCaptionParser.h \
-    Debug.h \
-    Profiler.h \
-    ProfilerView.h \
-    Comparsion.h \
-    FileUtils.h \
-    Format3Reader.h \
-    Format4Reader.h \
-    MediaReader.h \
-    MediaUtils.h \
-    getopt.h \
-    Prerequisites.h \
-    Unicode.h \
-    UrlUtils.h \
-    Version.h \
-    Namespace.h \
-    Project.h \
-    Language.h \
-    Parser/*.h \
-    Tree/*.h
+    debug.h \
+    profiler.h \
+    profilerview.h \
+    comparsion.h \
+    fileutils.h \
+    format3reader.h \
+    format4reader.h \
+    mediareader.h \
+    mediautils.h \
+    options.h \
+    prerequisites.h \
+    unicode.h \
+    urlutils.h \
+    version.h \
+    namespace.h \
+    project.h \
+    language.h \
+    parser/*.h \
+    tree/*.h
 
 SOURCES = \
-    Debug.cpp \
-    Profiler.cpp \
-    ProfilerView.cpp \
-    FileUtils.cpp \
-    Format3Reader.cpp \
-    Format4Reader.cpp \
-    MediaReader.cpp \
-    MediaUtils.cpp \
-    getopt.cpp \
-    Unicode.cpp \
-    UrlUtils.cpp \
-    Namespace.cpp \
-    Project.cpp \
-    Language.cpp \
-    Parser/*.cpp \
-    Tree/*.cpp
+    debug.cpp \
+    profiler.cpp \
+    profilerview.cpp \
+    fileutils.cpp \
+    format3reader.cpp \
+    format4reader.cpp \
+    mediareader.cpp \
+    mediautils.cpp \
+    options.cpp \
+    unicode.cpp \
+    urlutils.cpp \
+    namespace.cpp \
+    project.cpp \
+    language.cpp \
+    parser/*.cpp \
+    tree/*.cpp

@@ -3,37 +3,37 @@ TARGET = convdict23
 DESTDIR = ../../../bin
 
 SOURCES += \
-  ExprParser/ExprDriver.cpp \
-  ExprParser/ExprParser.tab.cpp \
-  ExprParser/ExprScanner.cpp \
-  Format2Reader.cpp \
-  Format3Writer.cpp \
-  FormattingFunctions.cpp \
-  GalleryConverter.cpp \
-  Main.cpp \
-  NamespaceUrlFunctions.cpp \
-  PageNameFunctions.cpp \
-  ParameterList.cpp \
-  ParserFunctions.cpp \
-  TemplateSolver.cpp \
-  TemplateUtils.cpp
+  exprparser/exprdriver.cpp \
+  exprparser/exprparser.tab.cpp \
+  exprparser/exprscanner.cpp \
+  format2reader.cpp \
+  format3writer.cpp \
+  formattingfunctions.cpp \
+  galleryconverter.cpp \
+  main.cpp \
+  namespaceurlfunctions.cpp \
+  pagenamefunctions.cpp \
+  parameterlist.cpp \
+  parserfunctions.cpp \
+  templatesolver.cpp \
+  templateutils.cpp
 
 HEADERS += \
-  ExprParser/ExprDriver.h \
-  ExprParser/ExprParser.tab.hpp \
-  ExprParser/location.hh \
-  ExprParser/position.hh \
-  ExprParser/stack.hh \
-  Format2Reader.h \
-  Format3Writer.h \
-  FormattingFunctions.h \
-  GalleryConverter.h \
-  NamespaceUrlFunctions.h \
-  PageNameFunctions.h \
-  ParameterList.h \
-  ParserFunctions.h \
-  TemplateSolver.h \
-  TemplateUtils.h
+  exprparser/exprdriver.h \
+  exprparser/exprparser.tab.hpp \
+  exprparser/location.hh \
+  exprparser/position.hh \
+  exprparser/stack.hh \
+  format2reader.h \
+  format3writer.h \
+  formattingfunctions.h \
+  galleryconverter.h \
+  namespaceurlfunctions.h \
+  pagenamefunctions.h \
+  parameterlist.h \
+  parserfunctions.h \
+  templatesolver.h \
+  templateutils.h
 
 LIBS *= -lwikt
 LIBS += -L../../../bin

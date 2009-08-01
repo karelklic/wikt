@@ -1,8 +1,8 @@
 TEMPLATE = app
 TARGET = mediapacker
 
-SOURCES += Main.cpp MediaWriter.cpp
-HEADERS += MediaWriter.h
+SOURCES += main.cpp mediawriter.cpp
+HEADERS += mediawriter.h
 
 LIBS *= -lwikt
 LIBS += -L../../../bin

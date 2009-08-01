@@ -2,9 +2,9 @@ TEMPLATE = app
 TARGET = mediadownloader
 QT += network
 
-SOURCES += Main.cpp MediaDownloader.cpp
+SOURCES += main.cpp mediadownloader.cpp
 
-HEADERS += MediaDownloader.h
+HEADERS += mediadownloader.h
 
 LIBS *= -lwikt
 LIBS += -L../../../bin
