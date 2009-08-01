@@ -18,11 +18,3 @@ namespace :release do
   end
 end
 
-namespace :web do
-  desc "Uploads the local Wikt website to the internet server"
-  task :upload do
-    sh("rsync -avP -e ssh web/ karelklic,wikt@web.sourceforge.net:htdocs/")
-    puts "Website uploaded, now check wikt.sf.net"
-  end
-end
-
