@@ -13,7 +13,7 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include <libwikt/parser/articleparser.h>
+#include <libwikt/parser/linkparser.h>
 #include <libwikt/format3reader.h>
 #include <libwikt/tree/linknode.h>
 #include <libwikt/tree/linktargetnode.h>
@@ -114,40 +114,26 @@ static void processLink(const LinkNode &node, const QString &entryName)
 //===========================================================================
 static void processContent(const QString &name, const QString &content)
 {
-  ArticleNode *node = ArticleParser::parse(name, content);
-  if (!node)
-    out << QString("Error parsing \"%1\"").arg(name) << endl;
-  else
+  for (int i = 0; i < content.length(); ++i)
   {
-    QList<const LinkNode*> allLinks;
-    node->findChildren(allLinks);
+    if (content[i] != '[') continue;
+    Buffer buffer(content.mid(i));
+    LinkNode *node = LinkParser::parse(buffer);
+    if (!node) continue;
 
-    // Find and remove duplicates.
-    // Find and remove non-image non-media links.
-    QList<const LinkNode*> links;
-    foreach(const LinkNode *link, allLinks)
+    // Handle images and sounds.
+    if (node->target().namespace_() == Namespace::Image ||
+        node->target().namespace_() == Namespace::Media ||
+        node->target().namespace_() == Namespace::File)
     {
-      if (link->target().namespace_() != Namespace::Image && link->target().namespace_() != Namespace::Media)
-        continue;
-
-      bool found = false;
-      foreach (const LinkNode *link2, links)
-      {
-        if (link->target().entry() == link2->target().entry())
-        {
-          found = true;
-          break;
-        }
-      }
-      if (!found)
-        links.append(link);
+      processLink(*node, name);
     }
 
-    // Check every link.
-    foreach(const LinkNode *link, links)
-      processLink(*link, name);
-
     delete node;
+    // Set the position in the source *after* the processed link.
+    // [[a]]$
+    // 012345
+    i += buffer.pos() - 1;
   }
 }
 
