@@ -53,13 +53,13 @@
 #include <QStringList>
 #include <QMap>
 
-class GetOpt 
+class Options 
 {
 public:
-    GetOpt();
-    GetOpt( int offset );
-    GetOpt( int argc, char *argv[] );
-    GetOpt( const QStringList &a );
+    Options();
+    Options( int offset );
+    Options( int argc, char *argv[] );
+    Options( const QStringList &a );
 
     QString appName() const { return aname; }
 
