@@ -13,54 +13,28 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef DEBUG_H_
-#define DEBUG_H_
+#ifndef LIBWIKT_DEBUG_H_
+#define LIBWIKT_DEBUG_H_
 
 #include <QString>
-#include <string>
 
-#define ASSERTS_ENABLED
+/// Adds a debug message to console output.
+#define dstdout(msg) _dstdout(msg, __FILE__, __LINE__, __FUNCTION__)
 
-/// Adds a message to console output.
-#define COUT(message) Debug::consoleOut(QString("%1").arg(message), __FILE__, __LINE__, __FUNCTION__)
-/// Adds a message to console error output.
-#define CERR(message) Debug::consoleErr(QString("%1").arg(message), __FILE__, __LINE__, __FUNCTION__)
+/// Adds a debug message to console error output.
+#define dstderr(msg) _dstderr(msg, __FILE__, __LINE__, __FUNCTION__)
 
-#define CHECK(__expr) { \
-  if (!(__expr)) { \
-    Debug::consoleErr((#__expr), __FILE__, __LINE__, __FUNCTION__); \
-    Debug::dialogErr((#__expr), __FILE__, __LINE__, __FUNCTION__); \
-  } \
-}
+#define CHECK(__expr) {if (!(__expr)) { dstderr((#__expr)); }}
+#define CHECK_MSG(__expr, __msg) { if (!(__expr)) { dstderr(QString("%1 (expr: %2)").arg(__msg, #__expr)); }}
 
-#define CHECK_MSG(__expr, __msg) { \
-  if (!(__expr)) { \
-    Debug::consoleErr(QString("%1 (expr: %2)").arg(__msg, #__expr), __FILE__, __LINE__, __FUNCTION__); \
-    Debug::dialogErr(QString("%1 (expr: %2)").arg(__msg, #__expr),  __FILE__, __LINE__, __FUNCTION__); \
-  } \
-}
+/// Writes the message to the stdout.
+void cstdout(const QString &message);
+/// Writes the message to the stdout together with the source file, line and function.
+void _dstdout(const QString &message, const char *file, int line, const char *func);
 
-#define MSG(__msg) { \
-  Debug::consoleErr(__msg, __FILE__, __LINE__, __FUNCTION__); \
-  Debug::dialogErr(__msg,  __FILE__, __LINE__, __FUNCTION__); \
-}
+/// Writes the message to the stderr.
+void cstderr(const QString &message);
+/// Writes the message to the stderr together with the source file, line and function.
+void _dstderr(const QString &message, const char *file, int line, const char *func);
 
-#ifdef ASSERTS_ENABLED
-#define ASSERT(__expr) CHECK(__expr);
-#else
-#define ASSERT(__expr) {}
-#endif
-
-class Debug
-{
-public:
-  /// Adds a message to console output.
-  static void consoleOut(const QString &message, const char *file, int line, const char *func);
-  /// Adds a message to console error output.
-  static void consoleErr(const QString &message, const char *file, int line, const char *func);
-  /// Displays a box with error message.
-  /// Includes stack trace.
-  static void dialogErr(const QString &message, const char *file, int line, const char *func);
-};
-
-#endif /* DEBUG_H_ */
+#endif /* LIBWIKT_DEBUG_H_ */

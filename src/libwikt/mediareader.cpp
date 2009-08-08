@@ -16,6 +16,8 @@
 #include "mediareader.h"
 #include "fileutils.h"
 #include "comparsion.h"
+#include "profiler.h"
+#include "debug.h"
 
 //===========================================================================
 MediaReader::MediaReader(const QString &fileName)

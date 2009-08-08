@@ -19,6 +19,7 @@
 #include "listitemnode.h"
 #include "tablenode.h"
 #include "../language.h"
+#include "../profiler.h"
 #include <QFile>
 #include <QSettings>
 #include <QList>

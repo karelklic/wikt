@@ -19,15 +19,14 @@
 #include "parserfunctions.h"
 #include "formattingfunctions.h"
 #include "pagenamefunctions.h"
-#include <libwikt/prerequisites.h>
+#include <libwikt/profiler.h>
 #include <QRegExp>
 #include <QTextStream>
 
 //#define TEMPLATE_SOLVER_DEBUG
 
 //===========================================================================
-TemplateSolver::TemplateSolver(const QString &pageName,
-    const QString &pageContent, Format2Reader &reader)
+TemplateSolver::TemplateSolver(const QString &pageName, const QString &pageContent, Format2Reader &reader)
   : _pageName(pageName), _pageContent(pageContent), _reader(reader)
 {
 }

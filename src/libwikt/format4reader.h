@@ -16,7 +16,6 @@
 #ifndef FORMAT4READER_H_
 #define FORMAT4READER_H_
 
-#include "prerequisites.h"
 #include <QString>
 #include <QFile>
 

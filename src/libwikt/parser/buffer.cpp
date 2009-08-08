@@ -14,6 +14,7 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "buffer.h"
+#include "debug.h"
 
 //===========================================================================
 Buffer::Buffer() : _pos(0)
@@ -29,7 +30,7 @@ Buffer::Buffer(const QString &text) : _text(text), _pos(0)
 //===========================================================================
 QString Buffer::nextLine() const
 {
-  ASSERT(!endOfFile());
+  CHECK(!endOfFile());
   int offset = _text.indexOf('\n', _pos);
   if (offset == -1)
     return _text.mid(_pos);

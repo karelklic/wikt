@@ -20,7 +20,7 @@
 #include "statspagegenerator.h"
 #include <libwikt/format3reader.h>
 #include <libwikt/mediareader.h>
-#include <libwikt/prerequisites.h>
+#include <libwikt/debug.h>
 #include <QCoreApplication>
 #include <QTextStream>
 

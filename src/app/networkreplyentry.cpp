@@ -17,12 +17,11 @@
 #include "mainwindow.h"
 #include "wikisource.h"
 #include <libwikt/urlutils.h>
-#include <libwikt/prerequisites.h>
+#include <libwikt/debug.h>
 #include <QTimer>
 
 //===========================================================================
-NetworkReplyEntry::NetworkReplyEntry(const QNetworkRequest &request,
-    QObject *parent) : QNetworkReply(parent)
+NetworkReplyEntry::NetworkReplyEntry(const QNetworkRequest &request, QObject *parent) : QNetworkReply(parent)
 {
   QString entry = UrlUtils::toEntryName(request.url());
   QString page;

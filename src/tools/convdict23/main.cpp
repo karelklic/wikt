@@ -18,6 +18,7 @@
 #include "templatesolver.h"
 #include "galleryconverter.h"
 #include <libwikt/options.h>
+#include <libwikt/profiler.h>
 #include <QCoreApplication>
 #include <QTextStream>
 

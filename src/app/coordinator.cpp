@@ -25,7 +25,6 @@
 #include "wikisource.h"
 #include <libwikt/urlutils.h>
 #include <libwikt/tree/articlenode.h>
-#include <libwikt/prerequisites.h>
 #include <QAction>
 #include <QDesktopServices>
 

@@ -17,6 +17,7 @@
 #include "categoriesitem.h"
 #include <libwikt/tree/linknode.h>
 #include <libwikt/tree/linktargetnode.h>
+#include <libwikt/profiler.h>
 
 namespace Categories {
 

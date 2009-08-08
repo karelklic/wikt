@@ -9,7 +9,6 @@ QT += core gui xml network svg testlib
 HEADERS = \
     debug.h \
     profiler.h \
-    profilerview.h \
     comparsion.h \
     fileutils.h \
     format3reader.h \
@@ -17,7 +16,6 @@ HEADERS = \
     mediareader.h \
     mediautils.h \
     options.h \
-    prerequisites.h \
     unicode.h \
     urlutils.h \
     version.h \
@@ -30,7 +28,6 @@ HEADERS = \
 SOURCES = \
     debug.cpp \
     profiler.cpp \
-    profilerview.cpp \
     fileutils.cpp \
     format3reader.cpp \
     format4reader.cpp \

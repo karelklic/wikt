@@ -13,10 +13,9 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef EIFREADER_H_
-#define EIFREADER_H_
+#ifndef LIBWIKT_FORMAT3READER_H_
+#define LIBWIKT_FORMAT3READER_H_
 
-#include "prerequisites.h"
 #include <QString>
 #include <QFile>
 #include <QMap>
@@ -61,4 +60,4 @@ protected:
   EntryMap _links;
 };
 
-#endif /* EIFREADER_H_ */
+#endif /* LIBWIKT_FORMAT3READER_H_ */

@@ -19,6 +19,7 @@
 #include "relpagesinternallinkitem.h"
 #include "relpagesinterwikirootitem.h"
 #include <libwikt/tree/articlenode.h>
+#include <libwikt/profiler.h>
 
 namespace RelatedPages {
 

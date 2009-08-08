@@ -16,7 +16,6 @@
 #ifndef EICREADER_H_
 #define EICREADER_H_
 
-#include <libwikt/prerequisites.h>
 #include <QString>
 #include <QFile>
 #include <QMap>

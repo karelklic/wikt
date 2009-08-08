@@ -42,7 +42,7 @@ Node *createItemNode(const QChar &itemNodeTypeChar)
     itemNode = new DefinitionListTermItemNode();
   else if (itemNodeTypeChar == ':')
     itemNode = new DefinitionListDefItemNode();
-  ASSERT(itemNode);
+  CHECK(itemNode);
   return itemNode;
 }
 
@@ -66,7 +66,7 @@ void ListParser::parseListItems(QStringList &lines, Node &listNode)
         lines.removeFirst();
       }
       Node *insideItemNode = BulletListParser::parse(listBuffer);
-      ASSERT(insideItemNode);
+      CHECK(insideItemNode);
       if (listNode.count() == 0)
         listNode.append(createItemNode(itemNodeTypeChar));
       listNode.last()->append(insideItemNode);
@@ -84,7 +84,7 @@ void ListParser::parseListItems(QStringList &lines, Node &listNode)
         lines.removeFirst();
       }
       Node *insideItemNode = NumberedListParser::parse(listBuffer);
-      ASSERT(insideItemNode);
+      CHECK(insideItemNode);
       if (listNode.count() == 0)
         listNode.append(createItemNode(itemNodeTypeChar));
       listNode.last()->append(insideItemNode);
@@ -102,7 +102,7 @@ void ListParser::parseListItems(QStringList &lines, Node &listNode)
         lines.removeFirst();
       }
       Node *insideItemNode = DefinitionListParser::parse(listBuffer);
-      ASSERT(insideItemNode);
+      CHECK(insideItemNode);
       if (listNode.count() == 0)
         listNode.append(createItemNode(itemNodeTypeChar));
       listNode.last()->append(insideItemNode);

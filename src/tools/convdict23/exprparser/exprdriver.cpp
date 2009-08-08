@@ -15,7 +15,7 @@
  */
 #include "exprdriver.h"
 #include "exprparser.tab.hpp"
-#include <libwikt/prerequisites.h>
+#include <libwikt/debug.h>
 #include <sstream>
 
 //===========================================================================
@@ -66,5 +66,5 @@ void ExprDriver::error(const std::string& message)
       .arg(QString::fromStdString(message));
   _errorOccurred = true;
   if (_reportErrors)
-    CERR(_lastError);
+    cstderr(_lastError);
 }

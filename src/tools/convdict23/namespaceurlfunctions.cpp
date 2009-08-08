@@ -17,6 +17,8 @@
 #include <libwikt/urlutils.h>
 #include <libwikt/project.h>
 #include <libwikt/namespace.h>
+#include <libwikt/debug.h>
+#include <libwikt/profiler.h>
 
 //===========================================================================
 bool NamespaceUrlFunctions::isFunction(const QString &templateText)
@@ -101,6 +103,6 @@ QString NamespaceUrlFunctions::evaluate(const QString &templateText)
   else if (trimmed.startsWith("urlencode:", Qt::CaseInsensitive))
     return functionUrlEncode(templateText);
 
-  MSG("Unknown namespace url function.");
+  dstderr("Unknown function.");
   return templateText;
 }

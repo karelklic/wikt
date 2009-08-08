@@ -37,7 +37,6 @@
 #ifndef QUICKSORT_H
 #define QUICKSORT_H
 
-#include "prerequisites.h"
 #include <qalgorithms.h>
 #include <QPair>
 #include <cstdlib>

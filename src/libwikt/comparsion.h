@@ -16,7 +16,6 @@
 #ifndef COMPARSION_H
 #define COMPARSION_H
 
-#include "prerequisites.h"
 #include <QString>
 #include <QPair>
 
@@ -27,8 +26,7 @@ struct Comparsion
     return a < b;
   }
 
-  inline bool operator()(const QPair<QString, size_t> &a,
-    const QPair<QString, size_t> &b) const
+  inline bool operator()(const QPair<QString, size_t> &a, const QPair<QString, size_t> &b) const
   {
     return operator()(a.first, b.first);
   }

@@ -16,7 +16,6 @@
 #ifndef MEDIAREADER_H_
 #define MEDIAREADER_H_
 
-#include "prerequisites.h"
 #include <QString>
 #include <QFile>
 #include <QByteArray>

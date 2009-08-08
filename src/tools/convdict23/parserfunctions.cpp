@@ -17,7 +17,8 @@
 #include "templateutils.h"
 #include "exprparser/exprdriver.h"
 #include <libwikt/unicode.h>
-#include <libwikt/prerequisites.h>
+#include <libwikt/profiler.h>
+#include <libwikt/debug.h>
 #include <QTextStream>
 
 //===========================================================================
@@ -167,6 +168,6 @@ QString ParserFunctions::evaluate(const QString &templateText,
     return functionSwitch(parts);
   else if (parts[0].startsWith("#expr:", Qt::CaseInsensitive))
     return functionExpr(parts, entryName);
-  MSG("Function not supported.");
+  dstderr("Function not supported.");
   return templateText;
 }

@@ -14,6 +14,7 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "heading.h"
+#include "../debug.h"
 #include <QSettings>
 
 //===========================================================================

@@ -17,13 +17,12 @@
 #include "mainwindow.h"
 #include "wikisource.h"
 #include <libwikt/urlutils.h>
-#include <libwikt/prerequisites.h>
+#include <libwikt/debug.h>
 #include <QTimer>
 #include <QFile>
 
 //===========================================================================
-NetworkReplyEmbeddedFile::NetworkReplyEmbeddedFile(const QNetworkRequest &request,
-    QObject *parent) : QNetworkReply(parent)
+NetworkReplyEmbeddedFile::NetworkReplyEmbeddedFile(const QNetworkRequest &request, QObject *parent) : QNetworkReply(parent)
 {
   QString entry = UrlUtils::toEntryName(request.url());
 

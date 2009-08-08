@@ -17,7 +17,6 @@
 #define TABLEOFCONTENTSMODEL_H_
 
 #include "tocitem.h"
-#include <libwikt/prerequisites.h>
 #include <QAbstractItemModel>
 #include <QModelIndex>
 #include <QVariant>

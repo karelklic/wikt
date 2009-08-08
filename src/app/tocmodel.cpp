@@ -15,6 +15,7 @@
  */
 #include "tocmodel.h"
 #include <libwikt/tree/headingnode.h>
+#include <libwikt/profiler.h>
 
 namespace TableOfContents {
 

@@ -16,7 +16,6 @@
 #ifndef FORMAT4WRITER_H_
 #define FORMAT4WRITER_H_
 
-#include <libwikt/prerequisites.h>
 #include <QString>
 #include <QTemporaryFile>
 #include <QPair>

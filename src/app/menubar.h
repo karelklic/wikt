@@ -16,7 +16,6 @@
 #ifndef WIKT_MAIN_MENU_BAR_H
 #define WIKT_MAIN_MENU_BAR_H
 
-#include <libwikt/prerequisites.h>
 #include <QMenuBar>
 QT_BEGIN_NAMESPACE
 class QAction;
@@ -49,8 +48,6 @@ private slots:
   /// Shows a floating subwindow with current page's HTML source.
   void pageHtml();
   void algorithmWikiProcessing();
-  /// Shows a window with performance measurement results.
-  void profilerResults();
   // Help
   /// Displays an about application box.
   void about();
@@ -87,8 +84,6 @@ private:
   // Development
   QAction *_pageHtmlAct;
   QAction *_algorithmWikiProcessingAct;
-  QAction *_testAct;
-  QAction *_profilerAct;
 
   // Help
   QAction *_aboutAct;

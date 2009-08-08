@@ -14,6 +14,7 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "templateutils.h"
+#include <libwikt/profiler.h>
 
 //===========================================================================
 void TemplateUtils::getParts(const QString &templateText, QList<QString> &output)

@@ -14,7 +14,6 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "profiler.h"
-#include "profilerview.h"
 
 #include <map>
 #include <stack>
@@ -230,40 +229,6 @@ void Profiler::saveResultsToFile(const QString &fileName)
   output.open(QFile::WriteOnly);
   output.write(fp.str().c_str());
   output.close();
-}
-
-//=============================================================================
-void Profiler::showResultsInWindow()
-{
-  ProfilerView *view = new ProfilerView();
-
-  typedef std::vector<SProfilerOffRecord> recvec;
-  recvec sorted;
-  for (offmap::iterator it = offlist.begin(); it != offlist.end(); ++it)
-    sorted.push_back(it->second);
-  std::sort(sorted.begin(), sorted.end(), cmp);
-
-  unsigned long long clocks = clockPerSec();
-  view->setRowCount(sorted.size());
-  view->setColumnCount(6);
-  view->setHorizontalHeaderItem(0, "Name");
-  view->setHorizontalHeaderItem(1, "Total");
-  view->setHorizontalHeaderItem(2, "Count");
-  view->setHorizontalHeaderItem(3, "Average");
-  view->setHorizontalHeaderItem(4, "Maximum");
-  view->setHorizontalHeaderItem(5, "Minimum");
-  for (recvec::iterator it = sorted.begin(); it != sorted.end(); ++it)
-  {
-    int row = it - sorted.begin();
-    view->setItem(row, 0, it->fn);
-    view->setItem(row, 1, QString::fromStdString(format(it->totalt, clocks)));
-    view->setItem(row, 2, QString("%1").arg(it->cnt));
-    view->setItem(row, 3, QString::fromStdString(format(it->totalt/it->cnt, clocks)));
-    view->setItem(row, 4, QString::fromStdString(format(it->max, clocks)));
-    view->setItem(row, 5, QString::fromStdString(format(it->min, clocks)));
-  }
-
-  view->show();
 }
 
 //=============================================================================

@@ -14,7 +14,7 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "fileutils.h"
-#include "prerequisites.h"
+#include "debug.h"
 #include <QByteArray>
 
 //===========================================================================

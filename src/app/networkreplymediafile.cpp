@@ -17,7 +17,7 @@
 #include "mainwindow.h"
 #include "wikisource.h"
 #include <libwikt/urlutils.h>
-#include <libwikt/prerequisites.h>
+#include <libwikt/debug.h>
 #include <QTimer>
 #include <QByteArray>
 

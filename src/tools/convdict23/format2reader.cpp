@@ -16,6 +16,8 @@
 #include "format2reader.h"
 #include <libwikt/fileutils.h>
 #include <libwikt/comparsion.h>
+#include <libwikt/profiler.h>
+#include <libwikt/debug.h>
 
 //===========================================================================
 Format2Reader::Format2Reader(const QString &fileName)

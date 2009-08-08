@@ -19,17 +19,15 @@
 #include "networkreplystylesheet.h"
 #include "networkreplytitlepage.h"
 #include "networkreplyembeddedfile.h"
-#include <libwikt/prerequisites.h>
+#include <libwikt/debug.h>
 
 //===========================================================================
-NetworkAccessManager::NetworkAccessManager(QObject *parent)
-  : QNetworkAccessManager(parent)
+NetworkAccessManager::NetworkAccessManager(QObject *parent) : QNetworkAccessManager(parent)
 {
 }
 
 //===========================================================================
-QNetworkReply *NetworkAccessManager::createRequest(Operation op,
-    const QNetworkRequest &req, QIODevice */*outgoingData*/)
+QNetworkReply *NetworkAccessManager::createRequest(Operation op, const QNetworkRequest &req, QIODevice */*outgoingData*/)
 {
   CHECK(op == GetOperation);
   QNetworkReply *reply = 0;

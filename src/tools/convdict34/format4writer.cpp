@@ -17,6 +17,8 @@
 #include <libwikt/fileutils.h>
 #include <libwikt/comparsion.h>
 #include <libwikt/quicksort.h>
+#include <libwikt/profiler.h>
+#include <libwikt/debug.h>
 
 //===========================================================================
 Format4Writer::Format4Writer(const QString &targetFileName) : _targetFileName(targetFileName)

@@ -118,12 +118,6 @@ MenuBar::MenuBar(MainWindow *parent) : QMenuBar(parent)
   _algorithmWikiProcessingAct->setStatusTip(tr("Show the Wiki debug"));
   connect(_algorithmWikiProcessingAct, SIGNAL(triggered()), this, SLOT(algorithmWikiProcessing()));
 
-  _profilerAct = new QAction(tr("Profiler results"), this);
-#ifndef PROFILER_ENABLED
-  _profilerAct->setEnabled(false);
-#endif
-  connect(_profilerAct, SIGNAL(triggered()), this, SLOT(profilerResults()));
-
   //
   // Help
   //
@@ -162,7 +156,6 @@ MenuBar::MenuBar(MainWindow *parent) : QMenuBar(parent)
   _developmentMenu = addMenu(tr("&Development"));
   _developmentMenu->addAction(_pageHtmlAct);
   _developmentMenu->addAction(_algorithmWikiProcessingAct);
-  _developmentMenu->addAction(_profilerAct);
 
   _helpMenu = addMenu(tr("&Help"));
   _helpMenu->addAction(_aboutAct);
@@ -261,8 +254,3 @@ void MenuBar::algorithmWikiProcessing()
   w->show();
 }
 
-//===========================================================================
-void MenuBar::profilerResults()
-{
-  PROFILER_RESULTS;
-}

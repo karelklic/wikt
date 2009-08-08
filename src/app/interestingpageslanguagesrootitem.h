@@ -17,7 +17,6 @@
 #define INTERESTINGPAGESLANGUAGESROOTITEM_H_
 
 #include "interestingpagesitem.h"
-#include <libwikt/prerequisites.h>
 
 namespace InterestingPages {
 

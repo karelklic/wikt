@@ -14,6 +14,8 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "formattingfunctions.h"
+#include <libwikt/profiler.h>
+#include <libwikt/debug.h>
 
 //===========================================================================
 bool FormattingFunctions::isFormattingFunction(const QString &templateText)
@@ -38,7 +40,7 @@ QString FormattingFunctions::evaluate(const QString &templateText)
     return val.toUpper();
   else if (trimmed.startsWith("ucfirst:"))
     return val.at(0).toUpper() + val.mid(1);
-  MSG("Unknown function.");
+  dstderr("Unknown function.");
   return templateText;
 }
 

@@ -16,6 +16,7 @@
 #include "interestingpagesmodel.h"
 #include "interestingpagesrootitem.h"
 #include "interestingpageslanguagesrootitem.h"
+#include <libwikt/profiler.h>
 
 namespace InterestingPages {
 

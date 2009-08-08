@@ -16,6 +16,8 @@
 #include "format3reader.h"
 #include "fileutils.h"
 #include "comparsion.h"
+#include "profiler.h"
+#include "debug.h"
 
 //===========================================================================
 Format3Reader::Format3Reader(const QString &fileName)

@@ -18,7 +18,7 @@
 #include "mainwindow.h"
 #include "lookuppanel.h"
 #include <libwikt/urlutils.h>
-#include <libwikt/prerequisites.h>
+#include <libwikt/debug.h>
 #include <QWebFrame>
 #include <QNetworkReply>
 #include <QFile>
@@ -57,13 +57,13 @@ void WebView::navigateToId(const QString &id)
 //===========================================================================
 void WebView::onUnsupportedContent(QNetworkReply */*reply*/)
 {
-  MSG("onUnsupportedContent not supported yet.");
+  dstderr("not supported yet");
 }
 
 //===========================================================================
 void WebView::onDownloadRequested(const QNetworkRequest &/*request*/)
 {
-  MSG("onDownloadRequest not supported yet.");
+  dstderr("not supported yet");
 }
 
 //===========================================================================

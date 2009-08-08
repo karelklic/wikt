@@ -17,6 +17,7 @@
 #include <libwikt/comparsion.h>
 #include <libwikt/fileutils.h>
 #include <libwikt/quicksort.h>
+#include <libwikt/profiler.h>
 
 //===========================================================================
 Format3Writer::Format3Writer(const QString &targetFileName) : _targetFileName(targetFileName)

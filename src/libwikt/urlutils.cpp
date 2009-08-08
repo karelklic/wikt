@@ -14,7 +14,7 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "urlutils.h"
-#include "prerequisites.h"
+#include "debug.h"
 
 //===========================================================================
 QString UrlUtils::toEntryName(const QUrl &url, QString *sectionId)
@@ -86,7 +86,7 @@ QString UrlUtils::fileNameToMimeType(const QString &fileName)
   else if (fileName.endsWith(".gif", Qt::CaseInsensitive))
     return "image/gif";
   else
-    MSG("Unsupported mimetype.");
+    dstderr("Unsupported mimetype.");
   return "";
 }
 

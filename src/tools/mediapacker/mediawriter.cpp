@@ -17,6 +17,8 @@
 #include <libwikt/fileutils.h>
 #include <libwikt/quicksort.h>
 #include <libwikt/comparsion.h>
+#include <libwikt/profiler.h>
+#include <libwikt/debug.h>
 
 //===========================================================================
 MediaWriter::MediaWriter(const QString &targetFileName) : _targetFileName(targetFileName)

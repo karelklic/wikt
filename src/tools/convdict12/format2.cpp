@@ -17,7 +17,7 @@
 #include <libwikt/comparsion.h>
 #include <libwikt/quicksort.h>
 #include <libwikt/fileutils.h>
-#include <libwikt/prerequisites.h>
+#include <libwikt/debug.h>
 #include <QDirIterator>
 #include <QTemporaryFile>
 #include <QList>

@@ -14,7 +14,7 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "mediawriter.h"
-#include <libwikt/prerequisites.h>
+#include <libwikt/debug.h>
 #include <QFile>
 #include <QDirIterator>
 #include <QCoreApplication>

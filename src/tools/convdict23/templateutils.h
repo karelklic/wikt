@@ -17,7 +17,6 @@
 #define TEMPLATEUTILS_H_
 
 #include "parameterlist.h"
-#include <libwikt/prerequisites.h>
 #include <QString>
 
 class TemplateUtils

@@ -26,8 +26,6 @@ class Format4Writer;
 class StatsPageGenerator
 {
 public:
-  StatsPageGenerator();
-
   /// Counts an entry to the statistics.
   void visit(const QString &name, const QString &contents);
 

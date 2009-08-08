@@ -35,7 +35,7 @@ public:
   static void begin(const char *fn);
   static void end();
   static void saveResultsToFile(const QString &fileName);
-  static void showResultsInWindow();
+
   /// Removes all measured data.
   static void clear();
 

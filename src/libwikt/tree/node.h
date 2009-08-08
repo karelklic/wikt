@@ -16,7 +16,7 @@
 #ifndef LIBWIKT_DOM_NODE_H
 #define LIBWIKT_DOM_NODE_H
 
-#include "../prerequisites.h"
+#include "../debug.h"
 #include <QList>
 #include <QString>
 
@@ -39,7 +39,7 @@ public:
 
   /// The only way how to insert child nodes.
   /// Overload it to filter, monitor, or control node inserting.
-  virtual void append(Node *child) { ASSERT(child); _children.append(child); }
+  virtual void append(Node *child) { CHECK(child); _children.append(child); }
   int count() const { return _children.count(); }
   Node *child(int i) const { return _children.at(i); }
   QList<Node*> &children() { return _children; }

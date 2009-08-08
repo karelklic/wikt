@@ -16,7 +16,6 @@
 #ifndef FORMATTINGFUNCTIONS_H_
 #define FORMATTINGFUNCTIONS_H_
 
-#include <libwikt/prerequisites.h>
 #include <QString>
 
 /// @brief Handles formatting functions lc, lcfirst, uc, ucfirst.

@@ -17,11 +17,7 @@
 #include "format4writer.h"
 #include <libwikt/parser/articleparser.h>
 #include <libwikt/tree/headingnode.h>
-
-//===========================================================================
-StatsPageGenerator::StatsPageGenerator()
-{
-}
+#include <libwikt/debug.h>
 
 //===========================================================================
 void StatsPageGenerator::visit(const QString &name, const QString &contents)
@@ -47,11 +43,7 @@ void StatsPageGenerator::visit(const QString &name, const QString &contents)
 
         // Report to console if we found unknown language.
         if (lang == Language::Unknown)
-        {
-          COUT(QString("Unknown language %1 in entry %2")
-              .arg(heading->toText())
-              .arg(name));
-        }
+	  cstdout(QString("Unknown language %1 in entry %2").arg(heading->toText()).arg(name));
 
         // Add language-specific nodes to statistics.
         if (oldLang != Language::Unknown)

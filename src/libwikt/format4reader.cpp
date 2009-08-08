@@ -16,6 +16,8 @@
 #include "format4reader.h"
 #include "fileutils.h"
 #include "comparsion.h"
+#include "profiler.h"
+#include "debug.h"
 
 //===========================================================================
 Format4Reader::Format4Reader(const QString &fileName)

@@ -14,6 +14,8 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "pagenamefunctions.h"
+#include <libwikt/debug.h>
+#include <libwikt/profiler.h>
 
 //===========================================================================
 bool PageNameFunctions::isPageNameFunction(const QString &templateText)
@@ -140,6 +142,6 @@ QString PageNameFunctions::evaluate(const QString &templateText, const QString &
   else if (trimmed == "NAMESPACE")     return functionNamespace(pageName);
   else if (trimmed == "NAMESPACEE")    return functionNamespaceE(pageName);
 
-  MSG("Unknown page name function.");
+  dstderr("Unknown page name function.");
   return templateText;
 }

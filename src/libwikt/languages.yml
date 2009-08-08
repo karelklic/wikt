@@ -48,6 +48,9 @@ Acholi:
 Adangme:
   code: ada
   names: [Adangme, Dangme]
+
+Adele:
+  names: Adele
   
 Adnyamathanha:
   code: adt
@@ -122,6 +125,9 @@ Aleut:
 Algonquin:
   code: alq
   names: Algonquin
+
+AlcozaucaMixtec:
+  names: Alcozauca Mixtec
   
 Alune:
   names: Alune
@@ -499,6 +505,9 @@ Chuvash:
 Comanche:
   code: com
   names: Comanche
+
+Comorian:
+  names: Comorian
   
 Coptic:
   code: cop
@@ -617,6 +626,10 @@ Fijian:
   code: fj
   interwiki: Na Vosa Vakaviti
   names: Fijian
+
+FijiHindi:
+  code: hif
+  names: Fiji Hindi
   
 Filipino:
   code: fil
@@ -645,6 +658,9 @@ Fualah:
 #
 # G
 #
+Gagauz:
+  names: Gagauz
+
 Galician:
   code: gl
   interwiki: Galego
@@ -677,6 +693,10 @@ Greek:
   code: el
   interwiki: Ελληνικά
   names: Greek
+
+Greenlandic:
+  code: [kl, kal]
+  names: Greenlandic
 
 Guarani:
   code: gn
@@ -729,6 +749,12 @@ HiriMotu:
   code: ho
   interwiki: Hiri Motu
   names: HiriMotu
+
+Hmong:
+  names: Hmong
+
+Hopi:
+  names: Hopi
 
 Hungarian:
   code: hu
@@ -801,6 +827,9 @@ Italian:
 #
 # J
 #
+JamaicanCreole:
+  names: Jamaican Creole
+
 Japanese:
   code: ja
   interwiki: 日本語
@@ -815,6 +844,9 @@ Jerriais:
   code: roa
   names: [Jèrriais, Norman]
 
+Jingpho:
+  names: Jingpho
+
 #
 # K
 #
@@ -826,6 +858,9 @@ Kalaallisut:
   code: kl
   interwiki: Kalaallisut
   names: Kalaallisut
+
+KalispelPenddOreille:
+  names: Kalispel-Pend d'Oreille
 
 Kannada:
   code: kn
@@ -840,6 +875,9 @@ Kanuri:
 Karelian:
   code: krl
   names: [Karelian, Kareli]
+
+Kashaya:
+  names: Kashaya
 
 Kashmiri:
   code: ks
@@ -870,6 +908,10 @@ Kinyarwanda:
   code: rw
   interwiki: Kinyarwanda
   names: Kinyarwanda
+
+Kiput:
+  code: [map, kyi]
+  names: Kiput
 
 Kirghiz:
   code: ky
@@ -965,6 +1007,9 @@ Lojban:
   interwiki: Lojban
   names: Lojban
 
+Lombardic:
+  names: Lombardic
+
 LowSaxon:
   code: nds
   interwiki: Plattdüütsch
@@ -975,8 +1020,16 @@ LowerSorbian:
   interwiki: Dolnoserbski
   names: Lower Sorbian
 
+Lozi:
+  code: loz
+  names: Lozi
+
 LubaKatanga:
   code: lu
+
+LuleSami:
+  code: smj
+  names: Lule Sami
   
 Luo:
   code: luo
@@ -1089,10 +1142,10 @@ Nahuatl:
   code: nah
   names: [Nahuatl, Classic Nahuatl, Classical Nahuatl]
 
-Nauru:
+Nauruan:
   code: na
   interwiki: Dorerin Naoero
-  names: Nauru
+  names: Nauruan
 
 Navajo:
   code: nv
@@ -1116,6 +1169,9 @@ Nepali:
 NigerianPidgin:
   code: pcm
   names: Nigerian Pidgin
+
+Nootka:
+  names: Nootka
   
 NorthFrisian:
   code: frr
@@ -1124,6 +1180,9 @@ NorthFrisian:
 NorthNdebele:
   code: nd
   names: North Ndebele
+
+NorthernOhlone:
+  names: Northern Ohlone
   
 NorthernQiang:
   names: Northern Qiang
@@ -1147,12 +1206,12 @@ Norwegian:
 NorwegianBokmal:
   code: nb
   interwiki: Norsk (bokmål)
-  names: Norwegian Bokmål‬
+  names: Norwegian Bokmål
 
 NorwegianNynorsk:
   code: nn
   interwiki: Norsk (nynorsk)
-  names: Norwegian Nynorsk‬
+  names: Norwegian Nynorsk
 
 Novial:
   code: nov
@@ -1169,6 +1228,9 @@ Occitan:
 Ojibwa:
   code: oj
   names: Ojibwe
+
+OldArmenian:
+  names: Old Armenian
   
 OldChurchSlavonic:
   code: chu
@@ -1228,6 +1290,9 @@ Ossetian:
   interwiki: Иронау
   names: Ossetian
 
+OttomanTurkish:
+  names: Ottoman Turkish
+
 
 #
 # P
@@ -1240,7 +1305,7 @@ Pali:
 Panjabi:
   code: pa
   interwiki: ਪੰਜਾਬੀ
-  names: Panjabi
+  names: [Panjabi, Punjabi]
   
 Papiamentu:
   code: pap
@@ -1316,6 +1381,9 @@ Romansch:
   code: roh
   names: Romansch
 
+Rotokas:
+  names: Rotokas
+
 Russian:
   code: ru
   interwiki: Русский
@@ -1329,6 +1397,9 @@ Samoan:
   code: sm
   interwiki: Gagana Samoa
   names: Samoan
+
+Samogitian:
+  names: Samogitian
 
 Sango:
   code: sg
@@ -1370,7 +1441,7 @@ Serbian:
 SerboCroatian:
   code: sh
   interwiki: Srpskohrvatski / Српскохрватски
-  names: Serbo Croatian
+  names: [Serbo Croatian, Serbo-Croatian]
   
 Seri:
   code: sei
@@ -1430,7 +1501,11 @@ SouthNdebele:
   
 SouthernOhlone:
   code: css
-  names: [Southern Ohlone]
+  names: Southern Ohlone
+
+SouthernSami:
+  code: sma
+  names: Southern Sami
 
 SouthernSotho:
   code: st
@@ -1557,6 +1632,9 @@ Tswana:
   interwiki: Setswana
   names: Tswana
 
+Tumbuka:
+  names: Tumbuka
+
 Turkish:
   code: tr
   interwiki: Türkçe
@@ -1586,6 +1664,9 @@ Ukrainian:
   interwiki: Українська
   names: Ukrainian
 
+Unserdeutsch:
+  names: Unserdeutsch
+
 UpperSorbian:
   code: hsb
   interwiki: Hornjoserbsce
@@ -1614,6 +1695,9 @@ Vietnamese:
   code: vi
   interwiki: Tiếng Việt
   names: Vietnamese
+
+Vinza:
+  names: Vinza
 
 Volapuk:
   code: vo
@@ -1704,3 +1788,5 @@ Zulu:
   interwiki: isiZulu
   names: Zulu
 
+Zuni:
+  names: Zuni
