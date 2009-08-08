@@ -14,15 +14,17 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "mainwindow.h"
+#include "coordinator.h"
 #include <libwikt/version.h>
 #include <QApplication>
 #include <QLocale>
 #include <QTranslator>
 #include <QLibraryInfo>
 #include <QTextStream>
+#include <QStringList>
 
 //===========================================================================
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
   QApplication app(argc, argv);
 
@@ -47,5 +49,9 @@ int main(int argc, char *argv[])
   // Initialize the main window and enter the main application loop.
   MainWindow mainWin;
   mainWin.show();
+
+  if (app.arguments().size() > 1)
+    mainWin.coordinator()->textEnteredToLookup(app.arguments().last());
+
   return app.exec();
 }
