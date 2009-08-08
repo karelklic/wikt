@@ -1,3 +1,5 @@
+include(../../../wikt.pri)
+
 TEMPLATE = app
 TARGET = imageresizer
 

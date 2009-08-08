@@ -1,3 +1,5 @@
+include(../../../wikt.pri)
+
 TEMPLATE = app
 TARGET = mediadownloader
 SOURCES += main.cpp
