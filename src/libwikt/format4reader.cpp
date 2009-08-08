@@ -16,7 +16,6 @@
 #include "format4reader.h"
 #include "fileutils.h"
 #include "comparsion.h"
-#include "profiler.h"
 #include "debug.h"
 
 //===========================================================================
@@ -36,7 +35,6 @@ Format4Reader::~Format4Reader()
 //===========================================================================
 QString Format4Reader::source(const QString &entryName)
 {
-  PROFILER;
   qint32 offset = findEntryOffset(0, _entryCount - 1, entryName);
   return (offset < 0) ? "" : source(offset);
 }

@@ -14,7 +14,6 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "formattingfunctions.h"
-#include <libwikt/profiler.h>
 #include <libwikt/debug.h>
 
 //===========================================================================
@@ -26,7 +25,6 @@ bool FormattingFunctions::isFormattingFunction(const QString &templateText)
 //===========================================================================
 QString FormattingFunctions::evaluate(const QString &templateText)
 {
-  PROFILER;
   QString trimmed = templateText.trimmed();
   int sep = trimmed.indexOf(":");
   CHECK(sep != -1);

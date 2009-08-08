@@ -14,7 +14,6 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "templateutils.h"
-#include <libwikt/profiler.h>
 
 //===========================================================================
 void TemplateUtils::getParts(const QString &templateText, QList<QString> &output)
@@ -86,7 +85,6 @@ ParameterList TemplateUtils::getParameterList(const QList<QString> &parts)
 //===========================================================================
 QString TemplateUtils::evaluateParameter(const QString &parameterText, const ParameterList &params)
 {
-  PROFILER;
   QList<QString> parts;
   getParts(parameterText, parts);
   // If there is no pipe separator, everything is handled by parameter list.

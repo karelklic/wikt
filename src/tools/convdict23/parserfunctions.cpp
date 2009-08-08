@@ -17,7 +17,6 @@
 #include "templateutils.h"
 #include "exprparser/exprdriver.h"
 #include <libwikt/unicode.h>
-#include <libwikt/profiler.h>
 #include <libwikt/debug.h>
 #include <QTextStream>
 
@@ -153,7 +152,6 @@ bool ParserFunctions::isParserFunction(const QString &templateText)
 QString ParserFunctions::evaluate(const QString &templateText,
     Format2Reader &reader, const QString &entryName)
 {
-  PROFILER;
   QList<QString> parts;
   TemplateUtils::getParts(templateText, parts);
   if (parts[0].startsWith("#if:", Qt::CaseInsensitive))

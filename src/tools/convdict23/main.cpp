@@ -17,8 +17,6 @@
 #include "format3writer.h"
 #include "templatesolver.h"
 #include "galleryconverter.h"
-#include <libwikt/options.h>
-#include <libwikt/profiler.h>
 #include <QCoreApplication>
 #include <QTextStream>
 
@@ -71,7 +69,6 @@ int main(int argc, char **argv)
     if (pageCounter % 10 == 0)
       out << QString("Processed: %1").arg(pageCounter) << endl;
   }
-  PROFILER_RESULTS;
   writer.close();
   out << "Done." << endl;
   return 0;

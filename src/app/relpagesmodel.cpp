@@ -19,7 +19,6 @@
 #include "relpagesinternallinkitem.h"
 #include "relpagesinterwikirootitem.h"
 #include <libwikt/tree/articlenode.h>
-#include <libwikt/profiler.h>
 
 namespace RelatedPages {
 
@@ -120,7 +119,6 @@ void Model::generateFrom(const ArticleNode *node)
 //===========================================================================
 void Model::generateFrom(const QList<const ArticleNode*> &nodes)
 {
-  PROFILER;
   _lastEntry = nodes.first()->name();
   _rootItem->recreateFrom(nodes);
 
@@ -131,7 +129,6 @@ void Model::generateFrom(const QList<const ArticleNode*> &nodes)
 //===========================================================================
 void Model::partialUpdateFrom(const QString &entry, const ArticleNode *rootNode)
 {
-  PROFILER;
   _lastEntry = entry;
   _rootItem->partialUpdateFrom(entry, rootNode);
   // Tell attached views that we changed the model.
@@ -141,7 +138,6 @@ void Model::partialUpdateFrom(const QString &entry, const ArticleNode *rootNode)
 //===========================================================================
 void Model::clear()
 {
-  PROFILER;
   _lastEntry = "";
   _rootItem->clear();
   // Tell attached views that we changed the model.
@@ -169,7 +165,6 @@ QModelIndex Model::interwikiIndex() const
 //===========================================================================
 QModelIndex Model::lastEntryIndex() const
 {
-  PROFILER;
   for (int i = 0; i < _rootItem->childCount(); ++i)
   {
     Item *child = _rootItem->child(i);

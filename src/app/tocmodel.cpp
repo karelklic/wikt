@@ -15,7 +15,6 @@
  */
 #include "tocmodel.h"
 #include <libwikt/tree/headingnode.h>
-#include <libwikt/profiler.h>
 
 namespace TableOfContents {
 
@@ -118,7 +117,6 @@ QString Model::getXHtmlHeaderId(const QModelIndex &index) const
 //===========================================================================
 void Model::generateFrom(const Node *node)
 {
-  PROFILER;
   // Clear
   delete _rootItem;
   _rootItem = new Item();

@@ -10,14 +10,12 @@ QT += core gui xml network svg testlib
 
 HEADERS = \
     debug.h \
-    profiler.h \
     comparsion.h \
     fileutils.h \
     format3reader.h \
     format4reader.h \
     mediareader.h \
     mediautils.h \
-    options.h \
     unicode.h \
     urlutils.h \
     version.h \
@@ -29,13 +27,11 @@ HEADERS = \
 
 SOURCES = \
     debug.cpp \
-    profiler.cpp \
     fileutils.cpp \
     format3reader.cpp \
     format4reader.cpp \
     mediareader.cpp \
     mediautils.cpp \
-    options.cpp \
     unicode.cpp \
     urlutils.cpp \
     namespace.cpp \

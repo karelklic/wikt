@@ -18,7 +18,6 @@
 #include <libwikt/project.h>
 #include <libwikt/namespace.h>
 #include <libwikt/debug.h>
-#include <libwikt/profiler.h>
 
 //===========================================================================
 bool NamespaceUrlFunctions::isFunction(const QString &templateText)
@@ -90,7 +89,6 @@ static QString functionUrlEncode(const QString &templateText)
 //===========================================================================
 QString NamespaceUrlFunctions::evaluate(const QString &templateText)
 {
-  PROFILER;
   QString trimmed = templateText.trimmed();
   if (trimmed.startsWith("ns:", Qt::CaseInsensitive))
     return functionNs(templateText);

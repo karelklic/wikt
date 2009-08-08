@@ -23,32 +23,98 @@
 #include <libwikt/debug.h>
 #include <QCoreApplication>
 #include <QTextStream>
+#include <QStringList>
+
+//===========================================================================
+void usage()
+{
+    QTextStream err(stderr, QIODevice::WriteOnly);
+    err << QString("Usage: %1 [OPTIONS] [SOURCE] [SOURCEMEDIA] [DESTINATION]").arg(QCoreApplication::arguments().first()) << endl << endl;
+    err << "Limits:" << endl;
+    err << "  -f,  --from=NUMBER   sets the starting offset" << endl;
+    err << "  -t,  --to=NUMBER     sets the ending offset" << endl;
+}
 
 //===========================================================================
 int main(int argc, char **argv)
 {
   QCoreApplication a(argc, argv);
+  QStringList args = a.arguments();
+  args.removeFirst(); // application name
 
-  if (argc != 4)
+  QString source, sourceMedia, destination, from, to;
+  int pos = 0;
+  foreach (const QString &s, args)
   {
-    QTextStream err(stderr, QIODevice::WriteOnly);
-    err << "Invalid number of arguments." << endl;
-    err << QString("Usage: %1 [SOURCE] [SOURCEMEDIA] [DESTINATION]").arg(argv[0]) << endl;
-    return -1;
+    if (s.startsWith("-f="))
+      from = s.mid(3);
+    else if (s.startsWith("--from="))
+      from = s.mid(7);
+    else if (s.startsWith("-t="))
+      to = s.mid(3);
+    else if (s.startsWith("--to="))
+      to = s.mid(5);
+    else 
+    {
+      switch (pos)
+      {
+      case 0: source = s; break;
+      case 1: sourceMedia = s; break;
+      case 2: destination = s; break;
+      }
+      ++pos;
+    }
+  }
+
+  if (pos != 3)
+  {
+    usage();
+    return 1;
   }
 
   QTextStream out(stdout, QIODevice::WriteOnly);
-  out << "Reading indices..." << endl;
-  Format3Reader reader(argv[1]);
+  out << "Reading indices from " << source << "..." << endl;
+  Format3Reader reader(source);
   out << "Processing entries..." << endl;
 
   int pageCounter = 0;
-  Format4Writer writer(argv[3]);
-  MediaReader mediaReader(argv[2]);
+  MediaReader mediaReader(sourceMedia);
+  Format4Writer writer(destination);
   LinkConverter linkConverter(reader, mediaReader);
   TitlePageGenerator titlePageGenerator;
   StatsPageGenerator statsPageGenerator;
-  for (Format3Reader::EntryMap::const_iterator it = reader.entries().constBegin(); it != reader.entries().constEnd(); ++it)
+
+  // Sets the starting point.
+  Format3Reader::EntryMap::const_iterator it = reader.entries().constBegin();
+  if (!from.isNull())
+  {
+    bool ok = false;
+    int fromint = from.toInt(&ok);
+    if (!ok)
+    {
+      usage();
+      return 1;
+    }
+
+    it += fromint;
+  }
+
+  // Set the end point.
+  Format3Reader::EntryMap::const_iterator itend = reader.entries().constEnd();
+  if (!to.isNull())
+  {
+    bool ok = false;
+    int toint = to.toInt(&ok);
+    if (!ok)
+    {
+      usage();
+      return 1;
+    }
+
+    itend -= toint;
+  }
+
+  for (; it != itend; ++it)
   {
     QString content = linkConverter.convertedContents(it.value());
     titlePageGenerator.visit(it.key());

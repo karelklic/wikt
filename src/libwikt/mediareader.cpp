@@ -16,7 +16,6 @@
 #include "mediareader.h"
 #include "fileutils.h"
 #include "comparsion.h"
-#include "profiler.h"
 #include "debug.h"
 
 //===========================================================================
@@ -36,7 +35,6 @@ MediaReader::~MediaReader()
 //===========================================================================
 QByteArray MediaReader::source(const QString &entryName)
 {
-  PROFILER;
   qint32 offset = findEntryOffset(0, _entryCount - 1, entryName);
   return (offset < 0) ? QByteArray() : source(offset);
 }

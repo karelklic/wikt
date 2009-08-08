@@ -16,7 +16,6 @@
 #include "format2reader.h"
 #include <libwikt/fileutils.h>
 #include <libwikt/comparsion.h>
-#include <libwikt/profiler.h>
 #include <libwikt/debug.h>
 
 //===========================================================================
@@ -47,7 +46,6 @@ Format2Reader::~Format2Reader()
 //===========================================================================
 QString Format2Reader::source(QString entryName)
 {
-  PROFILER;
   // Check template cache if appropriate.
   if (entryName.startsWith("Template:"))
   {
@@ -99,7 +97,6 @@ QString Format2Reader::source(QString entryName)
 //===========================================================================
 QString Format2Reader::source(int offset)
 {
-  PROFILER;
   CHECK_MSG(offset >= 0, "Invalid offset.");
   _file.seek(4 + offset * 4); // index offset
   quint32 entryOffset;
@@ -111,7 +108,6 @@ QString Format2Reader::source(int offset)
 //===========================================================================
 QString Format2Reader::sourceDirect(int offset)
 {
-  PROFILER;
   bool seeked = _file.seek(offset);
   CHECK_MSG(seeked, "Error while seeking.");
   FileUtils::readString(_file); // name
@@ -121,7 +117,6 @@ QString Format2Reader::sourceDirect(int offset)
 //===========================================================================
 bool Format2Reader::exist(QString entryName)
 {
-  PROFILER;
   if (_links.contains(entryName))
     return true;
 

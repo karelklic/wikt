@@ -19,7 +19,6 @@
 #include "parserfunctions.h"
 #include "formattingfunctions.h"
 #include "pagenamefunctions.h"
-#include <libwikt/profiler.h>
 #include <QRegExp>
 #include <QTextStream>
 
@@ -99,7 +98,6 @@ int TemplateSolver::linkSkippingindexOf(const QString &text, const QString &str,
 //===========================================================================
 QString TemplateSolver::removeTemplates(QString wikiText, const ParameterList &params)
 {
-  PROFILER;
   int from = -1;
 
   // find a pair
@@ -166,7 +164,6 @@ QString TemplateSolver::removeTemplates(QString wikiText, const ParameterList &p
 //===========================================================================
 void TemplateSolver::evaluateTemplate(QString &wikiText, int from, int to)
 {
-  PROFILER;
   QString contents = wikiText.mid(from + 2, to - from - 4);
 
   // Check the cache for the result of evaluation. If it is not found,

@@ -16,7 +16,6 @@
 #include "interestingpagesmodel.h"
 #include "interestingpagesrootitem.h"
 #include "interestingpageslanguagesrootitem.h"
-#include <libwikt/profiler.h>
 
 namespace InterestingPages {
 
@@ -109,7 +108,6 @@ int Model::columnCount(const QModelIndex &parent) const
 //===========================================================================
 void Model::generate()
 {
-  PROFILER;
   _rootItem->generate();
 
   // Tell attached views that we changed the model.

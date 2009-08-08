@@ -17,7 +17,6 @@
 #include "categoriesitem.h"
 #include <libwikt/tree/linknode.h>
 #include <libwikt/tree/linktargetnode.h>
-#include <libwikt/profiler.h>
 
 namespace Categories {
 
@@ -146,7 +145,6 @@ static void getCategoryLinks(const Node *node, QList<const LinkNode*> &destinati
 //===========================================================================
 void Model::generateFrom(const Node *node)
 {
-  PROFILER;
   // Clear the model.
   delete _rootItem;
   _rootItem = new Item();

@@ -72,7 +72,7 @@ void WebView::onLoadFinished(bool ok)
   if (!ok) return;
 
   QSettings settings;
-  bool translationsFolded = settings.value("translationsFolded", true).toBool();
+  //bool translationsFolded = settings.value("translationsFolded", true).toBool();
 
   QString sectionId;
   UrlUtils::toEntryName(url(), &sectionId);

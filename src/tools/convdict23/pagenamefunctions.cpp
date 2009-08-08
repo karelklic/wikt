@@ -15,7 +15,6 @@
  */
 #include "pagenamefunctions.h"
 #include <libwikt/debug.h>
-#include <libwikt/profiler.h>
 
 //===========================================================================
 bool PageNameFunctions::isPageNameFunction(const QString &templateText)
@@ -127,7 +126,6 @@ static QString functionNamespaceE(const QString &pageName)
 //===========================================================================
 QString PageNameFunctions::evaluate(const QString &templateText, const QString &pageName)
 {
-  PROFILER;
   QString trimmed = templateText.trimmed();
   if (trimmed == "SERVER")             return ""; // intentional
   else if (trimmed == "SERVERNAME")    return ""; // intentional

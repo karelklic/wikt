@@ -17,7 +17,6 @@
 #include <libwikt/fileutils.h>
 #include <libwikt/quicksort.h>
 #include <libwikt/comparsion.h>
-#include <libwikt/profiler.h>
 #include <libwikt/debug.h>
 
 //===========================================================================
@@ -29,7 +28,6 @@ MediaWriter::MediaWriter(const QString &targetFileName) : _targetFileName(target
 //===========================================================================
 void MediaWriter::addEntry(const QString &name, const QByteArray &contents)
 {
-  PROFILER;
   qint64 offset = _temporaryFile.pos();
 
   // Save data to the content file.
@@ -43,7 +41,6 @@ void MediaWriter::addEntry(const QString &name, const QByteArray &contents)
 //===========================================================================
 void MediaWriter::close()
 {
-  PROFILER;
   // Sort the links in the memory.
   // Sort comparison operator must not depend on locale, because the dictionary file
   // is the same in all systems.

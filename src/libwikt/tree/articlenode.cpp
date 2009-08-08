@@ -19,7 +19,6 @@
 #include "listitemnode.h"
 #include "tablenode.h"
 #include "../language.h"
-#include "../profiler.h"
 #include <QFile>
 #include <QSettings>
 #include <QList>
@@ -27,7 +26,6 @@
 //===========================================================================
 QString ArticleNode::toXHtml() const
 {
-  PROFILER;
   if (!_xhtmlVisible) return "";
   return QString("<h1>%1</h1>%3")
     .arg(_name)

@@ -17,7 +17,6 @@
 #include <libwikt/fileutils.h>
 #include <libwikt/comparsion.h>
 #include <libwikt/quicksort.h>
-#include <libwikt/profiler.h>
 #include <libwikt/debug.h>
 
 //===========================================================================
@@ -29,7 +28,6 @@ Format4Writer::Format4Writer(const QString &targetFileName) : _targetFileName(ta
 //===========================================================================
 void Format4Writer::addEntry(const QString &name, const QString &contents)
 {
-  PROFILER;
   qint64 offset = _temporaryFile.pos();
 
   // Save data to the content file.
@@ -43,7 +41,6 @@ void Format4Writer::addEntry(const QString &name, const QString &contents)
 //===========================================================================
 void Format4Writer::close()
 {
-  PROFILER;
   // Sort the links in the memory.
   // Sort comparison operator must not depend on locale, because the dictionary file
   // is the same in all systems.

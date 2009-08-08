@@ -16,7 +16,6 @@
 #include "format3reader.h"
 #include "fileutils.h"
 #include "comparsion.h"
-#include "profiler.h"
 #include "debug.h"
 
 //===========================================================================
@@ -58,7 +57,6 @@ QString Format3Reader::source(int offset)
 //===========================================================================
 QString Format3Reader::sourceDirect(int offset)
 {
-  PROFILER;
   bool seeked = _file.seek(offset);
   CHECK_MSG(seeked, "Error while seeking.");
   FileUtils::readString(_file); // name
