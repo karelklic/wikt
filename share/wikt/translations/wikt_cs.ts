@@ -13,43 +13,36 @@
     <name>ErrorDialogClass</name>
     <message>
         <location filename="../../../src/app/errordialog.ui"/>
-        <location filename="../../../src/app/ui_errordialog.h" line="+100"/>
         <source>ErrorDialog</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location/>
-        <location filename="../../../src/app/ui_errordialog.h" line="+1"/>
         <source>Message text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location/>
-        <location filename="../../../src/app/ui_errordialog.h" line="+1"/>
         <source>File xxx, line yy.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location/>
-        <location filename="../../../src/app/ui_errordialog.h" line="+1"/>
         <source>Function xxx</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location/>
-        <location filename="../../../src/app/ui_errordialog.h" line="+1"/>
         <source>Stack trace</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location/>
-        <location filename="../../../src/app/ui_errordialog.h" line="+1"/>
         <source>Ignore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location/>
-        <location filename="../../../src/app/ui_errordialog.h" line="+1"/>
         <source>Ok</source>
         <translation type="unfinished"></translation>
     </message>
@@ -148,7 +141,7 @@
 <context>
     <name>MenuBar</name>
     <message>
-        <location filename="../../../src/app/menubar.cpp" line="+36"/>
+        <location filename="../../../src/app/menubar.cpp" line="+35"/>
         <source>&amp;Quit</source>
         <translation>U&amp;končit</translation>
     </message>
@@ -185,7 +178,7 @@
     <message>
         <location line="+2"/>
         <source>&amp;Find</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Najít</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -195,7 +188,7 @@
     <message>
         <location line="+3"/>
         <source>Find &amp;next</source>
-        <translation type="unfinished"></translation>
+        <translation>Najít &amp;další</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -210,42 +203,42 @@
     <message>
         <location line="+6"/>
         <source>&amp;Etymology</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Etymologie</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>&amp;Pronunciation</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Výslovnost</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>&amp;Inflections</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Skloňování</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>&amp;Translations</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Překlady</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>&amp;Semantic Relations</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Sémantické vztahy</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>&amp;Related and Derived Terms</source>
-        <translation type="unfinished"></translation>
+        <translation>S&amp;ouvisející a odvozená slova</translation>
     </message>
     <message>
         <location line="+6"/>
         <source>&amp;Anagrams</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Anagramy</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+6"/>
         <source>&amp;Page HTML</source>
-        <translation type="unfinished"></translation>
+        <translation>S&amp;tránka v HTML</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -253,24 +246,9 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+3"/>
-        <source>&amp;Wiki Processing</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Show the Wiki debug</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Profiler results</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+9"/>
+        <location line="+6"/>
         <source>&amp;About</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;O aplikaci</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -280,71 +258,54 @@
     <message>
         <location line="+4"/>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Soubor</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>&amp;Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Úpravy</translation>
     </message>
     <message>
         <location line="+15"/>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Zobrazení</translation>
     </message>
     <message>
-        <location line="+9"/>
-        <source>&amp;Development</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
+        <location line="+11"/>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Nápověda</translation>
     </message>
     <message>
-        <location line="+74"/>
+        <location line="+69"/>
         <source>About Wikt</source>
-        <translation type="unfinished"></translation>
+        <translation>O Wiktu</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Wikt version </source>
-        <translation type="unfinished"></translation>
+        <translation>Verze Wiktu</translation>
     </message>
 </context>
 <context>
     <name>OptionsDialogClass</name>
     <message>
         <location filename="../../../src/app/optionsdialog.ui"/>
-        <location filename="../../../src/app/ui_optionsdialog.h" line="+62"/>
         <source>Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location/>
-        <location filename="../../../src/app/ui_optionsdialog.h" line="+1"/>
         <source>Ok</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location/>
-        <location filename="../../../src/app/ui_optionsdialog.h" line="+1"/>
         <source>Cancel</source>
-        <translation type="unfinished">Zrušit</translation>
+        <translation>Zrušit</translation>
     </message>
     <message>
         <location/>
-        <location filename="../../../src/app/ui_optionsdialog.h" line="+1"/>
         <source>Translation lists folded</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>ProfilerView</name>
-    <message>
-        <location filename="../../../src/libwikt/profilerview.cpp" line="+22"/>
-        <source>Profiler results</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
