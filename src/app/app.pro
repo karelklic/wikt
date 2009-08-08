@@ -44,7 +44,6 @@ SOURCES += \
   tocmodel.cpp \
   tocpanel.cpp \
   webview.cpp \
-  wikiprocessingview.cpp \
   wikisource.cpp \
   wikisourcecacheitem.cpp
 
@@ -87,7 +86,6 @@ HEADERS += \
   tocmodel.h \
   tocpanel.h \
   webview.h \
-  wikiprocessingview.h \
   wikisource.h \
   wikisourcecacheitem.h
 

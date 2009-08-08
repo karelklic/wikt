@@ -7,4 +7,5 @@ SUBDIRS = \
   imageresizer \
   mediadownloader \
   mediapacker \
+  wikitoxml \
   wiktsrc

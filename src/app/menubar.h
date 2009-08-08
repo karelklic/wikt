@@ -29,7 +29,6 @@ class MenuBar : public QMenuBar
   Q_OBJECT
 public:
   MenuBar(MainWindow *parent);
-  ~MenuBar();
 
 private slots:
   // Edit
@@ -44,10 +43,8 @@ private slots:
   void viewSemanticRelationsToggled(bool checked);
   void viewRelatedDerivedToggled(bool checked);
   void viewAnagramsToggled(bool checked);
-  // Development
   /// Shows a floating subwindow with current page's HTML source.
   void pageHtml();
-  void algorithmWikiProcessing();
   // Help
   /// Displays an about application box.
   void about();
@@ -57,7 +54,6 @@ private:
   QMenu *_fileMenu;
   QMenu *_editMenu;
   QMenu *_viewMenu;
-  QMenu *_developmentMenu;
   QMenu *_helpMenu;
 
   // File
@@ -80,10 +76,7 @@ private:
   QAction *_viewSemanticRelationsAct;
   QAction *_viewRelatedDerivedAct;
   QAction *_viewAnagramsAct;
-
-  // Development
   QAction *_pageHtmlAct;
-  QAction *_algorithmWikiProcessingAct;
 
   // Help
   QAction *_aboutAct;

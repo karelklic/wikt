@@ -19,7 +19,6 @@
 #include "findpanel.h"
 #include "webview.h"
 #include "htmlsourceview.h"
-#include "wikiprocessingview.h"
 #include "optionsdialog.h"
 #include <libwikt/version.h>
 #include <libwikt/tree/heading.h>
@@ -107,16 +106,9 @@ MenuBar::MenuBar(MainWindow *parent) : QMenuBar(parent)
   connect(_viewAnagramsAct, SIGNAL(toggled(bool)), this, SLOT(viewAnagramsToggled(bool)));
   connect(_viewAnagramsAct, SIGNAL(toggled(bool)), parent->coordinator(), SLOT(userSettingChanged_SectionVisibility()));
 
-  //
-  // Development
-  //
   _pageHtmlAct = new QAction(tr("&Page HTML"), this);
   _pageHtmlAct->setStatusTip(tr("Show the HTML code of the currently displayed page."));
   connect(_pageHtmlAct, SIGNAL(triggered()), this, SLOT(pageHtml()));
-
-  _algorithmWikiProcessingAct = new QAction(tr("&Wiki Processing"), this);
-  _algorithmWikiProcessingAct->setStatusTip(tr("Show the Wiki debug"));
-  connect(_algorithmWikiProcessingAct, SIGNAL(triggered()), this, SLOT(algorithmWikiProcessing()));
 
   //
   // Help
@@ -152,18 +144,11 @@ MenuBar::MenuBar(MainWindow *parent) : QMenuBar(parent)
   _viewMenu->addAction(_viewSemanticRelationsAct);
   _viewMenu->addAction(_viewRelatedDerivedAct);
   _viewMenu->addAction(_viewAnagramsAct);
-
-  _developmentMenu = addMenu(tr("&Development"));
-  _developmentMenu->addAction(_pageHtmlAct);
-  _developmentMenu->addAction(_algorithmWikiProcessingAct);
+  _viewMenu->addSeparator();
+  _viewMenu->addAction(_pageHtmlAct);
 
   _helpMenu = addMenu(tr("&Help"));
   _helpMenu->addAction(_aboutAct);
-}
-
-//===========================================================================
-MenuBar::~MenuBar()
-{
 }
 
 //===========================================================================
@@ -244,13 +229,6 @@ void MenuBar::pageHtml()
 {
   QString contents = _parent->webView()->toHtml();
   HtmlSourceView *w = new HtmlSourceView(contents);
-  w->show();
-}
-
-//===========================================================================
-void MenuBar::algorithmWikiProcessing()
-{
-  WikiProcessingView *w = new WikiProcessingView();
   w->show();
 }
 
