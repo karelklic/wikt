@@ -1,6 +1,6 @@
 
-CONFIG -= release
-CONFIG += debug
+#CONFIG -= release
+#CONFIG += debug
 
 WIKT_SOURCE_TREE = $$PWD
 WIKT_DATA_PATH   = $$WIKT_SOURCE_TREE/share/wikt

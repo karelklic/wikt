@@ -111,7 +111,7 @@ int main(int argc, char **argv)
       return 1;
     }
 
-    itend -= toint;
+    itend = reader.entries().constBegin() + toint;
   }
 
   for (; it != itend; ++it)

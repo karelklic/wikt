@@ -90,3 +90,44 @@ QString Unicode::unescape(const QString &contents)
   }
   return result;
 }
+
+//===========================================================================
+static inline uint foldCase(uint ch, uint &last)
+{
+    uint c = ch;
+    if (QChar(c).isLowSurrogate() && QChar(last).isHighSurrogate())
+        c = QChar::surrogateToUcs4(last, c);
+    last = ch;
+    return QChar::toCaseFolded(c);
+}
+
+//===========================================================================
+int Unicode::ucstricmp(const ushort *a, const ushort *ae, const ushort *b, const ushort *be)
+{
+    if (a == b)
+        return 0;
+    if (a == 0)
+        return 1;
+    if (b == 0)
+        return -1;
+
+    const ushort *e = ae;
+    if (be - b < ae - a)
+        e = a + (be - b);
+
+    uint alast = 0;
+    uint blast = 0;
+    while (a != e) {
+        int diff = foldCase(*a, alast) - foldCase(*b, blast);
+        if ((diff))
+            return diff;
+        ++a;
+        ++b;
+    }
+    if (a == ae) {
+        if (b == be)
+            return 0;
+        return -1;
+    }
+    return 1;
+}

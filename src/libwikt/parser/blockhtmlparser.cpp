@@ -17,6 +17,7 @@
 #include "inlinehtmlparser.h"
 #include "paragraphparser.h"
 #include "blockparser.h"
+#include "../unicode.h"
 
 // Allowed block HTML tags.
 // Sorted alphabetically.
@@ -60,6 +61,49 @@ HtmlElementNode *BlockHtmlParser::parse(Buffer &buffer)
 //===========================================================================
 int BlockHtmlParser::indexIn(const QString &text, int offset)
 {
+  // This method is the slowest point of whole parser, so it must be 
+  // optimized as much as possible.
+
+  // "- 2" because the smallest tag has 3 characters '<x>'.
+  for (int i = offset; i < text.length() - 2; ++i) 
+  {
+    if (text[i] != '<') continue;
+
+    for (unsigned j = 0; j < allowedTagCount; ++j)
+    {
+      const QString &tag = allowedTags[j];
+      if (i + tag.length() + 1 >= text.length()) 
+	continue;
+
+      int res = Unicode::ucstricmp(
+        ((const ushort*)text.unicode()) + i + 1, 
+        ((const ushort*)text.unicode()) + i + 1 + tag.length(),
+        ((const ushort*)tag.unicode()), 
+        ((const ushort*)tag.unicode()) + tag.length());
+
+      // Ensure the text does contain current allowedTag.
+      if (res != 0) 
+	continue;
+
+      // Ensure the tag name is not just a part of a word,
+      // but it is standalone.
+      if (text[i + tag.length() + 1] != '>' && text[i + tag.length() + 1] != ' ')
+	continue;
+
+      // Ensure there is a closing > and it is before another <.
+      for (int k = i + tag.length() + 1; k < text.length(); ++k)
+      {
+	if (text[k] == '>')
+	  return i;
+	if (text[k] == '<')
+	  break;
+      }
+    }
+  }
+
+  return -1;
+
+/* Slow short wrong implementation.
   int offs;
   for (unsigned i = 0; i < allowedTagCount; ++i)
   {
@@ -70,6 +114,7 @@ int BlockHtmlParser::indexIn(const QString &text, int offset)
   }
 
   return -1;
+*/
 }
 
 //===========================================================================

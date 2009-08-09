@@ -25,6 +25,10 @@ public:
   static std::string escape(const QString &contents);
   static QString unescape(const std::string &contents);
   static QString unescape(const QString &contents);
+
+  // Unicode case-insensitive comparison
+  // Source: http://qt.gitorious.org/qt/qt/blobs/raw/master/src/corelib/tools/qstring.cpp 2009-08-08
+  static int ucstricmp(const ushort *a, const ushort *ae, const ushort *b, const ushort *be);
 };
 
 #endif

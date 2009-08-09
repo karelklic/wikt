@@ -15,6 +15,7 @@
  */
 #include "inlinehtmlparser.h"
 #include "textblockparser.h"
+#include "../unicode.h"
 
 //===========================================================================
 HtmlElementNode *InlineHtmlParser::parse(Buffer &buffer)
@@ -71,17 +72,60 @@ HtmlElementNode *InlineHtmlParser::parse(Buffer &buffer)
 //===========================================================================
 HtmlElementNode *InlineHtmlParser::parsePaired(Buffer &buffer, const QString &tag)
 {
+  // This method is optimized, because it was a major performance bottleneck
+  // of whole parser.
+
+  // Buffer too short. 2 = "<>"
+  if (buffer.pos() + 2 + tag.length() > buffer.size())
+    return 0;
+
+  int res = Unicode::ucstricmp(
+    ((const ushort*)buffer.text().unicode()) + buffer.pos() + 1, 
+    ((const ushort*)buffer.text().unicode()) + buffer.pos() + 1 + tag.length(),
+    ((const ushort*)tag.unicode()), 
+    ((const ushort*)tag.unicode()) + tag.length());
+
+  // Ensure the text does contain current allowedTag.
+  if (res != 0) 
+    return 0;
+
+  // Ensure the tag name is not just a part of a word,
+  // but it is standalone.
+  if (buffer.text()[buffer.pos() + tag.length() + 1] != '>' && buffer.text()[buffer.pos() + tag.length() + 1] != ' ')
+    return 0;
+
+  // Ensure there is a closing > and it is before another <.
+  int openTagLength = -1;
+  QString openTagParams;
+  int openTagStartParams = buffer.pos() + tag.length() + 1;
+  for (int k = openTagStartParams; k < buffer.size(); ++k)
+  {
+    if (buffer.text()[k] == '>')
+    {
+      openTagLength = k + 1 - buffer.pos();
+      openTagParams = buffer.text().mid(openTagStartParams, k - openTagStartParams);
+      break;
+    }
+    if (buffer.text()[k] == '<')
+      return 0;
+  }
+
+  if (openTagLength == -1)
+    return 0;
+
+  /* Very slow.
   QString openExpr = QString("^<%1([ ]*| ([^<>]+))>").arg(tag);
   QRegExp open(openExpr, Qt::CaseInsensitive);
   int pos = open.indexIn(buffer.text(), buffer.pos(), QRegExp::CaretAtOffset);
   if (pos != buffer.pos()) return 0;
+  */
 
   // find the right closing tag.
   int closingTagLength;
   int closing = indexOfClosingTag(buffer, tag, closingTagLength);
-  buffer.skip(open.matchedLength());
+  buffer.skip(openTagLength);
 
-  HtmlElementNode *node = new HtmlElementNode(tag, open.cap(2), true);
+  HtmlElementNode *node = new HtmlElementNode(tag, openTagParams, true);
   // The case of no closing tag.
   if (closing == -1)
   {
