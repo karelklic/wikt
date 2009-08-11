@@ -13,9 +13,18 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "tableparsertest.h"
 #include "tableparser.h"
 #include <QTest>
+#include <QObject>
+
+/// Tests TableParser class.
+class TableParserTest : public QObject
+{
+  Q_OBJECT
+private slots:
+  void simplestTable();
+  void simplestTableWithHeader();
+};
 
 //===========================================================================
 void TableParserTest::simplestTable()

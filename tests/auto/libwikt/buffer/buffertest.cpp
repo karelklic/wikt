@@ -16,6 +16,18 @@
 #include "buffertest.h"
 #include "buffer.h"
 #include <QTest>
+#include <QObject>
+
+/// Tests Buffer class.
+class BufferTest : public QObject
+{
+  Q_OBJECT
+private slots:
+  void read();
+  void readAll();
+  void nextLine();
+  void readLine();
+};
 
 //===========================================================================
 void BufferTest::read()

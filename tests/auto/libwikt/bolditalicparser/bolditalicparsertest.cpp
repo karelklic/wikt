@@ -16,6 +16,28 @@
 #include "bolditalicparsertest.h"
 #include "bolditalicparser.h"
 #include <QTest>
+#include <QObject>
+
+/// Tests BoldItalicParser.
+class BoldItalicParserTest : public QObject
+{
+  Q_OBJECT
+private slots:
+  /// "''abc'''d'''''"
+  void embedded0();
+  /// "'''abc''d'''''"
+  void embedded1();
+  /// "'''abc ''d'' '''"
+  void embedded2();
+  /// "'''''abc''d'''"
+  void embedded3();
+  /// "'''''abc'''d''"
+  void embedded4();
+  /// "'''''abc''''' not parsed"
+  void embedded5();
+  /// "''italic'''''bold'''"
+  void embedded6();
+};
 
 //===========================================================================
 void BoldItalicParserTest::embedded0()

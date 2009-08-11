@@ -13,9 +13,18 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "paragraphparsertest.h"
 #include "paragraphparser.h"
 #include <QTest>
+#include <QObject>
+
+/// Tests ParagraphParser class.
+class ParagraphParserTest : public QObject
+{
+  Q_OBJECT
+private slots:
+  void startingWithLink();
+  void parse();
+};
 
 //===========================================================================
 void ParagraphParserTest::startingWithLink()

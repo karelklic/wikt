@@ -13,9 +13,20 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "linkparsertest.h"
 #include "linkparser.h"
 #include <QTest>
+#include <QObject>
+
+/// Tests LinkParser.
+class LinkParserTest : public QObject
+{
+  Q_OBJECT
+private slots:
+  void simpleLink();
+  void mediaLink();
+  void linkWithSpace();
+  void linkWithSlash();
+};
 
 //===========================================================================
 void LinkParserTest::simpleLink()

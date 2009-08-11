@@ -13,10 +13,18 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "numberedlistparsertest.h"
 #include "numberedlistparser.h"
 #include <QTest>
+#include <QObject>
 
+/// Tests NumberedListParser class.
+class NumberedListParserTest : public QObject
+{
+  Q_OBJECT
+private slots:
+  void simpleList();
+  void embeddedList();
+};
 
 //===========================================================================
 void NumberedListParserTest::simpleList()

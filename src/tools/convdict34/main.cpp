@@ -33,6 +33,7 @@ void usage()
     err << "Limits:" << endl;
     err << "  -f,  --from=NUMBER   sets the starting offset" << endl;
     err << "  -t,  --to=NUMBER     sets the ending offset" << endl;
+    err << "       --names         displays names of entries" << endl;
 }
 
 //===========================================================================
@@ -43,10 +44,13 @@ int main(int argc, char **argv)
   args.removeFirst(); // application name
 
   QString source, sourceMedia, destination, from, to;
+  bool names = false;
   int pos = 0;
   foreach (const QString &s, args)
   {
-    if (s.startsWith("-f="))
+    if (s == "--names")
+      names = true;
+    else if (s.startsWith("-f="))
       from = s.mid(3);
     else if (s.startsWith("--from="))
       from = s.mid(7);
@@ -116,6 +120,13 @@ int main(int argc, char **argv)
 
   for (; it != itend; ++it)
   {
+    if (names)
+    {
+      cstdout(QString("Entry #%1: %2")
+        .arg(pageCounter)
+        .arg(it.key()));
+    }
+
     QString content = linkConverter.convertedContents(it.value());
     titlePageGenerator.visit(it.key());
     statsPageGenerator.visit(it.key(), content);

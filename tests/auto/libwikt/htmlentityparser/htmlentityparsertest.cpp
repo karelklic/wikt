@@ -13,9 +13,17 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "htmlentityparsertest.h"
 #include "htmlentityparser.h"
 #include <QTest>
+#include <QObject>
+
+/// Tests HtmlEntityParser.
+class HtmlEntityParserTest : public QObject
+{
+  Q_OBJECT
+private slots:
+  void nbsp();
+};
 
 //===========================================================================
 void HtmlEntityParserTest::nbsp()

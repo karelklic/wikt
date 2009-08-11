@@ -14,9 +14,17 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "listparsertest.h"
 #include "listparser.h"
 #include <QTest>
+#include <QObject>
+
+/// Tests that a parser handles list tasks properly.
+class ListParserTest : public QObject
+{
+  Q_OBJECT
+private slots:
+  void parseListItems();
+};
 
 //===========================================================================
 void ListParserTest::parseListItems()

@@ -22,7 +22,7 @@ Buffer::Buffer() : _pos(0)
 }
 
 //===========================================================================
-Buffer::Buffer(const QString &text) : _text(text), _pos(0)
+Buffer::Buffer(const QString &text, int pos) : _text(text), _pos(pos)
 {
 
 }

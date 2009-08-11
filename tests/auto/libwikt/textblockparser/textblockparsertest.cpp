@@ -13,7 +13,15 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "textblockparsertest.h"
 #include "textblockparser.h"
 #include <QTest>
+#include <QObject>
+
+/// Tests TextBlockParser class.
+class TextBlockParserTest : public QObject
+{
+  Q_OBJECT
+private slots:
+};
+
 

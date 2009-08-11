@@ -1,6 +1,6 @@
 TEMPLATE=subdirs
 CONFIG += ordered
-SUBDIST = \
+SUBDIRS = \
   bolditalicparser \
   bulletlistparser \
   headingparser \

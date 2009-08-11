@@ -24,8 +24,8 @@ class Buffer
 public:
   /// Creates empty buffer.
   Buffer();
-  /// Creates buffer with text. Buffer points to the beginning of the text.
-  Buffer(const QString &text);
+  /// Creates buffer with text. Buffer starts at the pos offset.
+  Buffer(const QString &text, int pos = 0);
 
   /// Appends text to the end of the buffer.
   void append(const QString &text) { _text.append(text); }
@@ -36,10 +36,15 @@ public:
   bool endOfLine() const { return _text[_pos] == '\n'; }
   /// Position in underlying data.
   int pos() const { return _pos; }
-  /// Whole string for various low-level algorithms.
+
+  /// Gets the underlying string. Useful for various low-level algorithms.
   /// It is not affected by buffer's position pointer.
   const QString &text() const { return _text; }
+
+  /// Gets the underlying string. Useful for various low-level algorithms.
+  /// It is not affected by buffer's position pointer.
   QString &text() { return _text; }
+
   /// Size of buffer in character count (not bytes).
   int size() const { return _text.length(); }
 
@@ -82,6 +87,7 @@ public:
   /// Returns true if the text that will be read from the buffer
   /// is equal to the text provided. Case sensitive.
   bool startsWith(const QString &text) const;
+
   int indexOf(const QString &text, Qt::CaseSensitivity cs) const;
 
 protected:

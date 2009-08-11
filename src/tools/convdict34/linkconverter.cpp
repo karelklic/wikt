@@ -21,8 +21,7 @@
 #include <QUrl>
 
 //===========================================================================
-LinkConverter::LinkConverter(Format3Reader &reader, MediaReader &mediaReader)
-  : _reader(reader), _mediaReader(mediaReader)
+LinkConverter::LinkConverter(Format3Reader &reader, MediaReader &mediaReader) : _reader(reader), _mediaReader(mediaReader)
 {
 }
 
@@ -41,7 +40,7 @@ QString LinkConverter::convertedContents(int offs)
       continue;
     }
 
-    Buffer buffer(input.mid(i));
+    Buffer buffer(input, i);
     LinkNode *node = LinkParser::parse(buffer);
     if (!node)
     {
@@ -62,7 +61,7 @@ QString LinkConverter::convertedContents(int offs)
     {
       output.append(node->toExternalLinkWiki());
       delete node;
-      i += buffer.pos() - 1;
+      i = buffer.pos() - 1;
       continue;
     }
 
@@ -106,7 +105,7 @@ QString LinkConverter::convertedContents(int offs)
     // Set the position in the source *after* the processed link.
     // [[a]]$
     // 012345
-    i += buffer.pos() - 1;
+    i = buffer.pos() - 1;
   }
 
   return output;

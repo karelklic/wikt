@@ -13,9 +13,17 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "headingparsertest.h"
 #include "headingparser.h"
 #include <QTest>
+#include <QObject>
+
+/// Tests HeadingParser.
+class HeadingParserTest : public QObject
+{
+  Q_OBJECT
+private slots:
+  void basics();
+};
 
 //===========================================================================
 void HeadingParserTest::basics()

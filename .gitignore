@@ -6,6 +6,7 @@ ui_*.h
 
 # intermediate files created during compilation
 *.o
+*.moc
 moc_*.cpp
 qrc_*.cpp
 

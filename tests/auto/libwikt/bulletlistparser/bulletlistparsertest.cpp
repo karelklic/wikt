@@ -13,9 +13,18 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "bulletlistparsertest.h"
 #include "bulletlistparser.h"
 #include <QTest>
+#include <QObject>
+
+/// Tests BulletListParser class.
+class BulletListParserTest : public QObject
+{
+  Q_OBJECT
+private slots:
+  void simpleList();
+  void embeddedList();
+};
 
 //===========================================================================
 void BulletListParserTest::simpleList()

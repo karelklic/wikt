@@ -13,9 +13,22 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "inlinehtmlparsertest.h"
 #include "inlinehtmlparser.h"
 #include <QTest>
+#include <QObject>
+
+/// Tests InlineHtmlParser.
+class InlineHtmlParserTest : public QObject
+{
+  Q_OBJECT
+private slots:
+  void emptySpan();
+  void spanWithAttributes();
+  /// Test the indexOfClosingTag method on all inputs.
+  void indexOfClosingTag();
+  /// Test the parsing of <br clear="left" />
+  void brTag();
+};
 
 //===========================================================================
 void InlineHtmlParserTest::emptySpan()
