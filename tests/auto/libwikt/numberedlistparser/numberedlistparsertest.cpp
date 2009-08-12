@@ -13,7 +13,7 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "numberedlistparser.h"
+#include <libwikt/parser/numberedlistparser.h>
 #include <QTest>
 #include <QObject>
 
@@ -54,3 +54,6 @@ void NumberedListParserTest::embeddedList()
   QCOMPARE(result->child(1)->type(), Node::ListItem);
   delete result;
 }
+
+QTEST_APPLESS_MAIN(NumberedListParserTest)
+#include "numberedlistparsertest.moc"

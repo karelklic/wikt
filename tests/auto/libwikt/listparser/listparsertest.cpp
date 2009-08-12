@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "listparser.h"
+#include <libwikt/parser/listparser.h>
 #include <QTest>
 #include <QObject>
 
@@ -29,7 +29,6 @@ private slots:
 //===========================================================================
 void ListParserTest::parseListItems()
 {
-
 }
 
 /*QString input =
@@ -43,3 +42,6 @@ void ListParserTest::parseListItems()
 //BisonParser parser("definitionList", input);
 //Node *result = parser.parse();
 //QCOMPARE(result->count(), 2);*/
+
+QTEST_APPLESS_MAIN(ListParserTest)
+#include "listparsertest.moc"

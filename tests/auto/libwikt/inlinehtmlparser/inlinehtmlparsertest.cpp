@@ -13,7 +13,7 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "inlinehtmlparser.h"
+#include <libwikt/parser/inlinehtmlparser.h>
 #include <QTest>
 #include <QObject>
 
@@ -85,3 +85,6 @@ void InlineHtmlParserTest::brTag()
   QCOMPARE(node->params(), QString("clear=\"left\""));
   delete node;
 }
+
+QTEST_APPLESS_MAIN(InlineHtmlParserTest)
+#include "inlinehtmlparsertest.moc"

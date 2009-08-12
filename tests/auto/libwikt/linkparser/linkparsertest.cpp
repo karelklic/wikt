@@ -13,7 +13,7 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "linkparser.h"
+#include <libwikt/parser/linkparser.h>
 #include <QTest>
 #include <QObject>
 
@@ -83,3 +83,6 @@ void LinkParserTest::linkWithSlash()
   QCOMPARE(result->child(0)->toText(), QString("Wikisaurus:penis/more"));
   delete result;
 }
+
+QTEST_APPLESS_MAIN(LinkParserTest)
+#include "linkparsertest.moc"

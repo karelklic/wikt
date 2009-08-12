@@ -13,7 +13,7 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "tableparser.h"
+#include <libwikt/parser/tableparser.h>
 #include <QTest>
 #include <QObject>
 
@@ -60,3 +60,6 @@ void TableParserTest::simplestTableWithHeader()
   QCOMPARE(result->child(1)->count(), 3);
   delete result;
 }
+
+QTEST_APPLESS_MAIN(TableParserTest)
+#include "tableparsertest.moc"

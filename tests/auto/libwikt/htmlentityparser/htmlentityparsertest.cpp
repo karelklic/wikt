@@ -13,7 +13,7 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "htmlentityparser.h"
+#include <libwikt/parser/htmlentityparser.h>
 #include <QTest>
 #include <QObject>
 
@@ -34,3 +34,6 @@ void HtmlEntityParserTest::nbsp()
   QVERIFY(buffer.endOfFile());
   delete result;
 }
+
+QTEST_APPLESS_MAIN(HtmlEntityParserTest)
+#include "htmlentityparsertest.moc"

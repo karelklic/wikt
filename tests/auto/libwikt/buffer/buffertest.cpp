@@ -13,8 +13,7 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "buffertest.h"
-#include "buffer.h"
+#include <libwikt/parser/buffer.h>
 #include <QTest>
 #include <QObject>
 
@@ -59,3 +58,5 @@ void BufferTest::readLine()
   QCOMPARE(buffer.readLine(), QString("* c"));
 }
 
+QTEST_APPLESS_MAIN(BufferTest)
+#include "buffertest.moc"

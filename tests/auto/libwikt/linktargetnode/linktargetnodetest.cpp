@@ -13,7 +13,7 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "linktargetnode.h"
+#include <libwikt/tree/linktargetnode.h>
 #include <QTest>
 #include <QObject>
 
@@ -55,3 +55,6 @@ void LinkTargetNodeTest::project()
   LinkTargetNode b("w:apple");
   QCOMPARE(b.project(), Project::Wikipedia);
 }
+
+QTEST_APPLESS_MAIN(LinkTargetNodeTest)
+#include "linktargetnodetest.moc"

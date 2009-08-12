@@ -2,7 +2,7 @@ include(../../../../wikt.pri)
 
 TEMPLATE = app
 QT = core testlib
-SOURCES += blockhtmlparsertest.cpp
+SOURCES += urlutilstest.cpp
 
 LIBS *= -lwikt
 LIBS += -L../../../../bin

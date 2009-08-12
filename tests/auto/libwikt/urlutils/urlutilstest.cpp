@@ -13,7 +13,7 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "urlutils.h"
+#include <libwikt/urlutils.h>
 #include <QTest>
 #include <QObject>
 
@@ -41,3 +41,5 @@ void UrlUtilsTest::test1()
       QString(QString::fromStdWString(L"MěščřE:Category01 g")));
 }
 
+QTEST_APPLESS_MAIN(UrlUtilsTest)
+#include "urlutilstest.moc"

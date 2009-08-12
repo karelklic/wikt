@@ -13,10 +13,9 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "articlenodetest.h"
-#include "articlenode.h"
-#include "headingnode.h"
-#include "texttokennode.h"
+#include <libwikt/tree/articlenode.h>
+#include <libwikt/tree/headingnode.h>
+#include <libwikt/tree/texttokennode.h>
 #include <QTest>
 #include <QObject>
 
@@ -37,3 +36,6 @@ void ArticleNodeTest::generateXHtmlTableOfContents0()
 
   //QCOMPARE(articleNode.generateXHtmlTableOfContents(), QString(""));
 }
+
+QTEST_APPLESS_MAIN(ArticleNodeTest)
+#include "articlenodetest.moc"

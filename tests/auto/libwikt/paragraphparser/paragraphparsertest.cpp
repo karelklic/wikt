@@ -13,7 +13,7 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "paragraphparser.h"
+#include <libwikt/parser/paragraphparser.h>
 #include <QTest>
 #include <QObject>
 
@@ -44,3 +44,6 @@ void ParagraphParserTest::parse()
   QCOMPARE(node.count(), 1);
   QCOMPARE(node.toText(), QString("a"));
 }
+
+QTEST_APPLESS_MAIN(ParagraphParserTest)
+#include "paragraphparsertest.moc"

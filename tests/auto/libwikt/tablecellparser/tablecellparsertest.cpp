@@ -13,7 +13,7 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "tablecellparser.h"
+#include <libwikt/parser/tablecellparser.h>
 #include <QTest>
 #include <QObject>
 
@@ -110,3 +110,6 @@ void TableCellParserTest::embeddedTable()
   QCOMPARE(result->toText().simplified(), QString("embedded inside"));
   delete result;
 }
+
+QTEST_APPLESS_MAIN(TableCellParserTest)
+#include "tablecellparsertest.moc"

@@ -13,8 +13,7 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "bolditalicparsertest.h"
-#include "bolditalicparser.h"
+#include <libwikt/parser/bolditalicparser.h>
 #include <QTest>
 #include <QObject>
 
@@ -142,3 +141,5 @@ void BoldItalicParserTest::embedded6()
   delete result;
 }
 
+QTEST_APPLESS_MAIN(BoldItalicParserTest)
+#include "bolditalicparsertest.moc"

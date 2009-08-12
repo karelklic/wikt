@@ -1,8 +1,8 @@
 include(../../../../wikt.pri)
 
-TEMPLATE=app
+TEMPLATE = app
 QT = core testlib
-SOURCES += bparsertest.cpp
+SOURCES += bolditalicparsertest.cpp
 
 LIBS *= -lwikt
 LIBS += -L../../../../bin
