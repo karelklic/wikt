@@ -13,8 +13,7 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "linkconvertertest.h"
-#include "linkconverter.h"
+#include <linkconverter.h>
 #include <libwikt/format3reader.h>
 #include <libwikt/mediareader.h>
 #include <QTest>
@@ -93,3 +92,6 @@ void LinkConverterTest::linksWithSlashes()
   QString contents = converter.convertedContents(0);
   QCOMPARE(contents, QString("Link [[Wikisaurus:penis/more|e]] and Wikisaurus:penis/more2."));
 }
+
+QTEST_APPLESS_MAIN(LinkConverterTest)
+#include "linkconvertertest.moc"
