@@ -30,8 +30,8 @@ WikiSource::WikiSource(QObject *parent) : QObject(parent)
 {
   ::instance = this;
   QString dataPath = QCoreApplication::applicationDirPath() + "/../share/wikt/data";
-  _reader = new Format4Reader(dataPath + "/enwiktionary-20090203.ei4");
-  _mediaReader = new MediaReader(dataPath + "/enwiktionary-20090203.eim");
+  _reader = new Format4Reader(dataPath + "/enwiktionary-20090711.ei4");
+  _mediaReader = new MediaReader(dataPath + "/enwiktionary-20090711.eim");
 }
 
 //===========================================================================

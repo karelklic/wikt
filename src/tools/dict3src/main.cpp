@@ -28,7 +28,7 @@ int main(int argc, char **argv)
   args.removeLast();
   bool exist = args.contains("--exists") || args.contains("--exist") || args.contains("-e");
 
-  Format3Reader reader("../share/wikt/data/enwiktionary-20090203.ei3");
+  Format3Reader reader("../share/wikt/data/enwiktionary-20090711.ei3");
   QTextStream out(stdout, QIODevice::WriteOnly);
   if (exist)
     out << (reader.exist(word) ? "Yes" : "No") << endl;
