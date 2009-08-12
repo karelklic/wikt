@@ -38,8 +38,14 @@ TableHeadNode *TableHeadParser::parse(Buffer &buffer)
   // the following cells would be parsed as common cells instead of
   // header cells.
   restOfLine.replace("||", "!!");
-  buffer.text().remove(buffer.pos(), restOfLine.length());
-  buffer.text().insert(buffer.pos(), restOfLine);
+
+  // Valgrind says: very slow!
+  //buffer.text().remove(buffer.pos(), restOfLine.length());
+  //buffer.text().insert(buffer.pos(), restOfLine);
+  // Much faster:
+  QString & buftext = buffer.text();
+  for (int i = 0; i < restOfLine.length(); ++i)
+    buftext[i + buffer.pos()] = restOfLine[i];
 
   // Handle attributes.
   QRegExp singlePipeRegExp("\\| *");
