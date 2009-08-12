@@ -58,7 +58,7 @@ QString Format3Reader::source(int offset)
 QString Format3Reader::sourceDirect(int offset)
 {
   bool seeked = _file.seek(offset);
-  CHECK_MSG(seeked, "Error while seeking.");
+  CHECK_MSG(seeked, QString("Error while seeking to offset %1").arg(offset));
   FileUtils::readString(_file); // name
   return FileUtils::readString(_file); // contents
 }
