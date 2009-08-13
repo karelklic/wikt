@@ -21,7 +21,25 @@
 class MediaUtils
 {
 public:
-  static const char *toQtImageFormatId(const QString &fileName);
+  /// Image types supported by Wikt. Qt supports more formats, but Wiktionary
+  /// contains mostly pngs and jpegs.
+  enum ImageType { Invalid, Gif, Jpg, Png };
+
+  /// Detects image type from file name suffix.
+  /// If the image type is not detected, image type Invalid is returned.
+  /// @param fileName
+  ///   File name with or without path. Only the end of the string is tested. 
+  /// @returns
+  ///   Image type or Invalid if the type is not detected.
+  static ImageType imageTypeFromFileName(const QString &fileName);
+
+  /// Converts image type to image format ID understandable by Qt.
+  /// @param imageType
+  ///   Must be valid image type and not Unknown.
+  /// @returns
+  ///   Qt identifier. Returned string/memory is owned by this function, do not delete it.
+  ///   If imageType is invalid, pointer to empty string "" is returned.
+  static const char *toQtImageFormatId(ImageType imageType);
 };
 
 #endif /* MEDIAUTILS_H_ */

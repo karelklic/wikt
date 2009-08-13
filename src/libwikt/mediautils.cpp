@@ -16,21 +16,27 @@
 #include "mediautils.h"
 
 //===========================================================================
-const char *MediaUtils::toQtImageFormatId(const QString &fileName)
+MediaUtils::ImageType MediaUtils::imageTypeFromFileName(const QString &fileName)
 {
-  // todo: move to QMap, will be probably faster
-  if (fileName.endsWith(".bmp", Qt::CaseInsensitive)) return "BMP";
-  else if (fileName.endsWith(".gif", Qt::CaseInsensitive)) return "GIF";
-  else if (fileName.endsWith(".jpg", Qt::CaseInsensitive)) return "JPG";
-  else if (fileName.endsWith(".jpeg", Qt::CaseInsensitive)) return "JPG";
-  else if (fileName.endsWith(".png", Qt::CaseInsensitive)) return "PNG";
-  else if (fileName.endsWith(".pbm", Qt::CaseInsensitive)) return "PBM";
-  else if (fileName.endsWith(".pgm", Qt::CaseInsensitive)) return "PGM";
-  else if (fileName.endsWith(".ppm", Qt::CaseInsensitive)) return "PPM";
-  else if (fileName.endsWith(".tiff", Qt::CaseInsensitive)) return "TIFF";
-  else if (fileName.endsWith(".xbm", Qt::CaseInsensitive)) return "XBM";
-  else if (fileName.endsWith(".xpm", Qt::CaseInsensitive)) return "XPM";
-  return "";
+  if (fileName.endsWith(".gif", Qt::CaseInsensitive)) return Gif;
+  else if (fileName.endsWith(".jpg", Qt::CaseInsensitive)) return Jpg;
+  else if (fileName.endsWith(".jpeg", Qt::CaseInsensitive)) return Jpg;
+  else if (fileName.endsWith(".png", Qt::CaseInsensitive)) return Png;
+  return Invalid;
+}
+
+//===========================================================================
+const char *MediaUtils::toQtImageFormatId(ImageType imageType)
+{
+  switch (imageType)
+  {
+  case Gif: return "GIF";
+  case Jpg: return "JPG";
+  case Png: return "PNG";
+  case Invalid: 
+  default: 
+    return "";
+  }
 }
 
 

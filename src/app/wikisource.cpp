@@ -111,7 +111,9 @@ QSize WikiSource::imageSize(const QString &fileName)
   }
   else
   {
-    QImage image = QImage::fromData(source, MediaUtils::toQtImageFormatId(fileName));
+    MediaUtils::ImageType imageType = MediaUtils::imageTypeFromFileName(fileName);
+    const char *qtFormatId = MediaUtils::toQtImageFormatId(imageType);
+    QImage image = QImage::fromData(source, qtFormatId);
     return image.size();
   }
 }

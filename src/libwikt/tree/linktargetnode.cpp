@@ -45,7 +45,8 @@ LinkTargetNode::LinkTargetNode(const QString &text) : Node(Node::LinkTarget),
 QString LinkTargetNode::toXHtmlLink() const
 {
   if (_namespace == Namespace::Image ||
-      _namespace == Namespace::Media)
+      _namespace == Namespace::Media ||
+      _namespace == Namespace::File)
     return UrlUtils::toUrl(_entry, "media").toString();
 
   return UrlUtils::toUrl(_text).toString();

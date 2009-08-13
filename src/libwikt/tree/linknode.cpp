@@ -139,7 +139,12 @@ bool LinkNode::isInterwiki() const
 //===========================================================================
 bool LinkNode::isDisplayableImage() const
 {
-  return !_forcedLink && target().namespace_() == Namespace::Image;
+  if (_forcedLink) return false;
+  if (target().namespace_() == Namespace::Image) return true;
+  if (target().namespace_() == Namespace::File && 
+      MediaUtils::imageTypeFromFileName(target().entry()) != MediaUtils::Invalid)
+    return true;
+  return false;
 }
 
 //===========================================================================
