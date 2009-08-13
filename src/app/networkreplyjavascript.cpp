@@ -13,27 +13,24 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "networkreplyentry.h"
-#include "mainwindow.h"
+#include "networkreplyjavascript.h"
 #include "wikisource.h"
-#include <libwikt/urlutils.h>
-#include <libwikt/debug.h>
 #include <QTimer>
 
 //===========================================================================
-NetworkReplyEntry::NetworkReplyEntry(const QNetworkRequest &request, QObject *parent) : QNetworkReply(parent)
+NetworkReplyJavascript::NetworkReplyJavascript(const QNetworkRequest &request, QObject *parent) : QNetworkReply(parent)
 {
-  QString entry = UrlUtils::toEntryName(request.url());
-  const QString &page = MainWindow::instance()->wikiSource()->xhtml(entry);
+  const QString &js = WikiSource::instance().javascript();
+
   _buffer.open(QBuffer::ReadWrite);
-  _buffer.write(page.toUtf8());
+  _buffer.write(js.toUtf8());
   _buffer.seek(0);
 
   setRequest(request);
   setUrl(request.url());
   setOpenMode(QIODevice::ReadOnly);
   setOperation(QNetworkAccessManager::GetOperation);
-  setHeader(QNetworkRequest::ContentTypeHeader, "text/html;charset=utf-8");
+  setHeader(QNetworkRequest::ContentTypeHeader, "text/javascript;charset=utf-8");
   setHeader(QNetworkRequest::ContentLengthHeader, _buffer.size());
 
   QTimer::singleShot(0, this, SIGNAL(metaDataChanged()));
@@ -44,7 +41,7 @@ NetworkReplyEntry::NetworkReplyEntry(const QNetworkRequest &request, QObject *pa
 }
 
 //===========================================================================
-void NetworkReplyEntry::checkFinished()
+void NetworkReplyJavascript::checkFinished()
 {
   if (_buffer.bytesAvailable() + QNetworkReply::bytesAvailable() == 0)
   {

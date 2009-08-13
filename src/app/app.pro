@@ -28,6 +28,7 @@ SOURCES += \
   networkaccessmanager.cpp \
   networkreplyembeddedfile.cpp \
   networkreplyentry.cpp \
+  networkreplyjavascript.cpp \
   networkreplymediafile.cpp \
   networkreplystylesheet.cpp \
   networkreplytitlepage.cpp \
@@ -70,6 +71,7 @@ HEADERS += \
   networkaccessmanager.h \
   networkreplyembeddedfile.h \
   networkreplyentry.h \
+  networkreplyjavascript.h \
   networkreplymediafile.h \
   networkreplystylesheet.h \
   networkreplytitlepage.h \

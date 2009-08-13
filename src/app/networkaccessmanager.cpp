@@ -14,11 +14,12 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "networkaccessmanager.h"
+#include "networkreplyembeddedfile.h"
 #include "networkreplyentry.h"
+#include "networkreplyjavascript.h"
 #include "networkreplymediafile.h"
 #include "networkreplystylesheet.h"
 #include "networkreplytitlepage.h"
-#include "networkreplyembeddedfile.h"
 #include <libwikt/debug.h>
 
 //===========================================================================
@@ -35,6 +36,8 @@ QNetworkReply *NetworkAccessManager::createRequest(Operation op, const QNetworkR
   {
     if (req.url().host() == "stylesheet")
       reply = new NetworkReplyStylesheet(req, this);
+    if (req.url().host() == "javascript")
+      reply = new NetworkReplyJavascript(req, this);
     else if (req.url().host() == "titlepage")
       reply = new NetworkReplyTitlePage(req, this);
   }

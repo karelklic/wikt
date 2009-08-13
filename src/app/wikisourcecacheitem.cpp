@@ -17,15 +17,23 @@
 #include <libwikt/parser/articleparser.h>
 
 //===========================================================================
-WikiSourceCacheItem::WikiSourceCacheItem(const QString &name, const QString &source)
-  : _source(source), _invalidSectionVisibility(false), _invalidTranslationSettings(false)
+static void nodeToXHtml(const ArticleNode &node, QString &xhtmlResult)
+{
+  xhtmlResult = QString("<html><head>"
+    "<link rel=\"stylesheet\" type=\"text/css\" href=\"special://stylesheet\" />"
+    "  <script type=\"text/javascript\" src=\"special://javascript\"></script>"
+    "</head><body>%1</body></html>").arg(node.toXHtml());
+}
+
+//===========================================================================
+WikiSourceCacheItem::WikiSourceCacheItem(const QString &name, const QString &source) : _source(source), _invalidSectionVisibility(false), _invalidTranslationSettings(false)
 {
   if (_source != "")
   {
     _node = ArticleParser::parse(name, source);
     _node->updateSectionVisibility();
     _node->updateTranslationSettings();
-    _xhtml = _node->toXHtml();
+    nodeToXHtml(*_node, _xhtml);
   }
   else
     _node = 0;
@@ -35,7 +43,7 @@ WikiSourceCacheItem::WikiSourceCacheItem(const QString &name, const QString &sou
 WikiSourceCacheItem::~WikiSourceCacheItem()
 {
   if (_node)
-    delete(_node);
+    delete _node;
 }
 
 //===========================================================================
@@ -63,7 +71,7 @@ void WikiSourceCacheItem::handleInvalidationFlags()
   if (_invalidTranslationSettings)
     _node->updateTranslationSettings();
 
-  _xhtml = _node->toXHtml();
+  nodeToXHtml(*_node, _xhtml);
   _invalidSectionVisibility = false;
   _invalidTranslationSettings = false;
 }

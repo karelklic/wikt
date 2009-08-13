@@ -24,7 +24,7 @@
 NetworkReplyTitlePage::NetworkReplyTitlePage(const QNetworkRequest &request,
     QObject *parent) : QNetworkReply(parent)
 {
-  QString page = MainWindow::instance()->wikiSource()->source("Wikt:Title Page");
+  const QString &page = MainWindow::instance()->wikiSource()->source("Wikt:Title Page");
   _buffer.open(QBuffer::ReadWrite);
   _buffer.write(page.toUtf8());
   _buffer.seek(0);

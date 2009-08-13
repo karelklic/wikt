@@ -47,6 +47,7 @@ public:
   ///   Set it to true when checking the existence of many entries in a batch.
   bool exist(const QString &entryName, bool useCache = true);
 
+  /// Returns the wiki source of certain entry.
   const QString &source(const QString &entryName);
 
   /// Returns the root node of tree representing the entry contents.
@@ -57,6 +58,7 @@ public:
   ///   If an entry does not exist, NULL is returned.
   ArticleNode *tree(const QString &entryName);
 
+  /// Returns the XHTML code for certain entry.
   const QString &xhtml(const QString &entryName);
 
   void sectionVisibilityChanged();
@@ -65,12 +67,20 @@ public:
   QByteArray media(const QString &fileName);
   QSize imageSize(const QString &fileName);
 
+  const QString &stylesheet() const { return _stylesheet; }
+  const QString &javascript() const { return _javascript; }
+
 private:
   WikiSourceCacheItem *cached(const QString &entryName);
 
   QMap<QString, WikiSourceCacheItem*> _cache;
   Format4Reader *_reader;
   MediaReader *_mediaReader;
+
+  /// CSS code that styles all XHTML results.
+  QString _stylesheet;
+  /// Javascript code that is included in all XHTML results.
+  QString _javascript;
 };
 
 #endif /* WIKI_WIKI_SOURCE_H */

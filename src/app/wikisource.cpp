@@ -32,6 +32,16 @@ WikiSource::WikiSource(QObject *parent) : QObject(parent)
   QString dataPath = QCoreApplication::applicationDirPath() + "/../share/wikt/data";
   _reader = new Format4Reader(dataPath + "/enwiktionary-20090711.ei4");
   _mediaReader = new MediaReader(dataPath + "/enwiktionary-20090711.eim");
+
+  QFile css(dataPath + "/enwiktionary-20090711.css");
+  css.open(QIODevice::ReadOnly);
+  _stylesheet = QString::fromUtf8(css.readAll());
+  css.close();
+
+  QFile js(dataPath + "/enwiktionary-20090711.js");
+  js.open(QIODevice::ReadOnly);
+  _javascript = QString::fromUtf8(js.readAll());
+  js.close();
 }
 
 //===========================================================================
