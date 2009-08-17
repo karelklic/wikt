@@ -99,6 +99,7 @@ void Language::setTranslationVisible(Language::Type lang, bool visible)
 }
 
 //===========================================================================
+// TODO: Remove this method. Problem fixed.
 // Properly converts strings.
 // Some strings entered by C++'s L"" macro end with a character 0x202c,
 // Unicode "POP DIRECTIONAL FORMATTING". This is harmful, because such
@@ -106,8 +107,8 @@ void Language::setTranslationVisible(Language::Type lang, bool visible)
 static QString fromWCharArray(const wchar_t *s)
 {
   QString ss = QString::fromWCharArray(s);
-  if (ss.endsWith(QChar(0x202c)))
-    ss.remove(ss.length() - 1, 1);
+  /*if (ss.endsWith(QChar(0x202c)))
+    ss.remove(ss.length() - 1, 1);*/
   return ss;
 }
 
