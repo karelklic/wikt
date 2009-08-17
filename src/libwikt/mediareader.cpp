@@ -40,13 +40,12 @@ QByteArray MediaReader::source(const QString &entryName)
 }
 
 //===========================================================================
-QByteArray MediaReader::source(int offset)
+QByteArray MediaReader::source(quint32 offset)
 {
-  CHECK_MSG(offset >= 0, "Invalid offset.");
-  _file.seek(4 + offset * 4); // index offset
-  quint32 entryOffset;
-  int bytes = _file.read((char*)&entryOffset, 4);
-  CHECK_MSG(bytes == 4, "Error while reading.");
+  _file.seek(sizeof(quint32) + offset * sizeof(qint64)); // index offset
+  qint64 entryOffset;
+  int bytes = _file.read((char*)&entryOffset, sizeof(qint64));
+  CHECK_MSG(bytes == sizeof(qint64), "Error while reading.");
 
   bool seeked = _file.seek(entryOffset);
   CHECK_MSG(seeked, "Error while seeking.");
@@ -63,12 +62,11 @@ bool MediaReader::exist(const QString &entryName)
 }
 
 //===========================================================================
-QString MediaReader::name(int offset)
+QString MediaReader::name(quint32 offset)
 {
-  CHECK_MSG(offset >= 0, "Invalid offset.");
-  _file.seek(4 + offset * 4); // index offset
-  quint32 entryOffset;
-  _file.read((char*)&entryOffset, 4);
+  _file.seek(sizeof(quint32) + offset * sizeof(qint64)); // index offset
+  qint64 entryOffset;
+  _file.read((char*)&entryOffset, sizeof(qint64));
   _file.seek(entryOffset);
   return FileUtils::readString(_file);
 }
@@ -79,8 +77,7 @@ MediaReader::MediaReader() : _entryCount(0)
 }
 
 //===========================================================================
-qint32 MediaReader::findEntryOffset(quint32 min, quint32 max,
-    const QString &entryName)
+qint32 MediaReader::findEntryOffset(quint32 min, quint32 max, const QString &entryName)
 {
   if (min == max)
     return name(min) == entryName ? min : -1;

@@ -54,8 +54,8 @@ void Format3Writer::close()
 
   foreach(const Link &it, sortedLinks)
   {
-    quint32 realOffset = it.second + 4 + 4 * entryCount;
-    file.write((const char*)&realOffset, sizeof(quint32));
+    qint64 realOffset = it.second + sizeof(quint32) + entryCount * sizeof(qint64);
+    file.write((const char*)&realOffset, sizeof(qint64));
   }
 
   // Follow the links (now sorted), load page from unsorted file and

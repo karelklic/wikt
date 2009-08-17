@@ -26,7 +26,7 @@ LinkConverter::LinkConverter(Format3Reader &reader, MediaReader &mediaReader) : 
 }
 
 //===========================================================================
-QString LinkConverter::convertedContents(int offs)
+QString LinkConverter::convertedContents(qint64 offs)
 {
   QString input = _reader.sourceDirect(offs);
   QString output;

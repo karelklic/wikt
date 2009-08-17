@@ -46,8 +46,8 @@ public:
   }
 
   virtual bool exist(QString entryName) { return _data.contains(entryName); }
-  virtual QString source(int offset) { return _contents[offset]; }
-  virtual QString sourceDirect(int offset) { return _contents[offset]; }
+  virtual QString source(quint32 offset) { return _contents[offset]; }
+  virtual QString sourceDirect(qint64 offset) { return _contents[offset]; }
 };
 
 //===========================================================================

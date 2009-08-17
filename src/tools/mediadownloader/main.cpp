@@ -158,7 +158,7 @@ int main(int argc, char **argv)
   out << "Processing entries..." << endl;
   destinationDir = argv[2];
   int pageCounter = 0;
-  for (QMap<QString, size_t>::const_iterator it = reader.entries().begin(); it != reader.entries().end(); ++it)
+  for (QMap<QString, qint64>::const_iterator it = reader.entries().begin(); it != reader.entries().end(); ++it)
   {
     QString contents = reader.sourceDirect(it.value());
     processContent(it.key(), contents);

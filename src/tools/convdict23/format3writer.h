@@ -32,7 +32,7 @@ public:
 private:
   QString _targetFileName;
 
-  typedef QPair<QString, size_t> Link;
+  typedef QPair<QString, qint64> Link;
   QList<Link> _links;
 
   /// Temporary file with entries without indices.

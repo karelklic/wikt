@@ -45,17 +45,22 @@ public:
   /// @brief Returns content of an entry.
   /// @param offset
   ///   Offset to list of all entries. 0 <= offset < entryCount().
-  QString source(int offset);
+  QString source(quint32 offset);
   /// @brief Returns name of an entry.
   /// @param offset
   ///   Offset to list of all entries. 0 <= offset < entryCount().
-  QString name(int offset);
+  QString name(quint32 offset);
   /// Returns number of entries in the file.
-  int entryCount() const { return _entryCount; }
+  quint32 entryCount() const { return _entryCount; }
 
 protected:
-  /// Returns -1 if entry does not exist.
-  qint32 findEntryOffset(quint32 min, quint32 max, const QString &entryName);
+  /// @param min
+  ///   0 <= min <= entryCount()
+  /// @param max
+  ///   0 <= max <= entryCount()
+  /// @return
+  ///   Returns -1 if entry does not exist.
+  int findEntryOffset(int min, int max, const QString &entryName);
 
   quint32 _entryCount;
   QFile _file;

@@ -24,7 +24,7 @@
 #include <QPair>
 #include <QMap>
 
-typedef QPair<QString, size_t> Link;
+typedef QPair<QString, qint64> Link;
 /// Offsets to entries.
 QList<Link> links;
 
@@ -153,8 +153,8 @@ void Format2_build(const QString &destinationFile)
 
   foreach(const Link &it, sortedLinks)
   {
-    quint32 realOffset = it.second + 4 + 4 * entryCount;
-    file.write((const char*)&realOffset, sizeof(quint32));
+    qint64 realOffset = it.second + sizeof(quint32) + entryCount * sizeof(qint64);
+    file.write((const char*)&realOffset, sizeof(qint64));
   }
 
   // Follow the links (now sorted), load page from unsorted file and
@@ -164,7 +164,7 @@ void Format2_build(const QString &destinationFile)
     temporaryFile.seek(it.second);
     QString name = FileUtils::readString(temporaryFile);
     QString contents = FileUtils::readString(temporaryFile);
-    CHECK_MSG(file.pos() == it.second + 4 + 4 * entryCount, "Data corruption.");
+    CHECK_MSG(file.pos() == it.second + sizeof(quint32) + entryCount * sizeof(qint64), "Data corruption.");
     FileUtils::writeString(file, name);
     FileUtils::writeString(file, contents);
   }

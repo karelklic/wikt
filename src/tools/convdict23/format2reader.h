@@ -35,15 +35,15 @@ public:
   virtual bool exist(QString entryName);
   /// @param offset
   ///   Offset between 0 and entry count.
-  QString source(int offset);
+  QString source(quint32 offset);
   /// @param offset
   ///  Offset between 0 and file size.
-  QString sourceDirect(int offset);
+  QString sourceDirect(qint64 offset);
 
   /// Returns number of entries in the file.
-  int entryCount() const { return _entryCount; }
+  quint32 entryCount() const { return _entryCount; }
 
-  typedef QMap<QString, size_t> EntryMap;
+  typedef QMap<QString, qint64> EntryMap;
   const EntryMap &entries() const { return _links; }
 
 protected:

@@ -47,13 +47,13 @@ public:
   /// @brief Returns content of an entry.
   /// @param offset
   ///   Offset to list of all entries. 0 <= offset < entryCount().
-  QByteArray source(int offset);
+  QByteArray source(quint32 offset);
   /// @brief Returns name of an entry.
   /// @param offset
   ///   Offset to list of all entries. 0 <= offset < entryCount().
-  QString name(int offset);
+  QString name(quint32 offset);
   /// Returns number of entries in the file.
-  int entryCount() const { return _entryCount; }
+  quint32 entryCount() const { return _entryCount; }
 
 protected:
   /// Constructor for testing purposes only.

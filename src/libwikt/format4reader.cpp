@@ -35,18 +35,17 @@ Format4Reader::~Format4Reader()
 //===========================================================================
 QString Format4Reader::source(const QString &entryName)
 {
-  qint32 offset = findEntryOffset(0, _entryCount - 1, entryName);
+  int offset = findEntryOffset(0, _entryCount - 1, entryName);
   return (offset < 0) ? "" : source(offset);
 }
 
 //===========================================================================
-QString Format4Reader::source(int offset)
+QString Format4Reader::source(quint32 offset)
 {
-  CHECK_MSG(offset >= 0, "Invalid offset.");
-  _file.seek(4 + offset * 4); // index offset
-  quint32 entryOffset;
-  int bytes = _file.read((char*)&entryOffset, 4);
-  CHECK_MSG(bytes == 4, "Error while reading.");
+  _file.seek(sizeof(quint32) + offset * sizeof(qint64)); // index offset
+  qint64 entryOffset;
+  qint64 bytes = _file.read((char*)&entryOffset, sizeof(qint64));
+  CHECK_MSG(bytes == sizeof(qint64), QString("Error while reading. Bytes read: %1, offset: %2").arg(bytes).arg(offset));
 
   bool seeked = _file.seek(entryOffset);
   CHECK_MSG(seeked, "Error while seeking.");
@@ -63,19 +62,21 @@ bool Format4Reader::exist(const QString &entryName)
 }
 
 //===========================================================================
-QString Format4Reader::name(int offset)
+QString Format4Reader::name(quint32 offset)
 {
-  CHECK_MSG(offset >= 0, "Invalid offset.");
-  _file.seek(4 + offset * 4); // index offset
-  quint32 entryOffset;
-  _file.read((char*)&entryOffset, 4);
-  _file.seek(entryOffset);
+  _file.seek(sizeof(quint32) + offset * sizeof(qint64)); // index offset
+  qint64 entryOffset;
+  qint64 bytes = _file.read((char*)&entryOffset, sizeof(qint64));
+  CHECK_MSG(bytes == sizeof(qint64), QString("Error while reading. Bytes read: %1, offset: %2").arg(bytes).arg(offset));
+
+  bool seeked = _file.seek(entryOffset);
+  CHECK_MSG(seeked, "Error while seeking.");
+
   return FileUtils::readString(_file);
 }
 
 //===========================================================================
-qint32 Format4Reader::findEntryOffset(quint32 min, quint32 max,
-    const QString &entryName)
+int Format4Reader::findEntryOffset(int min, int max, const QString &entryName)
 {
   if (min == max)
     return name(min) == entryName ? min : -1;

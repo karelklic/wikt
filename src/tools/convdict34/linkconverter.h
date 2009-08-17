@@ -36,8 +36,8 @@ public:
   LinkConverter(Format3Reader &reader, MediaReader &mediaReader);
 
   /// @param offs
-  ///   Direct offset to an entry in file.
-  QString convertedContents(int offs);
+  ///   Direct byte offset to an entry in file.
+  QString convertedContents(qint64 offs);
 
 protected:
   Format3Reader &_reader;

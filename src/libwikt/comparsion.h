@@ -26,7 +26,7 @@ struct Comparsion
     return a < b;
   }
 
-  inline bool operator()(const QPair<QString, size_t> &a, const QPair<QString, size_t> &b) const
+  inline bool operator()(const QPair<QString, qint64> &a, const QPair<QString, qint64> &b) const
   {
     return operator()(a.first, b.first);
   }

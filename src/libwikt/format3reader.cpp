@@ -24,12 +24,14 @@ Format3Reader::Format3Reader(const QString &fileName)
   _file.setFileName(fileName);
   _file.open(QIODevice::ReadOnly);
   _file.read((char*)&_entryCount, sizeof(quint32));
+  CHECK_MSG(_entryCount > 0, "Invalid number of entries read from file.");
 
   /// Read the offsets.
-  quint32 *offsets = new quint32[_entryCount];
-  _file.read((char*)offsets, _entryCount * sizeof(quint32));
+  qint64 *offsets = new qint64[_entryCount];
+  _file.read((char*)offsets, _entryCount * sizeof(qint64));
   for (unsigned i = 0; i < _entryCount; ++i)
   {
+    CHECK_MSG(offsets[i] > 0, "Invalid offset read from file.");
     _file.seek(offsets[i]);
     QString name = FileUtils::readString(_file);
     _links.insert(name, offsets[i]);
@@ -44,18 +46,17 @@ Format3Reader::~Format3Reader()
 }
 
 //===========================================================================
-QString Format3Reader::source(int offset)
+QString Format3Reader::source(quint32 offset)
 {
-  CHECK_MSG(offset >= 0, "Invalid offset.");
-  _file.seek(4 + offset * 4); // index offset
-  quint32 entryOffset;
-  int bytes = _file.read((char*)&entryOffset, 4);
-  CHECK_MSG(bytes == 4, "Error while reading.");
+  _file.seek(sizeof(quint32) + offset * sizeof(qint64)); // index offset
+  qint64 entryOffset;
+  int bytes = _file.read((char*)&entryOffset, sizeof(qint64));
+  CHECK_MSG(bytes == sizeof(qint64), "Error while reading.");
   return sourceDirect(entryOffset);
 }
 
 //===========================================================================
-QString Format3Reader::sourceDirect(int offset)
+QString Format3Reader::sourceDirect(qint64 offset)
 {
   bool seeked = _file.seek(offset);
   CHECK_MSG(seeked, QString("Error while seeking to offset %1").arg(offset));

@@ -73,7 +73,7 @@ QString FileUtils::readCompressed(QIODevice &device)
 {
   quint32 count;
   qint64 bytes = device.read((char*)&count, sizeof(quint32));
-  CHECK_MSG(bytes == 4, "Error while reading from file.");
+  CHECK_MSG(bytes == sizeof(quint32), "Error while reading from file.");
   if (count == 0) return "";
 
   QByteArray compressed = device.read(count);

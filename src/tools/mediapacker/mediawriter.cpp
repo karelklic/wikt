@@ -55,8 +55,8 @@ void MediaWriter::close()
 
   foreach(const Link &it, sortedLinks)
   {
-    quint32 realOffset = it.second + 4 + 4 * entryCount;
-    file.write((const char*)&realOffset, sizeof(quint32));
+    qint64 realOffset = it.second + sizeof(quint32) + entryCount * sizeof(qint64);
+    file.write((const char*)&realOffset, sizeof(qint64));
   }
 
   // Follow the links (now sorted), load page from unsorted file and
@@ -69,7 +69,7 @@ void MediaWriter::close()
     QByteArray contents = FileUtils::readByteArray(_temporaryFile);
 
     // Check the file integrity
-    CHECK(file.pos() == it.second + 4 + 4 * entryCount);
+    CHECK(file.pos() == it.second + sizeof(quint32) + entryCount * sizeof(qint64));
 
     // Write to final file.
     FileUtils::writeString(file, name);

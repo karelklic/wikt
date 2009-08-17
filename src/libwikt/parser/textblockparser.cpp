@@ -21,7 +21,7 @@
 #include "bolditalicparser.h"
 
 //===========================================================================
-Node *parseCycle(Buffer &buffer)
+static Node *parseCycle(Buffer &buffer)
 {
   Node *child;
   if ((child = LinkParser::parse(buffer)))
@@ -50,8 +50,7 @@ void TextBlockParser::parse(Node &node, Buffer &buffer)
       // append it as text before the resultant node.
       if (unparsedText.length() > 0)
       {
-        TextTokenNode *unparsedTextNode =
-          new TextTokenNode(unparsedText);
+        TextTokenNode *unparsedTextNode = new TextTokenNode(unparsedText);
         node.append(unparsedTextNode);
         unparsedText.clear();
       }
@@ -68,8 +67,7 @@ void TextBlockParser::parse(Node &node, Buffer &buffer)
   // append it as text
   if (unparsedText.length() > 0)
   {
-    TextTokenNode *unparsedTextNode =
-      new TextTokenNode(unparsedText);
+    TextTokenNode *unparsedTextNode = new TextTokenNode(unparsedText);
     node.append(unparsedTextNode);
   }
 }

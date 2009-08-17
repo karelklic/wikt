@@ -26,8 +26,8 @@ Format2Reader::Format2Reader(const QString &fileName)
   _file.read((char*)&_entryCount, sizeof(quint32));
 
   /// Read the offsets.
-  quint32 *offsets = new quint32[_entryCount];
-  _file.read((char*)offsets, _entryCount * sizeof(quint32));
+  qint64 *offsets = new qint64[_entryCount];
+  _file.read((char*)offsets, _entryCount * sizeof(qint64));
   for (unsigned i = 0; i < _entryCount; ++i)
   {
     _file.seek(offsets[i]);
@@ -53,7 +53,7 @@ QString Format2Reader::source(QString entryName)
     if (contents != "random value") return contents;
   }
 
-  qint32 offset = _links.value(entryName, 0);
+  qint64 offset = _links.value(entryName, 0);
   if (offset <= 0)
   { // Entry not found
     // Try again with underscores instead of spaces, and vice versa.
@@ -95,18 +95,17 @@ QString Format2Reader::source(QString entryName)
 }
 
 //===========================================================================
-QString Format2Reader::source(int offset)
+QString Format2Reader::source(quint32 offset)
 {
-  CHECK_MSG(offset >= 0, "Invalid offset.");
-  _file.seek(4 + offset * 4); // index offset
-  quint32 entryOffset;
-  int bytes = _file.read((char*)&entryOffset, 4);
-  CHECK_MSG(bytes == 4, "Error while reading.");
+  _file.seek(sizeof(quint32) + offset * sizeof(qint64)); // index offset
+  qint64 entryOffset;
+  int bytes = _file.read((char*)&entryOffset, sizeof(qint64));
+  CHECK_MSG(bytes == sizeof(qint64), "Error while reading.");
   return sourceDirect(entryOffset);
 }
 
 //===========================================================================
-QString Format2Reader::sourceDirect(int offset)
+QString Format2Reader::sourceDirect(qint64 offset)
 {
   bool seeked = _file.seek(offset);
   CHECK_MSG(seeked, "Error while seeking.");

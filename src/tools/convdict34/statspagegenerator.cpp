@@ -75,12 +75,11 @@ void StatsPageGenerator::write(Format4Writer &destination)
 {
   QString contents =
     "{| class=\"sortable prettytable\"\n"
-    "! Language name || Number of entries || Number of definitions || Gloss definitions || Form-of definitions\n"
-    "|-\n";
+    "! Language name || Number of entries || Number of definitions || Gloss definitions || Form-of definitions\n";
 
   for (QMap<Language::Type, LanguageStatistic>::const_iterator it = _stats.constBegin(); it != _stats.constEnd(); ++it)
   {
-    contents += QString("! %1\n| %2 || %3 || %4 || %5\n|-\n")
+    contents += QString("|-\n! %1\n| %2 || %3 || %4 || %5\n")
       .arg(Language::instance().toNames(it.key()).first())
       .arg(it.value().entryCount())
       .arg(it.value().definitionCount())
