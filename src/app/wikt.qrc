@@ -1,12 +1,15 @@
 <RCC>
-    <qresource prefix="/" >
-        <file>images/bullet.gif</file>
-        <file>images/go-home.png</file>
-        <file>images/go-next.png</file>
-        <file>images/go-previous.png</file>
-        <file>images/loudspeaker.png</file>
-        <file>images/loudspeaker.svg</file>
-        <file>images/magnify-clip.png</file>
-        <file>images/logo.svg</file>
-    </qresource>
+  <qresource prefix="/" >
+    <file>images/bullet.gif</file>
+    <file>images/sort-down.gif</file>
+    <file>images/sort-none.gif</file>
+    <file>images/sort-up.gif</file>
+    <file>images/go-home.png</file>
+    <file>images/go-next.png</file>
+    <file>images/go-previous.png</file>
+    <file>images/loudspeaker.png</file>
+    <file>images/loudspeaker.svg</file>
+    <file>images/magnify-clip.png</file>
+    <file>images/logo.svg</file>
+  </qresource>
 </RCC>

@@ -15,3 +15,9 @@ logo.svg
   http://openclipart.org/media/files/Anonymous/13153
   Public domain.
   Original name "old book"
+
+sort_*
+  http://en.wiktionary.org/skins-1.5/common/images/sort_none.gif
+  http://en.wiktionary.org/skins-1.5/common/images/sort_up.gif
+  http://en.wiktionary.org/skins-1.5/common/images/sort_down.gif
+  Obtained 2009-08-14.
