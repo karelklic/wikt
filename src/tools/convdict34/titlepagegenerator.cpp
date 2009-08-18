@@ -42,12 +42,12 @@ void TitlePageGenerator::write(Format4Writer &destination)
     "  <link rel=\"stylesheet\" type=\"text/css\" href=\"special://stylesheet\" />"
     "</head>"
     "<body>"
-    "  <h1>Wikt <small>"WIKT_VERSION"</small></h1>";
+    "  <h1>Wikt</h1>";
 
   QString entryCount = QString::number(_entryCount);
   entryCount.insert(-6, ',');
   entryCount.insert(-3, ',');
-  page += QString("  <p><a href=\"%1\">%2 entries</a> with English definitions from over 300 languages.</p>")
+  page += QString("  <p><a href=\"%1\">%2 entries</a> with English definitions from over 600 languages.</p>")
     .arg(UrlUtils::toUrl("Wikt:Statistics").toString())
     .arg(entryCount);
 
