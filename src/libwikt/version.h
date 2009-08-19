@@ -16,6 +16,6 @@
 #ifndef WIKT_VERSION_H
 #define WIKT_VERSION_H
 
-#define WIKT_VERSION "0.18.0"
+#define WIKT_VERSION "0.19.0"
 
 #endif
