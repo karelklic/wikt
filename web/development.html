@@ -21,6 +21,10 @@
 <ul>
 <li>Code heavily refactored and simplified. Some parts of the Wikt were moved to separate programs. Created a shared library libwikt.</li>
 </ul>
+Bugfixes
+<ul>
+<li>Tags &lt;includeonly&gt; and &lt;noinclude&gt; are detected using regular expressions instead of fixed strings. Old: &lt;includeonly&gt;, new: &lt;includeonly\s*&gt;. Affects entry "apple".</li>
+</ul>
 New Features
 <ul>
 <li>Support of 2009-07-11 version of Wiktionary data.</li>

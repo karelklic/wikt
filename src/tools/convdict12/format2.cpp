@@ -50,16 +50,16 @@ void Format2_loadErrata(const QString &directory)
 }
 
 //===========================================================================
-static QString removeBlock(const QString &startTag, const QString &stopTag, QString text)
+static QString removeBlock(const QRegExp &startTag, const QRegExp &stopTag, QString text)
 {
   int start = text.indexOf(startTag);
   while (start != -1)
   {
-    int end = text.indexOf(stopTag, start);
+    int end = stopTag.indexIn(text, start);
     if (end == -1)
       text.remove(start, text.length());
     else
-      text.remove(start, end - start + stopTag.length());
+      text.remove(start, end - start + stopTag.matchedLength());
     start = text.indexOf(startTag);
   }
 
@@ -108,13 +108,13 @@ void Format2_addEntry(const QString &name, QString contents)
   contents = errata.value(name, contents);
 
   // Remove <noinclude> and comment parts from contents.
-  contents = removeBlock("<noinclude>", "</noinclude>", contents);
-  contents = removeBlock("<!--", "-->", contents);
+  contents = removeBlock(QRegExp("<noinclude\\s*>"), QRegExp("</noinclude\\s*>"), contents);
+  contents = removeBlock(QRegExp("<!--"), QRegExp("-->"), contents);
 
   // Remove includeonly tags, but not the content between them.
-  contents.remove("<includeonly>").remove("</includeonly>");
+  contents.remove(QRegExp("<includeonly\\s*>")).remove(QRegExp("</includeonly\\s*>"));
 
-  // Remove __TOC__, because we handle Table of Contents in a separate window.
+  // Remove __TOC__ magic word, because we handle Table of Contents in a separate window.
   contents.remove("__TOC__");
 
   // Do not remove <nowiki/> tags. They are used as a separator between wikisyntax
