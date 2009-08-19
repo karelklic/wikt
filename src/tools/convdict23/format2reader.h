@@ -13,8 +13,8 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef EICREADER_H_
-#define EICREADER_H_
+#ifndef FORMAT2_READER_H_
+#define FORMAT2_READER_H_
 
 #include <QString>
 #include <QFile>
@@ -30,9 +30,10 @@ public:
   /// Cached. Implements redirects and entry name changes
   /// that makes this method suitable for obtaining
   /// template sources, but not for reading common entries.
-  virtual QString source(QString entryName);
+  virtual QString sourceTemplate(QString entryName);
 
   virtual bool exist(QString entryName);
+
   /// @param offset
   ///   Offset between 0 and entry count.
   QString source(quint32 offset);
@@ -59,4 +60,4 @@ protected:
 };
 
 
-#endif /* EICREADER_H_ */
+#endif /* FORMAT2_READER_H_ */

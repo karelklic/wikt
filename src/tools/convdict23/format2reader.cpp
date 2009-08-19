@@ -44,14 +44,11 @@ Format2Reader::~Format2Reader()
 }
 
 //===========================================================================
-QString Format2Reader::source(QString entryName)
+QString Format2Reader::sourceTemplate(QString entryName)
 {
-  // Check template cache if appropriate.
-  if (entryName.startsWith("Template:"))
-  {
-    QString contents = _templateCache.value(entryName, "random value");
-    if (contents != "random value") return contents;
-  }
+  // Check template cache.
+  QString contents = _templateCache.value(entryName, "random value");
+  if (contents != "random value") return contents;
 
   qint64 offset = _links.value(entryName, 0);
   if (offset <= 0)
@@ -74,22 +71,17 @@ QString Format2Reader::source(QString entryName)
     int end = result.indexOf("]]", start);
     if (end == -1) return "REDIRECT_ERROR";
     QString redirName = result.mid(start + 2, end - start - 2);
-    result = source(redirName);
+    result = sourceTemplate(redirName);
   }
 
   // Handle templates starting with "*", "#", ":", ";", and "{|".
   // They automatically get a newline at the start.
   // Source: http://meta.wikimedia.org/wiki/Help:Newlines_and_spaces#Automatic_newline_at_the_start
-  if (entryName.startsWith("Template:"))
-  {
-    if (result.startsWith("*") || result.startsWith("#") || result.startsWith(":") ||
-        result.startsWith(";") || result.startsWith("{|"))
-      result = "\n" + result;
-  }
+  if (result.startsWith("*") || result.startsWith("#") || result.startsWith(":") || result.startsWith(";") || result.startsWith("{|"))
+    result = "\n" + result;
 
   // Put template into cache.
-  if (entryName.startsWith("Template:"))
-    _templateCache.insert(entryName, result);
+  _templateCache.insert(entryName, result);
 
   return result;
 }

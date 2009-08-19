@@ -25,8 +25,7 @@
 //#define TEMPLATE_SOLVER_DEBUG
 
 //===========================================================================
-TemplateSolver::TemplateSolver(const QString &pageName, const QString &pageContent, Format2Reader &reader)
-  : _pageName(pageName), _pageContent(pageContent), _reader(reader)
+TemplateSolver::TemplateSolver(const QString &pageName, const QString &pageContent, Format2Reader &reader) : _pageName(pageName), _pageContent(pageContent), _reader(reader)
 {
 }
 
@@ -239,29 +238,31 @@ QString TemplateSolver::evaluateTemplate(const QString &templateText)
   // Get template page name. If the name already contains
   // the "Template:" prefix, do not add it.
   QString templatePageName = parts[0];
-  if (!templatePageName.startsWith("Template:"))
-    templatePageName = "Template:" + templatePageName;
-
+  
   // Get the template contents.
-  QString source = _reader.source(templatePageName);
-  if (source == "")
-  {
-    if (!_reader.exist(templatePageName))
-      return "&#x007b;&#x007b;" + templatePageName + "&#x007d;&#x007d;";
-    else
-      return "";
-  }
+  QString source;
+  if (templatePageName.startsWith("Template:") && _reader.exist(templatePageName))
+    source = _reader.sourceTemplate(templatePageName);
+  else if (_reader.exist("Template:" + templatePageName))
+    source = _reader.sourceTemplate("Template:" + templatePageName);
+  else if (_reader.exist(templatePageName))
+    source = _reader.sourceTemplate(templatePageName);
+  else
+    source = "&#x007b;&#x007b;" + templatePageName + "&#x007d;&#x007d;";
 
   // If the template contain <onlyinclude></onlyinclude>, provide only
   // the text between those tags.
   // Can this block of code be moved to XmlToEic processing?
-  QString includeTag("<onlyinclude>");
-  int includeStart = source.indexOf(includeTag);
-  int includeEnd = source.indexOf("</onlyinclude>");
-  if (includeStart != -1 && includeEnd != -1)
+  QRegExp includeTag("<onlyinclude\\s*>");
+  QRegExp includeEndTag("</onlyinclude\\s*>");
+  int includeStart = includeTag.indexIn(source);
+  if (includeStart != -1)
   {
-    source = source.mid(includeStart + includeTag.length(),
-      includeEnd - includeStart - includeTag.length());
+    int includeEnd = includeEndTag.indexIn(source, includeStart);
+    if (includeEnd != -1)
+      source = source.mid(includeStart + includeTag.matchedLength(), includeEnd - includeStart - includeTag.matchedLength());
+    else
+      source = source.mid(includeStart + includeTag.matchedLength());
   }
 
   // Evaluate all parameters and templates inside.
