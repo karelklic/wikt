@@ -15,11 +15,39 @@
  */
 #include "formattingfunctions.h"
 #include <libwikt/debug.h>
+#include <QLocale>
+
+//===========================================================================
+static QString formatNum(QString templateText)
+{
+  bool reverse = false;
+  if (templateText.endsWith("|R"))
+  {
+    reverse = true;
+    templateText.remove(templateText.length() - 2, 2);
+  }
+
+  QLocale english(QLocale::English, QLocale::UnitedStates);
+  if (reverse)
+  {
+    bool ok;
+    double d = english.toDouble(templateText, &ok);
+    if (!ok) return templateText;
+    return QString::number(d, 'f');
+  }
+  else
+  {
+    bool ok;
+    double d = templateText.toDouble(&ok);
+    if (!ok) return templateText;
+    return english.toString(d, 'f');
+  }
+}
 
 //===========================================================================
 bool FormattingFunctions::isFormattingFunction(const QString &templateText)
 {
-  return templateText.startsWith("lc:") || templateText.startsWith("lcfirst:") || templateText.startsWith("uc:") || templateText.startsWith("ucfirst:");
+  return templateText.startsWith("lc:") || templateText.startsWith("lcfirst:") || templateText.startsWith("uc:") || templateText.startsWith("ucfirst:") || templateText.startsWith("formatnum:");
 }
 
 //===========================================================================
@@ -38,6 +66,8 @@ QString FormattingFunctions::evaluate(const QString &templateText)
     return val.toUpper();
   else if (trimmed.startsWith("ucfirst:"))
     return val.at(0).toUpper() + val.mid(1);
+  else if (trimmed.startsWith("formatnum:"))
+    return formatNum(val);
   dstderr("Unknown function.");
   return templateText;
 }

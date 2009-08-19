@@ -17,32 +17,104 @@
 #include "format3writer.h"
 #include "templatesolver.h"
 #include "galleryconverter.h"
+#include <libwikt/debug.h>
 #include <QCoreApplication>
 #include <QTextStream>
+#include <QStringList>
 
+
+//===========================================================================
+void usage()
+{
+    cstderr(QString("Usage: %1 [OPTIONS] [SOURCE] [DESTINATION]\n").arg(QCoreApplication::arguments().first()));
+    cstderr("Limits:");
+    cstderr("  -f,  --from=NUMBER   sets the starting offset");
+    cstderr("  -t,  --to=NUMBER     sets the ending offset");
+    cstderr("       --names         displays names of entries");
+}
 
 //===========================================================================
 int main(int argc, char **argv)
 {
   QCoreApplication a(argc, argv);
+  QStringList args = a.arguments();
+  args.removeFirst(); // application name
 
-  if (argc != 3)
+  QString source, destination, from, to;
+  bool names = false;
+  int pos = 0;
+  foreach (const QString &s, args)
   {
-    QTextStream err(stderr, QIODevice::WriteOnly);
-    err << "Invalid number of arguments." << endl;
-    err << QString("Usage: %1 [SOURCE] [DESTINATION]").arg(argv[0]) << endl;
-    return -1;
+    if (s == "--names")
+      names = true;
+    else if (s.startsWith("-f="))
+      from = s.mid(3);
+    else if (s.startsWith("--from="))
+      from = s.mid(7);
+    else if (s.startsWith("-t="))
+      to = s.mid(3);
+    else if (s.startsWith("--to="))
+      to = s.mid(5);
+    else 
+    {
+      switch (pos)
+      {
+      case 0: source = s; break;
+      case 1: destination = s; break;
+      }
+      ++pos;
+    }
   }
 
-  QTextStream out(stdout, QIODevice::WriteOnly);
-  out << "Reading indices..." << endl;
-  Format2Reader reader(argv[1]);
-  out << "Processing entries..." << endl;
+  if (pos != 2)
+  {
+    usage();
+    return 1;
+  }
+
+  cstdout("Reading indices...");
+  Format2Reader reader(source);
+  cstdout("Processing entries...");
 
   int pageCounter = 0;
-  Format3Writer writer(argv[2]);
-  for (Format2Reader::EntryMap::const_iterator it = reader.entries().constBegin(); it != reader.entries().constEnd(); ++it)
+  Format3Writer writer(destination);
+
+  // Sets the starting point.
+  Format2Reader::EntryMap::const_iterator it = reader.entries().constBegin();
+  if (!from.isNull())
   {
+    bool ok = false;
+    int fromint = from.toInt(&ok);
+    if (!ok)
+    {
+      usage();
+      return 1;
+    }
+
+    it += fromint;
+  }
+
+  // Set the end point.
+  Format2Reader::EntryMap::const_iterator itend = reader.entries().constEnd();
+  if (!to.isNull())
+  {
+    bool ok = false;
+    int toint = to.toInt(&ok);
+    if (!ok)
+    {
+      usage();
+      return 1;
+    }
+
+    itend = reader.entries().constBegin() + toint;
+  }
+
+  // The main loop over all processed entries.
+  for (; it != itend; ++it)
+  {
+    if (names)
+      cstdout(QString("Entry #%1: %2").arg(pageCounter).arg(it.key()));
+
     // Skip template pages.
     if (it.key().startsWith("Template:")) continue;
 
@@ -67,9 +139,9 @@ int main(int argc, char **argv)
     // Logging.
     ++pageCounter;
     if (pageCounter % 10 == 0)
-      out << QString("Processed: %1").arg(pageCounter) << endl;
+      cstdout(QString("Processed: %1").arg(pageCounter));
   }
   writer.close();
-  out << "Done." << endl;
+  cstdout("Done.");
   return 0;
 }

@@ -18,7 +18,9 @@
 
 #include <QString>
 
-/// @brief Handles formatting functions lc, lcfirst, uc, ucfirst.
+/// @brief Handles formatting functions lc, lcfirst, uc, ucfirst, formatnum.
+///
+/// @todo Support #dateformat, #formatdate, padleft, padright, plural, grammar.
 ///
 /// See http://www.mediawiki.org/wiki/Help:Magic_words#Formatting.
 /// See http://meta.wikimedia.org/wiki/Help:Magic_words#Formatting

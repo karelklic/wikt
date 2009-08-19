@@ -19,6 +19,8 @@
 #include "parserfunctions.h"
 #include "formattingfunctions.h"
 #include "pagenamefunctions.h"
+#include <libwikt/debug.h>
+#include <libwikt/namespace.h>
 #include <QRegExp>
 #include <QTextStream>
 
@@ -33,7 +35,7 @@ TemplateSolver::TemplateSolver(const QString &pageName, const QString &pageConte
 QString TemplateSolver::run()
 {
 #ifdef TEMPLATE_SOLVER_DEBUG
-  COUT(_pageName);
+  cstdout(_pageName);
 #endif
   ParameterList empty;
   return removeTemplates(_pageContent, empty);
@@ -152,7 +154,7 @@ QString TemplateSolver::removeTemplates(QString wikiText, const ParameterList &p
       QString contents = wikiText.mid(start3 + 3, stop3 - start3 - 3);
       QString evaluated = TemplateUtils::evaluateParameter(contents, params);
 #ifdef TEMPLATE_SOLVER_DEBUG
-      COUT("Param: " + contents + " -> " + evaluated);
+      cstdout("Param: " + contents + " -> " + evaluated);
 #endif
       wikiText.replace(start3, stop3 + 3 - start3, escapeTemplateSyntax(evaluated));
       from = qMax(start3 - 1, 0);
@@ -172,11 +174,11 @@ void TemplateSolver::evaluateTemplate(QString &wikiText, int from, int to)
   if (it == _cache.end()) // not found in cache
   {
     #ifdef TEMPLATE_SOLVER_DEBUG
-      COUT("BEGIN Template: " + contents);
+      cstdout("BEGIN Template: " + contents);
     #endif
     evaluated = evaluateTemplate(contents);
     #ifdef TEMPLATE_SOLVER_DEBUG
-      COUT("END Template: " + contents + " -> " + evaluated);
+      cstdout("END Template: " + contents + " -> " + evaluated);
     #endif
   
     evaluated = escapeTemplateSyntax(evaluated);
@@ -203,7 +205,7 @@ QString TemplateSolver::evaluateTemplate(const QString &templateText)
   // Handle built-in templates #if, #switch etc.
   if (ParserFunctions::isParserFunction(templateTextTrimmed))
     return ParserFunctions::evaluate(templateText, _reader, _pageName);
-  // Handle build-in templats uc:, ucfirst: etc.
+  // Handle build-in templats uc:, ucfirst:, formatnum: etc.
   if (FormattingFunctions::isFormattingFunction(templateTextTrimmed))
     return FormattingFunctions::evaluate(templateText);
   // Handle built-in templates PAGENAME, PAGENAMEE, SUBPAGENAME etc.
@@ -245,10 +247,15 @@ QString TemplateSolver::evaluateTemplate(const QString &templateText)
     source = _reader.sourceTemplate(templatePageName);
   else if (_reader.exist("Template:" + templatePageName))
     source = _reader.sourceTemplate("Template:" + templatePageName);
-  else if (_reader.exist(templatePageName))
+  else if (_reader.exist(templatePageName) && Namespace::instance().fromEntry(templatePageName) != Namespace::Main)
     source = _reader.sourceTemplate(templatePageName);
   else
-    source = "&#x007b;&#x007b;" + templatePageName + "&#x007d;&#x007d;";
+  {
+    if (!templatePageName.startsWith("Template:"))
+	templatePageName.prepend("Template:");
+
+    return "&#x007b;&#x007b;" + templatePageName + "&#x007d;&#x007d;";
+  }
 
   // If the template contain <onlyinclude></onlyinclude>, provide only
   // the text between those tags.
