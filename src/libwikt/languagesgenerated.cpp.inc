@@ -40,6 +40,9 @@ _typeToInterwiki.insert(Czech, fromWCharArray(L"Česky"));
 _typeToNames.insert(Czech, fromWCharArray(L"Czech"));
 _nameToType.insert(fromWCharArray(L"Czech"), Czech);
 //-
+_typeToNames.insert(WesternArrernte, fromWCharArray(L"Western Arrernte"));
+_nameToType.insert(fromWCharArray(L"Western Arrernte"), WesternArrernte);
+//-
 _codeToType.insert("nr", SouthNdebele);
 _typeToCode.insert(SouthNdebele, "nr");
 //-
@@ -118,8 +121,8 @@ _nameToType.insert(fromWCharArray(L"Serbian"), Serbian);
 _typeToNames.insert(RapaNui, fromWCharArray(L"Rapa Nui"));
 _nameToType.insert(fromWCharArray(L"Rapa Nui"), RapaNui);
 //-
-_typeToNames.insert(Kung, fromWCharArray(L"#<YAML::DomainType:0xb7b55b3c>"));
-_nameToType.insert(fromWCharArray(L"#<YAML::DomainType:0xb7b55b3c>"), Kung);
+_typeToNames.insert(Kung, fromWCharArray(L"!Kung"));
+_nameToType.insert(fromWCharArray(L"!Kung"), Kung);
 //-
 _codeToType.insert("ake", Akawaio);
 _typeToCode.insert(Akawaio, "ake");
@@ -189,11 +192,11 @@ _typeToInterwiki.insert(Malay, fromWCharArray(L"Bahasa Melayu"));
 _typeToNames.insert(Malay, fromWCharArray(L"Malay"));
 _nameToType.insert(fromWCharArray(L"Malay"), Malay);
 //-
-_typeToNames.insert(BishnupriyaManipuri, fromWCharArray(L"Bishnupriya Manipuri"));
-_nameToType.insert(fromWCharArray(L"Bishnupriya Manipuri"), BishnupriyaManipuri);
-//-
 _typeToNames.insert(Shuar, fromWCharArray(L"Shuar"));
 _nameToType.insert(fromWCharArray(L"Shuar"), Shuar);
+//-
+_typeToNames.insert(BishnupriyaManipuri, fromWCharArray(L"Bishnupriya Manipuri"));
+_nameToType.insert(fromWCharArray(L"Bishnupriya Manipuri"), BishnupriyaManipuri);
 //-
 _typeToNames.insert(MeglenoRomanian, fromWCharArray(L"Megleno-Romanian"));
 _nameToType.insert(fromWCharArray(L"Megleno-Romanian"), MeglenoRomanian);
@@ -404,6 +407,9 @@ _typeToCode.insert(Breton, "br");
 _typeToInterwiki.insert(Breton, fromWCharArray(L"Brezhoneg"));
 _typeToNames.insert(Breton, fromWCharArray(L"Breton"));
 _nameToType.insert(fromWCharArray(L"Breton"), Breton);
+//-
+_typeToNames.insert(Kven, fromWCharArray(L"Kven"));
+_nameToType.insert(fromWCharArray(L"Kven"), Kven);
 //-
 _codeToType.insert("km", Khmer);
 _typeToCode.insert(Khmer, "km");
@@ -1014,6 +1020,9 @@ _typeToInterwiki.insert(Kanuri, fromWCharArray(L"Kanuri"));
 _typeToNames.insert(Kanuri, fromWCharArray(L"Kanuri"));
 _nameToType.insert(fromWCharArray(L"Kanuri"), Kanuri);
 //-
+_typeToNames.insert(Kabuverdianu, fromWCharArray(L"Kabuverdianu"));
+_nameToType.insert(fromWCharArray(L"Kabuverdianu"), Kabuverdianu);
+//-
 _codeToType.insert("tl", Tagalog);
 _typeToCode.insert(Tagalog, "tl");
 _typeToInterwiki.insert(Tagalog, fromWCharArray(L"Tagalog"));
@@ -1256,6 +1265,9 @@ _typeToInterwiki.insert(Akan, fromWCharArray(L"Akan"));
 _typeToNames.insert(Akan, fromWCharArray(L"Akan"));
 _nameToType.insert(fromWCharArray(L"Akan"), Akan);
 //-
+_typeToNames.insert(Ga, fromWCharArray(L"Ga"));
+_nameToType.insert(fromWCharArray(L"Ga"), Ga);
+//-
 _codeToType.insert("to", Tonga);
 _typeToCode.insert(Tonga, "to");
 _typeToInterwiki.insert(Tonga, fromWCharArray(L"lea faka-Tonga"));
@@ -1290,6 +1302,9 @@ _nameToType.insert(fromWCharArray(L"Lao"), Lao);
 //-
 _typeToNames.insert(WikMungkan, fromWCharArray(L"Wik-Mungkan"));
 _nameToType.insert(fromWCharArray(L"Wik-Mungkan"), WikMungkan);
+//-
+_typeToNames.insert(Wageman, fromWCharArray(L"Wageman"));
+_nameToType.insert(fromWCharArray(L"Wageman"), Wageman);
 //-
 _codeToType.insert("my", Burmese);
 _typeToCode.insert(Burmese, "my");
@@ -1482,6 +1497,9 @@ _nameToType.insert(fromWCharArray(L"Xhosa"), Xhosa);
 //-
 _typeToNames.insert(Kyrgyz, fromWCharArray(L"Kyrgyz"));
 _nameToType.insert(fromWCharArray(L"Kyrgyz"), Kyrgyz);
+//-
+_typeToNames.insert(Kapingamarangi, fromWCharArray(L"Kapingamarangi"));
+_nameToType.insert(fromWCharArray(L"Kapingamarangi"), Kapingamarangi);
 //-
 _typeToNames.insert(Bangi, fromWCharArray(L"Bangi"));
 _nameToType.insert(fromWCharArray(L"Bangi"), Bangi);
@@ -1747,6 +1765,9 @@ _nameToType.insert(fromWCharArray(L"Nogai"), Nogai);
 _typeToNames.insert(KalispelPenddOreille, fromWCharArray(L"Kalispel-Pend d'Oreille"));
 _nameToType.insert(fromWCharArray(L"Kalispel-Pend d'Oreille"), KalispelPenddOreille);
 //-
+_typeToNames.insert(Piraha, fromWCharArray(L"Pirahã"));
+_nameToType.insert(fromWCharArray(L"Pirahã"), Piraha);
+//-
 _typeToNames.insert(Samogitian, fromWCharArray(L"Samogitian"));
 _nameToType.insert(fromWCharArray(L"Samogitian"), Samogitian);
 //-
@@ -1767,6 +1788,8 @@ _nameToType.insert(fromWCharArray(L"Istro-Romanian"), IstroRomanian);
 _codeToType.insert("ik", Inupiaq);
 _typeToCode.insert(Inupiaq, "ik");
 _typeToInterwiki.insert(Inupiaq, fromWCharArray(L"Iñupiak"));
+_typeToNames.insert(Inupiaq, fromWCharArray(L"Inupiak"));
+_nameToType.insert(fromWCharArray(L"Inupiak"), Inupiaq);
 _typeToNames.insert(Inupiaq, fromWCharArray(L"Inupiaq"));
 _nameToType.insert(fromWCharArray(L"Inupiaq"), Inupiaq);
 //-
@@ -2049,6 +2072,12 @@ _nameToType.insert(fromWCharArray(L"Old French"), OldFrench);
 _typeToNames.insert(Translingual, fromWCharArray(L"Translingual"));
 _nameToType.insert(fromWCharArray(L"Translingual"), Translingual);
 //-
+_codeToType.insert("scn", Sicilian);
+_typeToCode.insert(Sicilian, "scn");
+_typeToInterwiki.insert(Sicilian, fromWCharArray(L"Sicilianu"));
+_typeToNames.insert(Sicilian, fromWCharArray(L"Sicilian"));
+_nameToType.insert(fromWCharArray(L"Sicilian"), Sicilian);
+//-
 _codeToType.insert("ig", Igbo);
 _typeToCode.insert(Igbo, "ig");
 _typeToInterwiki.insert(Igbo, fromWCharArray(L"Igbo"));
@@ -2070,12 +2099,6 @@ _nameToType.insert(fromWCharArray(L"Arabela"), Arabela);
 //-
 _typeToNames.insert(Kashaya, fromWCharArray(L"Kashaya"));
 _nameToType.insert(fromWCharArray(L"Kashaya"), Kashaya);
-//-
-_codeToType.insert("scn", Sicilian);
-_typeToCode.insert(Sicilian, "scn");
-_typeToInterwiki.insert(Sicilian, fromWCharArray(L"Sicilianu"));
-_typeToNames.insert(Sicilian, fromWCharArray(L"Sicilian"));
-_nameToType.insert(fromWCharArray(L"Sicilian"), Sicilian);
 //-
 _codeToType.insert("ha", Hausa);
 _typeToCode.insert(Hausa, "ha");
@@ -2171,6 +2194,9 @@ _nameToType.insert(fromWCharArray(L"Georgian"), Georgian);
 _typeToNames.insert(Veps, fromWCharArray(L"Veps"));
 _nameToType.insert(fromWCharArray(L"Veps"), Veps);
 //-
+_typeToNames.insert(Vandalic, fromWCharArray(L"Vandalic"));
+_nameToType.insert(fromWCharArray(L"Vandalic"), Vandalic);
+//-
 _codeToType.insert("tk", Turkmen);
 _typeToCode.insert(Turkmen, "tk");
 _typeToInterwiki.insert(Turkmen, fromWCharArray(L"Türkmençe"));
@@ -2186,6 +2212,9 @@ _codeToType.insert("ang", OldEnglish);
 _typeToCode.insert(OldEnglish, "ang");
 _typeToNames.insert(OldEnglish, fromWCharArray(L"Old English"));
 _nameToType.insert(fromWCharArray(L"Old English"), OldEnglish);
+//-
+_typeToNames.insert(Shelta, fromWCharArray(L"Shelta"));
+_nameToType.insert(fromWCharArray(L"Shelta"), Shelta);
 //-
 _codeToType.insert("am", Amharic);
 _typeToCode.insert(Amharic, "am");
@@ -2361,17 +2390,17 @@ _typeToInterwiki.insert(Twi, fromWCharArray(L"Twi"));
 _typeToNames.insert(Twi, fromWCharArray(L"Twi"));
 _nameToType.insert(fromWCharArray(L"Twi"), Twi);
 //-
-_codeToType.insert("el", Greek);
-_typeToCode.insert(Greek, "el");
-_typeToInterwiki.insert(Greek, fromWCharArray(L"Ελληνικά"));
-_typeToNames.insert(Greek, fromWCharArray(L"Greek"));
-_nameToType.insert(fromWCharArray(L"Greek"), Greek);
-//-
 _codeToType.insert("sd", Sindhi);
 _typeToCode.insert(Sindhi, "sd");
 _typeToInterwiki.insert(Sindhi, fromWCharArray(L"سنڌي"));
 _typeToNames.insert(Sindhi, fromWCharArray(L"Sindhi"));
 _nameToType.insert(fromWCharArray(L"Sindhi"), Sindhi);
+//-
+_codeToType.insert("el", Greek);
+_typeToCode.insert(Greek, "el");
+_typeToInterwiki.insert(Greek, fromWCharArray(L"Ελληνικά"));
+_typeToNames.insert(Greek, fromWCharArray(L"Greek"));
+_nameToType.insert(fromWCharArray(L"Greek"), Greek);
 //-
 _typeToNames.insert(LateMiddleChinese, fromWCharArray(L"Late Middle Chinese"));
 _nameToType.insert(fromWCharArray(L"Late Middle Chinese"), LateMiddleChinese);

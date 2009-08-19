@@ -726,6 +726,9 @@ Fualah:
 #
 # G
 #
+Ga:
+  names: Ga
+
 Gagauz:
   names: Gagauz
 
@@ -890,7 +893,7 @@ Inuktitut:
 Inupiaq:
   code: ik
   interwiki: Iñupiak
-  names: Inupiaq
+  names: [Inupiaq, Inupiak]
 
 Irish:
   code: ga
@@ -941,6 +944,9 @@ Jingpho:
 Kabardian:
   names: Kabardian
 
+Kabuverdianu:
+  names: Kabuverdianu
+
 Kabyle:
   code: kab
   names: Kabyle
@@ -962,6 +968,9 @@ Kanuri:
   code: kr
   interwiki: Kanuri
   names: Kanuri
+
+Kapingamarangi:
+  names: Kapingamarangi
   
 Karelian:
   code: krl
@@ -1053,12 +1062,15 @@ Kuna:
   names: Kuna
 
 Kung:
-  names: !Kung
+  names: "!Kung" # suppress YAML evaluation
 
 Kurdish:
   code: ku
   interwiki: Kurdî / كوردی
   names: Kurdish
+
+Kven:
+  names: Kven
 
 Kwanyama:
   code: kj
@@ -1522,6 +1534,9 @@ Piedmontese:
 
 Pijin:
   names: Pijin
+
+Piraha:
+  names: Pirahã
   
 Pitjantjatjara:
   code: pjt
@@ -1675,6 +1690,9 @@ Seri:
 Shabo:
   code: sbf
   names: Shabo
+
+Shelta:
+  names: Shelta
 
 Shona:
   code: sn
@@ -1936,6 +1954,9 @@ Uzbek:
 #
 # V
 #
+Vandalic:
+  names: Vandalic
+
 Venda:
   code: ve
   interwiki: Tshivenda
@@ -1970,6 +1991,9 @@ Votic:
 #
 # W
 #
+Wageman:
+  names: Wageman
+
 Walloon:
   code: wa
   interwiki: Walon
@@ -1993,6 +2017,9 @@ Welsh:
 WesternApache:
   code: apw
   names: Western Apache
+
+WesternArrernte:
+  names: Western Arrernte
 
 WesternFrisian:
   code: [fy, fry]
