@@ -118,6 +118,7 @@ int main(int argc, char **argv)
     itend = reader.entries().constBegin() + toint;
   }
 
+  // The main loop over all processed entries.
   for (; it != itend; ++it)
   {
     if (names)
