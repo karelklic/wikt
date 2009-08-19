@@ -29,6 +29,16 @@ Namespace::Type Namespace::fromCode(const QString &code) const
 }
 
 //===========================================================================
+Namespace::Type Namespace::fromEntry(const QString &name) const
+{
+  QStringList prefixes = name.split(':');
+  prefixes.removeLast();
+  for (int i = 0; i < prefixes.size(); ++i)
+    prefixes[i] = prefixes[i].trimmed();
+  return fromLinkPrefixes(prefixes);
+}
+
+//===========================================================================
 Namespace::Type Namespace::fromLinkPrefixes(const QStringList &prefixes) const
 {
   foreach(QString name, prefixes)

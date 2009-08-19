@@ -78,6 +78,14 @@ public:
   ///   Unknown for unknown or empty code.
   Type fromCode(const QString &code) const;
 
+  /// Detects a namespace from entry name.
+  /// This function is case insensitive.
+  /// For example returns Main for "cs:myslet", Project for "Wiktionary:Main page",
+  /// Category for "cs:Kategorie:Anglická substantiva".
+  /// @return
+  ///   Main namespace if no known namespace is detected.
+  Type fromEntry(const QString &name) const;
+
   /// Detects a namespace from link target text.
   /// This function is case insensitive.
   /// For example returns Main for "cs:myslet", Project for "Wiktionary:Main page",
