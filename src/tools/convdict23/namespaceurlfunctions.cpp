@@ -46,7 +46,7 @@ static QString functionNs(const QString &templateText)
   // Get the value after "ns:" in a normalized form.
   value = value.section(':', 1).trimmed();
   Namespace::Type ns = Namespace::instance().fromCode(value);
-  CHECK(ns != Namespace::Unknown);
+  CHECK_MSG(ns != Namespace::Unknown, QString("template value: %1, template text: %2").arg(value).arg(templateText));
   return Namespace::instance().toLocalizedName(ns);
 }
 
