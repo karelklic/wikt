@@ -19,8 +19,7 @@
 #include <QRegExp>
 
 //===========================================================================
-LinkTargetNode::LinkTargetNode(const QString &text) : Node(Node::LinkTarget),
-  _text(text)
+LinkTargetNode::LinkTargetNode(const QString &text) : Node(Node::LinkTarget), _text(text)
 {
   QStringList list = text.split(':');
   QStringList entryHeading = list.last().split('#');
@@ -30,7 +29,7 @@ LinkTargetNode::LinkTargetNode(const QString &text) : Node(Node::LinkTarget),
 
   list.removeLast(); // remove entry name
 
-  // trim all prefixes. Mediawiki does the same.
+  // Trim all prefixes. Mediawiki does the same.
   // Handles links such as [[ Category: Czech nouns ]]
   for (int i = 0; i < list.size(); ++i)
     list[i] = list[i].trimmed();
@@ -44,9 +43,7 @@ LinkTargetNode::LinkTargetNode(const QString &text) : Node(Node::LinkTarget),
 //===========================================================================
 QString LinkTargetNode::toXHtmlLink() const
 {
-  if (_namespace == Namespace::Image ||
-      _namespace == Namespace::Media ||
-      _namespace == Namespace::File)
+  if (_namespace == Namespace::Image || _namespace == Namespace::Media || _namespace == Namespace::File)
     return UrlUtils::toUrl(_entry, "media").toString();
 
   return UrlUtils::toUrl(_text).toString();
@@ -62,8 +59,7 @@ QString LinkTargetNode::toXml(int indentLevel) const
   if (languages.size() > 0)
     language = languages.first();
 
-  return indent + QString("<link_target namespace=\"%1\" language=\"%2\" "
-      "project=\"%3\">%4</link_target>\n")
+  return indent + QString("<link_target namespace=\"%1\" language=\"%2\" project=\"%3\">%4</link_target>\n")
       .arg(Namespace::instance().toLocalizedName(_namespace))
       .arg(language)
       .arg(Project::instance().toUrl(_project, _language))

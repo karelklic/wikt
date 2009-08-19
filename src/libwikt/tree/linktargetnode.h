@@ -35,8 +35,10 @@ public:
   ///   Target link text."It has the format project:language:namespace:entry#heading,
   ///   where no part is mandatory. It must contain either entry or heading.
   LinkTargetNode(const QString &text);
+
   /// Returns the link as URL path, either internal or external.
   QString toXHtmlLink() const;
+
   /// Returns the)
   virtual QString toXml(int indentLevel = 0) const;
   virtual QString toText() const { return _text; }
