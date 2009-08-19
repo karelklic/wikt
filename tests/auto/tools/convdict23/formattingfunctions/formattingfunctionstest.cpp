@@ -22,11 +22,12 @@ class FormattingFunctionsTest : public QObject
 {
   Q_OBJECT
 private slots:
-  void evaluate();
+  void basic();
+  void formatNum();
 };
 
 //===========================================================================
-void FormattingFunctionsTest::evaluate()
+void FormattingFunctionsTest::basic()
 {
   QCOMPARE(FormattingFunctions::evaluate("lc:OmEgA"), QString("omega"));
   QCOMPARE(FormattingFunctions::evaluate("lc:"), QString(""));
@@ -36,6 +37,13 @@ void FormattingFunctionsTest::evaluate()
   QCOMPARE(FormattingFunctions::evaluate("lcfirst:!"), QString("!"));
   QCOMPARE(FormattingFunctions::evaluate("lcfirst:"), QString(""));
   QCOMPARE(FormattingFunctions::evaluate("uc:black magic"), QString("BLACK MAGIC"));
+}
+
+//===========================================================================
+void FormattingFunctionsTest::formatNum()
+{
+  QCOMPARE(FormattingFunctions::evaluate("formatnum:-987654321.654321"), QString("-987,654,321.654321"));
+  QCOMPARE(FormattingFunctions::evaluate("formatnum:-987,654,321.654321|R"), QString("-987654321.654321"));
 }
 
 QTEST_APPLESS_MAIN(FormattingFunctionsTest)
