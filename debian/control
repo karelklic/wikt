@@ -2,13 +2,26 @@ Source: wikt
 Section: text
 Priority: optional
 Maintainer: Karel Klic <karelklic@gmail.com>
-XSBC-Original-Maintainer: Karel Klic <karelklic@gmail.com>
 Build-Depends: cdbs, debhelper (>= 7), libqt4-dev (>= 4.5.0), qt4-dev-tools 
-Standards-Version: 3.8.1
+Standards-Version: 3.8.2
 Homepage: http://wikt.sourceforge.net/
+
+Package: libwikt
+Architecture: any
+Depends: ${shlibs:Depends}
+Description: library for dictionary with all words of all languages
+
+Package: wikt-dict-en
+Architecture: all
+Description: English dictionary for Wikt
 
 Package: wikt
 Architecture: any
-Depends: ${shlibs:Depends}
-Description: Dictionary with all words of all languages.
+Depends: ${shlibs:Depends}, libwikt, wikt-dict-en
+Description: dictionary with all words of all languages
+
+Package: wikt-tools
+Architecture: any
+Depends: ${shlibs:Depends}, libwikt, wikt-dict-en
+Description: tools for maintaining Wikt dictionaries
 

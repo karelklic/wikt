@@ -1,0 +1,5 @@
+bin/libwikt.so usr/lib/
+bin/libwikt.so.1 usr/lib/
+bin/libwikt.so.1.0 usr/lib/
+bin/libwikt.so.1.0.0 usr/lib/
+
