@@ -1,15 +1,14 @@
 #!/bin/bash
 
 # get version
-version=`awk '/WIKT_VERSION / {print $3}' src/Version.h | sed 's/"//g'`
+version=`awk '/WIKT_VERSION / {print $3}' src/libwikt/version.h | sed 's/"//g'`
 tmpdir="/tmp/wikt-$version"
 mkdir $tmpdir
 
-files=`find data/*.txt -type f`
-files+=" AUTHORS COPYING Makefile RELEASE-NOTES Makefile.Debug Makefile.Release wikt.pro wikt.qrc release.sh"
-files+=" docs/Doxyfile docs/.gitignore docs/index.html docs/FrontPage.dox"
-files+=" .settings .project"
-files+=" images src debian data/enwiktionary-20090711.errata"
+files=" AUTHORS COPYING Makefile README wikt.pri wikt.pro release.sh sync_web.sh"
+files+=" debian docs src tests web"
+files+=" share/share.pro share/wikt/translations share/wikt/wikt.pro"
+files+=" share/wikt/data/*.errata share/wikt/data/*.css share/wikt/data/*.js"
 cp --verbose -r --parents $files $tmpdir
 
 DIR=`pwd`
