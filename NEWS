@@ -1,0 +1,250 @@
+------------------------------------------------------------------------
+Wikt 0.20.0 (work in progress)
+------------------------------------------------------------------------
+  * dictionary: CheckTrans sections are not displayed in entries.
+  * libwikt: Support for more languages added.
+  * convdict34: Generates form-of/gloss entries statistics.
+
+------------------------------------------------------------------------
+Wikt 0.19.0 (released 2009-08-24)
+------------------------------------------------------------------------
+  * Source code was heavily refactored and simplified, which results 
+    in significantly smaller source code line count.
+  * Some parts of Wikt application were moved to separate CLI 
+    programs. Dynamic shared library libwikt was created.
+  * Memory usage of dictionary processing tools was decreased. 
+    Several memory leaks were discovered and removed.
+  * Unit tests were moved to separate applications outside of main 
+    source code.
+ 
+ Bugfixes
+  * Tags <includeonly>, <onlyinclude>, and <noinclude> are detected 
+    using regular expressions instead of fixed strings, 
+    eg. old <includeonly>, new: <includeonly\s*>. Affects entry "apple".
+  * Template evaluation fixed: {{Template:Appendix:Contents}} text 
+    appeared in the entry [[Category:Appendices]]. Now it is handled 
+    as {{Appendix:Contents}} in convdict23 pass because Appendix is 
+    a valid namespace.
+  
+ New Features
+  * Support of 2009-07-11 version of Wiktionary data.
+  * Application can be installed in any subdirectory (/opt, /usr, ~) of 
+    user's computer.
+  * User interface:
+    o The lookup panel receives focus when any appropriate key is 
+      pressed in the application. This means that when you write a word 
+      using keyboard, the word is written to the lookup panel no matter 
+      which UI control was focused.
+    o Whole application is localizable. Czech localization is available.
+    o Statistics language table is sortable (Javascript).
+  * Library:
+    o The parser is heavily optimized and major bottlenecks reported by 
+      valgrind are removed.
+    o Support for dictionary data files larger than 2 GB: changed 32-bit 
+      signed integer file pointers to 64-bit signed integer file 
+      pointers. This feature changes the dictionary format.
+    o Support for more languages added.
+    o Support of remaining namespaces added: Concordance(Talk), 
+      CitationsTalk, Transwiki(Talk), WT(Talk).
+  * Tools:
+    o convdict23: Template evaluation cache results in better 
+      performance.
+    o convdict23: Implementation of Template:formatnum. 
+      Affects [[Category:!Kung language]].
+
+------------------------------------------------------------------------
+Wikt 0.18.0 (released 2009-07-26)
+------------------------------------------------------------------------
+ Bug Fixes
+  * Fixed template evaluation of template {{given_name}} used in entry 
+    Cheyenne.
+  * Nonexisting categories are removed from the text of each entry.
+    Affects entry [[car]].
+  * Links [[help]], [[file]] associated with each audio link are removed 
+    from the dictionary.
+
+New Features
+  * Image resizing process for media archive. It diminishes the size of 
+    media file from 4GB to 660MB.
+  * Debian packaging files that allow to create Ubuntu Jaunty installable 
+    binary package.
+  * Searching a whole sentence is supported and allowed.
+  * Errata files can modify the dictionary contents. Wikisaurus entries 
+    improved this way.
+  * Better title page.
+  * Statistics page.
+  * Pages with dictionary licenses.
+  * Redirect support.
+  * Implemented HIDDENCAT category removal.
+
+------------------------------------------------------------------------
+Wikt 0.17.0 (released 2009-05-28)
+------------------------------------------------------------------------
+ Bug Fixes
+  * Images in thumbnail style contain icon which now links to 
+    the image on Wiktionary (external link). Affects a picture in
+    the "dog" entry.
+  * Interwiki links are extracted from whole document, also from inside 
+    paragraphs etc. Removed the "interwiki paragraph" concept. Affects 
+    all entries.
+  * Parsing of table headers fixed. Affects a Danish inflection 
+    table in the [[bud]] entry.
+
+ New Features
+  * External links parsed properly, and open in external browser window 
+    when activated.
+  * Links to wikipedia such as [[w:IPA]] are converted to external 
+    links like [http://en.wiktionary.org/wiki/IPA IPA]. Clicking to 
+    the external link opens external browser.
+  * Gallery extension is properly handled and displayed. 
+    Affects entry [[car]].
+  * User hides translations to languages he is not interested in.
+  * Table captions are now parsed and displayed correctly.
+    Affects entry [[water]].
+  * Template:SERVER implemented. Affects [[Category:English nouns]].
+  * Template:localurl implemented. Affects [[Category:English nouns]].
+  * New languages added and language support reworked.
+  * Template:#ifexpr implemented. Affects "啊" entry.
+  * Template:#expr implemented support for multiplication, division, 
+    parenthesis, round, pow, mod, and comparison.
+
+------------------------------------------------------------------------
+Wikt 0.16.0 (released on 18 May 2009)
+------------------------------------------------------------------------
+ Bug Fixes
+  * Find buttons disabled when the edit box has no content. 
+    Also "Find Next" menu item works now.
+  * Subwindows are no longer blinking on application start.
+  * Fixed a write order/sorting bug in Format3Writer, Format4Writer, 
+    MediaWriter. It caused reading problems in media file.
+  * Empty list items are ignored when parsing wiki text 
+    (class ListParser). Affects "catalog" entry.
+  * Paragraph boundary detection takes links (characters inside links) 
+    into account. It results in proper parsing of "stroke#Etymology 1".
+  * Parser handles links embedded in links; this is used in images. 
+    Fixes the parsing of "A#Translingual->Etymology 1", "dog".
+
+ New Features
+  * Images in entries are displayed.
+  * Pronunciation audio in entries is played.
+  * Better layout of Find dialog.
+  * Added Low Saxon and Lojban to interwiki support code. All missing 
+    localized interwiki language names were added.
+  * Support of underline <u> HTML tag, which is used in 
+    [[Appendix:English nouns]].
+
+------------------------------------------------------------------------
+Wikt 0.15.0 (released on 13 May 2009)
+------------------------------------------------------------------------
+This is the first release that allows to create the media pack with 
+pronounciation audio files and images.
+The media pack occupies 3.8 gigabytes.
+
+Many parser bugs were fixed in this release, and there are many new 
+user-facing changes.
+
+Bug Fixes
+  * Fixed the "stadiums" entry, where the error was caused by bad 
+    interpretation of "Template:plural of", which contained a link 
+    inside a link as a parameter in template call. Template argument 
+    parser improperly parsed [[[[link a]] link b]].
+  * Paragraph parser now detects beginning of a table and closes
+    the paragraph (entry "carr#Irish").
+  * Table cell parser now recognizes links with parameters on first 
+    line of a cell (entry "carr#Irish", "Appendix:Variations of "a"").
+  * Category processing now handles various links well. Entry "myslet" 
+    does not list "Category:Czech verbs" twice. The entry contains 
+    links [[Category:Czech verbs]] and [[Category: Czech verbs]].
+  * Fixed parsing of lists: when a list item line is followed by a line
+    that (after any number of whitespaces) contains a category link,  
+    that line with category link is considered as a part of list item 
+    (for example see definition list in "stadia"). This is not 
+    logical, but let's follow the Way of MediaWiki.
+
+New Features
+  * New "Media Packer" tool packs all media files to a single file.
+  * Optional visibility of sections such as Etymology, Translations, 
+    Inflections, and Anagrams.
+  * Cherokee language supported in interwiki. Added another seven 
+    localized names for languages to interwiki support.
+  * Copy text to clipboard, cut, paste works with Ctrl+C, Ctrl+X, 
+    Ctrl+V.
+  * Page search (Ctrl+F). Design took from Firefox; it's the best 
+    way of text searching I know.
+
+------------------------------------------------------------------------
+Wikt 0.14.0 (released on 8 May 2009)
+------------------------------------------------------------------------
+Bug Fixes
+  * External links in wiki syntax are no longer converted to A tags.
+  * A crash in Format3Reader caused by looking for '￥' fixed. 
+    Analogous error in Format4Reader fixed too.
+  * Allowed nested tables (entry "-aseinen").
+  * Many methods and classes were documented by comments in source code.
+
+New Features
+  * Links to missing entries are removed in format4 (only the link 
+    text remains).
+  * Added "Appendix" to supported namespaces.
+  * Added interwiki name for Macedonian, "Македонски".
+  * Conversion from F3 to F4 is faster, it takes minutes instead 
+    of hours.
+  * All format conversion dialogs remember file paths between 
+    application runs.
+  * Status bar displays links.
+  * Media downloader downloads all images and sounds used in 
+    a dictionary to local filesystem.
+
+------------------------------------------------------------------------
+Wikt 0.13.0 (released on 2 May 2009)
+------------------------------------------------------------------------
+
+This release brings no visible features or fixes, and thus it is still 
+not ready to be used by common users. However, many new lines of code 
+were written as a pedestal for upcoming features.
+
+  * Link node reworked to support new features (entry existence 
+    checking, conversion of outgoing links to external form)
+  * Entry namespaces, languages, Wikimedia projects handled 
+    explicitly in code.
+
+------------------------------------------------------------------------
+Wikt 0.12.0 was released on 24 April 2009
+------------------------------------------------------------------------
+Bug Fixes
+  * DIV tags do not wrap the first embedded paragraph in P tag.
+  * Table headers and table cells do not wrap the first embedded 
+    paragraph in P tag.
+
+New Features
+  * New compressed dictionary format (Format4, .ei4). Dictionary size 
+    went from 1,1GB to 427 MB.
+  * Support for inline HTML tags del, em, ins, strike, strong, 
+    var, code.
+  * Support for block HTML tags p, h1-h6, blockquote.
+  * Main window title contains displayed word.
+
+------------------------------------------------------------------------
+Wikt 0.11.0 (released on 22 April 2009)
+------------------------------------------------------------------------
+Bug Fixes
+  * Fixed parsing of bold and italic text. Added 7 tests that cover 
+    basic cases. Corrects handling of example in entry "A".
+  * Wikt does not crash when user clicks on a link to missing entry.
+
+New Features
+  * Added COPYING file with full license.
+  * Wiki parser handles CENTER tags. This tag is used in entry 
+    [[cognoscere]]. DivHtmlParser is changed to BlockHtmlParser 
+    because of CENTERs.
+  * Wiki parser handles FONT tags. This tag is used in [[a#Min Nan]].
+
+------------------------------------------------------------------------
+Wikt 0.10.0 (released on 21 April 2009)
+------------------------------------------------------------------------
+This is the initial release of source code.
+
+The project has been started in 2008-11. The first larger iteration was 
+implemented in gtkmm, but all subsequent attempts to embed Gecko or 
+WebKit into GTK failed. It was simply too much work to do. At the end 
+the whole library was rewritten to Qt.
