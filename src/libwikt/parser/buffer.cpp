@@ -30,7 +30,7 @@ Buffer::Buffer(const QString &text, int pos) : _text(text), _pos(pos)
 //===========================================================================
 QString Buffer::nextLine() const
 {
-  CHECK(!endOfFile());
+  CHECK_MSG(!endOfFile(), QString("Buffer contents: %1").arg(_text));
   int offset = _text.indexOf('\n', _pos);
   if (offset == -1)
     return _text.mid(_pos);
