@@ -56,7 +56,7 @@ QString FormattingFunctions::evaluate(const QString &templateText)
   QString trimmed = templateText.trimmed();
   int sep = trimmed.indexOf(":");
   CHECK(sep != -1);
-  QString val = templateText.mid(sep + 1).trimmed();
+  QString val = trimmed.mid(sep + 1).trimmed();
   if (val.length() == 0) return "";
   if (trimmed.startsWith("lc:"))
     return val.toLower();
