@@ -18,8 +18,7 @@
 #include <libwikt/tree/listitemnode.h>
 
 //===========================================================================
-LanguageStatistic::LanguageStatistic()
-  : _entryCount(0), _glossCount(0), _formOfCount(0)
+LanguageStatistic::LanguageStatistic() : _entryCount(0), _glossCount(0), _formOfCount(0)
 {
 }
 
@@ -46,7 +45,49 @@ void LanguageStatistic::visit(const QList<const Node*> &nodes)
     QList<const ListItemNode*> items;
     child->findChildren(items, false);
 
-    // TODO: some of them are form-of.
-    _glossCount += items.count();
+    foreach(const ListItemNode *node, items)
+    {
+      const QString text = node->toText();
+      // The form-of detection strings are gathered from various words in Wiktionary.
+      // [[Category:Form_of_templates]] contains various form-of templates.
+      bool formOf = 
+	text.contains("abessive of", Qt::CaseInsensitive) ||
+	text.contains("alternate of", Qt::CaseInsensitive) ||
+	text.contains("alternative name of", Qt::CaseInsensitive) ||
+	text.contains("alternative spelling of", Qt::CaseInsensitive) ||
+	text.contains("alternative captialization of", Qt::CaseInsensitive) ||
+	text.contains("compound of", Qt::CaseInsensitive) ||
+	text.contains("conditional of", Qt::CaseInsensitive) ||
+	text.contains("contraction of", Qt::CaseInsensitive) ||
+	text.contains("diminutive of", Qt::CaseInsensitive) ||
+	text.contains("dual of", Qt::CaseInsensitive) ||
+	text.contains("elative of", Qt::CaseInsensitive) ||
+	text.contains("feminine of", Qt::CaseInsensitive) || 
+	text.contains("form of", Qt::CaseInsensitive) || 
+	text.contains("form? of", Qt::CaseInsensitive) || // Template:hanja form of
+	text.contains("future of", Qt::CaseInsensitive) ||
+	text.contains("gerund of", Qt::CaseInsensitive) ||
+	text.contains("historic of", Qt::CaseInsensitive) ||
+	text.contains("illative of", Qt::CaseInsensitive) ||
+	text.contains("imperative of", Qt::CaseInsensitive) ||
+	text.contains("imperfect of", Qt::CaseInsensitive) ||
+	text.contains("indicative of", Qt::CaseInsensitive) ||
+	text.contains("inessive of", Qt::CaseInsensitive) ||
+	text.contains("infinitive of", Qt::CaseInsensitive) ||
+	text.contains("instructive of", Qt::CaseInsensitive) ||
+	text.contains("misconstruction of", Qt::CaseInsensitive) ||
+	text.contains("misspelling of", Qt::CaseInsensitive) ||
+	text.contains("participle of", Qt::CaseInsensitive) || 
+	text.contains("past of", Qt::CaseInsensitive) || 
+	text.contains("plural of", Qt::CaseInsensitive) ||
+	text.contains("present of", Qt::CaseInsensitive) ||
+	text.contains("scanno of", Qt::CaseInsensitive) ||
+	text.contains("singular of", Qt::CaseInsensitive) ||
+	text.contains("spelling of", Qt::CaseInsensitive) ||
+	text.contains("subjunctive of", Qt::CaseInsensitive) ||
+	text.contains("superlative of", Qt::CaseInsensitive) ||
+	text.contains("tense of", Qt::CaseInsensitive);
+      formOf ? ++_formOfCount : ++_glossCount;
+    }
   }
 }
