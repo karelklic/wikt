@@ -134,6 +134,9 @@ AlcozaucaMixtec:
   
 Alune:
   names: Alune
+
+Alutiiq:
+  names: Alutiiq
   
 Alutor:
   code: alr
@@ -160,6 +163,9 @@ Amharic:
   code: am
   interwiki: አማርኛ
   names: Amharic
+
+Ammonite:
+  names: Ammonite
 
 Amuzgo:
   names: Amuzgo
@@ -423,6 +429,9 @@ Breton:
   code: br
   interwiki: Brezhoneg
   names: Breton
+
+Bube:
+  names: Bube
   
 Buginese:
   code: bug
@@ -452,6 +461,9 @@ CampidaneseSardinian:
 Cantonese:
   code: yue
   names: Cantonese
+
+Carian:
+  names: Carian
   
 Carib:
   names: Carib
@@ -582,6 +594,9 @@ Cree:
   interwiki: Nēhiyawēwin / ᓀᐦᐃᔭᐍᐏᐣ
   names: Cree
 
+Creek:
+  names: Creek
+
 CrimeanTatar:
   code: crh
   names: Crimean Tatar
@@ -652,6 +667,9 @@ Dutch:
 DutchLowSaxon:
   names: Dutch Low Saxon
 
+Dyirbal:
+  names: Dyirbal
+
 Dzongkha:
   code: dz
   interwiki: ཇོང་ཁ
@@ -660,12 +678,21 @@ Dzongkha:
 #
 # E
 #
+EasternArrernte:
+  names: Eastern Arrernte
+
 Eblaite:
   names: Eblaite
+
+Edomite:
+  names: Edomite
 
 Egyptian:
   code: cop
   names: Egyptian
+
+EgyptianArabic:
+  names: Egyptian Arabic
   
 English:
   code: en
@@ -743,12 +770,18 @@ Fualah:
   interwiki: Fulfulde
   names: Fualah
 
+Fula:
+  names: Fula
+
 
 #
 # G
 #
 Ga:
   names: Ga
+
+Gabi:
+  names: Gabi
 
 Gagauz:
   names: Gagauz
@@ -757,6 +790,12 @@ Galician:
   code: gl
   interwiki: Galego
   names: Galician
+
+Gallo:
+  names: Gallo
+
+GallureseSardinian:
+  names: Gallurese Sardinian
   
 Gamilaraay:
   code: kld # no "aus", see Woiwurrung
@@ -766,6 +805,9 @@ Ganda:
   code: lg
   interwiki: Luganda
   names: Ganda
+
+Garifuna:
+  names: Garifuna
 
 Gaulish:
   names: Gaulish
@@ -789,6 +831,9 @@ German:
 Gilbertese:
   code: gil
   names: Gilbertese
+
+Golin:
+  names: Golin
 
 Gooniyandi:
   names: Gooniyandi
@@ -815,12 +860,18 @@ Gujarati:
   interwiki: ગુજરાતી
   names: Gujarati
 
+Gunai:
+  names: Gunai
+
 GuuguYimidhirr:
   names: Guugu Yimidhirr
 
 #
 # H
 #
+Haida:
+  names: Haida
+
 Haitian:
   code: ht
   interwiki: Kreyòl ayisyen
@@ -989,6 +1040,9 @@ Kabuverdianu:
 Kabyle:
   code: kab
   names: Kabyle
+
+Kadiweu:
+  names: Kadiwéu
   
 Kalaallisut:
   code: kl
@@ -1027,6 +1081,9 @@ Kashubian:
   code: csb
   interwiki: Kaszëbsczi
   names: Kashubian
+
+Kaytetye:
+  names: Kaytetye
 
 Kazakh:
   code: kk
@@ -1114,6 +1171,9 @@ Kurdish:
   interwiki: Kurdî / كوردی
   names: Kurdish
 
+Kurudu:
+  names: Kurudu
+
 Kven:
   names: Kven
 
@@ -1155,6 +1215,9 @@ Lavukaleve:
 
 Lezgi:
   names: Lezgi
+
+LibyanArabic:
+  names: Libyan Arabic
 
 Limburgish:
   code: li
@@ -1207,6 +1270,9 @@ Lozi:
 LubaKatanga:
   code: lu
 
+Luhya:
+  names: Luhya
+
 LuleSami:
   code: smj
   names: Lule Sami
@@ -1223,10 +1289,19 @@ Luxembourgish:
   interwiki: Lëtzebuergesch
   names: Luxembourgish
 
+Lycian:
+  names: Lycian
+
+Lydian:
+  names: Lydian
+
 
 #
 # M
 #
+Maay:
+  names: Maay
+
 Macedonian:
   code: mk
   interwiki: Македонски
@@ -1288,6 +1363,9 @@ Marathi:
   code: mr
   interwiki: मराठी
   names: Marathi
+
+Marau:
+  names: Marau
 
 Mari:
   names: Mari
@@ -1367,6 +1445,12 @@ Mirandese:
 Miskito:
   names: Miskito
 
+Moabite:
+  names: Moabite
+
+Mobilian:
+  names: Mobilian
+
 Moksha:
   names: Moksha
 
@@ -1381,11 +1465,20 @@ Mongolian:
 Mopan:
   names: Mopán
 
+MoroccanArabic:
+  names: Moroccan Arabic
+
 Muduapa:
   names: Muduapa
 
 Munggui:
   names: Munggui
+
+MurrinhPatha:
+  names: "Murrinh-Patha"
+
+MycenaeanGreek:
+  names: Mycenaean Greek
 
 #
 # N
@@ -1477,6 +1570,9 @@ NorwegianNynorsk:
   interwiki: Norsk (nynorsk)
   names: Norwegian Nynorsk
 
+NorwegianRiksmal:
+  names: Norwegian Riksmål
+
 Novial:
   code: nov
   names: Novial
@@ -1541,6 +1637,9 @@ OldKorean:
 OldNorse:
   code: non
   names: Old Norse
+
+OldPersian:
+  names: Old Persian
   
 OldPolish:
   names: Old Polish
@@ -1668,6 +1767,9 @@ Portuguese:
 
 Potawatomi:
   names: Potawatomi
+
+ProtoGermanic:
+  names: "Proto-Germanic"
   
 Pulaar:
   code: fuc
@@ -1676,6 +1778,9 @@ Pulaar:
 Pumpokol:
   code: xpm
   names: Pumpokol
+
+Punic:
+  names: Punic
 
 #
 # Q
@@ -1722,6 +1827,9 @@ Rotokas:
 
 Rotuman:
   names: Rotuman
+
+Russenorsk:
+  names: Russenorsk
 
 Russian:
   code: ru
@@ -1774,6 +1882,9 @@ Sarsi:
 SaterlandFrisian:
   code: stq
   names: Saterland Frisian
+
+Sawi:
+  names: Sawi
 
 SayulaPopoluca:
   names: Sayula Popoluca
@@ -1858,6 +1969,9 @@ Sinhala:
   code: si
   interwiki: සිංහල
   names: [Sinhala, Sinhalese]
+
+Siriono:
+  names: Sirionó
 
 SkoltSami:
   code: sms
@@ -1981,6 +2095,9 @@ Tatar:
   interwiki: Tatarça/Татарча
   names: Tatar
 
+Tausug:
+  names: Tausug
+
 Telugu:
   code: te
   interwiki: తెలుగు
@@ -1988,6 +2105,9 @@ Telugu:
 
 Teochew:
   names: Teochew
+
+TerSami:
+  names: Ter Sami
   
 Tetum:
   code: tet
@@ -2079,6 +2199,9 @@ Tzutujil:
 #
 # U
 #
+Ugaritic:
+  names: Ugaritic
+
 Uighur:
   code: ug
   interwiki: Uyghurche‎ / ئۇيغۇرچە
@@ -2091,6 +2214,9 @@ Ukrainian:
 
 Umbundu:
   names: Umbundu
+
+Unami:
+  names: Unami
 
 Unserdeutsch:
   names: Unserdeutsch
@@ -2154,6 +2280,9 @@ Votic:
 #
 # W
 #
+Wabo:
+  names: Wabo
+
 Wageman:
   names: Wageman
 
@@ -2236,6 +2365,9 @@ Yakut:
 Yankunytjatjara:
   code: kdd
   names:  Yankunytjatjara
+
+Yapese:
+  names: Yapese
   
 YatzachiZapotec:
   code: zav
