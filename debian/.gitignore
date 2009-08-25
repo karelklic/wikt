@@ -1,0 +1,8 @@
+files
+*.log
+*.substvars
+stamp-makefile-build
+libwikt
+wikt-dict-en
+wikt-tools
+wikt
