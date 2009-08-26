@@ -46,8 +46,7 @@ bool ParagraphParser::parse(Node &parent, Buffer &buffer)
 }
 
 //===========================================================================
-bool ParagraphParser::lineBelongsToParagraph(const QString &line,
-    const QString &currentParagraphText)
+bool ParagraphParser::lineBelongsToParagraph(const QString &line, const QString &currentParagraphText)
 {
   // Empty line terminates the paragraph.
   if (line.trimmed().length() == 0) return false;
