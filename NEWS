@@ -3,7 +3,10 @@ Wikt 0.20.0 (work in progress)
 ------------------------------------------------------------------------
   * dictionary: CheckTrans sections are not displayed in entries.
   * libwikt: Support for more languages added.
+  * convdict23: Bugfix in evaluating templates uc: ucfirst: lc: lcfist:,
+    fixes invalid trimming of result. Affects entry [[acaeciera]].
   * convdict34: Generates form-of/gloss entries statistics.
+
 
 ------------------------------------------------------------------------
 Wikt 0.19.0 (released 2009-08-24)
