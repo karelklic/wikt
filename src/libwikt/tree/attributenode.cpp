@@ -16,8 +16,7 @@
 #include "attributenode.h"
 
 //===========================================================================
-AttributeNode::AttributeNode(const QString &name, bool isNull)
-  : Node(Node::Attribute), _name(name), _isNull(isNull)
+AttributeNode::AttributeNode(const QString &name, bool isNull) : Node(Node::Attribute), _name(name), _isNull(isNull)
 {
 }
 
