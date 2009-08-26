@@ -718,6 +718,9 @@ Estonian:
   interwiki: Eesti
   names: Estonian
 
+Etruscan:
+  names: Etruscan
+
 Ewe:
   code: ee
   interwiki: Eʋegbe
@@ -914,7 +917,7 @@ Hindi:
 HiriMotu:
   code: ho
   interwiki: Hiri Motu
-  names: HiriMotu
+  names: Hiri Motu
 
 Hittite:
   names: Hittite
@@ -1463,6 +1466,9 @@ Mirandese:
 Miskito:
   names: Miskito
 
+Miyako:
+  names: Miyako
+
 Moabite:
   names: Moabite
 
@@ -1702,6 +1708,9 @@ Oromo:
   interwiki: Oromoo
   names: Oromo
 
+Oscan:
+  names: Oscan
+
 Ossetian:
   code: os
   interwiki: Иронау
@@ -1834,6 +1843,9 @@ RapaNui:
 
 Rarotongan:
   names: Rarotongan
+
+Rejang:
+  names: Rejang
   
 Rohingya:
   code: rhg
@@ -2156,6 +2168,9 @@ Tibetan:
   interwiki: བོད་ཡིག
   names: Tibetan
 
+Tigre:
+  names: Tigre
+
 Tigrinya:
   code: ti
   interwiki: ትግርኛ
@@ -2232,6 +2247,9 @@ Tzutujil:
 #
 # U
 #
+Udmurt:
+  names: Udmurt
+
 Ugaritic:
   names: Ugaritic
 
@@ -2244,6 +2262,9 @@ Ukrainian:
   code: uk
   interwiki: Українська
   names: Ukrainian
+
+Umbrian:
+  names: Umbrian
 
 Umbundu:
   names: Umbundu
@@ -2356,6 +2377,9 @@ WesternFrisian:
   code: [fy, fry]
   interwiki: Frysk
   names: [Western Frisian, West Frisian, Frisian]
+
+WesternKayah:
+  names: Western Kayah
 
 WikMungkan:
   names: Wik-Mungkan

@@ -440,6 +440,9 @@ _nameToType.insert(fromWCharArray(L"French"), French);
 _typeToNames.insert(Ammonite, fromWCharArray(L"Ammonite"));
 _nameToType.insert(fromWCharArray(L"Ammonite"), Ammonite);
 //-
+_typeToNames.insert(Etruscan, fromWCharArray(L"Etruscan"));
+_nameToType.insert(fromWCharArray(L"Etruscan"), Etruscan);
+//-
 _codeToType.insert("za", Zhuang);
 _typeToCode.insert(Zhuang, "za");
 _typeToInterwiki.insert(Zhuang, fromWCharArray(L"Sawcuengh"));
@@ -486,6 +489,9 @@ _nameToType.insert(fromWCharArray(L"Breton"), Breton);
 //-
 _typeToNames.insert(Tabassaran, fromWCharArray(L"Tabassaran"));
 _nameToType.insert(fromWCharArray(L"Tabassaran"), Tabassaran);
+//-
+_typeToNames.insert(Rejang, fromWCharArray(L"Rejang"));
+_nameToType.insert(fromWCharArray(L"Rejang"), Rejang);
 //-
 _typeToNames.insert(Kven, fromWCharArray(L"Kven"));
 _nameToType.insert(fromWCharArray(L"Kven"), Kven);
@@ -619,8 +625,8 @@ _nameToType.insert(fromWCharArray(L"Tamil"), Tamil);
 _codeToType.insert("ho", HiriMotu);
 _typeToCode.insert(HiriMotu, "ho");
 _typeToInterwiki.insert(HiriMotu, fromWCharArray(L"Hiri Motu"));
-_typeToNames.insert(HiriMotu, fromWCharArray(L"HiriMotu"));
-_nameToType.insert(fromWCharArray(L"HiriMotu"), HiriMotu);
+_typeToNames.insert(HiriMotu, fromWCharArray(L"Hiri Motu"));
+_nameToType.insert(fromWCharArray(L"Hiri Motu"), HiriMotu);
 //-
 _codeToType.insert("ckt", Chukchi);
 _typeToCode.insert(Chukchi, "ckt");
@@ -692,14 +698,14 @@ _typeToCode.insert(OldFrisian, "ofs");
 _typeToNames.insert(OldFrisian, fromWCharArray(L"Old Frisian"));
 _nameToType.insert(fromWCharArray(L"Old Frisian"), OldFrisian);
 //-
+_typeToNames.insert(Okinawan, fromWCharArray(L"Okinawan"));
+_nameToType.insert(fromWCharArray(L"Okinawan"), Okinawan);
+//-
 _codeToType.insert("la", Latin);
 _typeToCode.insert(Latin, "la");
 _typeToInterwiki.insert(Latin, fromWCharArray(L"Latina"));
 _typeToNames.insert(Latin, fromWCharArray(L"Latin"));
 _nameToType.insert(fromWCharArray(L"Latin"), Latin);
-//-
-_typeToNames.insert(Okinawan, fromWCharArray(L"Okinawan"));
-_nameToType.insert(fromWCharArray(L"Okinawan"), Okinawan);
 //-
 _typeToNames.insert(Krisa, fromWCharArray(L"Krisa"));
 _nameToType.insert(fromWCharArray(L"Krisa"), Krisa);
@@ -1018,16 +1024,16 @@ _nameToType.insert(fromWCharArray(L"Slovene"), Slovenian);
 _typeToNames.insert(Slovenian, fromWCharArray(L"Slovenian"));
 _nameToType.insert(fromWCharArray(L"Slovenian"), Slovenian);
 //-
+_codeToType.insert("oj", Ojibwa);
+_typeToCode.insert(Ojibwa, "oj");
+_typeToNames.insert(Ojibwa, fromWCharArray(L"Ojibwe"));
+_nameToType.insert(fromWCharArray(L"Ojibwe"), Ojibwa);
+//-
 _typeToNames.insert(Chol, fromWCharArray(L"Chol"));
 _nameToType.insert(fromWCharArray(L"Chol"), Chol);
 //-
 _typeToNames.insert(Muduapa, fromWCharArray(L"Muduapa"));
 _nameToType.insert(fromWCharArray(L"Muduapa"), Muduapa);
-//-
-_codeToType.insert("oj", Ojibwa);
-_typeToCode.insert(Ojibwa, "oj");
-_typeToNames.insert(Ojibwa, fromWCharArray(L"Ojibwe"));
-_nameToType.insert(fromWCharArray(L"Ojibwe"), Ojibwa);
 //-
 _typeToNames.insert(Betawi, fromWCharArray(L"Betawi"));
 _nameToType.insert(fromWCharArray(L"Betawi"), Betawi);
@@ -1770,8 +1776,14 @@ _typeToInterwiki.insert(Zulu, fromWCharArray(L"isiZulu"));
 _typeToNames.insert(Zulu, fromWCharArray(L"Zulu"));
 _nameToType.insert(fromWCharArray(L"Zulu"), Zulu);
 //-
+_typeToNames.insert(WesternKayah, fromWCharArray(L"Western Kayah"));
+_nameToType.insert(fromWCharArray(L"Western Kayah"), WesternKayah);
+//-
 _typeToNames.insert(Rotokas, fromWCharArray(L"Rotokas"));
 _nameToType.insert(fromWCharArray(L"Rotokas"), Rotokas);
+//-
+_typeToNames.insert(Oscan, fromWCharArray(L"Oscan"));
+_nameToType.insert(fromWCharArray(L"Oscan"), Oscan);
 //-
 _codeToType.insert("mg", Malagasy);
 _typeToCode.insert(Malagasy, "mg");
@@ -1826,6 +1838,9 @@ _typeToCode.insert(Yiddish, "yi");
 _typeToInterwiki.insert(Yiddish, fromWCharArray(L"ייִדיש"));
 _typeToNames.insert(Yiddish, fromWCharArray(L"Yiddish"));
 _nameToType.insert(fromWCharArray(L"Yiddish"), Yiddish);
+//-
+_typeToNames.insert(Tigre, fromWCharArray(L"Tigre"));
+_nameToType.insert(fromWCharArray(L"Tigre"), Tigre);
 //-
 _typeToNames.insert(Seneca, fromWCharArray(L"Seneca"));
 _nameToType.insert(fromWCharArray(L"Seneca"), Seneca);
@@ -2061,6 +2076,9 @@ _codeToType.insert("yur", Yurok);
 _typeToCode.insert(Yurok, "yur");
 _typeToNames.insert(Yurok, fromWCharArray(L"Yurok"));
 _nameToType.insert(fromWCharArray(L"Yurok"), Yurok);
+//-
+_typeToNames.insert(Udmurt, fromWCharArray(L"Udmurt"));
+_nameToType.insert(fromWCharArray(L"Udmurt"), Udmurt);
 //-
 _typeToNames.insert(SeruiLaut, fromWCharArray(L"Serui-Laut"));
 _nameToType.insert(fromWCharArray(L"Serui-Laut"), SeruiLaut);
@@ -2470,6 +2488,9 @@ _nameToType.insert(fromWCharArray(L"Shoshone"), Shoshone);
 _typeToNames.insert(Alune, fromWCharArray(L"Alune"));
 _nameToType.insert(fromWCharArray(L"Alune"), Alune);
 //-
+_typeToNames.insert(Umbrian, fromWCharArray(L"Umbrian"));
+_nameToType.insert(fromWCharArray(L"Umbrian"), Umbrian);
+//-
 _typeToNames.insert(OldPersian, fromWCharArray(L"Old Persian"));
 _nameToType.insert(fromWCharArray(L"Old Persian"), OldPersian);
 //-
@@ -2796,6 +2817,9 @@ _typeToCode.insert(Kirundi, "rn");
 _typeToInterwiki.insert(Kirundi, fromWCharArray(L"Kirundi"));
 _typeToNames.insert(Kirundi, fromWCharArray(L"Kirundi"));
 _nameToType.insert(fromWCharArray(L"Kirundi"), Kirundi);
+//-
+_typeToNames.insert(Miyako, fromWCharArray(L"Miyako"));
+_nameToType.insert(fromWCharArray(L"Miyako"), Miyako);
 //-
 _codeToType.insert("hsb", UpperSorbian);
 _typeToCode.insert(UpperSorbian, "hsb");
