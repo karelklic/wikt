@@ -589,6 +589,9 @@ Corsican:
   interwiki: Corsu
   names: Corsican
 
+Cowlitz:
+  names: Cowlitz
+
 Cree:
   code: cr
   interwiki: Nēhiyawēwin / ᓀᐦᐃᔭᐍᐏᐣ
@@ -936,6 +939,9 @@ Icelandic:
   interwiki: Íslenska
   names: Icelandic
 
+Idaan:
+  names: "Ida'an"
+
 Ido:
   code: io
   interwiki: Ido
@@ -1062,6 +1068,9 @@ Kanuri:
   interwiki: Kanuri
   names: Kanuri
 
+Kapampangan:
+  names: Kapampangan
+
 Kapingamarangi:
   names: Kapingamarangi
   
@@ -1081,6 +1090,9 @@ Kashubian:
   code: csb
   interwiki: Kaszëbsczi
   names: Kashubian
+
+Kaurna:
+  names: Kaurna
 
 Kaytetye:
   names: Kaytetye
@@ -1197,6 +1209,9 @@ Ladino:
   code: lad
   names: [Ladino, Ladin, Dzhudezmo, Judezmo]
 
+Lakota:
+  names: Lakota
+
 LateMiddleChinese:
   names: Late Middle Chinese
 
@@ -1209,6 +1224,9 @@ Latvian:
   code: lv
   interwiki: Latviešu
   names: Latvian
+
+Laurentian:
+  names: Laurentian
 
 Lavukaleve:
   names: Lavukaleve
@@ -1468,8 +1486,14 @@ Mopan:
 MoroccanArabic:
   names: Moroccan Arabic
 
+Motu:
+  names: Motu
+
 Muduapa:
   names: Muduapa
+
+Mungaka:
+  names: Mungaka
 
 Munggui:
   names: Munggui
@@ -1516,6 +1540,9 @@ Nepali:
   code: ne
   interwiki: नेपाली
   names: Nepali
+
+Ngawun:
+  names: Ngawun
   
 NigerianPidgin:
   code: pcm
@@ -1708,6 +1735,9 @@ Panjabi:
   code: pa
   interwiki: ਪੰਜਾਬੀ
   names: [Panjabi, Punjabi]
+
+Panyjima:
+  names: Panyjima
   
 Papiamentu:
   code: pap
@@ -1925,11 +1955,14 @@ Shabo:
   code: sbf
   names: Shabo
 
+Shan:
+  names: Shan
+
 Shelta:
   names: Shelta
 
-Shan:
-  names: Shan
+Sherpa:
+  names: Sherpa
 
 Shona:
   code: sn
@@ -2308,6 +2341,9 @@ Welsh:
   code: cy
   interwiki: Cymraeg
   names: Welsh
+
+WembaWemba:
+  names: "Wemba-Wemba"
   
 WesternApache:
   code: apw
