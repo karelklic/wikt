@@ -1,0 +1,44 @@
+Here is a list of known bugs and wishes.
+
+== [[&c.]]
+
+Invalid contents generation of entry.
+Header Abbreviation is a link and the code can not handle it.
+
+== {{PAGESINCATEGORY}}
+
+Template:PAGESINCATEGORY not implemented.
+It is used in [[Category:!Kung language]].
+
+== {{#ifexpr:0 or 0}}
+
+Expression parser does not support expression "0 or 0".
+It is used in [[Category:!Kung language]].
+
+== Categories
+
+Categories should store a list of entries pointing to them.
+Theis should be done in convdict23.
+
+== Translation section collapse
+
+User should choose whether the translation section is collapsed or not.
+
+== Error pages
+
+When user enters a word to the lookup panel and the word is not found, an error page should be displayed.
+
+== Icons
+
+Menu bar of the application should be decorated with icons.
+
+== <ref> and <references/>
+
+Support for these tags must be implemented. Should be done either in convdict23 or convdict34 (preferred).
+
+== Expr errors and nonexisting templates
+
+convdict23 should be extended with switches to show #expr evaluation errors and to report nonexisting templates to console.
+
+
+
