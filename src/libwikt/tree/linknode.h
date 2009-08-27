@@ -49,6 +49,8 @@ public:
   /// purposes.
   virtual QString toXml(int indentLevel) const;
 
+  virtual QString toText() const;
+
   /// Used by LinkConverter class.
   QString toWiki() const;
 

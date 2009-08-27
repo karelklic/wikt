@@ -1,10 +1,5 @@
 Here is a list of known bugs and wishes.
 
-== [[&c.]]
-
-Invalid contents generation of entry.
-Header Abbreviation is a link and the code can not handle it.
-
 == {{PAGESINCATEGORY}}
 
 Template:PAGESINCATEGORY not implemented.

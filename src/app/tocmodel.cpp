@@ -19,8 +19,7 @@
 namespace TableOfContents {
 
 //===========================================================================
-Model::Model(QObject *parent)
-  : QAbstractItemModel(parent)
+Model::Model(QObject *parent) : QAbstractItemModel(parent)
 {
   _rootItem = new Item();
 }

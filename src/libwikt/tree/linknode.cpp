@@ -37,8 +37,7 @@ QString LinkNode::toXHtml() const
   if (!_forcedLink && target().namespace_() == Namespace::Category) return "";
 
   // Interwiki links are not rendered to the XHTML output.
-  if (isInterwiki())
-    return "";
+  if (isInterwiki()) return "";
 
   // Images.
   if (isDisplayableImage())
@@ -70,6 +69,24 @@ QString LinkNode::toXml(int indentLevel) const
       .arg(_forcedLink ? "true" : "false") +
     childrenToXml(indentLevel+1) +
     indent + "</link>\n";
+}
+
+//===========================================================================
+QString LinkNode::toText() const
+{
+  // Category links, interwiki links, and images are not rendered to the text output.
+  if (!_forcedLink && target().namespace_() == Namespace::Category) return "";
+  if (isInterwiki()) return "";
+  if (isDisplayableImage()) return "";
+
+  int opts = getOptionCount();
+  if (opts == 1)
+  {
+    LinkOptionsNode *opt = getOption(0);
+    return opt->toText();
+  }
+  else
+    return target().toText();
 }
 
 //===========================================================================

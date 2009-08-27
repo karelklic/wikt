@@ -31,8 +31,7 @@ Panel::Panel() : QDockWidget(tr("Table of Contents")),
   setFeatures(QDockWidget::NoDockWidgetFeatures);
   setVisible(false);
   connect(&_model, SIGNAL(modelReset()), this, SLOT(modelChanged()));
-  connect(_treeView, SIGNAL(clicked(const QModelIndex&)),
-      this, SLOT(itemActivated(const QModelIndex&)));
+  connect(_treeView, SIGNAL(clicked(const QModelIndex&)), this, SLOT(itemActivated(const QModelIndex&)));
 
   QSizePolicy policy(QSizePolicy::Expanding, QSizePolicy::Expanding);
   policy.setVerticalStretch(250);

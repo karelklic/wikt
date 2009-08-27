@@ -40,11 +40,14 @@ public:
   /// The only way how to insert child nodes.
   /// Overload it to filter, monitor, or control node inserting.
   virtual void append(Node *child) { CHECK(child); _children.append(child); }
+
   int count() const { return _children.count(); }
   Node *child(int i) const { return _children.at(i); }
   QList<Node*> &children() { return _children; }
   const QList<Node*> &children() const { return _children; }
   Node *last() const { return _children.last(); }
+
+  /// Gets the node type.
   Type type() const { return _type; }
 
   /// Finds all child nodes of specific node type.

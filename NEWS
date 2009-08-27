@@ -3,6 +3,9 @@ Wikt 0.20.0 (work in progress)
 ------------------------------------------------------------------------
   * dictionary: CheckTrans sections are not displayed in entries.
   * libwikt: Support for more languages added.
+  * wikt: fixed invalid contents generation from headers. Header 
+    Abbreviation in entry [[&c.]] is a link, and that was not handled
+    properly. Affects Contents panel.
   * convdict23: Bugfix in evaluating templates uc: ucfirst: lc: lcfist:,
     fixes invalid trimming of result. Affects entry [[acaeciera]].
   * convdict34: Generates form-of/gloss entries statistics.
