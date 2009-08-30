@@ -15,10 +15,6 @@ It is used in [[Category:!Kung language]].
 Categories should store a list of entries pointing to them.
 Theis should be done in convdict23.
 
-== Translation section collapse
-
-User should choose whether the translation section is collapsed or not.
-
 == Error pages
 
 When user enters a word to the lookup panel and the word is not found, an error page should be displayed.

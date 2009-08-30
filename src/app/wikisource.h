@@ -79,6 +79,10 @@ private:
 
   /// CSS code that styles all XHTML results.
   QString _stylesheet;
+
+  /// Javascript read from dictionary file. Contains variables
+  /// that are evaluated according to user settings.
+  QString _javascriptTemplate;
   /// Javascript code that is included in all XHTML results.
   QString _javascript;
 };

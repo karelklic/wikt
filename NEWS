@@ -6,6 +6,8 @@ Wikt 0.20.0 (work in progress)
   * wikt: fixed invalid contents generation from headers. Header 
     Abbreviation in entry [[&c.]] is a link, and that was not handled
     properly. Affects Contents panel.
+  * wikt: Translation section visibility (collapse status) depends on 
+    user's settings (dialog Options).
   * convdict23: Bugfix in evaluating templates uc: ucfirst: lc: lcfist:,
     fixes invalid trimming of result. Affects entry [[acaeciera]].
   * convdict34: Generates form-of/gloss entries statistics.

@@ -23,7 +23,7 @@
 //===========================================================================
 OptionsDialog::OptionsDialog(QWidget *parent) : QDialog(parent)
 {
-	ui.setupUi(this);
+  ui.setupUi(this);
   connect(ui.okButton, SIGNAL(clicked()), this, SLOT(accept()));
   connect(ui.cancelButton, SIGNAL(clicked()), this, SLOT(reject()));
   connect(this, SIGNAL(accepted()), this, SLOT(saveSettings()));

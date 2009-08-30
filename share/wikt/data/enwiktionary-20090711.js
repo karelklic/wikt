@@ -1,33 +1,50 @@
-/* Test if an element has a certain class ************************************** * * Description: Uses regular expressions and caching for better performance. * Maintainers: [[User:Mike Dillon]], [[User:R. Koot]], [[User:SG]] */ var hasClass = (function() {  var reCache = {};  return function (element, className) {    return (reCache[className] ? reCache[className] : (reCache[className] = new RegExp("(?:\\s|^)" + className + "(?:\\s|$)"))).test(element.className);  };})();
+/* Test if an element has a certain class **************************************
+ *
+ * Description: Uses regular expressions and caching for better performance.
+ * Maintainers: [[User:Mike Dillon]], [[User:R. Koot]], [[User:SG]]
+ */
+
+var hasClass = (
+function() 
+{
+  var reCache = {};
+  return function (element, className) {
+    return (reCache[className] ? reCache[className] : (reCache[className] = new RegExp("(?:\\s|^)" + className + "(?:\\s|$)"))).test(element.className);
+  };
+})();
 
 function getInnerText(el) {
  if (typeof el == "string") return el;
- if (typeof el == "undefined") { return el };
+ if (typeof el == "undefined") return el;
  if (el.textContent) return el.textContent; // not needed but it is faster
  if (el.innerText) return el.innerText; // IE doesn't have textContent
  var str = "";
 
  var cs = el.childNodes;
  var l = cs.length;
- for (var i = 0; i < l; i++) {
- switch (cs[i].nodeType) {
- case 1: //ELEMENT_NODE
- str += ts_getInnerText(cs[i]);
- break;
- case 3: //TEXT_NODE
- str += cs[i].nodeValue;
- break;
- }
+ for (var i = 0; i < l; i++) 
+ {
+   switch (cs[i].nodeType)
+   {
+     case 1: //ELEMENT_NODE
+       str += ts_getInnerText(cs[i]);
+       break;
+     case 3: //TEXT_NODE
+       str += cs[i].nodeValue;
+       break;
+   }
  }
  return str;
 } 
-/*
+
+/*
 Written by Jonathan Snook, http://www.snook.ca/jonathan
 Add-ons by Robert Nyman, http://www.robertnyman.com
 Author says "The credit comment is all it takes, no license. Go crazy with it!:-)"
 From http://www.robertnyman.com/2005/11/07/the-ultimate-getelementsbyclassname/
 */
-function getElementsByClassName(oElm, strTagName, oClassNames){
+function getElementsByClassName(oElm, strTagName, oClassNames)
+{
  var arrReturnElements = new Array();
  if ( typeof( oElm.getElementsByClassName ) == "function" ) {
  /* Use a native implementation where possible FF3, Saf3.2, Opera 9.5 */
@@ -73,7 +90,104 @@ function getElementsByClassName(oElm, strTagName, oClassNames){
 //==========================================================================================================================
 //==========================================================================================================================
 //==========================================================================================================================
- // BEGIN Dynamic Navigation Bars (experimental) // FIXME: currently only works for one nav bar on a page at a time  // set up the words in your languagevar NavigationBarHide = 'hide ▲';var NavigationBarShow = 'show ▼';var NavigationBarShowDefault = 0; // shows and hides content and picture (if available) of navigation bars// Parameters://     indexNavigationBar: the index of navigation bar to be toggledfunction toggleNavigationBar(indexNavigationBar){  var NavToggle = document.getElementById("NavToggle" + indexNavigationBar);  var NavFrame = document.getElementById("NavFrame" + indexNavigationBar);    if (!NavFrame || !NavToggle) return false;      // if shown now    if (NavToggle.isHidden == false) {        for (                var NavChild = NavFrame.firstChild;                NavChild;                NavChild = NavChild.nextSibling            ) {            if (NavChild.className == 'NavPic') {                NavChild.style.display = 'none';            }            if (NavChild.className == 'NavContent') {                NavChild.style.display = 'none';            }        }    NavToggle.childNodes[1].firstChild.nodeValue = NavigationBarShow;    NavToggle.isHidden = true;     // if hidden now    } else if (NavToggle.isHidden == true) {        for (                var NavChild = NavFrame.firstChild;                NavChild;                NavChild = NavChild.nextSibling            ) {            if (NavChild.className == 'NavPic') {                NavChild.style.display = 'block';            }            if (NavChild.className == 'NavContent') {                NavChild.style.display = 'block';            }        }    NavToggle.childNodes[1].firstChild.nodeValue = NavigationBarHide;    NavToggle.isHidden = false;    }}  var wgNavBarArray = new Array(); // adds show/hide-button to navigation barsfunction createNavigationBarToggleButton(){  var indexNavigationBar = 0;  // iterate over all <div>-elements   var divs = document.getElementsByTagName("div");  for (var i = 0; NavFrame = divs[i]; i++)  {    // if found a navigation bar    // (Note that a navigation bar is a div whose *sole* class is    // "NavFrame". That might not be the best approach, but currently    // {{trans-see}} exploits it, so be cautious in changing that.)    if (NavFrame.className == "NavFrame") {             indexNavigationBar++;            var NavToggle = document.createElement("span");            NavToggle.className = 'NavToggle';            NavToggle.setAttribute('id', 'NavToggle' + indexNavigationBar);                        NavToggle.appendChild(document.createTextNode('['));            NavToggle.appendChild(document.createElement("a"));            var NavToggleText = document.createTextNode(NavigationBarHide);            NavToggle.childNodes[1].setAttribute('href', 'javascript:toggleNavigationBar(' + indexNavigationBar + ');');            NavToggle.childNodes[1].appendChild(NavToggleText);            NavToggle.appendChild(document.createTextNode(']'));            NavToggle.isHidden = false;            wgNavBarArray[indexNavigationBar - 1] = NavToggle;            // Find the NavHead and attach the toggle link (Must be this complicated because Moz's firstChild handling is borked)            for(              var j=0;               j < NavFrame.childNodes.length;               j++            ) {              if (NavFrame.childNodes[j].className == "NavHead") {                var NavHead = NavFrame.childNodes[j];                if( NavHead.childNodes[0] ){                  NavHead.insertBefore(NavToggle,NavHead.childNodes[0]);                }else{                  NavHead.appendChild(NavToggle);                }              }            }            NavFrame.setAttribute('id', 'NavFrame' + indexNavigationBar);    }  }  // if more Navigation Bars found than Default: hide all  if (NavigationBarShowDefault < indexNavigationBar) {    for(                var i=1;                 i<=indexNavigationBar;                 i++        ) {            toggleNavigationBar(i);    }  }}
+ // BEGIN Dynamic Navigation Bars (experimental)
+ // FIXME: currently only works for one nav bar on a page at a time
+ // set up the words in your language
+var NavigationBarHide = 'hide ▲';
+var NavigationBarShow = 'show ▼';
+
+// shows and hides content and picture (if available) of navigation bars
+// Parameters:
+//     indexNavigationBar: the index of navigation bar to be toggled
+function toggleNavigationBar(indexNavigationBar)
+{
+  var NavToggle = document.getElementById("NavToggle" + indexNavigationBar);
+  var NavFrame = document.getElementById("NavFrame" + indexNavigationBar);
+  if (!NavFrame || !NavToggle) return false;
+  // if shown now
+    if (NavToggle.isHidden == false) {
+        for (var NavChild = NavFrame.firstChild; NavChild; NavChild = NavChild.nextSibling) 
+	{
+            if (NavChild.className == 'NavContent') {
+                NavChild.style.display = 'none';
+            }
+        }
+	NavToggle.childNodes[1].firstChild.nodeValue = NavigationBarShow;
+	NavToggle.isHidden = true;
+    // if hidden now
+    } else if (NavToggle.isHidden == true) {
+        for (var NavChild = NavFrame.firstChild; NavChild; NavChild = NavChild.nextSibling) 
+        {
+            if (NavChild.className == 'NavContent') {
+                NavChild.style.display = 'block';
+            }
+        }
+    NavToggle.childNodes[1].firstChild.nodeValue = NavigationBarHide;
+    NavToggle.isHidden = false;
+  }
+}
+
+var wgNavBarArray = new Array();
+ 
+// adds show/hide-button to navigation bars
+function createNavigationBarToggleButton()
+{
+  var indexNavigationBar = 0;
+  // iterate over all <div>-elements 
+  var divs = document.getElementsByTagName("div");
+  for (var i = 0; NavFrame = divs[i]; i++)
+  {
+    // if found a navigation bar
+    // (Note that a navigation bar is a div whose *sole* class is
+    // "NavFrame". That might not be the best approach, but currently
+    // {{trans-see}} exploits it, so be cautious in changing that.)
+    if (NavFrame.className == "NavFrame") 
+    {
+      indexNavigationBar++;
+      var NavToggle = document.createElement("span");
+      NavToggle.className = 'NavToggle';
+      NavToggle.setAttribute('id', 'NavToggle' + indexNavigationBar);
+            
+      NavToggle.appendChild(document.createTextNode('['));
+      NavToggle.appendChild(document.createElement("a"));
+      var NavToggleText = document.createTextNode(NavigationBarHide);
+      NavToggle.childNodes[1].setAttribute('href', 'javascript:toggleNavigationBar(' + indexNavigationBar + ');');
+      NavToggle.childNodes[1].appendChild(NavToggleText);
+      NavToggle.appendChild(document.createTextNode(']'));
+      NavToggle.isHidden = false;
+      wgNavBarArray[indexNavigationBar - 1] = NavToggle;
+      // Find the NavHead and attach the toggle link 
+      // (Must be this complicated because Moz's firstChild handling is borked)
+      for(var j=0; j < NavFrame.childNodes.length; j++) 
+      {
+        if (NavFrame.childNodes[j].className == "NavHead") 
+        {
+          var NavHead = NavFrame.childNodes[j];
+          if (NavHead.childNodes[0])
+            NavHead.insertBefore(NavToggle,NavHead.childNodes[0]);
+          else 
+            NavHead.appendChild(NavToggle);
+        }
+      }
+      NavFrame.setAttribute('id', 'NavFrame' + indexNavigationBar);
+    }
+  }
+
+  for(var i=1; i <= indexNavigationBar; i++) 
+  {
+    if (%TRANSLATIONSFOLDED% == false)
+    {  
+      var NavFrame = document.getElementById("NavFrame" + i);
+      var header = NavFrame;
+      while (header != null && header.nodeName != "H4")
+  	header = header.previousElementSibling;
+      if (header != null && /Translations/.test(header.innerHTML))
+        continue;
+    }
+
+    toggleNavigationBar(i);
+  }
+}
 
 //==========================================================================================================================
 //==========================================================================================================================
@@ -382,12 +496,14 @@ function ts_alternate(table) {
 	// Take object table and get all it's tbodies.
 	var tableBodies = table.getElementsByTagName("tbody");
 	// Loop through these tbodies
-	for (var i = 0; i < tableBodies.length; i++) {
+	for (var i = 0; i < tableBodies.length; i++) 
+        {
 		// Take the tbody, and get all it's rows
 		var tableRows = tableBodies[i].getElementsByTagName("tr");
 		// Loop through these rows
 		// Start at 1 because we want to leave the heading row untouched
-		for (var j = 0; j < tableRows.length; j++) {
+		for (var j = 0; j < tableRows.length; j++) 
+                {
 			// Check if j is even, and apply classes for both possible results
 			var oldClasses = tableRows[j].className.split(" ");
 			var newClassName = "";
@@ -408,5 +524,7 @@ function ts_alternate(table) {
 //==========================================================================================================================
 //==========================================================================================================================
 
-window.onload = function() {   try { createNavigationBarToggleButton() } catch (err) { /*alert(err);*/ }
-  try { sortables_init() } catch (err) { alert(err) }}
+window.onload = function() { 
+  try { createNavigationBarToggleButton() } catch (err) { alert(err); }
+  try { sortables_init() } catch (err) { alert(err) }
+}

@@ -22,6 +22,7 @@
 #include <QSvgRenderer>
 #include <QImage>
 #include <QCoreApplication>
+#include <QSettings>
 
 static WikiSource *instance = 0;
 
@@ -40,7 +41,12 @@ WikiSource::WikiSource(QObject *parent) : QObject(parent)
 
   QFile js(dataPath + "/enwiktionary-20090711.js");
   js.open(QIODevice::ReadOnly);
-  _javascript = QString::fromUtf8(js.readAll());
+  _javascriptTemplate = QString::fromUtf8(js.readAll());
+  _javascript = _javascriptTemplate;
+  QSettings settings;
+  bool translationsFolded = settings.value("translationsFolded", true).toBool();
+  _javascript.replace("%TRANSLATIONSFOLDED%", translationsFolded ? "true" : "false");
+
   js.close();
 }
 
@@ -99,6 +105,11 @@ void WikiSource::translationSettingsChanged()
   typedef QMap<QString, WikiSourceCacheItem*>::const_iterator It;
   for (It i = _cache.constBegin(); i != _cache.constEnd(); ++i)
     i.value()->invalidateTranslationSettings();
+
+  _javascript = _javascriptTemplate;
+  QSettings settings;
+  bool translationsFolded = settings.value("translationsFolded", true).toBool();
+  _javascript.replace("%TRANSLATIONSFOLDED%", translationsFolded ? "true" : "false");
 }
 
 //===========================================================================
