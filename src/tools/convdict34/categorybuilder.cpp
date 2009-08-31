@@ -84,7 +84,6 @@ void CatBuilder_process(const QString &name, const ArticleNode &node)
 //===========================================================================
 void CatBuilder_writeAll(Format4Writer &destination)
 {
-  static QMap<QString, CategoryEntry> categories;
   for (QMap<QString, CategoryEntry>::const_iterator it = categories.begin(); it != categories.end(); ++it)
     destination.addCategory(it.key(), it.value().contents, it.value().categories, it.value().mainEntries);
 }

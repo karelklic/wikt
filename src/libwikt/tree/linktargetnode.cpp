@@ -19,25 +19,34 @@
 #include <QRegExp>
 
 //===========================================================================
-LinkTargetNode::LinkTargetNode(const QString &text) : Node(Node::LinkTarget), _text(text)
+LinkTargetNode::LinkTargetNode(const QString &text) : Node(Node::LinkTarget), _namespace(Namespace::Main), _language(Language::English), _project(Project::Wiktionary), _text(text)
 {
-  QStringList list = text.split(':');
-  QStringList entryHeading = list.last().split('#');
+  QString remainder(text);
+  int offs = remainder.indexOf(':');
+  if (offs != -1)
+  {
+    QString prefix = remainder.left(offs).trimmed();
+    if (Namespace::instance().isPrefix(prefix))
+    {
+      _namespace = Namespace::instance().fromPrefix(prefix);
+      remainder.remove(0, offs + 1);
+    }
+    else if (Language::instance().isCode(prefix))
+    {
+      _language = Language::instance().fromCode(prefix);
+      remainder.remove(0, offs + 1);
+    }
+    else if (Project::instance().isPrefix(prefix))
+    {
+      _project = Project::instance().fromPrefix(prefix);
+      remainder.remove(0, offs + 1);
+    }
+  }
+  
+  QStringList entryHeading = remainder.split('#');
   _entry = entryHeading.first().trimmed();
   if (entryHeading.size() > 1)
     _heading = entryHeading.last().trimmed();
-
-  list.removeLast(); // remove entry name
-
-  // Trim all prefixes. Mediawiki does the same.
-  // Handles links such as [[ Category: Czech nouns ]]
-  for (int i = 0; i < list.size(); ++i)
-    list[i] = list[i].trimmed();
-
-  // The list contains only prefixes.
-  _namespace = Namespace::instance().fromLinkPrefixes(list);
-  _language = Language::instance().fromLinkPrefixes(list);
-  _project = Project::instance().fromLinkPrefixes(list);
 }
 
 //===========================================================================

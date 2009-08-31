@@ -33,6 +33,8 @@ public:
 
   static Language &instance();
 
+  bool isCode(const QString &text) const;
+
   /// Converts language code to enumeration type.
   /// This method is case insensitive.
   /// @param code
@@ -63,8 +65,8 @@ private:
   /// Standard constructor. Initializes data.
   Language();
 
-  /// Key is language shortcut as "en" or "zh-min-nan".
-  /// Used for interwiki.
+  /// Code is a language shortcut as "en" or "zh-min-nan".
+  /// Used for interwiki links.
   QMap<QString, Type> _codeToType;
   QMultiMap<Type, QString> _typeToCode;
 

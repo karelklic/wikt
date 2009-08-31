@@ -27,6 +27,5 @@ SOURCES += templatesolvertest.cpp \
   ../../../../../src/tools/convdict23/pagenamefunctions.cpp \
   ../../../../../src/tools/convdict23/namespaceurlfunctions.cpp
 
-LIBS *= -lwikt
-LIBS += -L../../../../../bin
+LIBS *= ../../../../../bin/libwikt.so.0.20
 INCLUDEPATH +=  ../../../../../src  ../../../../../src/tools/convdict23

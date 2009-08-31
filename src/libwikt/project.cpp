@@ -23,7 +23,7 @@ const Project &Project::instance()
 }
 
 //===========================================================================
-bool Project::isProjectPrefix(const QString &prefix) const
+bool Project::isPrefix(const QString &prefix) const
 {
   return _prefix.contains(prefix.toLower());
 }

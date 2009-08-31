@@ -10,6 +10,12 @@ It is used in [[Category:!Kung language]].
 Expression parser does not support expression "0 or 0".
 It is used in [[Category:!Kung language]].
 
+== linktargetnode.cpp entry prefixes
+
+Force ordering of prefixes, some text can look like a prefix, 
+but it is not.
+Category:cs:Trees -> cs:Trees
+
 == Categories
 
 Categories should store a list of entries pointing to them.

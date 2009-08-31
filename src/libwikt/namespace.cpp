@@ -23,6 +23,18 @@ const Namespace &Namespace::instance()
 }
 
 //===========================================================================
+bool Namespace::isPrefix(const QString &text) const
+{
+  return _prefixToNamespace.contains(text.toLower());
+}
+
+//===========================================================================
+Namespace::Type Namespace::fromPrefix(const QString &prefix) const
+{
+  return _prefixToNamespace.value(prefix.toLower(), Main);
+}
+
+//===========================================================================
 Namespace::Type Namespace::fromCode(const QString &code) const
 {
   return _codeToNamespace.value(code.toUpper(), Unknown);
@@ -44,8 +56,8 @@ Namespace::Type Namespace::fromLinkPrefixes(const QStringList &prefixes) const
   foreach(QString name, prefixes)
   {
     name = name.toLower();
-    if (_linkToNamespace.contains(name))
-      return _linkToNamespace.value(name);
+    if (_prefixToNamespace.contains(name))
+      return _prefixToNamespace.value(name);
   }
 
   return Main;
@@ -163,41 +175,41 @@ Namespace::Namespace()
   _namespaceToName.insert(CitationsTalk, "Citations talk");
   _namespaceToName.insert(Unknown, "");
 
-  _linkToNamespace.insert("media", Media);
-  _linkToNamespace.insert("special", Special);
-  _linkToNamespace.insert("talk", Talk);
-  _linkToNamespace.insert("user", User);
-  _linkToNamespace.insert("user talk", UserTalk);
-  _linkToNamespace.insert("wiktionary", Wiktionary);
-  _linkToNamespace.insert("wiktionary talk", WiktionaryTalk);
-  _linkToNamespace.insert("wikipedia", Wikipedia);
-  _linkToNamespace.insert("wikipedia talk", WikipediaTalk);
-  _linkToNamespace.insert("image", Image);
-  _linkToNamespace.insert("image talk", ImageTalk);
-  _linkToNamespace.insert("mediaWiki", MediaWiki);
-  _linkToNamespace.insert("mediaWiki talk", MediaWikiTalk);
-  _linkToNamespace.insert("template", Template);
-  _linkToNamespace.insert("template talk", TemplateTalk);
-  _linkToNamespace.insert("help", Help);
-  _linkToNamespace.insert("help talk", HelpTalk);
-  _linkToNamespace.insert("category", Category);
-  _linkToNamespace.insert("category talk", CategoryTalk);
-  _linkToNamespace.insert("file", File);
-  _linkToNamespace.insert("file talk", FileTalk);
-  _linkToNamespace.insert("appendix", Appendix);
-  _linkToNamespace.insert("appendix talk", AppendixTalk);
-  _linkToNamespace.insert("concordance", Concordance);
-  _linkToNamespace.insert("concordance talk", ConcordanceTalk);
-  _linkToNamespace.insert("index", Index);
-  _linkToNamespace.insert("index talk", IndexTalk);
-  _linkToNamespace.insert("rhymes", Rhymes);
-  _linkToNamespace.insert("rhymes talk", RhymesTalk);
-  _linkToNamespace.insert("transwiki", Transwiki);
-  _linkToNamespace.insert("transwiki talk", TranswikiTalk);
-  _linkToNamespace.insert("wikisaurus", Wikisaurus);
-  _linkToNamespace.insert("wikisaurus talk", WikisaurusTalk);
-  _linkToNamespace.insert("wt", WT);
-  _linkToNamespace.insert("wt talk", WTTalk);
-  _linkToNamespace.insert("citations", Citations);
-  _linkToNamespace.insert("citations talk", CitationsTalk);
+  _prefixToNamespace.insert("media", Media);
+  _prefixToNamespace.insert("special", Special);
+  _prefixToNamespace.insert("talk", Talk);
+  _prefixToNamespace.insert("user", User);
+  _prefixToNamespace.insert("user talk", UserTalk);
+  _prefixToNamespace.insert("wiktionary", Wiktionary);
+  _prefixToNamespace.insert("wiktionary talk", WiktionaryTalk);
+  _prefixToNamespace.insert("wikipedia", Wikipedia);
+  _prefixToNamespace.insert("wikipedia talk", WikipediaTalk);
+  _prefixToNamespace.insert("image", Image);
+  _prefixToNamespace.insert("image talk", ImageTalk);
+  _prefixToNamespace.insert("mediawiki", MediaWiki);
+  _prefixToNamespace.insert("mediawiki talk", MediaWikiTalk);
+  _prefixToNamespace.insert("template", Template);
+  _prefixToNamespace.insert("template talk", TemplateTalk);
+  _prefixToNamespace.insert("help", Help);
+  _prefixToNamespace.insert("help talk", HelpTalk);
+  _prefixToNamespace.insert("category", Category);
+  _prefixToNamespace.insert("category talk", CategoryTalk);
+  _prefixToNamespace.insert("file", File);
+  _prefixToNamespace.insert("file talk", FileTalk);
+  _prefixToNamespace.insert("appendix", Appendix);
+  _prefixToNamespace.insert("appendix talk", AppendixTalk);
+  _prefixToNamespace.insert("concordance", Concordance);
+  _prefixToNamespace.insert("concordance talk", ConcordanceTalk);
+  _prefixToNamespace.insert("index", Index);
+  _prefixToNamespace.insert("index talk", IndexTalk);
+  _prefixToNamespace.insert("rhymes", Rhymes);
+  _prefixToNamespace.insert("rhymes talk", RhymesTalk);
+  _prefixToNamespace.insert("transwiki", Transwiki);
+  _prefixToNamespace.insert("transwiki talk", TranswikiTalk);
+  _prefixToNamespace.insert("wikisaurus", Wikisaurus);
+  _prefixToNamespace.insert("wikisaurus talk", WikisaurusTalk);
+  _prefixToNamespace.insert("wt", WT);
+  _prefixToNamespace.insert("wt talk", WTTalk);
+  _prefixToNamespace.insert("citations", Citations);
+  _prefixToNamespace.insert("citations talk", CitationsTalk);
 }

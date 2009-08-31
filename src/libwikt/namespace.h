@@ -71,6 +71,12 @@ public:
 
   static const Namespace &instance();
 
+  /// Prefix is a string that represents a namespace in link.
+  bool isPrefix(const QString &text) const;
+
+  /// Prefix is a string that represents a namespace in link.
+  Type fromPrefix(const QString &prefix) const;
+
   /// Namespace code is a number or text. It is a parameter of {{ns:}}
   /// template function.
   /// This function is case insensitive.
@@ -103,8 +109,11 @@ protected:
   Namespace();
 
   QMap<QString, Type> _codeToNamespace;
-  QMap<QString, Type> _linkToNamespace;
-  /// Localized presentation names.
+
+  /// Link prefixes denoting the namespace
+  QMap<QString, Type> _prefixToNamespace;
+
+  /// Localized names to be displayed to users
   QMap<Type, QString> _namespaceToName;
 };
 

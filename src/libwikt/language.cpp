@@ -25,6 +25,12 @@ Language &Language::instance()
 }
 
 //===========================================================================
+bool Language::isCode(const QString &text) const
+{
+  return _codeToType.contains(text.toLower());
+}
+
+//===========================================================================
 Language::Type Language::fromCode(const QString &code) const
 {
   return _codeToType.value(code.toLower(), Unknown);

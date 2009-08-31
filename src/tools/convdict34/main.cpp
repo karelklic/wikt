@@ -81,9 +81,9 @@ int main(int argc, char **argv)
   }
 
   QTextStream out(stdout, QIODevice::WriteOnly);
-  out << "Reading indices from " << source << "..." << endl;
+  cstdout("Reading indices from " + source + "...");
   Format3Reader reader(source);
-  out << "Processing entries..." << endl;
+  cstdout("Processing entries...");
 
   int pageCounter = 0;
   MediaReader mediaReader(sourceMedia);
@@ -153,17 +153,19 @@ int main(int argc, char **argv)
     // Logging.
     ++pageCounter;
     if (pageCounter % 1000 == 0)
-      out << QString("Number of entries processed: %1").arg(pageCounter) << endl;
+      cstdout(QString("Number of entries processed: %1").arg(pageCounter));
   }
 
+  cstdout("Writing categories.");
   CatBuilder_writeAll(writer);
 
+  cstdout("Writing generated pages.");
   titlePageGenerator.write(writer);
   statsPageGenerator.write(writer);
   LicensePagesGenerator licensePagesGenerator;
   licensePagesGenerator.write(writer);
 
   writer.close();
-  out << "Done." << endl;
+  cstdout("Done.");
   return 0;
 }

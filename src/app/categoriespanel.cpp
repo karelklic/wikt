@@ -20,8 +20,7 @@
 namespace Categories {
 
 //===========================================================================
-Panel::Panel() : QDockWidget(tr("Categories")),
- _model(this)
+Panel::Panel() : QDockWidget(tr("Categories")), _model(this)
 {
   _treeView = new QTreeView(this);
   _treeView->setModel(&_model);

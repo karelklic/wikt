@@ -52,7 +52,7 @@ public:
   ///  - m, meta: prefixes to Meta.
   /// @param prefix
   ///   Text to be checked, without trailing colon ("w", not "w:").
-  bool isProjectPrefix(const QString &prefix) const;
+  bool isPrefix(const QString &prefix) const;
 
   /// Converts project prefix to URL.
   /// For example "w" converted to Wikipedia.
