@@ -18,6 +18,7 @@
 #include <libwikt/comparsion.h>
 #include <libwikt/quicksort.h>
 #include <libwikt/debug.h>
+#include <QStringList>
 
 //===========================================================================
 Format4Writer::Format4Writer(const QString &targetFileName) : _targetFileName(targetFileName)
@@ -33,6 +34,36 @@ void Format4Writer::addEntry(const QString &name, const QString &contents)
   // Save data to the content file.
   FileUtils::writeString(_temporaryFile, name);
   FileUtils::writeCompressed(_temporaryFile, contents);
+
+  // Add an entry to the link list.
+  _links.push_back(Link(name, offset));
+}
+
+//===========================================================================
+void Format4Writer::addCategory(const QString &name, const QString &contents, const QStringList &subcategories, const QStringList &entries)
+{
+  qint64 offset = _temporaryFile.pos();
+
+  // Save data to the content file.
+  FileUtils::writeString(_temporaryFile, name);
+
+  QString fullContents(contents);
+  if (subcategories.size() > 0)
+  {
+    fullContents += "\n==Subcategories==\n";
+    foreach (const QString &subcategory, subcategories)
+      fullContents += QString("* %1\n").arg(subcategory);
+    fullContents += "\n";
+  }
+  if (entries.size() > 0)
+  {
+    fullContents += "\n==Entries==\n";
+    foreach (const QString &entry, entries)
+      fullContents += QString("* %1\n").arg(entry);
+    fullContents += "\n";
+  }
+
+  FileUtils::writeCompressed(_temporaryFile, fullContents);
 
   // Add an entry to the link list.
   _links.push_back(Link(name, offset));

@@ -15,22 +15,20 @@
  */
 #include "statspagegenerator.h"
 #include "format4writer.h"
-#include <libwikt/parser/articleparser.h>
 #include <libwikt/tree/headingnode.h>
 #include <libwikt/debug.h>
 
 //===========================================================================
-void StatsPageGenerator::visit(const QString &name, const QString &contents)
+void StatsPageGenerator::visit(const QString &name, const ArticleNode &node)
 {
   // Skip pages with a namespace.
   if (name.contains(':')) return;
 
-  ArticleNode *node = ArticleParser::parse(name, contents);
   Language::Type lang = Language::Unknown;
   QList<const Node*> langNodes;
-  for (int i = 0; i < node->count(); ++i)
+  for (int i = 0; i < node.count(); ++i)
   {
-    const Node *child = node->child(i);
+    const Node *child = node.child(i);
 
     // Check if we reached a new language section in this entry.
     if (child->type() == Node::Heading)
@@ -66,8 +64,6 @@ void StatsPageGenerator::visit(const QString &name, const QString &contents)
     LanguageStatistic &stat = _stats[lang];
     stat.visit(langNodes);
   }
-
-  delete node;
 }
 
 //===========================================================================

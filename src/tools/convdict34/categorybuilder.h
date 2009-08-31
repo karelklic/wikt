@@ -13,31 +13,22 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef FORMAT4WRITER_H_
-#define FORMAT4WRITER_H_
+#ifndef CATEGORYBUILDER_H
+#define CATEGORYBUILDER_H
 
+#include "format4writer.h"
+#include <libwikt/tree/articlenode.h>
 #include <QString>
-#include <QTemporaryFile>
-#include <QPair>
-#include <QList>
 
-class Format4Writer
-{
-public:
-  Format4Writer(const QString &targetFileName);
+/// Associates category contents with certain category.
+/// @param contents
+///   Contents in wiki markup.
+void CatBuilder_addContents(const QString &categoryName, const QString &contents);
 
-  void addEntry(const QString &name, const QString &contents);
-  void addCategory(const QString &name, const QString &contents, const QStringList &subcategories, const QStringList &entries);
-  void close();
+/// Processes entry wiki markup and adds entry to all categories where it belongs.
+void CatBuilder_process(const QString &name, const ArticleNode &node);
 
-private:
-  QString _targetFileName;
+/// Writes the categories to the output file.
+void CatBuilder_writeAll(Format4Writer &destination);
 
-  typedef QPair<QString, qint64> Link;
-  QList<Link> _links;
-
-  /// Temporary file with entries without indices.
-  QTemporaryFile _temporaryFile;
-};
-
-#endif /* FORMAT4WRITER_H_ */
+#endif

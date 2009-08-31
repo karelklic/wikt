@@ -2,6 +2,7 @@ include(../../wikt.pri)
 
 TEMPLATE = lib
 TARGET = wikt
+VERSION = 0.20.0
 
 DEFINES = WIKT_LIBRARY
 DESTDIR = ../../bin

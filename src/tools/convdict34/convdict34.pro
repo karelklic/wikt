@@ -1,9 +1,10 @@
-include(../../../wikt.pri)
+include(../tools.pri)
 
 TEMPLATE = app
 TARGET = convdict34
 
 SOURCES += \
+  categorybuilder.cpp \
   format4writer.cpp \
   languagestatistic.cpp \
   licensepagesgenerator.cpp \
@@ -13,6 +14,7 @@ SOURCES += \
   titlepagegenerator.cpp
 
 HEADERS += \
+  categorybuilder.h \
   format4writer.h \
   languagestatistic.h \
   licensepagesgenerator.h \
@@ -20,7 +22,5 @@ HEADERS += \
   statspagegenerator.h \
   titlepagegenerator.h
 
-LIBS *= -lwikt
-LIBS += -L../../../bin
 INCLUDEPATH += ../..
 DESTDIR = ../../../bin

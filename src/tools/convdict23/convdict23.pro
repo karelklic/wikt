@@ -1,4 +1,4 @@
-include(../../../wikt.pri)
+include(../tools.pri)
 
 TEMPLATE = app
 TARGET = convdict23
@@ -37,7 +37,5 @@ HEADERS += \
   templatesolver.h \
   templateutils.h
 
-LIBS *= -lwikt
-LIBS += -L../../../bin
 INCLUDEPATH += ../..
 

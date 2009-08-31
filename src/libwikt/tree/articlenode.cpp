@@ -17,6 +17,8 @@
 #include "headingnode.h"
 #include "htmlelementnode.h"
 #include "listitemnode.h"
+#include "linknode.h"
+#include "linktargetnode.h"
 #include "tablenode.h"
 #include "../language.h"
 #include <QFile>
@@ -85,4 +87,25 @@ void ArticleNode::updateTranslationSettings()
       item->setXHtmlVisibility(visible);
     }
   }
+}
+
+//===========================================================================
+void ArticleNode::getCategories(QStringList &list) const
+{
+  QList<const LinkNode*> links;
+  findChildren(links);
+
+  foreach(const LinkNode *link, links)
+  {
+    if (link->target().namespace_() != Namespace::Category) continue;
+    if (link->target().language() != Language::English) continue;
+    if (link->target().project() != Project::Wiktionary) continue;
+    if (link->forcedLink()) continue;
+
+    // Check if it is not already in the destination list.
+    if (list.contains(link->target().entry())) continue;
+    list.append(link->target().entry());
+  }
+  
+  list.sort();
 }

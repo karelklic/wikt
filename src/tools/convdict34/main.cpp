@@ -18,9 +18,12 @@
 #include "titlepagegenerator.h"
 #include "licensepagesgenerator.h"
 #include "statspagegenerator.h"
+#include "categorybuilder.h"
 #include <libwikt/format3reader.h>
 #include <libwikt/mediareader.h>
 #include <libwikt/debug.h>
+#include <libwikt/namespace.h>
+#include <libwikt/parser/articleparser.h>
 #include <QCoreApplication>
 #include <QTextStream>
 #include <QStringList>
@@ -29,7 +32,8 @@
 void usage()
 {
     QTextStream err(stderr, QIODevice::WriteOnly);
-    err << QString("Usage: %1 [OPTIONS] [SOURCE] [SOURCEMEDIA] [DESTINATION]").arg(QCoreApplication::arguments().first()) << endl << endl;
+    err << QString("Usage: %1 [OPTIONS] [SOURCE] [SOURCEMEDIA] [DESTINATION]")
+      .arg(QCoreApplication::arguments().first()) << endl << endl;
     err << "Limits:" << endl;
     err << "  -f,  --from=NUMBER   sets the starting offset" << endl;
     err << "  -t,  --to=NUMBER     sets the ending offset" << endl;
@@ -129,17 +133,30 @@ int main(int argc, char **argv)
     }
 
     QString content = linkConverter.convertedContents(it.value());
-    titlePageGenerator.visit(it.key());
-    statsPageGenerator.visit(it.key(), content);
+    ArticleNode *node = ArticleParser::parse(it.key(), content);
 
-    // Write the entry.
-    writer.addEntry(it.key(), content);
+    titlePageGenerator.visit(it.key());
+    statsPageGenerator.visit(it.key(), *node);
+    CatBuilder_process(it.key(), *node);
+
+    delete node;
+
+    // Handle categories
+    if (Namespace::instance().fromEntry(it.key()) == Namespace::Category)
+      CatBuilder_addContents(it.key(), content);
+    else
+    {
+      // Write the entry.
+      writer.addEntry(it.key(), content);
+    }
 
     // Logging.
     ++pageCounter;
     if (pageCounter % 1000 == 0)
       out << QString("Number of entries processed: %1").arg(pageCounter) << endl;
   }
+
+  CatBuilder_writeAll(writer);
 
   titlePageGenerator.write(writer);
   statsPageGenerator.write(writer);

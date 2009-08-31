@@ -17,6 +17,7 @@
 #define LIBWIKT_DOM_ARTICLE_NODE_H
 
 #include "node.h"
+#include <QStringList>
 
 class ArticleNode : public Node
 {
@@ -38,6 +39,11 @@ public:
   void updateSectionVisibility();
 
   void updateTranslationSettings();
+
+  /// @param list
+  ///  Output sorted in ascending order case sensitively.
+  ///  Contains category names only, eg. "Fruits", "English adverbs".
+  void getCategories(QStringList &list) const;
 
 protected:
   /// Full article/entry name.

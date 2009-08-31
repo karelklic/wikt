@@ -76,7 +76,7 @@ void Coordinator::textEnteredToLookup(QString text)
   window->lookupPanel()->history().addCurrentPage(url);
   window->tableOfContentsPanel()->model().generateFrom(nodes.first());
   window->relatedPagesPanel()->model().generateFrom(nodes);
-  window->categoriesPanel()->model().generateFrom(nodes.first());
+  window->categoriesPanel()->model().generateFrom(*nodes.first());
   window->interestingPagesPanel()->model().generate();
 }
 
@@ -101,7 +101,7 @@ void Coordinator::localLinkClickedInView(const QUrl &url)
     window->lookupPanel()->history().addCurrentPage(url);
     window->tableOfContentsPanel()->model().generateFrom(node);
     window->relatedPagesPanel()->model().generateFrom(node);
-    window->categoriesPanel()->model().generateFrom(node);
+    window->categoriesPanel()->model().generateFrom(*node);
     window->interestingPagesPanel()->model().generate();
   }
   else if (url.scheme() == "media")
@@ -128,7 +128,7 @@ void Coordinator::interestingPagesPanelClicked(const QString &entry)
   window->lookupPanel()->history().addCurrentPage(url);
   window->tableOfContentsPanel()->model().generateFrom(node);
   window->relatedPagesPanel()->model().generateFrom(node);
-  window->categoriesPanel()->model().generateFrom(node);
+  window->categoriesPanel()->model().generateFrom(*node);
   window->interestingPagesPanel()->model().generate();
 }
 
@@ -151,7 +151,7 @@ void Coordinator::localLinkClickedInRelatedPagesPanel(const QString &word)
   window->lookupPanel()->history().addCurrentPage(url);
   window->tableOfContentsPanel()->model().generateFrom(node);
   window->relatedPagesPanel()->model().partialUpdateFrom(word, node);
-  window->categoriesPanel()->model().generateFrom(node);
+  window->categoriesPanel()->model().generateFrom(*node);
   window->interestingPagesPanel()->model().generate();
 }
 
@@ -206,7 +206,7 @@ void Coordinator::historyActivated(const QUrl &url)
   window->lookupPanel()->history().addCurrentPage(url);
   window->tableOfContentsPanel()->model().generateFrom(node);
   window->relatedPagesPanel()->model().generateFrom(node);
-  window->categoriesPanel()->model().generateFrom(node);
+  window->categoriesPanel()->model().generateFrom(*node);
   window->interestingPagesPanel()->model().generate();
 }
 

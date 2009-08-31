@@ -19,7 +19,7 @@
 #include <QAbstractItemModel>
 #include <QModelIndex>
 #include <QVariant>
-class Node;
+class ArticleNode;
 class Format3Reader;
 
 namespace Categories {
@@ -43,7 +43,7 @@ public:
   int columnCount(const QModelIndex &parent = QModelIndex()) const;
 
   /// @brief Updates model to match a certain entry.
-  void generateFrom(const Node *node);
+  void generateFrom(const ArticleNode &node);
   /// Removes all nodes.
   void clear();
 

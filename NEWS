@@ -11,6 +11,7 @@ Wikt 0.20.0 (work in progress)
   * convdict23: Bugfix in evaluating templates uc: ucfirst: lc: lcfist:,
     fixes invalid trimming of result. Affects entry [[acaeciera]].
   * convdict34: Generates form-of/gloss entries statistics.
+  * Initial implementation of Category listings.
 
 
 ------------------------------------------------------------------------

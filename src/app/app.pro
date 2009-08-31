@@ -94,8 +94,6 @@ HEADERS += \
 FORMS = ErrorDialog.ui OptionsDialog.ui
 
 RESOURCES = wikt.qrc
-  
-LIBS *= -lwikt
-LIBS += -L../../bin
+LIBS *= ../../bin/libwikt.so.0.20
 INCLUDEPATH += ..
 DESTDIR = ../../bin

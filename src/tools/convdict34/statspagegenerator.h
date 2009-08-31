@@ -18,6 +18,7 @@
 
 #include "languagestatistic.h"
 #include <libwikt/language.h>
+#include <libwikt/tree/articlenode.h>
 #include <QString>
 #include <QMap>
 class Format4Writer;
@@ -27,7 +28,7 @@ class StatsPageGenerator
 {
 public:
   /// Counts an entry to the statistics.
-  void visit(const QString &name, const QString &contents);
+  void visit(const QString &name, const ArticleNode &node);
 
   void write(Format4Writer &destination);
 

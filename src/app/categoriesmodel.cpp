@@ -15,14 +15,12 @@
  */
 #include "categoriesmodel.h"
 #include "categoriesitem.h"
-#include <libwikt/tree/linknode.h>
-#include <libwikt/tree/linktargetnode.h>
+#include <libwikt/tree/articlenode.h>
 
 namespace Categories {
 
 //===========================================================================
-Model::Model(QObject *parent)
-  : QAbstractItemModel(parent)
+Model::Model(QObject *parent) : QAbstractItemModel(parent)
 {
   _rootItem = new Item();
 }
@@ -108,54 +106,17 @@ int Model::columnCount(const QModelIndex &parent) const
 }
 
 //===========================================================================
-static void getCategoryLinks(const Node *node, QList<const LinkNode*> &destination)
-{
-  foreach(const Node *child, node->children())
-  {
-    getCategoryLinks(child, destination);
-    if (child->type() == Node::Link)
-    {
-      const LinkNode *link = static_cast<const LinkNode*>(child);
-      if (link->target().namespace_() != Namespace::Category || link->forcedLink())
-        continue;
-
-      // Check if it is not already in the destination list.
-      bool processed = false;
-      for (int i = 0; i < destination.size(); ++i)
-      {
-        if (destination[i]->target().entry() == link->target().entry())
-        {
-          processed = true;
-          break;
-        }
-        else if (destination[i]->target().entry() > link->target().entry())
-        {
-          destination.insert(i, link);
-          processed = true;
-          break;
-        }
-      }
-
-      if (!processed)
-        destination.append(link);
-    }
-  }
-}
-
-//===========================================================================
-void Model::generateFrom(const Node *node)
+void Model::generateFrom(const ArticleNode &node)
 {
   // Clear the model.
   delete _rootItem;
   _rootItem = new Item();
 
-  QList<const LinkNode*> links;
-  getCategoryLinks(node, links);
-
-  foreach (const LinkNode *node, links)
+  QStringList categories;
+  node.getCategories(categories);
+  foreach (const QString &category, categories)
   {
-    QString text = node->target().entry();
-    Item *item = new Item(text, _rootItem);
+    Item *item = new Item(category, _rootItem);
     _rootItem->appendChild(item);
   }
 
