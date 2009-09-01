@@ -198,7 +198,7 @@
     <message>
         <location line="+3"/>
         <source>&amp;Options</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Nastavení</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -291,12 +291,12 @@
     <message>
         <location filename="../../../src/app/optionsdialog.ui"/>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastavení</translation>
     </message>
     <message>
         <location/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>Ano</translation>
     </message>
     <message>
         <location/>
@@ -306,7 +306,7 @@
     <message>
         <location/>
         <source>Translation lists folded</source>
-        <translation type="unfinished"></translation>
+        <translation>Tabulky s překlady skryty</translation>
     </message>
 </context>
 <context>
