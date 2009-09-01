@@ -1,4 +1,4 @@
-/* This file is part of Wikt.
+/* This file is part of Wikt. -*- mode: c++; c-file-style: "wikt"; -*-
  *
  * Wikt is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -32,6 +32,7 @@ public:
   FindPanel(QWidget *parent = 0);
 
   virtual void setVisible(bool visible);
+  virtual bool hasFocus() const;
 
 protected:
   virtual void keyPressEvent(QKeyEvent *event);

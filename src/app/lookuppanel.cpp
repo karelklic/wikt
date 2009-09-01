@@ -1,4 +1,4 @@
-/* This file is part of Wikt.
+/* This file is part of Wikt. -*- mode: c++; c-file-style: "wikt"; -*-
  *
  * Wikt is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,9 +26,7 @@
 LookupPanel::LookupPanel() : QDockWidget(tr("Search"))
 {
   _wordEdit = new QLineEdit(this);
-  connect(_wordEdit, SIGNAL(returnPressed()),
-      this, SLOT(editingFinished()));
-
+  connect(_wordEdit, SIGNAL(returnPressed()), this, SLOT(editingFinished()));
   _toolBar = new QToolBar(this);
   _toolBar->setFloatable(false);
   _toolBar->setAllowedAreas(Qt::NoToolBarArea);

@@ -1,4 +1,4 @@
-/* This file is part of Wikt.
+/* This file is part of Wikt. -*- mode: c++; c-file-style: "wikt"; -*-
  *
  * Wikt is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -127,7 +127,11 @@ void MainWindow::linkHovered(const QString &link, const QString &/*title*/,
 void MainWindow::keyReleaseEvent(QKeyEvent *event)
 {
   QString text = event->text();
-  if (lookupPanel()->hasFocus() || text.isEmpty() || event->key() == Qt::Key_Space || event->key() == Qt::Key_Enter || event->key() == Qt::Key_Return || event->key() == Qt::Key_Tab)
+  if (lookupPanel()->hasFocus() || findPanel()->hasFocus() || 
+      text.isEmpty() || 
+      event->key() == Qt::Key_Space || event->key() == Qt::Key_Enter || 
+      event->key() == Qt::Key_Return || event->key() == Qt::Key_Tab ||
+      event->key() == Qt::Key_Escape || event->key() == Qt:: Key_Backspace)
   {
     QWidget::keyReleaseEvent(event);
     return;

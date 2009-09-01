@@ -78,6 +78,10 @@ void Coordinator::textEnteredToLookup(QString text)
   window->relatedPagesPanel()->model().generateFrom(nodes);
   window->categoriesPanel()->model().generateFrom(*nodes.first());
   window->interestingPagesPanel()->model().generate();
+
+  // Set focus to the web view. User can scroll through the entry using 
+  // keyboard.
+  window->webView()->setFocus();
 }
 
 //===========================================================================

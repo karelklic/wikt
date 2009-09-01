@@ -7,7 +7,7 @@ VERSION = 0.20.0
 DEFINES = WIKT_LIBRARY
 DESTDIR = ../../bin
 
-QT += core gui xml network svg testlib
+QT += core gui svg
 
 HEADERS = \
     debug.h \

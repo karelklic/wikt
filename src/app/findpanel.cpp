@@ -1,4 +1,4 @@
-/* This file is part of Wikt.
+/* This file is part of Wikt. -*- mode: c++; c-file-style: "wikt"; -*-
  *
  * Wikt is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -80,6 +80,12 @@ void FindPanel::setVisible(bool visible)
     _textEdit->setFocus();
     _textEdit->selectAll();
   }
+}
+
+//===========================================================================
+bool FindPanel::hasFocus() const
+{
+  return _textEdit->hasFocus() || QDockWidget::hasFocus();
 }
 
 //===========================================================================
