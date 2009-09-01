@@ -27,7 +27,9 @@
 //===========================================================================
 FindPanel::FindPanel(QWidget *parent) : QDockWidget(tr("Find"), parent)
 {
-  _close = new QPushButton(tr("Close"), this);
+  _close = new QPushButton(QIcon(":/images/emblem-unreadable.svg"), "", this);
+  _close->setFlat(true);
+  _close->setIconSize(QSize(18, 18));
   connect(_close, SIGNAL(clicked(bool)), this, SLOT(hide()));
 
   QLabel *search = new QLabel(tr("Find:"), this);
@@ -36,11 +38,11 @@ FindPanel::FindPanel(QWidget *parent) : QDockWidget(tr("Find"), parent)
   connect(_textEdit, SIGNAL(textChanged(const QString&)), this, SLOT(textChanged(const QString&)));
   connect(_textEdit, SIGNAL(returnPressed()), this, SLOT(nextClicked()));
 
-  _previous = new QPushButton(tr("Previous"), this);
+  _previous = new QPushButton(QIcon(":/images/go-previous.svg"), tr("Previous"), this);
   _previous->setEnabled(false);
   connect(_previous, SIGNAL(clicked(bool)), this, SLOT(previousClicked()));
 
-  _next = new QPushButton(tr("Next"), this);
+  _next = new QPushButton(QIcon(":/images/go-next.svg"), tr("Next"), this);
   _next->setEnabled(false);
   connect(_next, SIGNAL(clicked(bool)), this, SLOT(nextClicked()));
 
@@ -52,7 +54,7 @@ FindPanel::FindPanel(QWidget *parent) : QDockWidget(tr("Find"), parent)
   layout->setSpacing(0);
   layout->setSizeConstraint(QLayout::SetMaximumSize);
   layout->addWidget(_close);
-  layout->addSpacing(10);
+  layout->addSpacing(4);
   layout->addWidget(search);
   layout->addSpacing(3);
   layout->addWidget(_textEdit);

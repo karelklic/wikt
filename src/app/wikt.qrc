@@ -4,12 +4,20 @@
     <file>images/sort-down.gif</file>
     <file>images/sort-none.gif</file>
     <file>images/sort-up.gif</file>
-    <file>images/go-home.png</file>
-    <file>images/go-next.png</file>
-    <file>images/go-previous.png</file>
+    <file>images/go-home.svg</file>
+    <file>images/go-next.svg</file>
+    <file>images/go-previous.svg</file>
     <file>images/loudspeaker.png</file>
     <file>images/loudspeaker.svg</file>
     <file>images/magnify-clip.png</file>
     <file>images/logo.svg</file>
+    <file>images/edit-copy.svg</file>
+    <file>images/edit-cut.svg</file>
+    <file>images/edit-find.svg</file>
+    <file>images/edit-paste.svg</file>
+    <file>images/edit-select-all.svg</file>
+    <file>images/preferences-system.svg</file>
+    <file>images/emblem-unreadable.svg</file>
+    <file>images/system-shutdown.svg</file>
   </qresource>
 </RCC>

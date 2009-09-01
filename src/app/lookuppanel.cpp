@@ -35,13 +35,13 @@ LookupPanel::LookupPanel() : QDockWidget(tr("Search"))
   _toolBar->setStyleSheet("QToolButton{margin:0}");
 
   // Go Home button.
-  _homeAct = new QAction(QIcon(":/images/go-home.png"), tr("Title page"), this);
+  _homeAct = new QAction(QIcon(":/images/go-home.svg"), tr("Title page"), this);
   _toolBar->addAction(_homeAct);
   connect(_homeAct, SIGNAL(triggered()), this, SLOT(goHome()));
 
   // Previous Entry button. Backspace added as an important
   // shortcut.
-  _previousAct = new QAction(QIcon(":/images/go-previous.png"), tr("Previous"), this);
+  _previousAct = new QAction(QIcon(":/images/go-previous.svg"), tr("Previous"), this);
   QList<QKeySequence> previousActShortcuts;
   previousActShortcuts.append(QKeySequence::Back);
   previousActShortcuts.append(Qt::Key_Backspace);
@@ -50,7 +50,7 @@ LookupPanel::LookupPanel() : QDockWidget(tr("Search"))
   _toolBar->addAction(_previousAct);
 
   // Next Entry button.
-  _nextAct = new QAction(QIcon(":/images/go-next.png"), tr("Next"), this);
+  _nextAct = new QAction(QIcon(":/images/go-next.svg"), tr("Next"), this);
   _nextAct->setShortcut(QKeySequence::Forward);
   connect(_nextAct, SIGNAL(triggered()), this, SLOT(goNext()));
   _toolBar->addAction(_nextAct);

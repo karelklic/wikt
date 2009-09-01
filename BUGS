@@ -10,18 +10,9 @@ It is used in [[Category:!Kung language]].
 Expression parser does not support expression "0 or 0".
 It is used in [[Category:!Kung language]].
 
-== Categories
-
-Categories should store a list of entries pointing to them.
-Theis should be done in convdict23.
-
 == Error pages
 
 When user enters a word to the lookup panel and the word is not found, an error page should be displayed.
-
-== Icons
-
-Menu bar of the application should be decorated with icons.
 
 == <ref> and <references/>
 
@@ -43,8 +34,4 @@ http://www.mediawiki.org/wiki/Extension:Labeled_Section_Transclusion
 == [[Har du sett på maken!]]
 
 Word not displayed.
-
-== Find dialog
-
-Must be fixed.
 

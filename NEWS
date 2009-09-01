@@ -1,18 +1,25 @@
 ------------------------------------------------------------------------
 Wikt 0.20.0 (work in progress)
 ------------------------------------------------------------------------
-  * dictionary: CheckTrans sections are not displayed in entries.
-  * libwikt: Support for more languages added.
-  * wikt: fixed invalid contents generation from headers. Header 
+dictionary:
+  * CheckTrans sections are not displayed in entries.
+libwikt:
+  * Support for more languages added.
+wikt:
+  * Fixed invalid contents generation from headers. Header 
     Abbreviation in entry [[&c.]] is a link, and that was not handled
     properly. Affects Contents panel.
-  * wikt: Translation section visibility (collapse status) depends on 
+  * Find dialog (Ctrl+F) works again.
+  * Improved focus shifting and handling.
+  * Translation section visibility (collapse status) depends on 
     user's settings (dialog Options).
-  * convdict23: Bugfix in evaluating templates uc: ucfirst: lc: lcfist:,
+  * Added application icons. Icons from Tango project were used, SVG format.
+convdict23:
+  * Bugfix in evaluating templates uc: ucfirst: lc: lcfist:,
     fixes invalid trimming of result. Affects entry [[acaeciera]].
-  * convdict34: Generates form-of/gloss entries statistics.
+convdict34:
+  * Generates form-of/gloss entries statistics.
   * Initial implementation of Category listings.
-
 
 ------------------------------------------------------------------------
 Wikt 0.19.0 (released 2009-08-24)

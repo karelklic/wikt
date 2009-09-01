@@ -1,4 +1,4 @@
-/* This file is part of Wikt.
+/* This file is part of Wikt. -*- mode: c++; c-file-style: "wikt"; -*-
  *
  * Wikt is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,26 +19,48 @@
 #include <libwikt/language.h>
 #include <libwikt/debug.h>
 #include <QSettings>
+#include <QTreeWidgetItem>
+#include <QCheckBox>
+#include <QPushButton>
+#include <QHeaderView>
 
 //===========================================================================
 OptionsDialog::OptionsDialog(QWidget *parent) : QDialog(parent)
 {
-  ui.setupUi(this);
-  connect(ui.okButton, SIGNAL(clicked()), this, SLOT(accept()));
-  connect(ui.cancelButton, SIGNAL(clicked()), this, SLOT(reject()));
+  resize(332, 376);
+  setWindowTitle(tr("Options"));
   connect(this, SIGNAL(accepted()), this, SLOT(saveSettings()));
 
-  QSettings settings;
-  bool translationsFolded = settings.value("translationsFolded", true).toBool();
-  ui.translationsFoldedCheckBox->setCheckState(translationsFolded ? Qt::Checked : Qt::Unchecked);
+  _save = new QPushButton(this);
+  _save->setGeometry(QRect(230, 340, 92, 28));
+  _save->setText(tr("Save"));
+  connect(_save, SIGNAL(clicked()), this, SLOT(accept()));
 
+  _cancel = new QPushButton(this);
+  _cancel->setGeometry(QRect(120, 340, 92, 28));
+  _cancel->setText(tr("Cancel"));
+  connect(_cancel, SIGNAL(clicked()), this, SLOT(reject()));
+
+  _transVisible = new QCheckBox(this);
+  _transVisible->setGeometry(QRect(10, 20, 311, 23));
+  _transVisible->setText(tr("Translation lists visible (unfolded)"));
+  QSettings settings;
+  bool tvisible = settings.value("translationsVisible", false).toBool();
+  _transVisible->setCheckState(tvisible ? Qt::Checked : Qt::Unchecked);
+
+  _transTree = new QTreeWidget(this);
+  QTreeWidgetItem *item = new QTreeWidgetItem();
+  item->setText(0, QString::fromUtf8("1"));
+  _transTree->setHeaderItem(item);
+  _transTree->setGeometry(QRect(10, 50, 311, 281));
+  _transTree->header()->setVisible(false);
   QList<QTreeWidgetItem*> alphabet;
   for (char c = 'A'; c <= 'Z'; ++c)
   {
     QTreeWidgetItem *item = new QTreeWidgetItem((QTreeWidget*)0, QStringList(QString(QChar(c))));
     alphabet.append(item);
   }
-  ui.translationsTree->insertTopLevelItems(0, alphabet);
+  _transTree->insertTopLevelItems(0, alphabet);
 
   for (int i = 0; i < Language::Unknown; ++i)
   {
@@ -69,7 +91,8 @@ OptionsDialog::OptionsDialog(QWidget *parent) : QDialog(parent)
     updateCharacterCheckState(character);
   }
 
-  connect(ui.translationsTree, SIGNAL(itemChanged(QTreeWidgetItem*, int)), this, SLOT(itemChanged(QTreeWidgetItem*, int)));
+  connect(_transTree, SIGNAL(itemChanged(QTreeWidgetItem*, int)), 
+	  this, SLOT(itemChanged(QTreeWidgetItem*, int)));
 }
 
 //===========================================================================
@@ -81,11 +104,11 @@ OptionsDialog::~OptionsDialog()
 void OptionsDialog::saveSettings()
 {
   QSettings settings;
-  settings.setValue("translationsFolded", ui.translationsFoldedCheckBox->checkState() == Qt::Checked);
+  settings.setValue("translationsVisible", _transVisible->checkState() == Qt::Checked);
 
-  for (int i = 0; i < ui.translationsTree->topLevelItemCount(); ++i)
+  for (int i = 0; i < _transTree->topLevelItemCount(); ++i)
   {
-    QTreeWidgetItem *character = ui.translationsTree->topLevelItem(i);
+    QTreeWidgetItem *character = _transTree->topLevelItem(i);
     for (int j = 0; j < character->childCount(); ++j)
     {
       QTreeWidgetItem *item = character->child(j);
@@ -109,7 +132,6 @@ void OptionsDialog::itemChanged(QTreeWidgetItem *item, int /*column*/)
   }
 
   // Now we know it is a character node.
-
   if (item->checkState(0) == Qt::PartiallyChecked) return;
   for (int i = 0; i < item->childCount(); ++i)
     item->child(i)->setCheckState(0, item->checkState(0));

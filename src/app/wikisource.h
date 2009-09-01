@@ -72,6 +72,7 @@ public:
 
 private:
   WikiSourceCacheItem *cached(const QString &entryName);
+  void updateJavascriptFromTemplate();
 
   QMap<QString, WikiSourceCacheItem*> _cache;
   Format4Reader *_reader;

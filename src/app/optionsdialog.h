@@ -17,7 +17,10 @@
 #define OPTIONSDIALOG_H
 
 #include <QDialog>
-#include "ui_optionsdialog.h"
+class QTreeWidget;
+class QPushButton;
+class QCheckBox;
+class QTreeWidgetItem;
 
 class OptionsDialog : public QDialog
 {
@@ -32,7 +35,11 @@ private slots:
 
 private:
   void updateCharacterCheckState(QTreeWidgetItem *character);
-  Ui::OptionsDialogClass ui;
+
+  QPushButton *_save;
+  QPushButton *_cancel;
+  QCheckBox *_transVisible;
+  QTreeWidget *_transTree;
 };
 
 #endif // OPTIONSDIALOG_H

@@ -1,4 +1,4 @@
-/* This file is part of Wikt.
+/* This file is part of Wikt. -*- mode: c++; c-file-style: "wikt"; -*-
  *
  * Wikt is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -42,12 +42,8 @@ WikiSource::WikiSource(QObject *parent) : QObject(parent)
   QFile js(dataPath + "/enwiktionary-20090711.js");
   js.open(QIODevice::ReadOnly);
   _javascriptTemplate = QString::fromUtf8(js.readAll());
-  _javascript = _javascriptTemplate;
-  QSettings settings;
-  bool translationsFolded = settings.value("translationsFolded", true).toBool();
-  _javascript.replace("%TRANSLATIONSFOLDED%", translationsFolded ? "true" : "false");
-
   js.close();
+  updateJavascriptFromTemplate();
 }
 
 //===========================================================================
@@ -106,10 +102,7 @@ void WikiSource::translationSettingsChanged()
   for (It i = _cache.constBegin(); i != _cache.constEnd(); ++i)
     i.value()->invalidateTranslationSettings();
 
-  _javascript = _javascriptTemplate;
-  QSettings settings;
-  bool translationsFolded = settings.value("translationsFolded", true).toBool();
-  _javascript.replace("%TRANSLATIONSFOLDED%", translationsFolded ? "true" : "false");
+  updateJavascriptFromTemplate();
 }
 
 //===========================================================================
@@ -166,4 +159,13 @@ WikiSourceCacheItem *WikiSource::cached(const QString &entryName)
   WikiSourceCacheItem *item = new WikiSourceCacheItem(entryName, source);
   _cache.insert(entryName, item);
   return item;
+}
+
+//===========================================================================
+void WikiSource::updateJavascriptFromTemplate()
+{
+  _javascript = _javascriptTemplate;
+  QSettings settings;
+  bool tvisible = settings.value("translationsVisible", false).toBool();
+  _javascript.replace("%TRANSLATIONSFOLDED%", tvisible ? "false" : "true");
 }

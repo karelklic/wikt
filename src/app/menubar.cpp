@@ -1,4 +1,4 @@
-/* This file is part of Wikt.
+/* This file is part of Wikt. -*- mode: c++; c-file-style: "wikt"; -*-
  *
  * Wikt is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -35,6 +35,7 @@ MenuBar::MenuBar(MainWindow *parent) : QMenuBar(parent)
   _quitAct = new QAction(tr("&Quit"), this);
   _quitAct->setShortcut(tr("Ctrl+Q"));
   _quitAct->setStatusTip(tr("Quit the application"));
+  _quitAct->setIcon(QIcon(":/images/system-shutdown.svg"));
   connect(_quitAct, SIGNAL(triggered()), parent, SLOT(close()));
 
   //
@@ -42,16 +43,23 @@ MenuBar::MenuBar(MainWindow *parent) : QMenuBar(parent)
   //
   _cut = parent->webView()->pageAction(QWebPage::Cut);
   _cut->setShortcut(tr("Ctrl+X"));
+  _cut->setIcon(QIcon(":/images/edit-cut.svg"));
   _copy = parent->webView()->pageAction(QWebPage::Copy);
   _copy->setShortcut(tr("Ctrl+C"));
+  _copy->setIcon(QIcon(":/images/edit-copy.svg"));
   _paste = parent->webView()->pageAction(QWebPage::Paste);
   _paste->setShortcut(tr("Ctrl+V"));
+  _paste->setIcon(QIcon(":/images/edit-paste.svg"));
   _selectAll = parent->webView()->pageAction(QWebPage::SelectAll);
   if (_selectAll) // it is null in Qt 4.5 on Ubuntu 9.04
+  {
     _selectAll->setShortcut(tr("Ctrl+A"));
+    _selectAll->setIcon(QIcon(":/images/edit-select-all.svg"));
+  }
 
   _find = new QAction(tr("&Find"), this);
   _find->setShortcut(tr("Ctrl+F"));
+  _find->setIcon(QIcon(":/images/edit-find.svg"));
   connect(_find, SIGNAL(triggered()), this, SLOT(find()));
 
   _findNext = new QAction(tr("Find &next"), this);
@@ -59,6 +67,7 @@ MenuBar::MenuBar(MainWindow *parent) : QMenuBar(parent)
   connect(_findNext, SIGNAL(triggered()), this, SLOT(findNext()));
 
   _options = new QAction(tr("&Options"), this);
+  _options->setIcon(QIcon(":/images/preferences-system.svg"));
   connect(_options, SIGNAL(triggered()), this, SLOT(options()));
 
   //

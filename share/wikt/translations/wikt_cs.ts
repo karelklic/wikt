@@ -44,7 +44,7 @@
     <message>
         <location/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ano</translation>
     </message>
 </context>
 <context>
@@ -104,7 +104,7 @@
         <translation>Hledat</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+12"/>
         <source>Title page</source>
         <translation>Úvodní stránka</translation>
     </message>
@@ -158,22 +158,22 @@
     <message>
         <location line="+7"/>
         <source>Ctrl+X</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+X</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Ctrl+C</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+C</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Ctrl+V</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+V</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Ctrl+A</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+A</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -183,7 +183,7 @@
     <message>
         <location line="+1"/>
         <source>Ctrl+F</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+F</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -193,7 +193,7 @@
     <message>
         <location line="+1"/>
         <source>Ctrl+G</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+G</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -284,6 +284,29 @@
         <location line="+1"/>
         <source>Wikt version </source>
         <translation>Verze Wiktu</translation>
+    </message>
+</context>
+<context>
+    <name>OptionsDialog</name>
+    <message>
+        <location filename="../../../src/app/optionsdialog.cpp" line="+31"/>
+        <source>Options</source>
+        <translation>Nastavení</translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Save</source>
+        <translation>Uložit</translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Cancel</source>
+        <translation>Zrušit</translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Translation lists visible (unfolded)</source>
+        <translation>Tabulky s překlady zobrazeny (nezabalené)</translation>
     </message>
 </context>
 <context>

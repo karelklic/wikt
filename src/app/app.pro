@@ -91,7 +91,7 @@ HEADERS += \
   wikisource.h \
   wikisourcecacheitem.h
 
-FORMS = ErrorDialog.ui OptionsDialog.ui
+FORMS = ErrorDialog.ui
 
 RESOURCES = wikt.qrc
 LIBS *= ../../bin/libwikt.so.0.20
