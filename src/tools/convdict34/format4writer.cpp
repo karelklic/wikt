@@ -51,15 +51,19 @@ void Format4Writer::addCategory(const QString &name, const QString &contents, co
   if (subcategories.size() > 0)
   {
     fullContents += "\n==Subcategories==\n";
-    foreach (const QString &subcategory, subcategories)
-      fullContents += QString("* %1\n").arg(subcategory);
+    foreach (QString subcategory, subcategories)
+    {
+      QString title(subcategory);
+      title.remove("Category:");
+      fullContents += QString("* [[:%1|%2]]\n").arg(subcategory).arg(title);
+    }
     fullContents += "\n";
   }
   if (entries.size() > 0)
   {
     fullContents += "\n==Entries==\n";
     foreach (const QString &entry, entries)
-      fullContents += QString("* %1\n").arg(entry);
+      fullContents += QString("* [[%1]]\n").arg(entry);
     fullContents += "\n";
   }
 

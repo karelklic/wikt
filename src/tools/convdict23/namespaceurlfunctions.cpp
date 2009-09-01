@@ -63,7 +63,7 @@ static QString functionFullUrl(const QString &templateText)
   QString pageNameWithPrefix = templateText.section(':', 1); // after "fullurl:"
   QString prefixOnly = templateText.section(':', 1, 1); // prefix such as "meta"
 
-  if (Project::instance().isProjectPrefix(prefixOnly))
+  if (Project::instance().isPrefix(prefixOnly))
   {
     QString entryUrlSuffix = QString::fromAscii(QUrl::toPercentEncoding(
         templateText.section(':', 2))); // can be empty!
