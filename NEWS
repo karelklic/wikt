@@ -14,6 +14,8 @@ wikt:
   * Translation section visibility (collapse status) depends on 
     user's settings (dialog Options).
   * Added application icons. Icons from Tango project were used, SVG format.
+  * Error page is displayed when user enters a word to the lookup
+    panel and the word is not found.
 convdict23:
   * Bugfix in evaluating templates uc: ucfirst: lc: lcfist:,
     fixes invalid trimming of result. Affects entry [[acaeciera]].

@@ -10,10 +10,6 @@ It is used in [[Category:!Kung language]].
 Expression parser does not support expression "0 or 0".
 It is used in [[Category:!Kung language]].
 
-== Error pages
-
-When user enters a word to the lookup panel and the word is not found, an error page should be displayed.
-
 == <ref> and <references/>
 
 Support for these tags must be implemented. Should be done either in convdict23 or convdict34 (preferred).
@@ -21,7 +17,6 @@ Support for these tags must be implemented. Should be done either in convdict23 
 == Expr errors and nonexisting templates
 
 convdict23 should be extended with switches to show #expr evaluation errors and to report nonexisting templates to console.
-
 
 == #section template
 
