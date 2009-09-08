@@ -179,7 +179,7 @@ function createNavigationBarToggleButton()
     {  
       var NavFrame = document.getElementById("NavFrame" + i);
       var header = NavFrame;
-      while (header != null && header.nodeName != "H4")
+      while (header != null && header.nodeName != "H4" && header.nodeName != "H5")
   	header = header.previousElementSibling;
       if (header != null && /Translations/.test(header.innerHTML))
         continue;
