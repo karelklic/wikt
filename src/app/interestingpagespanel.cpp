@@ -54,7 +54,8 @@ void Panel::modelChanged()
   }
 
   setVisible(MainWindow::instance()->coordinator()->state() == Coordinator::HomeActivated ||
-      MainWindow::instance()->coordinator()->text().startsWith("Wikt:"));
+	     MainWindow::instance()->coordinator()->state() == Coordinator::ErrorNotFound ||
+	     MainWindow::instance()->coordinator()->text().startsWith("Wikt:"));
 }
 
 //===========================================================================

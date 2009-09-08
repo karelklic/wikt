@@ -20,6 +20,7 @@
 #include "networkreplymediafile.h"
 #include "networkreplystylesheet.h"
 #include "networkreplytitlepage.h"
+#include "networkreplynotfound.h"
 #include <libwikt/debug.h>
 
 //===========================================================================
@@ -47,6 +48,8 @@ QNetworkReply *NetworkAccessManager::createRequest(Operation op, const QNetworkR
     reply = new NetworkReplyMediaFile(req, this);
   else if (req.url().scheme() == "embedded")
     reply = new NetworkReplyEmbeddedFile(req, this);
+  else if (req.url().scheme() == "notfound")
+    reply = new NetworkReplyNotFound(req, this);
 
   CHECK_MSG(reply, QString("Unsupported request: %1").arg(req.url().toString()));
   return reply;

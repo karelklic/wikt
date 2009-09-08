@@ -30,6 +30,7 @@ SOURCES += \
   networkreplyentry.cpp \
   networkreplyjavascript.cpp \
   networkreplymediafile.cpp \
+  networkreplynotfound.cpp \
   networkreplystylesheet.cpp \
   networkreplytitlepage.cpp \
   optionsdialog.cpp \
@@ -73,6 +74,7 @@ HEADERS += \
   networkreplyentry.h \
   networkreplyjavascript.h \
   networkreplymediafile.h \
+  networkreplynotfound.h \
   networkreplystylesheet.h \
   networkreplytitlepage.h \
   optionsdialog.h \

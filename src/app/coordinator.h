@@ -36,6 +36,8 @@ public:
   typedef enum {
     Initial,
     TextEnteredToLookup,
+    /// The requested entry was not found in the dictionary.
+    ErrorNotFound, 
     LocalLinkClickedInView,
     LocalLinkClickedInRelatedPagesPanel,
     LocalLinkClickedInInterestingPagesPanel,
@@ -73,6 +75,8 @@ public slots:
   void userSettingChanged_Translations();
 
 private:
+  /// Sets the state of text not found in the dictionary.
+  void errorNotFound(const QString &text);
   void displayTitlePage();
 
   State _state;

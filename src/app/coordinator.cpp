@@ -42,9 +42,9 @@ void Coordinator::textEnteredToLookup(QString text)
   if (_state == TextEnteredToLookup && _text == text) return;
   _state = TextEnteredToLookup;
 
-  // TODO: what if the text is not found.
+  // what if the text is not found.
   //  - try to split it to words
-  //  - small/large caps
+  //  - TODO: small/large caps
   //  - display an error page
   MainWindow *window = MainWindow::instance();
   WikiSource *reader = window->wikiSource();
@@ -62,8 +62,13 @@ void Coordinator::textEnteredToLookup(QString text)
     }
   }
 
-  if (entries.empty())
-    return; // todo error page
+  // The entered term was not found in the dictionary.
+  // Display error page.
+  if (entries.empty()) 
+  {
+    errorNotFound(text);
+    return;
+  }
 
   _text = entries.first();
   QUrl url(UrlUtils::toUrl(entries.first()));
@@ -95,11 +100,16 @@ void Coordinator::localLinkClickedInView(const QUrl &url)
 
   if (url.scheme() == "entry" || url.scheme() == "special")
   {
-    // Do not crash when user clicks a link to nonexisting word.
-    if (!window->wikiSource()->exist(entry)) return;
     _text = entry;
-
     ArticleNode *node = window->wikiSource()->tree(entry);
+
+    // Display an error page when user clicks a link to nonexisting word.
+    if (!node)
+    {
+      errorNotFound(entry);
+      return;
+    }
+
     window->setTitle(entry);
     window->webView()->setUrl(url);
     window->lookupPanel()->history().addCurrentPage(url);
@@ -127,6 +137,13 @@ void Coordinator::interestingPagesPanelClicked(const QString &entry)
   QUrl url(UrlUtils::toUrl(entry));
   ArticleNode *node = window->wikiSource()->tree(entry);
 
+  // the entry does not exist
+  if (!node) 
+  {
+    errorNotFound(entry);
+    return;
+  }
+
   window->setTitle(entry);
   window->webView()->setUrl(url);
   window->lookupPanel()->history().addCurrentPage(url);
@@ -148,7 +165,13 @@ void Coordinator::localLinkClickedInRelatedPagesPanel(const QString &word)
 
   QUrl url(UrlUtils::toUrl(word));
   ArticleNode *node = window->wikiSource()->tree(word);
-  if (node == 0) return; // the word does not exist
+
+  // the word does not exist
+  if (!node) 
+  {
+    errorNotFound(word);
+    return;
+  }
 
   window->setTitle(word);
   window->webView()->setUrl(url);
@@ -205,6 +228,14 @@ void Coordinator::historyActivated(const QUrl &url)
   MainWindow *window = MainWindow::instance();
   _text = UrlUtils::toEntryName(url);
   ArticleNode *node = window->wikiSource()->tree(_text);
+
+  // Fail if something is broken.
+  if (!node)
+  {
+    errorNotFound(_text);
+    return;
+  }
+
   window->setTitle(_text);
   window->webView()->setUrl(url);
   window->lookupPanel()->history().addCurrentPage(url);
@@ -236,4 +267,20 @@ void Coordinator::userSettingChanged_Translations()
   MainWindow *window = MainWindow::instance();
   window->wikiSource()->translationSettingsChanged();
   window->webView()->reload();
+}
+
+//===========================================================================
+void Coordinator::errorNotFound(const QString &text)
+{
+  _state = ErrorNotFound;
+  _text = text;
+  QUrl url(UrlUtils::toUrl(text, "notfound"));
+  MainWindow *window = MainWindow::instance();
+  window->setTitle("");
+  window->webView()->setUrl(url);
+  window->lookupPanel()->history().addCurrentPage(url);
+  window->relatedPagesPanel()->model().clear();
+  window->tableOfContentsPanel()->model().clear();
+  window->categoriesPanel()->model().clear();
+  window->interestingPagesPanel()->model().generate();
 }

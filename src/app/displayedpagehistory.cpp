@@ -36,6 +36,10 @@ bool DisplayedPageHistory::canGoForward() const
 void DisplayedPageHistory::back()
 {
   if (_currentItemOffset <= 0) return;
+
+  if (current().scheme() == "notfound")
+    _items.removeAt(_currentItemOffset);
+
   --_currentItemOffset;
   emit changed();
 }
@@ -44,7 +48,12 @@ void DisplayedPageHistory::back()
 void DisplayedPageHistory::forward()
 {
   if (_currentItemOffset >= (_items.count() - 1)) return;
-  ++_currentItemOffset;
+
+  if (current().scheme() == "notfound")
+    _items.removeAt(_currentItemOffset);
+  else
+    ++_currentItemOffset;
+
   emit changed();
 }
 
@@ -54,6 +63,12 @@ void DisplayedPageHistory::addCurrentPage(const QUrl &url)
   // If the page to be added is also current page, do not add it.
   if (_currentItemOffset >= 0 && current() == url)
     return;
+
+  if (_currentItemOffset >= 0 && current().scheme() == "notfound")
+  {
+    _items.removeAt(_currentItemOffset);
+    --_currentItemOffset;
+  }
 
   // If we can go forward, remove all forward pages.
   if (_currentItemOffset < _items.count() - 1)
