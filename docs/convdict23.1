@@ -1,0 +1,31 @@
+./" http://www.linuxfocus.org/English/November2003/article309.shtml"
+.TH convdict23 1 "August 12, 2009" "version 0.2" "USER COMMANDS"
+.SH NAME
+convdict23 \- converts Wikt dictionary format2 file to format3 file
+.SH SYNOPSIS
+.B convdict23
+[option]... [SOURCE] [DESTINATION]
+.SH DESCRIPTION
+Format2 dictionary format is sorted list of entries with index table at the beginning of file, therefore it enables very fast random access based on entry name.
+.PP
+convdict23 converts format2 file to format3.
+.SH OPTIONS
+.TP
+\-f, \-\-from=NUMBER
+sets the starting offset
+.TP
+\-t, \-\-to=NUMBER
+sets the ending offset
+.TP
+\-\-names
+displays names of entries
+.TP
+SOURCE
+Format2 input file.
+.TP
+DESTINATION
+Output file. Existing file will be overwritten.
+.SH SEE ALSO
+convdict12(1)
+convdict34(1)
+wikt(1)
