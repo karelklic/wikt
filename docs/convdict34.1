@@ -4,9 +4,9 @@
 convdict34 \- converts Wikt dictionary format3 file to format4 file
 .SH SYNOPSIS
 .B convdict34
-[option]... [SOURCE] [DESTINATION]
+[option]... [SOURCE] [SOURCEMEDIA] [DESTINATION]
 .SH DESCRIPTION
-convdict34 converts format3 file to format4.
+convdict34 converts format3 file to format4. Generates title page, statistics page, and license pages. Checks links and converts invalid links to text. Fills categories.
 .SH OPTIONS
 .TP
 \-f, \-\-from=NUMBER
@@ -20,6 +20,9 @@ displays names of entries
 .TP
 SOURCE
 Format3 input file.
+.TP
+SOURCEMEDIA
+Media file (.eim).
 .TP
 DESTINATION
 Output file. Existing file will be overwritten.
