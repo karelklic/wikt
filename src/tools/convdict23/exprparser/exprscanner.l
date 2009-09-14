@@ -31,16 +31,25 @@
 %}
 
 %%
-[0-9]+\.[0-9]* { /* trailing decimal point is allowed */
+[0-9]+\.[0-9]*([eE][\+\-]?[0-9]+)? { /* trailing decimal point is allowed */
            /* atof can *not* be used, because it is locale-sensitive */
            std::stringstream ss;
            ss.imbue(std::locale("C"));
            ss << yytext;
            ss >> yylval->num;
            return token::NUM;   
-         }  
+         }
+
+[0-9]*\.[0-9]+([eE][\+\-]?[0-9]+)? { /* trailing decimal point is allowed */
+           /* atof can *not* be used, because it is locale-sensitive */
+           std::stringstream ss;
+           ss.imbue(std::locale("C"));
+           ss << yytext;
+           ss >> yylval->num;
+           return token::NUM;   
+         }
          
-[0-9]+ {
+[0-9]+([eE][\+\-]?[0-9]+)? {
            /* atof can *not* be used, because it is locale-sensitive */
            std::stringstream ss;
            ss.imbue(std::locale("C"));
@@ -64,6 +73,28 @@ mod      { return token::MOD; }
 round    { return token::ROUND; }
 \^       { return token::POW; }
 =        { return token::EQUALS; }
+\!=      { return token::NEQUALS; }
+\<\>     { return token::NEQUALS; }
+and      { return token::AND; }
+or       { return token::OR; }
+not      { return token::NOT; }
+ceil     { return token::CEIL; }
+abs      { return token::ABS; }
+floor    { return token::FLOOR; }
+ln       { return token::LN; }
+trunc    { return token::TRUNC; }
+sin      { return token::SIN; }
+cos      { return token::COS; }
+tan      { return token::TAN; }
+asin     { return token::ASIN; }
+acos     { return token::ACOS; }
+atan     { return token::ATAN; }
+ /* Double x in exxp is used because of unicode string is encoded with the use of 
+    x as escape character. User writes #expr:exp1.2, but the expression scanner receives 
+    exxp1.2. */
+exxp     { return token::EXP; } 
+e        { return token::E; }
+pi       { return token::PI; }
 
 [ \t\n]
 

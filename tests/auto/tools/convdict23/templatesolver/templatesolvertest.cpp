@@ -45,7 +45,7 @@ class TemplateSolverTestReader : public Format2Reader
 {
 public:
   QMap<QString, QString> data;
-  virtual QString source(QString entryName) { return data.value(entryName, ""); }
+  virtual QString sourceTemplate(QString name) { return data.value(name, ""); }
   virtual bool exist(QString entryName) { return data.contains(entryName); }
 };
 
