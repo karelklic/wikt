@@ -5,11 +5,6 @@ Here is a list of known bugs and wishes.
 Template:PAGESINCATEGORY not implemented.
 It is used in [[Category:!Kung language]].
 
-== {{#ifexpr:0 or 0}}
-
-Expression parser does not support expression "0 or 0".
-It is used in [[Category:!Kung language]].
-
 == <ref> and <references/>
 
 Support for these tags must be implemented. Should be done either in convdict23 or convdict34 (preferred).
@@ -29,4 +24,8 @@ http://www.mediawiki.org/wiki/Extension:Labeled_Section_Transclusion
 == [[Har du sett på maken!]]
 
 Word not displayed.
+
+== visible </span> tags
+
+For example, in [[lesser]], </span> is visible at the end of the first definition.
 

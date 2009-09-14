@@ -19,6 +19,10 @@ wikt:
 convdict23:
   * Bugfix in evaluating templates uc: ucfirst: lc: lcfist:,
     fixes invalid trimming of result. Affects entry [[acaeciera]].
+  * Finished implementation of expression parser: now the #expr
+    supports also numbers as .123e4, functions exp, ln, abs, trunc, 
+    floor, ceil, sin, cos, tan, asin, acos, atan, logical not, and, or,
+    inequality operators <> and !=.
 convdict34:
   * Generates form-of/gloss entries statistics.
   * Initial implementation of Category listings.
