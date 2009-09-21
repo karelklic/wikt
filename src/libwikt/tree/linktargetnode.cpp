@@ -45,8 +45,22 @@ LinkTargetNode::LinkTargetNode(const QString &text) : Node(Node::LinkTarget), _n
   
   QStringList entryHeading = remainder.split('#');
   _entry = entryHeading.first().trimmed();
+
   if (entryHeading.size() > 1)
     _heading = entryHeading.last().trimmed();
+
+  // Handle links such as [[#English|something]].
+  /*if (_entry.length() == 0)
+  {
+    _text.prepend(thisEntry);
+    offs = thisEntry.indexOf(':');
+    if (offs != -1)
+    {
+      QString prefix = thisEntry.left(offs).trimmed();
+      if (Namespace::instance().isPrefix(prefix))
+	_namespace = Namespace::instance().fromPrefix(prefix);
+    }
+    }*/
 }
 
 //===========================================================================

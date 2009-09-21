@@ -5,10 +5,6 @@ Here is a list of known bugs and wishes.
 Template:PAGESINCATEGORY not implemented.
 It is used in [[Category:!Kung language]].
 
-== <ref> and <references/>
-
-Support for these tags must be implemented. Should be done either in convdict23 or convdict34 (preferred).
-
 == Expr errors and nonexisting templates
 
 convdict23 should be extended with switches to show #expr evaluation errors and to report nonexisting templates to console.
@@ -28,4 +24,3 @@ Word not displayed.
 == visible </span> tags
 
 For example, in [[lesser]], </span> is visible at the end of the first definition.
-

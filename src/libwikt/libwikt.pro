@@ -23,6 +23,7 @@ HEADERS = \
     namespace.h \
     project.h \
     language.h \
+    stringutils.h \
     parser/*.h \
     tree/*.h
 
@@ -38,5 +39,6 @@ SOURCES = \
     namespace.cpp \
     project.cpp \
     language.cpp \
+    stringutils.cpp \
     parser/*.cpp \
     tree/*.cpp

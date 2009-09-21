@@ -96,9 +96,11 @@ void Coordinator::localLinkClickedInView(const QUrl &url)
   _state = LocalLinkClickedInView;
 
   MainWindow *window = MainWindow::instance();
-  QString entry(UrlUtils::toEntryName(url));
-
-  if (url.scheme() == "entry" || url.scheme() == "special")
+  QString sectionId;
+  QString entry(UrlUtils::toEntryName(url, &sectionId));
+  if (entry == "")
+    MainWindow::instance()->webView()->navigateToId(sectionId);
+  else if (url.scheme() == "entry" || url.scheme() == "special")
   {
     _text = entry;
     ArticleNode *node = window->wikiSource()->tree(entry);

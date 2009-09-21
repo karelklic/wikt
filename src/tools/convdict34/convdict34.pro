@@ -10,6 +10,7 @@ SOURCES += \
   licensepagesgenerator.cpp \
   linkconverter.cpp \
   main.cpp \
+  references.cpp \
   statspagegenerator.cpp \
   titlepagegenerator.cpp
 
@@ -19,6 +20,7 @@ HEADERS += \
   languagestatistic.h \
   licensepagesgenerator.h \
   linkconverter.h \
+  references.h \
   statspagegenerator.h \
   titlepagegenerator.h
 

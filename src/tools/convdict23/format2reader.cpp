@@ -17,6 +17,7 @@
 #include <libwikt/fileutils.h>
 #include <libwikt/comparsion.h>
 #include <libwikt/debug.h>
+#include <libwikt/stringutils.h>
 
 //===========================================================================
 Format2Reader::Format2Reader(const QString &fileName)
@@ -79,6 +80,10 @@ QString Format2Reader::sourceTemplate(QString entryName)
   // Source: http://meta.wikimedia.org/wiki/Help:Newlines_and_spaces#Automatic_newline_at_the_start
   if (result.startsWith("*") || result.startsWith("#") || result.startsWith(":") || result.startsWith(";") || result.startsWith("{|"))
     result = "\n" + result;
+
+  // Remove <noinclude>..</noinclude> blocks from templates, because those 
+  // blocks must not be included during template evaluation.
+  result = StringUtils::removeBlock(QRegExp("<noinclude\\s*>"), QRegExp("</noinclude\\s*>"), result);
 
   // Put template into cache.
   _templateCache.insert(entryName, result);

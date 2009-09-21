@@ -19,6 +19,7 @@
 #include "licensepagesgenerator.h"
 #include "statspagegenerator.h"
 #include "categorybuilder.h"
+#include "references.h"
 #include <libwikt/format3reader.h>
 #include <libwikt/mediareader.h>
 #include <libwikt/debug.h>
@@ -133,6 +134,7 @@ int main(int argc, char **argv)
     }
 
     QString content = linkConverter.convertedContents(it.value());
+    content = handleReferences(it.key(), content);
     ArticleNode *node = ArticleParser::parse(it.key(), content);
 
     titlePageGenerator.visit(it.key());

@@ -17,6 +17,7 @@
 #include <libwikt/comparsion.h>
 #include <libwikt/quicksort.h>
 #include <libwikt/fileutils.h>
+#include <libwikt/stringutils.h>
 #include <libwikt/debug.h>
 #include <QDirIterator>
 #include <QTemporaryFile>
@@ -47,23 +48,6 @@ void Format2_loadErrata(const QString &directory)
     errata.insert(dir.fileName(), QString::fromUtf8(file.readAll()));
     file.close();
   }
-}
-
-//===========================================================================
-static QString removeBlock(const QRegExp &startTag, const QRegExp &stopTag, QString text)
-{
-  int start = text.indexOf(startTag);
-  while (start != -1)
-  {
-    int end = stopTag.indexIn(text, start);
-    if (end == -1)
-      text.remove(start, text.length());
-    else
-      text.remove(start, end - start + stopTag.matchedLength());
-    start = text.indexOf(startTag);
-  }
-
-  return text;
 }
 
 //===========================================================================
@@ -107,9 +91,8 @@ void Format2_addEntry(const QString &name, QString contents)
   // Apply errata if it exists.
   contents = errata.value(name, contents);
 
-  // Remove <noinclude> and comment parts from contents.
-  contents = removeBlock(QRegExp("<noinclude\\s*>"), QRegExp("</noinclude\\s*>"), contents);
-  contents = removeBlock(QRegExp("<!--"), QRegExp("-->"), contents);
+  // Remove comments from contents.
+  contents = StringUtils::removeBlock(QRegExp("<!--"), QRegExp("-->"), contents);
 
   // Remove includeonly tags, but not the content between them.
   contents.remove(QRegExp("<includeonly\\s*>")).remove(QRegExp("</includeonly\\s*>"));

@@ -16,6 +16,9 @@ wikt:
   * Added application icons. Icons from Tango project were used, SVG format.
   * Error page is displayed when user enters a word to the lookup
     panel and the word is not found.
+convdict12:
+  * Bugfix: No longer removes the content between <noinclude> open and
+    close tags.
 convdict23:
   * Bugfix in evaluating templates uc: ucfirst: lc: lcfist:,
     fixes invalid trimming of result. Affects entry [[acaeciera]].
@@ -23,9 +26,15 @@ convdict23:
     supports also numbers as .123e4, functions exp, ln, abs, trunc, 
     floor, ceil, sin, cos, tan, asin, acos, atan, logical not, and, or,
     inequality operators <> and !=.
+  * Properly handles <noinclude> tags. Removes the tagged content in
+    templates during template evaluation, and removes only the tags
+    in all other cases.
 convdict34:
   * Generates form-of/gloss entries statistics.
   * Initial implementation of Category listings.
+  * Initial implementation of <ref> and <references/> tag handling. 
+    The change affects entries [[abeam]], [[aberrant]], [[absolutely]],
+    [[paraconsistent]].
 
 ------------------------------------------------------------------------
 Wikt 0.19.0 (released 2009-08-24)

@@ -21,7 +21,7 @@
 #include <QCoreApplication>
 #include <QTextStream>
 #include <QStringList>
-
+#include <QRegExp>
 
 //===========================================================================
 void usage()
@@ -132,6 +132,15 @@ int main(int argc, char **argv)
     // present in Wikt.
     if (it.key().startsWith("Category:") && content.contains("__HIDDENCAT__"))
       continue;
+
+    // Remove noinclude tags, but not the content between them.
+    // Noinclude is not required anymore in this moment, because
+    // the template evaluation step is finished and no inclusion
+    // is performed after this step.
+    //
+    // It is important to keep the content between noinclude open and close 
+    // tags in the entry. The content is valid part of a word.
+    content.remove(QRegExp("<noinclude\\s*>")).remove(QRegExp("</noinclude\\s*>"));
 
     // Write the entry.
     writer.addEntry(it.key(), content);
