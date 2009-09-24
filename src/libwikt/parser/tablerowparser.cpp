@@ -17,6 +17,7 @@
 #include "tableparser.h"
 #include "tablecellparser.h"
 #include "tableheadparser.h"
+#include "blockhtmlparser.h"
 
 //===========================================================================
 TableRowNode *TableRowParser::parse(Buffer &buffer)
@@ -54,6 +55,9 @@ TableRowNode *TableRowParser::parse(Buffer &buffer)
     // table head
     Node *headNode = TableHeadParser::parse(buffer);
     if (headNode) { rowNode->append(headNode); continue; }
+    // TD tag
+    Node *tagNode = BlockHtmlParser::parse(buffer);
+    if (tagNode) { rowNode->append(tagNode); continue; }
 
     // No node found. Eat input until a node is found.
     unparsedText.append(buffer.readLine());
@@ -63,8 +67,7 @@ TableRowNode *TableRowParser::parse(Buffer &buffer)
   // append it as text
   if (unparsedText.length() > 0)
   {
-    TextTokenNode *unparsedTextNode =
-      new TextTokenNode(unparsedText);
+    TextTokenNode *unparsedTextNode = new TextTokenNode(unparsedText);
     rowNode->append(unparsedTextNode);
   }
 

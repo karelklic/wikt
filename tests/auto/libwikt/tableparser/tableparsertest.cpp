@@ -24,6 +24,7 @@ class TableParserTest : public QObject
 private slots:
   void simplestTable();
   void simplestTableWithHeader();
+  void tableWithTd();
 };
 
 //===========================================================================
@@ -49,7 +50,7 @@ void TableParserTest::simplestTableWithHeader()
   Buffer input("{|\n|-\n! header1\n| A\n| B\n|-\n! header2\n| C\n| D\n|}");
   TableNode *result = TableParser::parse(input);
   QVERIFY(result);
-  QCOMPARE(result->count(), 2);
+  QCOMPARE(result->count(), 2); // rows
   QCOMPARE(result->child(0)->type(), Node::TableRow);
   QCOMPARE(result->child(0)->count(), 3);
   QCOMPARE(result->child(0)->child(0)->type(), Node::TableHead);
@@ -59,6 +60,20 @@ void TableParserTest::simplestTableWithHeader()
   QCOMPARE(result->child(1)->type(), Node::TableRow);
   QCOMPARE(result->child(1)->count(), 3);
   delete result;
+}
+
+//===========================================================================
+void TableParserTest::tableWithTd()
+{
+  Buffer input("{|\n|-\n<td>B</td>\n|}");
+  TableNode *result = TableParser::parse(input);
+  QVERIFY(result);
+  QCOMPARE(result->count(), 1); // rows
+  QCOMPARE(result->child(0)->type(), Node::TableRow);
+  QCOMPARE(result->child(0)->count(), 1);
+  //cstdout(QString::number((int)result->child(0)->child(0)->type()));
+  QCOMPARE(result->child(0)->child(0)->type(), Node::HtmlElement);
+  QCOMPARE(result->child(0)->child(0)->toText(), QString("B"));
 }
 
 QTEST_APPLESS_MAIN(TableParserTest)

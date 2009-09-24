@@ -23,7 +23,9 @@ static void addRef(QRegExp &ref, int refOffs, QString &content, QStringList &tex
 {
   texts.append(ref.cap(1));
   content.remove(refOffs, ref.matchedLength());
-  QString label = QString("<sup id=\"cite_ref-%1\">[[#cite_note-%1|&#91;%1&#93;]]</sup>").arg(baseOffset + texts.size());
+  QString label = QString("<sup id=\"cite_ref-%1\">[[#cite_note-%1|&#91;%2&#93;]]</sup>")
+    .arg(baseOffset + texts.size())
+    .arg(texts.size());
   content.insert(refOffs, label);
 }
 
@@ -55,14 +57,14 @@ static int step(QString &content, QStringList &texts, int &baseOffset, int from)
       return refOffs;
     }
  
-    QString text = "* Notes:\n";
+    QString text = "<ul><li>Notes:</li></ul>\n<ol>\n";
     for (int i = 0; i < texts.length(); ++i)
     {
-      text += QString("*# <span id=\"cite_note-%1\">[[#cite_ref-%1|^]] %2</span>\n")
+      text += QString("<li><span id=\"cite_note-%1\">[[#cite_ref-%1|^]] %2</span></li>\n")
 	.arg(baseOffset + i + 1)
 	.arg(texts[i]);
     }
-    text += "\n";
+    text += "</ol>\n";
       
     content.remove(referencesOffs, references.matchedLength());
     content.insert(referencesOffs, text);

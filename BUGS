@@ -24,3 +24,11 @@ Word not displayed.
 == visible </span> tags
 
 For example, in [[lesser]], </span> is visible at the end of the first definition.
+
+== Paste command should insert the text to the lookup panel
+
+...and it shouldn't matter where the focus currently is.
+
+== Named references
+
+<ref name="AHD">something</ref> can be used in two places, <ref name="AHD"/> on the second place, and it should be properly handled in <references/>.

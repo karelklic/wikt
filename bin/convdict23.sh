@@ -1,2 +1,2 @@
-./convdict23 ../share/wikt/data/enwiktionary-20090711.ei2 ../share/wikt/data/enwiktionary-20090711.ei3 
+./convdict23 ../share/wikt/data/enwiktionary-20090923.ei2 ../share/wikt/data/enwiktionary-20090923.ei3 
 
