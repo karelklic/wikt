@@ -30,7 +30,8 @@ int main(int argc, char **argv)
   bool exist = args.contains("--exists") || args.contains("--exist") || args.contains("-e");
   bool xml = args.contains("--xml") || args.contains("-x");
 
-  Format4Reader reader("../share/wikt/data/enwiktionary-20090711.ei4");
+  QString dataPath = QCoreApplication::applicationDirPath() + "/../share/wikt/data";
+  Format4Reader reader(dataPath + "/enwiktionary-20090923.ei4");
   QTextStream out(stdout, QIODevice::WriteOnly);
   if (xml)
   {

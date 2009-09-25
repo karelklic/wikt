@@ -65,8 +65,9 @@ static void onEndElement(const QStringRef& name)
   }
   else if (name == "title" && state == STATE_PAGE_TITLE)
   {
-    // skip pages from Wikitonary namespace
-    // It is much faster to do it here than to do it later after the parsing process.
+    // Skip pages from Wikitonary and Transwiki namespaces.
+    // Pages in these namespaces are not a part of Wikt.
+    // It is much more efficient to do it now than to do it later after the parsing process.
     if (pageTitle.contains("Wiktionary:"))
       state = STATE_OUTSIDE;
     else

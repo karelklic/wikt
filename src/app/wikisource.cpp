@@ -31,15 +31,15 @@ WikiSource::WikiSource(QObject *parent) : QObject(parent)
 {
   ::instance = this;
   QString dataPath = QCoreApplication::applicationDirPath() + "/../share/wikt/data";
-  _reader = new Format4Reader(dataPath + "/enwiktionary-20090711.ei4");
-  _mediaReader = new MediaReader(dataPath + "/enwiktionary-20090711.eim");
+  _reader = new Format4Reader(dataPath + "/enwiktionary-20090923.ei4");
+  _mediaReader = new MediaReader(dataPath + "/enwiktionary-20090923.eim");
 
-  QFile css(dataPath + "/enwiktionary-20090711.css");
+  QFile css(dataPath + "/enwiktionary-20090923.css");
   css.open(QIODevice::ReadOnly);
   _stylesheet = QString::fromUtf8(css.readAll());
   css.close();
 
-  QFile js(dataPath + "/enwiktionary-20090711.js");
+  QFile js(dataPath + "/enwiktionary-20090923.js");
   js.open(QIODevice::ReadOnly);
   _javascriptTemplate = QString::fromUtf8(js.readAll());
   js.close();
