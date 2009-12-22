@@ -21,9 +21,8 @@
 #include <QMap>
 
 /// @brief Reads entries from Format3 dictionary data file.
-class Format3Reader : public QObject
+class Format3Reader
 {
-  Q_OBJECT
 public:
   /// @brief Standard constructor.
   /// @param fileName

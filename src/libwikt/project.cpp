@@ -48,11 +48,11 @@ Project::Type Project::fromLinkPrefixes(const QStringList &prefixes) const
 }
 
 //===========================================================================
-QString Project::toUrl(Project::Type project, Language::Type language) const
+QString Project::toUrl(Project::Type project, const char *interwiki_prefix) const
 {
   QString url = _url.value(project, "Unknown URL");
   if (url.contains("%1"))
-    url = url.arg(Language::instance().toCode(language));
+    url = url.arg(interwiki_prefix);
 
   return url;
 }

@@ -16,7 +16,7 @@
 #ifndef LIBWIKT_PROJECT_H_
 #define LIBWIKT_PROJECT_H_
 
-#include "language.h"
+#include "languages.h"
 #include <QString>
 #include <QMap>
 #include <QStringList>
@@ -67,7 +67,7 @@ public:
 
   /// Gets project's URL.
   /// For example Wikipedia project has "http://en.wikipedia.org/wiki/".
-  QString toUrl(Type project, Language::Type language) const;
+  QString toUrl(Type project, const char *interwiki_prefix) const;
 
 protected:
   /// Standard constructor.

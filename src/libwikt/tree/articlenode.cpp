@@ -20,7 +20,6 @@
 #include "linknode.h"
 #include "linktargetnode.h"
 #include "tablenode.h"
-#include "../language.h"
 #include <QFile>
 #include <QSettings>
 #include <QList>
@@ -82,9 +81,12 @@ void ArticleNode::updateTranslationSettings()
     {
       QString text = item->toText();
       text = text.section(':', 0, 0).trimmed(); // everything before the first ':'
+      /* To Be Fixed
+       * Language headers should be loaded directly from dictionaries.
       Language::Type language = Language::instance().fromName(text);
       bool visible = Language::instance().isTranslationVisible(language);
       item->setXHtmlVisibility(visible);
+      */
     }
   }
 }
@@ -98,7 +100,7 @@ void ArticleNode::getCategories(QStringList &list) const
   foreach(const LinkNode *link, links)
   {
     if (link->target().namespace_() != Namespace::Category) continue;
-    if (link->target().language() != Language::English) continue;
+    if (0 != strcmp(link->target().language()->iso639_3_code, "eng")) continue;
     if (link->target().project() != Project::Wiktionary) continue;
     if (link->forcedLink()) continue;
 

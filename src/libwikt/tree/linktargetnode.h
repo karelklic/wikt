@@ -18,7 +18,7 @@
 
 #include "node.h"
 #include "../namespace.h"
-#include "../language.h"
+#include "../languages.h"
 #include "../project.h"
 
 /// Format of Link target: project:language:namespace:entry#heading
@@ -45,7 +45,7 @@ public:
   virtual QString toXHtml() const { return _text; }
 
   Namespace::Type namespace_() const { return _namespace; }
-  Language::Type language() const { return _language; }
+  struct language *language() const { return _language; }
   /// Target project. It can be either Wiktionary or some
   /// other project, eg. Wikipedia.
   Project::Type project() const { return _project; }
@@ -57,7 +57,7 @@ public:
 
 protected:
   Namespace::Type _namespace;
-  Language::Type _language;
+  struct language *_language;
   Project::Type _project;
 
   /// Whole text as provided.

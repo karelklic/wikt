@@ -17,10 +17,13 @@
 #include "texttokennode.h"
 #include "../urlutils.h"
 #include <QRegExp>
+#include <assert.h>
 
 //===========================================================================
-LinkTargetNode::LinkTargetNode(const QString &text) : Node(Node::LinkTarget), _namespace(Namespace::Main), _language(Language::English), _project(Project::Wiktionary), _text(text)
+LinkTargetNode::LinkTargetNode(const QString &text) : Node(Node::LinkTarget), _namespace(Namespace::Main), _project(Project::Wiktionary), _text(text)
 {
+  _language = NULL;
+
   QString remainder(text);
   int offs = remainder.indexOf(':');
   if (offs != -1)
@@ -31,11 +34,8 @@ LinkTargetNode::LinkTargetNode(const QString &text) : Node(Node::LinkTarget), _n
       _namespace = Namespace::instance().fromPrefix(prefix);
       remainder.remove(0, offs + 1);
     }
-    else if (Language::instance().isCode(prefix))
-    {
-      _language = Language::instance().fromCode(prefix);
+    else if (_language = language_from_code(prefix.toUtf8().constData()))
       remainder.remove(0, offs + 1);
-    }
     else if (Project::instance().isPrefix(prefix))
     {
       _project = Project::instance().fromPrefix(prefix);
@@ -43,6 +43,10 @@ LinkTargetNode::LinkTargetNode(const QString &text) : Node(Node::LinkTarget), _n
     }
   }
   
+  if (!_language)
+    _language = language_from_iso_639_3_code("eng"); /* English */
+  assert(_language);
+
   QStringList entryHeading = remainder.split('#');
   _entry = entryHeading.first().trimmed();
 
@@ -77,15 +81,10 @@ QString LinkTargetNode::toXml(int indentLevel) const
 {
   QString indent(indentLevel, ' ');
 
-  QStringList languages = Language::instance().toNames(_language);
-  QString language = QString().setNum(_language);
-  if (languages.size() > 0)
-    language = languages.first();
-
   return indent + QString("<link_target namespace=\"%1\" language=\"%2\" project=\"%3\">%4</link_target>\n")
       .arg(Namespace::instance().toLocalizedName(_namespace))
-      .arg(language)
-      .arg(Project::instance().toUrl(_project, _language))
+      .arg(_language->iso639_3_code)
+      .arg(Project::instance().toUrl(_project, _language->interwiki_prefix))
       .arg(_text);
 }
 

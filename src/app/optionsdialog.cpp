@@ -16,7 +16,7 @@
 #include "optionsdialog.h"
 #include "mainwindow.h"
 #include "coordinator.h"
-#include <libwikt/language.h>
+#include <libwikt/languages.h>
 #include <libwikt/debug.h>
 #include <QSettings>
 #include <QTreeWidgetItem>
@@ -61,7 +61,7 @@ OptionsDialog::OptionsDialog(QWidget *parent) : QDialog(parent)
     alphabet.append(item);
   }
   _transTree->insertTopLevelItems(0, alphabet);
-
+/* TO BE FIXED
   for (int i = 0; i < Language::Unknown; ++i)
   {
     Language::Type language = (Language::Type)i;
@@ -84,7 +84,7 @@ OptionsDialog::OptionsDialog(QWidget *parent) : QDialog(parent)
     bool visible = Language::instance().isTranslationVisible(language);
     item->setCheckState(0, visible ? Qt::Checked : Qt::Unchecked);
   }
-
+*/
   foreach (QTreeWidgetItem *character, alphabet)
   {
     character->setFlags(Qt::ItemIsUserCheckable | Qt::ItemIsTristate | Qt::ItemIsEnabled);
@@ -112,8 +112,10 @@ void OptionsDialog::saveSettings()
     for (int j = 0; j < character->childCount(); ++j)
     {
       QTreeWidgetItem *item = character->child(j);
+/* TO BE FIXED
       Language::Type language = (Language::Type)item->data(0, Qt::UserRole).toInt();
       Language::instance().setTranslationVisible(language, item->checkState(0) == Qt::Checked);
+*/
     }
   }
 

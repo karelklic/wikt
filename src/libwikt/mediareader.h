@@ -23,7 +23,6 @@
 /// @brief Reads entries from media file (sounds, images).
 class MediaReader : public QObject
 {
-  Q_OBJECT
 public:
   /// @brief Standard constructor.
   /// @param fileName

@@ -17,7 +17,7 @@
 #include "interestingpageslinkitem.h"
 #include "mainwindow.h"
 #include "wikisource.h"
-#include <libwikt/language.h>
+#include <libwikt/languages.h>
 
 namespace InterestingPages {
 
@@ -25,7 +25,7 @@ namespace InterestingPages {
 LanguagesRootItem::LanguagesRootItem(Item *parent) : Item(LanguagesOfTheWorld, parent)
 {
   _itemData.append(QVariant("Language indexes"));
-
+/* TO BE FIXED
   // Somewhere in the future this code will be a part of dictionary generator
   // and the list of languages will be loaded from the dictionary.
   for (int i = 0; i < Language::Unknown; ++i)
@@ -41,6 +41,7 @@ LanguagesRootItem::LanguagesRootItem(Item *parent) : Item(LanguagesOfTheWorld, p
         addLanguage(languageName);
     }
   }
+*/
 }
 
 //===========================================================================

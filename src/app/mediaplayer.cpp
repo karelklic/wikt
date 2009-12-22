@@ -16,7 +16,8 @@
 #include "mediaplayer.h"
 #include "mainwindow.h"
 #include "wikisource.h"
-#include <Phonon>
+#include <phonon/audiooutput.h>
+#include <phonon/mediaobject.h>
 #include <QBuffer>
 
 //===========================================================================

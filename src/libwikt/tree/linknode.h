@@ -18,7 +18,6 @@
 
 #include "node.h"
 #include "../namespace.h"
-#include "../language.h"
 #include "../project.h"
 #include <QList>
 #include <QSize>

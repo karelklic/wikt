@@ -1,0 +1,88 @@
+# List of all languages and dialects used in the wiktionary.
+# Entries are sorted by their ISO 639-3 code.
+# 1 - ISO 639-1 code
+# 2 - ISO 639-2 code
+# 2b - ISO 639-2/B code
+# 2t - ISO 639-2/T code
+# 3 - ISO 639-3 code
+# n - interwiki name (English, Česky, Аҧсуа - link title on the left panel)
+# p - interwiki prefix used in url (xx - http://xx.wiktionary.org/wiki/car)
+---
+3 aaq
+---
+1 aa
+2 aar
+3 aar
+n Qafár af
+p aa
+---
+2 paa
+3 aau
+---
+3 abe
+---
+1 ab
+2 abk
+3 abk
+n Аҧсуа
+p ab
+---
+2 cau
+3 abq
+---
+2 ace
+3 ace
+---
+2 ach
+3 ach
+---
+3 acv
+---
+2 ada
+3 ada
+---
+3 ade
+---
+2 aus
+3 adt
+---
+2 ady
+3 ady
+---
+2 map
+3 adz
+---
+1 af
+2 afr
+3 afr
+n Afrikaans
+p af
+---
+2 afa
+3 aiw
+---
+1 ak
+2 aka
+3 aka
+n Akan
+p ak
+---
+1 sq
+2b alb
+2t sqi
+3 sqi
+n Shqip
+p sq
+---
+1 cs
+2b cze
+2t ces
+3 ces
+n Česky
+p cs
+---
+1 en
+2 eng
+3 eng
+n English
+p en

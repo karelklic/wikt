@@ -20,6 +20,7 @@
 #include <QImage>
 #include <QSvgRenderer>
 #include <QUrl>
+#include <assert.h>
 
 //===========================================================================
 LinkNode::LinkNode(bool emptyPipeAtEnd, bool forcedLink)
@@ -109,7 +110,8 @@ QString LinkNode::toWiki() const
 QString LinkNode::toExternalLinkWiki() const
 {
   QString result;
-  QString baseUrl = Project::instance().toUrl(target().project(), target().language());
+  assert(target().language()->interwiki_prefix);
+  QString baseUrl = Project::instance().toUrl(target().project(), target().language()->interwiki_prefix);
   QString namespaceUrl = Namespace::instance().toLocalizedName(target().namespace_());
   QString entryUrl = QString::fromAscii(QUrl::toPercentEncoding(target().entry()));
 
@@ -132,8 +134,8 @@ void LinkNode::append(Node *child)
 //===========================================================================
 QString LinkNode::xhtmlTitle() const
 {
-  if (target().language() != Language::English)
-    return Language::instance().toInterwikiName(target().language());
+  if (0 != strcmp(target().language()->iso639_3_code, "eng"))
+    return QString::fromUtf8(target().language()->interwiki_name);
 
   int opts = getOptionCount();
   if (opts == 1)
@@ -150,7 +152,7 @@ bool LinkNode::isInterwiki() const
 {
   return !_forcedLink &&
     target().project() == Project::Wiktionary &&
-    target().language() != Language::English;
+    0 != strcmp(target().language()->iso639_3_code, "eng");
 }
 
 //===========================================================================

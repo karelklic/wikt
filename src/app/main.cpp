@@ -16,6 +16,7 @@
 #include "mainwindow.h"
 #include "coordinator.h"
 #include <libwikt/version.h>
+#include <libwikt/languages.h>
 #include <QApplication>
 #include <QLocale>
 #include <QTranslator>
@@ -26,6 +27,8 @@
 //===========================================================================
 int main(int argc, char **argv)
 {
+  languages_init();
+
   QApplication app(argc, argv);
 
   // Because Phonon uses D-Bus on Linux, it is necessary to give
