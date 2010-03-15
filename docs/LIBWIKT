@@ -1,0 +1,13 @@
+
+struct format3data {
+};
+
+struct mediadata {
+};
+
+struct wiktionary {
+       format3data *data;
+       mediadata *data;
+       char *stylesheet;
+       char *javascript_template;
+};

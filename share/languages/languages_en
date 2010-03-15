@@ -1,24 +1,142 @@
 # Names of languages in English.
 # Entries are sorted by their ISO 639-3 code.
 #
+# Sources (CC-BY-SA):
+# http://en.wikipedia.org/wiki/List_of_ISO_639-3_codes
+# http://en.wikipedia.org/wiki/ISO_639:a ... z
+# Copyright (C) Wikipedia contributors for that page.
+#
 # Format: iso_639_3_code Language name
+aaa Ghotuo
+aab Alumu-Tesu
+aac Ari
+aad Amal
+aae Albanian (Arbëreshë Dialect)
+aaf Aranadan
+aag Ambrak
+aah Abu' Arapesh
+aai Arifama-Miniafia
+aak Ankave
+aal Afade
+aam Aramanik
+aan Anambé
+aao Arabic (Algerian Sahara)
+aap Arára, Pará
 aaq Eastern Abenaki
 aar Afar
+aas Aasáx
+aat Albanian (Arvanitika)
 aau Abau
+aaw Solong
+aax Mandobo Atas
+aay Aariya
+aaz Amarasi
+aba Abé
+abb Bankon
+abc Ambala Ayta
+abd Camarines Norte Agta
 abe Western Abenaki
+abf Abai Sungai
+abg Abaga
+abh Arabic (Tajiki)
+abi Abidji
+abj Aka-Bea
 abk Abkhaz
+abl Abung
+abm Abanyom
+abn Abua
+abo Abon
+abp Abenlen Ayta
 abq Abaza
+abr Abron
+abs Ambonese Malay
+abt Ambulas
+abu Abure
+abv Arabic (Baharna)
+abw Pal
+abx Inabaknon
+aby Aneme Wake
+abz Abui
+aca Achagua
+acb Áncá
+acc Cubulco Achí
+acd Gikyode
 ace Acehnese
+acf Saint Lucian Creole French
 ach Acholi
+aci Aka-Cari
+ack Aka-Kora
+acl Akar-Bale
+acm Arabic (Mesopotamian)
+acn Achang
+acp Eastern Acipa
+acq Ta'izzi-Adeni Spoken Arabic
+acr Rabinal Achí
+acs Acroá
+act Achterhoeks
+acu Achuar-Shiwiar
 acv Achumawi
+acw Arabic (Hijazi)
+acx Arabic (Omani)
+acy Arabic (Cypriot)
+acz Acheron
 ada Adangme
+adb Adabe
+add Dzodinka
 ade Adele
+adf Arabic (Dhofari)
+adg Andegerebinha
+adh Adhola
+adi Adi
+adj Adioukrou
+adl Adi (Galo)
+adn Adang
+ado Abu
+adp Adap
+adq Adangbe
+adr Adonara
+ads Adamorobe Sign Language
 adt Adnyamathanha
+adu Aduge
+adw Amundava
+adx Amdo Tibetan
 ady Adyghe
 adz Adzera
+aea Areba
+aeb Tunisian Spoken Arabic
+aec Saidi Spoken Arabic
+aed Argentine Sign Language
+aee Northeast Pashayi
+aek Haeke
+ael Ambele
+aem Arem
+aen Armenian Sign Language
+aeq Aer
+aer Eastern Arrernte
+aes Alsea
+aeu Akeu
+aew Ambakich
+aey Amele
+aez Aeka
+afb Gulf Spoken Arabic
+afd Andai
+afe Putukwam
+afg Afghan Sign Language
+afh Afrihili
+afi Akrukay
+afk Nanubae
+afn Defaka
+afo Eloyi
+afp Tapei
 afr Afrikaans
 aiw Aari
 aka Akan
+amh Amharic
+ara Arabic
+arg Aragonés
+axm Middle Armenian
 ces Czech
 eng English
+hye Armenian
 sqi Albanian
+xcl Classical Armenian

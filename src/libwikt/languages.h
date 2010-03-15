@@ -41,11 +41,7 @@ struct language
    * of the names of languages. The three-letter codes given for each 
    * language in this part of the standard are referred to as 
    * "Alpha-3" codes. There are 464 language codes in the list.
-   * ASCII format.
-   */
-  char *iso639_2_code;
-
-  /**
+   *
    * While most languages are given one code by the standard, 
    * twenty of the languages described have two three-letter codes.
    * ISO 639-2/B is a "bibliographic" code, which is derived 
@@ -110,15 +106,22 @@ extern void languages_init();
 extern void languages_shutdown();
 
 /**
- * Returns language represented by certain code.
+ * Returns language represented by certain ISO 639-3 code.
  * If the code is not known, NULL is returned.
  * @param code
- *   Language code (ISO-639-1, ISO-639-2, whatever) in ASCII format.
- *   Examples: "en", "cs".
+ *   Language code in ASCII format.
+ *   Examples: "eng", "ces".
  */
-extern struct language *language_from_code(const char *code);
-
 extern struct language *language_from_iso_639_3_code(const char *code);
+
+/**
+ * Returns language represented by certain interwiki prefix.
+ * If the prefix is not known, NULL is returned.
+ * @param prefix
+ *   Interwiki prefix in ASCII format.
+ *   Examples: "en", "cs", "zh-min-nan".
+ */
+extern struct language *language_from_interwiki_prefix(const char *prefix);
 
 #ifdef __cplusplus
 }

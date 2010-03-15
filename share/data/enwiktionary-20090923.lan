@@ -1,0 +1,9 @@
+# Language names used in certain Wiktionary variant in translation 
+# sections and language headers.
+# This database maps dictionary contents to codes used by Wikt.
+#
+# If a string is not found here, Wikt tries to guess the language 
+# from its own language database. So there is no need to include
+# all codes, just the exception.
+# 
+# First item is ISO 639-3 code, second item is the used name.

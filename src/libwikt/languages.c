@@ -30,7 +30,6 @@ static struct language *language_new()
 {
   struct language *lang = malloc_safe(sizeof(struct language));
   lang->iso639_1_code = NULL;
-  lang->iso639_2_code = NULL;
   lang->iso639_2_b_code = NULL;
   lang->iso639_2_t_code = NULL;
   lang->iso639_3_code = NULL;
@@ -45,7 +44,6 @@ static struct language *language_new()
 static void language_free(struct language *language)
 {
   free(language->iso639_1_code);
-  free(language->iso639_2_code);
   free(language->iso639_2_b_code);
   free(language->iso639_2_t_code);
   free(language->iso639_3_code);
@@ -57,6 +55,18 @@ static void language_free(struct language *language)
 
 static void language_prepend_to_languages(struct language *language)
 {
+  /* If the language has interwiki name defined, interwiki prefix
+   * not defined, and ISO 639-1 or ISO 639-3 code defined, copy 
+   * the ISO 639-x code as a interwiki prefix. 
+   */
+  if (language->interwiki_name && !language->interwiki_prefix)
+  { 
+    if (language->iso639_1_code)
+      language->interwiki_prefix = strdup(language->iso639_1_code);
+    else if (language->iso639_3_code)
+      language->interwiki_prefix = strdup(language->iso639_3_code);
+  }
+
   if (languages)
   {
     language->next = languages;
@@ -77,81 +87,146 @@ static void read_languages_file(char *filename)
     exit(1);
   }
 
+  int linecount = 0;
   char line[200];
-  struct language *language = NULL;
   while (fgets(line, 200, fp) != NULL)
   {
+    ++linecount;
     /* Skip comment lines. */
     if (line[0] == '#')
       continue;
 
-    /* Skip whitespace on the beginning. */
-    char *line_trimmed = line;
-    while (isspace_clocale(line_trimmed[0]))
-      ++line_trimmed;
+    /* Skip lines without ISO 639-3 code. */
+    char *ptr = line;
 
-    /* New language record. */
-    if (0 == strncmp(line_trimmed, "---", 3))
+    /* Parse ISO 639-3 code. */
+    struct language *language = language_new();
+    assert(ptr[0] >= 'a' && ptr[0] <= 'z' &&
+           ptr[1] >= 'a' && ptr[1] <= 'z' &&
+           ptr[2] >= 'a' && ptr[2] <= 'z');
+
+    int n = 0;
+    while (ptr[n] && !isspace_clocale(ptr[n]))
+      ++n;
+
+    language->iso639_3_code = strndup(ptr, n);
+    ptr += n;
+
+    /* Tabulator. */
+    if (ptr[0] != '\t')
     {
-      if (language)
-        language_prepend_to_languages(language);
-
-      language = language_new();
+      language_prepend_to_languages(language);
+      if (ptr[0] != '\n')
+      {
+        fprintf(stderr, "Error on line %d in %s\n", linecount, filename);
+        exit(1);
+      }
       continue;
     }
+    ptr += 1;
 
-    if (0 == strncmp(line_trimmed, "1", 1)) /* ISO 639-1 code */
+    /* Parse ISO 639-2 B code. */
+    if (ptr[0] >= 'a' && ptr[0] <= 'z' &&
+        ptr[1] >= 'a' && ptr[1] <= 'z' &&
+        ptr[2] >= 'a' && ptr[2] <= 'z')
     {
-      language->iso639_1_code = strdup_trimmed(line_trimmed + 1);
+      language->iso639_2_b_code = strndup(ptr, 3);
+      ptr += 3;
+    }
+
+    /* Tabulator. */
+    if (ptr[0] != '\t')
+    {
+      language_prepend_to_languages(language);
+      if (ptr[0] != '\n')
+      {
+        fprintf(stderr, "Error on line %d in %s\n", linecount, filename);
+        exit(1);
+      }
       continue;
     }
+    ptr += 1;
+
+    /* Parse ISO 639-2 T code. */
+    if (ptr[0] >= 'a' && ptr[0] <= 'z' &&
+        ptr[1] >= 'a' && ptr[1] <= 'z' &&
+        ptr[2] >= 'a' && ptr[2] <= 'z')
+    {
+      language->iso639_2_t_code = strndup(ptr, 3);
+      ptr += 3;
+    }
+
+    /* Tabulator. */
+    if (ptr[0] != '\t')
+    {
+      language_prepend_to_languages(language);
+      if (ptr[0] != '\n')
+      {
+        fprintf(stderr, "Error on line %d in %s\n", linecount, filename);
+        exit(1);
+      }
+      continue;
+    }
+    ptr += 1;
+
+    /* Parse ISO 639-1 code. */
+    if (ptr[0] >= 'a' && ptr[0] <= 'z' &&
+        ptr[1] >= 'a' && ptr[1] <= 'z')
+    {
+      language->iso639_1_code = strndup(ptr, 2);
+      ptr += 2;
+    }
+
+    /* Tabulator. */
+    if (ptr[0] != '\t')
+    {
+      language_prepend_to_languages(language);
+      if (ptr[0] != '\n')
+      {
+        fprintf(stderr, "Error on line %d in %s\n", linecount, filename);
+        exit(1);
+      }
+      continue;
+    }
+    ptr += 1;
+
+    /* Parse interwiki prefix. */
+    if (ptr[0] >= 'a' && ptr[0] <= 'z')
+    {
+      n = 0;
+      while (ptr[n] && ptr[n] != '\n' && ptr[n] != '\t')
+        ++n;
+
+      language->interwiki_prefix = strndup(ptr, n);
+      ptr += n;
+    }
+
+    /* Tabulator. */
+    if (ptr[0] != '\t')
+    {
+      language_prepend_to_languages(language);
+      if (ptr[0] != '\n')
+      {
+        fprintf(stderr, "Error on line %d in %s\n", linecount, filename);
+        exit(1);
+      }
+      if (language->interwiki_prefix)
+      {
+        fprintf(stderr, "Error on line %d in %s, interwiki prefix "
+                "is present, but interwiki title is not present.\n", 
+                linecount, filename);
+        exit(1);
+      }
+      continue;
+    }
+    ptr += 1;
+
+    /* Parse interwiki name. */
+    language->interwiki_name = strdup_trimmed(ptr);
+    assert(language->interwiki_name && language->interwiki_name[0] != '\0');
     
-    if (0 == strncmp(line_trimmed, "2b", 2))
-    {
-      language->iso639_2_b_code = strdup_trimmed(line_trimmed + 2);
-      continue;
-    }
-
-    if (0 == strncmp(line_trimmed, "2t", 2))
-    {
-      language->iso639_2_t_code = strdup_trimmed(line_trimmed + 2);
-      continue;
-    }
-
-    if (0 == strncmp(line_trimmed, "2", 1)) /* ISO 639-2 code */
-    {
-      /* If no string follows on this line, B and T variants are defined. */
-      line_trimmed += 1;
-      while (isspace_clocale(line_trimmed[0]))
-	++line_trimmed;
-      if (*line_trimmed != '\0')
-        language->iso639_2_code = strdup_trimmed(line_trimmed);
-      continue;
-    }
-
-    if (0 == strncmp(line_trimmed, "3", 1)) /* ISO 639-3 code */
-    {
-      language->iso639_3_code = strdup_trimmed(line_trimmed + 1);
-      continue;
-    }
-    
-    if (0 == strncmp(line_trimmed, "n", 1)) /* Interwiki language name */
-    {
-      language->interwiki_name = strdup_trimmed(line_trimmed + 1);
-      continue;
-    }
-
-    if (0 == strncmp(line_trimmed, "p", 1)) /* Interwiki prefix */
-    {
-      language->interwiki_prefix = strdup_trimmed(line_trimmed + 1);
-      continue;
-    }
-
-    fprintf(stderr, "Unknown line in languages file: %s\n", line_trimmed);
-  }
-
-  if (language)
     language_prepend_to_languages(language);
+  }
 
   fclose_safe(fp);
 }
@@ -239,25 +314,6 @@ void languages_shutdown()
   }
 }
 
-struct language *language_from_code(const char *code)
-{
-  /* Should be optimized using a sorted code array. */
-  struct language *lang = languages;
-  while (lang)
-  {
-    if ((lang->iso639_1_code && 0 == strcmp(lang->iso639_1_code, code))
-        || (lang->iso639_2_code && 0 == strcmp(lang->iso639_2_code, code))
-        || (lang->iso639_2_b_code && 0 == strcmp(lang->iso639_2_b_code, code))
-        || (lang->iso639_2_t_code && 0 == strcmp(lang->iso639_2_t_code, code))
-        || (lang->iso639_3_code && 0 == strcmp(lang->iso639_3_code, code)))
-      return lang;
-
-    lang = lang->next;
-  }
-
-  return NULL;
-}
-
 struct language *language_from_iso_639_3_code(const char *code)
 {
   /* Should be optimized using a sorted code array. */
@@ -266,6 +322,24 @@ struct language *language_from_iso_639_3_code(const char *code)
   {
     if (lang->iso639_3_code 
         && 0 == strcmp(lang->iso639_3_code, code))
+    {
+      return lang;
+    }
+
+    lang = lang->next;
+  }
+
+  return NULL;
+}
+
+struct language *language_from_interwiki_prefix(const char *prefix)
+{
+  /* Should be optimized using a sorted code array. */
+  struct language *lang = languages;
+  while (lang)
+  {
+    if (lang->interwiki_prefix
+        && 0 == strcmp(lang->interwiki_prefix, prefix))
     {
       return lang;
     }

@@ -20,7 +20,8 @@
 #include <assert.h>
 
 //===========================================================================
-LinkTargetNode::LinkTargetNode(const QString &text) : Node(Node::LinkTarget), _namespace(Namespace::Main), _project(Project::Wiktionary), _text(text)
+LinkTargetNode::LinkTargetNode(const QString &text) : Node(Node::LinkTarget), 
+  _namespace(Namespace::Main), _project(Project::Wiktionary), _text(text)
 {
   _language = NULL;
 
@@ -34,7 +35,7 @@ LinkTargetNode::LinkTargetNode(const QString &text) : Node(Node::LinkTarget), _n
       _namespace = Namespace::instance().fromPrefix(prefix);
       remainder.remove(0, offs + 1);
     }
-    else if (_language = language_from_code(prefix.toUtf8().constData()))
+    else if (_language = language_from_interwiki_prefix(prefix.toUtf8().constData()))
       remainder.remove(0, offs + 1);
     else if (Project::instance().isPrefix(prefix))
     {

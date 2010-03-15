@@ -62,6 +62,9 @@ void ArticleNode::updateSectionVisibility()
 }
 
 //===========================================================================
+// This method does not belong into libwikt in this form.
+// It can be included, but APPLICATION must provide information which
+// translations should be visible.
 void ArticleNode::updateTranslationSettings()
 {
   // Check top-level nodes only.

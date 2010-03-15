@@ -8,6 +8,7 @@ ui_*.h
 *.o
 *.moc
 *.lo
+*.la
 moc_*.cpp
 qrc_*.cpp
 
