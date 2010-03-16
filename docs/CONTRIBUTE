@@ -1,0 +1,27 @@
+                      Contributing to Wikt
+
+Wikt should be a collaborative project and encourage contributions.
+
+* Coding Standards
+
+All the code should follow the GNU Coding Standards.
+If it doesn't, it must be fixed.
+
+Ref: http://www.gnu.org/prep/standards/
+
+* Releasing a new version
+
+Preparing source package:
+./release.sh
+./sync_web.sh
+
+Preparing Debian packages:
+You should add a new entry, which indicates new upstream version, 
+to debian/changelog file. Use previous entries as a template. The date 
+needed to add the new entry can be generated running `date -R`.
+
+Then go to the top directory of Wikt source code and run `dpkg-buildpackage`.
+
+Local variables:
+mode: outline
+end:

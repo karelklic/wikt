@@ -1,0 +1,10 @@
+2010-03-16  Karel Klíč  <karel@agata>
+
+	* urlutils.cpp (toUrl): Use 'x' as the escape character.
+	Many more characters are now escaped.
+	Use QUrl::setUrl to create the URL.
+
+	* urlutils.cpp (fileNameToMimeType): Error debugging output contains file name.
+
+	* tree/linktargetnode.cpp (LinkTargetNode): Formatting.
+	(toXHtmlLink): Added explanatory comment.
