@@ -16,3 +16,15 @@
 	Make languages structure available for applications.
 	Delete trailing whitespace.
 	Delete emacs custom settings.
+
+2010-03-16  Karel Klíč  <kklic@redhat.com>
+
+	* src/libwikt/urlutils.cpp (toUrl): Use 'x' as the escape character.
+	Many more characters are now escaped.
+	Use QUrl::setUrl to create the URL.
+
+	* src/libwikt/urlutils.cpp (fileNameToMimeType): Error debugging
+	output contains file name.
+
+	* src/libwikt/tree/linktargetnode.cpp (LinkTargetNode): Formatting.
+	(toXHtmlLink): Added explanatory comment.
