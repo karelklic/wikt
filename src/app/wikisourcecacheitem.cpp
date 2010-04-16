@@ -1,4 +1,4 @@
-/* This file is part of Wikt. -*- mode: c++; c-file-style: "wikt"; -*-
+/* This file is part of Wikt.
  *
  * Wikt is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,7 +17,8 @@
 #include <libwikt/parser/articleparser.h>
 
 //===========================================================================
-static void nodeToXHtml(const ArticleNode &node, QString &xhtmlResult)
+static void
+nodeToXHtml(const ArticleNode &node, QString &xhtmlResult)
 {
   xhtmlResult = QString("<html><head>"
     "<link rel=\"stylesheet\" type=\"text/css\" href=\"special://stylesheet\" />"
@@ -26,15 +27,16 @@ static void nodeToXHtml(const ArticleNode &node, QString &xhtmlResult)
 }
 
 //===========================================================================
-WikiSourceCacheItem::WikiSourceCacheItem(const QString &name, const QString &source) : _source(source), _invalidSectionVisibility(false), _invalidTranslationSettings(false)
+WikiSourceCacheItem::WikiSourceCacheItem(const QString &name, const QString &source)
+  : _source(source), _invalidSectionVisibility(false), _invalidTranslationSettings(false)
 {
   if (_source != "")
-  {
-    _node = ArticleParser::parse(name, source);
-    _node->updateSectionVisibility();
-    _node->updateTranslationSettings();
-    nodeToXHtml(*_node, _xhtml);
-  }
+    {
+      _node = ArticleParser::parse(name, source);
+      _node->updateSectionVisibility();
+      _node->updateTranslationSettings();
+      nodeToXHtml(*_node, _xhtml);
+    }
   else
     _node = 0;
 }

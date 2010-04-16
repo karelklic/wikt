@@ -1,5 +1,4 @@
-/* -*- mode:c;c-file-style:"bsd";c-basic-offset:2;indent-tabs-mode:nil -*-
- * This file is part of Wikt. 
+/* This file is part of Wikt.
  *
  * Wikt is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -30,7 +29,7 @@ extern "C" {
  * @return
  *   This function does not return NULL. It calls exit() if a failure happens.
  */
-extern void *malloc_safe(size_t size);
+extern void *malloc_safe (size_t size);
 
 #ifdef __cplusplus
 }

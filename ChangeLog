@@ -1,5 +1,9 @@
 2010-04-16  Karel Klíč  <kklic@redhat.com>
 
+	* src/libwikt/malloc_safe.h:
+	* src/libwikt/malloc_safe.c: Fix indentation.
+	* src/app/wikisourcecacheitem.cpp: Fix indentation.
+
 	* src/libwikt/languages.c: Delete trailing whitespace.
 	Fix indentation.
 

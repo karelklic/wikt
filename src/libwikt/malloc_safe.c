@@ -1,5 +1,4 @@
-/* -*- mode:c;c-file-style:"bsd";c-basic-offset:2;indent-tabs-mode:nil -*-
- * This file is part of Wikt. 
+/* This file is part of Wikt.
  *
  * Wikt is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,12 +16,13 @@
 #include "malloc_safe.h"
 #include <stdio.h>
 
-void *malloc_safe(size_t size)
+void *
+malloc_safe (size_t size)
 {
-  void *result = malloc(size);
+  void *result = malloc (size);
   if (!result)
-  {
-    fprintf(stderr, "Malloc failed.\n");
-    exit(1);
-  }
+    {
+      fprintf (stderr, "Malloc failed.\n");
+      exit (1);
+    }
 }
