@@ -1,8 +1,12 @@
 2010-04-16  Karel Klíč  <kklic@redhat.com>
 
+	* src/libwikt/languages.c: Delete trailing whitespace.
+	Fix indentation.
+
 	* src/app/optionsdialog.cpp (OptionsDialog): Rewrite the language
 	list creation code to support non-ASCII letters and variable number
 	of first letters.
+	Fix indentation.
 
 	* .dir-locals.el: New file; contains global Emacs settings
 	for Wikt.

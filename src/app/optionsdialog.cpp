@@ -107,37 +107,39 @@ OptionsDialog::~OptionsDialog()
 }
 
 //===========================================================================
-void OptionsDialog::saveSettings()
+void
+OptionsDialog::saveSettings()
 {
   QSettings settings;
   settings.setValue("translationsVisible", _transVisible->checkState() == Qt::Checked);
 
   for (int i = 0; i < _transTree->topLevelItemCount(); ++i)
-  {
-    QTreeWidgetItem *character = _transTree->topLevelItem(i);
-    for (int j = 0; j < character->childCount(); ++j)
     {
-      QTreeWidgetItem *item = character->child(j);
-/* TO BE FIXED
-      Language::Type language = (Language::Type)item->data(0, Qt::UserRole).toInt();
-      Language::instance().setTranslationVisible(language, item->checkState(0) == Qt::Checked);
-*/
+      QTreeWidgetItem *character = _transTree->topLevelItem(i);
+      for (int j = 0; j < character->childCount(); ++j)
+        {
+          QTreeWidgetItem *item = character->child(j);
+          /* TO BE FIXED
+             Language::Type language = (Language::Type)item->data(0, Qt::UserRole).toInt();
+             Language::instance().setTranslationVisible(language, item->checkState(0) == Qt::Checked);
+          */
+        }
     }
-  }
 
   MainWindow::instance()->coordinator()->userSettingChanged_Translations();
 }
 
 //===========================================================================
-void OptionsDialog::itemChanged(QTreeWidgetItem *item, int /*column*/)
+void
+OptionsDialog::itemChanged(QTreeWidgetItem *item, int /*column*/)
 {
   // If it is a language node.
   if (item->childCount() == 0)
-  {
-    // Update the parent character node check status.
-    updateCharacterCheckState(item->parent());
-    return;
-  }
+    {
+      // Update the parent character node check status.
+      updateCharacterCheckState(item->parent());
+      return;
+    }
 
   // Now we know it is a character node.
   if (item->checkState(0) == Qt::PartiallyChecked) return;
@@ -146,22 +148,22 @@ void OptionsDialog::itemChanged(QTreeWidgetItem *item, int /*column*/)
 }
 
 //===========================================================================
-void OptionsDialog::updateCharacterCheckState(QTreeWidgetItem *character)
+void
+OptionsDialog::updateCharacterCheckState(QTreeWidgetItem *character)
 {
   Qt::CheckState state = Qt::Checked;
   bool hasChecked = false;
   for (int i = 0; i < character->childCount(); ++i)
-  {
-    Qt::CheckState child = character->child(i)->checkState(0);
-    if (child == Qt::Unchecked)
-      state = Qt::PartiallyChecked;
-    else
-      hasChecked = true;
-  }
+    {
+      Qt::CheckState child = character->child(i)->checkState(0);
+      if (child == Qt::Unchecked)
+        state = Qt::PartiallyChecked;
+      else
+        hasChecked = true;
+    }
   if (!hasChecked)
     state = Qt::Unchecked;
 
   if (character->checkState(0) != state)
     character->setCheckState(0, state);
 }
-
