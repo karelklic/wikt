@@ -1,4 +1,4 @@
-/* This file is part of Wikt. -*- mode: c++; c-file-style: "wikt"; -*-
+/* This file is part of Wikt.
  *
  * Wikt is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -54,44 +54,50 @@ OptionsDialog::OptionsDialog(QWidget *parent) : QDialog(parent)
   _transTree->setHeaderItem(item);
   _transTree->setGeometry(QRect(10, 50, 311, 281));
   _transTree->header()->setVisible(false);
-  QList<QTreeWidgetItem*> alphabet;
-  for (char c = 'A'; c <= 'Z'; ++c)
-  {
-    QTreeWidgetItem *item = new QTreeWidgetItem((QTreeWidget*)0, QStringList(QString(QChar(c))));
-    alphabet.append(item);
-  }
-  _transTree->insertTopLevelItems(0, alphabet);
-/* TO BE FIXED
-  for (int i = 0; i < Language::Unknown; ++i)
-  {
-    Language::Type language = (Language::Type)i;
-    QStringList names = Language::instance().toNames(language);
-    if (names.length() == 0) continue;
-    QString name = names.first();
 
-    // Find the first A-Z character in the language name.
-    // Some language names do not start with A-Z, but with '\'' or another
-    // character.
-    char firstChar = ' ';
-    int firstCharIndex = 0;
-    while (firstChar < 'A' || firstChar > 'Z')
-      firstChar = name[firstCharIndex++].toUpper().toAscii();
+  /* Insert the alphabet A-Z. */
+  QMap<QChar, QTreeWidgetItem*> alphabet;
 
-    QTreeWidgetItem *parent = alphabet[firstChar - 'A'];
-    QTreeWidgetItem *item = new QTreeWidgetItem(parent, QStringList(name));
-    item->setFlags(Qt::ItemIsUserCheckable | Qt::ItemIsEnabled);
-    item->setData(0, Qt::UserRole, i);
-    bool visible = Language::instance().isTranslationVisible(language);
-    item->setCheckState(0, visible ? Qt::Checked : Qt::Unchecked);
-  }
-*/
+  /* Insert the languages. */
+  struct language *language = languages;
+  while (language)
+    {
+      /* Skip languages without localized name. */
+      if (!language->name)
+        {
+          language = language->next;
+          continue;
+        }
+
+      QString name = QString::fromUtf8(language->name);
+      QChar firstChar = name[0];
+      QTreeWidgetItem *parent = NULL;
+      if (!alphabet.contains(firstChar))
+        {
+          parent = new QTreeWidgetItem((QTreeWidget*)0, QStringList(QString(firstChar)));
+          alphabet.insert(firstChar, parent);
+        }
+      else
+        parent = alphabet[firstChar];
+
+      QTreeWidgetItem *item = new QTreeWidgetItem(parent, QStringList(name));
+      item->setFlags(Qt::ItemIsUserCheckable | Qt::ItemIsEnabled);
+      /* Use the ISO639-3 code as the unique identifier. */
+      item->setData(0, Qt::UserRole, language->iso639_3_code);
+      // TODO:bool visible = Language::instance().isTranslationVisible(language);
+      bool visible = true;
+      item->setCheckState(0, visible ? Qt::Checked : Qt::Unchecked);
+      language = language->next;
+    }
+
+  _transTree->insertTopLevelItems(0, alphabet.values());
   foreach (QTreeWidgetItem *character, alphabet)
-  {
-    character->setFlags(Qt::ItemIsUserCheckable | Qt::ItemIsTristate | Qt::ItemIsEnabled);
-    updateCharacterCheckState(character);
-  }
+    {
+      character->setFlags(Qt::ItemIsUserCheckable | Qt::ItemIsTristate | Qt::ItemIsEnabled);
+      updateCharacterCheckState(character);
+    }
 
-  connect(_transTree, SIGNAL(itemChanged(QTreeWidgetItem*, int)), 
+  connect(_transTree, SIGNAL(itemChanged(QTreeWidgetItem*, int)),
 	  this, SLOT(itemChanged(QTreeWidgetItem*, int)));
 }
 
@@ -101,37 +107,39 @@ OptionsDialog::~OptionsDialog()
 }
 
 //===========================================================================
-void OptionsDialog::saveSettings()
+void
+OptionsDialog::saveSettings()
 {
   QSettings settings;
   settings.setValue("translationsVisible", _transVisible->checkState() == Qt::Checked);
 
   for (int i = 0; i < _transTree->topLevelItemCount(); ++i)
-  {
-    QTreeWidgetItem *character = _transTree->topLevelItem(i);
-    for (int j = 0; j < character->childCount(); ++j)
     {
-      QTreeWidgetItem *item = character->child(j);
-/* TO BE FIXED
-      Language::Type language = (Language::Type)item->data(0, Qt::UserRole).toInt();
-      Language::instance().setTranslationVisible(language, item->checkState(0) == Qt::Checked);
-*/
+      QTreeWidgetItem *character = _transTree->topLevelItem(i);
+      for (int j = 0; j < character->childCount(); ++j)
+        {
+          QTreeWidgetItem *item = character->child(j);
+          /* TO BE FIXED
+             Language::Type language = (Language::Type)item->data(0, Qt::UserRole).toInt();
+             Language::instance().setTranslationVisible(language, item->checkState(0) == Qt::Checked);
+          */
+        }
     }
-  }
 
   MainWindow::instance()->coordinator()->userSettingChanged_Translations();
 }
 
 //===========================================================================
-void OptionsDialog::itemChanged(QTreeWidgetItem *item, int /*column*/)
+void
+OptionsDialog::itemChanged(QTreeWidgetItem *item, int /*column*/)
 {
   // If it is a language node.
   if (item->childCount() == 0)
-  {
-    // Update the parent character node check status.
-    updateCharacterCheckState(item->parent());
-    return;
-  }
+    {
+      // Update the parent character node check status.
+      updateCharacterCheckState(item->parent());
+      return;
+    }
 
   // Now we know it is a character node.
   if (item->checkState(0) == Qt::PartiallyChecked) return;
@@ -140,22 +148,22 @@ void OptionsDialog::itemChanged(QTreeWidgetItem *item, int /*column*/)
 }
 
 //===========================================================================
-void OptionsDialog::updateCharacterCheckState(QTreeWidgetItem *character)
+void
+OptionsDialog::updateCharacterCheckState(QTreeWidgetItem *character)
 {
   Qt::CheckState state = Qt::Checked;
   bool hasChecked = false;
   for (int i = 0; i < character->childCount(); ++i)
-  {
-    Qt::CheckState child = character->child(i)->checkState(0);
-    if (child == Qt::Unchecked)
-      state = Qt::PartiallyChecked;
-    else
-      hasChecked = true;
-  }
+    {
+      Qt::CheckState child = character->child(i)->checkState(0);
+      if (child == Qt::Unchecked)
+        state = Qt::PartiallyChecked;
+      else
+        hasChecked = true;
+    }
   if (!hasChecked)
     state = Qt::Unchecked;
 
   if (character->checkState(0) != state)
     character->setCheckState(0, state);
 }
-

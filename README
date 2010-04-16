@@ -1,7 +1,12 @@
-Wikt is a free graphical dictionary client which displays data 
+Wikt is a free dictionary client which displays data 
 from the Wiktionary project. The data are stored locally, so 
 the Wikt user does not need an internet connection. 
 
 Homepage: http://wikt.sourceforge.net/
 
+** Git Repository
 
+If this code is cloned from the git repository, you need to 
+download dictionary data before compiling/using/installing Wikt.
+Download the contents of ftp://ftp.klic.name/wikt/devel/ to 
+wikt/share/data/.

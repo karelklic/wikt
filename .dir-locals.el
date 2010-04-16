@@ -1,0 +1,6 @@
+((c-mode . ((indent-tabs-mode . nil)
+	    (show-trailing-whitespace . t)
+	    (c-basic-offset . 2)))
+ (c++-mode . ((indent-tabs-mode . nil)
+	      (show-trailing-whitespace . t)
+	      (c-basic-offset . 2))))
