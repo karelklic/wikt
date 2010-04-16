@@ -1,5 +1,8 @@
 2010-04-16  Karel Klíč  <kklic@redhat.com>
 
+	* .dir-locals.el: New file; contains global Emacs settings
+	for Wikt.
+
 	* po/POTFILES.in: New file; start with one testing file.
 
 	* po/LINGUAS: New file; start with Czech localization only.
@@ -8,7 +11,7 @@
 
 	* README: New section Git Repository.
 
-	* src/libwikt/languages.h: Prefer term ASCII/UTF-8 "encoding" 
+	* src/libwikt/languages.h: Prefer term ASCII/UTF-8 "encoding"
 	over "format".
 	Make languages structure available for applications.
 	Delete trailing whitespace.
