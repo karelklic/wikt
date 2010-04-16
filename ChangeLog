@@ -8,3 +8,8 @@
 
 	* README: New section Git Repository.
 
+	* src/libwikt/languages.h: Prefer term ASCII/UTF-8 "encoding" 
+	over "format".
+	Make languages structure available for applications.
+	Delete trailing whitespace.
+	Delete emacs custom settings.
