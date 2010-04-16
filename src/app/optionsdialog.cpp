@@ -84,8 +84,10 @@ OptionsDialog::OptionsDialog(QWidget *parent) : QDialog(parent)
       item->setFlags(Qt::ItemIsUserCheckable | Qt::ItemIsEnabled);
       /* Use the ISO639-3 code as the unique identifier. */
       item->setData(0, Qt::UserRole, language->iso639_3_code);
-      // TODO:bool visible = Language::instance().isTranslationVisible(language);
-      bool visible = true;
+
+      QString settingsKey = QString("translationVisible(%1)")
+        .arg(language->iso639_3_code);
+      bool visible = settings.value(settingsKey, true).toBool();
       item->setCheckState(0, visible ? Qt::Checked : Qt::Unchecked);
       language = language->next;
     }
@@ -111,7 +113,8 @@ void
 OptionsDialog::saveSettings()
 {
   QSettings settings;
-  settings.setValue("translationsVisible", _transVisible->checkState() == Qt::Checked);
+  settings.setValue("translationsVisible",
+                    _transVisible->checkState() == Qt::Checked);
 
   for (int i = 0; i < _transTree->topLevelItemCount(); ++i)
     {
@@ -119,10 +122,10 @@ OptionsDialog::saveSettings()
       for (int j = 0; j < character->childCount(); ++j)
         {
           QTreeWidgetItem *item = character->child(j);
-          /* TO BE FIXED
-             Language::Type language = (Language::Type)item->data(0, Qt::UserRole).toInt();
-             Language::instance().setTranslationVisible(language, item->checkState(0) == Qt::Checked);
-          */
+          QString iso639_3_code = item->data(0, Qt::UserRole).toString();
+          QString settingsKey = QString("translationVisible(%1)")
+            .arg(iso639_3_code);
+          settings.setValue(settingsKey, item->checkState(0) == Qt::Checked);
         }
     }
 

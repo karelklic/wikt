@@ -7,6 +7,10 @@
 	list creation code to support non-ASCII letters and variable number
 	of first letters.
 	Fix indentation.
+	(OptionsDialog): implement translation visibility settings load with the
+	new language system.
+	(saveSettings): implement translation visibility settings save with the
+	new language system.
 
 	* .dir-locals.el: New file; contains global Emacs settings
 	for Wikt.
