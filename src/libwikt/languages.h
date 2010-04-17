@@ -20,6 +20,8 @@
 extern "C" {
 #endif
 
+#include <stdbool.h>
+
 struct language
 {
   /**
@@ -85,7 +87,7 @@ struct language
   char *interwiki_prefix;
 
   /**
-   * Names used to identify the language by user.
+   * Name used to identify the language by user.
    * The name is in user's language (environment language).
    * UTF-8 encoding.
    */

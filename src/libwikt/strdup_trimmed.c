@@ -15,11 +15,11 @@
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
 #include "strdup_trimmed.h"
-#include "malloc_safe.h"
+#include "utils.h"
 #include "isspace_clocale.h"
 
 /**
- * Creates a duplicate of a string with whitespace characters 
+ * Creates a duplicate of a string with whitespace characters
  * removed from the beginning and the end.
  */
 char *strdup_trimmed(char *str)
@@ -30,21 +30,21 @@ char *strdup_trimmed(char *str)
 
   if (first == '\0')
   {
-    char *result = malloc_safe(1);
+    char *result = xmalloc(1);
     result[0] = '\0';
     return result;
   }
 
   char *last = first + 1; /* points _after_ the last valid character */
   char *loop = first + 1;
-  while (*loop != '\0') 
+  while (*loop != '\0')
     {
       if (!isspace_clocale(*loop))
 	last = loop + 1;
       ++loop;
     };
-  
-  char *result = malloc_safe(last - first + 1); /* 1 == \0 terminator */
+
+  char *result = xmalloc(last - first + 1); /* 1 == \0 terminator */
   strncpy(result, first, last - first);
   result[last - first] = '\0';
   return result;

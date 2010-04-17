@@ -1,11 +1,33 @@
+2010-04-17  Karel Klíč  <kklic@redhat.com>
+
+	* src/libwikt/strdup_trimmed.c (strdup_trimmed): Use xmalloc.
+
+	* src/libwikt/languages.h: Include stdbool.h.
+
+	* configure.ac: Added AC_PROG_CC.
+
+	* src/libwikt/utils.c (xasprintf): New function based on
+	ABRT's xasprintf.
+	(xstrdup, xfread, xfclose, xftell, xfseek): New function.
+	(xmalloc): Moved from malloc_safe.c
+
+	* src/libwikt/malloc_safe.h: Contents of this file was
+	moved to utils.h. Function malloc_safe was renamed to xmalloc.
+	* src/libwikt/malloc_safe.c: Deleted.
+	* src/libwikt/fclose_safe.c: Deleted. Its content moved to utils.c.
+	* src/libwikt/fclose_safe.h: Deleted. Its content moved to utils.h.
+
+	* src/libwikt/wiktionary/wiktionary.h: Moved to
+	src/libwikt/dictionary.h and completely reworked.
+
+	* src/libwikt/dictionary.cpp: New file.
+
 2010-04-16  Karel Klíč  <kklic@redhat.com>
 
-	* src/libwikt/malloc_safe.h:
-	* src/libwikt/malloc_safe.c: Fix indentation.
-	* src/app/wikisourcecacheitem.cpp: Fix indentation.
-
-	* src/libwikt/languages.c: Delete trailing whitespace.
-	Fix indentation.
+	* src/libwikt/malloc_safe.h: Fix indentation.
+	* src/libwikt/malloc_safe.c: Likewise.
+	* src/app/wikisourcecacheitem.cpp: Likewise.
+	* src/libwikt/languages.c: Likewise.
 
 	* src/app/optionsdialog.cpp (OptionsDialog): Rewrite the language
 	list creation code to support non-ASCII letters and variable number

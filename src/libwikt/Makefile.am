@@ -2,14 +2,14 @@ lib_LTLIBRARIES = libwikt.la
 
 libwikt_la_SOURCES = \
     debug.cpp debug.h \
+    dictionary.cpp dictionary.h \
     comparsion.h \
-    fclose_safe.c fclose_safe.h \
     fileutils.cpp fileutils.h \
     format3reader.cpp format3reader.h \
     format4reader.cpp format4reader.h \
     isspace_clocale.c isspace_clocale.h \
     languages.c languages.h \
-    malloc_safe.c malloc_safe.h \
+    utils.c utils.h \
     mediareader.cpp mediareader.h \
     mediautils.cpp mediautils.h \
     namespace.cpp namespace.h \

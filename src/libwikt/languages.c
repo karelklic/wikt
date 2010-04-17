@@ -16,8 +16,7 @@
  */
 #include "languages.h"
 #include "strdup_trimmed.h"
-#include "malloc_safe.h"
-#include "fclose_safe.h"
+#include "utils.h"
 #include <assert.h>
 #include <locale.h>
 #include <stdlib.h>
@@ -29,7 +28,7 @@ struct language *languages = NULL;
 static struct language *
 language_new()
 {
-  struct language *lang = malloc_safe(sizeof(struct language));
+  struct language *lang = xmalloc(sizeof(struct language));
   lang->iso639_1_code = NULL;
   lang->iso639_2_b_code = NULL;
   lang->iso639_2_t_code = NULL;
@@ -231,7 +230,7 @@ static void read_languages_file(char *filename)
       language_prepend_to_languages(language);
     }
 
-  fclose_safe(fp);
+  xfclose(fp);
 }
 
 static void
