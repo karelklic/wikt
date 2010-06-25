@@ -1,3 +1,7 @@
+2010-06-25  Karel Klíč  <kklic@redhat.com>
+
+	* configure.ac: Use pkgconfig to find ciso-codes library.
+
 2010-04-17  Karel Klíč  <kklic@redhat.com>
 
 	* src/libwikt/strdup_trimmed.c (strdup_trimmed): Use xmalloc.
