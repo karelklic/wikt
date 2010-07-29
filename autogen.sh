@@ -1,1 +1,2 @@
 autoreconf --install --force
+./configure

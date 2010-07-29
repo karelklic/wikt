@@ -1,3 +1,10 @@
+2010-07-29  Karel Klíč  <kklic@redhat.com>
+
+	* autogen.sh: Call configure. The script caller would do that
+	anyway.
+
+	* src/Makefile.am (SUBDIRS): Add tools subdir.
+
 2010-06-25  Karel Klíč  <kklic@redhat.com>
 
 	* configure.ac: Use pkgconfig to find ciso-codes library.

@@ -1,5 +1,0 @@
-If the enwiktionary-*.eim and enwiktionary-*.ei4 files are missing from this directory, 
-download them from ftp://ftp.klic.name/wikt/devel.
-
-The eim and ei4 files are not included in the git version of Wikt due to their size.
-

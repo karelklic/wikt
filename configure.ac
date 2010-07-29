@@ -35,6 +35,10 @@ AC_CONFIG_FILES([
 	src/Makefile
 	src/app/Makefile
 	src/libwikt/Makefile
+	src/tools/Makefile
+	src/tools/convdict12/Makefile
+	src/tools/convdict23/Makefile
+	src/tools/convdict23/exprparser/Makefile
 	share/Makefile
 	share/data/Makefile
 	share/languages/Makefile
