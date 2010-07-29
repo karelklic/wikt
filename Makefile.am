@@ -1,2 +1,2 @@
-SUBDIRS = src po share
+SUBDIRS = src po dicts
 ACLOCAL_AMFLAGS = -I m4

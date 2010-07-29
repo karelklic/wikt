@@ -1,9 +1,8 @@
-*.eim
+media
 *.xml
 *.eif
-*.ei1
-*.ei2
-*.ei3
-*.ei4
-*.ei5
-*.media*
+data1
+data2
+data3
+data4
+data5
