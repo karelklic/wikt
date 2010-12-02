@@ -39,6 +39,7 @@ AC_CONFIG_FILES([
 	src/tools/convdict12/Makefile
 	src/tools/convdict23/Makefile
 	src/tools/convdict23/exprparser/Makefile
+	src/tools/convdict34/Makefile
 	dicts/Makefile
 	dicts/en/Makefile
 	po/Makefile.in
