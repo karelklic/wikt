@@ -77,14 +77,17 @@ libwikt_la_CPPFLAGS = \
   -I.. \
   $(QTCORE_CFLAGS) \
   $(QTGUI_CFLAGS) \
-  $(QTSVG_CFLAGS)
+  $(QTSVG_CFLAGS) \
+  $(CISOCODES_CFLAGS)
 
 libwikt_la_LDFLAGS = \
   $(QTCORE_LDFLAGS) \
   $(QTGUI_LDFLAGS) \
-  $(QTSVG_LDFLAGS)
+  $(QTSVG_LDFLAGS) \
+  $(CISOCODES_LDFLAGS)
 
 libwikt_la_LIBADD = \
   $(QTCORE_LIBS) \
   $(QTGUI_LIBS) \
-  $(QTSVG_LIBS)
+  $(QTSVG_LIBS) \
+  $(CISOCODES_LIBS)

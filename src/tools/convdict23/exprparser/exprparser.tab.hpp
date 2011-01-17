@@ -1,23 +1,23 @@
-/* A Bison parser, made by GNU Bison 2.3.  */
+
+/* A Bison parser, made by GNU Bison 2.4.1.  */
 
 /* Skeleton interface for Bison LALR(1) parsers in C++
-
-   Copyright (C) 2002, 2003, 2004, 2005, 2006 Free Software Foundation, Inc.
-
-   This program is free software; you can redistribute it and/or modify
+   
+      Copyright (C) 2002, 2003, 2004, 2005, 2006, 2007, 2008 Free Software
+   Foundation, Inc.
+   
+   This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
-   the Free Software Foundation; either version 2, or (at your option)
-   any later version.
-
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+   
    This program is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
    GNU General Public License for more details.
-
+   
    You should have received a copy of the GNU General Public License
-   along with this program; if not, write to the Free Software
-   Foundation, Inc., 51 Franklin Street, Fifth Floor,
-   Boston, MA 02110-1301, USA.  */
+   along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
 /* As a special exception, you may create a larger work that contains
    part or all of the Bison parser skeleton and distribute that work
@@ -28,7 +28,7 @@
    special exception, which will cause the skeleton and the resulting
    Bison output files to be licensed under the GNU General Public
    License without this special exception.
-
+   
    This special exception was added by the Free Software Foundation in
    version 2.2 of Bison.  */
 
@@ -37,27 +37,30 @@
 #ifndef PARSER_HEADER_H
 # define PARSER_HEADER_H
 
+
+
 #include <string>
 #include <iostream>
 #include "stack.hh"
 
-namespace yy
-{
+
+/* Line 35 of lalr1.cc  */
+#line 1 "[Bison:b4_percent_define_default]"
+
+namespace yy {
+
+/* Line 35 of lalr1.cc  */
+#line 54 "exprparser.tab.hpp"
   class position;
   class location;
-}
 
-/* First part of user declarations.  */
-#line 9 "exprparser.ypp"
+/* Line 35 of lalr1.cc  */
+#line 1 "[Bison:b4_percent_define_default]"
 
-#include <math.h>
-#include "exprdriver.h"
+} // yy
 
-#define yylex exprlex
-
-
-/* Line 35 of lalr1.cc.  */
-#line 61 "exprparser.tab.hpp"
+/* Line 35 of lalr1.cc  */
+#line 64 "exprparser.tab.hpp"
 
 #include "location.hh"
 
@@ -98,8 +101,14 @@ do {							\
 } while (false)
 #endif
 
-namespace yy
-{
+
+/* Line 35 of lalr1.cc  */
+#line 1 "[Bison:b4_percent_define_default]"
+
+namespace yy {
+
+/* Line 35 of lalr1.cc  */
+#line 112 "exprparser.tab.hpp"
 
   /// A Bison parser.
   class ExprParser
@@ -108,13 +117,18 @@ namespace yy
     /// Symbol semantic values.
 #ifndef YYSTYPE
     union semantic_type
+    {
+
+/* Line 35 of lalr1.cc  */
 #line 23 "exprparser.ypp"
-{
+
   double num;
-}
-/* Line 35 of lalr1.cc.  */
-#line 117 "exprparser.tab.hpp"
-	;
+
+
+
+/* Line 35 of lalr1.cc  */
+#line 131 "exprparser.tab.hpp"
+    };
 #else
     typedef YYSTYPE semantic_type;
 #endif
@@ -175,6 +189,7 @@ namespace yy
     /// \returns  0 iff parsing succeeded.
     virtual int parse ();
 
+#if YYDEBUG
     /// The current debugging stream.
     std::ostream& debug_stream () const;
     /// Set the current debugging stream.
@@ -186,6 +201,7 @@ namespace yy
     debug_level_type debug_level () const;
     /// Set the current debugging level.
     void set_debug_level (debug_level_type l);
+#endif
 
   private:
     /// Report a syntax error.
@@ -195,7 +211,7 @@ namespace yy
 
     /// Generate an error message.
     /// \param state   the state where the error occurred.
-    /// \param tok     the look-ahead token.
+    /// \param tok     the lookahead token.
     virtual std::string yysyntax_error_ (int yystate, int tok);
 
 #if YYDEBUG
@@ -213,7 +229,7 @@ namespace yy
     virtual void yy_symbol_print_ (int yytype,
 				   const semantic_type* yyvaluep,
 				   const location_type* yylocationp);
-#endif /* ! YYDEBUG */
+#endif
 
 
     /// State numbers.
@@ -290,6 +306,10 @@ namespace yy
     virtual void yy_reduce_print_ (int r);
     /// Print the state stack on the debug stream.
     virtual void yystack_print_ ();
+
+    /* Debugging.  */
+    int yydebug_;
+    std::ostream* yycdebug_;
 #endif
 
     /// Convert a scanner token number \a t to a symbol number.
@@ -321,15 +341,18 @@ namespace yy
     static const unsigned int yyuser_token_number_max_;
     static const token_number_type yyundef_token_;
 
-    /* Debugging.  */
-    int yydebug_;
-    std::ostream* yycdebug_;
-
-
     /* User arguments.  */
     ExprDriver& driver;
   };
-}
+
+/* Line 35 of lalr1.cc  */
+#line 1 "[Bison:b4_percent_define_default]"
+
+} // yy
+
+/* Line 35 of lalr1.cc  */
+#line 355 "exprparser.tab.hpp"
+
 
 
 #endif /* ! defined PARSER_HEADER_H */

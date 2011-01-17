@@ -69,7 +69,7 @@ static QString functionFullUrl(const QString &templateText)
         templateText.section(':', 2))); // can be empty!
 
     Project::Type project = Project::instance().fromPrefix(prefixOnly);
-    return Project::instance().toUrl(project, Language::English) + entryUrlSuffix;
+    return Project::instance().toUrl(project, "en") + entryUrlSuffix;
   }
 
   // It links to wiktionary; return local url instead of external one.
@@ -93,10 +93,10 @@ QString NamespaceUrlFunctions::evaluate(const QString &templateText)
   if (trimmed.startsWith("ns:", Qt::CaseInsensitive))
     return functionNs(templateText);
   else if (trimmed.startsWith("localurl:", Qt::CaseInsensitive) ||
-      trimmed.startsWith("localurle:", Qt::CaseInsensitive))
+           trimmed.startsWith("localurle:", Qt::CaseInsensitive))
     return functionLocalUrl(templateText);
   else if (trimmed.startsWith("fullurl:", Qt::CaseInsensitive) ||
-      trimmed.startsWith("fullurle:", Qt::CaseInsensitive))
+           trimmed.startsWith("fullurle:", Qt::CaseInsensitive))
     return functionFullUrl(templateText);
   else if (trimmed.startsWith("urlencode:", Qt::CaseInsensitive))
     return functionUrlEncode(templateText);

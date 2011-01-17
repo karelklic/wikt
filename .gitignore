@@ -18,6 +18,8 @@ docs/*.log
 
 # Helpers and im files
 src/app/wikt
+src/tools/convdict12/convdict12
+src/tools/convdict23/exprparser/libexprparser.a
 .deps
 .libs
 

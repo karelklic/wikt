@@ -1,0 +1,11 @@
+English Wiktionary
+------------------
+
+Data dump from 2009-09-23.
+
+If the media and data4 files are missing from this directory, download
+them from ftp://ftp.klic.name/wikt/devel.
+
+The media and data4 files are not included in the git version of Wikt due
+to their size.
+

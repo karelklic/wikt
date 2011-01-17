@@ -25,6 +25,7 @@ PKG_CHECK_MODULES([QTXML], [QtXml])
 PKG_CHECK_MODULES([QTWEBKIT], [QtWebKit])
 PKG_CHECK_MODULES([QTSVG], [QtSvg])
 PKG_CHECK_MODULES([PHONON], [phonon])
+PKG_CHECK_MODULES([CISOCODES], [ciso-codes])
 
 AC_SUBST(DL_LIBS, -ldl)
 AC_CONFIG_HEADERS([config.h])
@@ -34,9 +35,13 @@ AC_CONFIG_FILES([
 	src/Makefile
 	src/app/Makefile
 	src/libwikt/Makefile
-	share/Makefile
-	share/data/Makefile
-	share/languages/Makefile
+	src/tools/Makefile
+	src/tools/convdict12/Makefile
+	src/tools/convdict23/Makefile
+	src/tools/convdict23/exprparser/Makefile
+	src/tools/convdict34/Makefile
+	dicts/Makefile
+	dicts/en/Makefile
 	po/Makefile.in
 ])
 

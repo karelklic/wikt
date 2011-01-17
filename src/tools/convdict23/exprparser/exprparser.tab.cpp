@@ -1,23 +1,23 @@
-/* A Bison parser, made by GNU Bison 2.3.  */
+
+/* A Bison parser, made by GNU Bison 2.4.1.  */
 
 /* Skeleton implementation for Bison LALR(1) parsers in C++
-
-   Copyright (C) 2002, 2003, 2004, 2005, 2006 Free Software Foundation, Inc.
-
-   This program is free software; you can redistribute it and/or modify
+   
+      Copyright (C) 2002, 2003, 2004, 2005, 2006, 2007, 2008 Free Software
+   Foundation, Inc.
+   
+   This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
-   the Free Software Foundation; either version 2, or (at your option)
-   any later version.
-
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+   
    This program is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
    GNU General Public License for more details.
-
+   
    You should have received a copy of the GNU General Public License
-   along with this program; if not, write to the Free Software
-   Foundation, Inc., 51 Franklin Street, Fifth Floor,
-   Boston, MA 02110-1301, USA.  */
+   along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
 /* As a special exception, you may create a larger work that contains
    part or all of the Bison parser skeleton and distribute that work
@@ -28,22 +28,39 @@
    special exception, which will cause the skeleton and the resulting
    Bison output files to be licensed under the GNU General Public
    License without this special exception.
-
+   
    This special exception was added by the Free Software Foundation in
    version 2.2 of Bison.  */
+
+
+/* First part of user declarations.  */
+
+/* Line 311 of lalr1.cc  */
+#line 9 "exprparser.ypp"
+
+#include <math.h>
+#include "exprdriver.h"
+
+#define yylex exprlex
+
+
+/* Line 311 of lalr1.cc  */
+#line 49 "exprparser.tab.cpp"
 
 
 #include "exprparser.tab.hpp"
 
 /* User implementation prologue.  */
+
+/* Line 317 of lalr1.cc  */
 #line 27 "exprparser.ypp"
 
 yy::ExprParser::token_type exprlex(yy::ExprParser::semantic_type* yylval,
         yy::ExprParser::location_type* /*yylloc*/, ExprDriver& /*driver*/);
 
 
-/* Line 317 of lalr1.cc.  */
-#line 47 "exprparser.tab.cpp"
+/* Line 317 of lalr1.cc  */
+#line 64 "exprparser.tab.cpp"
 
 #ifndef YY_
 # if YYENABLE_NLS
@@ -60,13 +77,11 @@ yy::ExprParser::token_type exprlex(yy::ExprParser::semantic_type* yylval,
 /* Suppress unused-variable warnings by "using" E.  */
 #define YYUSE(e) ((void) (e))
 
-/* A pseudo ostream that takes yydebug_ into account.  */
-# define YYCDEBUG							\
-  for (bool yydebugcond_ = yydebug_; yydebugcond_; yydebugcond_ = false)	\
-    (*yycdebug_)
-
 /* Enable debugging if requested.  */
 #if YYDEBUG
+
+/* A pseudo ostream that takes yydebug_ into account.  */
+# define YYCDEBUG if (yydebug_) (*yycdebug_)
 
 # define YY_SYMBOL_PRINT(Title, Type, Value, Location)	\
 do {							\
@@ -92,18 +107,29 @@ do {					\
 
 #else /* !YYDEBUG */
 
+# define YYCDEBUG if (false) std::cerr
 # define YY_SYMBOL_PRINT(Title, Type, Value, Location)
 # define YY_REDUCE_PRINT(Rule)
 # define YY_STACK_PRINT()
 
 #endif /* !YYDEBUG */
 
+#define yyerrok		(yyerrstatus_ = 0)
+#define yyclearin	(yychar = yyempty_)
+
 #define YYACCEPT	goto yyacceptlab
 #define YYABORT		goto yyabortlab
 #define YYERROR		goto yyerrorlab
+#define YYRECOVERING()  (!!yyerrstatus_)
 
-namespace yy
-{
+
+/* Line 380 of lalr1.cc  */
+#line 1 "[Bison:b4_percent_define_default]"
+
+namespace yy {
+
+/* Line 380 of lalr1.cc  */
+#line 133 "exprparser.tab.cpp"
 #if YYERROR_VERBOSE
 
   /* Return YYSTR after stripping away unnecessary quotes and
@@ -147,8 +173,11 @@ namespace yy
 
   /// Build a parser object.
   ExprParser::ExprParser (ExprDriver& driver_yyarg)
-    : yydebug_ (false),
+    :
+#if YYDEBUG
+      yydebug_ (false),
       yycdebug_ (&std::cerr),
+#endif
       driver (driver_yyarg)
   {
   }
@@ -186,7 +215,7 @@ namespace yy
     yy_symbol_value_print_ (yytype, yyvaluep, yylocationp);
     *yycdebug_ << ')';
   }
-#endif /* ! YYDEBUG */
+#endif
 
   void
   ExprParser::yydestruct_ (const char* yymsg,
@@ -214,6 +243,7 @@ namespace yy
     yylocation_stack_.pop (n);
   }
 
+#if YYDEBUG
   std::ostream&
   ExprParser::debug_stream () const
   {
@@ -238,12 +268,12 @@ namespace yy
   {
     yydebug_ = l;
   }
-
+#endif
 
   int
   ExprParser::parse ()
   {
-    /// Look-ahead and look-ahead in internal form.
+    /// Lookahead and lookahead in internal form.
     int yychar = yyempty_;
     int yytoken = 0;
 
@@ -256,12 +286,12 @@ namespace yy
     int yynerrs_ = 0;
     int yyerrstatus_ = 0;
 
-    /// Semantic value of the look-ahead.
+    /// Semantic value of the lookahead.
     semantic_type yylval;
-    /// Location of the look-ahead.
+    /// Location of the lookahead.
     location_type yylloc;
     /// The locations where the error started and ended.
-    location yyerror_range[2];
+    location_type yyerror_range[2];
 
     /// $$.
     semantic_type yyval;
@@ -287,17 +317,22 @@ namespace yy
   yynewstate:
     yystate_stack_.push (yystate);
     YYCDEBUG << "Entering state " << yystate << std::endl;
+
+    /* Accept?  */
+    if (yystate == yyfinal_)
+      goto yyacceptlab;
+
     goto yybackup;
 
     /* Backup.  */
   yybackup:
 
-    /* Try to take a decision without look-ahead.  */
+    /* Try to take a decision without lookahead.  */
     yyn = yypact_[yystate];
     if (yyn == yypact_ninf_)
       goto yydefault;
 
-    /* Read a look-ahead token.  */
+    /* Read a lookahead token.  */
     if (yychar == yyempty_)
       {
 	YYCDEBUG << "Reading a token: ";
@@ -333,16 +368,11 @@ namespace yy
 	goto yyreduce;
       }
 
-    /* Accept?  */
-    if (yyn == yyfinal_)
-      goto yyacceptlab;
-
-    /* Shift the look-ahead token.  */
+    /* Shift the lookahead token.  */
     YY_SYMBOL_PRINT ("Shifting", yytoken, &yylval, &yylloc);
 
-    /* Discard the token being shifted unless it is eof.  */
-    if (yychar != yyeof_)
-      yychar = yyempty_;
+    /* Discard the token being shifted.  */
+    yychar = yyempty_;
 
     yysemantic_stack_.push (yylval);
     yylocation_stack_.push (yylloc);
@@ -388,184 +418,256 @@ namespace yy
     switch (yyn)
       {
 	  case 2:
+
+/* Line 678 of lalr1.cc  */
 #line 51 "exprparser.ypp"
-    { (yyval.num) = (yysemantic_stack_[(2) - (1)].num); driver.setResult((yysemantic_stack_[(2) - (1)].num)); ;}
+    { (yyval.num) = (yysemantic_stack_[(2) - (1)].num); driver.setResult((yysemantic_stack_[(2) - (1)].num)); }
     break;
 
   case 3:
+
+/* Line 678 of lalr1.cc  */
 #line 53 "exprparser.ypp"
-    { (yyval.num) = (yysemantic_stack_[(1) - (1)].num);          ;}
+    { (yyval.num) = (yysemantic_stack_[(1) - (1)].num);          }
     break;
 
   case 4:
+
+/* Line 678 of lalr1.cc  */
 #line 54 "exprparser.ypp"
-    { (yyval.num) = (yysemantic_stack_[(3) - (1)].num) + (yysemantic_stack_[(3) - (3)].num);     ;}
+    { (yyval.num) = (yysemantic_stack_[(3) - (1)].num) + (yysemantic_stack_[(3) - (3)].num);     }
     break;
 
   case 5:
+
+/* Line 678 of lalr1.cc  */
 #line 55 "exprparser.ypp"
-    { (yyval.num) = (yysemantic_stack_[(3) - (1)].num) - (yysemantic_stack_[(3) - (3)].num);     ;}
+    { (yyval.num) = (yysemantic_stack_[(3) - (1)].num) - (yysemantic_stack_[(3) - (3)].num);     }
     break;
 
   case 6:
+
+/* Line 678 of lalr1.cc  */
 #line 56 "exprparser.ypp"
-    { (yyval.num) = -(yysemantic_stack_[(2) - (2)].num);         ;}
+    { (yyval.num) = -(yysemantic_stack_[(2) - (2)].num);         }
     break;
 
   case 7:
+
+/* Line 678 of lalr1.cc  */
 #line 57 "exprparser.ypp"
-    { (yyval.num) = (yysemantic_stack_[(2) - (2)].num);          ;}
+    { (yyval.num) = (yysemantic_stack_[(2) - (2)].num);          }
     break;
 
   case 8:
+
+/* Line 678 of lalr1.cc  */
 #line 58 "exprparser.ypp"
-    { (yyval.num) = ((yysemantic_stack_[(3) - (1)].num) < (yysemantic_stack_[(3) - (3)].num) ? 1 : 0); ;}
+    { (yyval.num) = ((yysemantic_stack_[(3) - (1)].num) < (yysemantic_stack_[(3) - (3)].num) ? 1 : 0); }
     break;
 
   case 9:
+
+/* Line 678 of lalr1.cc  */
 #line 59 "exprparser.ypp"
-    { (yyval.num) = ((yysemantic_stack_[(3) - (1)].num) > (yysemantic_stack_[(3) - (3)].num) ? 1 : 0); ;}
+    { (yyval.num) = ((yysemantic_stack_[(3) - (1)].num) > (yysemantic_stack_[(3) - (3)].num) ? 1 : 0); }
     break;
 
   case 10:
+
+/* Line 678 of lalr1.cc  */
 #line 60 "exprparser.ypp"
-    { (yyval.num) = ((yysemantic_stack_[(3) - (1)].num) <= (yysemantic_stack_[(3) - (3)].num) ? 1 : 0); ;}
+    { (yyval.num) = ((yysemantic_stack_[(3) - (1)].num) <= (yysemantic_stack_[(3) - (3)].num) ? 1 : 0); }
     break;
 
   case 11:
+
+/* Line 678 of lalr1.cc  */
 #line 61 "exprparser.ypp"
-    { (yyval.num) = ((yysemantic_stack_[(3) - (1)].num) >= (yysemantic_stack_[(3) - (3)].num) ? 1 : 0); ;}
+    { (yyval.num) = ((yysemantic_stack_[(3) - (1)].num) >= (yysemantic_stack_[(3) - (3)].num) ? 1 : 0); }
     break;
 
   case 12:
+
+/* Line 678 of lalr1.cc  */
 #line 62 "exprparser.ypp"
-    { (yyval.num) = (yysemantic_stack_[(3) - (1)].num) * (yysemantic_stack_[(3) - (3)].num); ;}
+    { (yyval.num) = (yysemantic_stack_[(3) - (1)].num) * (yysemantic_stack_[(3) - (3)].num); }
     break;
 
   case 13:
+
+/* Line 678 of lalr1.cc  */
 #line 63 "exprparser.ypp"
-    { (yyval.num) = (yysemantic_stack_[(3) - (1)].num) / (yysemantic_stack_[(3) - (3)].num); ;}
+    { (yyval.num) = (yysemantic_stack_[(3) - (1)].num) / (yysemantic_stack_[(3) - (3)].num); }
     break;
 
   case 14:
+
+/* Line 678 of lalr1.cc  */
 #line 64 "exprparser.ypp"
-    { (yyval.num) = (yysemantic_stack_[(3) - (2)].num); ;}
+    { (yyval.num) = (yysemantic_stack_[(3) - (2)].num); }
     break;
 
   case 15:
+
+/* Line 678 of lalr1.cc  */
 #line 65 "exprparser.ypp"
-    { double i = pow(10, (yysemantic_stack_[(3) - (3)].num)); (yyval.num) = round((yysemantic_stack_[(3) - (1)].num) * i) / i; ;}
+    { double i = pow(10, (yysemantic_stack_[(3) - (3)].num)); (yyval.num) = round((yysemantic_stack_[(3) - (1)].num) * i) / i; }
     break;
 
   case 16:
+
+/* Line 678 of lalr1.cc  */
 #line 66 "exprparser.ypp"
-    { (yyval.num) = pow((yysemantic_stack_[(3) - (1)].num), (yysemantic_stack_[(3) - (3)].num)); ;}
+    { (yyval.num) = pow((yysemantic_stack_[(3) - (1)].num), (yysemantic_stack_[(3) - (3)].num)); }
     break;
 
   case 17:
+
+/* Line 678 of lalr1.cc  */
 #line 67 "exprparser.ypp"
-    { (yyval.num) = (int)(yysemantic_stack_[(3) - (1)].num) % (int)(yysemantic_stack_[(3) - (3)].num); ;}
+    { (yyval.num) = (int)(yysemantic_stack_[(3) - (1)].num) % (int)(yysemantic_stack_[(3) - (3)].num); }
     break;
 
   case 18:
+
+/* Line 678 of lalr1.cc  */
 #line 68 "exprparser.ypp"
-    { (yyval.num) = ((yysemantic_stack_[(3) - (1)].num) == (yysemantic_stack_[(3) - (3)].num) ? 1 : 0); ;}
+    { (yyval.num) = ((yysemantic_stack_[(3) - (1)].num) == (yysemantic_stack_[(3) - (3)].num) ? 1 : 0); }
     break;
 
   case 19:
+
+/* Line 678 of lalr1.cc  */
 #line 69 "exprparser.ypp"
-    { (yyval.num) = ((yysemantic_stack_[(3) - (1)].num) != (yysemantic_stack_[(3) - (3)].num) ? 1 : 0); ;}
+    { (yyval.num) = ((yysemantic_stack_[(3) - (1)].num) != (yysemantic_stack_[(3) - (3)].num) ? 1 : 0); }
     break;
 
   case 20:
+
+/* Line 678 of lalr1.cc  */
 #line 70 "exprparser.ypp"
-    { (yyval.num) = ((yysemantic_stack_[(3) - (1)].num) && (yysemantic_stack_[(3) - (3)].num) ? 1 : 0); ;}
+    { (yyval.num) = ((yysemantic_stack_[(3) - (1)].num) && (yysemantic_stack_[(3) - (3)].num) ? 1 : 0); }
     break;
 
   case 21:
+
+/* Line 678 of lalr1.cc  */
 #line 71 "exprparser.ypp"
-    { (yyval.num) = ((yysemantic_stack_[(3) - (1)].num) || (yysemantic_stack_[(3) - (3)].num) ? 1 : 0); ;}
+    { (yyval.num) = ((yysemantic_stack_[(3) - (1)].num) || (yysemantic_stack_[(3) - (3)].num) ? 1 : 0); }
     break;
 
   case 22:
+
+/* Line 678 of lalr1.cc  */
 #line 72 "exprparser.ypp"
-    { (yyval.num) = ((yysemantic_stack_[(2) - (2)].num) ? 0 : 1); ;}
+    { (yyval.num) = ((yysemantic_stack_[(2) - (2)].num) ? 0 : 1); }
     break;
 
   case 23:
+
+/* Line 678 of lalr1.cc  */
 #line 73 "exprparser.ypp"
-    { (yyval.num) = ceil((yysemantic_stack_[(2) - (2)].num)); ;}
+    { (yyval.num) = ceil((yysemantic_stack_[(2) - (2)].num)); }
     break;
 
   case 24:
+
+/* Line 678 of lalr1.cc  */
 #line 74 "exprparser.ypp"
-    { (yyval.num) = floor((yysemantic_stack_[(2) - (2)].num)); ;}
+    { (yyval.num) = floor((yysemantic_stack_[(2) - (2)].num)); }
     break;
 
   case 25:
+
+/* Line 678 of lalr1.cc  */
 #line 75 "exprparser.ypp"
-    { (yyval.num) = ((yysemantic_stack_[(2) - (2)].num) > 0 ? (yysemantic_stack_[(2) - (2)].num) : -(yysemantic_stack_[(2) - (2)].num)); ;}
+    { (yyval.num) = ((yysemantic_stack_[(2) - (2)].num) > 0 ? (yysemantic_stack_[(2) - (2)].num) : -(yysemantic_stack_[(2) - (2)].num)); }
     break;
 
   case 26:
+
+/* Line 678 of lalr1.cc  */
 #line 76 "exprparser.ypp"
-    { (yyval.num) = log((yysemantic_stack_[(2) - (2)].num)); ;}
+    { (yyval.num) = log((yysemantic_stack_[(2) - (2)].num)); }
     break;
 
   case 27:
+
+/* Line 678 of lalr1.cc  */
 #line 77 "exprparser.ypp"
-    { (yyval.num) = trunc((yysemantic_stack_[(2) - (2)].num)); ;}
+    { (yyval.num) = trunc((yysemantic_stack_[(2) - (2)].num)); }
     break;
 
   case 28:
+
+/* Line 678 of lalr1.cc  */
 #line 78 "exprparser.ypp"
-    { (yyval.num) = exp((yysemantic_stack_[(2) - (2)].num)); ;}
+    { (yyval.num) = exp((yysemantic_stack_[(2) - (2)].num)); }
     break;
 
   case 29:
+
+/* Line 678 of lalr1.cc  */
 #line 79 "exprparser.ypp"
-    { (yyval.num) = sin((yysemantic_stack_[(2) - (2)].num)); ;}
+    { (yyval.num) = sin((yysemantic_stack_[(2) - (2)].num)); }
     break;
 
   case 30:
+
+/* Line 678 of lalr1.cc  */
 #line 80 "exprparser.ypp"
-    { (yyval.num) = cos((yysemantic_stack_[(2) - (2)].num)); ;}
+    { (yyval.num) = cos((yysemantic_stack_[(2) - (2)].num)); }
     break;
 
   case 31:
+
+/* Line 678 of lalr1.cc  */
 #line 81 "exprparser.ypp"
-    { (yyval.num) = tan((yysemantic_stack_[(2) - (2)].num)); ;}
+    { (yyval.num) = tan((yysemantic_stack_[(2) - (2)].num)); }
     break;
 
   case 32:
+
+/* Line 678 of lalr1.cc  */
 #line 82 "exprparser.ypp"
-    { (yyval.num) = asin((yysemantic_stack_[(2) - (2)].num)); ;}
+    { (yyval.num) = asin((yysemantic_stack_[(2) - (2)].num)); }
     break;
 
   case 33:
+
+/* Line 678 of lalr1.cc  */
 #line 83 "exprparser.ypp"
-    { (yyval.num) = acos((yysemantic_stack_[(2) - (2)].num)); ;}
+    { (yyval.num) = acos((yysemantic_stack_[(2) - (2)].num)); }
     break;
 
   case 34:
+
+/* Line 678 of lalr1.cc  */
 #line 84 "exprparser.ypp"
-    { (yyval.num) = atan((yysemantic_stack_[(2) - (2)].num)); ;}
+    { (yyval.num) = atan((yysemantic_stack_[(2) - (2)].num)); }
     break;
 
   case 35:
+
+/* Line 678 of lalr1.cc  */
 #line 85 "exprparser.ypp"
-    { (yyval.num) = 3.1415926535898; ;}
+    { (yyval.num) = 3.1415926535898; }
     break;
 
   case 36:
+
+/* Line 678 of lalr1.cc  */
 #line 86 "exprparser.ypp"
-    { (yyval.num) = 2.718281828459; ;}
+    { (yyval.num) = 2.718281828459; }
     break;
 
 
-    /* Line 675 of lalr1.cc.  */
-#line 568 "exprparser.tab.cpp"
-	default: break;
+
+/* Line 678 of lalr1.cc  */
+#line 669 "exprparser.tab.cpp"
+	default:
+          break;
       }
     YY_SYMBOL_PRINT ("-> $$ =", yyr1_[yyn], &yyval, &yyloc);
 
@@ -600,7 +702,7 @@ namespace yy
     yyerror_range[0] = yylloc;
     if (yyerrstatus_ == 3)
       {
-	/* If just tried and failed to reuse look-ahead token after an
+	/* If just tried and failed to reuse lookahead token after an
 	 error, discard it.  */
 
 	if (yychar <= yyeof_)
@@ -616,7 +718,7 @@ namespace yy
 	  }
       }
 
-    /* Else will try to reuse look-ahead token after shifting the error
+    /* Else will try to reuse lookahead token after shifting the error
        token.  */
     goto yyerrlab1;
 
@@ -673,19 +775,16 @@ namespace yy
 	YY_STACK_PRINT ();
       }
 
-    if (yyn == yyfinal_)
-      goto yyacceptlab;
-
     yyerror_range[1] = yylloc;
     // Using YYLLOC is tempting, but would change the location of
-    // the look-ahead.  YYLOC is available though.
+    // the lookahead.  YYLOC is available though.
     YYLLOC_DEFAULT (yyloc, (yyerror_range - 1), 2);
     yysemantic_stack_.push (yylval);
     yylocation_stack_.push (yyloc);
 
     /* Shift the error token.  */
     YY_SYMBOL_PRINT ("Shifting", yystos_[yyn],
-		   &yysemantic_stack_[0], &yylocation_stack_[0]);
+		     &yysemantic_stack_[0], &yylocation_stack_[0]);
 
     yystate = yyn;
     goto yynewstate;
@@ -701,7 +800,7 @@ namespace yy
     goto yyreturn;
 
   yyreturn:
-    if (yychar != yyeof_ && yychar != yyempty_)
+    if (yychar != yyempty_)
       yydestruct_ ("Cleanup: discarding lookahead", yytoken, &yylval, &yylloc);
 
     /* Do not reclaim the symbols of the rule which action triggered
@@ -979,7 +1078,7 @@ namespace yy
     int yynrhs = yyr2_[yyrule];
     /* Print the symbols being reduced, and their result.  */
     *yycdebug_ << "Reducing stack by rule " << yyrule - 1
-	       << " (line " << yylno << "), ";
+	       << " (line " << yylno << "):" << std::endl;
     /* The symbols being reduced.  */
     for (int yyi = 0; yyi < yynrhs; yyi++)
       YY_SYMBOL_PRINT ("   $" << yyi + 1 << " =",
@@ -1046,8 +1145,17 @@ namespace yy
   const unsigned int ExprParser::yyuser_token_number_max_ = 292;
   const ExprParser::token_number_type ExprParser::yyundef_token_ = 2;
 
-} // namespace yy
 
+/* Line 1054 of lalr1.cc  */
+#line 1 "[Bison:b4_percent_define_default]"
+
+} // yy
+
+/* Line 1054 of lalr1.cc  */
+#line 1156 "exprparser.tab.cpp"
+
+
+/* Line 1056 of lalr1.cc  */
 #line 89 "exprparser.ypp"
 
 void yy::ExprParser::error(const yy::ExprParser::location_type& l, const std::string& m)
