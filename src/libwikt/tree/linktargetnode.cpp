@@ -42,7 +42,7 @@ LinkTargetNode::LinkTargetNode(const QString &text) : Node(Node::LinkTarget), _n
       remainder.remove(0, offs + 1);
     }
   }
-  
+
   QStringList entryHeading = remainder.split('#');
   _entry = entryHeading.first().trimmed();
 
@@ -58,7 +58,7 @@ LinkTargetNode::LinkTargetNode(const QString &text) : Node(Node::LinkTarget), _n
     {
       QString prefix = thisEntry.left(offs).trimmed();
       if (Namespace::instance().isPrefix(prefix))
-	_namespace = Namespace::instance().fromPrefix(prefix);
+      _namespace = Namespace::instance().fromPrefix(prefix);
     }
     }*/
 }
@@ -66,7 +66,11 @@ LinkTargetNode::LinkTargetNode(const QString &text) : Node(Node::LinkTarget), _n
 //===========================================================================
 QString LinkTargetNode::toXHtmlLink() const
 {
-  if (_namespace == Namespace::Image || _namespace == Namespace::Media || _namespace == Namespace::File)
+  // If link points to an image, a sound, or a file, the "media" scheme must
+  // be used, because multimedia data are loaded from other data file than
+  // common dictionary data.
+  if (_namespace == Namespace::Image || _namespace == Namespace::Media
+      || _namespace == Namespace::File)
     return UrlUtils::toUrl(_entry, "media").toString();
 
   return UrlUtils::toUrl(_text).toString();

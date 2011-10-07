@@ -39,7 +39,7 @@ QString LinkNode::toXHtml() const
   // Interwiki links are not rendered to the XHTML output.
   if (isInterwiki()) return "";
 
-  // Images.
+  // Images are rendered differently.
   if (isDisplayableImage())
     return toXHtmlImage();
 
