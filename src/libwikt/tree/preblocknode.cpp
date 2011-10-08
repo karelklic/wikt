@@ -15,14 +15,12 @@
  */
 #include "preblocknode.h"
 
-//===========================================================================
 QString PreBlockNode::toXHtml() const
 {
   if (!_xhtmlVisible) return "";
   return QString("<pre>%1</pre>").arg(childrenToXHtml());
 }
 
-//===========================================================================
 QString PreBlockNode::toXml(int indentLevel) const
 {
   QString indent(indentLevel, ' ');

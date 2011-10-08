@@ -23,7 +23,6 @@ struct AposToken
   int _aposCount;
 };
 
-//===========================================================================
 Node *BoldItalicParser::parse(Buffer &buffer)
 {
   if (buffer.endOfFile()) return 0;

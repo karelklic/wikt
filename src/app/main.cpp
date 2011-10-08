@@ -23,7 +23,6 @@
 #include <QTextStream>
 #include <QStringList>
 
-//===========================================================================
 int main(int argc, char **argv)
 {
   QApplication app(argc, argv);
@@ -33,11 +32,11 @@ int main(int argc, char **argv)
   app.setApplicationName("Wikt");
   app.setApplicationVersion(WIKT_VERSION);
   app.setOrganizationName("Wikt");
-  app.setOrganizationDomain("wikt.sourceforge.net");
+  app.setOrganizationDomain("klic.name");
 
   // Load the apropriate translations if available.
   const QString &locale = QLocale::system().name();
-  const QString &trPath = QCoreApplication::applicationDirPath() + "/../share/wikt/translations";
+  const QString &trPath = DATADIR "/translations";
   QTranslator translator;
   translator.load("wikt_" + locale, trPath);
   app.installTranslator(&translator);

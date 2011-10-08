@@ -15,24 +15,20 @@
  */
 #include "displayedpagehistory.h"
 
-//===========================================================================
 DisplayedPageHistory::DisplayedPageHistory() : _currentItemOffset(-1)
 {
 }
 
-//===========================================================================
 bool DisplayedPageHistory::canGoBack() const
 {
   return _currentItemOffset > 0;
 }
 
-//===========================================================================
 bool DisplayedPageHistory::canGoForward() const
 {
   return (_items.count() > 1) && _currentItemOffset < (_items.count() - 1);
 }
 
-//===========================================================================
 void DisplayedPageHistory::back()
 {
   if (_currentItemOffset <= 0) return;
@@ -44,7 +40,6 @@ void DisplayedPageHistory::back()
   emit changed();
 }
 
-//===========================================================================
 void DisplayedPageHistory::forward()
 {
   if (_currentItemOffset >= (_items.count() - 1)) return;
@@ -57,7 +52,6 @@ void DisplayedPageHistory::forward()
   emit changed();
 }
 
-//===========================================================================
 void DisplayedPageHistory::addCurrentPage(const QUrl &url)
 {
   // If the page to be added is also current page, do not add it.

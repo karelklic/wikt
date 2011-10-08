@@ -20,7 +20,6 @@
 #include "htmlentityparser.h"
 #include "bolditalicparser.h"
 
-//===========================================================================
 static Node *parseCycle(Buffer &buffer)
 {
   Node *child;
@@ -37,7 +36,6 @@ static Node *parseCycle(Buffer &buffer)
   return 0;
 }
 
-//===========================================================================
 void TextBlockParser::parse(Node &node, Buffer &buffer)
 {
   if (buffer.endOfFile()) return;

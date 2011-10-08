@@ -24,7 +24,6 @@
 #include <QFile>
 #include <QSettings>
 
-//===========================================================================
 WebView::WebView(QWidget *parent) : QWebView(parent)
 {
   connect(page(), SIGNAL(unsupportedContent(QNetworkReply*)),
@@ -41,32 +40,27 @@ WebView::WebView(QWidget *parent) : QWebView(parent)
   show();
 }
 
-//===========================================================================
 QString WebView::toHtml() const
 {
   return page()->mainFrame()->toHtml();
 }
 
-//===========================================================================
 void WebView::navigateToId(const QString &id)
 {
   QString code = QString("window.location.hash=\"%1\";").arg(id);
   page()->mainFrame()->evaluateJavaScript(code);
 }
 
-//===========================================================================
 void WebView::onUnsupportedContent(QNetworkReply */*reply*/)
 {
   dstderr("not supported yet");
 }
 
-//===========================================================================
 void WebView::onDownloadRequested(const QNetworkRequest &/*request*/)
 {
   dstderr("not supported yet");
 }
 
-//===========================================================================
 void WebView::onLoadFinished(bool ok)
 {
   if (!ok) return;

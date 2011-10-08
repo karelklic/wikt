@@ -16,7 +16,6 @@
 #include "tableheadnode.h"
 #include "attributegroupnode.h"
 
-//===========================================================================
 QString TableHeadNode::toXHtml() const
 {
   return QString("<th%1>%2</th>")
@@ -24,7 +23,6 @@ QString TableHeadNode::toXHtml() const
     .arg(childrenToXHtml());
 }
 
-//===========================================================================
 QString TableHeadNode::toXml(int indentLevel) const
 {
   QString indent(indentLevel, ' ');

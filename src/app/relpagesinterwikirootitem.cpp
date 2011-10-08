@@ -23,14 +23,12 @@
 
 namespace RelatedPages {
 
-//===========================================================================
 InterwikiRootItem::InterwikiRootItem(Item *parent)
   : Item(InterwikiRoot, parent)
 {
   _itemData.append(QVariant("Interwiki"));
 }
 
-//===========================================================================
 void InterwikiRootItem::fill(const Node *rootNode)
 {
   QList<const LinkNode*> links;

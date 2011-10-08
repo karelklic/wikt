@@ -32,7 +32,6 @@ QString pageContents;
 int pageCounter = 0;
 QTextStream out(stdout, QIODevice::WriteOnly);
 
-//===========================================================================
 static void onStartElement(const QStringRef& name)
 {
   if (name == "page" && state == STATE_OUTSIDE)
@@ -49,7 +48,6 @@ static void onStartElement(const QStringRef& name)
   }
 }
 
-//===========================================================================
 static void onEndElement(const QStringRef& name)
 {
   if (name == "page" && state == STATE_PAGE)
@@ -77,7 +75,6 @@ static void onEndElement(const QStringRef& name)
     state = STATE_PAGE;
 }
 
-//===========================================================================
 static void onCharacters(const QStringRef& characters)
 {
   if (state == STATE_PAGE_TITLE)
@@ -86,7 +83,6 @@ static void onCharacters(const QStringRef& characters)
     pageContents += characters;
 }
 
-//===========================================================================
 static void processFormat1(const QString &src)
 {
   QFile file(src);
@@ -107,7 +103,6 @@ static void processFormat1(const QString &src)
   }
 }
 
-//===========================================================================
 int main(int argc, char **argv)
 {
   QCoreApplication a(argc, argv);
@@ -116,7 +111,7 @@ int main(int argc, char **argv)
   {
     QTextStream err(stderr, QIODevice::WriteOnly);
     err << "Invalid number of arguments." << endl;
-    err << "Usage: %1 [SOURCE] [ERRATADIR] [DESTINATION]" << endl;
+    err << QString("Usage: %1 [SOURCE] [ERRATADIR] [DESTINATION]").arg(argv[0]) << endl;
     return -1;
   }
 

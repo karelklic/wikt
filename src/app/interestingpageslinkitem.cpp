@@ -17,7 +17,6 @@
 
 namespace InterestingPages {
 
-//===========================================================================
 LinkItem::LinkItem(const QString &title, const QString &link,
     Item *parent) : Item(Link, parent), _link(link)
 {

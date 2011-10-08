@@ -20,7 +20,6 @@
 #include "tableparser.h"
 #include "blockhtmlparser.h"
 
-//===========================================================================
 void BlockParser::parse(Node &parent, Buffer &buffer)
 {
   if (buffer.endOfFile()) return;
@@ -55,7 +54,6 @@ void BlockParser::parse(Node &parent, Buffer &buffer)
   }
 }
 
-//===========================================================================
 Node *BlockParser::parseCycle(Buffer &buffer)
 {
   Node *node;

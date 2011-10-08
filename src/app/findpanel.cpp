@@ -24,7 +24,6 @@
 #include <QKeyEvent>
 #include <QLabel>
 
-//===========================================================================
 FindPanel::FindPanel(QWidget *parent) : QDockWidget(tr("Find"), parent)
 {
   _close = new QPushButton(QIcon(":/images/emblem-unreadable.svg"), "", this);
@@ -72,7 +71,6 @@ FindPanel::FindPanel(QWidget *parent) : QDockWidget(tr("Find"), parent)
   setTitleBarWidget(new QWidget(this)); // no title bar
 }
 
-//===========================================================================
 void FindPanel::setVisible(bool visible)
 {
   QDockWidget::setVisible(visible);
@@ -84,13 +82,11 @@ void FindPanel::setVisible(bool visible)
   }
 }
 
-//===========================================================================
 bool FindPanel::hasFocus() const
 {
   return _textEdit->hasFocus() || QDockWidget::hasFocus();
 }
 
-//===========================================================================
 void FindPanel::keyPressEvent(QKeyEvent *event)
 {
   if (event->key() == Qt::Key_Escape)
@@ -101,7 +97,6 @@ void FindPanel::keyPressEvent(QKeyEvent *event)
   QDockWidget::keyPressEvent(event);
 }
 
-//===========================================================================
 void FindPanel::previousClicked()
 {
   if (_textEdit->text() == "") return;
@@ -121,7 +116,6 @@ void FindPanel::previousClicked()
     _textEdit->setStyleSheet("backgroud-color:white");
 }
 
-//===========================================================================
 void FindPanel::nextClicked()
 {
   if (_textEdit->text() == "") return;
@@ -141,7 +135,6 @@ void FindPanel::nextClicked()
     _textEdit->setStyleSheet("backgroud-color:white");
 }
 
-//===========================================================================
 void FindPanel::textChanged(const QString &text)
 {
   _previous->setEnabled(text.length() != 0);

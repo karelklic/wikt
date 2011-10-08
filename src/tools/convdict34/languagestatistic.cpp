@@ -17,12 +17,10 @@
 #include <libwikt/tree/headingnode.h>
 #include <libwikt/tree/listitemnode.h>
 
-//===========================================================================
 LanguageStatistic::LanguageStatistic() : _entryCount(0), _glossCount(0), _formOfCount(0)
 {
 }
 
-//===========================================================================
 void LanguageStatistic::visit(const QList<const Node*> &nodes)
 {
   ++_entryCount;

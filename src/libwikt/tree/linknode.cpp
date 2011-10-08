@@ -21,14 +21,12 @@
 #include <QSvgRenderer>
 #include <QUrl>
 
-//===========================================================================
 LinkNode::LinkNode(bool emptyPipeAtEnd, bool forcedLink)
   : Node(Node::Link), _emptyPipeAtEnd(emptyPipeAtEnd),
   _forcedLink(forcedLink), _target(0)
 {
 }
 
-//===========================================================================
 QString LinkNode::toXHtml() const
 {
   if (!_xhtmlVisible) return "";
@@ -59,7 +57,6 @@ QString LinkNode::toXHtml() const
   }
 }
 
-//===========================================================================
 QString LinkNode::toXml(int indentLevel) const
 {
   QString indent(indentLevel, ' ');
@@ -71,7 +68,6 @@ QString LinkNode::toXml(int indentLevel) const
     indent + "</link>\n";
 }
 
-//===========================================================================
 QString LinkNode::toText() const
 {
   // Category links, interwiki links, and images are not rendered to the text output.
@@ -89,7 +85,6 @@ QString LinkNode::toText() const
     return target().toText();
 }
 
-//===========================================================================
 QString LinkNode::toWiki() const
 {
   QString result = "[[";
@@ -105,7 +100,6 @@ QString LinkNode::toWiki() const
   return result;
 }
 
-//===========================================================================
 QString LinkNode::toExternalLinkWiki() const
 {
   QString result;
@@ -119,7 +113,6 @@ QString LinkNode::toExternalLinkWiki() const
   return QString("[%1%2 %3]").arg(baseUrl, entryUrl, xhtmlTitle());
 }
 
-//===========================================================================
 void LinkNode::append(Node *child)
 {
   Node::append(child);
@@ -129,7 +122,6 @@ void LinkNode::append(Node *child)
     _options.append(dynamic_cast<LinkOptionsNode*>(child));
 }
 
-//===========================================================================
 QString LinkNode::xhtmlTitle() const
 {
   if (target().language() != Language::English)
@@ -145,7 +137,6 @@ QString LinkNode::xhtmlTitle() const
     return target().toXHtml();
 }
 
-//===========================================================================
 bool LinkNode::isInterwiki() const
 {
   return !_forcedLink &&
@@ -153,7 +144,6 @@ bool LinkNode::isInterwiki() const
     target().language() != Language::English;
 }
 
-//===========================================================================
 bool LinkNode::isDisplayableImage() const
 {
   if (_forcedLink) return false;
@@ -164,7 +154,6 @@ bool LinkNode::isDisplayableImage() const
   return false;
 }
 
-//===========================================================================
 LinkNode::Image LinkNode::getImageParams() const
 {
   Image image;
@@ -223,7 +212,6 @@ LinkNode::Image LinkNode::getImageParams() const
   return image;
 }
 
-//===========================================================================
 QString LinkNode::toXHtmlImage() const
 {
   Image image = getImageParams();

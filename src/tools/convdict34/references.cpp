@@ -18,7 +18,6 @@
 #include <QRegExp>
 #include <QStringList>
 
-//===========================================================================
 static void addRef(QRegExp &ref, int refOffs, QString &content, QStringList &texts, int &baseOffset)
 {
   texts.append(ref.cap(1));
@@ -29,7 +28,6 @@ static void addRef(QRegExp &ref, int refOffs, QString &content, QStringList &tex
   content.insert(refOffs, label);
 }
 
-//===========================================================================
 /// @returns 
 ///   Offset to last unchanged character. Returns -1 if no change was possible.
 static int step(QString &content, QStringList &texts, int &baseOffset, int from)
@@ -75,7 +73,6 @@ static int step(QString &content, QStringList &texts, int &baseOffset, int from)
   }
 }
 
-//===========================================================================
 QString handleReferences(const QString &name, QString content)
 {
   QStringList texts; 

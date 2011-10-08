@@ -18,7 +18,6 @@
 #include <libwikt/tree/headingnode.h>
 #include <libwikt/debug.h>
 
-//===========================================================================
 void StatsPageGenerator::visit(const QString &name, const ArticleNode &node)
 {
   // Skip pages with a namespace.
@@ -66,7 +65,6 @@ void StatsPageGenerator::visit(const QString &name, const ArticleNode &node)
   }
 }
 
-//===========================================================================
 void StatsPageGenerator::write(Format4Writer &destination)
 {
   QString contents =

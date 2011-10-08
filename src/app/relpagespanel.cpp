@@ -22,7 +22,6 @@
 
 namespace RelatedPages {
 
-//===========================================================================
 Panel::Panel() : QDockWidget(tr("Related Pages")), _model(this),
   _urlOpeningAllowed(true)
 {
@@ -40,7 +39,6 @@ Panel::Panel() : QDockWidget(tr("Related Pages")), _model(this),
   connect(_treeView, SIGNAL(expanded(const QModelIndex&)), this, SLOT(expanded(const QModelIndex&)));
 }
 
-//===========================================================================
 void Panel::modelChanged()
 {
   // Update expansion of External Links root node and Interwiki root node.
@@ -70,7 +68,6 @@ void Panel::modelChanged()
   setVisible(_model.rowCount() > 0 && !_model.lastEntry().startsWith("Wikt:"));
 }
 
-//===========================================================================
 void Panel::collapsed(const QModelIndex &index)
 {
   if (!index.isValid()) return;
@@ -84,7 +81,6 @@ void Panel::collapsed(const QModelIndex &index)
     settings.setValue("interwikiExpanded", false);
 }
 
-//===========================================================================
 void Panel::expanded(const QModelIndex &index)
 {
   if (!index.isValid()) return;
@@ -98,7 +94,6 @@ void Panel::expanded(const QModelIndex &index)
     settings.setValue("interwikiExpanded", true);
 }
 
-//===========================================================================
 void Panel::activated(const QModelIndex &index)
 {
   if (!index.isValid()) return;
@@ -117,7 +112,6 @@ void Panel::activated(const QModelIndex &index)
     emit localLinkClicked(static_cast<InternalLinkItem*>(item)->link());
 }
 
-//===========================================================================
 void Panel::allowOpeningUrl()
 {
   _urlOpeningAllowed = true;

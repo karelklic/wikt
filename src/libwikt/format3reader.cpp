@@ -18,7 +18,6 @@
 #include "comparsion.h"
 #include "debug.h"
 
-//===========================================================================
 Format3Reader::Format3Reader(const QString &fileName)
 {
   _file.setFileName(fileName);
@@ -39,13 +38,11 @@ Format3Reader::Format3Reader(const QString &fileName)
   delete[] offsets;
 }
 
-//===========================================================================
 Format3Reader::~Format3Reader()
 {
   _file.close();
 }
 
-//===========================================================================
 QString Format3Reader::source(quint32 offset)
 {
   _file.seek(sizeof(quint32) + offset * sizeof(qint64)); // index offset
@@ -55,7 +52,6 @@ QString Format3Reader::source(quint32 offset)
   return sourceDirect(entryOffset);
 }
 
-//===========================================================================
 QString Format3Reader::sourceDirect(qint64 offset)
 {
   bool seeked = _file.seek(offset);
@@ -64,7 +60,6 @@ QString Format3Reader::sourceDirect(qint64 offset)
   return FileUtils::readString(_file); // contents
 }
 
-//===========================================================================
 bool Format3Reader::exist(QString entryName)
 {
   if (_links.contains(entryName))
@@ -80,7 +75,6 @@ bool Format3Reader::exist(QString entryName)
   return false;
 }
 
-//===========================================================================
 Format3Reader::Format3Reader() : _entryCount(0)
 {
 }

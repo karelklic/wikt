@@ -20,7 +20,6 @@
 #include <libwikt/debug.h>
 #include <QTimer>
 
-//===========================================================================
 NetworkReplyTitlePage::NetworkReplyTitlePage(const QNetworkRequest &request,
     QObject *parent) : QNetworkReply(parent)
 {
@@ -40,7 +39,6 @@ NetworkReplyTitlePage::NetworkReplyTitlePage(const QNetworkRequest &request,
   QTimer::singleShot(0, this, SIGNAL(readyRead()));
 }
 
-//===========================================================================
 qint64 NetworkReplyTitlePage::readData(char *data, qint64 maxSize)
 {
   qint64 length = _buffer.read(data, maxSize);

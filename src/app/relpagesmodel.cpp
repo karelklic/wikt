@@ -22,19 +22,16 @@
 
 namespace RelatedPages {
 
-//===========================================================================
 Model::Model(QObject *parent) : QAbstractItemModel(parent)
 {
   _rootItem = new RootItem();
 }
 
-//===========================================================================
 Model::~Model()
 {
   delete _rootItem;
 }
 
-//===========================================================================
 QVariant Model::data(const QModelIndex &index, int role) const
 {
   if (!index.isValid())
@@ -45,14 +42,12 @@ QVariant Model::data(const QModelIndex &index, int role) const
   return item->data(index.column());
 }
 
-//===========================================================================
 Qt::ItemFlags Model::flags(const QModelIndex &index) const
 {
   if (!index.isValid()) return 0;
   return Qt::ItemIsEnabled | Qt::ItemIsSelectable;
 }
 
-//===========================================================================
 QModelIndex Model::index(int row, int column, const QModelIndex &parent) const
 {
   if (!hasIndex(row, column, parent))
@@ -71,7 +66,6 @@ QModelIndex Model::index(int row, int column, const QModelIndex &parent) const
     return QModelIndex();
 }
 
-//===========================================================================
 QModelIndex Model::parent(const QModelIndex &index) const
 {
   if (!index.isValid())
@@ -85,7 +79,6 @@ QModelIndex Model::parent(const QModelIndex &index) const
   return createIndex(parentItem->row(), 0, parentItem);
 }
 
-//===========================================================================
 int Model::rowCount(const QModelIndex &parent) const
 {
   Item *parentItem;
@@ -99,7 +92,6 @@ int Model::rowCount(const QModelIndex &parent) const
   return parentItem->childCount();
 }
 
-//===========================================================================
 int Model::columnCount(const QModelIndex &parent) const
 {
   if (parent.isValid())
@@ -108,7 +100,6 @@ int Model::columnCount(const QModelIndex &parent) const
     return _rootItem->columnCount();
 }
 
-//===========================================================================
 void Model::generateFrom(const ArticleNode *node)
 {
   QList<const ArticleNode*> nodes;
@@ -116,7 +107,6 @@ void Model::generateFrom(const ArticleNode *node)
   generateFrom(nodes);
 }
 
-//===========================================================================
 void Model::generateFrom(const QList<const ArticleNode*> &nodes)
 {
   _lastEntry = nodes.first()->name();
@@ -126,7 +116,6 @@ void Model::generateFrom(const QList<const ArticleNode*> &nodes)
   reset();
 }
 
-//===========================================================================
 void Model::partialUpdateFrom(const QString &entry, const ArticleNode *rootNode)
 {
   _lastEntry = entry;
@@ -135,7 +124,6 @@ void Model::partialUpdateFrom(const QString &entry, const ArticleNode *rootNode)
   reset();
 }
 
-//===========================================================================
 void Model::clear()
 {
   _lastEntry = "";
@@ -144,7 +132,6 @@ void Model::clear()
   reset();
 }
 
-//===========================================================================
 QModelIndex Model::externalLinksIndex() const
 {
   ExternalLinksRootItem *item = _rootItem->externalLinksRootItem();
@@ -152,7 +139,6 @@ QModelIndex Model::externalLinksIndex() const
   return createIndex(item->row(), 0, item);
 }
 
-//===========================================================================
 QModelIndex Model::interwikiIndex() const
 {
   ExternalLinksRootItem *external = _rootItem->externalLinksRootItem();
@@ -162,7 +148,6 @@ QModelIndex Model::interwikiIndex() const
   return createIndex(interwiki->row(), 0, interwiki);
 }
 
-//===========================================================================
 QModelIndex Model::lastEntryIndex() const
 {
   for (int i = 0; i < _rootItem->childCount(); ++i)

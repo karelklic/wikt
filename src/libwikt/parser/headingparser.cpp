@@ -16,7 +16,6 @@
 #include "headingparser.h"
 #include "textblockparser.h"
 
-//===========================================================================
 Node *HeadingParser::parse(Buffer &buffer)
 {
   if (buffer.endOfFile()) return 0;

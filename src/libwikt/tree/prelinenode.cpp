@@ -15,7 +15,6 @@
  */
 #include "prelinenode.h"
 
-//===========================================================================
 QString PreLineNode::toXml(int indentLevel) const
 {
   QString indent(indentLevel, ' ');

@@ -19,19 +19,16 @@
 
 namespace InterestingPages {
 
-//===========================================================================
 Model::Model(QObject *parent) : QAbstractItemModel(parent)
 {
   _rootItem = new RootItem();
 }
 
-//===========================================================================
 Model::~Model()
 {
   delete _rootItem;
 }
 
-//===========================================================================
 QVariant Model::data(const QModelIndex &index, int role) const
 {
   if (!index.isValid())
@@ -42,14 +39,12 @@ QVariant Model::data(const QModelIndex &index, int role) const
   return item->data(index.column());
 }
 
-//===========================================================================
 Qt::ItemFlags Model::flags(const QModelIndex &index) const
 {
   if (!index.isValid()) return 0;
   return Qt::ItemIsEnabled | Qt::ItemIsSelectable;
 }
 
-//===========================================================================
 QModelIndex Model::index(int row, int column, const QModelIndex &parent) const
 {
   if (!hasIndex(row, column, parent))
@@ -68,7 +63,6 @@ QModelIndex Model::index(int row, int column, const QModelIndex &parent) const
       return QModelIndex();
 }
 
-//===========================================================================
 QModelIndex Model::parent(const QModelIndex &index) const
 {
   if (!index.isValid())
@@ -82,7 +76,6 @@ QModelIndex Model::parent(const QModelIndex &index) const
   return createIndex(parentItem->row(), 0, parentItem);
 }
 
-//===========================================================================
 int Model::rowCount(const QModelIndex &parent) const
 {
   Item *parentItem;
@@ -96,7 +89,6 @@ int Model::rowCount(const QModelIndex &parent) const
   return parentItem->childCount();
 }
 
-//===========================================================================
 int Model::columnCount(const QModelIndex &parent) const
 {
   if (parent.isValid())
@@ -105,7 +97,6 @@ int Model::columnCount(const QModelIndex &parent) const
       return _rootItem->columnCount();
 }
 
-//===========================================================================
 void Model::generate()
 {
   _rootItem->generate();
@@ -114,7 +105,6 @@ void Model::generate()
   reset();
 }
 
-//===========================================================================
 QModelIndex Model::languagesRootItemIndex() const
 {
   LanguagesRootItem *languagesOfTheWorld = _rootItem->languagesOfTheWorld();

@@ -19,7 +19,6 @@
 #include "definitionlistparser.h"
 #include "textblockparser.h"
 
-//===========================================================================
 Node *ListParser::parse(Buffer &buffer)
 {
   Node *result;
@@ -32,7 +31,6 @@ Node *ListParser::parse(Buffer &buffer)
   return 0;
 }
 
-//===========================================================================
 Node *createItemNode(const QChar &itemNodeTypeChar)
 {
   Node *itemNode = 0;
@@ -46,7 +44,6 @@ Node *createItemNode(const QChar &itemNodeTypeChar)
   return itemNode;
 }
 
-//===========================================================================
 void ListParser::parseListItems(QStringList &lines, Node &listNode)
 {
   while (!lines.empty())

@@ -17,7 +17,6 @@
 #include <QRegExp>
 #include <QStringList>
 
-//===========================================================================
 QString GalleryConverter::convert(QString source)
 {
   // See http://en.wikipedia.org/wiki/Wikipedia:Gallery_tag for

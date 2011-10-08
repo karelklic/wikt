@@ -28,14 +28,12 @@
 #include <QAction>
 #include <QDesktopServices>
 
-//===========================================================================
 Coordinator::Coordinator(QObject *parent) : QObject(parent), _state(Initial)
 {
   // Do nothing here, almost no other application object is initialized
   // now.
 }
 
-//===========================================================================
 void Coordinator::textEnteredToLookup(QString text)
 {
   // Cache
@@ -64,7 +62,7 @@ void Coordinator::textEnteredToLookup(QString text)
 
   // The entered term was not found in the dictionary.
   // Display error page.
-  if (entries.empty()) 
+  if (entries.empty())
   {
     errorNotFound(text);
     return;
@@ -84,12 +82,11 @@ void Coordinator::textEnteredToLookup(QString text)
   window->categoriesPanel()->model().generateFrom(*nodes.first());
   window->interestingPagesPanel()->model().generate();
 
-  // Set focus to the web view. User can scroll through the entry using 
+  // Set focus to the web view. User can scroll through the entry using
   // keyboard.
   window->webView()->setFocus();
 }
 
-//===========================================================================
 void Coordinator::localLinkClickedInView(const QUrl &url)
 {
   // Cache
@@ -126,7 +123,6 @@ void Coordinator::localLinkClickedInView(const QUrl &url)
     QDesktopServices::openUrl(url);
 }
 
-//===========================================================================
 void Coordinator::interestingPagesPanelClicked(const QString &entry)
 {
   // Cache
@@ -140,7 +136,7 @@ void Coordinator::interestingPagesPanelClicked(const QString &entry)
   ArticleNode *node = window->wikiSource()->tree(entry);
 
   // the entry does not exist
-  if (!node) 
+  if (!node)
   {
     errorNotFound(entry);
     return;
@@ -155,7 +151,6 @@ void Coordinator::interestingPagesPanelClicked(const QString &entry)
   window->interestingPagesPanel()->model().generate();
 }
 
-//===========================================================================
 void Coordinator::localLinkClickedInRelatedPagesPanel(const QString &word)
 {
   // Cache
@@ -169,7 +164,7 @@ void Coordinator::localLinkClickedInRelatedPagesPanel(const QString &word)
   ArticleNode *node = window->wikiSource()->tree(word);
 
   // the word does not exist
-  if (!node) 
+  if (!node)
   {
     errorNotFound(word);
     return;
@@ -184,20 +179,17 @@ void Coordinator::localLinkClickedInRelatedPagesPanel(const QString &word)
   window->interestingPagesPanel()->model().generate();
 }
 
-//===========================================================================
 void Coordinator::categoryClickedInCategoriesPanel(const QString &entry)
 {
   // Different handling later.
   textEnteredToLookup(entry);
 }
 
-//===========================================================================
 void Coordinator::tableOfContentsClicked(const QString &headingId)
 {
   MainWindow::instance()->webView()->navigateToId(headingId);
 }
 
-//===========================================================================
 void Coordinator::homeActivated()
 {
   // Cache
@@ -215,7 +207,6 @@ void Coordinator::homeActivated()
   window->interestingPagesPanel()->model().generate();
 }
 
-//===========================================================================
 void Coordinator::historyActivated(const QUrl &url)
 {
   if (url.scheme() == "special" && url.host() == "titlepage")
@@ -247,7 +238,6 @@ void Coordinator::historyActivated(const QUrl &url)
   window->interestingPagesPanel()->model().generate();
 }
 
-//===========================================================================
 void Coordinator::userSettingChanged_SectionVisibility()
 {
   MainWindow *window = MainWindow::instance();
@@ -263,7 +253,6 @@ void Coordinator::userSettingChanged_SectionVisibility()
   window->tableOfContentsPanel()->model().generateFrom(node);
 }
 
-//===========================================================================
 void Coordinator::userSettingChanged_Translations()
 {
   MainWindow *window = MainWindow::instance();
@@ -271,7 +260,6 @@ void Coordinator::userSettingChanged_Translations()
   window->webView()->reload();
 }
 
-//===========================================================================
 void Coordinator::errorNotFound(const QString &text)
 {
   _state = ErrorNotFound;

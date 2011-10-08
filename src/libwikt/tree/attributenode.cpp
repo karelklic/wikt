@@ -15,12 +15,10 @@
  */
 #include "attributenode.h"
 
-//===========================================================================
 AttributeNode::AttributeNode(const QString &name, bool isNull) : Node(Node::Attribute), _name(name), _isNull(isNull)
 {
 }
 
-//===========================================================================
 QString AttributeNode::toXHtml() const
 {
   return QString("%1=\"%2\"")
@@ -28,7 +26,6 @@ QString AttributeNode::toXHtml() const
     .arg(childrenToXHtml());
 }
 
-//===========================================================================
 QString AttributeNode::toXml(int indentLevel) const
 {
   QString indent(indentLevel, ' ');

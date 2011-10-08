@@ -21,14 +21,12 @@
 
 namespace RelatedPages {
 
-//===========================================================================
 ExternalLinksRootItem::ExternalLinksRootItem(Item *parent)
   : Item(ExternalLinksRoot, parent), _interwikiRootItem(0)
 {
   _itemData.append(QVariant("External links"));
 }
 
-//===========================================================================
 void ExternalLinksRootItem::update(const QString &entry, const Node *rootNode)
 {
   qDeleteAll(_childItems);

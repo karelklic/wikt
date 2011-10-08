@@ -16,13 +16,11 @@
 #include "texttokennode.h"
 #include <QTextDocument>
 
-//===========================================================================
 TextTokenNode::TextTokenNode(const QString &text) : Node(Node::TextToken)
 {
   _text = Qt::escape(text);
 }
 
-//===========================================================================
 QString TextTokenNode::toXHtml() const
 {
   if (!_xhtmlVisible) return "";
@@ -30,7 +28,6 @@ QString TextTokenNode::toXHtml() const
   return _text;
 }
 
-//===========================================================================
 QString TextTokenNode::toXml(int indentLevel) const
 {
   QString indent(indentLevel, ' ');

@@ -17,7 +17,6 @@
 #include "htmlsyntaxhighlighter.h"
 #include <QTextEdit>
 
-//===========================================================================
 HtmlSourceView::HtmlSourceView(const QString &contents)
   : QDockWidget(tr("HTML Source View"))
 {

@@ -17,7 +17,6 @@
 #include "wikisource.h"
 #include <QTimer>
 
-//===========================================================================
 NetworkReplyStylesheet::NetworkReplyStylesheet(const QNetworkRequest &request,
     QObject *parent) : QNetworkReply(parent)
 {
@@ -41,7 +40,6 @@ NetworkReplyStylesheet::NetworkReplyStylesheet(const QNetworkRequest &request,
   _checkFinishedTimer.start(50);
 }
 
-//===========================================================================
 void NetworkReplyStylesheet::checkFinished()
 {
   if (_buffer.bytesAvailable() + QNetworkReply::bytesAvailable() == 0)

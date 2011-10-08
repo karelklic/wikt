@@ -17,7 +17,6 @@
 
 namespace StringUtils {
 
-//===========================================================================
 QString removeBlock(const QRegExp &startTag, const QRegExp &stopTag, QString text)
 {
   int start = text.indexOf(startTag);

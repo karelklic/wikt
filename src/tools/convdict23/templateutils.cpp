@@ -15,7 +15,6 @@
  */
 #include "templateutils.h"
 
-//===========================================================================
 void TemplateUtils::getParts(const QString &templateText, QList<QString> &output)
 {
   // If linkLevel > 0, the iterator is inside a link.
@@ -55,7 +54,6 @@ void TemplateUtils::getParts(const QString &templateText, QList<QString> &output
   output[0] = output[0].trimmed();
 }
 
-//===========================================================================
 void TemplateUtils::_addParameterToList(const QString &paramText, ParameterList &dest)
 {
   // Spaces and newlines are stripped from the start and end of parameter
@@ -73,7 +71,6 @@ void TemplateUtils::_addParameterToList(const QString &paramText, ParameterList 
   dest.insert(key, value);
 }
 
-//===========================================================================
 ParameterList TemplateUtils::getParameterList(const QList<QString> &parts)
 {
   ParameterList result;
@@ -82,7 +79,6 @@ ParameterList TemplateUtils::getParameterList(const QList<QString> &parts)
   return result;
 }
 
-//===========================================================================
 QString TemplateUtils::evaluateParameter(const QString &parameterText, const ParameterList &params)
 {
   QList<QString> parts;

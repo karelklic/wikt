@@ -42,7 +42,6 @@ static QString allowedTags[] =
   "ul"
 };
 
-//===========================================================================
 HtmlElementNode *BlockHtmlParser::parse(Buffer &buffer)
 {
   if (buffer.endOfFile()) return 0;
@@ -58,7 +57,6 @@ HtmlElementNode *BlockHtmlParser::parse(Buffer &buffer)
   return 0;
 }
 
-//===========================================================================
 int BlockHtmlParser::indexIn(const QString &text, int offset)
 {
   // This method is the slowest point of whole parser, so it must be 
@@ -117,7 +115,6 @@ int BlockHtmlParser::indexIn(const QString &text, int offset)
 */
 }
 
-//===========================================================================
 HtmlElementNode *BlockHtmlParser::parse(Buffer &buffer, const QString &tag)
 {
   // Parse opening tag.

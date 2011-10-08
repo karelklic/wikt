@@ -17,7 +17,6 @@
 #include "tablenode.h"
 #include "attributegroupnode.h"
 
-//===========================================================================
 HtmlElementNode::HtmlElementNode(const QString &name, const QString &params,
     bool paired) : Node(Node::HtmlElement), _name(name),
     _paired(paired)
@@ -26,7 +25,6 @@ HtmlElementNode::HtmlElementNode(const QString &name, const QString &params,
   _params = params.trimmed();
 }
 
-//===========================================================================
 QString HtmlElementNode::toXHtml() const
 {
   if (!_xhtmlVisible) return "";
@@ -49,7 +47,6 @@ QString HtmlElementNode::toXHtml() const
   }
 }
 
-//===========================================================================
 QString HtmlElementNode::toXml(int indentLevel) const
 {
   QString indent(indentLevel, ' ');
@@ -62,7 +59,6 @@ QString HtmlElementNode::toXml(int indentLevel) const
     .arg(findTranslationTable() ? "true" : "false");
 }
 
-//===========================================================================
 bool HtmlElementNode::isSeeAlsoNode() const
 {
   // it is either <div class="disambig-see-also">...</div> or
@@ -70,7 +66,6 @@ bool HtmlElementNode::isSeeAlsoNode() const
   return _name == "div" && _params.contains("disambig-see-also");
 }
 
-//===========================================================================
 TableNode *HtmlElementNode::findTranslationTable() const
 {
   if (_name != "div" || !_params.contains("NavFrame"))

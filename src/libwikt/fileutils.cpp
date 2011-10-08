@@ -17,7 +17,6 @@
 #include "debug.h"
 #include <QByteArray>
 
-//===========================================================================
 void FileUtils::writeString(QIODevice &device, const QString &data)
 {
   QByteArray utf8(data.toUtf8());
@@ -35,7 +34,6 @@ void FileUtils::writeString(QIODevice &device, const QString &data)
   CHECK_MSG(bytes == count, "Error while writing to file.");
 }
 
-//===========================================================================
 QString FileUtils::readString(QIODevice &device)
 {
   quint32 count;
@@ -47,7 +45,6 @@ QString FileUtils::readString(QIODevice &device)
   return QString::fromUtf8(utf8);
 }
 
-//===========================================================================
 void FileUtils::writeCompressed(QIODevice &device, const QString &data)
 {
   QByteArray utf8(data.toUtf8());
@@ -68,7 +65,6 @@ void FileUtils::writeCompressed(QIODevice &device, const QString &data)
   CHECK_MSG(bytes == compressed.size(), "Error while writing to file.");
 }
 
-//===========================================================================
 QString FileUtils::readCompressed(QIODevice &device)
 {
   quint32 count;
@@ -81,7 +77,6 @@ QString FileUtils::readCompressed(QIODevice &device)
   return QString::fromUtf8(utf8);
 }
 
-//===========================================================================
 void FileUtils::writeByteArray(QIODevice &device, const QByteArray &data)
 {
   qint32 len = data.length();
@@ -89,7 +84,6 @@ void FileUtils::writeByteArray(QIODevice &device, const QByteArray &data)
   device.write(data);
 }
 
-//===========================================================================
 QByteArray FileUtils::readByteArray(QIODevice &device)
 {
   qint32 len;

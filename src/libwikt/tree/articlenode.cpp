@@ -25,7 +25,6 @@
 #include <QSettings>
 #include <QList>
 
-//===========================================================================
 QString ArticleNode::toXHtml() const
 {
   if (!_xhtmlVisible) return "";
@@ -34,7 +33,6 @@ QString ArticleNode::toXHtml() const
     .arg(childrenToXHtml());
 }
 
-//===========================================================================
 QString ArticleNode::toXml(int indentLevel) const
 {
   QString indent(indentLevel, ' ');
@@ -43,7 +41,6 @@ QString ArticleNode::toXml(int indentLevel) const
     indent + "</article>\n";
 }
 
-//===========================================================================
 void ArticleNode::updateSectionVisibility()
 {
   static const int DISABLED = MAX_HEADING_LEVEL + 1;
@@ -62,7 +59,6 @@ void ArticleNode::updateSectionVisibility()
   }
 }
 
-//===========================================================================
 void ArticleNode::updateTranslationSettings()
 {
   // Check top-level nodes only.
@@ -89,7 +85,6 @@ void ArticleNode::updateTranslationSettings()
   }
 }
 
-//===========================================================================
 void ArticleNode::getCategories(QStringList &list) const
 {
   QList<const LinkNode*> links;

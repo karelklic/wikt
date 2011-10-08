@@ -21,7 +21,6 @@
 
 namespace InterestingPages {
 
-//===========================================================================
 LanguagesRootItem::LanguagesRootItem(Item *parent) : Item(LanguagesOfTheWorld, parent)
 {
   _itemData.append(QVariant("Language indexes"));
@@ -43,7 +42,6 @@ LanguagesRootItem::LanguagesRootItem(Item *parent) : Item(LanguagesOfTheWorld, p
   }
 }
 
-//===========================================================================
 void LanguagesRootItem::addLanguage(const QString &languageName)
 {
   appendChild(new LinkItem(languageName, "Index:" + languageName, this));

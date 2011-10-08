@@ -15,25 +15,21 @@
  */
 #include "parameterlist.h"
 
-//===========================================================================
 ParameterList::ParameterList() : _positionalParameterCount(0)
 {
 }
 
-//===========================================================================
 void ParameterList::insert(QString key, QString value)
 {
   _parameters.insert(key, value);
 }
 
-//===========================================================================
 void ParameterList::insert(QString value)
 {
   insert(QString::number(_positionalParameterCount + 1), value);
   _positionalParameterCount += 1;
 }
 
-//===========================================================================
 QString ParameterList::operator[](QString key) const
 {
   if (_parameters.contains(key))

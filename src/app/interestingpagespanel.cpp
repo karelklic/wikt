@@ -24,7 +24,6 @@
 
 namespace InterestingPages {
 
-//===========================================================================
 Panel::Panel() : QDockWidget(tr("Interesting Pages")), _model(this)
 {
   _treeView = new QTreeView(this);
@@ -41,7 +40,6 @@ Panel::Panel() : QDockWidget(tr("Interesting Pages")), _model(this)
   connect(_treeView, SIGNAL(expanded(const QModelIndex&)), this, SLOT(expanded(const QModelIndex&)));
 }
 
-//===========================================================================
 void Panel::modelChanged()
 {
   // Update expansion of nodes, as it provides good user experience.
@@ -58,7 +56,6 @@ void Panel::modelChanged()
 	     MainWindow::instance()->coordinator()->text().startsWith("Wikt:"));
 }
 
-//===========================================================================
 void Panel::collapsed(const QModelIndex &index)
 {
   if (!index.isValid()) return;
@@ -68,7 +65,6 @@ void Panel::collapsed(const QModelIndex &index)
     settings.setValue("languagesOfTheWorldExpanded", false);
 }
 
-//===========================================================================
 void Panel::expanded(const QModelIndex &index)
 {
   if (!index.isValid()) return;
@@ -78,7 +74,6 @@ void Panel::expanded(const QModelIndex &index)
     settings.setValue("languagesOfTheWorldExpanded", true);
 }
 
-//===========================================================================
 void Panel::activated(const QModelIndex &index)
 {
   if (!index.isValid()) return;

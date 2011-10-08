@@ -15,7 +15,6 @@
  */
 #include "htmlentityparser.h"
 
-//===========================================================================
 HtmlEntityNode *HtmlEntityParser::parse(Buffer &buffer)
 {
   if (buffer.endOfFile()) return 0;

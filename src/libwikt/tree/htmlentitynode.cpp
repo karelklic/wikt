@@ -15,14 +15,12 @@
  */
 #include "htmlentitynode.h"
 
-//===========================================================================
 QString HtmlEntityNode::toXHtml() const
 {
   if (!_xhtmlVisible) return "";
   return _text;
 }
 
-//===========================================================================
 QString HtmlEntityNode::toXml(int indentLevel) const
 {
   QString indent(indentLevel, ' ');

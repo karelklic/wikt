@@ -18,7 +18,6 @@
 #include "comparsion.h"
 #include "debug.h"
 
-//===========================================================================
 MediaReader::MediaReader(const QString &fileName)
 {
   _file.setFileName(fileName);
@@ -26,20 +25,17 @@ MediaReader::MediaReader(const QString &fileName)
   _file.read((char*)&_entryCount, sizeof(quint32));
 }
 
-//===========================================================================
 MediaReader::~MediaReader()
 {
   _file.close();
 }
 
-//===========================================================================
 QByteArray MediaReader::source(const QString &entryName)
 {
   qint32 offset = findEntryOffset(0, _entryCount - 1, entryName);
   return (offset < 0) ? QByteArray() : source(offset);
 }
 
-//===========================================================================
 QByteArray MediaReader::source(quint32 offset)
 {
   _file.seek(sizeof(quint32) + offset * sizeof(qint64)); // index offset
@@ -54,14 +50,12 @@ QByteArray MediaReader::source(quint32 offset)
   return FileUtils::readByteArray(_file); // contents
 }
 
-//===========================================================================
 bool MediaReader::exist(const QString &entryName)
 {
   qint32 offset = findEntryOffset(0, _entryCount - 1, entryName);
   return offset >= 0;
 }
 
-//===========================================================================
 QString MediaReader::name(quint32 offset)
 {
   _file.seek(sizeof(quint32) + offset * sizeof(qint64)); // index offset
@@ -71,12 +65,10 @@ QString MediaReader::name(quint32 offset)
   return FileUtils::readString(_file);
 }
 
-//===========================================================================
 MediaReader::MediaReader() : _entryCount(0)
 {
 }
 
-//===========================================================================
 qint32 MediaReader::findEntryOffset(quint32 min, quint32 max, const QString &entryName)
 {
   if (min == max)

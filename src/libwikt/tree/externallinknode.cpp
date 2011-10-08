@@ -15,20 +15,17 @@
  */
 #include "externallinknode.h"
 
-//===========================================================================
 ExternalLinkNode::ExternalLinkNode(const QString &url, const QString &text)
   : Node(Node::ExternalLink), _url(url), _text(text)
 {
 }
 
-//===========================================================================
 QString ExternalLinkNode::toXHtml() const
 {
   return QString("<a href=\"%1\">%2</a>")
     .arg(_url, _text);
 }
 
-//===========================================================================
 QString ExternalLinkNode::toXml(int indentLevel) const
 {
   QString indent(indentLevel, ' ');

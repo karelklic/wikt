@@ -15,19 +15,16 @@
  */
 #include "bulletlistnode.h"
 
-//===========================================================================
 BulletListNode::BulletListNode() : Node(Node::BulletList)
 {
 }
 
-//===========================================================================
 QString BulletListNode::toXHtml() const
 {
   if (!_xhtmlVisible) return "";
   return QString("<ul>%1</ul>").arg(childrenToXHtml());
 }
 
-//===========================================================================
 QString BulletListNode::toXml(int indentLevel) const
 {
   QString indent(indentLevel, ' ');

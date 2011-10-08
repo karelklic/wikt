@@ -17,7 +17,6 @@
 #include "wikisource.h"
 #include <QTimer>
 
-//===========================================================================
 NetworkReplyJavascript::NetworkReplyJavascript(const QNetworkRequest &request, QObject *parent) : QNetworkReply(parent)
 {
   const QString &js = WikiSource::instance().javascript();
@@ -40,7 +39,6 @@ NetworkReplyJavascript::NetworkReplyJavascript(const QNetworkRequest &request, Q
   _checkFinishedTimer.start(50);
 }
 
-//===========================================================================
 void NetworkReplyJavascript::checkFinished()
 {
   if (_buffer.bytesAvailable() + QNetworkReply::bytesAvailable() == 0)

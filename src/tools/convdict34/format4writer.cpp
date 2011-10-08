@@ -20,13 +20,11 @@
 #include <libwikt/debug.h>
 #include <QStringList>
 
-//===========================================================================
 Format4Writer::Format4Writer(const QString &targetFileName) : _targetFileName(targetFileName)
 {
   _temporaryFile.open();
 }
 
-//===========================================================================
 void Format4Writer::addEntry(const QString &name, const QString &contents)
 {
   qint64 offset = _temporaryFile.pos();
@@ -39,7 +37,6 @@ void Format4Writer::addEntry(const QString &name, const QString &contents)
   _links.push_back(Link(name, offset));
 }
 
-//===========================================================================
 void Format4Writer::addCategory(const QString &name, const QString &contents, const QStringList &subcategories, const QStringList &entries)
 {
   qint64 offset = _temporaryFile.pos();
@@ -73,7 +70,6 @@ void Format4Writer::addCategory(const QString &name, const QString &contents, co
   _links.push_back(Link(name, offset));
 }
 
-//===========================================================================
 void Format4Writer::close()
 {
   // Sort the links in the memory.

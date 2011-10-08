@@ -26,12 +26,10 @@
 
 //#define TEMPLATE_SOLVER_DEBUG
 
-//===========================================================================
 TemplateSolver::TemplateSolver(const QString &pageName, const QString &pageContent, Format2Reader &reader) : _pageName(pageName), _pageContent(pageContent), _reader(reader)
 {
 }
 
-//===========================================================================
 QString TemplateSolver::run()
 {
 #ifdef TEMPLATE_SOLVER_DEBUG
@@ -41,7 +39,6 @@ QString TemplateSolver::run()
   return removeTemplates(_pageContent, empty);
 }
 
-//===========================================================================
 QString TemplateSolver::escapeTemplateSyntax(QString text)
 {
 #define PIPE_ESCAPE "1P#-"
@@ -52,14 +49,12 @@ QString TemplateSolver::escapeTemplateSyntax(QString text)
     .replace("{", LEFT_BRACE_ESCAPE).replace("}", RIGHT_BRACE_ESCAPE);
 }
 
-//===========================================================================
 QString TemplateSolver::unescapeTemplateSyntax(QString text)
 {
   return text.replace(PIPE_ESCAPE, "|").replace(EQUALS_ESCAPE, "=")
     .replace(LEFT_BRACE_ESCAPE, "{").replace(RIGHT_BRACE_ESCAPE, "}");
 }
 
-//===========================================================================
 /// Returns the index position of the first occurrence of the string str
 /// in the string text, searching forward from index position from and
 /// skipping the contents of embedded wikilinks.
@@ -96,7 +91,6 @@ int TemplateSolver::linkSkippingindexOf(const QString &text, const QString &str,
   return -1;
 }
 
-//===========================================================================
 QString TemplateSolver::removeTemplates(QString wikiText, const ParameterList &params)
 {
   int from = -1;
@@ -162,7 +156,6 @@ QString TemplateSolver::removeTemplates(QString wikiText, const ParameterList &p
   }
 }
 
-//===========================================================================
 void TemplateSolver::evaluateTemplate(QString &wikiText, int from, int to)
 {
   QString contents = wikiText.mid(from + 2, to - from - 4);
@@ -198,7 +191,6 @@ void TemplateSolver::evaluateTemplate(QString &wikiText, int from, int to)
   wikiText.replace(from, to - from, evaluated);
 }
 
-//===========================================================================
 QString TemplateSolver::evaluateTemplate(const QString &templateText)
 {
   QString templateTextTrimmed = templateText.trimmed();

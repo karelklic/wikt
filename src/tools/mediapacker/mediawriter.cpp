@@ -19,13 +19,11 @@
 #include <libwikt/comparsion.h>
 #include <libwikt/debug.h>
 
-//===========================================================================
 MediaWriter::MediaWriter(const QString &targetFileName) : _targetFileName(targetFileName)
 {
   _temporaryFile.open();
 }
 
-//===========================================================================
 void MediaWriter::addEntry(const QString &name, const QByteArray &contents)
 {
   qint64 offset = _temporaryFile.pos();
@@ -38,7 +36,6 @@ void MediaWriter::addEntry(const QString &name, const QByteArray &contents)
   _links.push_back(Link(name, offset));
 }
 
-//===========================================================================
 void MediaWriter::close()
 {
   // Sort the links in the memory.

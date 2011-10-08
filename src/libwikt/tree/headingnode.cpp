@@ -19,7 +19,6 @@
 
 static int uniqueHeaderCounter = 0;
 
-//===========================================================================
 HeadingNode::HeadingNode(int level) : Node(Node::Heading), _level(level),
   _headingType(Heading::Uninitialized)
 {
@@ -27,7 +26,6 @@ HeadingNode::HeadingNode(int level) : Node(Node::Heading), _level(level),
   _uniqueId = ++uniqueHeaderCounter;
 }
 
-//===========================================================================
 QString HeadingNode::toXHtml() const
 {
   if (!_xhtmlVisible) return "";
@@ -37,7 +35,6 @@ QString HeadingNode::toXHtml() const
     .arg(childrenToXHtml());
 }
 
-//===========================================================================
 QString HeadingNode::toXml(int indentLevel) const
 {
   QString indent(indentLevel, ' ');
@@ -46,7 +43,6 @@ QString HeadingNode::toXml(int indentLevel) const
     indent + "</heading>\n";
 }
 
-//===========================================================================
 Heading::Type HeadingNode::headingType() const
 {
   if (_headingType != Heading::Uninitialized)
@@ -56,13 +52,11 @@ Heading::Type HeadingNode::headingType() const
   return _headingType;
 }
 
-//===========================================================================
 bool HeadingNode::xhtmlVisible()
 {
   return Heading::instance().xhtmlVisibility(headingType());
 }
 
-//===========================================================================
 QString HeadingNode::getXHtmlUniqueId() const
 {
   QString result;

@@ -17,7 +17,6 @@
 
 namespace Categories {
 
-//===========================================================================
 Item::Item() : _parentItem(0)
 {
   // We must have some data. Never displayed, but the tree view does not
@@ -25,20 +24,17 @@ Item::Item() : _parentItem(0)
   _itemData.append(QVariant("H1"));
 }
 
-//===========================================================================
 Item::Item(const QString &title, Item *parent)
 {
   _parentItem = parent;
   _itemData.append(QVariant(title));
 }
 
-//===========================================================================
 Item::~Item()
 {
   qDeleteAll(_childItems);
 }
 
-//===========================================================================
 int Item::row() const
 {
   if (_parentItem)

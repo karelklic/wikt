@@ -37,7 +37,6 @@ public:
   QList<QString> mainEntries;
 };
 
-//===========================================================================
 void CategoryEntry::addEntry(const QString &entry)
 {
   Namespace::Type ns = Namespace::instance().fromEntry(entry);
@@ -49,7 +48,6 @@ void CategoryEntry::addEntry(const QString &entry)
 
 static QMap<QString, CategoryEntry> categories;
 
-//===========================================================================
 void CatBuilder_addContents(const QString &categoryName, const QString &contents)
 {
   QMap<QString, CategoryEntry>::iterator it = categories.find(categoryName);
@@ -58,7 +56,6 @@ void CatBuilder_addContents(const QString &categoryName, const QString &contents
   it.value().contents = contents;
 }
 
-//===========================================================================
 /// Adds entry to certain category. Entries which belongs to some category
 /// must be added this way. Both entries from the main namespace and 
 /// subcategories are added this way.
@@ -72,7 +69,6 @@ static void addLink(const QString &categoryName, const QString &entry)
   it.value().addEntry(entry);
 }
 
-//===========================================================================
 void CatBuilder_process(const QString &name, const ArticleNode &node)
 {
   QStringList categories;
@@ -81,7 +77,6 @@ void CatBuilder_process(const QString &name, const ArticleNode &node)
     addLink("Category:" + category, name);
 }
 
-//===========================================================================
 void CatBuilder_writeAll(Format4Writer &destination)
 {
   for (QMap<QString, CategoryEntry>::const_iterator it = categories.begin(); it != categories.end(); ++it)

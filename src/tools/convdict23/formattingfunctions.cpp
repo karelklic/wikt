@@ -17,7 +17,6 @@
 #include <libwikt/debug.h>
 #include <QLocale>
 
-//===========================================================================
 static QString formatNum(QString templateText)
 {
   bool reverse = false;
@@ -44,13 +43,11 @@ static QString formatNum(QString templateText)
   }
 }
 
-//===========================================================================
 bool FormattingFunctions::isFormattingFunction(const QString &templateText)
 {
   return templateText.startsWith("lc:") || templateText.startsWith("lcfirst:") || templateText.startsWith("uc:") || templateText.startsWith("ucfirst:") || templateText.startsWith("formatnum:");
 }
 
-//===========================================================================
 QString FormattingFunctions::evaluate(const QString &templateText)
 {
   QString trimmed = templateText.trimmed();

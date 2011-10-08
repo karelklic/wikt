@@ -17,7 +17,6 @@
 #include "textblockparser.h"
 #include "../unicode.h"
 
-//===========================================================================
 HtmlElementNode *InlineHtmlParser::parse(Buffer &buffer)
 {
   if (buffer.endOfFile()) return 0;
@@ -69,7 +68,6 @@ HtmlElementNode *InlineHtmlParser::parse(Buffer &buffer)
   return 0;
 }
 
-//===========================================================================
 HtmlElementNode *InlineHtmlParser::parsePaired(Buffer &buffer, const QString &tag)
 {
   // This method is optimized, because it was a major performance bottleneck
@@ -140,7 +138,6 @@ HtmlElementNode *InlineHtmlParser::parsePaired(Buffer &buffer, const QString &ta
   return node;
 }
 
-//===========================================================================
 HtmlElementNode *InlineHtmlParser::parseNonpaired(Buffer &buffer,
     const QString &tag)
 {
@@ -154,7 +151,6 @@ HtmlElementNode *InlineHtmlParser::parseNonpaired(Buffer &buffer,
   return new HtmlElementNode(tag, ex.cap(2), false);
 }
 
-//===========================================================================
 int InlineHtmlParser::indexOfClosingTag(Buffer &buffer, const QString &tag,
     int &closingTagLength)
 {

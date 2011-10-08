@@ -19,7 +19,6 @@
 #include "tableheadparser.h"
 #include "blockhtmlparser.h"
 
-//===========================================================================
 TableRowNode *TableRowParser::parse(Buffer &buffer)
 {
   // Test if we are really starting a row.

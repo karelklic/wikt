@@ -16,7 +16,6 @@
 #include "wikisourcecacheitem.h"
 #include <libwikt/parser/articleparser.h>
 
-//===========================================================================
 static void nodeToXHtml(const ArticleNode &node, QString &xhtmlResult)
 {
   xhtmlResult = QString("<html><head>"
@@ -25,7 +24,6 @@ static void nodeToXHtml(const ArticleNode &node, QString &xhtmlResult)
     "</head><body>%1</body></html>").arg(node.toXHtml());
 }
 
-//===========================================================================
 WikiSourceCacheItem::WikiSourceCacheItem(const QString &name, const QString &source) : _source(source), _invalidSectionVisibility(false), _invalidTranslationSettings(false)
 {
   if (_source != "")
@@ -39,28 +37,24 @@ WikiSourceCacheItem::WikiSourceCacheItem(const QString &name, const QString &sou
     _node = 0;
 }
 
-//===========================================================================
 WikiSourceCacheItem::~WikiSourceCacheItem()
 {
   if (_node)
     delete _node;
 }
 
-//===========================================================================
 ArticleNode *WikiSourceCacheItem::node()
 {
   handleInvalidationFlags();
   return _node;
 }
 
-//===========================================================================
 const QString &WikiSourceCacheItem::xhtml()
 {
   handleInvalidationFlags();
   return _xhtml;
 }
 
-//===========================================================================
 void WikiSourceCacheItem::handleInvalidationFlags()
 {
   if (!_invalidSectionVisibility && !_invalidTranslationSettings)

@@ -16,13 +16,12 @@
 #include "urlutils.h"
 #include "debug.h"
 
-//===========================================================================
 QString UrlUtils::toEntryName(const QUrl &url, QString *sectionId)
 {
   QString result;
   QString text(url.host());
   if (url.path().length() > 0)
-    text.append(url.path());
+    text.append(url.path().mid(1));
   for (int i = 0; i < text.length(); ++i)
   {
     // "x" is used as the escape character.
@@ -50,9 +49,9 @@ QString UrlUtils::toEntryName(const QUrl &url, QString *sectionId)
   return result.section('#', 0, 0);
 }
 
-//===========================================================================
 QUrl UrlUtils::toUrl(const QString &entry, const QString &scheme)
 {
+  dstdout(QString("Encoding %1").arg(entry));
   // The entry must be pre-encoded, because otherwise the conversion to
   // URL would fail. Entry contains ':', '!' characters and many others
   // invalid in URL. The case-sesnsitivity must be retained
@@ -70,13 +69,12 @@ QUrl UrlUtils::toUrl(const QString &entry, const QString &scheme)
   }
 
   QUrl result;
-  result.setUrl(QString("%1://%2").arg(scheme).arg(preencoded));
+  result.setUrl(QString("%1:///%2").arg(scheme).arg(preencoded));
   CHECK_MSG(result.isValid(), QString("Invalid url created from scheme \"%1\""
 				      " and preencoded entry \"%2\": \"%3\".").arg(scheme).arg(preencoded).arg(result.toString()));
   return result;
 }
 
-//===========================================================================
 QString UrlUtils::fileNameToMimeType(const QString &fileName)
 {
   if (fileName.endsWith(".png", Qt::CaseInsensitive))

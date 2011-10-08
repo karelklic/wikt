@@ -17,14 +17,12 @@
 
 namespace RelatedPages {
 
-//===========================================================================
 InternalLinkItem::InternalLinkItem(const QString &entry, Item *parent)
   : Item(InternalLink, parent), _link(entry)
 {
   _itemData.append(QVariant(entry));
 }
 
-//===========================================================================
 InternalLinkItem::InternalLinkItem(const QString &title,
   const QString &link, Item *parent)
   : Item(InternalLink, parent), _link(link)

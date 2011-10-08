@@ -16,7 +16,6 @@
 #include "htmlsyntaxhighlighter.h"
 #include <iostream>
 
-//===========================================================================
 HtmlSyntaxHighlighter::HtmlSyntaxHighlighter(QTextDocument *parent)
   : QSyntaxHighlighter(parent)
 {
@@ -116,7 +115,6 @@ HtmlSyntaxHighlighter::HtmlSyntaxHighlighter(QTextDocument *parent)
   _boundRules.append(h5Rule);
 }
 
-//===========================================================================
 void HtmlSyntaxHighlighter::highlightBlock(const QString &text)
 {
   foreach (SimpleRule rule, _simpleRules)

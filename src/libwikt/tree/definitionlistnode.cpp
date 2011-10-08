@@ -15,19 +15,16 @@
  */
 #include "definitionlistnode.h"
 
-//===========================================================================
 DefinitionListNode::DefinitionListNode() : Node(Node::DefinitionList)
 {
 }
 
-//===========================================================================
 QString DefinitionListNode::toXHtml() const
 {
   if (!_xhtmlVisible) return "";
   return QString("<dl>%1</dl>").arg(childrenToXHtml());
 }
 
-//===========================================================================
 QString DefinitionListNode::toXml(int indentLevel) const
 {
   QString indent(indentLevel, ' ');

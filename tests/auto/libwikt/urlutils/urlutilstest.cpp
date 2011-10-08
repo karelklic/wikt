@@ -13,18 +13,7 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include <libwikt/urlutils.h>
-#include <QTest>
-#include <QObject>
-
-/// Tests UrlUtils functions.
-class UrlUtilsTest : public QObject
-{
-  Q_OBJECT
-private slots:
-  void test0();
-  void test1();
-};
+#include "urlutilstest.h"
 
 //===========================================================================
 void UrlUtilsTest::test0()
@@ -42,4 +31,3 @@ void UrlUtilsTest::test1()
 }
 
 QTEST_APPLESS_MAIN(UrlUtilsTest)
-#include "urlutilstest.moc"

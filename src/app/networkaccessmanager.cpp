@@ -23,12 +23,10 @@
 #include "networkreplynotfound.h"
 #include <libwikt/debug.h>
 
-//===========================================================================
 NetworkAccessManager::NetworkAccessManager(QObject *parent) : QNetworkAccessManager(parent)
 {
 }
 
-//===========================================================================
 QNetworkReply *NetworkAccessManager::createRequest(Operation op, const QNetworkRequest &req, QIODevice */*outgoingData*/)
 {
   CHECK(op == GetOperation);

@@ -17,26 +17,22 @@
 #include "debug.h"
 #include <QSettings>
 
-//===========================================================================
 Language &Language::instance()
 {
   static Language lang;
   return lang;
 }
 
-//===========================================================================
 bool Language::isCode(const QString &text) const
 {
   return _codeToType.contains(text.toLower());
 }
 
-//===========================================================================
 Language::Type Language::fromCode(const QString &code) const
 {
   return _codeToType.value(code.toLower(), Unknown);
 }
 
-//===========================================================================
 Language::Type Language::fromLinkPrefixes(const QStringList &prefixes) const
 {
   if (prefixes.empty()) return English;
@@ -47,7 +43,6 @@ Language::Type Language::fromLinkPrefixes(const QStringList &prefixes) const
   return English;
 }
 
-//===========================================================================
 QString Language::toCode(Language::Type lang) const
 {
   QList<QString> codes = _typeToCode.values(lang);
@@ -58,13 +53,11 @@ QString Language::toCode(Language::Type lang) const
   return codes.first();
 }
 
-//===========================================================================
 QString Language::toInterwikiName(Language::Type lang) const
 {
   return _typeToInterwiki.value(lang, "Unknown localized name");
 }
 
-//===========================================================================
 template<typename T>
 static inline QList<T> reverse(const QList<T> &l)
 {
@@ -74,13 +67,11 @@ static inline QList<T> reverse(const QList<T> &l)
     return ret;
 }
 
-//===========================================================================
 QStringList Language::toNames(Language::Type lang) const
 {
   return _typeToNames.values(lang);
 }
 
-//===========================================================================
 bool Language::isTranslationVisible(Language::Type lang) const
 {
   QStringList names = toNames(lang);
@@ -92,7 +83,6 @@ bool Language::isTranslationVisible(Language::Type lang) const
   return settings.value(settingName, true).toBool();
 }
 
-//===========================================================================
 void Language::setTranslationVisible(Language::Type lang, bool visible)
 {
   QStringList names = toNames(lang);
@@ -104,7 +94,6 @@ void Language::setTranslationVisible(Language::Type lang, bool visible)
   return settings.setValue(settingName, visible);
 }
 
-//===========================================================================
 // TODO: Remove this method. Problem fixed.
 // Properly converts strings.
 // Some strings entered by C++'s L"" macro end with a character 0x202c,
@@ -118,7 +107,6 @@ static QString fromWCharArray(const wchar_t *s)
   return ss;
 }
 
-//===========================================================================
 Language::Language()
 {
 #include "languagesgenerated.cpp.inc"

@@ -16,12 +16,10 @@
 #include "licensepagesgenerator.h"
 #include "format4writer.h"
 
-//===========================================================================
 LicensePagesGenerator::LicensePagesGenerator()
 {
 }
 
-//===========================================================================
 void LicensePagesGenerator::write(Format4Writer &destination)
 {
   QString fdl =

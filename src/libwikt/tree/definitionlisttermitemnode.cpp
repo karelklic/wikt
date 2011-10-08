@@ -15,19 +15,16 @@
  */
 #include "definitionlisttermitemnode.h"
 
-//===========================================================================
 DefinitionListTermItemNode::DefinitionListTermItemNode() : Node(Node::DefinitionListTermItem)
 {
 }
 
-//===========================================================================
 QString DefinitionListTermItemNode::toXHtml() const
 {
   if (!_xhtmlVisible) return "";
   return QString("<dt>%1</dt>").arg(childrenToXHtml());
 }
 
-//===========================================================================
 QString DefinitionListTermItemNode::toXml(int indentLevel) const
 {
   QString indent(indentLevel, ' ');

@@ -24,7 +24,6 @@
 #include <libwikt/tree/heading.h>
 #include <QMessageBox>
 
-//===========================================================================
 MenuBar::MenuBar(MainWindow *parent) : QMenuBar(parent)
 {
   this->_parent = parent;
@@ -160,69 +159,58 @@ MenuBar::MenuBar(MainWindow *parent) : QMenuBar(parent)
   _helpMenu->addAction(_aboutAct);
 }
 
-//===========================================================================
 void MenuBar::find()
 {
   _parent->findPanel()->show();
 }
 
-//===========================================================================
 void MenuBar::findNext()
 {
   _parent->findPanel()->nextClicked();
 }
 
-//===========================================================================
 void MenuBar::options()
 {
   OptionsDialog dialog;
   dialog.exec();
 }
 
-//===========================================================================
 void MenuBar::viewEtymologyToggled(bool checked)
 {
   Heading::instance().setXHtmlVisibility(Heading::Etymology, checked);
 }
 
-//===========================================================================
 void MenuBar::viewPronunciationToggled(bool checked)
 {
   Heading::instance().setXHtmlVisibility(Heading::Pronunciation, checked);
 }
 
-//===========================================================================
 void MenuBar::viewInflectionsToggled(bool checked)
 {
   Heading::instance().setXHtmlVisibility(Heading::Inflections, checked);
 }
 
-//===========================================================================
 void MenuBar::viewTranslationsToggled(bool checked)
 {
   Heading::instance().setXHtmlVisibility(Heading::Translations, checked);
 }
 
-//===========================================================================
 void MenuBar::viewSemanticRelationsToggled(bool checked)
 {
   Heading::instance().setXHtmlVisibility(Heading::SemanticRelations, checked);
 }
 
-//===========================================================================
 void MenuBar::viewRelatedDerivedToggled(bool checked)
 {
   Heading::instance().setXHtmlVisibility(Heading::RelatedTerms, checked);
   Heading::instance().setXHtmlVisibility(Heading::DerivedTerms, checked);
 }
 
-//===========================================================================
 void MenuBar::viewAnagramsToggled(bool checked)
 {
   Heading::instance().setXHtmlVisibility(Heading::Anagrams, checked);
 }
 
-//===========================================================================
 void MenuBar::about()
 {
  QMessageBox::about(parentWidget(), tr("About Wikt"),
@@ -233,7 +221,6 @@ void MenuBar::about()
        "Uses data from Wiktionary project."));
 }
 
-//===========================================================================
 void MenuBar::pageHtml()
 {
   QString contents = _parent->webView()->toHtml();

@@ -19,7 +19,6 @@
 
 namespace Categories {
 
-//===========================================================================
 Panel::Panel() : QDockWidget(tr("Categories")), _model(this)
 {
   _treeView = new QTreeView(this);
@@ -38,14 +37,12 @@ Panel::Panel() : QDockWidget(tr("Categories")), _model(this)
       this, SLOT(activated(const QModelIndex&)));
 }
 
-//===========================================================================
 void Panel::modelChanged()
 {
   _treeView->expandAll();
   setVisible(_model.rowCount() > 0);
 }
 
-//===========================================================================
 void Panel::activated(const QModelIndex &index)
 {
   if (!index.isValid()) return;

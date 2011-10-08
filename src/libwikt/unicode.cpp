@@ -17,7 +17,6 @@
 #include <sstream>
 #include <iomanip>
 
-//===========================================================================
 std::string Unicode::escape(const QString &contents)
 {
   std::stringstream ss;
@@ -39,7 +38,6 @@ std::string Unicode::escape(const QString &contents)
   return ss.str();
 }
 
-//===========================================================================
 QString Unicode::unescape(const std::string &contents)
 {
   QString result;
@@ -65,7 +63,6 @@ QString Unicode::unescape(const std::string &contents)
   return result;
 }
 
-//===========================================================================
 QString Unicode::unescape(const QString &contents)
 {
   QString result;
@@ -91,7 +88,6 @@ QString Unicode::unescape(const QString &contents)
   return result;
 }
 
-//===========================================================================
 static inline uint foldCase(uint ch, uint &last)
 {
     uint c = ch;
@@ -101,7 +97,6 @@ static inline uint foldCase(uint ch, uint &last)
     return QChar::toCaseFolded(c);
 }
 
-//===========================================================================
 int Unicode::ucstricmp(const ushort *a, const ushort *ae, const ushort *b, const ushort *be)
 {
     if (a == b)

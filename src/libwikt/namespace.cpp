@@ -15,32 +15,27 @@
  */
 #include "namespace.h"
 
-//===========================================================================
 const Namespace &Namespace::instance()
 {
   static Namespace instance;
   return instance;
 }
 
-//===========================================================================
 bool Namespace::isPrefix(const QString &text) const
 {
   return _prefixToNamespace.contains(text.toLower());
 }
 
-//===========================================================================
 Namespace::Type Namespace::fromPrefix(const QString &prefix) const
 {
   return _prefixToNamespace.value(prefix.toLower(), Main);
 }
 
-//===========================================================================
 Namespace::Type Namespace::fromCode(const QString &code) const
 {
   return _codeToNamespace.value(code.toUpper(), Unknown);
 }
 
-//===========================================================================
 Namespace::Type Namespace::fromEntry(const QString &name) const
 {
   QStringList prefixes = name.split(':');
@@ -50,7 +45,6 @@ Namespace::Type Namespace::fromEntry(const QString &name) const
   return fromLinkPrefixes(prefixes);
 }
 
-//===========================================================================
 Namespace::Type Namespace::fromLinkPrefixes(const QStringList &prefixes) const
 {
   foreach(QString name, prefixes)
@@ -63,13 +57,11 @@ Namespace::Type Namespace::fromLinkPrefixes(const QStringList &prefixes) const
   return Main;
 }
 
-//===========================================================================
 QString Namespace::toLocalizedName(Namespace::Type ns) const
 {
   return _namespaceToName.value(ns, "");
 }
 
-//===========================================================================
 Namespace::Namespace()
 {
   _codeToNamespace.insert("-2",    Media);

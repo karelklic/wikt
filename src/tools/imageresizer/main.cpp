@@ -33,7 +33,6 @@ struct Image
   Image(QString filePath, QSize originalSize) : _filePath(filePath), _originalSize(originalSize) {}
 };
 
-//===========================================================================
 int main(int argc, char **argv)
 {
   QCoreApplication a(argc, argv);

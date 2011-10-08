@@ -15,13 +15,11 @@
  */
 #include "extensiontokennode.h"
 
-//===========================================================================
 ExtensionTokenNode::ExtensionTokenNode(const QString &name, const QString &value)
   : Node(Node::ExtensionToken), _name(name), _value(value)
 {
 }
 
-//===========================================================================
 QString ExtensionTokenNode::toXml(int indentLevel) const
 {
   QString indent(indentLevel, ' ');

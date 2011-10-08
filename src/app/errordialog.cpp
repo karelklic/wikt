@@ -15,7 +15,6 @@
  */
 #include "errordialog.h"
 
-//===========================================================================
 ErrorDialog::ErrorDialog(const QString &message, const QString &file,
     const QString &function, int line, const QString &stackTrace, QWidget *parent)
     : QDialog(parent)
@@ -30,13 +29,11 @@ ErrorDialog::ErrorDialog(const QString &message, const QString &file,
   connect(ui.ok, SIGNAL(clicked()), this, SLOT(accept()));
 }
 
-//===========================================================================
 ErrorDialog::~ErrorDialog()
 {
 
 }
 
-//===========================================================================
 void ErrorDialog::ignore()
 {
   emit done(Ignored);

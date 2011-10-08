@@ -26,7 +26,6 @@
 QTextStream out(stdout, QIODevice::WriteOnly);
 QString destinationDir;
 
-//===========================================================================
 static QString getMediaFilePath(const LinkNode &node)
 {
   QString result = destinationDir;
@@ -52,7 +51,6 @@ static QString getMediaFilePath(const LinkNode &node)
   return result;
 }
 
-//===========================================================================
 static void processLink(const LinkNode &node, const QString &entryName)
 {
   // Skip existing files.
@@ -111,7 +109,6 @@ static void processLink(const LinkNode &node, const QString &entryName)
   out << "ok" << endl;
 }
 
-//===========================================================================
 static void processContent(const QString &name, const QString &content)
 {
   for (int i = 0; i < content.length(); ++i)
@@ -138,7 +135,6 @@ static void processContent(const QString &name, const QString &content)
 }
 
 
-//===========================================================================
 int main(int argc, char **argv)
 {
   QCoreApplication app(argc, argv);

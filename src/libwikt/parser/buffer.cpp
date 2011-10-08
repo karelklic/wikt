@@ -16,18 +16,15 @@
 #include "buffer.h"
 #include "debug.h"
 
-//===========================================================================
 Buffer::Buffer() : _pos(0)
 {
 }
 
-//===========================================================================
 Buffer::Buffer(const QString &text, int pos) : _text(text), _pos(pos)
 {
 
 }
 
-//===========================================================================
 QString Buffer::nextLine() const
 {
   CHECK_MSG(!endOfFile(), QString("Buffer contents: %1").arg(_text));
@@ -38,7 +35,6 @@ QString Buffer::nextLine() const
   return _text.mid(_pos, offset - _pos);
 }
 
-//===========================================================================
 QString Buffer::readLine()
 {
   QString line = nextLine();
@@ -46,7 +42,6 @@ QString Buffer::readLine()
   return line;
 }
 
-//===========================================================================
 QString Buffer::readAll()
 {
   QString rest = _text.mid(_pos);
@@ -54,7 +49,6 @@ QString Buffer::readAll()
   return rest;
 }
 
-//===========================================================================
 QString Buffer::read(int count)
 {
   QString result = _text.mid(_pos, count);
@@ -62,7 +56,6 @@ QString Buffer::read(int count)
   return result;
 }
 
-//===========================================================================
 void Buffer::skipEmptyLines()
 {
   // Nothing to be skipped when we reached the end.
@@ -76,7 +69,6 @@ void Buffer::skipEmptyLines()
   }
 }
 
-//===========================================================================
 bool Buffer::startsWith(const QString &text) const
 {
   // Check if our buffer is long enough.
@@ -92,7 +84,6 @@ bool Buffer::startsWith(const QString &text) const
   return true;
 }
 
-//===========================================================================
 int Buffer::indexOf(const QString &text, Qt::CaseSensitivity cs) const
 {
   return _text.indexOf(text, _pos, cs);

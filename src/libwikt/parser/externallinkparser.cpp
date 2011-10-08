@@ -15,7 +15,6 @@
  */
 #include "externallinkparser.h"
 
-//===========================================================================
 ExternalLinkNode *ExternalLinkParser::parse(Buffer &buffer)
 {
   if (buffer.endOfFile()) return 0;

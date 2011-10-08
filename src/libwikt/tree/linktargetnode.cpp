@@ -18,7 +18,6 @@
 #include "../urlutils.h"
 #include <QRegExp>
 
-//===========================================================================
 LinkTargetNode::LinkTargetNode(const QString &text) : Node(Node::LinkTarget), _namespace(Namespace::Main), _language(Language::English), _project(Project::Wiktionary), _text(text)
 {
   QString remainder(text);
@@ -63,7 +62,6 @@ LinkTargetNode::LinkTargetNode(const QString &text) : Node(Node::LinkTarget), _n
     }*/
 }
 
-//===========================================================================
 QString LinkTargetNode::toXHtmlLink() const
 {
   // If link points to an image, a sound, or a file, the "media" scheme must
@@ -76,7 +74,6 @@ QString LinkTargetNode::toXHtmlLink() const
   return UrlUtils::toUrl(_text).toString();
 }
 
-//===========================================================================
 QString LinkTargetNode::toXml(int indentLevel) const
 {
   QString indent(indentLevel, ' ');

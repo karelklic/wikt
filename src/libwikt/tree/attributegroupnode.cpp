@@ -16,7 +16,6 @@
 #include "attributegroupnode.h"
 #include "attributenode.h"
 
-//===========================================================================
 QString AttributeGroupNode::toXHtml() const
 {
   QString result;
@@ -28,7 +27,6 @@ QString AttributeGroupNode::toXHtml() const
   return result;
 }
 
-//===========================================================================
 QString AttributeGroupNode::toXml(int indentLevel) const
 {
   QString indent(indentLevel, ' ');
@@ -37,7 +35,6 @@ QString AttributeGroupNode::toXml(int indentLevel) const
     indent + "</attribute_group>\n";
 }
 
-//===========================================================================
 bool AttributeGroupNode::hasAttribute(const QString &name) const
 {
   foreach (const Node *node, children())
@@ -49,7 +46,6 @@ bool AttributeGroupNode::hasAttribute(const QString &name) const
   return false;
 }
 
-//===========================================================================
 QString AttributeGroupNode::getAttributeText(const QString &name) const
 {
   foreach (const Node *node, children())

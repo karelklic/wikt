@@ -17,7 +17,6 @@
 #include "listparser.h"
 #include "linkparser.h"
 
-//===========================================================================
 NumberedListNode *NumberedListParser::parse(Buffer &buffer)
 {
   if (buffer.endOfFile()) return 0;

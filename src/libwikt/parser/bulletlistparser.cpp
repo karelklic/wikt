@@ -17,7 +17,6 @@
 #include "listparser.h"
 #include "linkparser.h"
 
-//===========================================================================
 BulletListNode *BulletListParser::parse(Buffer &buffer)
 {
   if (buffer.endOfFile()) return 0;

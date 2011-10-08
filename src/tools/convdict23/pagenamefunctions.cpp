@@ -16,7 +16,6 @@
 #include "pagenamefunctions.h"
 #include <libwikt/debug.h>
 
-//===========================================================================
 bool PageNameFunctions::isPageNameFunction(const QString &templateText)
 {
   return templateText == "SERVER"  || templateText == "SERVERNAME" ||
@@ -27,7 +26,6 @@ bool PageNameFunctions::isPageNameFunction(const QString &templateText)
     templateText == "NAMESPACE"    || templateText == "NAMESPACEE";
 }
 
-//===========================================================================
 /// Returns the name of the current page, including all levels
 /// (Title/Subtitle). This does not include the name of the namespace.
 static QString functionPageName(const QString &pageName)
@@ -38,7 +36,6 @@ static QString functionPageName(const QString &pageName)
     return pageName;
 }
 
-//===========================================================================
 /// More URL-friendly percent encoded special characters
 /// (To use an article name in an external link).
 static QString functionPageNameE(const QString &pageName)
@@ -46,7 +43,6 @@ static QString functionPageNameE(const QString &pageName)
   return functionPageName(pageName).replace(' ', '_');
 }
 
-//===========================================================================
 /// The base name of a subpage ("Title/Other" on
 /// "Title/Other/Subtitle"), see
 /// http://meta.wikimedia.org/wiki/Help:Link#Subpage_feature.
@@ -59,7 +55,6 @@ static QString functionBasePageName(const QString &pageName)
     return name;
 }
 
-//===========================================================================
 /// The basename of a subpage ("Title/Other" on
 /// "Title/Other/Subtitle"), see
 /// http://meta.wikimedia.org/wiki/Help:Link#Subpage_feature.
@@ -68,7 +63,6 @@ static QString functionBasePageNameE(const QString &pageName)
   return functionBasePageName(pageName).replace(' ', '_');
 }
 
-//===========================================================================
 /// Name of the current page, excluding parent pages ("Subtitle" on
 /// "Title/Other/Subtitle") in namespaces supporting subpages, see
 /// http://meta.wikimedia.org/wiki/Help:Link#Subpage_feature
@@ -81,7 +75,6 @@ static QString functionSubPageName(const QString &pageName)
     return name;
 }
 
-//===========================================================================
 /// Name of the current page, excluding parent pages ("Subtitle" on
 /// "Title/Other/Subtitle") in namespaces supporting subpages, see
 /// http://meta.wikimedia.org/wiki/Help:Link#Subpage_feature
@@ -90,21 +83,18 @@ static QString functionSubPageNameE(const QString &pageName)
   return functionSubPageName(pageName).replace(' ', '_');
 }
 
-//===========================================================================
 /// Shorthand for NAMESPACE+PAGENAME.
 static QString functionFullPageName(const QString &pageName)
 {
   return pageName;
 }
 
-//===========================================================================
 /// Shorthand for NAMESPACE+PAGENAME.
 static QString functionFullPageNameE(const QString &pageName)
 {
   return functionFullPageName(pageName).replace(' ', '_');
 }
 
-//===========================================================================
 /// Returns the name of the namespace the current page resides in.
 /// Note that this returns an empty string for the main (article) space.
 static QString functionNamespace(const QString &pageName)
@@ -115,7 +105,6 @@ static QString functionNamespace(const QString &pageName)
     return "";
 }
 
-//===========================================================================
 /// Returns the name of the namespace the current page resides in.
 /// Note that this returns an empty string for the main (article) space.
 static QString functionNamespaceE(const QString &pageName)
@@ -123,7 +112,6 @@ static QString functionNamespaceE(const QString &pageName)
   return functionNamespace(pageName).replace(' ', '_');
 }
 
-//===========================================================================
 QString PageNameFunctions::evaluate(const QString &templateText, const QString &pageName)
 {
   QString trimmed = templateText.trimmed();

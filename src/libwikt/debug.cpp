@@ -16,28 +16,24 @@
 #include "debug.h"
 #include <QTextStream>
 
-//===========================================================================
 void cstdout(const QString &message)
 {
   QTextStream ts(stdout);
   ts << message << endl;
 }
 
-//===========================================================================
 void _dstdout(const QString &message, const char *file, int line, const char *func)
 {
   QTextStream ts(stdout);
   ts << file << ":" << line << " (" << func << ")#" << message << endl;
 }
 
-//===========================================================================
 void cstderr(const QString &message)
 {
   QTextStream ts(stderr);
   ts << message << endl;
 }
 
-//===========================================================================
 void _dstderr(const QString &message, const char *file, int line, const char *func)
 {
   QTextStream ts(stderr);

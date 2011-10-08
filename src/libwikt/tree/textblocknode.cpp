@@ -15,7 +15,6 @@
  */
 #include "textblocknode.h"
 
-//===========================================================================
 QString TextBlockNode::toXml(int indentLevel) const
 {
   QString indent(indentLevel, ' ');

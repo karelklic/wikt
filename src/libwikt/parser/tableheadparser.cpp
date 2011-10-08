@@ -19,7 +19,6 @@
 #include "blockparser.h"
 #include "textblockparser.h"
 
-//===========================================================================
 TableHeadNode *TableHeadParser::parse(Buffer &buffer)
 {
   // Test if we are really starting a cell.

@@ -20,7 +20,6 @@
 #include <libwikt/debug.h>
 #include <QTimer>
 
-//===========================================================================
 NetworkReplyEntry::NetworkReplyEntry(const QNetworkRequest &request, QObject *parent) : QNetworkReply(parent)
 {
   QString entry = UrlUtils::toEntryName(request.url());
@@ -43,7 +42,6 @@ NetworkReplyEntry::NetworkReplyEntry(const QNetworkRequest &request, QObject *pa
   _checkFinishedTimer.start(50);
 }
 
-//===========================================================================
 void NetworkReplyEntry::checkFinished()
 {
   if (_buffer.bytesAvailable() + QNetworkReply::bytesAvailable() == 0)

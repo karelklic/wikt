@@ -17,7 +17,6 @@
 #include "buffer.h"
 #include "blockparser.h"
 
-//===========================================================================
 ArticleNode *ArticleParser::parse(const QString &name, const QString &text)
 {
   ArticleNode *articleNode = new ArticleNode();

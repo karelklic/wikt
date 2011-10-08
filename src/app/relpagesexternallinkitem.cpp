@@ -18,14 +18,12 @@
 
 namespace RelatedPages {
 
-//===========================================================================
 ExternalLinkItem::ExternalLinkItem(const QString &title, const QUrl &url,
   Item *parent) : Item(ExternalLink, parent), _url(url)
 {
   _itemData.append(title);
 }
 
-//===========================================================================
 void ExternalLinkItem::openUrl() const
 {
   QDesktopServices::openUrl(_url);

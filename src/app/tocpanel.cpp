@@ -18,7 +18,6 @@
 
 namespace TableOfContents {
 
-//===========================================================================
 Panel::Panel() : QDockWidget(tr("Table of Contents")),
  _model(this)
 {
@@ -37,7 +36,6 @@ Panel::Panel() : QDockWidget(tr("Table of Contents")),
   policy.setVerticalStretch(250);
 }
 
-//===========================================================================
 void Panel::modelChanged()
 {
   if (_model.nodeCount() < 10)
@@ -45,7 +43,6 @@ void Panel::modelChanged()
   setVisible(_model.nodeCount() > 3);
 }
 
-//===========================================================================
 void Panel::itemActivated(const QModelIndex &index)
 {
   QString xhtmlHeadingId = _model.getXHtmlHeaderId(index);

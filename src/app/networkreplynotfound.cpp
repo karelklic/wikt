@@ -17,7 +17,6 @@
 #include <libwikt/urlutils.h>
 #include <QTimer>
 
-//===========================================================================
 NetworkReplyNotFound::NetworkReplyNotFound(const QNetworkRequest &request, QObject *parent) : QNetworkReply(parent)
 {
   QString entry = UrlUtils::toEntryName(request.url());
@@ -53,7 +52,6 @@ NetworkReplyNotFound::NetworkReplyNotFound(const QNetworkRequest &request, QObje
   _checkFinishedTimer.start(50);
 }
 
-//===========================================================================
 void NetworkReplyNotFound::checkFinished()
 {
   if (_buffer.bytesAvailable() + QNetworkReply::bytesAvailable() == 0)

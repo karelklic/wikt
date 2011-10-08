@@ -24,7 +24,6 @@
 #include <QPushButton>
 #include <QHeaderView>
 
-//===========================================================================
 OptionsDialog::OptionsDialog(QWidget *parent) : QDialog(parent)
 {
   resize(332, 376);
@@ -95,12 +94,10 @@ OptionsDialog::OptionsDialog(QWidget *parent) : QDialog(parent)
 	  this, SLOT(itemChanged(QTreeWidgetItem*, int)));
 }
 
-//===========================================================================
 OptionsDialog::~OptionsDialog()
 {
 }
 
-//===========================================================================
 void OptionsDialog::saveSettings()
 {
   QSettings settings;
@@ -120,7 +117,6 @@ void OptionsDialog::saveSettings()
   MainWindow::instance()->coordinator()->userSettingChanged_Translations();
 }
 
-//===========================================================================
 void OptionsDialog::itemChanged(QTreeWidgetItem *item, int /*column*/)
 {
   // If it is a language node.
@@ -137,7 +133,6 @@ void OptionsDialog::itemChanged(QTreeWidgetItem *item, int /*column*/)
     item->child(i)->setCheckState(0, item->checkState(0));
 }
 
-//===========================================================================
 void OptionsDialog::updateCharacterCheckState(QTreeWidgetItem *character)
 {
   Qt::CheckState state = Qt::Checked;

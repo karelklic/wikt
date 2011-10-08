@@ -18,12 +18,10 @@
 #include <libwikt/version.h>
 #include <libwikt/urlutils.h>
 
-//===========================================================================
 TitlePageGenerator::TitlePageGenerator() : _entryCount(0)
 {
 }
 
-//===========================================================================
 void TitlePageGenerator::visit(const QString &entryName)
 {
   // Skip pages with a namespace.
@@ -31,7 +29,6 @@ void TitlePageGenerator::visit(const QString &entryName)
   ++_entryCount;
 }
 
-//===========================================================================
 void TitlePageGenerator::write(Format4Writer &destination)
 {
 

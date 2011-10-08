@@ -21,7 +21,6 @@
 #include <QTimer>
 #include <QFile>
 
-//===========================================================================
 NetworkReplyEmbeddedFile::NetworkReplyEmbeddedFile(const QNetworkRequest &request, QObject *parent) : QNetworkReply(parent)
 {
   QString entry = UrlUtils::toEntryName(request.url());
@@ -46,7 +45,6 @@ NetworkReplyEmbeddedFile::NetworkReplyEmbeddedFile(const QNetworkRequest &reques
   _checkFinishedTimer.start(50);
 }
 
-//===========================================================================
 void NetworkReplyEmbeddedFile::checkFinished()
 {
   if (_file.bytesAvailable() + QNetworkReply::bytesAvailable() == 0)

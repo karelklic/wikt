@@ -16,7 +16,6 @@
 #include "tablerownode.h"
 #include "attributegroupnode.h"
 
-//===========================================================================
 QString TableRowNode::toXHtml() const
 {
   return QString("<tr%1>%2</tr>")
@@ -24,7 +23,6 @@ QString TableRowNode::toXHtml() const
     .arg(childrenToXHtml());
 }
 
-//===========================================================================
 QString TableRowNode::toXml(int indentLevel) const
 {
   QString indent(indentLevel, ' ');

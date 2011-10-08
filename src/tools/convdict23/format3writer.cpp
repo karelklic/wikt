@@ -18,13 +18,11 @@
 #include <libwikt/fileutils.h>
 #include <libwikt/quicksort.h>
 
-//===========================================================================
 Format3Writer::Format3Writer(const QString &targetFileName) : _targetFileName(targetFileName)
 {
   _temporaryFile.open();
 }
 
-//===========================================================================
 void Format3Writer::addEntry(const QString &name, const QString &contents)
 {
   qint64 offset = _temporaryFile.pos();
@@ -37,7 +35,6 @@ void Format3Writer::addEntry(const QString &name, const QString &contents)
   _links.push_back(Link(name, offset));
 }
 
-//===========================================================================
 void Format3Writer::close()
 {
   // Sort the links in the memory.

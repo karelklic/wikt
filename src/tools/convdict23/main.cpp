@@ -23,7 +23,6 @@
 #include <QStringList>
 #include <QRegExp>
 
-//===========================================================================
 void usage()
 {
     cstderr(QString("Usage: %1 [OPTIONS] [SOURCE] [DESTINATION]\n").arg(QCoreApplication::arguments().first()));
@@ -33,7 +32,6 @@ void usage()
     cstderr("       --names         displays names of entries");
 }
 
-//===========================================================================
 int main(int argc, char **argv)
 {
   QCoreApplication a(argc, argv);

@@ -15,14 +15,12 @@
  */
 #include "boldnode.h"
 
-//===========================================================================
 QString BoldNode::toXHtml() const
 {
   if (!_xhtmlVisible) return "";
   return QString("<b>%1</b>").arg(childrenToXHtml());
 }
 
-//===========================================================================
 QString BoldNode::toXml(int indentLevel) const
 {
   QString indent(indentLevel, ' ');

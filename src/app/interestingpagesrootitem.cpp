@@ -19,7 +19,6 @@
 
 namespace InterestingPages {
 
-//===========================================================================
 RootItem::RootItem() : Item(Root, 0)
 {
   // We must have some data. Never displayed, but the tree view does not
@@ -27,7 +26,6 @@ RootItem::RootItem() : Item(Root, 0)
   _itemData.append(QVariant("H1"));
 }
 
-//===========================================================================
 void RootItem::generate()
 {
   qDeleteAll(_childItems);

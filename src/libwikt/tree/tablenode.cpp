@@ -16,7 +16,6 @@
 #include "tablenode.h"
 #include "attributegroupnode.h"
 
-//===========================================================================
 QString TableNode::toXHtml() const
 {
   if (!_xhtmlVisible) return "";
@@ -25,7 +24,6 @@ QString TableNode::toXHtml() const
     .arg(childrenToXHtml());
 }
 
-//===========================================================================
 QString TableNode::toXml(int indentLevel) const
 {
   QString indent(indentLevel, ' ');

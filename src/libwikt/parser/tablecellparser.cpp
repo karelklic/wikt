@@ -19,7 +19,6 @@
 #include "textblockparser.h"
 #include "paragraphparser.h"
 
-//===========================================================================
 TableCellNode *TableCellParser::parse(Buffer &buffer)
 {
   // Test if we are really starting a cell.
@@ -97,7 +96,6 @@ TableCellNode *TableCellParser::parse(Buffer &buffer)
   return cellNode;
 }
 
-//===========================================================================
 void TableCellParser::parseInsideCell(Node &parent, const QString &contents)
 {
   Buffer buffer(contents);

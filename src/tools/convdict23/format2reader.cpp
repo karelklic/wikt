@@ -19,7 +19,6 @@
 #include <libwikt/debug.h>
 #include <libwikt/stringutils.h>
 
-//===========================================================================
 Format2Reader::Format2Reader(const QString &fileName)
 {
   _file.setFileName(fileName);
@@ -38,13 +37,11 @@ Format2Reader::Format2Reader(const QString &fileName)
   delete[] offsets;
 }
 
-//===========================================================================
 Format2Reader::~Format2Reader()
 {
   _file.close();
 }
 
-//===========================================================================
 QString Format2Reader::sourceTemplate(QString entryName)
 {
   // Check template cache.
@@ -91,7 +88,6 @@ QString Format2Reader::sourceTemplate(QString entryName)
   return result;
 }
 
-//===========================================================================
 QString Format2Reader::source(quint32 offset)
 {
   _file.seek(sizeof(quint32) + offset * sizeof(qint64)); // index offset
@@ -101,7 +97,6 @@ QString Format2Reader::source(quint32 offset)
   return sourceDirect(entryOffset);
 }
 
-//===========================================================================
 QString Format2Reader::sourceDirect(qint64 offset)
 {
   bool seeked = _file.seek(offset);
@@ -110,7 +105,6 @@ QString Format2Reader::sourceDirect(qint64 offset)
   return FileUtils::readString(_file); // contents
 }
 
-//===========================================================================
 bool Format2Reader::exist(QString entryName)
 {
   if (_links.contains(entryName))
@@ -126,7 +120,6 @@ bool Format2Reader::exist(QString entryName)
   return false;
 }
 
-//===========================================================================
 Format2Reader::Format2Reader() : _entryCount(0)
 {
 }

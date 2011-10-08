@@ -35,7 +35,6 @@ QMap<QString, QString> errata;
 /// Temporary file with entries without indices.
 QTemporaryFile temporaryFile;
 
-//===========================================================================
 void Format2_loadErrata(const QString &directory)
 {
   // Find and read all files with entry fixes.
@@ -50,7 +49,6 @@ void Format2_loadErrata(const QString &directory)
   }
 }
 
-//===========================================================================
 static QString substituteSpecialCharacters(QString input)
 {
   return input.replace("{", "&#123;").replace("}", "&#125;")
@@ -58,7 +56,6 @@ static QString substituteSpecialCharacters(QString input)
     .replace("=", "&#61;");
 }
 
-//===========================================================================
 // substitute special wiki characters in <nowiki> sections with
 // html chars and removes the <nowiki> tags.
 static QString substituteSpecialCharactersNoWiki(QString input)
@@ -82,7 +79,6 @@ static QString substituteSpecialCharactersNoWiki(QString input)
   return substituteSpecialCharactersNoWiki(before + content + after);
 }
 
-//===========================================================================
 void Format2_addEntry(const QString &name, QString contents)
 {
   // Skip pages from Wikitonary namespace.
@@ -119,7 +115,6 @@ void Format2_addEntry(const QString &name, QString contents)
   links.push_back(Link(name, offset));
 }
 
-//===========================================================================
 void Format2_build(const QString &destinationFile)
 {
   // Sort the links in the memory.

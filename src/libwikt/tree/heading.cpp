@@ -17,14 +17,12 @@
 #include "../debug.h"
 #include <QSettings>
 
-//===========================================================================
 const Heading &Heading::instance()
 {
   static Heading instance;
   return instance;
 }
 
-//===========================================================================
 Heading::Type Heading::fromText(const QString &text) const
 {
   QString simpleText = text.simplified();
@@ -34,7 +32,6 @@ Heading::Type Heading::fromText(const QString &text) const
     return Unknown;
 }
 
-//===========================================================================
 void Heading::setXHtmlVisibility(Type type, bool visible) const
 {
   CHECK(_typeToVisibilitySettingName.contains(type));
@@ -42,7 +39,6 @@ void Heading::setXHtmlVisibility(Type type, bool visible) const
   settings.setValue(_typeToVisibilitySettingName.value(type), visible);
 }
 
-//===========================================================================
 bool Heading::xhtmlVisibility(Type type) const
 {
   if (!_typeToVisibilitySettingName.contains(type)) return true;
@@ -51,7 +47,6 @@ bool Heading::xhtmlVisibility(Type type) const
   return settings.value(_typeToVisibilitySettingName.value(type), true).toBool();
 }
 
-//===========================================================================
 Heading::Heading()
 {
   _textToHeading.insert("Etymology", Etymology);

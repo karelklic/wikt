@@ -17,7 +17,6 @@
 #include "textblockparser.h"
 #include "blockhtmlparser.h"
 
-//===========================================================================
 ParagraphNode *ParagraphParser::parse(Buffer &buffer)
 {
   if (buffer.endOfFile()) return 0;
@@ -33,7 +32,6 @@ ParagraphNode *ParagraphParser::parse(Buffer &buffer)
   return parNode;
 }
 
-//===========================================================================
 bool ParagraphParser::parse(Node &parent, Buffer &buffer)
 {
   if (buffer.endOfFile()) return false;
@@ -45,7 +43,6 @@ bool ParagraphParser::parse(Node &parent, Buffer &buffer)
   return true;
 }
 
-//===========================================================================
 bool ParagraphParser::lineBelongsToParagraph(const QString &line, const QString &currentParagraphText)
 {
   // Empty line terminates the paragraph.
@@ -71,7 +68,6 @@ bool ParagraphParser::lineBelongsToParagraph(const QString &line, const QString 
   return false;
 }
 
-//===========================================================================
 QString ParagraphParser::getText(Buffer &buffer)
 {
   QString paragraph;

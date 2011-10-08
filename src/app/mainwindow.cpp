@@ -31,7 +31,6 @@
 
 static MainWindow *instance = 0;
 
-//===========================================================================
 MainWindow::MainWindow()
 {
   ::instance = this;
@@ -96,18 +95,15 @@ MainWindow::MainWindow()
       this, SLOT(linkHovered(const QString&, const QString&,const QString&)));
 }
 
-//===========================================================================
 MainWindow::~MainWindow()
 {
 }
 
-//===========================================================================
 MainWindow *MainWindow::instance()
 {
   return ::instance;
 }
 
-//===========================================================================
 void MainWindow::setTitle(const QString &text)
 {
   if (text.length() == 0)
@@ -116,20 +112,18 @@ void MainWindow::setTitle(const QString &text)
     setWindowTitle(QString(tr("%1 - Wikt")).arg(text));
 }
 
-//===========================================================================
 void MainWindow::linkHovered(const QString &link, const QString &/*title*/,
     const QString &/*textContent*/)
 {
   statusBar()->showMessage(link);
 }
 
-//===========================================================================
 void MainWindow::keyReleaseEvent(QKeyEvent *event)
 {
   QString text = event->text();
-  if (lookupPanel()->hasFocus() || findPanel()->hasFocus() || 
-      text.isEmpty() || 
-      event->key() == Qt::Key_Space || event->key() == Qt::Key_Enter || 
+  if (lookupPanel()->hasFocus() || findPanel()->hasFocus() ||
+      text.isEmpty() ||
+      event->key() == Qt::Key_Space || event->key() == Qt::Key_Enter ||
       event->key() == Qt::Key_Return || event->key() == Qt::Key_Tab ||
       event->key() == Qt::Key_Escape || event->key() == Qt:: Key_Backspace)
   {

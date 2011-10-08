@@ -17,7 +17,6 @@
 
 namespace TableOfContents {
 
-//===========================================================================
 Item::Item() : _parentItem(0)
 {
   // We must have some data. Never displayed, but the tree view does not
@@ -25,7 +24,6 @@ Item::Item() : _parentItem(0)
   _itemData.append(QVariant("H1"));
 }
 
-//===========================================================================
 Item::Item(const QString &heading,
     const QString &xhtmlHeadingId, Item *parent)
   : _xhtmlHeadingId(xhtmlHeadingId)
@@ -34,13 +32,11 @@ Item::Item(const QString &heading,
   _itemData.append(QVariant(heading));
 }
 
-//===========================================================================
 Item::~Item()
 {
   qDeleteAll(_childItems);
 }
 
-//===========================================================================
 int Item::row() const
 {
   if (_parentItem)
@@ -48,7 +44,6 @@ int Item::row() const
   return 0;
 }
 
-//===========================================================================
 int Item::allChildCount() const
 {
   int ret = childCount();

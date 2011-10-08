@@ -16,31 +16,26 @@
 #include "node.h"
 #include "attributegroupnode.h"
 
-//===========================================================================
 Node::Node(Type type) : _xhtmlVisible(true), _type(type)
 {
 }
 
-//===========================================================================
 Node::~Node()
 {
   qDeleteAll(_children);
 }
 
-//===========================================================================
 QString Node::toXHtml() const
 {
   if (!_xhtmlVisible) return "";
   return childrenToXHtml();
 }
 
-//===========================================================================
 QString Node::toXml(int indentLevel) const
 {
   return childrenToXml(indentLevel);
 }
 
-//===========================================================================
 QString Node::toText() const
 {
   QString result;
@@ -49,7 +44,6 @@ QString Node::toText() const
   return result;
 }
 
-//===========================================================================
 QString Node::childrenToXHtml(bool skipAttributeGroup) const
 {
   QString result;
@@ -61,7 +55,6 @@ QString Node::childrenToXHtml(bool skipAttributeGroup) const
   return result;
 }
 
-//===========================================================================
 QString Node::childrenToXml(int indentLevel) const
 {
   QString ret;
@@ -70,7 +63,6 @@ QString Node::childrenToXml(int indentLevel) const
   return ret;
 }
 
-//===========================================================================
 QString Node::childrenToText() const
 {
   QString ret;
@@ -79,7 +71,6 @@ QString Node::childrenToText() const
   return ret;
 }
 
-//===========================================================================
 QString Node::toXmlEscaped(const QString &text)
 {
   QString result;
@@ -97,7 +88,6 @@ QString Node::toXmlEscaped(const QString &text)
   return result;
 }
 
-//===========================================================================
 bool Node::hasAttributeGroupChild() const
 {
   foreach (const Node *node, _children)
@@ -108,7 +98,6 @@ bool Node::hasAttributeGroupChild() const
   return false;
 }
 
-//===========================================================================
 const AttributeGroupNode *Node::getAttributeGroupChild() const
 {
   foreach (const Node *node, _children)

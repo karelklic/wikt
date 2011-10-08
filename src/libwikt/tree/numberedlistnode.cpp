@@ -15,19 +15,16 @@
  */
 #include "numberedlistnode.h"
 
-//===========================================================================
 NumberedListNode::NumberedListNode() : Node(Node::NumberedList)
 {
 }
 
-//===========================================================================
 QString NumberedListNode::toXHtml() const
 {
   if (!_xhtmlVisible) return "";
   return QString("<ol>%1</ol>").arg(childrenToXHtml());
 }
 
-//===========================================================================
 QString NumberedListNode::toXml(int indentLevel) const
 {
   QString indent(indentLevel, ' ');

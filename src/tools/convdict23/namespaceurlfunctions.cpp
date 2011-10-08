@@ -19,7 +19,6 @@
 #include <libwikt/namespace.h>
 #include <libwikt/debug.h>
 
-//===========================================================================
 bool NamespaceUrlFunctions::isFunction(const QString &templateText)
 {
   return templateText.startsWith("ns:", Qt::CaseInsensitive) ||
@@ -30,7 +29,6 @@ bool NamespaceUrlFunctions::isFunction(const QString &templateText)
     templateText.startsWith("urlencode:", Qt::CaseInsensitive);
 }
 
-//===========================================================================
 /// Gets the magic namespace template name and returns the localized
 /// name for the namespace.
 /// For example:
@@ -50,14 +48,12 @@ static QString functionNs(const QString &templateText)
   return Namespace::instance().toLocalizedName(ns);
 }
 
-//===========================================================================
 static QString functionLocalUrl(const QString &templateText)
 {
   QString pageNameWithPrefix = templateText.section(':', 1); // after "localurl:"
   return UrlUtils::toUrl(pageNameWithPrefix).toString();
 }
 
-//===========================================================================
 static QString functionFullUrl(const QString &templateText)
 {
   QString pageNameWithPrefix = templateText.section(':', 1); // after "fullurl:"
@@ -76,7 +72,6 @@ static QString functionFullUrl(const QString &templateText)
   return UrlUtils::toUrl(pageNameWithPrefix).toString();
 }
 
-//===========================================================================
 /// Encodes the text to a form suitable for use in a url by converting
 /// spaces to + and escaping other characters as required.
 static QString functionUrlEncode(const QString &templateText)
@@ -86,7 +81,6 @@ static QString functionUrlEncode(const QString &templateText)
   return text.replace(" ", "+");
 }
 
-//===========================================================================
 QString NamespaceUrlFunctions::evaluate(const QString &templateText)
 {
   QString trimmed = templateText.trimmed();

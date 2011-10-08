@@ -15,7 +15,6 @@
  */
 #include "italicsnode.h"
 
-//===========================================================================
 QString ItalicsNode::toXHtml() const
 {
   if (!_xhtmlVisible) return "";
@@ -23,7 +22,6 @@ QString ItalicsNode::toXHtml() const
     .arg(childrenToXHtml());
 }
 
-//===========================================================================
 QString ItalicsNode::toXml(int indentLevel) const
 {
   QString indent(indentLevel, ' ');

@@ -17,7 +17,6 @@
 #include "textblockparser.h"
 #include <QStringList>
 
-//===========================================================================
 LinkNode *LinkParser::parse(Buffer &buffer)
 {
   if (buffer.endOfFile()) return 0;

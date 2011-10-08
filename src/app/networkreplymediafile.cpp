@@ -21,7 +21,6 @@
 #include <QTimer>
 #include <QByteArray>
 
-//===========================================================================
 NetworkReplyMediaFile::NetworkReplyMediaFile(const QNetworkRequest &request,
     QObject *parent) : QNetworkReply(parent)
 {
@@ -47,7 +46,6 @@ NetworkReplyMediaFile::NetworkReplyMediaFile(const QNetworkRequest &request,
   _checkFinishedTimer.start(50);
 }
 
-//===========================================================================
 void NetworkReplyMediaFile::checkFinished()
 {
   if (_buffer.bytesAvailable() + QNetworkReply::bytesAvailable() == 0)

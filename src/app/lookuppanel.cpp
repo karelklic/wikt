@@ -22,7 +22,6 @@
 #include <QToolButton>
 #include <QMenu>
 
-//===========================================================================
 LookupPanel::LookupPanel() : QDockWidget(tr("Search"))
 {
   _wordEdit = new QLineEdit(this);
@@ -78,26 +77,22 @@ LookupPanel::LookupPanel() : QDockWidget(tr("Search"))
   setTitleBarWidget(new QWidget(this)); // no title bar
 }
 
-//===========================================================================
 void LookupPanel::setFocus()
 {
   QDockWidget::setFocus();
   _wordEdit->setFocus();
 }
 
-//===========================================================================
 bool LookupPanel::hasFocus() const
 {
   return _wordEdit->hasFocus();
 }
 
-//===========================================================================
 void LookupPanel::setText(const QString &text)
 {
   _wordEdit->setText(text);
 }
 
-//===========================================================================
 void LookupPanel::editingFinished()
 {
   QString text(_wordEdit->text().trimmed());
@@ -105,14 +100,12 @@ void LookupPanel::editingFinished()
   emit wordEntered(text);
 }
 
-//===========================================================================
 void LookupPanel::historyChanged()
 {
   _previousAct->setEnabled(_history.canGoBack());
   _nextAct->setEnabled(_history.canGoForward());
 }
 
-//===========================================================================
 void LookupPanel::goPrevious()
 {
   if (!_history.canGoBack()) return;
@@ -120,7 +113,6 @@ void LookupPanel::goPrevious()
   emit historyActivated(_history.current());
 }
 
-//===========================================================================
 void LookupPanel::goNext()
 {
   if (!_history.canGoForward()) return;
@@ -128,7 +120,6 @@ void LookupPanel::goNext()
   emit historyActivated(_history.current());
 }
 
-//===========================================================================
 void LookupPanel::goHome()
 {
   emit homeActivated();

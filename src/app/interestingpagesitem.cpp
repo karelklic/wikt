@@ -17,18 +17,15 @@
 
 namespace InterestingPages {
 
-//===========================================================================
 Item::Item(Type type, Item *parent) :  _parentItem(parent), _type(type)
 {
 }
 
-//===========================================================================
 Item::~Item()
 {
   qDeleteAll(_childItems);
 }
 
-//===========================================================================
 int Item::row() const
 {
   if (_parentItem)

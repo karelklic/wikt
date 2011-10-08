@@ -15,19 +15,16 @@
  */
 #include "listitemnode.h"
 
-//===========================================================================
 ListItemNode::ListItemNode() : Node(Node::ListItem)
 {
 }
 
-//===========================================================================
 QString ListItemNode::toXHtml() const
 {
   if (!_xhtmlVisible) return "";
   return QString("<li>%1</li>").arg(childrenToXHtml());
 }
 
-//===========================================================================
 QString ListItemNode::toXml(int indentLevel) const
 {
   QString indent(indentLevel, ' ');

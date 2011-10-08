@@ -19,7 +19,6 @@
 #include "tablecaptionparser.h"
 #include "tableheadparser.h"
 
-//===========================================================================
 TableNode *TableParser::parse(Buffer &buffer)
 {
   if (buffer.endOfFile()) return 0;
@@ -122,7 +121,6 @@ TableNode *TableParser::parse(Buffer &buffer)
   return tableNode;
 }
 
-//===========================================================================
 AttributeGroupNode *TableParser::parseAttributes(QString text)
 {
   AttributeGroupNode *groupNode = new AttributeGroupNode();
@@ -136,7 +134,6 @@ AttributeGroupNode *TableParser::parseAttributes(QString text)
   return 0;
 }
 
-//===========================================================================
 void TableParser::parseAttributes(AttributeGroupNode *parent,
     QString &text, const QString &regex)
 {

@@ -29,7 +29,6 @@
 #include <QTextStream>
 #include <QStringList>
 
-//===========================================================================
 void usage()
 {
     QTextStream err(stderr, QIODevice::WriteOnly);
@@ -41,7 +40,6 @@ void usage()
     err << "       --names         displays names of entries" << endl;
 }
 
-//===========================================================================
 int main(int argc, char **argv)
 {
   QCoreApplication a(argc, argv);

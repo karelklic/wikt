@@ -16,12 +16,11 @@
 #include "mediaplayer.h"
 #include "mainwindow.h"
 #include "wikisource.h"
-#include <AudioOutput>
-#include <MediaObject>
-#include <MediaSource>
+#include <phonon/audiooutput.h>
+#include <phonon/mediaobject.h>
+#include <phonon/mediasource.h>
 #include <QBuffer>
 
-//===========================================================================
 MediaPlayer::MediaPlayer(QObject *parent) : QObject(parent)
 {
   _audioOutput = new Phonon::AudioOutput(Phonon::MusicCategory, this);
@@ -29,7 +28,6 @@ MediaPlayer::MediaPlayer(QObject *parent) : QObject(parent)
   Phonon::createPath(_mediaObject, _audioOutput);
 }
 
-//===========================================================================
 void MediaPlayer::play(const QString &fileName)
 {
   if (!fileName.endsWith(".ogg", Qt::CaseInsensitive))

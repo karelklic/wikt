@@ -25,7 +25,6 @@
 
 namespace RelatedPages {
 
-//===========================================================================
 RootItem::RootItem() : Item(Root, 0), _externalLinksRootItem(0)
 {
   // We must have some data. Never displayed, but the tree view does not
@@ -33,7 +32,6 @@ RootItem::RootItem() : Item(Root, 0), _externalLinksRootItem(0)
   _itemData.append(QVariant("H1"));
 }
 
-//===========================================================================
 void RootItem::recreateFrom(const ArticleNode *node)
 {
   qDeleteAll(_childItems);
@@ -84,7 +82,6 @@ void RootItem::recreateFrom(const ArticleNode *node)
   appendChild(_externalLinksRootItem);
 }
 
-//===========================================================================
 void RootItem::recreateFrom(const QList<const ArticleNode*> &nodes)
 {
   qDeleteAll(_childItems);
@@ -146,13 +143,11 @@ void RootItem::recreateFrom(const QList<const ArticleNode*> &nodes)
   appendChild(_externalLinksRootItem);
 }
 
-//===========================================================================
 void RootItem::partialUpdateFrom(const QString &entry, const ArticleNode *rootNode)
 {
   _externalLinksRootItem->update(entry, rootNode);
 }
 
-//===========================================================================
 void RootItem::clear()
 {
   qDeleteAll(_childItems);
@@ -160,7 +155,6 @@ void RootItem::clear()
   _externalLinksRootItem = 0;
 }
 
-//===========================================================================
 void RootItem::appendEntryWithCitationsWikisaurus(InternalLinkItem *item)
 {
   appendChild(item);

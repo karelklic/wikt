@@ -20,12 +20,10 @@
 #include <libwikt/tree/linknode.h>
 #include <QUrl>
 
-//===========================================================================
 LinkConverter::LinkConverter(Format3Reader &reader, MediaReader &mediaReader) : _reader(reader), _mediaReader(mediaReader)
 {
 }
 
-//===========================================================================
 QString LinkConverter::convertedContents(qint64 offs)
 {
   QString input = _reader.sourceDirect(offs);

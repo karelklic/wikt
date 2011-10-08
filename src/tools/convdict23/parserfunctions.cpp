@@ -20,7 +20,6 @@
 #include <libwikt/debug.h>
 #include <QTextStream>
 
-//===========================================================================
 static QString functionIf(const QList<QString> &parts)
 {
   if (parts.size() < 2) return "";
@@ -32,7 +31,6 @@ static QString functionIf(const QList<QString> &parts)
     return parts.size() > 2 ? parts[2].trimmed() : "";
 }
 
-//===========================================================================
 static QString functionIfEq(const QList<QString> &parts)
 {
   if (parts.size() < 3) return "";
@@ -44,7 +42,6 @@ static QString functionIfEq(const QList<QString> &parts)
     return parts.size() > 3 ? parts[3].trimmed() : "";
 }
 
-//===========================================================================
 static QString functionIfExist(const QList<QString> &parts, Format2Reader &reader)
 {
   int sep = parts[0].indexOf(":"); // is valid from definition, never -1
@@ -55,7 +52,6 @@ static QString functionIfExist(const QList<QString> &parts, Format2Reader &reade
     return parts.size() > 2 ? parts[2].trimmed() : "";
 }
 
-//===========================================================================
 /// #switch implementation.
 /// Spaces are stripped both from index values and from results.
 /// Source: http://meta.wikimedia.org/wiki/Help:Newlines_and_spaces#Switch
@@ -109,7 +105,6 @@ static QString functionSwitch(const QList<QString> &parts)
   return defaultValue;
 }
 
-//===========================================================================
 static QString functionExpr(const QList<QString> &parts, const QString &entryName)
 {
   int sep = parts[0].indexOf(":"); // is valid from definition, never -1
@@ -124,7 +119,6 @@ static QString functionExpr(const QList<QString> &parts, const QString &entryNam
   return driver.resultString();
 }
 
-//===========================================================================
 // http://www.mediawiki.org/wiki/Help:Extension:ParserFunctions#.23ifexpr:
 static QString functionIfExpr(const QList<QString> &parts, const QString &entryName)
 {
@@ -137,7 +131,6 @@ static QString functionIfExpr(const QList<QString> &parts, const QString &entryN
     return parts.size() > 2 ? parts[2].trimmed() : "";
 }
 
-//===========================================================================
 bool ParserFunctions::isParserFunction(const QString &templateText)
 {
   return templateText.startsWith("#if:", Qt::CaseInsensitive) ||
@@ -148,7 +141,6 @@ bool ParserFunctions::isParserFunction(const QString &templateText)
          templateText.startsWith("#expr:", Qt::CaseInsensitive);
 }
 
-//===========================================================================
 QString ParserFunctions::evaluate(const QString &templateText,
     Format2Reader &reader, const QString &entryName)
 {

@@ -18,7 +18,6 @@
 #include "linknode.h"
 #include "linktargetnode.h"
 
-//===========================================================================
 QString ParagraphNode::toXHtml() const
 {
   if (!_xhtmlVisible) return "";
@@ -31,7 +30,6 @@ QString ParagraphNode::toXHtml() const
   return QString("<p>%1</p>").arg(childrenXHtml);
 }
 
-//===========================================================================
 QString ParagraphNode::toXml(int indentLevel) const
 {
   QString indent(indentLevel, ' ');

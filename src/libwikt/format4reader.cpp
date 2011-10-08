@@ -18,7 +18,6 @@
 #include "comparsion.h"
 #include "debug.h"
 
-//===========================================================================
 Format4Reader::Format4Reader(const QString &fileName)
 {
   _file.setFileName(fileName);
@@ -26,20 +25,17 @@ Format4Reader::Format4Reader(const QString &fileName)
   _file.read((char*)&_entryCount, sizeof(quint32));
 }
 
-//===========================================================================
 Format4Reader::~Format4Reader()
 {
   _file.close();
 }
 
-//===========================================================================
 QString Format4Reader::source(const QString &entryName)
 {
   int offset = findEntryOffset(0, _entryCount - 1, entryName);
   return (offset < 0) ? "" : source(offset);
 }
 
-//===========================================================================
 QString Format4Reader::source(quint32 offset)
 {
   _file.seek(sizeof(quint32) + offset * sizeof(qint64)); // index offset
@@ -54,14 +50,12 @@ QString Format4Reader::source(quint32 offset)
   return FileUtils::readCompressed(_file); // contents
 }
 
-//===========================================================================
 bool Format4Reader::exist(const QString &entryName)
 {
   qint32 offset = findEntryOffset(0, _entryCount - 1, entryName);
   return offset >= 0;
 }
 
-//===========================================================================
 QString Format4Reader::name(quint32 offset)
 {
   _file.seek(sizeof(quint32) + offset * sizeof(qint64)); // index offset
@@ -75,7 +69,6 @@ QString Format4Reader::name(quint32 offset)
   return FileUtils::readString(_file);
 }
 
-//===========================================================================
 int Format4Reader::findEntryOffset(int min, int max, const QString &entryName)
 {
   if (min == max)

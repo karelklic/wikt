@@ -15,26 +15,22 @@
  */
 #include "project.h"
 
-//===========================================================================
 const Project &Project::instance()
 {
   static Project instance;
   return instance;
 }
 
-//===========================================================================
 bool Project::isPrefix(const QString &prefix) const
 {
   return _prefix.contains(prefix.toLower());
 }
 
-//===========================================================================
 Project::Type Project::fromPrefix(const QString &prefix) const
 {
   return _prefix.value(prefix.toLower(), Unknown);
 }
 
-//===========================================================================
 Project::Type Project::fromLinkPrefixes(const QStringList &prefixes) const
 {
   foreach(QString name, prefixes)
@@ -47,7 +43,6 @@ Project::Type Project::fromLinkPrefixes(const QStringList &prefixes) const
   return Wiktionary;
 }
 
-//===========================================================================
 QString Project::toUrl(Project::Type project, Language::Type language) const
 {
   QString url = _url.value(project, "Unknown URL");
@@ -57,7 +52,6 @@ QString Project::toUrl(Project::Type project, Language::Type language) const
   return url;
 }
 
-//===========================================================================
 Project::Project()
 {
   _prefix.insert("m",           Meta);

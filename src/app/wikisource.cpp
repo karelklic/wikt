@@ -23,30 +23,31 @@
 #include <QImage>
 #include <QCoreApplication>
 #include <QSettings>
+#include <QDir>
 
 static WikiSource *instance = 0;
 
-//===========================================================================
 WikiSource::WikiSource(QObject *parent) : QObject(parent)
 {
   ::instance = this;
-  QString dataPath = QCoreApplication::applicationDirPath() + "/../share/wikt/data";
-  _reader = new Format4Reader(dataPath + "/enwiktionary-20090923.ei4");
-  _mediaReader = new MediaReader(dataPath + "/enwiktionary-20090923.eim");
+  QDir dataDir(DATADIR "/data");
+  QStringList dictionaries(dataDir.entryList(QStringList("*.ei4")));
+  QString activeDict(dataDir.absolutePath() + "/" + dictionaries.first());
+  _reader = new Format4Reader(activeDict);
+  _mediaReader = new MediaReader(activeDict.left(activeDict.length() - 4) + ".eim");
 
-  QFile css(dataPath + "/enwiktionary-20090923.css");
+  QFile css(activeDict.left(activeDict.length() - 4) + ".css");
   css.open(QIODevice::ReadOnly);
   _stylesheet = QString::fromUtf8(css.readAll());
   css.close();
 
-  QFile js(dataPath + "/enwiktionary-20090923.js");
+  QFile js(activeDict.left(activeDict.length() - 4) + ".js");
   js.open(QIODevice::ReadOnly);
   _javascriptTemplate = QString::fromUtf8(js.readAll());
   js.close();
   updateJavascriptFromTemplate();
 }
 
-//===========================================================================
 WikiSource::~WikiSource()
 {
   qDeleteAll(_cache.values());
@@ -54,13 +55,11 @@ WikiSource::~WikiSource()
   delete _mediaReader;
 }
 
-//===========================================================================
 WikiSource &WikiSource::instance()
 {
   return *::instance;
 }
 
-//===========================================================================
 bool WikiSource::exist(const QString &entryName, bool useCache /*= true*/)
 {
   if (useCache)
@@ -69,25 +68,21 @@ bool WikiSource::exist(const QString &entryName, bool useCache /*= true*/)
     return _reader->exist(entryName);
 }
 
-//===========================================================================
 const QString &WikiSource::source(const QString &entryName)
 {
   return cached(entryName)->source();
 }
 
-//===========================================================================
 ArticleNode *WikiSource::tree(const QString &entryName)
 {
   return cached(entryName)->node();
 }
 
-//===========================================================================
 const QString &WikiSource::xhtml(const QString &entryName)
 {
   return cached(entryName)->xhtml();
 }
 
-//===========================================================================
 void WikiSource::sectionVisibilityChanged()
 {
   typedef QMap<QString, WikiSourceCacheItem*>::const_iterator It;
@@ -95,7 +90,6 @@ void WikiSource::sectionVisibilityChanged()
     i.value()->invalidateSectionVisibility();
 }
 
-//===========================================================================
 void WikiSource::translationSettingsChanged()
 {
   typedef QMap<QString, WikiSourceCacheItem*>::const_iterator It;
@@ -105,13 +99,11 @@ void WikiSource::translationSettingsChanged()
   updateJavascriptFromTemplate();
 }
 
-//===========================================================================
 QByteArray WikiSource::media(const QString &fileName)
 {
   return _mediaReader->source(fileName);
 }
 
-//===========================================================================
 QSize WikiSource::imageSize(const QString &fileName)
 {
   // Load raw image from media archive.
@@ -132,7 +124,6 @@ QSize WikiSource::imageSize(const QString &fileName)
   }
 }
 
-//===========================================================================
 WikiSourceCacheItem *WikiSource::cached(const QString &entryName)
 {
   if (_cache.contains(entryName))
@@ -161,7 +152,6 @@ WikiSourceCacheItem *WikiSource::cached(const QString &entryName)
   return item;
 }
 
-//===========================================================================
 void WikiSource::updateJavascriptFromTemplate()
 {
   _javascript = _javascriptTemplate;

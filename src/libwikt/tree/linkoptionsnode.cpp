@@ -15,14 +15,12 @@
  */
 #include "linkoptionsnode.h"
 
-//===========================================================================
 QString LinkOptionsNode::toXHtml() const
 {
   if (!_xhtmlVisible) return "";
   return childrenToXHtml();
 }
 
-//===========================================================================
 QString LinkOptionsNode::toXml(int indentLevel) const
 {
   QString indent(indentLevel, ' ');

@@ -18,17 +18,14 @@
 #include <libwikt/debug.h>
 #include <sstream>
 
-//===========================================================================
 ExprDriver::ExprDriver(const QString &entryName, bool reportErrors) : _entryName(entryName), _traceScanning(false), _traceParsing(false), _reportErrors(reportErrors), _result(0), _resultChanged(false), _errorOccurred(false)
 {
 }
 
-//===========================================================================
 ExprDriver::~ExprDriver()
 {
 }
 
-//===========================================================================
 QString ExprDriver::resultString() const
 {
   if (_errorOccurred)
@@ -38,7 +35,6 @@ QString ExprDriver::resultString() const
   return QString::number(_result, 'G', 14);
 }
 
-//===========================================================================
 void ExprDriver::parse(const std::string &input)
 {
   _input = input;
@@ -49,7 +45,6 @@ void ExprDriver::parse(const std::string &input)
   scan_end();
 }
 
-//===========================================================================
 void ExprDriver::error(const yy::location& l, const std::string& m)
 {
   std::stringstream ss;
@@ -57,7 +52,6 @@ void ExprDriver::error(const yy::location& l, const std::string& m)
   error(ss.str());
 }
 
-//===========================================================================
 void ExprDriver::error(const std::string& message)
 {
   _lastError = QString("Error while parsing entry \"%1\", input \"%2\": %3")

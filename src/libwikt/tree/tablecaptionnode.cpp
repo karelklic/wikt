@@ -15,13 +15,11 @@
  */
 #include "tablecaptionnode.h"
 
-//===========================================================================
 QString TableCaptionNode::toXHtml() const
 {
   return QString("<caption>%1</caption>").arg(childrenToXHtml());
 }
 
-//===========================================================================
 QString TableCaptionNode::toXml(int indentLevel) const
 {
   QString indent(indentLevel, ' ');

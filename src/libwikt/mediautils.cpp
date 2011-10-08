@@ -15,7 +15,6 @@
  */
 #include "mediautils.h"
 
-//===========================================================================
 MediaUtils::ImageType MediaUtils::imageTypeFromFileName(const QString &fileName)
 {
   if (fileName.endsWith(".gif", Qt::CaseInsensitive)) return Gif;
@@ -25,7 +24,6 @@ MediaUtils::ImageType MediaUtils::imageTypeFromFileName(const QString &fileName)
   return Invalid;
 }
 
-//===========================================================================
 const char *MediaUtils::toQtImageFormatId(ImageType imageType)
 {
   switch (imageType)
@@ -33,9 +31,8 @@ const char *MediaUtils::toQtImageFormatId(ImageType imageType)
   case Gif: return "GIF";
   case Jpg: return "JPG";
   case Png: return "PNG";
-  case Invalid: 
-  default: 
-    return "";
+  case Invalid:
+  default:  return "";
   }
 }
 
