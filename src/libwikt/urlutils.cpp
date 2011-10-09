@@ -51,7 +51,6 @@ QString UrlUtils::toEntryName(const QUrl &url, QString *sectionId)
 
 QUrl UrlUtils::toUrl(const QString &entry, const QString &scheme)
 {
-  dstdout(QString("Encoding %1").arg(entry));
   // The entry must be pre-encoded, because otherwise the conversion to
   // URL would fail. Entry contains ':', '!' characters and many others
   // invalid in URL. The case-sesnsitivity must be retained

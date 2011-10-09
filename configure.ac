@@ -45,12 +45,13 @@ AC_CONFIG_FILES([
 	src/tools/mediapacker/Makefile
 	src/tools/wikitoxml/Makefile
 	tests/Makefile
-	tests/auto/Makefile
-	tests/auto/libwikt/Makefile
-	tests/auto/libwikt/buffer/Makefile
-	tests/auto/libwikt/node/Makefile
-	tests/auto/libwikt/parser/Makefile
-	tests/auto/libwikt/urlutils/Makefile
+	tests/libwikt/Makefile
+	tests/libwikt/node/Makefile
+	tests/libwikt/parser/Makefile
+	tests/libwikt/urlutils/Makefile
+	tests/tools/Makefile
+	tests/tools/convdict23/Makefile
+	tests/tools/convdict34/Makefile
 ])
 
 AC_OUTPUT

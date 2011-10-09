@@ -52,6 +52,8 @@ src/tools/imageresizer/imageresizer
 src/tools/mediadownloader/mediadownloader
 src/tools/mediapacker/mediapacker
 src/tools/wikitoxml/wikitoxml
-tests/auto/libwikt/buffer/buffertest
-tests/auto/libwikt/node/nodetest
-tests/auto/libwikt/urlutils/urlutilstest
+tests/libwikt/node/nodetest
+tests/libwikt/parser/parsertest
+tests/libwikt/urlutils/urlutilstest
+tests/tools/convdict23/convdict23test
+tests/tools/convdict34/convdict34test

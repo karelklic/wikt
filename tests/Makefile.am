@@ -1,1 +1,1 @@
-SUBDIRS = auto
+SUBDIRS = libwikt tools
