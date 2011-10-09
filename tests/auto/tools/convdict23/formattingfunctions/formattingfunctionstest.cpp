@@ -26,7 +26,6 @@ private slots:
   void formatNum();
 };
 
-//===========================================================================
 void FormattingFunctionsTest::basic()
 {
   QCOMPARE(FormattingFunctions::evaluate("lc:OmEgA"), QString("omega"));
@@ -39,7 +38,6 @@ void FormattingFunctionsTest::basic()
   QCOMPARE(FormattingFunctions::evaluate("uc:black magic"), QString("BLACK MAGIC"));
 }
 
-//===========================================================================
 void FormattingFunctionsTest::formatNum()
 {
   QCOMPARE(FormattingFunctions::evaluate("formatnum:-987654321.654321"), QString("-987,654,321.654321"));

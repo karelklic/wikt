@@ -35,7 +35,6 @@ private:
   static QString evaluate(const QString &expr);
 };
 
-//===========================================================================
 class ParserFunctionsTestReader : public Format2Reader
 {
 public:
@@ -43,7 +42,6 @@ public:
   virtual bool exist(QString /*entryName*/) { return false; }
 };
 
-//===========================================================================
 void ParserFunctionsTest::parserIf()
 {
   QCOMPARE(evaluate("#if: | true | false"), QString("false"));
@@ -56,7 +54,6 @@ void ParserFunctionsTest::parserIf()
   QCOMPARE(evaluate("#if: foo | | false"), QString(""));
 }
 
-//===========================================================================
 void ParserFunctionsTest::parserIfEq()
 {
   QCOMPARE(evaluate("#ifeq:|_|qualifier"), QString(""));
@@ -65,7 +62,6 @@ void ParserFunctionsTest::parserIfEq()
   QCOMPARE(evaluate("#ifeq:||yes|no|strange"), QString("yes"));
 }
 
-//===========================================================================
 void ParserFunctionsTest::parserSwitch()
 {
   QCOMPARE(evaluate("#switch: a | foo = Foo | a = ok"), QString("ok"));
@@ -74,7 +70,6 @@ void ParserFunctionsTest::parserSwitch()
   QCOMPARE(evaluate("#switch: a | foo | a | b | c = Foo | Baz"), QString("Foo"));
 }
 
-//===========================================================================
 void ParserFunctionsTest::parserExpr()
 {
   QCOMPARE(evaluate("#expr:"), QString(""));
@@ -244,7 +239,6 @@ void ParserFunctionsTest::parserExpr()
   QCOMPARE(evaluate("#expr:(1+2)*2"), QString("6"));
 }
 
-//===========================================================================
 QString ParserFunctionsTest::evaluate(const QString &expr)
 {
   ParserFunctionsTestReader reader;

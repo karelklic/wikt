@@ -21,7 +21,7 @@
 class InlineHtmlParser
 {
   friend class BlockHtmlParser;
-  friend class InlineHtmlParserTest;
+  friend class ParserTest;
 public:
   /// Returns 0 if the buffer contents cannot be
   /// parsed as a inline HTML element.

@@ -27,7 +27,6 @@ private slots:
   void urlencode();
 };
 
-//===========================================================================
 void NamespaceUrlFunctionsTest::ns()
 {
   QVERIFY(NamespaceUrlFunctions::isFunction("ns:2"));
@@ -37,7 +36,6 @@ void NamespaceUrlFunctionsTest::ns()
   QCOMPARE(NamespaceUrlFunctions::evaluate("ns:project"), QString("Wiktionary"));
 }
 
-//===========================================================================
 void NamespaceUrlFunctionsTest::fullUrl()
 {
   QVERIFY(NamespaceUrlFunctions::isFunction("fullurl:a"));
@@ -47,7 +45,6 @@ void NamespaceUrlFunctionsTest::fullUrl()
   QCOMPARE(NamespaceUrlFunctions::evaluate(QString::fromWCharArray(L"fullurl:w:háček")), QString("http://en.wikipedia.org/wiki/h%C3%A1%C4%8Dek"));
 }
 
-//===========================================================================
 void NamespaceUrlFunctionsTest::urlencode()
 {
   QVERIFY(NamespaceUrlFunctions::isFunction("urlencode:a"));

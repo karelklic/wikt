@@ -28,7 +28,6 @@ private slots:
   void evaluateParameter();
 };
 
-//===========================================================================
 void TemplateUtilsTest::addParameterToList0()
 {
   ParameterList p;
@@ -41,7 +40,6 @@ void TemplateUtilsTest::addParameterToList0()
   QCOMPARE(p["3"], QString(""));
 }
 
-//===========================================================================
 void TemplateUtilsTest::addParameterToList1()
 {
   ParameterList p;
@@ -57,7 +55,6 @@ void TemplateUtilsTest::addParameterToList1()
   QCOMPARE(p["3"], QString("5"));
 }
 
-//===========================================================================
 void TemplateUtilsTest::getParts()
 {
   QList<QString> output;
@@ -77,7 +74,6 @@ void TemplateUtilsTest::getParts()
   QCOMPARE(output[2], QString("[[stadium#EnglishpipeEscapeSurestadium]]"));
 }
 
-//===========================================================================
 void TemplateUtilsTest::evaluateParameter()
 {
   ParameterList p;

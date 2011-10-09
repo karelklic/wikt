@@ -47,6 +47,9 @@ AC_CONFIG_FILES([
 	tests/Makefile
 	tests/auto/Makefile
 	tests/auto/libwikt/Makefile
+	tests/auto/libwikt/buffer/Makefile
+	tests/auto/libwikt/node/Makefile
+	tests/auto/libwikt/parser/Makefile
 	tests/auto/libwikt/urlutils/Makefile
 ])
 

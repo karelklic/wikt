@@ -40,7 +40,6 @@ private slots:
   void embeddedLink();
 };
 
-//===========================================================================
 class TemplateSolverTestReader : public Format2Reader
 {
 public:
@@ -49,7 +48,6 @@ public:
   virtual bool exist(QString entryName) { return data.contains(entryName); }
 };
 
-//===========================================================================
 void TemplateSolverTest::declaringDefaultValue()
 {
   TemplateSolverTestReader reader;
@@ -63,7 +61,6 @@ void TemplateSolverTest::declaringDefaultValue()
   QCOMPARE(TemplateSolver("", "{{t|2=two}}", reader).run(), QString("start-pqr-end"));
 }
 
-//===========================================================================
 void TemplateSolverTest::moreBraces()
 {
   TemplateSolverTestReader reader;
@@ -79,7 +76,6 @@ void TemplateSolverTest::moreBraces()
   QCOMPARE(TemplateSolver("", "{{{{#ifeq:{{{g|{{{gender}}}}}}|g|g|ns:0}}|{{language|{{{1}}}}}}}", reader).run(), QString(""));
 }
 
-//===========================================================================
 void TemplateSolverTest::formOf()
 {
   TemplateSolverTestReader reader;
@@ -88,7 +84,6 @@ void TemplateSolverTest::formOf()
   QCOMPARE(TemplateSolver("", "{{form of|lower case form|[[B]]}}", reader).run(), QString("<span class='use-with-mention'>Lower case form of <span class='mention'>[[B]]</span>.</span>"));
 }
 
-//===========================================================================
 void TemplateSolverTest::isValidPageName()
 {
   TemplateSolverTestReader reader;
@@ -97,7 +92,6 @@ void TemplateSolverTest::isValidPageName()
   QCOMPARE(TemplateSolver("", "{{isValidPageName|[[English]]}}", reader).run(), QString(""));
 }
 
-//===========================================================================
 void TemplateSolverTest::evaluatedWikiSyntaxSimple()
 {
   TemplateSolverTestReader reader;
@@ -107,7 +101,6 @@ void TemplateSolverTest::evaluatedWikiSyntaxSimple()
       QString("\n{|\n|A\n|B\n|-\n|C\n|D\n|}\n{|\n|A\n|B\n|-\n|C\n|D\n|}\n"));
 }
 
-//===========================================================================
 void TemplateSolverTest::newlineAddingInTemplates()
 {
   TemplateSolverTestReader reader;
@@ -116,7 +109,6 @@ void TemplateSolverTest::newlineAddingInTemplates()
   QCOMPARE(TemplateSolver("", "{{a}}", reader).run(), QString("g\n#*:good\n#*:good"));
 }
 
-//===========================================================================
 void TemplateSolverTest::pluralOf()
 {
   TemplateSolverTestReader reader;
@@ -128,7 +120,6 @@ void TemplateSolverTest::pluralOf()
   QCOMPARE(TemplateSolver("", "{{plural of|[[stadium#English|stadium]]}}", reader).run(), QString("Plural form of [[stadium#English|stadium]].[[Category:English plurals]]"));
 }
 
-//===========================================================================
 void TemplateSolverTest::embeddedLink()
 {
   TemplateSolverTestReader reader;

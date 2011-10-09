@@ -13,22 +13,9 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
+#include "buffertest.h"
 #include <libwikt/parser/buffer.h>
-#include <QTest>
-#include <QObject>
 
-/// Tests Buffer class.
-class BufferTest : public QObject
-{
-  Q_OBJECT
-private slots:
-  void read();
-  void readAll();
-  void nextLine();
-  void readLine();
-};
-
-//===========================================================================
 void BufferTest::read()
 {
   // Test reading 0 bytes.
@@ -37,19 +24,12 @@ void BufferTest::read()
   QCOMPARE(buffer.pos(), 0);
 }
 
-//===========================================================================
-void BufferTest::readAll()
-{
-}
-
-//===========================================================================
 void BufferTest::nextLine()
 {
   Buffer buffer("* a\n* b\n* c\n");
   QCOMPARE(buffer.nextLine(), QString("* a"));
 }
 
-//===========================================================================
 void BufferTest::readLine()
 {
   Buffer buffer("* a\n* b\n* c\n");
@@ -59,4 +39,3 @@ void BufferTest::readLine()
 }
 
 QTEST_APPLESS_MAIN(BufferTest)
-#include "buffertest.moc"

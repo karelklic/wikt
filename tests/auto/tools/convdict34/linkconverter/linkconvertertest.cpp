@@ -29,7 +29,6 @@ private slots:
   void linksWithSlashes();
 };
 
-//===========================================================================
 class LinkConverterTestReader : public Format3Reader
 {
 public:
@@ -50,13 +49,11 @@ public:
   virtual QString sourceDirect(qint64 offset) { return _contents[offset]; }
 };
 
-//===========================================================================
 class LinkConverterTestMediaReader : public MediaReader
 {
 };
 
 
-//===========================================================================
 void LinkConverterTest::basicLinks()
 {
   LinkConverterTestReader reader;
@@ -68,7 +65,6 @@ void LinkConverterTest::basicLinks()
   QCOMPARE(contents, QString("Link [[existing]] and nonexisting."));
 }
 
-//===========================================================================
 void LinkConverterTest::linksWithNamespaces()
 {
   LinkConverterTestReader reader;
@@ -81,7 +77,6 @@ void LinkConverterTest::linksWithNamespaces()
   QCOMPARE(contents, QString("Link [[Category:existing|e]] and Talk:nonexisting."));
 }
 
-//===========================================================================
 void LinkConverterTest::linksWithSlashes()
 {
   LinkConverterTestReader reader;

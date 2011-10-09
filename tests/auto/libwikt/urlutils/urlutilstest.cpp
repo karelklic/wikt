@@ -15,14 +15,12 @@
  */
 #include "urlutilstest.h"
 
-//===========================================================================
 void UrlUtilsTest::test0()
 {
   QUrl url(UrlUtils::toUrl("machine"));
   QCOMPARE(UrlUtils::toEntryName(url), QString("machine"));
 }
 
-//===========================================================================
 void UrlUtilsTest::test1()
 {
   QUrl url(UrlUtils::toUrl(QString::fromStdWString(L"MěščřE:Category01 g")));

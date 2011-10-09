@@ -13,27 +13,19 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include <libwikt/parser/htmlentityparser.h>
+#ifndef BUFFERTEST_H
+#define BUFFERTEST_H
 #include <QTest>
 #include <QObject>
 
-/// Tests HtmlEntityParser.
-class HtmlEntityParserTest : public QObject
+/// Tests Buffer class.
+class BufferTest : public QObject
 {
   Q_OBJECT
 private slots:
-  void nbsp();
+  void read();
+  void nextLine();
+  void readLine();
 };
 
-//===========================================================================
-void HtmlEntityParserTest::nbsp()
-{
-  Buffer buffer("&nbsp;");
-  HtmlEntityNode *result = HtmlEntityParser::parse(buffer);
-  QVERIFY(result);
-  QVERIFY(buffer.endOfFile());
-  delete result;
-}
-
-QTEST_APPLESS_MAIN(HtmlEntityParserTest)
-#include "htmlentityparsertest.moc"
+#endif

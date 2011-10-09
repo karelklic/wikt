@@ -1,1 +1,1 @@
-SUBDIRS = urlutils
+SUBDIRS = node parser buffer urlutils

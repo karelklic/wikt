@@ -13,22 +13,19 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include <libwikt/parser/headingparser.h>
+#ifndef NODETEST_H
+#define NODETEST_H
 #include <QTest>
 #include <QObject>
 
-/// Tests HeadingParser.
-class HeadingParserTest : public QObject
+class NodeTest : public QObject
 {
   Q_OBJECT
 private slots:
-  void basics();
+  void article_generateXHtmlTableOfContents0();
+  void linkTarget_language();
+  void linkTarget_namespace();
+  void linkTarget_project();
 };
 
-//===========================================================================
-void HeadingParserTest::basics()
-{
-}
-
-QTEST_APPLESS_MAIN(HeadingParserTest)
-#include "headingparsertest.moc"
+#endif

@@ -34,7 +34,6 @@ private slots:
   void nameSpaceE();
 };
 
-//===========================================================================
 void PageNameFunctionsTest::pageName()
 {
   QVERIFY(PageNameFunctions::isPageNameFunction("PAGENAME"));
@@ -43,7 +42,6 @@ void PageNameFunctionsTest::pageName()
   QCOMPARE(PageNameFunctions::evaluate("PAGENAME ", "User talk:Anonymous user/sandbox/my page"), QString("Anonymous user/sandbox/my page"));
 }
 
-//===========================================================================
 void PageNameFunctionsTest::pageNameE()
 {
   QVERIFY(PageNameFunctions::isPageNameFunction("PAGENAMEE"));
@@ -52,7 +50,6 @@ void PageNameFunctionsTest::pageNameE()
   QCOMPARE(PageNameFunctions::evaluate("PAGENAMEE ", "User talk:Anonymous user/sandbox/my page"), QString("Anonymous_user/sandbox/my_page"));
 }
 
-//===========================================================================
 void PageNameFunctionsTest::basePageName()
 {
   QVERIFY(PageNameFunctions::isPageNameFunction("BASEPAGENAME"));
@@ -61,7 +58,6 @@ void PageNameFunctionsTest::basePageName()
   QCOMPARE(PageNameFunctions::evaluate("BASEPAGENAME ", "User talk:Anonymous user/sandbox/my page"), QString("Anonymous user/sandbox"));
 }
 
-//===========================================================================
 void PageNameFunctionsTest::basePageNameE()
 {
   QVERIFY(PageNameFunctions::isPageNameFunction("BASEPAGENAMEE"));
@@ -70,7 +66,6 @@ void PageNameFunctionsTest::basePageNameE()
   QCOMPARE(PageNameFunctions::evaluate("BASEPAGENAMEE ", "User talk:Anonymous user/sandbox/my page"), QString("Anonymous_user/sandbox"));
 }
 
-//===========================================================================
 void PageNameFunctionsTest::subPageName()
 {
   QVERIFY(PageNameFunctions::isPageNameFunction("SUBPAGENAME"));
@@ -79,7 +74,6 @@ void PageNameFunctionsTest::subPageName()
   QCOMPARE(PageNameFunctions::evaluate("SUBPAGENAME ", "User talk:Anonymous user/sandbox/my page"), QString("my page"));
 }
 
-//===========================================================================
 void PageNameFunctionsTest::subPageNameE()
 {
   QVERIFY(PageNameFunctions::isPageNameFunction("SUBPAGENAMEE"));
@@ -92,7 +86,6 @@ void PageNameFunctionsTest::subPageNameE()
       QString("my_page"));
 }
 
-//===========================================================================
 void PageNameFunctionsTest::fullPageName()
 {
   QVERIFY(PageNameFunctions::isPageNameFunction("FULLPAGENAME"));
@@ -101,7 +94,6 @@ void PageNameFunctionsTest::fullPageName()
   QCOMPARE(PageNameFunctions::evaluate("FULLPAGENAME ", "User talk:Anonymous user/sandbox/my page"), QString("User talk:Anonymous user/sandbox/my page"));
 }
 
-//===========================================================================
 void PageNameFunctionsTest::fullPageNameE()
 {
   QVERIFY(PageNameFunctions::isPageNameFunction("FULLPAGENAMEE"));
@@ -111,7 +103,6 @@ void PageNameFunctionsTest::fullPageNameE()
 }
 
 
-//===========================================================================
 void PageNameFunctionsTest::nameSpace()
 {
   QVERIFY(PageNameFunctions::isPageNameFunction("NAMESPACE"));
@@ -121,7 +112,6 @@ void PageNameFunctionsTest::nameSpace()
   QCOMPARE(PageNameFunctions::evaluate("NAMESPACE ", "User talk:Anonymous user/sandbox/my page"), QString("User talk"));
 }
 
-//===========================================================================
 void PageNameFunctionsTest::nameSpaceE()
 {
   QVERIFY(PageNameFunctions::isPageNameFunction("NAMESPACEE"));
