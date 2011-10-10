@@ -37,7 +37,6 @@ libtool
 ltmain.sh
 m4
 missing
-po
 stamp-h1
 
 # Binaries
