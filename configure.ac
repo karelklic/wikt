@@ -27,9 +27,7 @@ AC_CONFIG_HEADERS([config.h])
 
 AC_CONFIG_FILES([
 	Makefile
-	share/Makefile
-	share/wikt/Makefile
-	share/wikt/translations/Makefile
+	translations/Makefile
 	src/Makefile
 	src/app/Makefile
 	src/libwikt/Makefile
