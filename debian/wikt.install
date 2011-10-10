@@ -1,4 +1,0 @@
-debian/wikt.desktop usr/share/applications/
-bin/wikt usr/bin/
-src/app/images/wikt_logo_128.png usr/share/pixmaps/
-share/wikt/translations/wikt_cs.qm usr/share/wikt/translations/
