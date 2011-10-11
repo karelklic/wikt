@@ -22,7 +22,11 @@ PKG_CHECK_MODULES([QTSVG], [QtSvg])
 PKG_CHECK_MODULES([QTTEST], [QtTest])
 PKG_CHECK_MODULES([PHONON], [phonon])
 
-AC_SUBST(DL_LIBS, -ldl)
+LUPDATE=`pkg-config --variable=lupdate_location QtCore`
+LRELEASE=`pkg-config --variable=lrelease_location QtCore`
+AC_SUBST(LUPDATE)
+AC_SUBST(LRELEASE)
+
 AC_CONFIG_HEADERS([config.h])
 
 AC_CONFIG_FILES([

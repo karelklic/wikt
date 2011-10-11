@@ -4,7 +4,7 @@
 <context>
     <name>Categories::Panel</name>
     <message>
-        <location filename="../../../src/app/categoriespanel.cpp" line="+23"/>
+        <location filename="../src/app/categoriespanel.cpp" line="+22"/>
         <source>Categories</source>
         <translation>Kategorie</translation>
     </message>
@@ -12,7 +12,7 @@
 <context>
     <name>ErrorDialogClass</name>
     <message>
-        <location filename="../../../src/app/errordialog.ui"/>
+        <location filename="../src/app/errordialog.ui"/>
         <source>ErrorDialog</source>
         <translation type="unfinished"></translation>
     </message>
@@ -50,17 +50,16 @@
 <context>
     <name>FindPanel</name>
     <message>
-        <location filename="../../../src/app/findpanel.cpp" line="+28"/>
+        <location filename="../src/app/findpanel.cpp" line="+27"/>
         <source>Find</source>
         <translation>Najít</translation>
     </message>
     <message>
-        <location line="+2"/>
         <source>Close</source>
-        <translation>Zavřít</translation>
+        <translation type="obsolete">Zavřít</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+7"/>
         <source>Find:</source>
         <translation>Najít:</translation>
     </message>
@@ -83,7 +82,7 @@
 <context>
     <name>HtmlSourceView</name>
     <message>
-        <location filename="../../../src/app/htmlsourceview.cpp" line="+22"/>
+        <location filename="../src/app/htmlsourceview.cpp" line="+21"/>
         <source>HTML Source View</source>
         <translation type="unfinished"></translation>
     </message>
@@ -91,7 +90,7 @@
 <context>
     <name>InterestingPages::Panel</name>
     <message>
-        <location filename="../../../src/app/interestingpagespanel.cpp" line="+28"/>
+        <location filename="../src/app/interestingpagespanel.cpp" line="+27"/>
         <source>Interesting Pages</source>
         <translation>Zajímavé stránky</translation>
     </message>
@@ -99,7 +98,7 @@
 <context>
     <name>LookupPanel</name>
     <message>
-        <location filename="../../../src/app/lookuppanel.cpp" line="+26"/>
+        <location filename="../src/app/lookuppanel.cpp" line="+25"/>
         <source>Search</source>
         <translation>Hledat</translation>
     </message>
@@ -122,13 +121,13 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../../src/app/mainwindow.cpp" line="+38"/>
+        <location filename="../src/app/mainwindow.cpp" line="+37"/>
         <source>Ready</source>
         <translation>Připraven</translation>
     </message>
     <message>
         <location line="+37"/>
-        <location line="+39"/>
+        <location line="+36"/>
         <source>Wikt</source>
         <translation>Wikt</translation>
     </message>
@@ -141,7 +140,7 @@
 <context>
     <name>MenuBar</name>
     <message>
-        <location filename="../../../src/app/menubar.cpp" line="+35"/>
+        <location filename="../src/app/menubar.cpp" line="+34"/>
         <source>&amp;Quit</source>
         <translation>U&amp;končit</translation>
     </message>
@@ -156,27 +155,27 @@
         <translation>Ukončit aplikaci</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+8"/>
         <source>Ctrl+X</source>
         <translation>Ctrl+X</translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="+3"/>
         <source>Ctrl+C</source>
         <translation>Ctrl+C</translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="+3"/>
         <source>Ctrl+V</source>
         <translation>Ctrl+V</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+5"/>
         <source>Ctrl+A</source>
         <translation>Ctrl+A</translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="+4"/>
         <source>&amp;Find</source>
         <translation>&amp;Najít</translation>
     </message>
@@ -186,7 +185,7 @@
         <translation>Ctrl+F</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+4"/>
         <source>Find &amp;next</source>
         <translation>Najít &amp;další</translation>
     </message>
@@ -201,7 +200,7 @@
         <translation>&amp;Nastavení</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+7"/>
         <source>&amp;Etymology</source>
         <translation>&amp;Etymologie</translation>
     </message>
@@ -276,7 +275,7 @@
         <translation>&amp;Nápověda</translation>
     </message>
     <message>
-        <location line="+69"/>
+        <location line="+58"/>
         <source>About Wikt</source>
         <translation>O Wiktu</translation>
     </message>
@@ -287,9 +286,17 @@
     </message>
 </context>
 <context>
+    <name>NetworkReplyNotFound</name>
+    <message>
+        <location filename="../src/app/networkreplynotfound.cpp" line="+25"/>
+        <source>&lt;html&gt;&lt;head&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;special://stylesheet&quot; /&gt;&lt;/head&gt;&lt;body&gt;&lt;h1&gt;Entry not found&lt;/h1&gt;&lt;p&gt;No definition of &apos;%1&apos; found.&lt;/p&gt;&lt;p&gt;Suggestions:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Check that the term is written correctly.&lt;/li&gt;&lt;li&gt;Try a related term or synonym.&lt;/li&gt;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>OptionsDialog</name>
     <message>
-        <location filename="../../../src/app/optionsdialog.cpp" line="+31"/>
+        <location filename="../src/app/optionsdialog.cpp" line="+30"/>
         <source>Options</source>
         <translation>Nastavení</translation>
     </message>
@@ -312,7 +319,7 @@
 <context>
     <name>OptionsDialogClass</name>
     <message>
-        <location filename="../../../src/app/optionsdialog.ui"/>
+        <location filename="../src/app/optionsdialog.ui"/>
         <source>Options</source>
         <translation>Nastavení</translation>
     </message>
@@ -335,7 +342,7 @@
 <context>
     <name>RelatedPages::Panel</name>
     <message>
-        <location filename="../../../src/app/relpagespanel.cpp" line="+26"/>
+        <location filename="../src/app/relpagespanel.cpp" line="+25"/>
         <source>Related Pages</source>
         <translation>Související</translation>
     </message>
@@ -343,7 +350,7 @@
 <context>
     <name>TableOfContents::Panel</name>
     <message>
-        <location filename="../../../src/app/tocpanel.cpp" line="+22"/>
+        <location filename="../src/app/tocpanel.cpp" line="+21"/>
         <source>Table of Contents</source>
         <translation>Obsah</translation>
     </message>
