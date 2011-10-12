@@ -1,6 +1,6 @@
-bin_PROGRAMS = wikt
+bin_PROGRAMS = wikt-gui
 
-wikt_SOURCES = \
+wikt_gui_SOURCES = \
   categoriesitem.cpp categoriesitem.h \
   categoriesmodel.cpp categoriesmodel.h moc_categoriesmodel.cpp \
   categoriespanel.cpp categoriespanel.h moc_categoriespanel.cpp \
@@ -45,7 +45,7 @@ wikt_SOURCES = \
   wikisourcecacheitem.cpp wikisourcecacheitem.h \
   qrc_wikt.cpp
 
-wikt_CPPFLAGS = \
+wikt_gui_CPPFLAGS = \
   -I.. \
   $(QTCORE_CFLAGS) \
   $(QTGUI_CFLAGS) \
@@ -54,7 +54,7 @@ wikt_CPPFLAGS = \
   $(QTSVG_CFLAGS) \
   $(PHONON_CFLAGS)
 
-wikt_LDFLAGS = \
+wikt_gui_LDFLAGS = \
   $(QTCORE_LDFLAGS) \
   $(QTGUI_LDFLAGS) \
   $(QTWEBKIT_LDFLAGS) \
@@ -62,7 +62,7 @@ wikt_LDFLAGS = \
   $(QTSVG_LDFLAGS) \
   $(PHONON_LDFLAGS)
 
-wikt_LDADD = \
+wikt_gui_LDADD = \
   ../libwikt/libwikt.la \
   $(QTCORE_LIBS) \
   $(QTGUI_LIBS) \

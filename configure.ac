@@ -33,8 +33,9 @@ AC_CONFIG_FILES([
 	Makefile
 	translations/Makefile
 	src/Makefile
-	src/app/Makefile
 	src/libwikt/Makefile
+	src/wikt-dict/Makefile
+	src/wikt-gui/Makefile
 	src/tools/Makefile
 	src/tools/convdict12/Makefile
 	src/tools/convdict23/Makefile

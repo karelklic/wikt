@@ -40,7 +40,8 @@ missing
 stamp-h1
 
 # Binaries
-src/app/wikt
+src/wikt-dict/wikt-dict
+src/wikt-gui/wikt-gui
 src/tools/convdict12/convdict12
 src/tools/convdict23/convdict23
 src/tools/convdict23/exprparser/libexprparser.a
