@@ -13,6 +13,7 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
+/* This file is required by commandPrepToMid. */
 #include "galleryconverter.h"
 #include <QRegExp>
 #include <QStringList>

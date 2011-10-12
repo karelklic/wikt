@@ -13,6 +13,7 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
+/* This file is required by commandPrepToMid. */
 #include "exprdriver.h"
 #include "exprparser.tab.hpp"
 #include <libwikt/debug.h>

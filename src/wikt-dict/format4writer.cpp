@@ -13,30 +13,65 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-/* This file is required by commandPrepToMid. */
-#include "format3writer.h"
-#include <libwikt/comparsion.h>
+/* This file is required by commandMidToDict. */
+#include "format4writer.h"
 #include <libwikt/fileutils.h>
+#include <libwikt/comparsion.h>
 #include <libwikt/quicksort.h>
+#include <libwikt/debug.h>
+#include <QStringList>
 
-Format3Writer::Format3Writer(const QString &targetFileName) : _targetFileName(targetFileName)
+Format4Writer::Format4Writer(const QString &targetFileName) : _targetFileName(targetFileName)
 {
   _temporaryFile.open();
 }
 
-void Format3Writer::addEntry(const QString &name, const QString &contents)
+void Format4Writer::addEntry(const QString &name, const QString &contents)
 {
   qint64 offset = _temporaryFile.pos();
 
   // Save data to the content file.
   FileUtils::writeString(_temporaryFile, name);
-  FileUtils::writeString(_temporaryFile, contents);
+  FileUtils::writeCompressed(_temporaryFile, contents);
 
   // Add an entry to the link list.
   _links.push_back(Link(name, offset));
 }
 
-void Format3Writer::close()
+void Format4Writer::addCategory(const QString &name, const QString &contents, const QStringList &subcategories, const QStringList &entries)
+{
+  qint64 offset = _temporaryFile.pos();
+
+  // Save data to the content file.
+  FileUtils::writeString(_temporaryFile, name);
+
+  QString fullContents(contents);
+  if (subcategories.size() > 0)
+  {
+    fullContents += "\n==Subcategories==\n";
+    foreach (QString subcategory, subcategories)
+    {
+      QString title(subcategory);
+      title.remove("Category:");
+      fullContents += QString("* [[:%1|%2]]\n").arg(subcategory).arg(title);
+    }
+    fullContents += "\n";
+  }
+  if (entries.size() > 0)
+  {
+    fullContents += "\n==Entries==\n";
+    foreach (const QString &entry, entries)
+      fullContents += QString("* [[%1]]\n").arg(entry);
+    fullContents += "\n";
+  }
+
+  FileUtils::writeCompressed(_temporaryFile, fullContents);
+
+  // Add an entry to the link list.
+  _links.push_back(Link(name, offset));
+}
+
+void Format4Writer::close()
 {
   // Sort the links in the memory.
   // Sort comparison operator must not depend on locale, because the dictionary file
@@ -62,9 +97,9 @@ void Format3Writer::close()
   {
     _temporaryFile.seek(it.second);
     QString name = FileUtils::readString(_temporaryFile);
-    QString contents = FileUtils::readString(_temporaryFile);
+    QByteArray contents = FileUtils::readByteArray(_temporaryFile);
     FileUtils::writeString(file, name);
-    FileUtils::writeString(file, contents);
+    FileUtils::writeByteArray(file, contents);
   }
 
   file.close();

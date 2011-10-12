@@ -13,19 +13,32 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef WIKT_DICT_COMMAND_H
-#define WIKT_DICT_COMMAND_H
+/* This file is required by commandMidToDict. */
+#ifndef FORMAT4WRITER_H_
+#define FORMAT4WRITER_H_
 
 #include <QString>
+#include <QTemporaryFile>
+#include <QPair>
+#include <QList>
 
-void commandXmlToPrep(const QString &xmlFile, const QString &prepFile,
-                      const QString &errataDir);
+class Format4Writer
+{
+public:
+  Format4Writer(const QString &targetFileName);
 
-void commandPrepToMid(const QString &prepFile, const QString &midFile,
-                      qint64 from = -1, qint64 to = -1, bool showNames = false);
+  void addEntry(const QString &name, const QString &contents);
+  void addCategory(const QString &name, const QString &contents, const QStringList &subcategories, const QStringList &entries);
+  void close();
 
-void commandMidToDict(const QString &midFile, const QString &mediaFile,
-                      const QString &dictFile, qint64 from = -1,
-                      qint64 to = -1, bool showNames = false);
+private:
+  QString _targetFileName;
 
-#endif
+  typedef QPair<QString, qint64> Link;
+  QList<Link> _links;
+
+  /// Temporary file with entries without indices.
+  QTemporaryFile _temporaryFile;
+};
+
+#endif /* FORMAT4WRITER_H_ */

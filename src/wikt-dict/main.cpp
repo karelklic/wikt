@@ -95,7 +95,7 @@ int main(int argc, char **argv)
         printUsageAndDie(args.at(0));
     }
 
-    commandPrepToMid(args.at(2), args.at(3), from, to);
+    commandPrepToMid(prepFile, midFile, from, to, showNames);
   }
   else if (command == "download-media")
   {
@@ -108,6 +108,54 @@ int main(int argc, char **argv)
   }
   else if (command == "mid-to-dict")
   {
+    QString midFile, mediaFile, dictFile, strFrom, strTo;
+    bool showNames = false;
+
+    foreach (const QString &arg, args)
+    {
+      if (arg == "--names")
+        showNames = true;
+      else if (arg.startsWith("-f="))
+        strFrom = arg.mid(3);
+      else if (arg.startsWith("--from="))
+        strFrom = arg.mid(7);
+      else if (arg.startsWith("-t="))
+        strTo = arg.mid(3);
+      else if (arg.startsWith("--to="))
+        strTo = arg.mid(5);
+      else if (midFile.isNull())
+        midFile = arg;
+      else if (mediaFile.isNull())
+        mediaFile = arg;
+      else if (dictFile.isNull())
+        dictFile = arg;
+      else
+        printUsageAndDie(args.at(0));
+    }
+
+    if (midFile.isNull() || mediaFile.isNull() || dictFile.isNull())
+      printUsageAndDie(args.at(0));
+
+    int from = -1;
+    if (!strFrom.isNull())
+    {
+      bool ok = false;
+      from = strFrom.toInt(&ok);
+      if (!ok)
+        printUsageAndDie(args.at(0));
+    }
+
+    int to = -1;
+    if (!strTo.isNull())
+    {
+      bool ok = false;
+      to = strTo.toInt(&ok);
+      if (!ok)
+        printUsageAndDie(args.at(0));
+    }
+
+    commandMidToDict(midFile, mediaFile, dictFile,
+                     from, to, showNames);
   }
   else
     printUsageAndDie(args.at(0));

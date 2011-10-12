@@ -13,19 +13,14 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef WIKT_DICT_COMMAND_H
-#define WIKT_DICT_COMMAND_H
+/* This file is required by commandMidToDict. */
+#ifndef REFERENCES_H
+#define REFERENCES_H
 
 #include <QString>
 
-void commandXmlToPrep(const QString &xmlFile, const QString &prepFile,
-                      const QString &errataDir);
+/// Searches for <ref> and <references/> tags and modifies them to 
+/// common wiki syntax. The returned string does not contain
+QString handleReferences(const QString &name, QString content);
 
-void commandPrepToMid(const QString &prepFile, const QString &midFile,
-                      qint64 from = -1, qint64 to = -1, bool showNames = false);
-
-void commandMidToDict(const QString &midFile, const QString &mediaFile,
-                      const QString &dictFile, qint64 from = -1,
-                      qint64 to = -1, bool showNames = false);
-
-#endif
+#endif // REFERENCES_H

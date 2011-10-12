@@ -13,19 +13,23 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef WIKT_DICT_COMMAND_H
-#define WIKT_DICT_COMMAND_H
+/* This file is required by commandMidToDict. */
+#ifndef CATEGORYBUILDER_H
+#define CATEGORYBUILDER_H
 
+#include "format4writer.h"
+#include <libwikt/tree/articlenode.h>
 #include <QString>
 
-void commandXmlToPrep(const QString &xmlFile, const QString &prepFile,
-                      const QString &errataDir);
+/// Associates category contents with certain category.
+/// @param contents
+///   Contents in wiki markup.
+void CatBuilder_addContents(const QString &categoryName, const QString &contents);
 
-void commandPrepToMid(const QString &prepFile, const QString &midFile,
-                      qint64 from = -1, qint64 to = -1, bool showNames = false);
+/// Processes entry wiki markup and adds entry to all categories where it belongs.
+void CatBuilder_process(const QString &name, const ArticleNode &node);
 
-void commandMidToDict(const QString &midFile, const QString &mediaFile,
-                      const QString &dictFile, qint64 from = -1,
-                      qint64 to = -1, bool showNames = false);
+/// Writes the categories to the output file.
+void CatBuilder_writeAll(Format4Writer &destination);
 
 #endif

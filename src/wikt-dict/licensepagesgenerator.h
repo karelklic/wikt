@@ -13,19 +13,19 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef WIKT_DICT_COMMAND_H
-#define WIKT_DICT_COMMAND_H
+/* This file is required by commandMidToDict. */
+#ifndef LICENSEPAGESGENERATOR_H_
+#define LICENSEPAGESGENERATOR_H_
 
-#include <QString>
+class Format4Writer;
 
-void commandXmlToPrep(const QString &xmlFile, const QString &prepFile,
-                      const QString &errataDir);
+/// Creates two wiki pages with the text of licenses.
+class LicensePagesGenerator
+{
+public:
+  LicensePagesGenerator();
 
-void commandPrepToMid(const QString &prepFile, const QString &midFile,
-                      qint64 from = -1, qint64 to = -1, bool showNames = false);
+  void write(Format4Writer &destination);
+};
 
-void commandMidToDict(const QString &midFile, const QString &mediaFile,
-                      const QString &dictFile, qint64 from = -1,
-                      qint64 to = -1, bool showNames = false);
-
-#endif
+#endif /* LICENSEPAGESGENERATOR_H_ */

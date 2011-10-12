@@ -1,6 +1,8 @@
 bin_PROGRAMS = wikt-dict
 wikt_dict_SOURCES = \
+	categorybuilder.cpp categorybuilder.h \
 	command.h \
+	commandmidtodict.cpp \
 	commandpreptomid.cpp \
 	commandxmltoprep.cpp \
 	exprdriver.cpp exprdriver.h \
@@ -9,15 +11,22 @@ wikt_dict_SOURCES = \
 	location.hh position.hh stack.hh \
 	format2reader.cpp format2reader.h \
 	format3writer.cpp format3writer.h \
+	format4writer.cpp format4writer.h \
 	formattingfunctions.cpp formattingfunctions.h \
 	galleryconverter.cpp galleryconverter.h \
+	languagestatistic.cpp languagestatistic.h \
+	licensepagesgenerator.cpp licensepagesgenerator.h \
+	linkconverter.cpp linkconverter.h \
 	main.cpp \
 	namespaceurlfunctions.cpp namespaceurlfunctions.h \
 	pagenamefunctions.cpp pagenamefunctions.h \
 	parameterlist.cpp parameterlist.h \
 	parserfunctions.cpp parserfunctions.h \
+	references.cpp references.h \
+	statspagegenerator.cpp statspagegenerator.h \
 	templatesolver.cpp templatesolver.h \
-	templateutils.cpp templateutils.h
+	templateutils.cpp templateutils.h \
+	titlepagegenerator.cpp titlepagegenerator.h
 
 wikt_dict_CPPFLAGS = -I.. $(QTCORE_CFLAGS)
 wikt_dict_LDFLAGS = $(QTCORE_LDFLAGS)
