@@ -97,6 +97,7 @@ typedef int flex_int32_t;
 typedef unsigned char flex_uint8_t; 
 typedef unsigned short int flex_uint16_t;
 typedef unsigned int flex_uint32_t;
+#endif /* ! C99 */
 
 /* Limits of integral types. */
 #ifndef INT8_MIN
@@ -126,8 +127,6 @@ typedef unsigned int flex_uint32_t;
 #ifndef UINT32_MAX
 #define UINT32_MAX             (4294967295U)
 #endif
-
-#endif /* ! C99 */
 
 #endif /* ! FLEXINT_H */
 
@@ -203,15 +202,7 @@ typedef unsigned int flex_uint32_t;
 
 /* Size of default input buffer. */
 #ifndef YY_BUF_SIZE
-#ifdef __ia64__
-/* On IA-64, the buffer size is 16k, not 8k.
- * Moreover, YY_BUF_SIZE is 2*YY_READ_BUF_SIZE in the general case.
- * Ditto for the __ia64__ case accordingly.
- */
-#define YY_BUF_SIZE 32768
-#else
 #define YY_BUF_SIZE 16384
-#endif /* __ia64__ */
 #endif
 
 /* The state buf must be large enough to hold one state per character in the main buffer.
@@ -631,8 +622,8 @@ static yyconst flex_int16_t yy_rule_linenum[40] =
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *exprtext;
-#line 1 "exprscanner.l"
-#line 2 "exprscanner.l"
+#line 1 "exprscanner.lpp"
+#line 2 "exprscanner.lpp"
 /* This is the the input file for flex.
  * This source file is licensed unter the GNU General Public License
  * http://www.gnu.org/copyleft/gpl.html
@@ -655,9 +646,9 @@ char *exprtext;
    Unfortunately yyterminate by default returns 0, which is
    not of token_type.  */
 #define yyterminate() return token::END
-#line 30 "exprscanner.l"
+#line 30 "exprscanner.lpp"
   typedef yy::ExprParser::token token;
-#line 661 "exprscanner.cpp"
+#line 652 "exprscanner.cpp"
 
 #define INITIAL 0
 
@@ -766,12 +757,7 @@ static int input (void );
 
 /* Amount of stuff to slurp up with each read. */
 #ifndef YY_READ_BUF_SIZE
-#ifdef __ia64__
-/* On IA-64, the buffer size is 16k, not 8k */
-#define YY_READ_BUF_SIZE 16384
-#else
 #define YY_READ_BUF_SIZE 8192
-#endif /* __ia64__ */
 #endif
 
 /* Copy whatever the last rule matched to the standard output. */
@@ -795,7 +781,7 @@ static int input (void );
 	if ( YY_CURRENT_BUFFER_LVALUE->yy_is_interactive ) \
 		{ \
 		int c = '*'; \
-		size_t n; \
+		unsigned n; \
 		for ( n = 0; n < max_size && \
 			     (c = getc( exprin )) != EOF && c != '\n'; ++n ) \
 			buf[n] = (char) c; \
@@ -902,9 +888,9 @@ YY_DECL
 	register int yy_act;
     
 /* %% [7.0] user's declarations go here */
-#line 33 "exprscanner.l"
+#line 33 "exprscanner.lpp"
 
-#line 908 "exprscanner.cpp"
+#line 894 "exprscanner.cpp"
 
 	if ( !(yy_init) )
 		{
@@ -1016,7 +1002,7 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 34 "exprscanner.l"
+#line 34 "exprscanner.lpp"
 { /* trailing decimal point is allowed */
            /* atof can *not* be used, because it is locale-sensitive */
            std::stringstream ss;
@@ -1028,7 +1014,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 43 "exprscanner.l"
+#line 43 "exprscanner.lpp"
 { /* trailing decimal point is allowed */
            /* atof can *not* be used, because it is locale-sensitive */
            std::stringstream ss;
@@ -1040,7 +1026,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 52 "exprscanner.l"
+#line 52 "exprscanner.lpp"
 {
            /* atof can *not* be used, because it is locale-sensitive */
            std::stringstream ss;
@@ -1052,157 +1038,157 @@ YY_RULE_SETUP
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 61 "exprscanner.l"
+#line 61 "exprscanner.lpp"
 { return token::PLUS; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 62 "exprscanner.l"
+#line 62 "exprscanner.lpp"
 { return token::MINUS; }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 63 "exprscanner.l"
+#line 63 "exprscanner.lpp"
 { return token::LESSER_EQUAL; }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 64 "exprscanner.l"
+#line 64 "exprscanner.lpp"
 { return token::LESSER; }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 65 "exprscanner.l"
+#line 65 "exprscanner.lpp"
 { return token::LARGER_EQUAL; }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 66 "exprscanner.l"
+#line 66 "exprscanner.lpp"
 { return token::LARGER; } 
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 67 "exprscanner.l"
+#line 67 "exprscanner.lpp"
 { return token::MULTIPLY; }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 68 "exprscanner.l"
+#line 68 "exprscanner.lpp"
 { return token::DIVIDE; }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 69 "exprscanner.l"
+#line 69 "exprscanner.lpp"
 { return token::DIVIDE; }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 70 "exprscanner.l"
+#line 70 "exprscanner.lpp"
 { return token::LEFT_PAREN; }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 71 "exprscanner.l"
+#line 71 "exprscanner.lpp"
 { return token::RIGHT_PAREN; }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 72 "exprscanner.l"
+#line 72 "exprscanner.lpp"
 { return token::MOD; }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 73 "exprscanner.l"
+#line 73 "exprscanner.lpp"
 { return token::ROUND; }
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 74 "exprscanner.l"
+#line 74 "exprscanner.lpp"
 { return token::POW; }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 75 "exprscanner.l"
+#line 75 "exprscanner.lpp"
 { return token::EQUALS; }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 76 "exprscanner.l"
+#line 76 "exprscanner.lpp"
 { return token::NEQUALS; }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 77 "exprscanner.l"
+#line 77 "exprscanner.lpp"
 { return token::NEQUALS; }
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 78 "exprscanner.l"
+#line 78 "exprscanner.lpp"
 { return token::AND; }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 79 "exprscanner.l"
+#line 79 "exprscanner.lpp"
 { return token::OR; }
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 80 "exprscanner.l"
+#line 80 "exprscanner.lpp"
 { return token::NOT; }
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 81 "exprscanner.l"
+#line 81 "exprscanner.lpp"
 { return token::CEIL; }
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 82 "exprscanner.l"
+#line 82 "exprscanner.lpp"
 { return token::ABS; }
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 83 "exprscanner.l"
+#line 83 "exprscanner.lpp"
 { return token::FLOOR; }
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 84 "exprscanner.l"
+#line 84 "exprscanner.lpp"
 { return token::LN; }
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 85 "exprscanner.l"
+#line 85 "exprscanner.lpp"
 { return token::TRUNC; }
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 86 "exprscanner.l"
+#line 86 "exprscanner.lpp"
 { return token::SIN; }
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 87 "exprscanner.l"
+#line 87 "exprscanner.lpp"
 { return token::COS; }
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 88 "exprscanner.l"
+#line 88 "exprscanner.lpp"
 { return token::TAN; }
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 89 "exprscanner.l"
+#line 89 "exprscanner.lpp"
 { return token::ASIN; }
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 90 "exprscanner.l"
+#line 90 "exprscanner.lpp"
 { return token::ACOS; }
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 91 "exprscanner.l"
+#line 91 "exprscanner.lpp"
 { return token::ATAN; }
 	YY_BREAK
 /* Double x in exxp is used because of unicode string is encoded with the use of 
@@ -1210,36 +1196,36 @@ YY_RULE_SETUP
     exxp1.2. */
 case 35:
 YY_RULE_SETUP
-#line 95 "exprscanner.l"
+#line 95 "exprscanner.lpp"
 { return token::EXP; } 
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 96 "exprscanner.l"
+#line 96 "exprscanner.lpp"
 { return token::E; }
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 97 "exprscanner.l"
+#line 97 "exprscanner.lpp"
 { return token::PI; }
 	YY_BREAK
 case 38:
 /* rule 38 can match eol */
 YY_RULE_SETUP
-#line 99 "exprscanner.l"
+#line 99 "exprscanner.lpp"
 
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 101 "exprscanner.l"
+#line 101 "exprscanner.lpp"
 yyterminate();
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 103 "exprscanner.l"
+#line 103 "exprscanner.lpp"
 ECHO;
 	YY_BREAK
-#line 1243 "exprscanner.cpp"
+#line 1229 "exprscanner.cpp"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2062,8 +2048,8 @@ YY_BUFFER_STATE expr_scan_string (yyconst char * yystr )
 /* %if-c-only */
 /** Setup the input buffer state to scan the given bytes. The next call to exprlex() will
  * scan from a @e copy of @a bytes.
- * @param yybytes the byte buffer to scan
- * @param _yybytes_len the number of bytes in the buffer pointed to by @a bytes.
+ * @param bytes the byte buffer to scan
+ * @param len the number of bytes in the buffer pointed to by @a bytes.
  * 
  * @return the newly allocated buffer state object.
  */
@@ -2332,7 +2318,7 @@ void exprfree (void * ptr )
 
 /* %ok-for-header */
 
-#line 103 "exprscanner.l"
+#line 103 "exprscanner.lpp"
 
 
 void ExprDriver::scan_begin()

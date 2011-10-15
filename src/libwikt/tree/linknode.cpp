@@ -231,7 +231,7 @@ QString LinkNode::toXHtmlImage() const
       .arg(target().toXHtmlLink())
       .arg(style);
     code += QString("<div class=\"thumbcaption\">");
-    code += QString("<div class=\"magnify\"><a href=\"http://en.wiktionary.org/wiki/File:%1\"><img src=\"embedded://images/magnify-clip.png\"/></a></div>").arg(target().entry());
+    code += QString("<div class=\"magnify\"><a href=\"http://en.wiktionary.org/wiki/File:%1\"><img src=\"embedded:///images/magnify-clip.png\"/></a></div>").arg(target().entry());
     code += image.caption;
     code += QString("</div>");
     code += QString("</div>");

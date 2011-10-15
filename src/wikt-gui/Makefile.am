@@ -77,26 +77,30 @@ moc_%.cpp : %.h
 clean-moc-extra:
 	rm -vf moc_*.cpp
 
-qrc_wikt.cpp: wikt.qrc \
-		images/edit-paste.svg \
-		images/logo.svg \
-		images/sort-up.gif \
-		images/go-next.svg \
-		images/magnify-clip.png \
-		images/bullet.gif \
-		images/sort-down.gif \
-		images/edit-select-all.svg \
-		images/edit-find.svg \
-		images/loudspeaker.png \
-		images/preferences-system.svg \
-		images/emblem-unreadable.svg \
-		images/sort-none.gif \
-		images/edit-cut.svg \
-		images/go-home.svg \
-		images/go-previous.svg \
-		images/edit-copy.svg \
-		images/system-shutdown.svg \
-		images/loudspeaker.svg
+IMAGES = \
+  images/edit-paste.svg \
+  images/logo.svg \
+  images/sort-up.gif \
+  images/go-next.svg \
+  images/magnify-clip.png \
+  images/bullet.gif \
+  images/sort-down.gif \
+  images/edit-select-all.svg \
+  images/edit-find.svg \
+  images/loudspeaker.png \
+  images/preferences-system.svg \
+  images/emblem-unreadable.svg \
+  images/sort-none.gif \
+  images/edit-cut.svg \
+  images/go-home.svg \
+  images/go-previous.svg \
+  images/edit-copy.svg \
+  images/system-shutdown.svg \
+  images/loudspeaker.svg
+
+EXTRA_DIST = wikt.qrc $(IMAGES)
+
+qrc_wikt.cpp: wikt.qrc $(IMAGES)
 	/usr/bin/rcc -name wikt wikt.qrc -o qrc_wikt.cpp
 
 clean-rcc-extra:

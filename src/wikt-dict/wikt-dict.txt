@@ -1,0 +1,6 @@
+wikt-dict(1)
+============
+
+
+
+mediadir - Directory to store the media files

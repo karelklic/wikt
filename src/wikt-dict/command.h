@@ -22,10 +22,20 @@ void commandXmlToPrep(const QString &xmlFile, const QString &prepFile,
                       const QString &errataDir);
 
 void commandPrepToMid(const QString &prepFile, const QString &midFile,
-                      qint64 from = -1, qint64 to = -1, bool showNames = false);
+                      qint64 from = -1, qint64 to = -1,
+                      bool showNames = false);
 
 void commandMidToDict(const QString &midFile, const QString &mediaFile,
                       const QString &dictFile, qint64 from = -1,
                       qint64 to = -1, bool showNames = false);
+
+void commandDownloadMedia(const QString &midFile,
+                          const QString &mediaDir);
+
+void commandResizeImages(const QString &midFile,
+                         const QString &mediaDir);
+
+void commandPackMedia(const QString &mediaDir,
+                      const QString &mediaFile);
 
 #endif

@@ -30,7 +30,7 @@ static WikiSource *instance = 0;
 WikiSource::WikiSource(QObject *parent) : QObject(parent)
 {
   ::instance = this;
-  QDir dataDir(DATADIR "/data");
+  QDir dataDir(DATADIR "/dict");
   QStringList dictionaries(dataDir.entryList(QStringList("*.ei4")));
   QString activeDict(dataDir.absolutePath() + "/" + dictionaries.first());
   _reader = new Format4Reader(activeDict);

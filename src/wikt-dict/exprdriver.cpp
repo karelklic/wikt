@@ -19,7 +19,10 @@
 #include <libwikt/debug.h>
 #include <sstream>
 
-ExprDriver::ExprDriver(const QString &entryName, bool reportErrors) : _entryName(entryName), _traceScanning(false), _traceParsing(false), _reportErrors(reportErrors), _result(0), _resultChanged(false), _errorOccurred(false)
+ExprDriver::ExprDriver(const QString &entryName, bool reportErrors)
+  : _entryName(entryName), _traceScanning(false),
+    _traceParsing(false), _reportErrors(reportErrors),
+    _result(0), _resultChanged(false), _errorOccurred(false)
 {
 }
 

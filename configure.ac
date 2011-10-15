@@ -11,6 +11,8 @@ AC_ARG_ENABLE(debug,
 AC_DISABLE_STATIC
 AC_PROG_LIBTOOL
 AC_PROG_CXX
+AM_PROG_LEX
+AC_PROG_YACC
 
 CXXFLAGS=$CXXFLAGS' -DDATADIR="\"$(pkgdatadir)\""'
 
@@ -30,6 +32,7 @@ AC_SUBST(LRELEASE)
 AC_CONFIG_HEADERS([config.h])
 
 AC_CONFIG_FILES([
+	wikt.spec
 	Makefile
 	translations/Makefile
 	src/Makefile

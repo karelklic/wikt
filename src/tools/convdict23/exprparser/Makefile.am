@@ -7,6 +7,8 @@ libexprparser_a_SOURCES = \
 
 libexprparser_a_CPPFLAGS = -I../../.. -I../.. $(QTCORE_CFLAGS)
 
+EXTRA_DIST = exprscanner.l exprparser.ypp
+
 exprscanner.cpp: exprscanner.l
 	flex -d -o exprscanner.cpp exprscanner.l
 

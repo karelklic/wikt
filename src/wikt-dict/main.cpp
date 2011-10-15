@@ -24,12 +24,12 @@ static void printUsageAndDie(const QString &name)
   QTextStream err(stderr, QIODevice::WriteOnly);
   err << QString("%1 - Wikt dictionary build tool").arg(name) << endl;
   err << QString("Usage:") << endl;
-  err << QString("  %1 xml-to-prep <xml_file> <prep_file> <errata_dir>").arg(name) << endl;
-  err << QString("  %1 prep-to-mid <prep_file> <mid_file>").arg(name) << endl;
-  err << QString("  %1 download-media <mid_file> <media_dir>").arg(name) << endl;
-  err << QString("  %1 resize-images <mid_file> <media_dir>").arg(name) << endl;
-  err << QString("  %1 pack-media <media_dir> <media_file>").arg(name) << endl;
-  err << QString("  %1 mid-to-dict <mid_file> <media_file> <dict_file>").arg(name) << endl << endl;
+  err << QString("  %1 xmltoprep <xml_file> <prep_file> <errata_dir>").arg(name) << endl;
+  err << QString("  %1 preptomid <prep_file> <mid_file>").arg(name) << endl;
+  err << QString("  %1 downloadmedia <mid_file> <media_dir>").arg(name) << endl;
+  err << QString("  %1 resizeimages <mid_file> <media_dir>").arg(name) << endl;
+  err << QString("  %1 packmedia <media_dir> <media_file>").arg(name) << endl;
+  err << QString("  %1 midtodict <mid_file> <media_file> <dict_file>").arg(name) << endl << endl;
   err << QString("See `man wikt-dict` for more information.") << endl;
   exit(1);
 }
@@ -43,13 +43,13 @@ int main(int argc, char **argv)
     printUsageAndDie(args.at(0));
 
   const QString command = args.at(1).toLower();
-  if (command == "xml-to-prep")
+  if (command == "xmltoprep")
   {
-    if (args.length() < 5)
+    if (args.length() != 5)
       printUsageAndDie(args.at(0));
     commandXmlToPrep(args.at(2), args.at(3), args.at(4));
   }
-  else if (command == "prep-to-mid")
+  else if (command == "preptomid")
   {
     QString prepFile, midFile, strFrom, strTo;
     bool showNames = false;
@@ -97,16 +97,28 @@ int main(int argc, char **argv)
 
     commandPrepToMid(prepFile, midFile, from, to, showNames);
   }
-  else if (command == "download-media")
+  else if (command == "downloadmedia")
   {
+    if (args.length() != 4)
+      printUsageAndDie(args.at(0));
+
+    commandDownloadMedia(args.at(2), args.at(3));
   }
-  else if (command == "resize-images")
+  else if (command == "resizeimages")
   {
+    if (args.length() != 4)
+      printUsageAndDie(args.at(0));
+
+    commandResizeImages(args.at(2), args.at(3));
   }
-  else if (command == "pack-media")
+  else if (command == "packmedia")
   {
+    if (args.length() != 4)
+      printUsageAndDie(args.at(0));
+
+    commandPackMedia(args.at(2), args.at(3));
   }
-  else if (command == "mid-to-dict")
+  else if (command == "midtodict")
   {
     QString midFile, mediaFile, dictFile, strFrom, strTo;
     bool showNames = false;

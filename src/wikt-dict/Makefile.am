@@ -5,6 +5,9 @@ wikt_dict_SOURCES = \
 	commandmidtodict.cpp \
 	commandpreptomid.cpp \
 	commandxmltoprep.cpp \
+	commanddownloadmedia.cpp \
+	commandresizeimages.cpp \
+	commandpackmedia.cpp \
 	exprdriver.cpp exprdriver.h \
 	exprscanner.cpp \
 	exprparser.tab.cpp exprparser.tab.hpp \
@@ -18,6 +21,7 @@ wikt_dict_SOURCES = \
 	licensepagesgenerator.cpp licensepagesgenerator.h \
 	linkconverter.cpp linkconverter.h \
 	main.cpp \
+	mediawriter.cpp mediawriter.h \
 	namespaceurlfunctions.cpp namespaceurlfunctions.h \
 	pagenamefunctions.cpp pagenamefunctions.h \
 	parameterlist.cpp parameterlist.h \
@@ -28,12 +32,16 @@ wikt_dict_SOURCES = \
 	templateutils.cpp templateutils.h \
 	titlepagegenerator.cpp titlepagegenerator.h
 
-wikt_dict_CPPFLAGS = -I.. $(QTCORE_CFLAGS)
-wikt_dict_LDFLAGS = $(QTCORE_LDFLAGS)
-wikt_dict_LDADD = ../libwikt/libwikt.la $(QTCORE_LIBS)
+wikt_dict_CPPFLAGS = -I.. $(QTCORE_CFLAGS) $(QTGUI_CFLAGS)
+wikt_dict_LDFLAGS = $(QTCORE_LDFLAGS) $(QTGUI_LDFLAGS)
+wikt_dict_LDADD = ../libwikt/libwikt.la $(QTCORE_LIBS) $(QTGUI_LIBS)
 
-exprscanner.cpp: exprscanner.l
-	flex -d -o exprscanner.cpp exprscanner.l
+EXTRA_DIST = exprscanner.lpp exprparser.ypp
+AM_YFLAGS = -d
+AM_LFLAGS = -d
+
+exprscanner.cpp: exprscanner.lpp
+	$(LEX) $(LFLAGS) $(AM_LFLAGS) -o exprscanner.cpp exprscanner.lpp
 
 exprparser.tab.cpp: exprparser.ypp
-	bison -d exprparser.ypp
+	bison $(YFLAGS) $(AM_YFLAGS) exprparser.ypp
