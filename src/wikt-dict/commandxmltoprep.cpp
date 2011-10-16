@@ -114,9 +114,11 @@ static void addPrepEntry(const QString &name, QString contents)
   contents = StringUtils::removeBlock(QRegExp("<!--"), QRegExp("-->"), contents);
 
   // Remove includeonly tags, but not the content between them.
-  contents.remove(QRegExp("<includeonly\\s*>")).remove(QRegExp("</includeonly\\s*>"));
+  contents.remove(QRegExp("<includeonly\\s*>"))
+    .remove(QRegExp("</includeonly\\s*>"));
 
-  // Remove __TOC__ magic word, because we handle Table of Contents in a separate window.
+  // Remove __TOC__ magic word, because we handle Table of Contents in
+  // a separate window.
   contents.remove("__TOC__");
 
   // Do not remove <nowiki/> tags. They are used as a separator between wikisyntax

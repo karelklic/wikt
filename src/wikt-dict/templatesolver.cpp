@@ -25,17 +25,19 @@
 #include <QRegExp>
 #include <QTextStream>
 
-//#define TEMPLATE_SOLVER_DEBUG
-
-TemplateSolver::TemplateSolver(const QString &pageName, const QString &pageContent, Format2Reader &reader) : _pageName(pageName), _pageContent(pageContent), _reader(reader)
+TemplateSolver::TemplateSolver(const QString &pageName,
+                               const QString &pageContent,
+                               Format2Reader &reader,
+                               bool verbose)
+  : _pageName(pageName), _pageContent(pageContent), _reader(reader),
+    _verbose(verbose)
 {
 }
 
 QString TemplateSolver::run()
 {
-#ifdef TEMPLATE_SOLVER_DEBUG
-  cstdout(_pageName);
-#endif
+  if (_verbose)
+    cstdout(_pageName);
   ParameterList empty;
   return removeTemplates(_pageContent, empty);
 }
@@ -61,7 +63,9 @@ QString TemplateSolver::unescapeTemplateSyntax(QString text)
 /// skipping the contents of embedded wikilinks.
 /// @return
 ///   - if str is not found in text.
-int TemplateSolver::linkSkippingindexOf(const QString &text, const QString &str, int from)
+int TemplateSolver::linkSkippingIndexOf(const QString &text,
+                                        const QString &str,
+                                        int from)
 {
   if (from < 0)
     from += text.length();
@@ -92,7 +96,8 @@ int TemplateSolver::linkSkippingindexOf(const QString &text, const QString &str,
   return -1;
 }
 
-QString TemplateSolver::removeTemplates(QString wikiText, const ParameterList &params)
+QString TemplateSolver::removeTemplates(QString wikiText,
+                                        const ParameterList &params)
 {
   int from = -1;
 
@@ -107,7 +112,7 @@ QString TemplateSolver::removeTemplates(QString wikiText, const ParameterList &p
     // Handle a case of rightmost start2
     if (start3 == -1 || start2 > start3 + 1)
     {
-      int stop = linkSkippingindexOf(wikiText, "}}", start2);
+      int stop = linkSkippingIndexOf(wikiText, "}}", start2);
       if (stop == -1)
       {
         // We are on the beginning, search no more. start is 0 or 1
@@ -123,8 +128,8 @@ QString TemplateSolver::removeTemplates(QString wikiText, const ParameterList &p
     // Handle a case of rightmost start3
     else
     {
-      int stop3 = linkSkippingindexOf(wikiText, "}}}", start3);
-      int stop2 = linkSkippingindexOf(wikiText, "}}", start3);
+      int stop3 = linkSkippingIndexOf(wikiText, "}}}", start3);
+      int stop2 = linkSkippingIndexOf(wikiText, "}}", start3);
       if (stop3 == -1 || (stop2 != -1 && stop2 < stop3))
       {
         // Try to expand the last {{
@@ -148,10 +153,10 @@ QString TemplateSolver::removeTemplates(QString wikiText, const ParameterList &p
 
       QString contents = wikiText.mid(start3 + 3, stop3 - start3 - 3);
       QString evaluated = TemplateUtils::evaluateParameter(contents, params);
-#ifdef TEMPLATE_SOLVER_DEBUG
-      cstdout("Param: " + contents + " -> " + evaluated);
-#endif
-      wikiText.replace(start3, stop3 + 3 - start3, escapeTemplateSyntax(evaluated));
+      if (_verbose)
+        cstdout("Param: " + contents + " -> " + evaluated);
+      wikiText.replace(start3, stop3 + 3 - start3,
+                       escapeTemplateSyntax(evaluated));
       from = qMax(start3 - 1, 0);
     }
   }
@@ -167,14 +172,12 @@ void TemplateSolver::evaluateTemplate(QString &wikiText, int from, int to)
   QMap<QString, QString>::const_iterator it = _cache.find(contents);
   if (it == _cache.end()) // not found in cache
   {
-    #ifdef TEMPLATE_SOLVER_DEBUG
+    if (_verbose)
       cstdout("BEGIN Template: " + contents);
-    #endif
     evaluated = evaluateTemplate(contents);
-    #ifdef TEMPLATE_SOLVER_DEBUG
+    if (_verbose)
       cstdout("END Template: " + contents + " -> " + evaluated);
-    #endif
-  
+
     evaluated = escapeTemplateSyntax(evaluated);
     _cache.insert(contents, evaluated);
   }
@@ -183,12 +186,16 @@ void TemplateSolver::evaluateTemplate(QString &wikiText, int from, int to)
 
   // Results starting with "*", "#", ":", ";", and "{|" automatically
   // get a newline at the start.
-  // Source: http://meta.wikimedia.org/wiki/Help:Newlines_and_spaces#Automatic_newline_at_the_start
+  // Source: http://meta.wikimedia.org/wiki/Help:Newlines_and_spaces
+  //         #Automatic_newline_at_the_start
   bool precedesNewline = (from > 0 && wikiText[from - 1] == '\n');
-  bool startsWith = (evaluated.length() > 0 && (evaluated[0] == '*' || evaluated[0] == '#' || evaluated[0] == ':' || evaluated[0] == ';' || evaluated.startsWith(LEFT_BRACE_ESCAPE PIPE_ESCAPE)));
+  bool startsWith = (evaluated.length() > 0 &&
+                     (evaluated[0] == '*' || evaluated[0] == '#' ||
+                      evaluated[0] == ':' || evaluated[0] == ';' ||
+                      evaluated.startsWith(LEFT_BRACE_ESCAPE PIPE_ESCAPE)));
   if (!precedesNewline && startsWith)
       evaluated.prepend("\n");
-  
+
   wikiText.replace(from, to - from, evaluated);
 }
 
@@ -218,7 +225,7 @@ QString TemplateSolver::evaluateTemplate(const QString &templateText)
   if (parts[0].contains("DEFAULTSORT", Qt::CaseInsensitive)) // temporarily ignore
     return "";
   if (parts[0].contains("CURRENTYEAR"))
-    return "2009";
+    return "2011";
 
   // Handle msg: and raw:
   // See http://meta.wikimedia.org/wiki/Help:Magic_words#Template_modifiers
@@ -233,14 +240,15 @@ QString TemplateSolver::evaluateTemplate(const QString &templateText)
   // Get template page name. If the name already contains
   // the "Template:" prefix, do not add it.
   QString templatePageName = parts[0];
-  
+
   // Get the template contents.
   QString source;
   if (templatePageName.startsWith("Template:") && _reader.exist(templatePageName))
     source = _reader.sourceTemplate(templatePageName);
   else if (_reader.exist("Template:" + templatePageName))
     source = _reader.sourceTemplate("Template:" + templatePageName);
-  else if (_reader.exist(templatePageName) && Namespace::instance().fromEntry(templatePageName) != Namespace::Main)
+  else if (_reader.exist(templatePageName) &&
+           Namespace::instance().fromEntry(templatePageName) != Namespace::Main)
     source = _reader.sourceTemplate(templatePageName);
   else
   {
@@ -252,7 +260,7 @@ QString TemplateSolver::evaluateTemplate(const QString &templateText)
 
   // If the template contain <onlyinclude></onlyinclude>, provide only
   // the text between those tags.
-  // Can this block of code be moved to XmlToEic processing?
+  // Can this block of code be moved to XmlToMid processing?
   QRegExp includeTag("<onlyinclude\\s*>");
   QRegExp includeEndTag("</onlyinclude\\s*>");
   int includeStart = includeTag.indexIn(source);
@@ -260,7 +268,8 @@ QString TemplateSolver::evaluateTemplate(const QString &templateText)
   {
     int includeEnd = includeEndTag.indexIn(source, includeStart);
     if (includeEnd != -1)
-      source = source.mid(includeStart + includeTag.matchedLength(), includeEnd - includeStart - includeTag.matchedLength());
+      source = source.mid(includeStart + includeTag.matchedLength(),
+                          includeEnd - includeStart - includeTag.matchedLength());
     else
       source = source.mid(includeStart + includeTag.matchedLength());
   }

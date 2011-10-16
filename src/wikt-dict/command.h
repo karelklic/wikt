@@ -23,7 +23,8 @@ void commandXmlToPrep(const QString &xmlFile, const QString &prepFile,
 
 void commandPrepToMid(const QString &prepFile, const QString &midFile,
                       qint64 from = -1, qint64 to = -1,
-                      bool showNames = false);
+                      bool showNames = false,
+                      bool debug = false);
 
 void commandMidToDict(const QString &midFile, const QString &mediaFile,
                       const QString &dictFile, qint64 from = -1,

@@ -106,7 +106,8 @@ static QString functionSwitch(const QList<QString> &parts)
   return defaultValue;
 }
 
-static QString functionExpr(const QList<QString> &parts, const QString &entryName)
+static QString functionExpr(const QList<QString> &parts,
+                            const QString &entryName)
 {
   int sep = parts[0].indexOf(":"); // is valid from definition, never -1
   QString expression = parts[0].mid(sep + 1).trimmed();
@@ -121,7 +122,8 @@ static QString functionExpr(const QList<QString> &parts, const QString &entryNam
 }
 
 // http://www.mediawiki.org/wiki/Help:Extension:ParserFunctions#.23ifexpr:
-static QString functionIfExpr(const QList<QString> &parts, const QString &entryName)
+static QString functionIfExpr(const QList<QString> &parts,
+                              const QString &entryName)
 {
   QString exprResult = functionExpr(parts, entryName);
   QString exprResultNormalized = exprResult.trimmed();

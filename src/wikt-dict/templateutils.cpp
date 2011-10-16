@@ -80,7 +80,8 @@ ParameterList TemplateUtils::getParameterList(const QList<QString> &parts)
   return result;
 }
 
-QString TemplateUtils::evaluateParameter(const QString &parameterText, const ParameterList &params)
+QString TemplateUtils::evaluateParameter(const QString &parameterText,
+                                         const ParameterList &params)
 {
   QList<QString> parts;
   getParts(parameterText, parts);

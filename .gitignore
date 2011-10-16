@@ -10,6 +10,7 @@ ui_*.h
 *.la
 moc_*.cpp
 qrc_*.cpp
+wikt.spec
 .deps
 .libs
 

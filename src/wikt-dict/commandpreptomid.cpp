@@ -23,7 +23,7 @@
 
 void commandPrepToMid(const QString &prepFile, const QString &midFile,
                       qint64 from /*= -1*/, qint64 to /*= -1*/,
-                      bool showNames /*= false*/)
+                      bool showNames /*= false*/, bool debug /*= false*/)
 {
   cstdout("Reading indices...");
   Format2Reader reader(prepFile);
@@ -44,13 +44,13 @@ void commandPrepToMid(const QString &prepFile, const QString &midFile,
   for (; it != itend; ++it)
   {
     // Logging.
-    ++index;
     if (index % 10 == 0)
       cstdout(QString("Processed: %1/%2")
               .arg(index)
               .arg(reader.entries().size()));
     if (showNames)
       cstdout(QString("Entry #%1: %2").arg(index).arg(it.key()));
+    ++index;
 
     // Skip template pages.
     if (it.key().startsWith("Template:"))
@@ -58,7 +58,7 @@ void commandPrepToMid(const QString &prepFile, const QString &midFile,
 
     // Evaluate templates in common pages.
     QString content = reader.sourceDirect(it.value());
-    TemplateSolver solver(it.key(), content, reader);
+    TemplateSolver solver(it.key(), content, reader, debug);
     content = solver.run();
 
     // Convert galleries to tables with images.
@@ -78,7 +78,8 @@ void commandPrepToMid(const QString &prepFile, const QString &midFile,
     //
     // It is important to keep the content between noinclude open and
     // close tags in the entry. The content is valid part of a word.
-    content.remove(QRegExp("<noinclude\\s*>")).remove(QRegExp("</noinclude\\s*>"));
+    content.remove(QRegExp("<noinclude\\s*>"))
+      .remove(QRegExp("</noinclude\\s*>"));
 
     // Write the entry.
     writer.addEntry(it.key(), content);

@@ -34,14 +34,15 @@ class TemplateSolver
 public:
   /// Standard constructor.
   /// @param pageName
-  ///   Name of the evaluated page, including namespace if it is different from Main.
+  ///   Name of the evaluated page, including namespace if it is
+  ///   different from Main.
   /// @param pageContent
   ///   Content of the evaluated page in wiki format with template calls.
   /// @param reader
   ///   A reader that provides access to all pages and templates referenced from
   ///   the evaluated page.
   TemplateSolver(const QString &pageName, const QString &pageContent,
-      Format2Reader &reader);
+                 Format2Reader &reader, bool verbose);
 
   QString run();
 
@@ -57,18 +58,22 @@ protected:
 
   /// Returns the evaluated template content.
   /// @param templateText
-  ///   The text inside {{ and }}, containing template name and template parameters.
-  ///   It must not contain any templates or template parameters.
+  ///   The text inside {{ and }}, containing template name and template
+  ///   parameters. It must not contain any templates or template
+  ///   parameters.
   QString evaluateTemplate(const QString &templateText);
 
   QString removeTemplates(QString wikiText, const ParameterList &params);
 
   static QString escapeTemplateSyntax(QString text);
   static QString unescapeTemplateSyntax(QString text);
-  static int linkSkippingindexOf(const QString &text, const QString &str, int from = 0);
+  static int linkSkippingIndexOf(const QString &text,
+                                 const QString &str,
+                                 int from = 0);
 
   QString _pageName;
   QString _pageContent;
+  bool _verbose;
 
   /// Provides the template content.
   Format2Reader &_reader;
