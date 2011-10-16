@@ -43,18 +43,8 @@ stamp-h1
 # Binaries
 src/wikt-dict/wikt-dict
 src/wikt-gui/wikt-gui
-src/tools/convdict12/convdict12
-src/tools/convdict23/convdict23
-src/tools/convdict23/exprparser/libexprparser.a
-src/tools/convdict34/convdict34
-src/tools/dict3src/dict3src
-src/tools/dict4src/dict4src
-src/tools/imageresizer/imageresizer
-src/tools/mediadownloader/mediadownloader
-src/tools/mediapacker/mediapacker
-src/tools/wikitoxml/wikitoxml
 tests/libwikt/node/nodetest
 tests/libwikt/parser/parsertest
 tests/libwikt/urlutils/urlutilstest
-tests/tools/convdict23/convdict23test
-tests/tools/convdict34/convdict34test
+tests/wikt-dict/commandmidtodicttest
+tests/wikt-dict/commandpreptomidtest
