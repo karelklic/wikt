@@ -13,7 +13,7 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "convdict34test.h"
+#include "commandmidtodicttest.h"
 #include <linkconverter.h>
 #include <libwikt/format3reader.h>
 #include <libwikt/mediareader.h>

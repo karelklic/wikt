@@ -1,1 +1,1 @@
-SUBDIRS = libwikt wikt-gui wikt-dict tools
+SUBDIRS = libwikt wikt-gui wikt-dict

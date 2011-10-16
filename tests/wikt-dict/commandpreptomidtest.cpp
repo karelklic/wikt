@@ -13,7 +13,7 @@
  * You should have received a copy of the GNU General Public License
  * along with Wikt. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "convdict23test.h"
+#include "commandpreptomidtest.h"
 #include <formattingfunctions.h>
 #include <namespaceurlfunctions.h>
 #include <pagenamefunctions.h>
@@ -374,81 +374,89 @@ public:
 
 void ConvDict23Test::templateSolver_declaringDefaultValue()
 {
+  bool verbose = false;
   TemplateSolverTestReader reader;
   reader.data.insert("Template:t", "start-{{{1|pqr}}}-end");
-  QCOMPARE(TemplateSolver("", "{{t|a}}", reader).run(), QString("start-a-end"));
-  QCOMPARE(TemplateSolver("", "{{t| }}", reader).run(), QString("start- -end"));
-  QCOMPARE(TemplateSolver("", "{{t|}}", reader).run(), QString("start--end"));
-  QCOMPARE(TemplateSolver("", "{{t|1=no surprise}}", reader).run(), QString("start-no surprise-end"));
-  QCOMPARE(TemplateSolver("", "{{t|1=no|surprise}}", reader).run(), QString("start-surprise-end"));
-  QCOMPARE(TemplateSolver("", "{{t}}", reader).run(), QString("start-pqr-end"));
-  QCOMPARE(TemplateSolver("", "{{t|2=two}}", reader).run(), QString("start-pqr-end"));
+  QCOMPARE(TemplateSolver("", "{{t|a}}", reader, verbose).run(), QString("start-a-end"));
+  QCOMPARE(TemplateSolver("", "{{t| }}", reader, verbose).run(), QString("start- -end"));
+  QCOMPARE(TemplateSolver("", "{{t|}}", reader, verbose).run(), QString("start--end"));
+  QCOMPARE(TemplateSolver("", "{{t|1=no surprise}}", reader, verbose).run(), QString("start-no surprise-end"));
+  QCOMPARE(TemplateSolver("", "{{t|1=no|surprise}}", reader, verbose).run(), QString("start-surprise-end"));
+  QCOMPARE(TemplateSolver("", "{{t}}", reader, verbose).run(), QString("start-pqr-end"));
+  QCOMPARE(TemplateSolver("", "{{t|2=two}}", reader, verbose).run(), QString("start-pqr-end"));
 }
 
 void ConvDict23Test::templateSolver_moreBraces()
 {
+  bool verbose = false;
   TemplateSolverTestReader reader;
   reader.data.insert("Template:t1", "start-{{{1}}}-end");
   // "&#x007b;" == "{", "&#x007d;" == "}"
-  QCOMPARE(TemplateSolver("", "{{{{t1|1}}}}", reader).run(), QString("{1}"));
-  QCOMPARE(TemplateSolver("", "{{ {{t1|1}}}}", reader).run(), QString("&#x007b;&#x007b;Template:start-1-end&#x007d;&#x007d;"));
-  QCOMPARE(TemplateSolver("", "{{{{t1|1}} }}", reader).run(), QString("&#x007b;&#x007b;Template:start-1-end&#x007d;&#x007d;"));
-  QCOMPARE(TemplateSolver("", "{{{{t1|1}} }}}", reader).run(), QString("&#x007b;&#x007b;Template:start-1-end&#x007d;&#x007d;}"));
-  QCOMPARE(TemplateSolver("", "{{{{t1|1}} }} {{{5}}}", reader).run(), QString("&#x007b;&#x007b;Template:start-1-end&#x007d;&#x007d; &#x007b;&#x007b;&#x007b;5&#x007d;&#x007d;&#x007d;"));
-  QCOMPARE(TemplateSolver("", "{{{{{abc|in}}}}}", reader).run(), QString("&#x007b;&#x007b;Template:in&#x007d;&#x007d;"));
-  QCOMPARE(TemplateSolver("", "{{{ {{#if:x|tc|ab}}}}}", reader).run(), QString("&#x007b;&#x007b;&#x007b;tc&#x007d;&#x007d;&#x007d;"));
-  QCOMPARE(TemplateSolver("", "{{{{#ifeq:{{{g|{{{gender}}}}}}|g|g|ns:0}}|{{language|{{{1}}}}}}}", reader).run(), QString(""));
+  QCOMPARE(TemplateSolver("", "{{{{t1|1}}}}", reader, verbose).run(), QString("{1}"));
+  QCOMPARE(TemplateSolver("", "{{ {{t1|1}}}}", reader, verbose).run(), QString("&#x007b;&#x007b;Template:start-1-end&#x007d;&#x007d;"));
+  QCOMPARE(TemplateSolver("", "{{{{t1|1}} }}", reader, verbose).run(), QString("&#x007b;&#x007b;Template:start-1-end&#x007d;&#x007d;"));
+  QCOMPARE(TemplateSolver("", "{{{{t1|1}} }}}", reader, verbose).run(), QString("&#x007b;&#x007b;Template:start-1-end&#x007d;&#x007d;}"));
+  QCOMPARE(TemplateSolver("", "{{{{t1|1}} }} {{{5}}}", reader, verbose).run(), QString("&#x007b;&#x007b;Template:start-1-end&#x007d;&#x007d; &#x007b;&#x007b;&#x007b;5&#x007d;&#x007d;&#x007d;"));
+  QCOMPARE(TemplateSolver("", "{{{{{abc|in}}}}}", reader, verbose).run(), QString("&#x007b;&#x007b;Template:in&#x007d;&#x007d;"));
+  QCOMPARE(TemplateSolver("", "{{{ {{#if:x|tc|ab}}}}}", reader, verbose).run(), QString("&#x007b;&#x007b;&#x007b;tc&#x007d;&#x007d;&#x007d;"));
+  QCOMPARE(TemplateSolver("", "{{{{#ifeq:{{{g|{{{gender}}}}}}|g|g|ns:0}}|{{language|{{{1}}}}}}}", reader, verbose).run(), QString(""));
 }
 
 void ConvDict23Test::templateSolver_formOf()
 {
+  bool verbose = false;
   TemplateSolverTestReader reader;
   reader.data.insert("Template:form of", "{{#if:{{{2|}}}|<span class='use-with-mention'>{{#if:{{{nocap|}}}|{{{1}}}|{{ucfirst:{{{1}}}}}}} of <span class='mention'>{{#if:{{{sc|}}}|{{{{{sc}}}|{{#ifexist:{{{2}}}|[[{{{2}}}#{{{lang|English}}}|{{{3|{{{2}}}}}}]]|{{{2}}}}}}}|{{#ifexist:{{{2}}}|[[{{{2}}}#{{{lang|English}}}|{{{3|{{{2}}}}}}]]|{{{2}}}}}}}</span>{{#if:{{{tr|}}}|&#32;({{{tr}}})}}{{#if:{{{nodot|}}}||.}}</span>|<span class='use-with-mention'><span class='mention'>[[{{{1}}}#{{{lang|English}}}|{{#if:{{{sc|}}}|{{{{{sc}}}|{{{alt|{{{1}}}}}}}}|{{{alt|{{{1}}}}}}}}]]</span></span>{{#if:{{{tr|}}}|&#32;({{{tr}}})}}}}");
-  QCOMPARE(TemplateSolver("", "{{form of|lower case form|B}}", reader).run(), QString("<span class='use-with-mention'>Lower case form of <span class='mention'>B</span>.</span>"));
-  QCOMPARE(TemplateSolver("", "{{form of|lower case form|[[B]]}}", reader).run(), QString("<span class='use-with-mention'>Lower case form of <span class='mention'>[[B]]</span>.</span>"));
+  QCOMPARE(TemplateSolver("", "{{form of|lower case form|B}}", reader, verbose).run(), QString("<span class='use-with-mention'>Lower case form of <span class='mention'>B</span>.</span>"));
+  QCOMPARE(TemplateSolver("", "{{form of|lower case form|[[B]]}}", reader, verbose).run(), QString("<span class='use-with-mention'>Lower case form of <span class='mention'>[[B]]</span>.</span>"));
 }
 
 void ConvDict23Test::templateSolver_isValidPageName()
 {
+  bool verbose = false;
   TemplateSolverTestReader reader;
   reader.data.insert("Template:isValidPageName", "{{#ifeq:{{{1}}}|-||{{#ifeq:[[:Special:Whatlinkshere/{{{1}}}]]|{{raw:Special:Whatlinkshere/{{{1}}}}}|valid}}}}");
-  QCOMPARE(TemplateSolver("", "{{isValidPageName|English}}", reader).run(), QString("valid"));
-  QCOMPARE(TemplateSolver("", "{{isValidPageName|[[English]]}}", reader).run(), QString(""));
+  QCOMPARE(TemplateSolver("", "{{isValidPageName|English}}", reader, verbose).run(), QString("valid"));
+  QCOMPARE(TemplateSolver("", "{{isValidPageName|[[English]]}}", reader, verbose).run(), QString(""));
 }
 
 void ConvDict23Test::templateSolver_evaluatedWikiSyntaxSimple()
 {
+  bool verbose = false;
   TemplateSolverTestReader reader;
   reader.data.insert("Template:!", "|");
   reader.data.insert("Template:x2", "{{{1}}}{{{1}}}");
-  QCOMPARE(TemplateSolver("", "{{x2|{{{!}}\n{{!}}A\n{{!}}B\n{{!}}-\n{{!}}C\n{{!}}D\n{{!}}}\n}}", reader).run(),
+  QCOMPARE(TemplateSolver("", "{{x2|{{{!}}\n{{!}}A\n{{!}}B\n{{!}}-\n{{!}}C\n{{!}}D\n{{!}}}\n}}", reader, verbose).run(),
       QString("\n{|\n|A\n|B\n|-\n|C\n|D\n|}\n{|\n|A\n|B\n|-\n|C\n|D\n|}\n"));
 }
 
 void ConvDict23Test::templateSolver_newlineAddingInTemplates()
 {
+  bool verbose = false;
   TemplateSolverTestReader reader;
   reader.data.insert("Template:a", "g{{b}}\n{{b}}");
   reader.data.insert("Template:b", "{{{|#*:good}}}");
-  QCOMPARE(TemplateSolver("", "{{a}}", reader).run(), QString("g\n#*:good\n#*:good"));
+  QCOMPARE(TemplateSolver("", "{{a}}", reader, verbose).run(), QString("g\n#*:good\n#*:good"));
 }
 
 void ConvDict23Test::templateSolver_pluralOf()
 {
+  bool verbose = false;
   TemplateSolverTestReader reader;
   reader.data.insert("Template:wlink", "{{#ifeq:{{{w|{{{1}}}}}}|-||{{#ifeq:[[:Special:Whatlinkshere/{{{w|{{{1}}}}}}]]|{{raw:Special:Whatlinkshere/{{{w|{{{1}}}}}}}}|[[{{{w|{{{1}}}}}}]]|{{{w|{{{1}}}}}}}}}}");
-  QCOMPARE(TemplateSolver("", "{{wlink|w=[[stadium#English|stadium]]}}", reader).run(), QString("[[stadium#English|stadium]]"));
-  QCOMPARE(TemplateSolver("", "{{wlink|w=stadium}}", reader).run(), QString("[[stadium]]"));
+  QCOMPARE(TemplateSolver("", "{{wlink|w=[[stadium#English|stadium]]}}", reader, verbose).run(), QString("[[stadium#English|stadium]]"));
+  QCOMPARE(TemplateSolver("", "{{wlink|w=stadium}}", reader, verbose).run(), QString("[[stadium]]"));
 
   reader.data.insert("Template:plural of", "{{{cap|{{#if:{{{nocap|}}}|p|P}}}}}lural form of {{#if:{{{2|}}}|[[{{{1}}}|{{{2}}}]]|{{wlink|w={{{1}}}}}}}{{{dot|{{#if:{{{nodot|}}}||.}}}}}{{#ifeq:{{NAMESPACE}}||{{#if:{{{nocat|}}}||[[Category:English plurals]]}}}}");
-  QCOMPARE(TemplateSolver("", "{{plural of|[[stadium#English|stadium]]}}", reader).run(), QString("Plural form of [[stadium#English|stadium]].[[Category:English plurals]]"));
+  QCOMPARE(TemplateSolver("", "{{plural of|[[stadium#English|stadium]]}}", reader, verbose).run(), QString("Plural form of [[stadium#English|stadium]].[[Category:English plurals]]"));
 }
 
 void ConvDict23Test::templateSolver_embeddedLink()
 {
+  bool verbose = false;
   TemplateSolverTestReader reader;
   reader.data.insert("Template:test", "{{#if:a|[[kk}}]]}}");
-  QCOMPARE(TemplateSolver("", "{{#if:a|[[kk}}]]}}", reader).run(), QString("[[kk}}]]"));
+  QCOMPARE(TemplateSolver("", "{{#if:a|[[kk}}]]}}", reader, verbose).run(), QString("[[kk}}]]"));
 }
 
 void ConvDict23Test::templateUtils_addParameterToList0()

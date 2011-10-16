@@ -1,4 +1,4 @@
-AC_INIT([wikt], [0.20.0], [kklic@redhat.com])
+AC_INIT([wikt], [0.20], [kklic@redhat.com])
 AC_CONFIG_MACRO_DIR([m4])
 
 AM_INIT_AUTOMAKE([-Wall -Werror foreign])
@@ -39,25 +39,12 @@ AC_CONFIG_FILES([
 	src/libwikt/Makefile
 	src/wikt-dict/Makefile
 	src/wikt-gui/Makefile
-	src/tools/Makefile
-	src/tools/convdict12/Makefile
-	src/tools/convdict23/Makefile
-	src/tools/convdict23/exprparser/Makefile
-	src/tools/convdict34/Makefile
-	src/tools/dict3src/Makefile
-	src/tools/dict4src/Makefile
-	src/tools/imageresizer/Makefile
-	src/tools/mediadownloader/Makefile
-	src/tools/mediapacker/Makefile
-	src/tools/wikitoxml/Makefile
 	tests/Makefile
 	tests/libwikt/Makefile
 	tests/libwikt/node/Makefile
 	tests/libwikt/parser/Makefile
 	tests/libwikt/urlutils/Makefile
-	tests/tools/Makefile
-	tests/tools/convdict23/Makefile
-	tests/tools/convdict34/Makefile
+	tests/wikt-dict/Makefile
 ])
 
 AC_OUTPUT
