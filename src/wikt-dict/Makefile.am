@@ -8,6 +8,7 @@ wikt_dict_SOURCES = \
 	commanddownloadmedia.cpp \
 	commandresizeimages.cpp \
 	commandpackmedia.cpp \
+	commandsource.cpp \
 	exprdriver.cpp exprdriver.h \
 	exprscanner.cpp \
 	exprparser.tab.cpp exprparser.tab.hpp \

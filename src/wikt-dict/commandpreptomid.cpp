@@ -28,7 +28,6 @@ void commandPrepToMid(const QString &prepFile, const QString &midFile,
   cstdout("Reading indices...");
   Format2Reader reader(prepFile);
   cstdout("Processing entries...");
-  int pageCounter = 0;
   Format3Writer writer(midFile);
   // Sets the starting point.
   Format2Reader::EntryMap::const_iterator it = reader.entries().constBegin();
@@ -41,13 +40,21 @@ void commandPrepToMid(const QString &prepFile, const QString &midFile,
     itend = reader.entries().constBegin() + (int)to;
 
   // The main loop over all processed entries.
+  size_t index = 0;
   for (; it != itend; ++it)
   {
+    // Logging.
+    ++index;
+    if (index % 10 == 0)
+      cstdout(QString("Processed: %1/%2")
+              .arg(index)
+              .arg(reader.entries().size()));
     if (showNames)
-      cstdout(QString("Entry #%1: %2").arg(pageCounter).arg(it.key()));
+      cstdout(QString("Entry #%1: %2").arg(index).arg(it.key()));
 
     // Skip template pages.
-    if (it.key().startsWith("Template:")) continue;
+    if (it.key().startsWith("Template:"))
+      continue;
 
     // Evaluate templates in common pages.
     QString content = reader.sourceDirect(it.value());
@@ -75,11 +82,6 @@ void commandPrepToMid(const QString &prepFile, const QString &midFile,
 
     // Write the entry.
     writer.addEntry(it.key(), content);
-
-    // Logging.
-    ++pageCounter;
-    if (pageCounter % 10 == 0)
-      cstdout(QString("Processed: %1").arg(pageCounter));
   }
   writer.close();
   cstdout("Done.");

@@ -1,4 +1,5 @@
 Name: wikt
+Epoch: 0
 Version: @PACKAGE_VERSION@
 Release: 1%{?dist}
 Summary: Dictionary client

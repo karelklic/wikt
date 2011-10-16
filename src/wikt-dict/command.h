@@ -38,4 +38,11 @@ void commandResizeImages(const QString &midFile,
 void commandPackMedia(const QString &mediaDir,
                       const QString &mediaFile);
 
+void commandMidSource(const QString &midFile,
+                      const QString &entry);
+
+void commandDictSource(const QString &dictFile,
+                       const QString &entry,
+                       bool xml);
+
 #endif
