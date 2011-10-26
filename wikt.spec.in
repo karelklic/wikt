@@ -5,7 +5,7 @@ Release: 1%{?dist}
 Summary: Dictionary client
 License: GPLv3+
 Source0: ftp://ftp.klic.name/wikt/wikt-%{version}.tar.xz
-BuildRequires: qt-devel
+BuildRequires: qt-devel qt-webkit-devel phonon-devel
 
 %description
 
@@ -33,15 +33,6 @@ rm -f %{buildroot}%{_libdir}/libwikt.la
 
 %files
 %doc COPYING
-%{_bindir}/convdict12
-%{_bindir}/convdict23
-%{_bindir}/convdict34
-%{_bindir}/dict3src
-%{_bindir}/dict4src
-%{_bindir}/imageresizer
-%{_bindir}/mediadownloader
-%{_bindir}/mediapacker
-%{_bindir}/wikitoxml
 %{_bindir}/wikt-dict
 %{_bindir}/wikt-gui
 %{_libdir}/libwikt.so.*

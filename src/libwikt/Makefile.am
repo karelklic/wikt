@@ -76,16 +76,20 @@ libwikt_HEADERS = \
     version.h
 libwiktdir = $(includedir)/libwikt
 
+nodist_libwikt_la_SOURCES = \
+    moc_format3reader.cpp \
+    moc_mediareader.cpp
+
 libwikt_la_SOURCES = \
     $(libwikt_HEADERS) \
     $(libwikt_parser_HEADERS) \
     $(libwikt_tree_HEADERS) \
     debug.cpp \
     fileutils.cpp \
-    format3reader.cpp moc_format3reader.cpp \
+    format3reader.cpp \
     format4reader.cpp \
     language.cpp  \
-    mediareader.cpp moc_mediareader.cpp \
+    mediareader.cpp \
     mediautils.cpp  \
     namespace.cpp \
     project.cpp \

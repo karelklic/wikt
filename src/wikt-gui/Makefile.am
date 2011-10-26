@@ -1,47 +1,75 @@
 bin_PROGRAMS = wikt-gui
 
+nodist_wikt_gui_SOURCES = \
+  moc_categoriesmodel.cpp \
+  moc_categoriespanel.cpp \
+  moc_coordinator.cpp \
+  moc_displayedpagehistory.cpp \
+  moc_findpanel.cpp \
+  moc_htmlsourceview.cpp \
+  moc_htmlsyntaxhighlighter.cpp \
+  moc_interestingpagesmodel.cpp \
+  moc_interestingpagespanel.cpp \
+  moc_lookuppanel.cpp \
+  moc_mainwindow.cpp \
+  moc_mediaplayer.cpp \
+  moc_menubar.cpp \
+  moc_networkreplyembeddedfile.cpp \
+  moc_networkreplyentry.cpp \
+  moc_networkreplyjavascript.cpp \
+  moc_networkreplymediafile.cpp \
+  moc_networkreplynotfound.cpp \
+  moc_networkreplystylesheet.cpp \
+  moc_optionsdialog.cpp \
+  moc_relpagesmodel.cpp \
+  moc_relpagespanel.cpp \
+  moc_tocmodel.cpp \
+  moc_tocpanel.cpp \
+  moc_webview.cpp \
+  moc_wikisource.cpp
+
 wikt_gui_SOURCES = \
   categoriesitem.cpp categoriesitem.h \
-  categoriesmodel.cpp categoriesmodel.h moc_categoriesmodel.cpp \
-  categoriespanel.cpp categoriespanel.h moc_categoriespanel.cpp \
-  coordinator.cpp coordinator.h moc_coordinator.cpp \
-  displayedpagehistory.cpp displayedpagehistory.h moc_displayedpagehistory.cpp \
-  findpanel.cpp findpanel.h moc_findpanel.cpp \
-  htmlsourceview.cpp htmlsourceview.h moc_htmlsourceview.cpp \
-  htmlsyntaxhighlighter.cpp htmlsyntaxhighlighter.h moc_htmlsyntaxhighlighter.cpp \
+  categoriesmodel.cpp categoriesmodel.h \
+  categoriespanel.cpp categoriespanel.h \
+  coordinator.cpp coordinator.h \
+  displayedpagehistory.cpp displayedpagehistory.h \
+  findpanel.cpp findpanel.h \
+  htmlsourceview.cpp htmlsourceview.h \
+  htmlsyntaxhighlighter.cpp htmlsyntaxhighlighter.h \
   interestingpagesitem.cpp interestingpagesitem.h \
   interestingpageslanguagesrootitem.cpp interestingpageslanguagesrootitem.h \
   interestingpageslinkitem.cpp interestingpageslinkitem.h \
-  interestingpagesmodel.cpp interestingpagesmodel.h moc_interestingpagesmodel.cpp \
-  interestingpagespanel.cpp interestingpagespanel.h moc_interestingpagespanel.cpp \
+  interestingpagesmodel.cpp interestingpagesmodel.h \
+  interestingpagespanel.cpp interestingpagespanel.h \
   interestingpagesrootitem.cpp interestingpagesrootitem.h \
-  lookuppanel.cpp lookuppanel.h moc_lookuppanel.cpp \
+  lookuppanel.cpp lookuppanel.h \
   main.cpp \
-  mainwindow.cpp mainwindow.h moc_mainwindow.cpp \
-  mediaplayer.cpp mediaplayer.h moc_mediaplayer.cpp \
-  menubar.cpp menubar.h moc_menubar.cpp \
+  mainwindow.cpp mainwindow.h \
+  mediaplayer.cpp mediaplayer.h \
+  menubar.cpp menubar.h \
   networkaccessmanager.cpp networkaccessmanager.h \
-  networkreplyembeddedfile.cpp networkreplyembeddedfile.h moc_networkreplyembeddedfile.cpp \
-  networkreplyentry.cpp networkreplyentry.h moc_networkreplyentry.cpp \
-  networkreplyjavascript.cpp networkreplyjavascript.h moc_networkreplyjavascript.cpp \
-  networkreplymediafile.cpp networkreplymediafile.h moc_networkreplymediafile.cpp \
-  networkreplynotfound.cpp networkreplynotfound.h moc_networkreplynotfound.cpp \
-  networkreplystylesheet.cpp networkreplystylesheet.h moc_networkreplystylesheet.cpp \
+  networkreplyembeddedfile.cpp networkreplyembeddedfile.h \
+  networkreplyentry.cpp networkreplyentry.h \
+  networkreplyjavascript.cpp networkreplyjavascript.h \
+  networkreplymediafile.cpp networkreplymediafile.h \
+  networkreplynotfound.cpp networkreplynotfound.h \
+  networkreplystylesheet.cpp networkreplystylesheet.h \
   networkreplytitlepage.cpp networkreplytitlepage.h \
-  optionsdialog.cpp optionsdialog.h moc_optionsdialog.cpp \
+  optionsdialog.cpp optionsdialog.h \
   relpagesexternallinkitem.cpp relpagesexternallinkitem.h \
   relpagesexternallinksrootitem.cpp relpagesexternallinksrootitem.h \
   relpagesinternallinkitem.cpp relpagesinternallinkitem.h \
   relpagesinterwikirootitem.cpp relpagesinterwikirootitem.h \
   relpagesitem.cpp relpagesitem.h \
-  relpagesmodel.cpp relpagesmodel.h moc_relpagesmodel.cpp \
-  relpagespanel.cpp relpagespanel.h moc_relpagespanel.cpp \
+  relpagesmodel.cpp relpagesmodel.h \
+  relpagespanel.cpp relpagespanel.h \
   relpagesrootitem.cpp relpagesrootitem.h \
   tocitem.cpp tocitem.h \
-  tocmodel.cpp tocmodel.h moc_tocmodel.cpp \
-  tocpanel.cpp tocpanel.h moc_tocpanel.cpp \
-  webview.cpp webview.h moc_webview.cpp \
-  wikisource.cpp wikisource.h moc_wikisource.cpp \
+  tocmodel.cpp tocmodel.h \
+  tocpanel.cpp tocpanel.h \
+  webview.cpp webview.h \
+  wikisource.cpp wikisource.h \
   wikisourcecacheitem.cpp wikisourcecacheitem.h \
   qrc_wikt.cpp
 

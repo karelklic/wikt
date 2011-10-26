@@ -1,11 +1,12 @@
 ------------------------------------------------------------------------
-Wikt 0.20.0
+Wikt 0.20 (released 2011-10-27)
 ------------------------------------------------------------------------
 dictionary:
   * CheckTrans sections are not displayed in entries.
 libwikt:
   * Support for more languages added.
-wikt:
+wikt-gui: 
+  * Wikt was renamed to wikt-gui.
   * Fixed invalid contents generation from headers. Header 
     Abbreviation in entry [[&c.]] is a link, and that was not handled
     properly. Affects Contents panel.
@@ -16,6 +17,9 @@ wikt:
   * Added application icons. Icons from Tango project were used, SVG format.
   * Error page is displayed when user enters a word to the lookup
     panel and the word is not found.
+wikt-dict:
+  * All command line tools such as convdict12, convdict23 were merged
+    to single tool wikt-dict.
 convdict12:
   * Bugfix: No longer removes the content between <noinclude> open and
     close tags.
@@ -35,6 +39,7 @@ convdict34:
   * Initial implementation of <ref> and <references/> tag handling. 
     The change affects entries [[abeam]], [[aberrant]], [[absolutely]],
     [[paraconsistent]].
+
 
 ------------------------------------------------------------------------
 Wikt 0.19.0 (released 2009-08-24)
