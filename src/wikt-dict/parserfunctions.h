@@ -32,7 +32,7 @@ public:
   ///   MUST BE TRIMMED (this is optimalization)
   static bool isParserFunction(const QString &templateText);
   static QString evaluate(const QString &templateText, Format2Reader &reader,
-      const QString &entryName);
+                          const QString &entryName, bool &entryNameUsed);
 };
 
 #endif /* PARSERFUNCTIONS_H_ */

@@ -19,11 +19,13 @@
 #include "galleryconverter.h"
 #include <libwikt/debug.h>
 #include <QString>
+#include <qalgorithms.h>
 #include <QRegExp>
 
 void commandPrepToMid(const QString &prepFile, const QString &midFile,
-                      qint64 from /*= -1*/, qint64 to /*= -1*/,
-                      bool showNames /*= false*/, bool debug /*= false*/)
+                      qint64 from, qint64 to,
+                      bool showNames, bool showTemplateUsage,
+                      bool debug)
 {
   cstdout("Reading indices...");
   Format2Reader reader(prepFile);
@@ -44,12 +46,35 @@ void commandPrepToMid(const QString &prepFile, const QString &midFile,
   for (; it != itend; ++it)
   {
     // Logging.
-    if (index % 10 == 0)
+    if (index % 10 == 0 && !showNames)
+    {
       cstdout(QString("Processed: %1/%2")
               .arg(index)
               .arg(reader.entries().size()));
+    }
+
+    if (index % 1000 == 0 && showTemplateUsage)
+    {
+      QList<QPair<int, QString> > usageList = templateUsageList();
+      cstdout("Most used templates:");
+      for (QList<QPair<int, QString> >::const_iterator usageIt = usageList.begin(); usageIt != usageList.end() && usageIt != usageList.begin() + 10; ++usageIt)
+      {
+        cstdout(QString("  %1: %2").arg(usageIt->first).arg(usageIt->second));
+      }
+    }
+
+    if (index % 1000 == 0)
+    {
+      cstdout(QString("Cross entry template cache: %1 entries").arg(crossEntryCache.size()));
+
+      // Limit max cache size to 2M entries ~~ approx. 2GB of RAM
+      if (crossEntryCache.size() > 2000000)
+        crossEntryCache.clear();
+    }
+
     if (showNames)
       cstdout(QString("Entry #%1: %2").arg(index).arg(it.key()));
+
     ++index;
 
     // Skip template pages.
@@ -58,11 +83,7 @@ void commandPrepToMid(const QString &prepFile, const QString &midFile,
 
     // Evaluate templates in common pages.
     QString content = reader.sourceDirect(it.value());
-    TemplateSolver solver(it.key(), content, reader, debug);
-    content = solver.run();
-
-    // Convert galleries to tables with images.
-    content = GalleryConverter::convert(content);
+    content = templateSolver(it.key(), content, reader, showTemplateUsage, debug);
 
     // If the entry is a Category and if it is marked as hidden by
     // __HIDDENCAT__, do not store this category to the output file.
@@ -71,6 +92,9 @@ void commandPrepToMid(const QString &prepFile, const QString &midFile,
     if (it.key().startsWith("Category:") && content.contains("__HIDDENCAT__"))
       continue;
 
+    // Convert galleries to tables with images.
+    content = GalleryConverter::convert(content);
+
     // Remove noinclude tags, but not the content between them.
     // Noinclude is not required anymore in this moment, because
     // the template evaluation step is finished and no inclusion
@@ -78,8 +102,7 @@ void commandPrepToMid(const QString &prepFile, const QString &midFile,
     //
     // It is important to keep the content between noinclude open and
     // close tags in the entry. The content is valid part of a word.
-    content.remove(QRegExp("<noinclude\\s*>"))
-      .remove(QRegExp("</noinclude\\s*>"));
+    content.remove(QRegExp("</?noinclude\\s*>"));
 
     // Write the entry.
     writer.addEntry(it.key(), content);

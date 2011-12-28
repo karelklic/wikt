@@ -22,9 +22,10 @@ void commandXmlToPrep(const QString &xmlFile, const QString &prepFile,
                       const QString &errataDir);
 
 void commandPrepToMid(const QString &prepFile, const QString &midFile,
-                      qint64 from = -1, qint64 to = -1,
-                      bool showNames = false,
-                      bool debug = false);
+                      qint64 from, qint64 to,
+                      bool showNames,
+                      bool showTemplateUsage,
+                      bool debug);
 
 void commandMidToDict(const QString &midFile, const QString &mediaFile,
                       const QString &dictFile, qint64 from = -1,

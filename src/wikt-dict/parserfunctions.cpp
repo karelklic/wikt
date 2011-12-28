@@ -145,8 +145,11 @@ bool ParserFunctions::isParserFunction(const QString &templateText)
 }
 
 QString ParserFunctions::evaluate(const QString &templateText,
-    Format2Reader &reader, const QString &entryName)
+                                  Format2Reader &reader,
+                                  const QString &entryName,
+                                  bool &entryNameUsed)
 {
+  entryNameUsed = false;
   QList<QString> parts;
   TemplateUtils::getParts(templateText, parts);
   if (parts[0].startsWith("#if:", Qt::CaseInsensitive))
@@ -160,7 +163,10 @@ QString ParserFunctions::evaluate(const QString &templateText,
   else if (parts[0].startsWith("#switch:", Qt::CaseInsensitive))
     return functionSwitch(parts);
   else if (parts[0].startsWith("#expr:", Qt::CaseInsensitive))
+  {
+    entryNameUsed = true;
     return functionExpr(parts, entryName);
+  }
   dstderr("Function not supported.");
   return templateText;
 }

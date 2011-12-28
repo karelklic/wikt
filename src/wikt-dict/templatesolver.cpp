@@ -20,41 +20,72 @@
 #include "parserfunctions.h"
 #include "formattingfunctions.h"
 #include "pagenamefunctions.h"
+#include "parameterlist.h"
+#include "format2reader.h"
 #include <libwikt/debug.h>
 #include <libwikt/namespace.h>
 #include <QRegExp>
 #include <QTextStream>
 
-TemplateSolver::TemplateSolver(const QString &pageName,
-                               const QString &pageContent,
-                               Format2Reader &reader,
-                               bool verbose)
-  : _pageName(pageName), _pageContent(pageContent), _reader(reader),
-    _verbose(verbose)
-{
-}
-
-QString TemplateSolver::run()
-{
-  if (_verbose)
-    cstdout(_pageName);
-  ParameterList empty;
-  return removeTemplates(_pageContent, empty);
-}
-
-QString TemplateSolver::escapeTemplateSyntax(QString text)
-{
 #define PIPE_ESCAPE "1P#-"
 #define LEFT_BRACE_ESCAPE "1L#-"
 #define EQUALS_ESCAPE "1E#0-"
 #define RIGHT_BRACE_ESCAPE "1R#-"
-  return text.replace("|", PIPE_ESCAPE).replace("=", EQUALS_ESCAPE)
+
+static void
+evaluateTemplate(QString &wikiText,
+                 int from,
+                 int to,
+                 const QString &pageName,
+                 bool &pageNameUsed,
+                 QMap<QString, QString> &entryCache,
+                 Format2Reader &reader,
+                 bool updateTemplateUsage,
+                 bool debug);
+
+static QString
+evaluateTemplate(const QString &templateText,
+                 const QString &pageName,
+                 bool &pageNameUsed,
+                 QMap<QString, QString> &entryCache,
+                 Format2Reader &reader,
+                 bool updateTemplateUsage,
+                 bool debug);
+
+
+/// We measure which templates are used in debug mode.
+static QMap<QString, int>
+templateUsage;
+
+/// Template cache across entries.
+QMap<QString, QString>
+crossEntryCache;
+
+QList<QPair<int, QString> >
+templateUsageList()
+{
+  QList<QPair<int, QString> > usageList;
+  for (QMap<QString, int>::const_iterator it = templateUsage.begin();
+       it != templateUsage.end(); ++it)
+  {
+    usageList.append(QPair<int, QString>(it.value(), it.key()));
+  }
+  qGreater<QPair<int, QString> > lt;
+  qSort(usageList.begin(), usageList.end(), lt);
+  return usageList;
+}
+
+static void
+escapeTemplateSyntax(QString &text)
+{
+  text.replace("|", PIPE_ESCAPE).replace("=", EQUALS_ESCAPE)
     .replace("{", LEFT_BRACE_ESCAPE).replace("}", RIGHT_BRACE_ESCAPE);
 }
 
-QString TemplateSolver::unescapeTemplateSyntax(QString text)
+static void
+unescapeTemplateSyntax(QString &text)
 {
-  return text.replace(PIPE_ESCAPE, "|").replace(EQUALS_ESCAPE, "=")
+  text.replace(PIPE_ESCAPE, "|").replace(EQUALS_ESCAPE, "=")
     .replace(LEFT_BRACE_ESCAPE, "{").replace(RIGHT_BRACE_ESCAPE, "}");
 }
 
@@ -63,9 +94,10 @@ QString TemplateSolver::unescapeTemplateSyntax(QString text)
 /// skipping the contents of embedded wikilinks.
 /// @return
 ///   - if str is not found in text.
-int TemplateSolver::linkSkippingIndexOf(const QString &text,
-                                        const QString &str,
-                                        int from)
+static int
+linkSkippingIndexOf(const QString &text,
+                    const QString &str,
+                    int from)
 {
   if (from < 0)
     from += text.length();
@@ -96,10 +128,18 @@ int TemplateSolver::linkSkippingIndexOf(const QString &text,
   return -1;
 }
 
-QString TemplateSolver::removeTemplates(QString wikiText,
-                                        const ParameterList &params)
+static QString
+removeTemplates(QString wikiText,
+                const ParameterList &params,
+                const QString &pageName,
+                bool &pageNameUsed,
+                QMap<QString, QString> &entryCache,
+                Format2Reader &reader,
+                bool updateTemplateUsage,
+                bool debug)
 {
   int from = -1;
+  pageNameUsed = false;
 
   // find a pair
   while (true)
@@ -107,7 +147,10 @@ QString TemplateSolver::removeTemplates(QString wikiText,
     int start3 = wikiText.lastIndexOf("{{{", from);
     int start2 = wikiText.lastIndexOf("{{", from);
     if (start3 == -1 && start2 == -1)
-      return unescapeTemplateSyntax(wikiText);
+    {
+      unescapeTemplateSyntax(wikiText);
+      return wikiText;
+    }
 
     // Handle a case of rightmost start2
     if (start3 == -1 || start2 > start3 + 1)
@@ -117,12 +160,21 @@ QString TemplateSolver::removeTemplates(QString wikiText,
       {
         // We are on the beginning, search no more. start is 0 or 1
         if (start2 < 2)
-          return unescapeTemplateSyntax(wikiText);
+        {
+          unescapeTemplateSyntax(wikiText);
+          return wikiText;
+        }
 
         from = qMax(start2 - 1, 0);
         continue;
       }
-      evaluateTemplate(wikiText, start2, stop + 2);
+      bool pageNameUsedLocal;
+      evaluateTemplate(wikiText, start2, stop + 2,
+                       pageName, pageNameUsedLocal, entryCache, reader,
+                       updateTemplateUsage, debug);
+
+      if (pageNameUsedLocal)
+        pageNameUsed = true;
       from = qMax(start2 - 1, 0);
     }
     // Handle a case of rightmost start3
@@ -135,54 +187,108 @@ QString TemplateSolver::removeTemplates(QString wikiText,
         // Try to expand the last {{
         if (stop2 >= 0)
         {
-          evaluateTemplate(wikiText, start3 + 1, stop2 + 2);
+          bool pageNameUsedLocal;
+          evaluateTemplate(wikiText, start3 + 1, stop2 + 2,
+                           pageName, pageNameUsed, entryCache, reader,
+                           updateTemplateUsage, debug);
+
+          if (pageNameUsedLocal)
+            pageNameUsed = true;
+
           from = qMax(start3, 0);
         }
         else
         {
-          // We are on the beginning, search no more.
-          // start is 0 or 1
           if (start3 < 2)
-            return unescapeTemplateSyntax(wikiText);
+          {
+            // We are on the beginning, search no more.
+            // start is 0 or 1
+            unescapeTemplateSyntax(wikiText);
+            return wikiText;
+          }
 
-          // Search another pair.
-          from = qMax(start3, 0);
+          // Wikisyntax is broken.
+          // Search another pair..
+          from = qMax(start3 - 1, 0);
         }
         continue;
       }
 
       QString contents = wikiText.mid(start3 + 3, stop3 - start3 - 3);
       QString evaluated = TemplateUtils::evaluateParameter(contents, params);
-      if (_verbose)
+      if (debug)
         cstdout("Param: " + contents + " -> " + evaluated);
-      wikiText.replace(start3, stop3 + 3 - start3,
-                       escapeTemplateSyntax(evaluated));
+      escapeTemplateSyntax(evaluated);
+      wikiText.replace(start3, stop3 + 3 - start3, evaluated);
       from = qMax(start3 - 1, 0);
     }
   }
 }
 
-void TemplateSolver::evaluateTemplate(QString &wikiText, int from, int to)
+/// Gets a template call from entry text, calls the template,
+/// and merges the result into the entry text. The modified entry text is
+/// returned.
+/// @param from
+///   Position at the beginning of {{template..}}, pointing to the first {.
+/// @param to
+///   Position at the end of template, pointing after the last }.
+static void
+evaluateTemplate(QString &wikiText,
+                 int from,
+                 int to,
+                 const QString &pageName,
+                 bool &pageNameUsed,
+                 QMap<QString, QString> &entryCache,
+                 Format2Reader &reader,
+                 bool updateTemplateUsage,
+                 bool debug)
 {
   QString contents = wikiText.mid(from + 2, to - from - 4);
+  pageNameUsed = false;
 
-  // Check the cache for the result of evaluation. If it is not found,
+  if (updateTemplateUsage)
+  {
+    QMap<QString, int>::const_iterator it = templateUsage.find(contents);
+    if (it == templateUsage.end())
+      templateUsage.insert(contents, 1);
+    else
+      templateUsage[contents] += 1;
+  }
+
+  // Check the entry cache for the result of evaluation. If it is not found,
   // evaluate the template.
   QString evaluated;
-  QMap<QString, QString>::const_iterator it = _cache.find(contents);
-  if (it == _cache.end()) // not found in cache
+  QMap<QString, QString>::const_iterator crossEntryCacheIt = crossEntryCache.find(contents);
+  if (crossEntryCacheIt == crossEntryCache.end())
   {
-    if (_verbose)
-      cstdout("BEGIN Template: " + contents);
-    evaluated = evaluateTemplate(contents);
-    if (_verbose)
-      cstdout("END Template: " + contents + " -> " + evaluated);
+    QMap<QString, QString>::const_iterator entryCacheIt = entryCache.find(contents);
+    if (entryCacheIt == entryCache.end()) // not found in entry cache
+    {
+      if (debug)
+        cstdout("BEGIN Template: " + contents);
 
-    evaluated = escapeTemplateSyntax(evaluated);
-    _cache.insert(contents, evaluated);
+      // Store the information about the template being evaluated to
+      // the entry cache.  This is used to detect loops.
+      entryCache.insert(contents, "Wikt:TEMPLATE ENDLESS LOOP DETECTED");
+
+      evaluated = evaluateTemplate(contents, pageName, pageNameUsed,
+                                   entryCache, reader, updateTemplateUsage, debug);
+
+      if (debug)
+        cstdout("END Template: " + contents + " -> " + evaluated);
+
+      escapeTemplateSyntax(evaluated);
+
+      if (pageNameUsed)
+        entryCache[contents] = evaluated;
+      else
+        crossEntryCache.insert(contents, evaluated);
+    }
+    else
+      evaluated = entryCacheIt.value();
   }
   else
-    evaluated = it.value();
+    evaluated = crossEntryCacheIt.value();
 
   // Results starting with "*", "#", ":", ";", and "{|" automatically
   // get a newline at the start.
@@ -199,18 +305,34 @@ void TemplateSolver::evaluateTemplate(QString &wikiText, int from, int to)
   wikiText.replace(from, to - from, evaluated);
 }
 
-QString TemplateSolver::evaluateTemplate(const QString &templateText)
+/// Returns the evaluated template content.
+/// @param templateText
+///   The text inside {{ and }}, containing template name and template
+///   parameters. It must not contain any templates or template
+///   parameters.
+static QString
+evaluateTemplate(const QString &templateText,
+                 const QString &pageName,
+                 bool &pageNameUsed,
+                 QMap<QString, QString> &entryCache,
+                 Format2Reader &reader,
+                 bool updateTemplateUsage,
+                 bool debug)
 {
+  pageNameUsed = false;
   QString templateTextTrimmed = templateText.trimmed();
   // Handle built-in templates #if, #switch etc.
   if (ParserFunctions::isParserFunction(templateTextTrimmed))
-    return ParserFunctions::evaluate(templateText, _reader, _pageName);
+    return ParserFunctions::evaluate(templateText, reader, pageName, pageNameUsed);
   // Handle build-in templats uc:, ucfirst:, formatnum: etc.
   if (FormattingFunctions::isFormattingFunction(templateTextTrimmed))
     return FormattingFunctions::evaluate(templateText);
   // Handle built-in templates PAGENAME, PAGENAMEE, SUBPAGENAME etc.
   if (PageNameFunctions::isPageNameFunction(templateTextTrimmed))
-    return PageNameFunctions::evaluate(templateText, _pageName);
+  {
+    pageNameUsed = true;
+    return PageNameFunctions::evaluate(templateText, pageName);
+  }
   // Handle built-in templates ns:, fullurl: etc.
   if (NamespaceUrlFunctions::isFunction(templateTextTrimmed))
     return NamespaceUrlFunctions::evaluate(templateText);
@@ -243,13 +365,13 @@ QString TemplateSolver::evaluateTemplate(const QString &templateText)
 
   // Get the template contents.
   QString source;
-  if (templatePageName.startsWith("Template:") && _reader.exist(templatePageName))
-    source = _reader.sourceTemplate(templatePageName);
-  else if (_reader.exist("Template:" + templatePageName))
-    source = _reader.sourceTemplate("Template:" + templatePageName);
-  else if (_reader.exist(templatePageName) &&
+  if (templatePageName.startsWith("Template:") && reader.exist(templatePageName))
+    source = reader.sourceTemplate(templatePageName);
+  else if (reader.exist("Template:" + templatePageName))
+    source = reader.sourceTemplate("Template:" + templatePageName);
+  else if (reader.exist(templatePageName) &&
            Namespace::instance().fromEntry(templatePageName) != Namespace::Main)
-    source = _reader.sourceTemplate(templatePageName);
+    source = reader.sourceTemplate(templatePageName);
   else
   {
     if (!templatePageName.startsWith("Template:"))
@@ -260,21 +382,46 @@ QString TemplateSolver::evaluateTemplate(const QString &templateText)
 
   // If the template contain <onlyinclude></onlyinclude>, provide only
   // the text between those tags.
-  // Can this block of code be moved to XmlToMid processing?
-  QRegExp includeTag("<onlyinclude\\s*>");
-  QRegExp includeEndTag("</onlyinclude\\s*>");
-  int includeStart = includeTag.indexIn(source);
-  if (includeStart != -1)
+  // Can this block of code be moved to XmlToPrep processing?
+  if (source.contains("<onlyinclude"))
   {
-    int includeEnd = includeEndTag.indexIn(source, includeStart);
-    if (includeEnd != -1)
-      source = source.mid(includeStart + includeTag.matchedLength(),
-                          includeEnd - includeStart - includeTag.matchedLength());
-    else
-      source = source.mid(includeStart + includeTag.matchedLength());
+    static QRegExp includeTag("<onlyinclude\\s*>");
+    static QRegExp includeEndTag("</onlyinclude\\s*>");
+    int includeStart = includeTag.indexIn(source);
+    if (includeStart != -1)
+    {
+      int includeEnd = includeEndTag.indexIn(source, includeStart);
+      if (includeEnd != -1)
+        source = source.mid(includeStart + includeTag.matchedLength(),
+                            includeEnd - includeStart - includeTag.matchedLength());
+      else
+        source = source.mid(includeStart + includeTag.matchedLength());
+    }
   }
 
   // Evaluate all parameters and templates inside.
   ParameterList params = TemplateUtils::getParameterList(parts);
-  return removeTemplates(source, params);
+  return removeTemplates(source, params, pageName, pageNameUsed,
+                         entryCache, reader, updateTemplateUsage, debug);
+}
+
+QString
+templateSolver(const QString &pageName,
+               const QString &pageContent,
+               Format2Reader &reader,
+               bool updateTemplateUsage,
+               bool debug)
+{
+  if (debug)
+    cstdout(pageName);
+
+  /// Evaluation cache for single entry.
+  /// Key - template text
+  /// Value - result
+  QMap<QString, QString> entryCache;
+  ParameterList emptyParams;
+  bool pageNameUsed;
+  return removeTemplates(pageContent, emptyParams,
+                         pageName, pageNameUsed, entryCache,
+                         reader, updateTemplateUsage, debug);
 }

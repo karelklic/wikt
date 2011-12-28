@@ -22,7 +22,7 @@
 #include <templateutils.h>
 #include <QMap>
 
-void ConvDict23Test::formattingFunctions_basic()
+void CommandPrepToMidTest::formattingFunctions_basic()
 {
   QCOMPARE(FormattingFunctions::evaluate("lc:OmEgA"), QString("omega"));
   QCOMPARE(FormattingFunctions::evaluate("lc:"), QString(""));
@@ -34,13 +34,13 @@ void ConvDict23Test::formattingFunctions_basic()
   QCOMPARE(FormattingFunctions::evaluate("uc:black magic"), QString("BLACK MAGIC"));
 }
 
-void ConvDict23Test::formattingFunctions_formatNum()
+void CommandPrepToMidTest::formattingFunctions_formatNum()
 {
   QCOMPARE(FormattingFunctions::evaluate("formatnum:-987654321.654321"), QString("-987,654,321.654321"));
   QCOMPARE(FormattingFunctions::evaluate("formatnum:-987,654,321.654321|R"), QString("-987654321.654321"));
 }
 
-void ConvDict23Test::namespaceUrlFunctions_ns()
+void CommandPrepToMidTest::namespaceUrlFunctions_ns()
 {
   QVERIFY(NamespaceUrlFunctions::isFunction("ns:2"));
   QCOMPARE(NamespaceUrlFunctions::evaluate("ns:2"), QString("User"));
@@ -49,7 +49,7 @@ void ConvDict23Test::namespaceUrlFunctions_ns()
   QCOMPARE(NamespaceUrlFunctions::evaluate("ns:project"), QString("Wiktionary"));
 }
 
-void ConvDict23Test::namespaceUrlFunctions_fullUrl()
+void CommandPrepToMidTest::namespaceUrlFunctions_fullUrl()
 {
   QVERIFY(NamespaceUrlFunctions::isFunction("fullurl:a"));
   QCOMPARE(NamespaceUrlFunctions::evaluate("fullurl:a"), QString("entry:///a"));
@@ -58,7 +58,7 @@ void ConvDict23Test::namespaceUrlFunctions_fullUrl()
   QCOMPARE(NamespaceUrlFunctions::evaluate(QString::fromWCharArray(L"fullurl:w:háček")), QString("http://en.wikipedia.org/wiki/h%C3%A1%C4%8Dek"));
 }
 
-void ConvDict23Test::namespaceUrlFunctions_urlencode()
+void CommandPrepToMidTest::namespaceUrlFunctions_urlencode()
 {
   QVERIFY(NamespaceUrlFunctions::isFunction("urlencode:a"));
   QCOMPARE(NamespaceUrlFunctions::evaluate("urlencode:a"), QString("a"));
@@ -69,7 +69,7 @@ void ConvDict23Test::namespaceUrlFunctions_urlencode()
   QCOMPARE(NamespaceUrlFunctions::evaluate("urlencode:Hello world ~;(*)&"), QString("Hello+world+%7E%3B%28%2A%29%26"));
 }
 
-void ConvDict23Test::pageNameFunctions_pageName()
+void CommandPrepToMidTest::pageNameFunctions_pageName()
 {
   QVERIFY(PageNameFunctions::isPageNameFunction("PAGENAME"));
   QCOMPARE(PageNameFunctions::evaluate("PAGENAME", "Help:Magic words"), QString("Magic words"));
@@ -77,7 +77,7 @@ void ConvDict23Test::pageNameFunctions_pageName()
   QCOMPARE(PageNameFunctions::evaluate("PAGENAME ", "User talk:Anonymous user/sandbox/my page"), QString("Anonymous user/sandbox/my page"));
 }
 
-void ConvDict23Test::pageNameFunctions_pageNameE()
+void CommandPrepToMidTest::pageNameFunctions_pageNameE()
 {
   QVERIFY(PageNameFunctions::isPageNameFunction("PAGENAMEE"));
   QCOMPARE(PageNameFunctions::evaluate("PAGENAMEE", "Help:Magic words"), QString("Magic_words"));
@@ -85,7 +85,7 @@ void ConvDict23Test::pageNameFunctions_pageNameE()
   QCOMPARE(PageNameFunctions::evaluate("PAGENAMEE ", "User talk:Anonymous user/sandbox/my page"), QString("Anonymous_user/sandbox/my_page"));
 }
 
-void ConvDict23Test::pageNameFunctions_basePageName()
+void CommandPrepToMidTest::pageNameFunctions_basePageName()
 {
   QVERIFY(PageNameFunctions::isPageNameFunction("BASEPAGENAME"));
   QCOMPARE(PageNameFunctions::evaluate("BASEPAGENAME", "Help:Magic words"), QString("Magic words"));
@@ -93,7 +93,7 @@ void ConvDict23Test::pageNameFunctions_basePageName()
   QCOMPARE(PageNameFunctions::evaluate("BASEPAGENAME ", "User talk:Anonymous user/sandbox/my page"), QString("Anonymous user/sandbox"));
 }
 
-void ConvDict23Test::pageNameFunctions_basePageNameE()
+void CommandPrepToMidTest::pageNameFunctions_basePageNameE()
 {
   QVERIFY(PageNameFunctions::isPageNameFunction("BASEPAGENAMEE"));
   QCOMPARE(PageNameFunctions::evaluate("BASEPAGENAMEE", "Help:Magic words"), QString("Magic_words"));
@@ -101,7 +101,7 @@ void ConvDict23Test::pageNameFunctions_basePageNameE()
   QCOMPARE(PageNameFunctions::evaluate("BASEPAGENAMEE ", "User talk:Anonymous user/sandbox/my page"), QString("Anonymous_user/sandbox"));
 }
 
-void ConvDict23Test::pageNameFunctions_subPageName()
+void CommandPrepToMidTest::pageNameFunctions_subPageName()
 {
   QVERIFY(PageNameFunctions::isPageNameFunction("SUBPAGENAME"));
   QCOMPARE(PageNameFunctions::evaluate("SUBPAGENAME", "Help:Magic words"), QString("Magic words"));
@@ -109,7 +109,7 @@ void ConvDict23Test::pageNameFunctions_subPageName()
   QCOMPARE(PageNameFunctions::evaluate("SUBPAGENAME ", "User talk:Anonymous user/sandbox/my page"), QString("my page"));
 }
 
-void ConvDict23Test::pageNameFunctions_subPageNameE()
+void CommandPrepToMidTest::pageNameFunctions_subPageNameE()
 {
   QVERIFY(PageNameFunctions::isPageNameFunction("SUBPAGENAMEE"));
   QCOMPARE(PageNameFunctions::evaluate("SUBPAGENAMEE", "Help:Magic words"), QString("Magic_words"));
@@ -121,7 +121,7 @@ void ConvDict23Test::pageNameFunctions_subPageNameE()
       QString("my_page"));
 }
 
-void ConvDict23Test::pageNameFunctions_fullPageName()
+void CommandPrepToMidTest::pageNameFunctions_fullPageName()
 {
   QVERIFY(PageNameFunctions::isPageNameFunction("FULLPAGENAME"));
   QCOMPARE(PageNameFunctions::evaluate("FULLPAGENAME", "Help:Magic words"), QString("Help:Magic words"));
@@ -129,7 +129,7 @@ void ConvDict23Test::pageNameFunctions_fullPageName()
   QCOMPARE(PageNameFunctions::evaluate("FULLPAGENAME ", "User talk:Anonymous user/sandbox/my page"), QString("User talk:Anonymous user/sandbox/my page"));
 }
 
-void ConvDict23Test::pageNameFunctions_fullPageNameE()
+void CommandPrepToMidTest::pageNameFunctions_fullPageNameE()
 {
   QVERIFY(PageNameFunctions::isPageNameFunction("FULLPAGENAMEE"));
   QCOMPARE(PageNameFunctions::evaluate("FULLPAGENAMEE", "Help:Magic words"), QString("Help:Magic_words"));
@@ -137,7 +137,7 @@ void ConvDict23Test::pageNameFunctions_fullPageNameE()
   QCOMPARE(PageNameFunctions::evaluate("FULLPAGENAMEE ", "User talk:Anonymous user/sandbox/my page"), QString("User_talk:Anonymous_user/sandbox/my_page"));
 }
 
-void ConvDict23Test::pageNameFunctions_nameSpace()
+void CommandPrepToMidTest::pageNameFunctions_nameSpace()
 {
   QVERIFY(PageNameFunctions::isPageNameFunction("NAMESPACE"));
   QCOMPARE(PageNameFunctions::evaluate("NAMESPACE", "a"), QString(""));
@@ -146,7 +146,7 @@ void ConvDict23Test::pageNameFunctions_nameSpace()
   QCOMPARE(PageNameFunctions::evaluate("NAMESPACE ", "User talk:Anonymous user/sandbox/my page"), QString("User talk"));
 }
 
-void ConvDict23Test::pageNameFunctions_nameSpaceE()
+void CommandPrepToMidTest::pageNameFunctions_nameSpaceE()
 {
   QVERIFY(PageNameFunctions::isPageNameFunction("NAMESPACEE"));
   QCOMPARE(PageNameFunctions::evaluate("NAMESPACEE", "Help:Magic words"), QString("Help"));
@@ -161,13 +161,16 @@ public:
   virtual bool exist(QString /*entryName*/) { return false; }
 };
 
-static QString evaluate(const QString &expr)
+static QString
+evaluate(const QString &expr)
 {
   ParserFunctionsTestReader reader;
-  return ParserFunctions::evaluate(expr, reader, "test entry");
+  bool entryNameUsed;
+  return ParserFunctions::evaluate(expr, reader,
+                                   "test entry", entryNameUsed);
 }
 
-void ConvDict23Test::parserFunctions_if()
+void CommandPrepToMidTest::parserFunctions_if()
 {
   QCOMPARE(evaluate("#if: | true | false"), QString("false"));
   QCOMPARE(evaluate("#if: string | true | false"), QString("true"));
@@ -179,7 +182,7 @@ void ConvDict23Test::parserFunctions_if()
   QCOMPARE(evaluate("#if: foo | | false"), QString(""));
 }
 
-void ConvDict23Test::parserFunctions_ifEq()
+void CommandPrepToMidTest::parserFunctions_ifEq()
 {
   QCOMPARE(evaluate("#ifeq:|_|qualifier"), QString(""));
   QCOMPARE(evaluate("#ifeq:||_|qualifier"), QString("_"));
@@ -187,7 +190,7 @@ void ConvDict23Test::parserFunctions_ifEq()
   QCOMPARE(evaluate("#ifeq:||yes|no|strange"), QString("yes"));
 }
 
-void ConvDict23Test::parserFunctions_switch()
+void CommandPrepToMidTest::parserFunctions_switch()
 {
   QCOMPARE(evaluate("#switch: a | foo = Foo | a = ok"), QString("ok"));
   QCOMPARE(evaluate("#switch: a | foo = Foo | #default = Bar | baz = Baz"), QString("Bar"));
@@ -195,7 +198,7 @@ void ConvDict23Test::parserFunctions_switch()
   QCOMPARE(evaluate("#switch: a | foo | a | b | c = Foo | Baz"), QString("Foo"));
 }
 
-void ConvDict23Test::parserFunctions_expr()
+void CommandPrepToMidTest::parserFunctions_expr()
 {
   QCOMPARE(evaluate("#expr:"), QString(""));
 
@@ -372,94 +375,97 @@ public:
   virtual bool exist(QString entryName) { return data.contains(entryName); }
 };
 
-void ConvDict23Test::templateSolver_declaringDefaultValue()
+static QString
+runTemplateSolver(const QString &pageContent,
+                  TemplateSolverTestReader &reader)
 {
-  bool verbose = false;
-  TemplateSolverTestReader reader;
-  reader.data.insert("Template:t", "start-{{{1|pqr}}}-end");
-  QCOMPARE(TemplateSolver("", "{{t|a}}", reader, verbose).run(), QString("start-a-end"));
-  QCOMPARE(TemplateSolver("", "{{t| }}", reader, verbose).run(), QString("start- -end"));
-  QCOMPARE(TemplateSolver("", "{{t|}}", reader, verbose).run(), QString("start--end"));
-  QCOMPARE(TemplateSolver("", "{{t|1=no surprise}}", reader, verbose).run(), QString("start-no surprise-end"));
-  QCOMPARE(TemplateSolver("", "{{t|1=no|surprise}}", reader, verbose).run(), QString("start-surprise-end"));
-  QCOMPARE(TemplateSolver("", "{{t}}", reader, verbose).run(), QString("start-pqr-end"));
-  QCOMPARE(TemplateSolver("", "{{t|2=two}}", reader, verbose).run(), QString("start-pqr-end"));
+  return templateSolver(/*pageName =*/ "",
+                        pageContent,
+                        reader,
+                        /*updateTemplateUsage =*/ false,
+                        /*debug =*/ false);
 }
 
-void ConvDict23Test::templateSolver_moreBraces()
+void CommandPrepToMidTest::templateSolver_declaringDefaultValue()
 {
-  bool verbose = false;
+  TemplateSolverTestReader reader;
+  reader.data.insert("Template:t", "start-{{{1|pqr}}}-end");
+  QCOMPARE(runTemplateSolver("{{t|a}}", reader), QString("start-a-end"));
+  QCOMPARE(runTemplateSolver("{{t| }}", reader), QString("start- -end"));
+  QCOMPARE(runTemplateSolver("{{t|}}", reader), QString("start--end"));
+  QCOMPARE(runTemplateSolver("{{t|1=no surprise}}", reader), QString("start-no surprise-end"));
+  QCOMPARE(runTemplateSolver("{{t|1=no|surprise}}", reader), QString("start-surprise-end"));
+  QCOMPARE(runTemplateSolver("{{t}}", reader), QString("start-pqr-end"));
+  QCOMPARE(runTemplateSolver("{{t|2=two}}", reader), QString("start-pqr-end"));
+}
+
+void CommandPrepToMidTest::templateSolver_moreBraces()
+{
   TemplateSolverTestReader reader;
   reader.data.insert("Template:t1", "start-{{{1}}}-end");
   // "&#x007b;" == "{", "&#x007d;" == "}"
-  QCOMPARE(TemplateSolver("", "{{{{t1|1}}}}", reader, verbose).run(), QString("{1}"));
-  QCOMPARE(TemplateSolver("", "{{ {{t1|1}}}}", reader, verbose).run(), QString("&#x007b;&#x007b;Template:start-1-end&#x007d;&#x007d;"));
-  QCOMPARE(TemplateSolver("", "{{{{t1|1}} }}", reader, verbose).run(), QString("&#x007b;&#x007b;Template:start-1-end&#x007d;&#x007d;"));
-  QCOMPARE(TemplateSolver("", "{{{{t1|1}} }}}", reader, verbose).run(), QString("&#x007b;&#x007b;Template:start-1-end&#x007d;&#x007d;}"));
-  QCOMPARE(TemplateSolver("", "{{{{t1|1}} }} {{{5}}}", reader, verbose).run(), QString("&#x007b;&#x007b;Template:start-1-end&#x007d;&#x007d; &#x007b;&#x007b;&#x007b;5&#x007d;&#x007d;&#x007d;"));
-  QCOMPARE(TemplateSolver("", "{{{{{abc|in}}}}}", reader, verbose).run(), QString("&#x007b;&#x007b;Template:in&#x007d;&#x007d;"));
-  QCOMPARE(TemplateSolver("", "{{{ {{#if:x|tc|ab}}}}}", reader, verbose).run(), QString("&#x007b;&#x007b;&#x007b;tc&#x007d;&#x007d;&#x007d;"));
-  QCOMPARE(TemplateSolver("", "{{{{#ifeq:{{{g|{{{gender}}}}}}|g|g|ns:0}}|{{language|{{{1}}}}}}}", reader, verbose).run(), QString(""));
+  QCOMPARE(runTemplateSolver("{{{{t1|1}}}}", reader), QString("{1}"));
+  QCOMPARE(runTemplateSolver("{{ {{t1|1}}}}", reader), QString("&#x007b;&#x007b;Template:start-1-end&#x007d;&#x007d;"));
+  QCOMPARE(runTemplateSolver("{{{{t1|1}} }}", reader), QString("&#x007b;&#x007b;Template:start-1-end&#x007d;&#x007d;"));
+  QCOMPARE(runTemplateSolver("{{{{t1|1}} }}}", reader), QString("&#x007b;&#x007b;Template:start-1-end&#x007d;&#x007d;}"));
+  QCOMPARE(runTemplateSolver("{{{{t1|1}} }} {{{5}}}", reader), QString("&#x007b;&#x007b;Template:start-1-end&#x007d;&#x007d; &#x007b;&#x007b;&#x007b;5&#x007d;&#x007d;&#x007d;"));
+  QCOMPARE(runTemplateSolver("{{{{{abc|in}}}}}", reader), QString("&#x007b;&#x007b;Template:in&#x007d;&#x007d;"));
+  QCOMPARE(runTemplateSolver("{{{ {{#if:x|tc|ab}}}}}", reader), QString("&#x007b;&#x007b;&#x007b;tc&#x007d;&#x007d;&#x007d;"));
+  QCOMPARE(runTemplateSolver("{{{{#ifeq:{{{g|{{{gender}}}}}}|g|g|ns:0}}|{{language|{{{1}}}}}}}", reader), QString(""));
 }
 
-void ConvDict23Test::templateSolver_formOf()
+void CommandPrepToMidTest::templateSolver_formOf()
 {
-  bool verbose = false;
   TemplateSolverTestReader reader;
   reader.data.insert("Template:form of", "{{#if:{{{2|}}}|<span class='use-with-mention'>{{#if:{{{nocap|}}}|{{{1}}}|{{ucfirst:{{{1}}}}}}} of <span class='mention'>{{#if:{{{sc|}}}|{{{{{sc}}}|{{#ifexist:{{{2}}}|[[{{{2}}}#{{{lang|English}}}|{{{3|{{{2}}}}}}]]|{{{2}}}}}}}|{{#ifexist:{{{2}}}|[[{{{2}}}#{{{lang|English}}}|{{{3|{{{2}}}}}}]]|{{{2}}}}}}}</span>{{#if:{{{tr|}}}|&#32;({{{tr}}})}}{{#if:{{{nodot|}}}||.}}</span>|<span class='use-with-mention'><span class='mention'>[[{{{1}}}#{{{lang|English}}}|{{#if:{{{sc|}}}|{{{{{sc}}}|{{{alt|{{{1}}}}}}}}|{{{alt|{{{1}}}}}}}}]]</span></span>{{#if:{{{tr|}}}|&#32;({{{tr}}})}}}}");
-  QCOMPARE(TemplateSolver("", "{{form of|lower case form|B}}", reader, verbose).run(), QString("<span class='use-with-mention'>Lower case form of <span class='mention'>B</span>.</span>"));
-  QCOMPARE(TemplateSolver("", "{{form of|lower case form|[[B]]}}", reader, verbose).run(), QString("<span class='use-with-mention'>Lower case form of <span class='mention'>[[B]]</span>.</span>"));
+  QCOMPARE(runTemplateSolver("{{form of|lower case form|B}}", reader), QString("<span class='use-with-mention'>Lower case form of <span class='mention'>B</span>.</span>"));
+  QCOMPARE(runTemplateSolver("{{form of|lower case form|[[B]]}}", reader), QString("<span class='use-with-mention'>Lower case form of <span class='mention'>[[B]]</span>.</span>"));
 }
 
-void ConvDict23Test::templateSolver_isValidPageName()
+void CommandPrepToMidTest::templateSolver_isValidPageName()
 {
-  bool verbose = false;
   TemplateSolverTestReader reader;
   reader.data.insert("Template:isValidPageName", "{{#ifeq:{{{1}}}|-||{{#ifeq:[[:Special:Whatlinkshere/{{{1}}}]]|{{raw:Special:Whatlinkshere/{{{1}}}}}|valid}}}}");
-  QCOMPARE(TemplateSolver("", "{{isValidPageName|English}}", reader, verbose).run(), QString("valid"));
-  QCOMPARE(TemplateSolver("", "{{isValidPageName|[[English]]}}", reader, verbose).run(), QString(""));
+  QCOMPARE(runTemplateSolver("{{isValidPageName|English}}", reader), QString("valid"));
+  QCOMPARE(runTemplateSolver("{{isValidPageName|[[English]]}}", reader), QString(""));
 }
 
-void ConvDict23Test::templateSolver_evaluatedWikiSyntaxSimple()
+void CommandPrepToMidTest::templateSolver_evaluatedWikiSyntaxSimple()
 {
-  bool verbose = false;
   TemplateSolverTestReader reader;
   reader.data.insert("Template:!", "|");
   reader.data.insert("Template:x2", "{{{1}}}{{{1}}}");
-  QCOMPARE(TemplateSolver("", "{{x2|{{{!}}\n{{!}}A\n{{!}}B\n{{!}}-\n{{!}}C\n{{!}}D\n{{!}}}\n}}", reader, verbose).run(),
+  QCOMPARE(runTemplateSolver("{{x2|{{{!}}\n{{!}}A\n{{!}}B\n{{!}}-\n{{!}}C\n{{!}}D\n{{!}}}\n}}", reader),
       QString("\n{|\n|A\n|B\n|-\n|C\n|D\n|}\n{|\n|A\n|B\n|-\n|C\n|D\n|}\n"));
 }
 
-void ConvDict23Test::templateSolver_newlineAddingInTemplates()
+void CommandPrepToMidTest::templateSolver_newlineAddingInTemplates()
 {
-  bool verbose = false;
   TemplateSolverTestReader reader;
   reader.data.insert("Template:a", "g{{b}}\n{{b}}");
   reader.data.insert("Template:b", "{{{|#*:good}}}");
-  QCOMPARE(TemplateSolver("", "{{a}}", reader, verbose).run(), QString("g\n#*:good\n#*:good"));
+  QCOMPARE(runTemplateSolver("{{a}}", reader), QString("g\n#*:good\n#*:good"));
 }
 
-void ConvDict23Test::templateSolver_pluralOf()
+void CommandPrepToMidTest::templateSolver_pluralOf()
 {
-  bool verbose = false;
   TemplateSolverTestReader reader;
   reader.data.insert("Template:wlink", "{{#ifeq:{{{w|{{{1}}}}}}|-||{{#ifeq:[[:Special:Whatlinkshere/{{{w|{{{1}}}}}}]]|{{raw:Special:Whatlinkshere/{{{w|{{{1}}}}}}}}|[[{{{w|{{{1}}}}}}]]|{{{w|{{{1}}}}}}}}}}");
-  QCOMPARE(TemplateSolver("", "{{wlink|w=[[stadium#English|stadium]]}}", reader, verbose).run(), QString("[[stadium#English|stadium]]"));
-  QCOMPARE(TemplateSolver("", "{{wlink|w=stadium}}", reader, verbose).run(), QString("[[stadium]]"));
+  QCOMPARE(runTemplateSolver("{{wlink|w=[[stadium#English|stadium]]}}", reader), QString("[[stadium#English|stadium]]"));
+  QCOMPARE(runTemplateSolver("{{wlink|w=stadium}}", reader), QString("[[stadium]]"));
 
   reader.data.insert("Template:plural of", "{{{cap|{{#if:{{{nocap|}}}|p|P}}}}}lural form of {{#if:{{{2|}}}|[[{{{1}}}|{{{2}}}]]|{{wlink|w={{{1}}}}}}}{{{dot|{{#if:{{{nodot|}}}||.}}}}}{{#ifeq:{{NAMESPACE}}||{{#if:{{{nocat|}}}||[[Category:English plurals]]}}}}");
-  QCOMPARE(TemplateSolver("", "{{plural of|[[stadium#English|stadium]]}}", reader, verbose).run(), QString("Plural form of [[stadium#English|stadium]].[[Category:English plurals]]"));
+  QCOMPARE(runTemplateSolver("{{plural of|[[stadium#English|stadium]]}}", reader), QString("Plural form of [[stadium#English|stadium]].[[Category:English plurals]]"));
 }
 
-void ConvDict23Test::templateSolver_embeddedLink()
+void CommandPrepToMidTest::templateSolver_embeddedLink()
 {
-  bool verbose = false;
   TemplateSolverTestReader reader;
   reader.data.insert("Template:test", "{{#if:a|[[kk}}]]}}");
-  QCOMPARE(TemplateSolver("", "{{#if:a|[[kk}}]]}}", reader, verbose).run(), QString("[[kk}}]]"));
+  QCOMPARE(runTemplateSolver("{{#if:a|[[kk}}]]}}", reader), QString("[[kk}}]]"));
 }
 
-void ConvDict23Test::templateUtils_addParameterToList0()
+void CommandPrepToMidTest::templateUtils_addParameterToList0()
 {
   ParameterList p;
   TemplateUtils::_addParameterToList("a", p);
@@ -471,7 +477,7 @@ void ConvDict23Test::templateUtils_addParameterToList0()
   QCOMPARE(p["3"], QString(""));
 }
 
-void ConvDict23Test::templateUtils_addParameterToList1()
+void CommandPrepToMidTest::templateUtils_addParameterToList1()
 {
   ParameterList p;
   TemplateUtils::_addParameterToList("3=1", p);
@@ -486,7 +492,7 @@ void ConvDict23Test::templateUtils_addParameterToList1()
   QCOMPARE(p["3"], QString("5"));
 }
 
-void ConvDict23Test::templateUtils_getParts()
+void CommandPrepToMidTest::templateUtils_getParts()
 {
   QList<QString> output;
   TemplateUtils::getParts("context|[[c|c]]|b|", output);
@@ -505,7 +511,7 @@ void ConvDict23Test::templateUtils_getParts()
   QCOMPARE(output[2], QString("[[stadium#EnglishpipeEscapeSurestadium]]"));
 }
 
-void ConvDict23Test::templateUtils_evaluateParameter()
+void CommandPrepToMidTest::templateUtils_evaluateParameter()
 {
   ParameterList p;
   QCOMPARE(TemplateUtils::evaluateParameter("lang", p), QString("&#x007b;&#x007b;&#x007b;lang&#x007d;&#x007d;&#x007d;"));
@@ -518,4 +524,4 @@ void ConvDict23Test::templateUtils_evaluateParameter()
   QCOMPARE(TemplateUtils::evaluateParameter("", p), QString("&#x007b;&#x007b;&#x007b;&#x007d;&#x007d;&#x007d;"));
 }
 
-QTEST_APPLESS_MAIN(ConvDict23Test)
+QTEST_APPLESS_MAIN(CommandPrepToMidTest)

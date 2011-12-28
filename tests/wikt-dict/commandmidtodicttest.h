@@ -18,7 +18,7 @@
 #include <QTest>
 #include <QObject>
 
-class ConvDict34Test : public QObject
+class CommandMidToDictTest : public QObject
 {
   Q_OBJECT
 private slots:

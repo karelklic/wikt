@@ -43,7 +43,7 @@ class LinkConverterTestMediaReader : public MediaReader
 };
 
 
-void ConvDict34Test::linkConverter_basicLinks()
+void CommandMidToDictTest::linkConverter_basicLinks()
 {
   LinkConverterTestReader reader;
   reader.add("Test", "Link [[existing]] and [[nonexisting]].");
@@ -54,7 +54,7 @@ void ConvDict34Test::linkConverter_basicLinks()
   QCOMPARE(contents, QString("Link [[existing]] and nonexisting."));
 }
 
-void ConvDict34Test::linkConverter_linksWithNamespaces()
+void CommandMidToDictTest::linkConverter_linksWithNamespaces()
 {
   LinkConverterTestReader reader;
   reader.add("Test", "Link [[Category:existing|e]] and [[Talk:nonexisting]].");
@@ -66,7 +66,7 @@ void ConvDict34Test::linkConverter_linksWithNamespaces()
   QCOMPARE(contents, QString("Link [[Category:existing|e]] and Talk:nonexisting."));
 }
 
-void ConvDict34Test::linkConverter_linksWithSlashes()
+void CommandMidToDictTest::linkConverter_linksWithSlashes()
 {
   LinkConverterTestReader reader;
   reader.add("Wikisaurus:penis", "Link [[Wikisaurus:penis/more|e]] and [[Wikisaurus:penis/more2]].");
@@ -77,4 +77,4 @@ void ConvDict34Test::linkConverter_linksWithSlashes()
   QCOMPARE(contents, QString("Link [[Wikisaurus:penis/more|e]] and Wikisaurus:penis/more2."));
 }
 
-QTEST_APPLESS_MAIN(ConvDict34Test)
+QTEST_APPLESS_MAIN(CommandMidToDictTest)

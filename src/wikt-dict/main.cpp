@@ -55,14 +55,16 @@ int main(int argc, char **argv)
   else if (command == "preptomid")
   {
     QString prepFile, midFile, strFrom, strTo;
-    bool showNames = false, debug = false;
+    bool showNames = false, debug = false, showTemplateUsage = false;
 
     foreach (const QString &arg, args.mid(2))
     {
       if (arg == "--names")
         showNames = true;
-      if (arg == "--debug")
+      else if (arg == "--debug")
         debug = true;
+      else if (arg == "--template-usage")
+        showTemplateUsage = true;
       else if (arg.startsWith("-f="))
         strFrom = arg.mid(3);
       else if (arg.startsWith("--from="))
@@ -100,7 +102,7 @@ int main(int argc, char **argv)
         printUsageAndDie(args.at(0), "<to> must be an integer number");
     }
 
-    commandPrepToMid(prepFile, midFile, from, to, showNames, debug);
+    commandPrepToMid(prepFile, midFile, from, to, showNames, showTemplateUsage, debug);
   }
   else if (command == "downloadmedia")
   {

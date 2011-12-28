@@ -17,10 +17,12 @@
 #ifndef TEMPLATESOLVER_H_
 #define TEMPLATESOLVER_H_
 
-#include "format2reader.h"
-#include "parameterlist.h"
-#include <QObject>
-#include <QString>
+#include <QMap>
+#include <QList>
+#include <QPair>
+
+class QString;
+class Format2Reader;
 
 /// Finds and evaluates all templates in a wiki page.
 ///
@@ -28,60 +30,30 @@
 ///
 /// Use http://en.wiktionary.org/wiki/Special:ExpandTemplates to
 /// check MediaWiki behavior.
-class TemplateSolver
-{
-  friend class TemplateSolverTest;
-public:
-  /// Standard constructor.
-  /// @param pageName
-  ///   Name of the evaluated page, including namespace if it is
-  ///   different from Main.
-  /// @param pageContent
-  ///   Content of the evaluated page in wiki format with template calls.
-  /// @param reader
-  ///   A reader that provides access to all pages and templates referenced from
-  ///   the evaluated page.
-  TemplateSolver(const QString &pageName, const QString &pageContent,
-                 Format2Reader &reader, bool verbose);
+///
+/// @param pageName
+///   Name of the evaluated page, including namespace if it is
+///   different from Main.
+/// @param pageContent
+///   Content of the evaluated page in wiki format with template calls.
+/// @param reader
+///   A reader that provides access to all pages and templates referenced from
+///   the evaluated page. This function does not change the contents of
+///   the reader, It is not const because it caches access.
+extern QString
+templateSolver(const QString &pageName,
+               const QString &pageContent,
+               Format2Reader &reader,
+               bool updateTemplateUsage,
+               bool debug);
 
-  QString run();
+/// Filled only by templateSolver calls with
+/// updateTemplateUsage == true.
+/// The returned list is sorted from greatest usage.
+extern QList<QPair<int, QString> >
+templateUsageList();
 
-protected:
-  /// Gets a template call from entry text, calls the template,
-  /// and merges the result into the entry text. The modified entry text is
-  /// returned.
-  /// @param from
-  ///   Position at the beginning of {{template..}}, pointing to the first {.
-  /// @param to
-  ///   Position at the end of template, pointing after the last }.
-  void evaluateTemplate(QString &wikiText, int from, int to);
-
-  /// Returns the evaluated template content.
-  /// @param templateText
-  ///   The text inside {{ and }}, containing template name and template
-  ///   parameters. It must not contain any templates or template
-  ///   parameters.
-  QString evaluateTemplate(const QString &templateText);
-
-  QString removeTemplates(QString wikiText, const ParameterList &params);
-
-  static QString escapeTemplateSyntax(QString text);
-  static QString unescapeTemplateSyntax(QString text);
-  static int linkSkippingIndexOf(const QString &text,
-                                 const QString &str,
-                                 int from = 0);
-
-  QString _pageName;
-  QString _pageContent;
-  bool _verbose;
-
-  /// Provides the template content.
-  Format2Reader &_reader;
-
-  /// Evaluation cache.
-  /// Key - template text
-  /// Value - result
-  QMap<QString, QString> _cache;
-};
+extern QMap<QString, QString>
+crossEntryCache;
 
 #endif /* TEMPLATESOLVER_H_ */
