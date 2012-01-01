@@ -26,7 +26,8 @@
 static QTextStream out(stdout, QIODevice::WriteOnly);
 static QString destinationDir;
 
-static QString getMediaFilePath(const LinkNode &node)
+static QString
+getMediaFilePath(const LinkNode &node)
 {
   QString result = destinationDir;
   QString entry = node.target().entry();
@@ -51,7 +52,8 @@ static QString getMediaFilePath(const LinkNode &node)
   return result;
 }
 
-static void processLink(const LinkNode &node, const QString &entryName)
+static void
+processLink(const LinkNode &node, const QString &entryName)
 {
   // Skip existing files.
   QString mediaFile = getMediaFilePath(node);
@@ -74,7 +76,7 @@ static void processLink(const LinkNode &node, const QString &entryName)
   file.open(QIODevice::ReadOnly);
   QString fileContents = QString::fromUtf8(file.readAll());
   file.close();
-  QString linkStartText("<a href=\"http://upload.wikimedia.org/");
+  static QString linkStartText("<a href=\"//upload.wikimedia.org/");
   int linkStart = fileContents.indexOf(linkStartText);
   if (linkStart <= 0)
   {
@@ -109,7 +111,8 @@ static void processLink(const LinkNode &node, const QString &entryName)
   out << "ok" << endl;
 }
 
-static void processContent(const QString &name, const QString &content)
+static void
+processContent(const QString &name, const QString &content)
 {
   for (int i = 0; i < content.length(); ++i)
   {
@@ -134,7 +137,8 @@ static void processContent(const QString &name, const QString &content)
   }
 }
 
-void commandDownloadMedia(const QString &midFile, const QString &mediaDir)
+void
+commandDownloadMedia(const QString &midFile, const QString &mediaDir)
 {
   out << "Reading indices..." << endl;
   Format3Reader reader(midFile);
