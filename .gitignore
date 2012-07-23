@@ -23,7 +23,6 @@ ABOUT-NLS
 aclocal.m4
 autom4te.cache
 Makefile
-Makefile.in
 config.guess
 config.h
 config.h.in
@@ -31,12 +30,10 @@ config.log
 config.rpath
 config.status
 config.sub
-configure
 depcomp
 install-sh
 libtool
 ltmain.sh
-m4
 missing
 stamp-h1
 
