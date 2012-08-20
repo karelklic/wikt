@@ -90,7 +90,7 @@ processLink(const LinkNode &node, const QString &entryName)
     return;
   }
 
-  url = fileContents.mid(linkStart + 9, linkEnd - linkStart - 9);
+  url = "http:" + fileContents.mid(linkStart + 9, linkEnd - linkStart - 9);
   ret = QProcess::execute("wget", QStringList() << "-q" << "-O" << "/tmp/wiktreceived" << url);
   if (ret != 0)
   {
