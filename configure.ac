@@ -25,9 +25,16 @@ PKG_CHECK_MODULES([QTTEST], [QtTest])
 PKG_CHECK_MODULES([PHONON], [phonon])
 
 LUPDATE=`pkg-config --variable=lupdate_location QtCore`
-LRELEASE=`pkg-config --variable=lrelease_location QtCore`
 AC_SUBST(LUPDATE)
+if test -z "$LUPDATE"; then
+    AC_PATH_PROGS([LUPDATE], [lupdate lupdate-qt4], AC_MSG_ERROR([The lupdate program was not found in the search path.  Please ensure that it is insalled and its directory is included in the serarch path.  Then run configure again before attempting to build Wikt.]))
+fi
+
+LRELEASE=`pkg-config --variable=lrelease_location QtCore`
 AC_SUBST(LRELEASE)
+if test -z "$LRELEASE"; then
+    AC_PATH_PROGS([LRELEASE], [lrelease lrelease-qt4], AC_MSG_ERROR([The lrelease program was not found in the search path.  Please ensure that it is insalled and its directory is included in the serarch path.  Then run configure again before attempting to build Wikt.]))
+fi
 
 AC_CONFIG_HEADERS([config.h])
 
